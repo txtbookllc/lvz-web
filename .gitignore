@@ -1,0 +1,20 @@
+# System
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Node (if used for local testing)
+node_modules/
+npm-debug.log
+
+# Build/dist
+dist/
+build/
