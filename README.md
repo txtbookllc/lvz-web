@@ -12,6 +12,7 @@ served by **GitHub Pages** from the `main` branch root at <https://lowvisionzoom
 | `privacy.html` | `/privacy.html` | Privacy policy (Paddle requirement) |
 | `terms.html` | `/terms.html` | Terms of service (Paddle requirement) |
 | `refund.html` | `/refund.html` | Refund policy / money-back guarantee (Paddle requirement) |
+| `contact.html` | `/contact.html` | Accessible contact form → support@ (see Contact form below) |
 | `styles.css` | — | Shared styles: 18px base, high-contrast, dark mode, focus, reduced-motion |
 | `magnifier-blue.png` | — | Logo glyph |
 | `CNAME` | — | Pins the GitHub Pages custom domain to `lowvisionzoom.com` |
@@ -24,16 +25,24 @@ Free **7-day trial** → **$9.99 one-time** license (no subscription, all update
 signed installer distributed direct from this site (and, for discovery, a Microsoft Store EXE/MSI
 listing).
 
+## Contact form
+
+`contact.html` is an accessible form that posts to the **`lvz-contact` Cloudflare Worker**
+(`contact/` in the app repo) at `https://lvz-contact.lowvisionzoom.workers.dev/contact`. The Worker
+verifies a **Cloudflare Turnstile** token, then relays the message to `support@lowvisionzoom.com` via
+**Resend** with `reply_to` set to the sender. This keeps the support address off the site entirely —
+**there are no `mailto:` links anywhere**; every "contact us" path routes through the form (with a
+`?topic=` to preselect the reason). Turnstile sitekey is public in the HTML; the secret +
+`RESEND_API_KEY` are Worker secrets.
+
 ## ⚠️ Launch placeholders to replace
 
-Two things are stubbed until the installer is signed and Paddle checkout is live. Search the HTML for
-`TODO`:
+Stubbed until the installer is hosted and Paddle checkout is live. Search the HTML for `TODO`:
 
 1. **Download URL** — the "Get the free trial" / download buttons currently point at the `#get`
-   section and a `mailto:` notify link. Replace with the hosted signed-MSI URL once Azure Trusted
-   Signing is set up. (`index.html`, `pricing.html`)
-2. **Paddle checkout** — the "Buy" / "Email me at launch" buttons should point at the Paddle
-   checkout link/overlay once the Paddle account is approved. (`pricing.html`, `index.html`)
+   section. Replace with the hosted signed-MSI URL. (`index.html`, `pricing.html`)
+2. **Paddle checkout** — wire `/buy` and the launch CTAs to the Paddle checkout link/overlay once
+   live. ("Email me at launch" currently routes to the contact form, which is fine pre-launch.)
 
 > The legal/policy text is real, written for this product. Have it reviewed before relying on it.
 
