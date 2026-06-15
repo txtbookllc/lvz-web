@@ -19,7 +19,7 @@ served by **GitHub Pages** from the `main` branch root at <https://lowvisionzoom
 
 ## Business model reflected on the site
 
-Free **30-day trial** → **$9.99 one-time** license (no subscription, all updates included) →
+Free **7-day trial** → **$9.99 one-time** license (no subscription, all updates included) →
 **30-day money-back guarantee**. Payments run through **Paddle** as merchant of record. The app is a
 signed installer distributed direct from this site (and, for discovery, a Microsoft Store EXE/MSI
 listing).
