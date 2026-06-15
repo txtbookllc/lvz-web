@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Contact Low Vision Zoom. Send us a question about the app, licensing, refunds, or support and we'll reply by email.">
+    <meta name="theme-color" content="#1d4ed8">
+    <title>Contact | Low Vision Zoom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='13' cy='13' r='9' fill='none' stroke='%231d4ed8' stroke-width='3'/><line x1='20' y1='20' x2='29' y2='29' stroke='%231d4ed8' stroke-width='3' stroke-linecap='round'/></svg>">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <img src="magnifier-blue.png" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="index.html#features">Features</a>
+                <a href="index.html#how">How it works</a>
+                <a href="pricing.html">Pricing</a>
+                <a href="index.html#get" class="btn btn-secondary btn-nav">Free trial</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Contact</span>
+                <h1>Contact us</h1>
+                <p class="updated">Questions about the app, licensing, refunds, or anything else? Send a message and we'll reply by email.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="form-card">
+                    <form id="contact-form" novalidate>
+                        <div class="field">
+                            <label for="topic">What's this about?</label>
+                            <select id="topic" name="topic">
+                                <option value="general">General question</option>
+                                <option value="support">Support / troubleshooting</option>
+                                <option value="volume">Volume licensing</option>
+                                <option value="refund">Refund request</option>
+                                <option value="launch">Notify me at launch</option>
+                                <option value="privacy">Privacy question</option>
+                                <option value="terms">Terms question</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="name">Your name</label>
+                            <input type="text" id="name" name="name" autocomplete="name"
+                                   maxlength="100" required aria-required="true" aria-describedby="name-error">
+                            <p class="field-error" id="name-error" role="alert"></p>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Your email</label>
+                            <input type="email" id="email" name="email" autocomplete="email"
+                                   maxlength="200" required aria-required="true"
+                                   aria-describedby="email-hint email-error">
+                            <p class="field-hint" id="email-hint">We'll only use this to reply to you.</p>
+                            <p class="field-error" id="email-error" role="alert"></p>
+                        </div>
+
+                        <div class="field">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="6" maxlength="5000"
+                                      required aria-required="true" aria-describedby="message-error"></textarea>
+                            <p class="field-error" id="message-error" role="alert"></p>
+                        </div>
+
+                        <!-- Honeypot: hidden from people, tempting to bots. Leave empty. -->
+                        <div class="hp" aria-hidden="true">
+                            <label for="company">Company (leave this field empty)</label>
+                            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="field">
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAADlariPbXNXBs5-W" data-theme="auto"></div>
+                        </div>
+
+                        <button type="submit" id="submit-btn" class="btn btn-primary btn-lg">Send message</button>
+
+                        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+
+                        <noscript>
+                            <p class="field-hint">This form needs JavaScript to send your message and to run its spam check. Please enable JavaScript and reload the page.</p>
+                        </noscript>
+                    </form>
+
+                    <div id="form-success" class="form-success" tabindex="-1" hidden>
+                        <h2>Thanks — your message is on its way.</h2>
+                        <p>We'll reply to the email address you gave us as soon as we can.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Smooth, comfortable whole-screen zoom for Windows. A product of txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#how">How it works</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms of service</a></li>
+                        <li><a href="refund.html">Refund policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html" aria-current="page">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook LLC. Low Vision Zoom is a product of txtbook&nbsp;LLC.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var ENDPOINT = "https://lvz-contact.lowvisionzoom.workers.dev/contact";
+            var form = document.getElementById("contact-form");
+            var statusEl = document.getElementById("form-status");
+            var submitBtn = document.getElementById("submit-btn");
+
+            // Preselect the topic from ?topic= (e.g. links like contact.html?topic=refund).
+            var params = new URLSearchParams(window.location.search);
+            var topic = params.get("topic");
+            if (topic) {
+                var sel = document.getElementById("topic");
+                if ([].some.call(sel.options, function (o) { return o.value === topic; })) {
+                    sel.value = topic;
+                }
+            }
+
+            function setError(id, msg) {
+                var el = document.getElementById(id + "-error");
+                var field = document.getElementById(id);
+                if (el) el.textContent = msg || "";
+                if (field) {
+                    if (msg) { field.setAttribute("aria-invalid", "true"); }
+                    else { field.removeAttribute("aria-invalid"); }
+                }
+                return !msg;
+            }
+
+            function validate(data) {
+                var ok = true;
+                ok = setError("name", data.name ? "" : "Please enter your name.") && ok;
+                var emailOk = data.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email);
+                ok = setError("email", emailOk ? "" : "Please enter a valid email address.") && ok;
+                ok = setError("message", data.message ? "" : "Please enter a message.") && ok;
+                return ok;
+            }
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                statusEl.className = "form-status";
+                statusEl.textContent = "";
+
+                var data = {
+                    topic: document.getElementById("topic").value,
+                    name: document.getElementById("name").value.trim(),
+                    email: document.getElementById("email").value.trim(),
+                    message: document.getElementById("message").value.trim(),
+                    company: document.getElementById("company").value
+                };
+
+                if (!validate(data)) {
+                    statusEl.className = "form-status is-error";
+                    statusEl.textContent = "Please fix the highlighted fields and try again.";
+                    return;
+                }
+
+                var tokenField = form.querySelector('[name="cf-turnstile-response"]');
+                var token = tokenField ? tokenField.value : "";
+                if (!token) {
+                    statusEl.className = "form-status is-error";
+                    statusEl.textContent = "Please complete the “I'm human” check, then send again.";
+                    return;
+                }
+                data.turnstileToken = token;
+
+                submitBtn.disabled = true;
+                statusEl.textContent = "Sending…";
+
+                fetch(ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                }).then(function (r) {
+                    return r.json().catch(function () { return { ok: r.ok }; });
+                }).then(function (res) {
+                    if (res && res.ok) {
+                        form.hidden = true;
+                        document.getElementById("form-success").hidden = false;
+                        document.getElementById("form-success").focus();
+                    } else {
+                        throw new Error((res && res.error) || "send failed");
+                    }
+                }).catch(function () {
+                    submitBtn.disabled = false;
+                    statusEl.className = "form-status is-error";
+                    statusEl.textContent = "Sorry, something went wrong sending your message. Please try again in a moment.";
+                    if (window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>

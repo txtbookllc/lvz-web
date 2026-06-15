@@ -552,3 +552,70 @@ img, svg { display: block; max-width: 100%; }
     }
     .btn-primary:hover { transform: none; }
 }
+
+/* --- Contact form --- */
+.form-card {
+    max-width: var(--maxw-prose);
+    margin: 0 auto;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--s-4);
+    box-shadow: var(--shadow);
+}
+.field { margin-bottom: var(--s-3); }
+.field label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: var(--s-1);
+}
+.field input,
+.field select,
+.field textarea {
+    width: 100%;
+    font: inherit;
+    color: var(--text);
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 0.7rem 0.85rem;
+    color-scheme: light dark;
+}
+.field textarea { resize: vertical; min-height: 8rem; }
+.field input:focus,
+.field select:focus,
+.field textarea:focus { border-color: var(--primary); }
+.field input[aria-invalid="true"],
+.field textarea[aria-invalid="true"] { border-color: #b91c1c; }
+.field-hint { color: var(--text-muted); font-size: 0.95rem; margin-top: var(--s-1); }
+.field-error { color: #b91c1c; font-size: 0.95rem; margin-top: var(--s-1); font-weight: 600; }
+.field-error:empty { display: none; }
+
+/* Honeypot: off-screen for people, present for bots. Not display:none on purpose. */
+.hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.form-status { margin-top: var(--s-2); font-weight: 600; }
+.form-status.is-error { color: #b91c1c; }
+.form-status:empty { display: none; }
+
+.form-success {
+    background: var(--success-bg);
+    border: 1px solid var(--success-border);
+    color: var(--success-text);
+    border-radius: var(--radius);
+    padding: var(--s-3);
+}
+.form-success h2 { margin-bottom: var(--s-1); }
+
+@media (prefers-color-scheme: dark) {
+    .field input[aria-invalid="true"],
+    .field textarea[aria-invalid="true"],
+    .field-error,
+    .form-status.is-error { color: #fca5a5; border-color: #fca5a5; }
+}
