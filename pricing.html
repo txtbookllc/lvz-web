@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Low Vision Zoom pricing: a full-featured 7-day free trial, then a $9.99 one-time license. No subscription. All future updates included. 30-day money-back guarantee.">
-    <meta name="theme-color" content="#1d4ed8">
+    <meta name="theme-color" content="#0f6b5f">
     <title>Pricing | Low Vision Zoom</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='13' cy='13' r='9' fill='none' stroke='%231d4ed8' stroke-width='3'/><line x1='20' y1='20' x2='29' y2='29' stroke='%231d4ed8' stroke-width='3' stroke-linecap='round'/></svg>">
+    <link rel="icon" type="image/svg+xml" href="media/magnifier.svg">
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to content</a>
@@ -15,14 +15,15 @@
     <header class="site-header">
         <div class="container">
             <a href="index.html" class="brand">
-                <img src="magnifier-blue.png" alt="" width="30" height="30">
+                <img src="media/magnifier.svg" alt="" width="30" height="30">
                 <span>Low Vision Zoom</span>
             </a>
             <nav class="nav" aria-label="Primary">
-                <a href="index.html#features">Features</a>
+                <a href="index.html#different">Why it’s different</a>
                 <a href="index.html#how">How it works</a>
                 <a href="pricing.html" aria-current="page">Pricing</a>
-                <a href="index.html#get" class="btn btn-secondary btn-nav">Free trial</a>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="index.html#get" data-download class="btn btn-secondary btn-nav">Download</a>
             </nav>
         </div>
     </header>
@@ -40,7 +41,6 @@
             <div class="container">
                 <div class="pricing-wrap">
                     <div class="price-card">
-                        <span class="price-badge">Launching soon</span>
                         <div class="price-amount">$9<span class="cents">.99</span></div>
                         <p class="price-period">one-time license · USD</p>
                         <ul class="price-list">
@@ -52,11 +52,12 @@
                             <li>No account required</li>
                             <li>30-day money-back guarantee</li>
                         </ul>
-                        <!-- TODO at launch: replace with the Paddle checkout link/overlay -->
-                        <a href="contact.html?topic=launch" class="btn btn-primary btn-lg">Email me at launch</a>
-                        <!-- TODO at launch: replace with the hosted signed-MSI download URL -->
-                        <a href="index.html#get" class="btn btn-secondary btn-lg">About the free trial</a>
-                        <p class="price-fineprint">Payments are processed securely by Paddle, our merchant of record. The signed installer and checkout go live shortly.</p>
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="index.html#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
+                        <p class="cta-reassure">Free 7-day trial. No account, no payment to start.</p>
+                        <!-- TODO at launch: replace with the Paddle checkout link -->
+                        <a href="contact.html?topic=launch" class="btn btn-quiet btn-lg">Buy a license — $9.99</a>
+                        <p class="price-fineprint">Payments are processed securely by Paddle, our merchant of record. You try first and buy later — the download is the free trial.</p>
                     </div>
                 </div>
             </div>
@@ -65,30 +66,30 @@
         <section class="section section-alt">
             <div class="container">
                 <h2>How the trial and license work</h2>
-                <div class="grid">
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">🎁</div>
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="13" width="22" height="14" rx="2"/><path d="M5 17h22"/><path d="M16 13V8m0 0c-2-4-7-2-5 1 1 1.5 5 1 5-1zm0 0c2-4 7-2 5 1-1 1.5-5 1-5-1z"/></svg>
                         <h3>1. Free for 7 days</h3>
                         <p>Download and use every feature, free, for 7 days. No payment details required to start, no account to create.</p>
                     </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">🔑</div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="11" cy="13" r="6"/><path d="M15 17l10 10"/><path d="M22 24l3-3 3 3"/></svg>
                         <h3>2. Buy a license key</h3>
-                        <p>When you're ready, a one-time $9.99 purchase gives you a license key. Paste it into the app — full zoom is restored instantly, no reinstall.</p>
+                        <p>When you’re ready, a one-time $9.99 purchase gives you a license key. Paste it into the app — full zoom is restored instantly, no reinstall.</p>
                     </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">♾️</div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 16a4 4 0 1 1 4 4H8a4 4 0 1 1 0-8h16a4 4 0 1 1 0 8h-4a4 4 0 1 1 0-8"/></svg>
                         <h3>3. Keep it for good</h3>
-                        <p>Your license doesn't expire and includes all future updates. After the trial without a key, magnification is limited (never disabled) so the screen stays readable.</p>
+                        <p>Your license doesn’t expire and includes all future updates. After the trial without a key, magnification is limited (never disabled) so the screen stays readable.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section">
+        <section id="organizations" class="section">
             <div class="container">
                 <h2>For organizations</h2>
-                <p class="section-sub">Schools, disability-services offices, libraries, clinics, rehab centers, and employers can buy in volume with invoicing and simple deployment (a standard per-machine installer). Tell us how many seats you need and we'll send a quote.</p>
+                <p class="section-sub">Schools, disability-services offices, libraries, clinics, rehab centers, and employers can buy in volume with invoicing and simple deployment (a standard per-machine installer). Tell us how many seats you need and we’ll send a quote.</p>
                 <div style="text-align:center;">
                     <a href="contact.html?topic=volume" class="btn btn-primary btn-lg">Request volume pricing</a>
                 </div>
@@ -99,7 +100,8 @@
             <div class="container">
                 <h2>Try it free. Decide later.</h2>
                 <p>7-day trial · $9.99 one-time · 30-day money-back guarantee</p>
-                <a href="index.html#get" class="btn btn-primary btn-lg">Get the free trial</a>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="index.html#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
             </div>
         </section>
     </main>
@@ -109,12 +111,12 @@
             <div class="footer-grid">
                 <div>
                     <h4>Low Vision Zoom</h4>
-                    <p>Smooth, comfortable whole-screen zoom for Windows. A product of txtbook&nbsp;LLC.</p>
+                    <p>A calm screen magnifier for Windows. A product of txtbook&nbsp;LLC.</p>
                 </div>
                 <div>
                     <h4>Product</h4>
                     <ul>
-                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#different">Why it’s different</a></li>
                         <li><a href="index.html#how">How it works</a></li>
                         <li><a href="pricing.html" aria-current="page">Pricing</a></li>
                         <li><a href="index.html#faq">FAQ</a></li>
@@ -136,10 +138,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 txtbook LLC. Low Vision Zoom is a product of txtbook&nbsp;LLC.</p>
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script src="site.js" defer></script>
     <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
 </body>

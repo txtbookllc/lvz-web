@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 840" role="img"
+     aria-label="Low Vision Zoom eases smoothly into the zoom; the word under the cursor stays exactly in place while the surrounding text grows.">
+  <!-- PLACEHOLDER STILL for ASSET-3. Replace with media/asset3-smooth-still.png from the capture day. -->
+  <rect width="840" height="840" fill="#ffffff"/>
+  <g fill="#d8d2c6">
+    <rect x="90" y="110" width="430" height="22" rx="7"/>
+    <rect x="90" y="155" width="560" height="22" rx="7"/>
+    <rect x="90" y="690" width="540" height="22" rx="7"/>
+    <rect x="90" y="735" width="470" height="22" rx="7"/>
+  </g>
+  <!-- magnified word held in the centre, exactly where the eye left it -->
+  <rect x="250" y="330" width="340" height="170" rx="18" fill="#f6f2ea" stroke="#0f6b5f" stroke-width="4"/>
+  <text x="420" y="438" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="80" font-weight="600" fill="#1c1a17">gardening</text>
+  <!-- cursor anchored, staying put -->
+  <g transform="translate(408 422)">
+    <path d="M0 0 L0 50 L13 37 L22 58 L30 54 L21 34 L40 34 Z"
+          fill="#1c1a17" stroke="#ffffff" stroke-width="2.5" stroke-linejoin="round"/>
+  </g>
+  <!-- "stays here" label -->
+  <g>
+    <rect x="315" y="560" width="210" height="48" rx="24" fill="#0f6b5f"/>
+    <text x="420" y="592" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif"
+          font-size="24" font-weight="700" fill="#ffffff">stays here</text>
+  </g>
+</svg>
