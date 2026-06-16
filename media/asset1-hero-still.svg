@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 700" role="img"
+     aria-label="The view eases into a zoom centered on the word under the cursor; that word stays in place while the text around it grows.">
+  <!-- PLACEHOLDER STILL for ASSET-1. Replace with media/asset1-hero-still.png from the capture day. -->
+  <rect width="1120" height="700" fill="#ffffff"/>
+  <!-- document margin -->
+  <g fill="#d8d2c6">
+    <rect x="120" y="90"  width="640" height="20" rx="6"/>
+    <rect x="120" y="135" width="840" height="20" rx="6"/>
+    <rect x="120" y="180" width="780" height="20" rx="6"/>
+    <rect x="120" y="520" width="820" height="20" rx="6"/>
+    <rect x="120" y="565" width="700" height="20" rx="6"/>
+    <rect x="120" y="610" width="760" height="20" rx="6"/>
+  </g>
+  <!-- magnified lens -->
+  <g>
+    <rect x="300" y="245" width="520" height="210" rx="20" fill="#f6f2ea" stroke="#0f6b5f" stroke-width="4"/>
+    <text x="560" y="375" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+          font-size="120" font-weight="600" fill="#1c1a17">gardening</text>
+  </g>
+  <!-- cursor anchored on the word -->
+  <g transform="translate(548 360)">
+    <path d="M0 0 L0 38 L10 28 L17 44 L23 41 L16 26 L30 26 Z"
+          fill="#1c1a17" stroke="#ffffff" stroke-width="2" stroke-linejoin="round"/>
+  </g>
+</svg>
