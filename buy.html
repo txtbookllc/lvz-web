@@ -237,7 +237,7 @@
                 }
             }
 
-            btn.addEventListener("click", function () {
+            function openLicenseCheckout() {
                 if (helpEl) { helpEl.hidden = true; }
                 statusEl.className = "form-status";
                 statusEl.textContent = "Opening secure checkout…";
@@ -250,7 +250,16 @@
                 } catch (e) {
                     showBlockerHelp();
                 }
-            });
+            }
+
+            btn.addEventListener("click", openLicenseCheckout);
+
+            /* Arriving from a "Buy a license" button on another page (index/pricing):
+               the user already expressed intent, so open checkout immediately —
+               no redundant second click. */
+            if (new URLSearchParams(window.location.search).get("checkout") === "1") {
+                openLicenseCheckout();
+            }
         })();
     </script>
     <script src="site.js" defer></script>
