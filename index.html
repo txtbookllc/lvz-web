@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Low Vision Zoom: smooth, comfortable whole-screen magnification for Windows. Hold Ctrl and scroll to zoom. Free 7-day trial, then a $9.99 one-time license. No subscription, no ads, no data collected.">
-    <meta name="theme-color" content="#1d4ed8">
+    <meta name="description" content="Low Vision Zoom: a calm screen magnifier for Windows. The view eases in and pivots around what you're pointing at, so you never lose your place. Free 7-day trial, then a $9.99 one-time license. No subscription, no ads, no data collected.">
+    <meta name="theme-color" content="#0f6b5f">
     <meta property="og:title" content="Low Vision Zoom — smooth screen magnification for Windows">
-    <meta property="og:description" content="Hold Ctrl and scroll to zoom anywhere in Windows. Free 7-day trial, $9.99 one-time. Private, offline, no subscription.">
+    <meta property="og:description" content="Magnifies smoothly, so you never lose your place. Hold Ctrl and scroll to zoom anywhere in Windows. Free 7-day trial, $9.99 one-time. Private, offline, no subscription.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://lowvisionzoom.com/">
     <title>Low Vision Zoom — Smooth Screen Magnification for Windows</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='13' cy='13' r='9' fill='none' stroke='%231d4ed8' stroke-width='3'/><line x1='20' y1='20' x2='29' y2='29' stroke='%231d4ed8' stroke-width='3' stroke-linecap='round'/></svg>">
+    <link rel="icon" type="image/svg+xml" href="media/magnifier.svg">
 </head>
 <body>
     <a href="#main" class="skip-link">Skip to content</a>
@@ -19,128 +19,166 @@
     <header class="site-header">
         <div class="container">
             <a href="index.html" class="brand">
-                <img src="magnifier-blue.png" alt="" width="30" height="30">
+                <img src="media/magnifier.svg" alt="" width="30" height="30">
                 <span>Low Vision Zoom</span>
             </a>
             <nav class="nav" aria-label="Primary">
-                <a href="#features">Features</a>
+                <a href="#different">Why it’s different</a>
                 <a href="#how">How it works</a>
                 <a href="pricing.html">Pricing</a>
-                <a href="#get" class="btn btn-secondary btn-nav">Free trial</a>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="#get" data-download class="btn btn-secondary btn-nav">Download</a>
             </nav>
         </div>
     </header>
 
     <main id="main">
-        <!-- Hero -->
+        <!-- 1 · Hero + motion demo -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
-                    <h1>Smooth whole-screen zoom for Windows.</h1>
-                    <p class="lead">A simple, comfortable magnifier for reading, detail work, and everyday low-vision support — with gentle, animated zoom that never jumps or disorients.</p>
+                    <p class="eyebrow">For Windows · Built for low vision</p>
+                    <h1>Magnifies smoothly, so you never lose your place.</h1>
+                    <p class="lead">A calm screen magnifier for Windows. The view eases in and pivots around exactly what you’re pointing at — so your eyes can follow, instead of hunting for where you were.</p>
+                    <p class="compare-line">The smooth, calmer alternative to Windows Magnifier — without the price of the pro tools.</p>
                     <p class="tip">Hold <strong>Ctrl</strong> and scroll to zoom in.</p>
                     <div class="hero-buttons">
-                        <a href="#get" class="btn btn-primary btn-lg">Get the free trial</a>
-                        <a href="pricing.html" class="btn btn-secondary btn-lg">See pricing</a>
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
+                        <a href="#compare" class="btn btn-secondary btn-lg">See how it moves</a>
                     </div>
+                    <p class="cta-reassure">Free 7-day trial · signed installer · no account.</p>
+                    <p class="price-line">$9.99 one-time · 7-day free trial · no subscription</p>
                     <ul class="trust" aria-label="What to expect">
-                        <li>7-day free trial</li>
                         <li>No subscription</li>
-                        <li>No ads</li>
                         <li>No account</li>
+                        <li>No ads</li>
                         <li>No data collected</li>
                         <li>Works offline</li>
                     </ul>
                 </div>
-                <div class="hero-visual" aria-hidden="true">
-                    <svg viewBox="0 0 220 200" xmlns="http://www.w3.org/2000/svg" role="img">
-                        <defs>
-                            <clipPath id="zoom-clip"><circle cx="100" cy="96" r="58"/></clipPath>
-                        </defs>
-                        <rect width="220" height="200" rx="8" fill="#f1f5f9"/>
-                        <rect x="12" y="16" width="90" height="7" rx="2" fill="#94a3b8"/>
-                        <rect x="12" y="28" width="130" height="7" rx="2" fill="#cbd5e1"/>
-                        <rect x="12" y="40" width="110" height="7" rx="2" fill="#cbd5e1"/>
-                        <rect x="12" y="52" width="140" height="7" rx="2" fill="#cbd5e1"/>
-                        <rect x="12" y="64" width="95" height="7" rx="2" fill="#cbd5e1"/>
-                        <rect x="12" y="76" width="125" height="7" rx="2" fill="#cbd5e1"/>
-                        <rect x="12" y="88" width="115" height="7" rx="2" fill="#cbd5e1"/>
-                        <rect x="12" y="100" width="135" height="7" rx="2" fill="#cbd5e1"/>
-                        <rect x="12" y="112" width="80" height="7" rx="2" fill="#cbd5e1"/>
-                        <rect x="12" y="130" width="100" height="7" rx="2" fill="#94a3b8"/>
-                        <rect x="12" y="142" width="140" height="7" rx="2" fill="#cbd5e1"/>
-                        <rect x="12" y="154" width="120" height="7" rx="2" fill="#cbd5e1"/>
-                        <rect x="12" y="166" width="95" height="7" rx="2" fill="#cbd5e1"/>
-                        <circle cx="100" cy="96" r="58" fill="white" stroke="#1d4ed8" stroke-width="2.5"/>
-                        <g clip-path="url(#zoom-clip)">
-                            <rect x="30" y="60" width="50" height="14" rx="3" fill="#475569"/>
-                            <rect x="30" y="80" width="130" height="14" rx="3" fill="#94a3b8"/>
-                            <rect x="30" y="100" width="110" height="14" rx="3" fill="#94a3b8"/>
-                            <rect x="30" y="120" width="120" height="14" rx="3" fill="#94a3b8"/>
-                            <rect x="30" y="140" width="90" height="14" rx="3" fill="#94a3b8"/>
-                        </g>
-                        <line x1="148" y1="144" x2="170" y2="168" stroke="#1d4ed8" stroke-width="5" stroke-linecap="round"/>
-                        <circle cx="100" cy="96" r="3" fill="#1d4ed8"/>
-                    </svg>
+
+                <!-- ASSET-1 hero motion demo. Placeholder still shown until media/asset1-hero.{webm,mp4} exist;
+                     site.js reveals the Play control automatically once the real footage can play. -->
+                <div class="demo">
+                    <div class="demo-frame is-hero" data-demo>
+                        <img class="demo-still" src="media/asset1-hero-still.svg" alt="The view eases into a zoom centered on the word under the cursor; that word stays in place while the text around it grows.">
+                        <video class="demo-media" muted loop playsinline preload="metadata" aria-hidden="true">
+                            <source src="media/asset1-hero.webm" type="video/webm">
+                            <source src="media/asset1-hero.mp4" type="video/mp4">
+                        </video>
+                        <button class="demo-toggle" type="button" data-label="the demo" hidden></button>
+                    </div>
+                    <p class="demo-caption">Zooming into the word under the cursor — it eases in, nothing jumps.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Features -->
-        <section id="features" class="section">
+        <!-- 2 · Smooth-vs-jumpy comparison (the proof) -->
+        <section id="compare" class="section section-alt">
             <div class="container">
-                <h2>Built for comfortable, everyday magnification</h2>
-                <p class="section-sub">Low Vision Zoom focuses on the feel of zooming — smooth, predictable, and easy on the eyes — so you can use it all day without fatigue or disorientation.</p>
-                <div class="grid">
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">🌊</div>
+                <h2>See the difference a smooth zoom makes.</h2>
+                <p class="section-sub">Most magnifiers jump to a new view and make you re-find your place. Low Vision Zoom glides — so your eyes stay locked on what you care about.</p>
+
+                <div class="compare-pair">
+                    <!-- ASSET-2 "Typical magnifier" (jumpy) -->
+                    <div class="compare-col">
+                        <span class="compare-chip is-typical">Typical magnifier</span>
+                        <div class="demo-frame is-square">
+                            <img class="demo-still" src="media/asset2-jumpy-still.svg" alt="A typical magnifier snaps instantly to a zoomed view; the word that was under the cursor jumps away and has to be re-found.">
+                            <video class="demo-media" data-demo-group="compare" muted loop playsinline preload="metadata" aria-hidden="true">
+                                <source src="media/asset2-jumpy.webm" type="video/webm">
+                                <source src="media/asset2-jumpy.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <p class="demo-caption">Snaps — you lose your place and hunt for it.</p>
+                    </div>
+
+                    <!-- ASSET-3 "Low Vision Zoom" (smooth) -->
+                    <div class="compare-col">
+                        <span class="compare-chip is-lvz">Low Vision Zoom</span>
+                        <div class="demo-frame is-square">
+                            <img class="demo-still" src="media/asset3-smooth-still.svg" alt="Low Vision Zoom eases smoothly into the zoom; the word under the cursor stays exactly in place while the surrounding text grows.">
+                            <video class="demo-media" data-demo-group="compare" muted loop playsinline preload="metadata" aria-hidden="true">
+                                <source src="media/asset3-smooth.webm" type="video/webm">
+                                <source src="media/asset3-smooth.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <p class="demo-caption">Eases in around your cursor — your place is never lost.</p>
+                    </div>
+                </div>
+
+                <!-- One shared, synced control drives both clips together (revealed by site.js once footage exists). -->
+                <div class="compare-controls">
+                    <button class="demo-toggle" type="button" data-demo-control="compare" data-label="both side by side" hidden></button>
+                </div>
+
+                <p class="compare-closer">Designed around how your eyes naturally track motion — not against it.</p>
+            </div>
+        </section>
+
+        <!-- 3 · Founder note (the human layer; warm tokens live here only) -->
+        <section id="founder" class="section">
+            <div class="container">
+                <div class="founder">
+                    <div class="founder-head">
+                        <!-- ASSET-4: replace media/asset4-founder.jpg with a real photo (far stronger than the monogram). -->
+                        <img class="founder-photo" src="media/asset4-founder-mono.svg" alt="Low Vision Zoom monogram, standing in for the maker’s photo.">
+                        <div>
+                            <p class="eyebrow">From the maker</p>
+                            <h2>I built this because I kept losing my place too.</h2>
+                        </div>
+                    </div>
+                    <div class="founder-body">
+                        <p>I have low vision, and I use a magnifier every day. The built-in ones threw me around the screen — every jump, I’d lose the line I was reading and have to find it again.</p>
+                        <p>So I made the tool I wanted: one that eases in gently and stays anchored to exactly what I’m looking at. I use it for hours, for my own work.</p>
+                        <p>If you’ve felt that “where did it go?” frustration, I made this for you.</p>
+                        <p class="founder-sign">— The maker of Low Vision Zoom</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Why it feels different — the 3 differentiators + demoted list -->
+        <section id="different" class="section section-alt">
+            <div class="container">
+                <h2>Why it stays out of your way.</h2>
+                <p class="section-sub">Three choices do most of the work — all in service of one thing: you never lose your place.</p>
+
+                <div class="trio">
+                    <div class="feature">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
                         <h3>Smooth, animated zoom</h3>
-                        <p>Magnification eases gently toward its target with no jarring snaps — a 60&nbsp;fps loop tuned to feel fluid, so you never lose your place.</p>
+                        <p>The view eases toward its target instead of snapping — fluid, not jarring.</p>
                     </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">🎯</div>
+                    <div class="feature">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
                         <h3>Zooms into your cursor</h3>
-                        <p>The point under your mouse stays put while the view magnifies around it — no jumping to a corner and hunting for where you were.</p>
+                        <p>The point under your mouse stays put while everything magnifies around it. No jumping to a corner and hunting.</p>
                     </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">🧭</div>
+                    <div class="feature">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/><polygon points="16,9 20,20 16,17 12,20" fill="currentColor" stroke="none"/></svg>
                         <h3>Calm, steady panning</h3>
-                        <p>A dead zone keeps the view still until your cursor nears the edge, then it glides — no constant drifting as you read.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">⌨️</div>
-                        <h3>Simple controls</h3>
-                        <p>Hold <strong>Ctrl</strong> and scroll to zoom in any window. <strong>Ctrl&nbsp;+&nbsp;Shift&nbsp;+&nbsp;Scroll down</strong> snaps instantly back to normal.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">🌓</div>
-                        <h3>Light &amp; dark aware</h3>
-                        <p>Follows your Windows theme. The tray menu, dialogs, and icons match light or dark mode and update the moment you switch.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">⚙️</div>
-                        <h3>Nothing to configure</h3>
-                        <p>It works out of the box with tuned defaults. The only setting is whether it starts with Windows — toggled from the tray menu.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">🖥️</div>
-                        <h3>Multi-monitor aware</h3>
-                        <p>Treats the whole desktop as one space and follows your cursor across monitors, the way Windows' own full-screen magnifier pans.</p>
-                    </div>
-                    <div class="card">
-                        <div class="icon" aria-hidden="true">🔒</div>
-                        <h3>Private &amp; offline</h3>
-                        <p>No account, no ads, no analytics, no tracking. Everything runs locally on your device. Read the <a href="privacy.html">privacy policy</a>.</p>
+                        <p>The view holds still until you near an edge, then glides. No constant drift while you read.</p>
                     </div>
                 </div>
+
+                <ul class="feature-list" aria-label="Also included">
+                    <li><svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><polyline points="6,17 13,24 26,9"/></svg> Simple controls — one key and your wheel</li>
+                    <li><svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><polyline points="6,17 13,24 26,9"/></svg> Nothing to configure</li>
+                    <li><svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><polyline points="6,17 13,24 26,9"/></svg> Light &amp; dark aware</li>
+                    <li><svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><polyline points="6,17 13,24 26,9"/></svg> Multi-monitor aware</li>
+                    <li><svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><polyline points="6,17 13,24 26,9"/></svg> Private &amp; offline</li>
+                </ul>
             </div>
         </section>
 
-        <!-- How it works -->
-        <section id="how" class="section section-alt">
+        <!-- 5 · Simple to use / how it works -->
+        <section id="how" class="section">
             <div class="container">
-                <h2>How to use it</h2>
-                <p class="section-sub">One key and your mouse wheel. That's the whole interface.</p>
+                <h2>One key and your mouse wheel. That’s the whole interface.</h2>
+                <p class="section-sub">Nothing to configure. It works the moment you install it.</p>
+
                 <div class="controls">
                     <div class="control">
                         <span class="kbd">Ctrl + Scroll&nbsp;↑</span>
@@ -159,50 +197,74 @@
                         <p><strong>Pan</strong> — move toward a screen edge and the view glides to follow.</p>
                     </div>
                 </div>
+
                 <div class="steps">
-                    <h3>Getting started</h3>
-                    <ol>
-                        <li><strong>Install and launch.</strong> A magnifying-glass icon appears in your system tray, and a short About window shows the controls.</li>
-                        <li><strong>Hold Ctrl and scroll</strong> to zoom in any window — it works system-wide.</li>
-                        <li><strong>Right-click the tray icon</strong> to turn zoom on or off, start it with Windows, or exit.</li>
-                        <li><strong>Set and forget.</strong> With "start with Windows" on, it comes up quietly in the tray, ready whenever you need it.</li>
-                    </ol>
+                    <div class="step">
+                        <span class="step-num" aria-hidden="true">1</span>
+                        <div>
+                            <h3>Install and launch</h3>
+                            <p>A magnifier icon sits quietly in your system tray.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num" aria-hidden="true">2</span>
+                        <div>
+                            <h3>Hold Ctrl and scroll</h3>
+                            <p>Zoom in any window, system-wide.</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <span class="step-num" aria-hidden="true">3</span>
+                        <div>
+                            <h3>Set and forget</h3>
+                            <p>Turn on “start with Windows” and it’s there whenever you need it.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Requirements -->
-        <section class="section">
+        <!-- 6 · Trust, privacy & safety -->
+        <section id="trust" class="section section-alt">
             <div class="container">
-                <h2>What you need</h2>
-                <div class="grid">
-                    <div class="card">
-                        <h3>Windows</h3>
-                        <p>Windows 10 (version 1809 or later) or Windows 11, 64-bit.</p>
+                <h2>Safe to install. Private by design.</h2>
+                <p class="section-sub">Built to be calm and trustworthy — for you, and for anyone you set it up for.</p>
+
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
+                        <h3>Signed &amp; legitimate</h3>
+                        <p>The installer is signed and installs like normal Windows software, so clicks land correctly even while zoomed.</p>
                     </div>
-                    <div class="card">
-                        <h3>No prerequisites</h3>
-                        <p>Self-contained installer — nothing else to download. No .NET install, no account.</p>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="14" width="20" height="14" rx="2"/><path d="M10 14v-4a6 6 0 0 1 12 0v4"/></svg>
+                        <h3>Nothing leaves your PC</h3>
+                        <p>No account, no ads, no analytics, no tracking. Everything runs locally. Read the <a href="privacy.html">privacy policy</a>.</p>
                     </div>
-                    <div class="card">
-                        <h3>Signed &amp; trusted</h3>
-                        <p>The installer is Authenticode-signed and installs to Program Files, so clicks land correctly even while zoomed.</p>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/><polyline points="16,8 16,16 21,19"/></svg>
+                        <h3>It never strands you</h3>
+                        <p>After the trial, magnification is simply limited, never switched off — your screen always stays readable.</p>
                     </div>
                 </div>
-                <div class="note">
-                    <p><strong>Good to know:</strong> Low Vision Zoom uses the built-in Windows Magnification API. Correct clicking while zoomed relies on a signed install in Program Files (UIAccess) — handled automatically by the installer.</p>
+
+                <p class="requirements-line">Windows 10 (1809+) or 11, 64-bit · self-contained installer · nothing else to download.</p>
+
+                <div class="good-to-know">
+                    <p><strong>Good to know:</strong> Low Vision Zoom uses the built-in Windows Magnification API. Clicking correctly while zoomed relies on a signed install in Program Files — handled automatically by the installer.</p>
                 </div>
+
+                <p class="parent-callout">Setting it up for a parent or someone you help? It installs once and needs no fiddling. <a href="pricing.html#organizations">Volume licensing →</a></p>
             </div>
         </section>
 
-        <!-- Get it -->
-        <section id="get" class="section section-alt">
+        <!-- 7 · Pricing / get it -->
+        <section id="get" class="section">
             <div class="container">
-                <h2>Try it free, then keep it for $9.99</h2>
-                <p class="section-sub">Start with a full-featured 7-day trial. If it's right for you, a one-time $9.99 license keeps it going — no subscription, and every future update is included.</p>
+                <h2>Try it free. Keep it for $9.99, once.</h2>
+                <p class="section-sub">A full 7-day trial. If it’s right for you, one $9.99 payment keeps it — no subscription, every future update included.</p>
                 <div class="pricing-wrap">
                     <div class="price-card">
-                        <span class="price-badge">Launching soon</span>
                         <div class="price-amount">$9<span class="cents">.99</span></div>
                         <p class="price-period">one-time license · 7-day free trial</p>
                         <ul class="price-list">
@@ -211,17 +273,18 @@
                             <li>All future updates included</li>
                             <li>30-day money-back guarantee</li>
                         </ul>
-                        <!-- TODO at launch: point to the hosted signed-MSI download URL -->
-                        <a href="contact.html?topic=launch" class="btn btn-primary btn-lg">Email me at launch</a>
-                        <a href="pricing.html" class="btn btn-secondary btn-lg">See full pricing</a>
-                        <p class="price-fineprint">The signed installer and secure checkout go live shortly. Questions? <a href="contact.html">Contact us</a>.</p>
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
+                        <p class="cta-reassure">Free 7-day trial. No account, no payment to start.</p>
+                        <a href="buy.html" class="btn btn-quiet btn-lg">Buy a license — $9.99</a>
+                        <p class="price-fineprint"><a href="pricing.html">See full pricing</a></p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ -->
-        <section id="faq" class="section">
+        <!-- 8 · FAQ -->
+        <section id="faq" class="section section-alt">
             <div class="container">
                 <h2>Frequently asked questions</h2>
                 <div class="faq-list">
@@ -239,7 +302,7 @@
                     </details>
                     <details class="faq">
                         <summary>Will Windows warn me when I install it?</summary>
-                        <div class="faq-body"><p>The installer is Authenticode-signed, which clears SmartScreen "unknown publisher" warnings as the signing reputation builds. It installs per-machine to Program Files, which is also what lets clicks land correctly while zoomed.</p></div>
+                        <div class="faq-body"><p>The installer is Authenticode-signed, which clears SmartScreen “unknown publisher” warnings as the signing reputation builds. It installs per-machine to Program Files, which is also what lets clicks land correctly while zoomed.</p></div>
                     </details>
                     <details class="faq">
                         <summary>Does my purchase data stay private?</summary>
@@ -247,7 +310,7 @@
                     </details>
                     <details class="faq">
                         <summary>Do you offer refunds?</summary>
-                        <div class="faq-body"><p>Yes — there's a 30-day money-back guarantee on top of the free trial. See the <a href="refund.html">refund policy</a>.</p></div>
+                        <div class="faq-body"><p>Yes — there’s a 30-day money-back guarantee on top of the free trial. See the <a href="refund.html">refund policy</a>.</p></div>
                     </details>
                     <details class="faq">
                         <summary>Can organizations buy multiple licenses?</summary>
@@ -257,12 +320,13 @@
             </div>
         </section>
 
-        <!-- CTA band -->
+        <!-- 9 · Quiet CTA band -->
         <section class="cta-band">
             <div class="container">
                 <h2>Magnification that stays out of your way.</h2>
-                <p>Free 7-day trial · $9.99 one-time · no subscription</p>
-                <a href="#get" class="btn btn-primary btn-lg">Get started</a>
+                <p>7-day free trial · $9.99 one-time · no subscription</p>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
             </div>
         </section>
     </main>
@@ -272,12 +336,12 @@
             <div class="footer-grid">
                 <div>
                     <h4>Low Vision Zoom</h4>
-                    <p>Smooth, comfortable whole-screen zoom for Windows. A product of txtbook&nbsp;LLC.</p>
+                    <p>A calm screen magnifier for Windows. A product of txtbook&nbsp;LLC.</p>
                 </div>
                 <div>
                     <h4>Product</h4>
                     <ul>
-                        <li><a href="#features">Features</a></li>
+                        <li><a href="#different">Why it’s different</a></li>
                         <li><a href="#how">How it works</a></li>
                         <li><a href="pricing.html">Pricing</a></li>
                         <li><a href="#faq">FAQ</a></li>
@@ -299,10 +363,12 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 txtbook LLC. Low Vision Zoom is a product of txtbook&nbsp;LLC.</p>
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
             </div>
         </div>
     </footer>
+
+    <script src="site.js" defer></script>
     <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
 </body>

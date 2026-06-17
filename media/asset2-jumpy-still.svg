@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 840" role="img"
+     aria-label="A typical magnifier snaps instantly to a zoomed view; the word that was under the cursor jumps away and has to be re-found.">
+  <!-- PLACEHOLDER STILL for ASSET-2. Replace with media/asset2-jumpy-still.png from the capture day. -->
+  <rect width="840" height="840" fill="#ffffff"/>
+  <g fill="#d8d2c6">
+    <rect x="90" y="110" width="430" height="22" rx="7"/>
+    <rect x="90" y="155" width="560" height="22" rx="7"/>
+    <rect x="90" y="690" width="540" height="22" rx="7"/>
+    <rect x="90" y="735" width="470" height="22" rx="7"/>
+  </g>
+  <!-- magnified word snapped up into a corner, away from where the eye left it -->
+  <rect x="430" y="250" width="320" height="150" rx="16" fill="#f6f2ea" stroke="#cabfae" stroke-width="3"/>
+  <text x="590" y="345" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
+        font-size="74" font-weight="600" fill="#1c1a17">gardening</text>
+  <!-- arrow showing the jump from the original anchor toward the corner -->
+  <g stroke="#9a2c1e" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M250 540 C 360 460, 430 420, 520 360"/>
+    <path d="M520 360 L 486 372 M520 360 L 506 392"/>
+  </g>
+  <circle cx="250" cy="540" r="9" fill="#9a2c1e"/>
+  <!-- "snaps here" label -->
+  <g>
+    <rect x="150" y="565" width="210" height="48" rx="24" fill="#9a2c1e"/>
+    <text x="255" y="597" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif"
+          font-size="24" font-weight="700" fill="#ffffff">snaps here</text>
+  </g>
+</svg>
