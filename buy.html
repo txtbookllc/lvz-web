@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buy your Low Vision Zoom license — a one-time $9.99 payment, no subscription. Your license key is emailed to you. Secure checkout by Paddle.">
+    <meta name="theme-color" content="#0f6b5f">
+    <title>Buy a license | Low Vision Zoom</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="media/magnifier.svg">
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="index.html" class="brand">
+                <img src="media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="index.html#different">Why it’s different</a>
+                <a href="index.html#how">How it works</a>
+                <a href="pricing.html">Pricing</a>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="index.html#get" data-download class="btn btn-secondary btn-nav">Download</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Buy a license</span>
+                <h1>Buy your license</h1>
+                <p class="updated">A one-time $9.99 payment — no subscription. Your license key is emailed to you right after checkout.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="pricing-wrap">
+                    <!-- Purchase card (hidden once we land on the success state) -->
+                    <div class="price-card" id="buy-card">
+                        <div class="price-amount">$9<span class="cents">.99</span></div>
+                        <p class="price-period">one-time license · USD</p>
+                        <ul class="price-list">
+                            <li>Unlocks full zoom — no time limit</li>
+                            <li>One-time $9.99 — pay once, own it</li>
+                            <li>No subscription, no recurring charges</li>
+                            <li>Every future update included</li>
+                            <li>No account required</li>
+                            <li>30-day money-back guarantee</li>
+                        </ul>
+                        <button type="button" id="buy-btn" class="btn btn-primary btn-lg">Buy a license — $9.99</button>
+                        <p class="cta-reassure">Your license key is emailed to you the moment payment completes.</p>
+                        <p class="form-status" id="buy-status" role="status" aria-live="polite"></p>
+                        <p class="price-fineprint">Payments are processed securely by <strong>Paddle</strong>, our merchant of record. Paddle handles the payment and any applicable tax; the app never sees your payment details. By buying you agree to our <a href="terms.html">Terms</a> and <a href="refund.html">Refund policy</a>.</p>
+
+                        <noscript>
+                            <p class="form-status is-error">Checkout needs JavaScript to open the secure payment window. Please enable JavaScript and reload, or <a href="contact.html?topic=general">contact us</a> and we’ll send a payment link.</p>
+                        </noscript>
+                    </div>
+                </div>
+
+                <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
+                    Haven’t tried it yet? The download is a free, full-featured 7-day trial —
+                    <a href="index.html#get" data-download>download it first</a> and buy when you’re ready.
+                </p>
+            </div>
+        </section>
+
+        <!-- Success state — shown after Paddle redirects back with ?state=success -->
+        <section class="section" id="buy-success-section" hidden>
+            <div class="container">
+                <div class="form-success" id="buy-success" tabindex="-1">
+                    <h2>Payment complete — thank you!</h2>
+                    <p>Your license key is on its way to your email inbox now. (Check spam if you don’t see it within a few minutes.)</p>
+                    <h3>To activate Low Vision Zoom:</h3>
+                    <ol class="price-list" style="text-align:left">
+                        <li>Open Low Vision Zoom (download it first if you haven’t — button below).</li>
+                        <li>Right-click the tray icon and choose “Enter license key…”.</li>
+                        <li>Paste the key from your email and click <strong>Activate</strong>. Full zoom is restored instantly.</li>
+                    </ol>
+                    <p style="margin-top:var(--s-3)">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="index.html#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
+                    </p>
+                    <p class="price-fineprint">Didn’t get the email, or need a hand activating? <a href="contact.html?topic=support">Contact support</a> — keep your order confirmation handy.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>A calm screen magnifier for Windows. A product of txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#different">Why it’s different</a></li>
+                        <li><a href="index.html#how">How it works</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="privacy.html">Privacy</a></li>
+                        <li><a href="terms.html">Terms of service</a></li>
+                        <li><a href="refund.html">Refund policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* Paddle Billing checkout for the $9.99 one-time license.
+               - Client-side token is public by design (safe to ship in page JS).
+               - Click-to-open (not auto-open): predictable for the AT audience,
+                 and avoids surprise modals / popup-blocker issues. */
+            var CLIENT_TOKEN = "live_40658bacb3fc6d120b3e65a170b";
+            var PRICE_ID = "pri_01kv3zfqj55ar4ykzachnmv54e";
+            var SUCCESS_URL = "https://lowvisionzoom.com/buy.html?state=success";
+
+            var card = document.getElementById("buy-card");
+            var btn = document.getElementById("buy-btn");
+            var statusEl = document.getElementById("buy-status");
+
+            function showSuccess() {
+                if (card) { card.hidden = true; }
+                var sec = document.getElementById("buy-success-section");
+                if (sec) {
+                    sec.hidden = false;
+                    var panel = document.getElementById("buy-success");
+                    if (panel) { panel.focus(); }
+                }
+            }
+
+            // Returning from a completed checkout.
+            if (new URLSearchParams(window.location.search).get("state") === "success") {
+                showSuccess();
+                return;
+            }
+
+            function setError(msg) {
+                statusEl.className = "form-status is-error";
+                statusEl.textContent = msg;
+            }
+
+            if (typeof Paddle === "undefined") {
+                setError("The secure checkout couldn’t load. Please reload the page, or contact us and we’ll send you a payment link.");
+                return;
+            }
+
+            try {
+                Paddle.Initialize({
+                    token: CLIENT_TOKEN,
+                    eventCallback: function (ev) {
+                        if (ev && ev.name === "checkout.completed") {
+                            // Belt-and-suspenders: the successUrl redirect normally
+                            // handles this, but show success even if it doesn't fire.
+                            showSuccess();
+                        }
+                    }
+                });
+            } catch (e) {
+                setError("The secure checkout couldn’t start. Please reload the page, or contact us and we’ll send you a payment link.");
+                return;
+            }
+
+            /* Paddle sends people to the default payment link with ?_ptxn=<txn id>
+               for hosted/invoice payment links. Open that specific transaction. */
+            var ptxn = new URLSearchParams(window.location.search).get("_ptxn");
+            if (ptxn) {
+                statusEl.className = "form-status";
+                statusEl.textContent = "Opening secure checkout…";
+                try {
+                    Paddle.Checkout.open({ transactionId: ptxn });
+                } catch (e) {
+                    setError("Couldn’t open your payment. Please reload, or contact us for help.");
+                }
+            }
+
+            btn.addEventListener("click", function () {
+                statusEl.className = "form-status";
+                statusEl.textContent = "Opening secure checkout…";
+                try {
+                    Paddle.Checkout.open({
+                        items: [{ priceId: PRICE_ID, quantity: 1 }],
+                        settings: { displayMode: "overlay", successUrl: SUCCESS_URL }
+                    });
+                } catch (e) {
+                    setError("Couldn’t open checkout. Please reload and try again, or contact us for a payment link.");
+                }
+            });
+        })();
+    </script>
+    <script src="site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>
