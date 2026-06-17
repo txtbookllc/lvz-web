@@ -14,7 +14,7 @@
        TODO at launch: set this to the hosted signed-MSI URL. Every
        "Download for Windows" button on every page reads from here.
        ---------------------------------------------------------------------- */
-    var DOWNLOAD_URL = "#get"; /* TODO at launch: hosted signed-MSI URL */
+    var DOWNLOAD_URL = "https://github.com/txtbookllc/lvz-web/releases/latest/download/LowVisionZoom.msi";
 
     var dlLinks = document.querySelectorAll("[data-download]");
     for (var i = 0; i < dlLinks.length; i++) {
