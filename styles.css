@@ -661,6 +661,38 @@ img, svg, video { display: block; max-width: 100%; }
 .good-to-know p { color: var(--positive-text); font-size: var(--fs-sm); }
 .good-to-know a { color: var(--positive-text); font-weight: var(--fw-semibold); }
 
+/* First-run SmartScreen guidance — sits under the download CTA */
+.install-note {
+    max-width: var(--maxw-prose);
+    margin: var(--s-4) auto 0;
+    padding: var(--s-4);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+.install-note h3 { margin: 0 0 var(--s-2); }
+.install-note p { color: var(--text-muted); }
+.install-note-steps-lead { margin-bottom: var(--s-1); font-weight: var(--fw-semibold); color: var(--text); }
+.install-note-steps {
+    margin: 0 0 var(--s-3);
+    padding-left: 1.4em;
+    color: var(--text-muted);
+}
+.install-note-steps li { margin-bottom: var(--s-1); }
+.install-note-figure { margin: var(--s-3) 0; text-align: center; }
+.install-note-figure img {
+    max-width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+.install-note-figure figcaption {
+    margin-top: var(--s-1);
+    color: var(--text-muted);
+    font-size: var(--fs-fineprint);
+}
+.install-note-foot { font-size: var(--fs-sm); margin-bottom: 0; }
+
 /* Derek "buying for a parent" callout */
 .parent-callout {
     max-width: var(--maxw-prose);
