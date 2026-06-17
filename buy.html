@@ -56,6 +56,14 @@
                         <button type="button" id="buy-btn" class="btn btn-primary btn-lg">Buy a license — $9.99</button>
                         <p class="cta-reassure">Your license key is emailed to you the moment payment completes.</p>
                         <p class="form-status" id="buy-status" role="status" aria-live="polite"></p>
+                        <div class="form-status is-error" id="buy-help" role="alert" hidden>
+                            <p><strong>The secure checkout didn’t open.</strong> An ad blocker, tracker blocker, or strict privacy mode (e.g. Brave Shields, uBlock, AdGuard) can block our payment provider, Paddle. To buy:</p>
+                            <ul class="price-list">
+                                <li>Pause your ad/tracker blocker for this page, then click Buy again, <em>or</em></li>
+                                <li>Try a browser without that extension, <em>or</em></li>
+                                <li><a href="contact.html?topic=support">Contact us</a> and we’ll email you a secure payment link.</li>
+                            </ul>
+                        </div>
                         <p class="price-fineprint">Payments are processed securely by <strong>Paddle</strong>, our merchant of record. Paddle handles the payment and any applicable tax; the app never sees your payment details. By buying you agree to our <a href="terms.html">Terms</a> and <a href="refund.html">Refund policy</a>.</p>
 
                         <noscript>
@@ -145,6 +153,26 @@
             var card = document.getElementById("buy-card");
             var btn = document.getElementById("buy-btn");
             var statusEl = document.getElementById("buy-status");
+            var helpEl = document.getElementById("buy-help");
+
+            /* If the overlay never loads within a few seconds, a blocker is
+               almost certainly eating Paddle's checkout-service request (it
+               fails silently, with no error event). Surface a recovery path. */
+            var loadTimer = null;
+            function armBlockerWatch() {
+                if (loadTimer) { clearTimeout(loadTimer); }
+                loadTimer = setTimeout(showBlockerHelp, 7000);
+            }
+            function clearBlockerWatch() {
+                if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+                if (helpEl) { helpEl.hidden = true; }
+            }
+            function showBlockerHelp() {
+                if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+                statusEl.className = "form-status";
+                statusEl.textContent = "";
+                if (helpEl) { helpEl.hidden = false; helpEl.setAttribute("tabindex", "-1"); helpEl.focus(); }
+            }
 
             function showSuccess() {
                 if (card) { card.hidden = true; }
@@ -176,10 +204,17 @@
                 Paddle.Initialize({
                     token: CLIENT_TOKEN,
                     eventCallback: function (ev) {
-                        if (ev && ev.name === "checkout.completed") {
+                        if (!ev || !ev.name) { return; }
+                        if (ev.name === "checkout.loaded") {
+                            // Overlay opened fine — no blocker problem.
+                            clearBlockerWatch();
+                        } else if (ev.name === "checkout.completed") {
                             // Belt-and-suspenders: the successUrl redirect normally
                             // handles this, but show success even if it doesn't fire.
+                            clearBlockerWatch();
                             showSuccess();
+                        } else if (ev.name === "checkout.error") {
+                            showBlockerHelp();
                         }
                     }
                 });
@@ -196,12 +231,14 @@
                 statusEl.textContent = "Opening secure checkout…";
                 try {
                     Paddle.Checkout.open({ transactionId: ptxn });
+                    armBlockerWatch();
                 } catch (e) {
-                    setError("Couldn’t open your payment. Please reload, or contact us for help.");
+                    showBlockerHelp();
                 }
             }
 
             btn.addEventListener("click", function () {
+                if (helpEl) { helpEl.hidden = true; }
                 statusEl.className = "form-status";
                 statusEl.textContent = "Opening secure checkout…";
                 try {
@@ -209,8 +246,9 @@
                         items: [{ priceId: PRICE_ID, quantity: 1 }],
                         settings: { displayMode: "overlay", successUrl: SUCCESS_URL }
                     });
+                    armBlockerWatch();
                 } catch (e) {
-                    setError("Couldn’t open checkout. Please reload and try again, or contact us for a payment link.");
+                    showBlockerHelp();
                 }
             });
         })();
