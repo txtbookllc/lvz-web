@@ -53,10 +53,11 @@
                     <p>The app magnifies your screen using the Windows Magnification API, which is a live display transform. It does <strong>not</strong> capture, record, screenshot, store, or transmit the contents of your screen. To keep the magnified view centered, it reads your mouse-cursor position; that position never leaves your device.</p>
 
                     <h3>Keyboard and mouse</h3>
-                    <p>To make zoom work system-wide, the app uses a Windows "low-level mouse hook" so that <strong>Ctrl + scroll</strong> zooms in any window. The hook watches only for the mouse wheel together with the Ctrl and Shift keys in order to trigger zoom. It does <strong>not</strong> log keystrokes, record what you type, track your mouse activity, or send any input data anywhere.</p>
+                    <p>To make zoom work system-wide, the app uses Windows "low-level input hooks" so that <strong>Ctrl + scroll</strong> and <strong>Ctrl + Alt + Plus / Minus / 0</strong> zoom in any window. The mouse hook watches only for the mouse wheel together with the Ctrl and Shift keys, and the keyboard hook acts only on the Plus, Minus, and 0 keys while Ctrl and Alt are held together — every other keystroke is passed straight through untouched. The app does <strong>not</strong> log keystrokes, record what you type, track your mouse activity, or send any input data anywhere.</p>
 
                     <h3>Information stored on your device</h3>
                     <p>The app saves a small settings file at <code>%APPDATA%\LowVisionZoom\settings.json</code>. It holds your "start with Windows" preference, your license key (if you've entered one), and the dates used to track your free trial. This information stays on your device and is not personal data about you.</p>
+                    <p>The app also keeps a small technical log at <code>%APPDATA%\LowVisionZoom\diag.log</code> recording one-off events useful for support — for example, whether a Windows API call succeeded, or whether a mouse-wheel event reached the app. It contains no keystrokes, no screen contents, and no personal data, and it never leaves your device unless you choose to share it with support.</p>
                     <p>If you turn on "Start Low Vision Zoom when Windows starts," the app registers a standard Windows startup entry on your device. Turning it off removes that entry.</p>
 
                     <h3>License keys</h3>
