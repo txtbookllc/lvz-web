@@ -14,7 +14,9 @@ served by **GitHub Pages** from the `main` branch root at <https://lowvisionzoom
 | `refund.html` | `/refund.html` | Refund policy / money-back guarantee (Paddle requirement) |
 | `contact.html` | `/contact.html` | Accessible contact form → support@ (see Contact form below) |
 | `styles.css` | — | Shared styles: 18px base, high-contrast, dark mode, focus, reduced-motion |
-| `magnifier-blue.png` | — | Logo glyph |
+| `media/magnifier.svg` | — | Header logo + favicon (plus-in-magnifier mark) — **generated**, do not hand-edit |
+| `media/magnifier-blue.png` | — | Logo glyph (copy of the app asset) — **generated** |
+| `media/og-card.png` | — | OG/social share card (1200×630) — **generated** |
 | `CNAME` | — | Pins the GitHub Pages custom domain to `lowvisionzoom.com` |
 | `.nojekyll` | — | Disables Jekyll processing (plain static site) |
 
@@ -45,6 +47,14 @@ Stubbed until the installer is hosted and Paddle checkout is live. Search the HT
    live. ("Email me at launch" currently routes to the contact form, which is fine pre-launch.)
 
 > The legal/policy text is real, written for this product. Have it reviewed before relying on it.
+
+## Brand assets are generated
+
+The header logo/favicon (`media/magnifier.svg`), logo glyph (`media/magnifier-blue.png`), and the
+OG/social card (`media/og-card.png`) are **emitted by the app repo's asset pipeline**
+(`low-vision-zoom/packaging/generate-assets.ps1`) so the plus-in-magnifier mark can never drift
+between the app icon and the site. Don't hand-edit them here — change the pipeline (or its source
+art in `branding/`) and re-run it.
 
 ## Local preview
 

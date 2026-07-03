@@ -1,4 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Low Vision Zoom">
-  <circle cx="13" cy="13" r="9" fill="none" stroke="#0f6b5f" stroke-width="3"/>
-  <line x1="20" y1="20" x2="29" y2="29" stroke="#0f6b5f" stroke-width="3" stroke-linecap="round"/>
+  <style>
+    .s { stroke: #0f6b5f; }
+    @media (prefers-color-scheme: dark) { .s { stroke: #4fd1bd; } }
+  </style>
+  <g class="s" fill="none" stroke-width="3" stroke-linecap="round">
+    <circle cx="13" cy="13" r="9"/>
+    <line x1="13" y1="8.5" x2="13" y2="17.5"/>
+    <line x1="8.5" y1="13" x2="17.5" y2="13"/>
+    <line x1="20" y1="20" x2="29" y2="29"/>
+  </g>
 </svg>
