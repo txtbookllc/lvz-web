@@ -17,6 +17,8 @@ served by **GitHub Pages** from the `main` branch root at <https://lowvisionzoom
 | `media/magnifier.svg` | — | Header logo + favicon (plus-in-magnifier mark) — **generated**, do not hand-edit |
 | `media/magnifier-blue.png` | — | Logo glyph (copy of the app asset) — **generated** |
 | `media/og-card.png` | — | OG/social share card (1200×630) — **generated** |
+| `media/howto-desktop.svg` | — | "How it works" gesture animation, Ctrl+scroll (animated SVG) — **generated** |
+| `media/howto-laptop.svg` | — | "How it works" gesture animation, Ctrl+Alt+Plus/Minus — **generated** |
 | `CNAME` | — | Pins the GitHub Pages custom domain to `lowvisionzoom.com` |
 | `.nojekyll` | — | Disables Jekyll processing (plain static site) |
 
@@ -55,6 +57,13 @@ OG/social card (`media/og-card.png`) are **emitted by the app repo's asset pipel
 (`low-vision-zoom/packaging/generate-assets.ps1`) so the plus-in-magnifier mark can never drift
 between the app icon and the site. Don't hand-edit them here — change the pipeline (or its source
 art in `branding/`) and re-run it.
+
+Likewise, the "how it works" gesture animations (`media/howto-desktop.svg`, `media/howto-laptop.svg`)
+are copies of `low-vision-zoom/branding/howto-*.svg`, emitted by
+`low-vision-zoom/packaging/generate-howto-anims.ps1` (which also renders the app's About-dialog GIFs
+from the same sources). They are self-contained animated SVGs: colors follow `prefers-color-scheme`
+and motion stops under `prefers-reduced-motion`, so the site shows them with plain `<img>` tags.
+Edit the `branding/` sources and re-run that script.
 
 ## Local preview
 

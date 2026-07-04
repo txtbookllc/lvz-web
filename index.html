@@ -67,7 +67,7 @@
                      site.js reveals the Play control automatically once the real footage can play. -->
                 <div class="demo">
                     <div class="demo-frame is-hero" data-demo>
-                        <img class="demo-still" src="media/asset1-hero-still.svg" alt="The view eases into a zoom centered on the word under the cursor; that word stays in place while the text around it grows.">
+                        <img class="demo-still" src="media/asset1-hero-still.png" alt="The view eases into a zoom centered on the word under the cursor; that word stays in place while the text around it grows.">
                         <video class="demo-media" muted loop playsinline preload="metadata" aria-hidden="true">
                             <source src="media/asset1-hero.webm" type="video/webm">
                             <source src="media/asset1-hero.mp4" type="video/mp4">
@@ -183,6 +183,33 @@
             <div class="container">
                 <h2>One key and your mouse wheel. That’s the whole interface.</h2>
                 <p class="section-sub">Nothing to configure. It works the moment you install it.</p>
+
+                <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
+                     copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
+                     don't edit media/howto-*.svg by hand. -->
+                <div class="howto-anim">
+                    <fieldset class="howto-switch">
+                        <legend class="visually-hidden">Show the zoom gesture for your device type</legend>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="desktop" checked>
+                            <span>Desktop Users</span>
+                        </label>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="laptop">
+                            <span>Laptop Users</span>
+                        </label>
+                    </fieldset>
+                    <div class="howto-pane howto-pane-desktop">
+                        <img src="media/howto-desktop.svg" width="520" height="250"
+                             alt="Animation: a finger holds the Ctrl key while the mouse wheel rolls forward to zoom in, then backward to zoom out.">
+                        <p class="demo-caption">Hold <strong>Ctrl</strong> and scroll — forward zooms in, backward zooms out.</p>
+                    </div>
+                    <div class="howto-pane howto-pane-laptop">
+                        <img src="media/howto-laptop.svg" width="520" height="250"
+                             alt="Animation: with Ctrl and Alt held down, a finger presses the Plus key to zoom in, then the Minus key to zoom out.">
+                        <p class="demo-caption">Hold <strong>Ctrl + Alt</strong> and press <strong>+</strong> or <strong>−</strong> — no mouse wheel needed.</p>
+                    </div>
+                </div>
 
                 <div class="controls">
                     <div class="control">

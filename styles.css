@@ -409,7 +409,7 @@ img, svg, video { display: block; max-width: 100%; }
     box-shadow: var(--shadow-lg);
     overflow: hidden;
 }
-.demo-frame.is-hero { aspect-ratio: 16 / 10; }
+.demo-frame.is-hero { aspect-ratio: 16 / 9; }
 .demo-frame.is-square { aspect-ratio: 1 / 1; }
 .demo-media,
 .demo-still {
@@ -572,6 +572,64 @@ img, svg, video { display: block; max-width: 100%; }
     font-size: var(--fs-sm);
 }
 .feature-list .line-icon { width: 1.4rem; height: 1.4rem; }
+
+/* --- How it works: gesture-animation device toggle --- */
+.howto-anim {
+    max-width: 640px;
+    margin: 0 auto var(--s-5);
+}
+.howto-switch {
+    border: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: var(--s-2);
+    margin-bottom: var(--s-3);
+}
+.howto-choice input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+.howto-choice span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;                 /* AAA target size */
+    padding: 0.5rem 1.4rem;
+    border: 2px solid var(--accent);
+    border-radius: var(--radius-pill);
+    color: var(--accent-strong);
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+    transition: background-color var(--motion) var(--ease),
+                color var(--motion) var(--ease);
+}
+.howto-choice input:checked + span {
+    background: var(--accent);
+    color: var(--accent-contrast);
+}
+.howto-choice input:focus-visible + span {
+    outline: var(--focus-width) solid var(--focus-ring);
+    outline-offset: var(--focus-offset);
+}
+/* Pane surface matches the SVGs' internal --paper tokens in both themes. */
+.howto-pane {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: var(--s-3) var(--s-3) var(--s-2);
+}
+.howto-pane img {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+}
+.howto-pane-laptop { display: none; }
+.howto-anim:has(input[value="laptop"]:checked) .howto-pane-desktop { display: none; }
+.howto-anim:has(input[value="laptop"]:checked) .howto-pane-laptop { display: block; }
 
 /* --- How it works --- */
 .controls {
