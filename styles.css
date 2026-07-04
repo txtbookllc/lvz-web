@@ -309,12 +309,17 @@ img, svg, video { display: block; max-width: 100%; }
     display: grid;
     align-content: center;
 }
+/* Row 1: hero-content + animation panel (panel stretches to content height).
+   Row 2: trust chips under the left column; row gap keeps the old
+   button→chips spacing that used to come from .hero-buttons margin. */
 .hero .container {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: var(--s-5);
-    align-items: center;
+    gap: var(--s-4) var(--s-5);
 }
+.hero .hero-content { grid-column: 1; grid-row: 1; }
+.hero .hero-anim { grid-column: 2; grid-row: 1; }
+.hero .trust { grid-column: 1; grid-row: 2; align-self: start; }
 .hero h1 {
     font-size: var(--fs-h1);
     margin-bottom: var(--s-2);
@@ -344,7 +349,6 @@ img, svg, video { display: block; max-width: 100%; }
     display: flex;
     flex-wrap: wrap;
     gap: var(--s-2);
-    margin-bottom: var(--s-4);
 }
 .price-line {
     font-weight: var(--fw-semibold);
@@ -373,6 +377,27 @@ img, svg, video { display: block; max-width: 100%; }
     padding: 0;
     border: none;
     margin: -0.25rem 0;
+}
+
+/* Hero controls animation (experiment replacing the motion demo video).
+   Stretches to its grid row (title top → download button bottom);
+   flex centers the line art vertically in the taller panel. */
+.hero-anim {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: var(--s-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-anim img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 520px;
+    height: auto;
 }
 
 /* --- Motion demo frame (one of two elevated elements on the page) --- */
@@ -972,7 +997,12 @@ img, svg, video { display: block; max-width: 100%; }
 /* --- Responsive --- */
 @media (max-width: 860px) {
     .hero .container { grid-template-columns: 1fr; }
-    .hero .demo { order: -1; }            /* Marie sees motion first on mobile */
+    /* Undo the desktop two-row placement: stack as one column in source order… */
+    .hero .hero-content,
+    .hero .hero-anim,
+    .hero .trust { grid-column: auto; grid-row: auto; }
+    .hero .demo,
+    .hero .hero-anim { order: -1; }       /* …except Marie sees motion first on mobile */
     .hero h1 br { display: none; }        /* forced 3-line break is a desktop layout */
     .compare-pair { grid-template-columns: 1fr; max-width: 480px; }
     .trio { grid-template-columns: 1fr; }

@@ -47,30 +47,27 @@
                         <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
                         <a href="#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
                     </div>
-                    <ul class="trust" aria-label="What to expect">
-                        <li>7 day free trial</li>
-                        <li>$9.99 one-time</li>
-                        <li>No subscription</li>
-                        <li>No account</li>
-                        <li class="trust-break" aria-hidden="true"></li>
-                        <li>No ads</li>
-                        <li>No data collected</li>
-                        <li>Works offline</li>
-                    </ul>
                 </div>
 
-                <!-- ASSET-1 hero motion demo. Placeholder still shown until media/asset1-hero.{webm,mp4} exist;
-                     site.js reveals the Play control automatically once the real footage can play. -->
-                <div class="demo">
-                    <div class="demo-frame is-hero" data-demo>
-                        <img class="demo-still" src="media/asset1-hero-still.png" alt="The view eases into a zoom centered on the word under the cursor; that word stays in place while the text around it grows.">
-                        <video class="demo-media" muted loop playsinline preload="metadata" aria-hidden="true">
-                            <source src="media/asset1-hero.webm" type="video/webm">
-                            <source src="media/asset1-hero.mp4" type="video/mp4">
-                        </video>
-                        <button class="demo-toggle" type="button" data-label="the demo" hidden></button>
-                    </div>
+                <!-- Experiment: desktop controls animation instead of the motion demo video,
+                     to lead with how simple the app is. Previous video block is in git history.
+                     The panel stretches to match hero-content (title top → download button bottom),
+                     which is why the trust chips live outside hero-content in their own grid row. -->
+                <div class="hero-anim">
+                    <img src="media/howto-desktop-hero.svg" width="520" height="280"
+                         alt="Animation: a finger holds the Ctrl key while the mouse wheel rolls forward to zoom in, then backward to zoom out.">
                 </div>
+
+                <ul class="trust" aria-label="What to expect">
+                    <li>7 day free trial</li>
+                    <li>$9.99 one-time</li>
+                    <li>No subscription</li>
+                    <li>No account</li>
+                    <li class="trust-break" aria-hidden="true"></li>
+                    <li>No ads</li>
+                    <li>No data collected</li>
+                    <li>Works offline</li>
+                </ul>
             </div>
         </section>
 
