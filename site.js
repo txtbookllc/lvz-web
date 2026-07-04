@@ -2,10 +2,10 @@
    Low Vision Zoom — site.js
    1) Single source-of-truth for the "Download for Windows" CTA.
    2) Keeps --header-h in sync so the hero fills the first screen exactly.
-   3) Motion-safe play/pause for the demo clips (paused by default; the
-      smooth-vs-jumpy pair shares one synced control). Play buttons stay
-      hidden until a real video source can actually play, so before the
-      capture-day footage exists the page shows clean static stills only.
+   3) Motion-safe autoplay for the full-screen demo video: plays muted while
+      on screen, pauses when scrolled away, never auto-starts under
+      prefers-reduced-motion. The pause toggle stays hidden until the media
+      is genuinely loadable, so a missing file leaves a clean static poster.
    ========================================================================== */
 (function () {
     "use strict";
@@ -38,7 +38,11 @@
     }
 
     /* ----------------------------------------------------------------------
-       3) Demo controls
+       3) Full-screen demo video — plays automatically (muted) while it's on
+          screen and pauses when scrolled away. An explicit Pause from the
+          visitor always wins over the observer (WCAG 2.2.2). Under
+          prefers-reduced-motion the video never starts by itself; the poster
+          shows until the visitor presses Play.
        ---------------------------------------------------------------------- */
     var ICON_PLAY  = '<svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7z" fill="currentColor" stroke="none"/></svg>';
     var ICON_PAUSE = '<svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" fill="currentColor" stroke="none"/><rect x="13.5" y="5" width="3.5" height="14" fill="currentColor" stroke="none"/></svg>';
@@ -49,90 +53,45 @@
         btn.setAttribute("aria-pressed", playing ? "true" : "false");
     }
 
-    function canPlay(video) {
-        /* A <source> set pointing at files that don't exist yet ends in an
-           error; only reveal the control once the media is genuinely ready. */
-        return new Promise(function (resolve) {
-            if (video.readyState >= 2) { resolve(true); return; }
-            var done = false;
-            function ok() { if (!done) { done = true; cleanup(); resolve(true); } }
-            function fail() { if (!done) { done = true; cleanup(); resolve(false); } }
-            function cleanup() {
-                video.removeEventListener("canplay", ok);
-                video.removeEventListener("loadeddata", ok);
-                video.removeEventListener("error", fail);
+    var demoVideo  = document.querySelector(".demo-full-video");
+    var demoToggle = document.querySelector(".demo-full-toggle");
+    if (demoVideo && demoToggle) {
+        var label = demoToggle.getAttribute("data-label") || "demo";
+        var userPaused = false;
+        var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        var syncToggle = function () { setToggleState(demoToggle, !demoVideo.paused, label); };
+        demoVideo.addEventListener("play", syncToggle);
+        demoVideo.addEventListener("pause", syncToggle);
+
+        /* Reveal the control only once the media is genuinely loadable, so a
+           missing/broken file leaves a clean static poster with no dead button. */
+        var revealToggle = function () { demoToggle.hidden = false; syncToggle(); };
+        if (demoVideo.readyState >= 1) { revealToggle(); }
+        else { demoVideo.addEventListener("loadedmetadata", revealToggle, { once: true }); }
+
+        demoToggle.addEventListener("click", function () {
+            if (demoVideo.paused) {
+                userPaused = false;
+                demoVideo.play().catch(function () {});
+            } else {
+                userPaused = true;
+                demoVideo.pause();
             }
-            video.addEventListener("canplay", ok);
-            video.addEventListener("loadeddata", ok);
-            video.addEventListener("error", fail);
-            /* the <source> elements may have already errored before we bound */
-            if (video.error) { fail(); }
         });
-    }
 
-    /* --- Single demo (its own toggle lives inside the frame) --- */
-    var singles = document.querySelectorAll("[data-demo]");
-    for (var s = 0; s < singles.length; s++) {
-        (function (frame) {
-            var video = frame.querySelector("video.demo-media");
-            var btn = frame.querySelector(".demo-toggle");
-            if (!video || !btn) { return; }
-            var label = btn.getAttribute("data-label") || "demo";
-            canPlay(video).then(function (ready) {
-                if (!ready) { return; }              /* leave the still showing */
-                btn.hidden = false;
-                setToggleState(btn, false, label);
-                btn.addEventListener("click", function () {
-                    if (video.paused) {
-                        video.play().then(function () {
-                            frame.classList.add("is-playing");
-                            setToggleState(btn, true, label);
-                        }).catch(function () {});
-                    } else {
-                        video.pause();
-                        frame.classList.remove("is-playing");
-                        setToggleState(btn, false, label);
-                    }
-                });
-            });
-        })(singles[s]);
-    }
-
-    /* --- Grouped demos sharing one synced control (the comparison pair) --- */
-    var controls = document.querySelectorAll("[data-demo-control]");
-    for (var c = 0; c < controls.length; c++) {
-        (function (btn) {
-            var group = btn.getAttribute("data-demo-control");
-            var label = btn.getAttribute("data-label") || "both";
-            var videos = document.querySelectorAll('video.demo-media[data-demo-group="' + group + '"]');
-            if (!videos.length) { return; }
-            var frames = [];
-            for (var v = 0; v < videos.length; v++) {
-                frames.push(videos[v].closest(".demo-frame"));
-            }
-            Promise.all(Array.prototype.map.call(videos, canPlay)).then(function (results) {
-                var allReady = results.every(Boolean);
-                if (!allReady) { return; }            /* leave both stills showing */
-                btn.hidden = false;
-                setToggleState(btn, false, label);
-                btn.addEventListener("click", function () {
-                    var anyPlaying = Array.prototype.some.call(videos, function (vd) { return !vd.paused; });
-                    if (anyPlaying) {
-                        for (var k = 0; k < videos.length; k++) {
-                            videos[k].pause();
-                            frames[k].classList.remove("is-playing");
+        if ("IntersectionObserver" in window) {
+            new IntersectionObserver(function (entries) {
+                for (var e = 0; e < entries.length; e++) {
+                    if (entries[e].isIntersecting) {
+                        if (!userPaused && !reduceMotion.matches) {
+                            demoVideo.play().catch(function () {});
                         }
-                        setToggleState(btn, false, label);
-                    } else {
-                        for (var j = 0; j < videos.length; j++) {
-                            videos[j].currentTime = 0;
-                            frames[j].classList.add("is-playing");
-                            videos[j].play().catch(function () {});
-                        }
-                        setToggleState(btn, true, label);
+                    } else if (!demoVideo.paused) {
+                        demoVideo.pause();
                     }
-                });
-            });
-        })(controls[c]);
+                }
+            }, { threshold: 0.35 }).observe(demoVideo);
+        }
     }
 })();

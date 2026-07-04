@@ -12,7 +12,7 @@
     <meta property="og:image" content="https://lowvisionzoom.com/media/og-card.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="Low Vision Zoom logo — a magnifier with a plus inside — and the tagline: a calm screen magnifier for Windows.">
+    <meta property="og:image:alt" content="Low Vision Zoom logo — a magnifier with a plus inside — and the tagline: the best screen magnifier for Windows users with low vision">
     <meta name="twitter:card" content="summary_large_image">
     <title>Low Vision Zoom — Smooth Screen Magnification for Windows</title>
     <link rel="stylesheet" href="styles.css">
@@ -28,7 +28,8 @@
                 <span>Low Vision Zoom</span>
             </a>
             <nav class="nav" aria-label="Primary">
-                <a href="#different">Why it’s different</a>
+                <a href="#demo">See the demo</a>
+                <a href="#how">Why it's better</a>
                 <a href="#how">How it works</a>
                 <a href="pricing.html">Pricing</a>
                 <a href="#get" data-download class="btn btn-secondary btn-nav">Download</a>
@@ -42,7 +43,7 @@
             <div class="container">
                 <div class="hero-content">
                     <h1>The best screen magnifier<br> for Windows users<br> with low vision</h1>
-                    <p class="lead">Smooth zooming designed to help your eyes track</p>
+                    <p class="lead">A smooth, simple zooming utility designed to help your eyes track</p>
                     <div class="hero-buttons">
                         <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
                         <a href="#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
@@ -71,41 +72,21 @@
             </div>
         </section>
 
-        <!-- 2 · Smooth-vs-jumpy comparison (the proof) -->
-        <section id="compare" class="section section-alt">
-            <div class="container">
-                <h2>See the difference a smooth zoom makes.</h2>
-                <p class="section-sub">Most magnifiers jump to a new view and make you re-find your place. Low Vision Zoom glides — so your eyes stay locked on what you care about.</p>
-
-                <div class="compare-pair">
-                    <!-- ASSET-2 "Typical magnifier" (jumpy) -->
-                    <div class="compare-col">
-                        <span class="compare-chip is-typical">Typical magnifier</span>
-                        <div class="demo-frame is-square">
-                            <img class="demo-still" src="media/asset2-jumpy-still.svg" alt="A typical magnifier snaps instantly to a zoomed view; the word that was under the cursor jumps away and has to be re-found.">
-                            <video class="demo-media" data-demo-group="compare" muted loop playsinline preload="metadata" aria-hidden="true">
-                                <source src="media/asset2-jumpy.webm" type="video/webm">
-                                <source src="media/asset2-jumpy.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <p class="demo-caption">Snaps — you lose your place and hunt for it.</p>
-                    </div>
-
-                    <!-- ASSET-3 "Low Vision Zoom" (smooth) -->
-                    <div class="compare-col">
-                        <span class="compare-chip is-lvz">Low Vision Zoom</span>
-                        <div class="demo-frame is-square">
-                            <img class="demo-still" src="media/asset3-smooth-still.svg" alt="Low Vision Zoom eases smoothly into the zoom; the word under the cursor stays exactly in place while the surrounding text grows.">
-                            <video class="demo-media" data-demo-group="compare" muted loop playsinline preload="metadata" aria-hidden="true">
-                                <source src="media/asset3-smooth.webm" type="video/webm">
-                                <source src="media/asset3-smooth.mp4" type="video/mp4">
-                            </video>
-                        </div>
-                        <p class="demo-caption">Eases in around your cursor — your place is never lost.</p>
-                    </div>
-                </div>
-
-                <p class="compare-closer">Designed around how your eyes naturally track motion — not against it.</p>
+        <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
+             into view (see site.js §4); pauses when scrolled away. Motion-safe:
+             under prefers-reduced-motion it never autoplays — the poster shows
+             until the visitor presses Play. hero-demo.{webm,mp4} are the
+             bandwidth-friendly re-encodes of media/hero.mp4. -->
+        <section id="demo" class="demo-full section-alt" aria-labelledby="demo-heading">
+            <h2 id="demo-heading" class="visually-hidden">Watch Low Vision Zoom in action</h2>
+            <div class="demo-full-stage">
+                <video class="demo-full-video" muted loop playsinline preload="metadata"
+                       poster="media/hero-demo-poster.webp"
+                       aria-label="Screen recording: Low Vision Zoom smoothly magnifying a Windows desktop, easing in around the cursor while the user reads and clicks.">
+                    <source src="media/hero-demo.webm" type='video/webm; codecs="av01.0.08M.08"'>
+                    <source src="media/hero-demo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="demo-toggle demo-full-toggle" data-label="demo" hidden aria-pressed="false"></button>
             </div>
         </section>
 
@@ -384,7 +365,12 @@
             <div class="footer-grid">
                 <div>
                     <h4>Low Vision Zoom</h4>
-                    <p>A calm screen magnifier for Windows. A product of txtbook&nbsp;LLC.</p>
+                    <p>The best screen magnifier for Windows users with low vision</p>
+                    <p>&nbsp;</p>
+                    <p>A product of txtbook&nbsp;LLC</p>
+                    <p>&nbsp;</p>
+                    <p>4601 E. Douglas Ave. STE 150</p>
+                    <p>Wichita, KS 67218</p>
                 </div>
                 <div>
                     <h4>Product</h4>
