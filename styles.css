@@ -1,12 +1,12 @@
 /* ==========================================================================
    Low Vision Zoom — site styles · "Calm Instrument"
-   Warm-paper background, near-black ink, a single deep teal-green action
-   colour, monochrome line icons, mostly-flat layout with elevation reserved
-   for the motion demo and the price card. Burnt-amber is reserved for the
-   founder layer only — never for warnings.
+   Dark-only: warm near-black background, warm off-white ink, a single teal
+   action colour, monochrome line icons, mostly-flat layout with elevation
+   reserved for the motion demo and the price card. Burnt-amber is reserved
+   for the founder layer only — never for warnings.
 
    Built for an accessibility audience: large readable type (18px base),
-   beyond-AA contrast, visible focus, motion-safe demos, full dark theme.
+   beyond-AA contrast, visible focus, motion-safe demos.
    ========================================================================== */
 
 *,
@@ -18,46 +18,46 @@
 }
 
 :root {
-    /* --- Surfaces — warm paper, not stark white --- */
-    --bg:            #fbf9f5;
-    --bg-alt:        #f3efe7;
-    --surface:       #ffffff;
-    --surface-sunk:  #f6f2ea;
+    /* --- Surfaces — warm near-black, not stark black --- */
+    --bg:            #14130f;
+    --bg-alt:        #1b1915;
+    --surface:       #1f1d18;
+    --surface-sunk:  #181610;
 
-    /* --- Ink — warm near-black --- */
-    --text:          #1c1a17;
-    --text-muted:    #57514a;
-    --text-faint:    #6f685f;
+    /* --- Ink — warm off-white --- */
+    --text:          #f0ece3;
+    --text-muted:    #c3bcae;
+    --text-faint:    #9c958a;
 
-    /* --- Brand accent — deep teal-green --- */
-    --accent:         #0f6b5f;
-    --accent-strong:  #0a5249;
-    --accent-contrast:#ffffff;
-    --accent-soft:    #e4f0ed;
-    --accent-border:  #b9d8d1;
+    /* --- Brand accent — teal-green --- */
+    --accent:         #4fd1bd;
+    --accent-strong:  #74e0cf;
+    --accent-contrast:#0b1a17;
+    --accent-soft:    #102a26;
+    --accent-border:  #1f4942;
 
     /* --- Warm highlight — founder note ONLY, never warnings --- */
-    --warm:      #b4541a;
-    --warm-soft: #f6e9dd;
+    --warm:      #e8975a;
+    --warm-soft: #2a2014;
 
     /* --- Hairlines / borders --- */
-    --border:        #e2dcd1;
-    --border-strong: #cabfae;
+    --border:        #322e26;
+    --border-strong: #4a443a;
 
     /* --- Semantic — used sparingly and CORRECTLY (positive != warning) --- */
-    --positive-bg:     #e6f3ee;
-    --positive-border: #9ccdb9;
-    --positive-text:   #0a5a44;
-    --danger-text:     #9a2c1e;
+    --positive-bg:     #102a22;
+    --positive-border: #1f5a45;
+    --positive-text:   #7fd9b8;
+    --danger-text:     #fca5a5;
 
     /* --- Focus --- */
-    --focus-ring:   #0f6b5f;
+    --focus-ring:   #4fd1bd;
     --focus-width:  3px;
     --focus-offset: 2px;
 
     /* --- Type --- */
     --font-body:    'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+    --font-display: var(--font-body);
     --font-mono:    'Cascadia Code', 'Consolas', 'Menlo', monospace;
 
     --fs-fineprint: 0.95rem;
@@ -89,9 +89,9 @@
     --radius-pill:999px;
 
     /* --- Elevation — soft, warm-tinted (used sparingly) --- */
-    --shadow-sm: 0 1px 2px rgba(28,26,23,0.06);
-    --shadow:    0 6px 18px -8px rgba(28,26,23,0.14);
-    --shadow-lg: 0 20px 48px -20px rgba(28,26,23,0.22);
+    --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
+    --shadow:    0 6px 18px -8px rgba(0,0,0,0.5);
+    --shadow-lg: 0 20px 48px -20px rgba(0,0,0,0.65);
 
     /* --- Motion — calm, short, always gated by prefers-reduced-motion --- */
     --motion-fast: 140ms; --motion: 240ms; --motion-slow: 360ms;
@@ -102,45 +102,10 @@
     --icon-stroke: 2;
 }
 
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg:            #14130f;
-        --bg-alt:        #1b1915;
-        --surface:       #1f1d18;
-        --surface-sunk:  #181610;
-
-        --text:          #f0ece3;
-        --text-muted:    #c3bcae;
-        --text-faint:    #9c958a;
-
-        --accent:         #4fd1bd;
-        --accent-strong:  #74e0cf;
-        --accent-contrast:#0b1a17;
-        --accent-soft:    #102a26;
-        --accent-border:  #1f4942;
-
-        --warm:      #e8975a;
-        --warm-soft: #2a2014;
-
-        --border:        #322e26;
-        --border-strong: #4a443a;
-
-        --positive-bg:     #102a22;
-        --positive-border: #1f5a45;
-        --positive-text:   #7fd9b8;
-        --danger-text:     #fca5a5;
-
-        --focus-ring:    #4fd1bd;
-
-        --shadow-sm: 0 1px 2px rgba(0,0,0,0.4);
-        --shadow:    0 6px 18px -8px rgba(0,0,0,0.5);
-        --shadow-lg: 0 20px 48px -20px rgba(0,0,0,0.65);
-    }
-}
-
 html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
+    color-scheme: dark;   /* dark-only site: native controls, scrollbars, form widgets */
 }
 
 body {
@@ -335,11 +300,18 @@ img, svg, video { display: block; max-width: 100%; }
 /* --- Hero --- */
 .hero {
     background: var(--bg);
-    padding: var(--s-7) 0 var(--s-6);
+    padding: var(--s-5) 0;
+    /* Fill the first screen exactly: viewport height minus the sticky
+       header. --header-h is measured by site.js; the fallback covers
+       the no-JS case closely enough. */
+    min-height: calc(100vh - var(--header-h, 4.9rem));
+    min-height: calc(100svh - var(--header-h, 4.9rem));
+    display: grid;
+    align-content: center;
 }
 .hero .container {
     display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
+    grid-template-columns: 1.2fr 0.8fr;
     gap: var(--s-5);
     align-items: center;
 }
@@ -350,7 +322,6 @@ img, svg, video { display: block; max-width: 100%; }
 .hero .lead {
     font-size: var(--fs-lead);
     color: var(--text-muted);
-    max-width: 40ch;
     margin-bottom: var(--s-2);
 }
 .hero .compare-line {
@@ -373,7 +344,7 @@ img, svg, video { display: block; max-width: 100%; }
     display: flex;
     flex-wrap: wrap;
     gap: var(--s-2);
-    margin-bottom: var(--s-1);
+    margin-bottom: var(--s-4);
 }
 .price-line {
     font-weight: var(--fw-semibold);
@@ -393,6 +364,15 @@ img, svg, video { display: block; max-width: 100%; }
     border: 1px solid var(--accent-border);
     border-radius: var(--radius-pill);
     padding: 0.25rem 0.8rem;
+}
+/* Invisible flex line-break: 4 pills on the first row, 3 on the second.
+   Negative margins cancel the extra row-gap the zero-height row introduces. */
+.trust li.trust-break {
+    flex-basis: 100%;
+    height: 0;
+    padding: 0;
+    border: none;
+    margin: -0.25rem 0;
 }
 
 /* --- Motion demo frame (one of two elevated elements on the page) --- */
@@ -956,7 +936,6 @@ img, svg, video { display: block; max-width: 100%; }
     border: 1px solid var(--border-strong);
     border-radius: var(--radius-sm);
     padding: 0.7rem 0.85rem;
-    color-scheme: light dark;
 }
 .field textarea { resize: vertical; min-height: 8rem; }
 .field input:focus,
@@ -994,6 +973,7 @@ img, svg, video { display: block; max-width: 100%; }
 @media (max-width: 860px) {
     .hero .container { grid-template-columns: 1fr; }
     .hero .demo { order: -1; }            /* Marie sees motion first on mobile */
+    .hero h1 br { display: none; }        /* forced 3-line break is a desktop layout */
     .compare-pair { grid-template-columns: 1fr; max-width: 480px; }
     .trio { grid-template-columns: 1fr; }
     .trust-cards { grid-template-columns: 1fr; }

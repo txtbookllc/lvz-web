@@ -3,17 +3,15 @@
   <!-- Low Vision Zoom "how to use" gesture animation — laptop / keyboard-only (Ctrl+Alt+Plus/Minus).
        Source of truth for the website (media/howto-laptop.svg) and the app About-dialog GIFs
        (Assets/howto-laptop-*.gif). Regenerate downstream assets with packaging/generate-howto-anims.ps1.
-       Self-contained: colors follow prefers-color-scheme; motion stops under prefers-reduced-motion. -->
+       Self-contained: dark palette (the website is dark-only; the app GIF generator overrides
+       these tokens with its own themed values); motion stops under prefers-reduced-motion. -->
   <style>
     svg {
-      --ink: #1c1a17;
-      --paper: #ffffff;
-      --accent: #0f6b5f;
+      --ink: #f0ece3;
+      --paper: #1f1d18;
+      --accent: #4fd1bd;
       color: var(--ink);
       font-family: 'Segoe UI', sans-serif;
-    }
-    @media (prefers-color-scheme: dark) {
-      svg { --ink: #f0ece3; --paper: #1f1d18; --accent: #4fd1bd; }
     }
     /* Same 6s two-phase loop as the desktop scene: hold + (zoom in), brief lift while the
        whole key blinks out and the glyph swaps to −, hold − (zoom out). */

@@ -1,7 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Low Vision Zoom">
   <style>
-    .s { stroke: #0f6b5f; }
-    @media (prefers-color-scheme: dark) { .s { stroke: #4fd1bd; } }
+    .s { stroke: #4fd1bd; }
   </style>
   <g class="s" fill="none" stroke-width="3" stroke-linecap="round">
     <circle cx="13" cy="13" r="9"/>

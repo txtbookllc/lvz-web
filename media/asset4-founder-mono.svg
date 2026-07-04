@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="Low Vision Zoom monogram">
   <!-- Stopgap founder monogram (ASSET-4 fallback). Replace with media/asset4-founder.jpg — a real photo does far more work. -->
-  <rect width="160" height="160" rx="14" fill="#f6e9dd"/>
-  <text x="80" y="104" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif"
-        font-size="72" font-weight="600" fill="#b4541a">LV</text>
+  <rect width="160" height="160" rx="14" fill="#2a2014"/>
+  <text x="80" y="104" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif"
+        font-size="72" font-weight="600" fill="#e8975a">LV</text>
 </svg>

@@ -3,17 +3,15 @@
   <!-- Low Vision Zoom "how to use" gesture animation — desktop (Ctrl + scroll).
        Source of truth for the website (media/howto-desktop.svg) and the app About-dialog GIFs
        (Assets/howto-desktop-*.gif). Regenerate downstream assets with packaging/generate-howto-anims.ps1.
-       Self-contained: colors follow prefers-color-scheme; motion stops under prefers-reduced-motion. -->
+       Self-contained: dark palette (the website is dark-only; the app GIF generator overrides
+       these tokens with its own themed values); motion stops under prefers-reduced-motion. -->
   <style>
     svg {
-      --ink: #1c1a17;
-      --paper: #ffffff;
-      --accent: #0f6b5f;
+      --ink: #f0ece3;
+      --paper: #1f1d18;
+      --accent: #4fd1bd;
       color: var(--ink);
       font-family: 'Segoe UI', sans-serif;
-    }
-    @media (prefers-color-scheme: dark) {
-      svg { --ink: #f0ece3; --paper: #1f1d18; --accent: #4fd1bd; }
     }
     /* One 6s loop, two presses: ctrl held while wheel rolls forward (zoom in),
        brief lift, ctrl held again while wheel rolls backward (zoom out). */

@@ -1,7 +1,8 @@
 /* ==========================================================================
    Low Vision Zoom — site.js
    1) Single source-of-truth for the "Download for Windows" CTA.
-   2) Motion-safe play/pause for the demo clips (paused by default; the
+   2) Keeps --header-h in sync so the hero fills the first screen exactly.
+   3) Motion-safe play/pause for the demo clips (paused by default; the
       smooth-vs-jumpy pair shares one synced control). Play buttons stay
       hidden until a real video source can actually play, so before the
       capture-day footage exists the page shows clean static stills only.
@@ -24,7 +25,20 @@
     }
 
     /* ----------------------------------------------------------------------
-       2) Demo controls
+       2) Full-height hero — the hero's min-height is 100svh minus the sticky
+       header (see .hero in styles.css). The header's height depends on the
+       user's text size, so measure it and keep --header-h in sync.
+       ---------------------------------------------------------------------- */
+    var header = document.querySelector(".site-header");
+    if (header && "ResizeObserver" in window) {
+        new ResizeObserver(function () {
+            document.documentElement.style.setProperty(
+                "--header-h", header.offsetHeight + "px");
+        }).observe(header);
+    }
+
+    /* ----------------------------------------------------------------------
+       3) Demo controls
        ---------------------------------------------------------------------- */
     var ICON_PLAY  = '<svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7z" fill="currentColor" stroke="none"/></svg>';
     var ICON_PAUSE = '<svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" fill="currentColor" stroke="none"/><rect x="13.5" y="5" width="3.5" height="14" fill="currentColor" stroke="none"/></svg>';
