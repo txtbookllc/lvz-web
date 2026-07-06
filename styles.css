@@ -104,6 +104,10 @@
 
 html {
     scroll-behavior: smooth;
+    /* Anchor targets land below the sticky header — without this, a section
+       sized to (viewport − header) scrolls its top under the header and the
+       next section peeks in at the bottom. --header-h is set by site.js. */
+    scroll-padding-top: var(--header-h, 4.9rem);
     -webkit-text-size-adjust: 100%;
     color-scheme: dark;   /* dark-only site: native controls, scrollbars, form widgets */
 }
@@ -300,6 +304,7 @@ img, svg, video { display: block; max-width: 100%; }
 /* --- Hero --- */
 .hero {
     background: var(--bg);
+    position: relative;               /* anchors the .scroll-cue */
     padding: var(--s-5) 0;
     /* Fill the first screen exactly: viewport height minus the sticky
        header. --header-h is measured by site.js; the fallback covers
@@ -400,6 +405,43 @@ img, svg, video { display: block; max-width: 100%; }
     height: auto;
 }
 
+/* Scroll cue — sits in the hero's bottom padding, inviting the visitor to
+   the demo section. The arrow bobs gently; the global reduced-motion rule
+   flattens the animation. */
+.scroll-cue {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: var(--s-1);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.1rem;
+    padding: 0.5rem 1.25rem;
+    min-height: 44px;                 /* AAA target size */
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    border-radius: var(--radius-sm);
+    transition: color var(--motion-fast) var(--ease);
+}
+.scroll-cue:hover { color: var(--accent-strong); }
+.scroll-cue-arrow {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    animation: scroll-cue-bob 2.4s var(--ease) infinite;
+}
+@keyframes scroll-cue-bob {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(0.4rem); }
+}
+
 /* --- Full-screen demo video (section 2) ---
    Fills the first-screen height like .hero. The video autoplays muted when
    scrolled into view (site.js); the toggle is the WCAG 2.2.2 pause control. */
@@ -464,6 +506,9 @@ img, svg, video { display: block; max-width: 100%; }
 /* --- Generic section --- */
 .section { padding: var(--s-6) 0; }
 .section-alt { background: var(--bg-alt); }
+/* Two alt sections back to back share a background, so their paddings read
+   as one oversized gap; drop the second one's top padding. */
+.section-alt + .section-alt { padding-top: 0; }
 .section > .container > h2 {
     font-size: var(--fs-h2);
     text-align: center;
@@ -597,6 +642,11 @@ img, svg, video { display: block; max-width: 100%; }
 .howto-pane-laptop { display: none; }
 .howto-anim:has(input[value="laptop"]:checked) .howto-pane-desktop { display: none; }
 .howto-anim:has(input[value="laptop"]:checked) .howto-pane-laptop { display: block; }
+/* The control cards below follow the same toggle; scoped at #how because
+   the radios live in .howto-anim, a sibling of .controls. */
+.control-laptop { display: none; }
+#how:has(input[name="howto-device"][value="laptop"]:checked) .control-desktop { display: none; }
+#how:has(input[name="howto-device"][value="laptop"]:checked) .control-laptop { display: block; }
 
 /* --- How it works --- */
 .controls {
@@ -686,17 +736,7 @@ img, svg, video { display: block; max-width: 100%; }
 .good-to-know p { color: var(--positive-text); font-size: var(--fs-sm); }
 .good-to-know a { color: var(--positive-text); font-weight: var(--fw-semibold); }
 
-/* First-run SmartScreen guidance — sits under the download CTA */
-.install-note {
-    max-width: var(--maxw-prose);
-    margin: var(--s-4) auto 0;
-    padding: var(--s-4);
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-}
-.install-note h3 { margin: 0 0 var(--s-2); }
-.install-note p { color: var(--text-muted); }
+/* First-run SmartScreen guidance — lives in the FAQ (#faq-smartscreen) */
 .install-note-steps-lead { margin-bottom: var(--s-1); font-weight: var(--fw-semibold); color: var(--text); }
 .install-note-steps {
     margin: 0 0 var(--s-3);
@@ -716,7 +756,6 @@ img, svg, video { display: block; max-width: 100%; }
     color: var(--text-muted);
     font-size: var(--fs-fineprint);
 }
-.install-note-foot { font-size: var(--fs-sm); margin-bottom: 0; }
 
 /* Derek "buying for a parent" callout */
 .parent-callout {
@@ -803,6 +842,10 @@ img, svg, video { display: block; max-width: 100%; }
 .faq summary:hover { color: var(--accent); }
 .faq-body { padding: 0 var(--s-3) var(--s-3); color: var(--text-muted); }
 .faq-body a { font-weight: var(--fw-semibold); }
+/* Multi-paragraph answers (e.g. the SmartScreen one) need flow spacing;
+   the universal reset zeroes p margins. */
+.faq-body p { margin-bottom: var(--s-2); }
+.faq-body p:last-child { margin-bottom: 0; }
 
 /* --- Quiet CTA band — solid warm-ink panel, not a loud gradient --- */
 .cta-band {
@@ -968,6 +1011,9 @@ img, svg, video { display: block; max-width: 100%; }
     /* Short/wide viewports leave less height than a 16:9 video wants — let the
        demo section shrink to the video instead of forcing a full screen. */
     .demo-full { min-height: 0; }
+    /* Stacked hero usually overflows one screen, so the cue would sit below
+       the fold anyway — and everyone scrolls on mobile. */
+    .scroll-cue { display: none; }
     .trio { grid-template-columns: 1fr; }
     .trust-cards { grid-template-columns: 1fr; }
     .feature-list { grid-template-columns: 1fr; }

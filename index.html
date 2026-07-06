@@ -29,8 +29,8 @@
             </a>
             <nav class="nav" aria-label="Primary">
                 <a href="#demo">See the demo</a>
-                <a href="#how">Why it's better</a>
                 <a href="#how">How it works</a>
+                <a href="#why">Why it's better</a>
                 <a href="pricing.html">Pricing</a>
                 <a href="#get" data-download class="btn btn-secondary btn-nav">Download</a>
             </nav>
@@ -38,7 +38,7 @@
     </header>
 
     <main id="main">
-        <!-- 1 · Hero + motion demo -->
+        <!-- 1 · Hero + controls animation -->
         <section class="hero">
             <div class="container">
                 <div class="hero-content">
@@ -70,10 +70,18 @@
                     <li>Works offline</li>
                 </ul>
             </div>
+
+            <!-- Scroll cue: invites the visitor past the fold to the demo.
+                 Duplicates the nav link on purpose; the arrow bob is killed
+                 by the global prefers-reduced-motion rule. -->
+            <a href="#demo" class="scroll-cue">
+                <span>See the demo</span>
+                <svg class="scroll-cue-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,9 12,17 19,9"/></svg>
+            </a>
         </section>
 
         <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
-             into view (see site.js §4); pauses when scrolled away. Motion-safe:
+             into view (see site.js §3); pauses when scrolled away. Motion-safe:
              under prefers-reduced-motion it never autoplays — the poster shows
              until the visitor presses Play. hero-demo.{webm,mp4} are the
              bandwidth-friendly re-encodes of media/hero.mp4. -->
@@ -90,67 +98,11 @@
             </div>
         </section>
 
-        <!-- 3 · Founder note (the human layer; warm tokens live here only) -->
-        <section id="founder" class="section">
-            <div class="container">
-                <div class="founder">
-                    <div class="founder-head">
-                        <!-- ASSET-4: replace media/asset4-founder.jpg with a real photo (far stronger than the monogram). -->
-                        <img class="founder-photo" src="media/asset4-founder-mono.svg" alt="Low Vision Zoom monogram, standing in for the maker’s photo.">
-                        <div>
-                            <p class="eyebrow">From the maker</p>
-                            <h2>I built this because I kept losing my place too.</h2>
-                        </div>
-                    </div>
-                    <div class="founder-body">
-                        <p>I have low vision, and I use a magnifier every day. The built-in ones threw me around the screen — every jump, I’d lose the line I was reading and have to find it again.</p>
-                        <p>So I made the tool I wanted: one that eases in gently and stays anchored to exactly what I’m looking at. I use it for hours, for my own work.</p>
-                        <p>If you’ve felt that “where did it go?” frustration, I made this for you.</p>
-                        <p class="founder-sign">— The maker of Low Vision Zoom</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 4 · Why it feels different — the 3 differentiators + demoted list -->
-        <section id="different" class="section section-alt">
-            <div class="container">
-                <h2>Why it stays out of your way.</h2>
-                <p class="section-sub">Three choices do most of the work — all in service of one thing: you never lose your place.</p>
-
-                <div class="trio">
-                    <div class="feature">
-                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
-                        <h3>Smooth, animated zoom</h3>
-                        <p>The view eases toward its target instead of snapping — fluid, not jarring.</p>
-                    </div>
-                    <div class="feature">
-                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
-                        <h3>Zooms into your cursor</h3>
-                        <p>The point under your mouse stays put while everything magnifies around it. No jumping to a corner and hunting.</p>
-                    </div>
-                    <div class="feature">
-                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/><polygon points="16,9 20,20 16,17 12,20" fill="currentColor" stroke="none"/></svg>
-                        <h3>Calm, steady panning</h3>
-                        <p>The view holds still until you near an edge, then glides. No constant drift while you read.</p>
-                    </div>
-                </div>
-
-                <ul class="feature-list" aria-label="Also included">
-                    <li><svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><polyline points="6,17 13,24 26,9"/></svg> Simple controls — one key and your wheel</li>
-                    <li><svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><polyline points="6,17 13,24 26,9"/></svg> Nothing to configure</li>
-                    <li><svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><polyline points="6,17 13,24 26,9"/></svg> Light &amp; dark aware</li>
-                    <li><svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><polyline points="6,17 13,24 26,9"/></svg> Multi-monitor aware</li>
-                    <li><svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><polyline points="6,17 13,24 26,9"/></svg> Private &amp; offline</li>
-                </ul>
-            </div>
-        </section>
-
-        <!-- 5 · Simple to use / how it works -->
+        <!-- 3 · How it works — device-toggled gesture animation + control cards -->
         <section id="how" class="section">
             <div class="container">
                 <h2>One key and your mouse wheel. That’s the whole interface.</h2>
-                <p class="section-sub">Nothing to configure. It works the moment you install it.</p>
+                <p class="section-sub">It works the moment you install it with nothing to configure.</p>
 
                 <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
                      copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
@@ -179,140 +131,95 @@
                     </div>
                 </div>
 
+                <!-- The cards follow the Desktop/Laptop toggle above (CSS :has() on #how,
+                     next to the howto-pane rules). Pan is two cards: same gesture, but
+                     "mouse" only makes sense on desktop — laptops say "cursor". -->
                 <div class="controls">
-                    <div class="control">
+                    <div class="control control-desktop">
                         <span class="kbd">Ctrl + Scroll&nbsp;↑</span>
                         <p><strong>Zoom in</strong> — magnify smoothly toward your cursor.</p>
                     </div>
-                    <div class="control">
+                    <div class="control control-desktop">
                         <span class="kbd">Ctrl + Scroll&nbsp;↓</span>
                         <p><strong>Zoom out</strong> — ease back out with the same gentle motion.</p>
                     </div>
-                    <div class="control">
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + Plus / Minus</span>
+                        <p><strong>Zoom from the keyboard</strong> — hold to keep zooming. No mouse wheel needed.</p>
+                    </div>
+                    <div class="control control-desktop">
                         <span class="kbd">Ctrl + Shift + Scroll&nbsp;↓</span>
                         <p><strong>Reset</strong> — snap instantly to normal (1×) when you need it.</p>
                     </div>
-                    <div class="control">
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 0</span>
+                        <p><strong>Reset</strong> — snap instantly back to normal (1×).</p>
+                    </div>
+                    <div class="control control-desktop">
                         <span class="kbd">Move the mouse</span>
                         <p><strong>Pan</strong> — move toward a screen edge and the view glides to follow.</p>
                     </div>
-                    <div class="control">
-                        <span class="kbd">Ctrl + Alt + Plus / Minus</span>
-                        <p><strong>Zoom from the keyboard</strong> — hold to keep zooming. Perfect for laptops with a trackpad instead of a mouse wheel.</p>
-                    </div>
-                    <div class="control">
-                        <span class="kbd">Ctrl + Alt + 0</span>
-                        <p><strong>Reset from the keyboard</strong> — snap instantly back to normal (1×).</p>
-                    </div>
-                </div>
-
-                <div class="steps">
-                    <div class="step">
-                        <span class="step-num" aria-hidden="true">1</span>
-                        <div>
-                            <h3>Install and launch</h3>
-                            <p>A magnifier icon sits quietly in your system tray.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <span class="step-num" aria-hidden="true">2</span>
-                        <div>
-                            <h3>Hold Ctrl and scroll</h3>
-                            <p>Zoom in any window, system-wide. On a trackpad, press Ctrl + Alt + Plus instead.</p>
-                        </div>
-                    </div>
-                    <div class="step">
-                        <span class="step-num" aria-hidden="true">3</span>
-                        <div>
-                            <h3>Set and forget</h3>
-                            <p>It starts with Windows by default (you can turn that off), so it’s there whenever you need it.</p>
-                        </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Move the cursor</span>
+                        <p><strong>Pan</strong> — move toward a screen edge and the view glides to follow.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- 6 · Trust, privacy & safety -->
-        <section id="trust" class="section section-alt">
+        <!-- 4 · Why it's better — the perceptual case (see the app repo's
+             docs/why-smooth-zoom-helps-low-vision.md for sourcing and the
+             language guardrails: experience & design claims only, nothing
+             medical) mixed with the technical/trust facts. -->
+        <section id="why" class="section section-alt">
             <div class="container">
-                <h2>Safe to install. Private by design.</h2>
-                <p class="section-sub">Built to be calm and trustworthy — for you, and for anyone you set it up for.</p>
+                <h2>Why it&rsquo;s better: it never makes you re-find your place.</h2>
+                <p class="section-sub">Most magnifiers move in sudden jumps, and every jump forces your eyes to stop and hunt for where they were. Low Vision Zoom moves smoothly and continuously.</p>
 
                 <div class="trust-cards">
                     <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
+                        <h3>Motion your eyes can ride</h3>
+                        <p>When a magnifier snaps, your eyes have to leap after it and re-find what they were reading. Here, every change is animated at 60 frames per second, so your eyes glide along with it instead of chasing it.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
+                        <h3>Your anchor never moves</h3>
+                        <p>The zoom pivots around the exact point under your cursor. That point stays fixed while everything grows around it. You choose your anchor simply by pointing at what matters.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="11" y="11" width="10" height="10" rx="2"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg>
+                        <h3>One scene, not a new screen</h3>
+                        <p>Each frame is a small step from the last, so the view reads as the same page smoothly growing, never a new screen replacing the old one. Nothing vanishes, so there&rsquo;s nothing to re-find.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><line x1="4" y1="16" x2="28" y2="16"/><circle cx="19" cy="16" r="4"/></svg>
+                        <h3>You set the pace</h3>
+                        <p>Zoom is proportional: exactly as far and as fast as you scroll, and you can stop or reverse mid-motion. Motion you start yourself is motion your eyes can predict.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="10" width="12" height="12" rx="2"/><polyline points="6,13 3,16 6,19"/><polyline points="26,13 29,16 26,19"/></svg>
+                        <h3>Still while you read</h3>
+                        <p>The view holds perfectly still while your cursor roams the middle of the screen, and only glides when you approach an edge. No constant drift underneath your reading.</p>
+                    </div>
+                    <div class="trust-card">
                         <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
-                        <h3>Signed &amp; legitimate</h3>
-                        <p>The installer is signed and installs like normal Windows software, so clicks land correctly even while zoomed.</p>
-                    </div>
-                    <div class="trust-card">
-                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="6" y="14" width="20" height="14" rx="2"/><path d="M10 14v-4a6 6 0 0 1 12 0v4"/></svg>
-                        <h3>Nothing leaves your PC</h3>
-                        <p>No account, no ads, no analytics, no tracking. Everything runs locally. Read the <a href="privacy.html">privacy policy</a>.</p>
-                    </div>
-                    <div class="trust-card">
-                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="13"/><polyline points="16,8 16,16 21,19"/></svg>
-                        <h3>It never strands you</h3>
-                        <p>After the trial, magnification is simply limited, never switched off — your screen always stays readable.</p>
+                        <h3>Solid Windows engineering</h3>
+                        <p>Built on Windows&rsquo; own Magnification API with its own 60&nbsp;fps animation engine. Signed installer, clicks land correctly while zoomed, and everything runs locally. Nothing leaves your PC.</p>
                     </div>
                 </div>
 
-                <p class="requirements-line">Windows 10 (1809+) or 11, 64-bit · self-contained installer · nothing else to download.</p>
+                <p class="requirements-line">Made for Windows 11, 64-bit (x64) · self-contained installer, nothing else to download · ARM support coming soon.</p>
 
                 <div class="good-to-know">
-                    <p><strong>Good to know:</strong> Low Vision Zoom uses the built-in Windows Magnification API. Clicking correctly while zoomed relies on a signed install in Program Files — handled automatically by the installer.</p>
+                    <p><strong>Good to know:</strong> vision researchers call it <em>change blindness</em>: when a view changes during a visual interruption, it&rsquo;s easy to miss what moved and lose what you were tracking. A magnifier that jumps recreates that interruption all day long. One that glides never gives your eyes a gap to lose your place in.</p>
                 </div>
 
                 <p class="parent-callout">Setting it up for a parent or someone you help? It installs once and needs no fiddling. <a href="pricing.html#organizations">Volume licensing →</a></p>
             </div>
         </section>
 
-        <!-- 7 · Pricing / get it -->
-        <section id="get" class="section">
-            <div class="container">
-                <h2>Try it free. Keep it for $9.99, once.</h2>
-                <p class="section-sub">A full 7-day trial. If it’s right for you, one $9.99 payment keeps it — no subscription, every future update included.</p>
-                <div class="pricing-wrap">
-                    <div class="price-card">
-                        <div class="price-amount">$9<span class="cents">.99</span></div>
-                        <p class="price-period">one-time license · 7-day free trial</p>
-                        <ul class="price-list">
-                            <li>Full features free for 7 days</li>
-                            <li>$9.99 once — no subscription</li>
-                            <li>All future updates included</li>
-                            <li>30-day money-back guarantee</li>
-                        </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
-                        <p class="cta-reassure">Free 7-day trial. No account, no payment to start.</p>
-                        <a href="buy.html?checkout=1" class="btn btn-quiet btn-lg">Buy a license — $9.99</a>
-                        <p class="price-fineprint"><a href="pricing.html">See full pricing</a></p>
-                    </div>
-                </div>
-
-                <!-- First-run SmartScreen guidance — shown right after the download CTA -->
-                <aside class="install-note" aria-labelledby="smartscreen-heading">
-                    <h3 id="smartscreen-heading">After you download: Windows may show a blue warning</h3>
-                    <p>The first time you open the installer, Windows may show a full-screen blue
-                    <strong>“Windows protected your PC”</strong> message. <strong>This is normal and the app is safe.</strong>
-                    It happens because Low Vision Zoom is a brand-new app — Windows hasn’t seen it enough times yet to
-                    recognize it. The installer is digitally signed by <strong>txtbook&nbsp;LLC</strong>, our company.</p>
-                    <p class="install-note-steps-lead">To continue:</p>
-                    <ol class="install-note-steps">
-                        <li>Click <strong>More info</strong> on the blue screen.</li>
-                        <li>Check that the publisher line includes <strong>txtbook LLC</strong>.</li>
-                        <li>Click the <strong>Run anyway</strong> button that appears, and the installer opens as usual.</li>
-                    </ol>
-                    <figure class="install-note-figure">
-                        <img src="media/smartscreen-help.png" width="640"
-                             alt="The blue ‘Windows protected your PC’ screen. After clicking ‘More info,’ a ‘Run anyway’ button appears at the bottom — click it to continue." />
-                        <figcaption>Click <strong>More info</strong>, then <strong>Run anyway</strong>.</figcaption>
-                    </figure>
-                    <p class="install-note-foot">This warning fades on its own over the coming weeks as more people install the app. You only need to do this once.</p>
-                </aside>
-            </div>
-        </section>
-
-        <!-- 8 · FAQ -->
+        <!-- 5 · FAQ (includes the first-run SmartScreen guidance) -->
         <section id="faq" class="section section-alt">
             <div class="container">
                 <h2>Frequently asked questions</h2>
@@ -329,9 +236,26 @@
                         <summary>How is this different from the built-in Windows Magnifier?</summary>
                         <div class="faq-body"><p>Windows includes a capable magnifier, and many people should try it first. Low Vision Zoom focuses on a smoother, calmer feel: gentle animated zoom (no snapping), zoom centered on your cursor, steady dead-zone panning, and a stay-out-of-the-way tray interface for quick, frequent adjustments.</p></div>
                     </details>
-                    <details class="faq">
+                    <!-- Carries the full first-run SmartScreen guidance (formerly its own
+                         aside under the on-page download CTA, now retired); the
+                         install-note-* classes style the steps and figure here too. -->
+                    <details class="faq" id="faq-smartscreen">
                         <summary>Will Windows warn me when I install it?</summary>
-                        <div class="faq-body"><p>The first time you open it, Windows may show a blue <strong>“Windows protected your PC”</strong> screen. This is normal and the app is safe — it appears because Low Vision Zoom is new, not because anything’s wrong. The installer is digitally signed by <strong>txtbook&nbsp;LLC</strong>, our company; click <strong>More info</strong> on that screen, then <strong>Run anyway</strong>. See the <a href="#get">step-by-step screenshot above</a>. The warning fades on its own as more people install the app, and you only need to do this once. It installs per-machine to Program Files, which is also what lets clicks land correctly while zoomed.</p></div>
+                        <div class="faq-body">
+                            <p>The first time you open the installer, Windows may show a full-screen blue <strong>“Windows protected your PC”</strong> message. <strong>This is normal and the app is safe.</strong> It happens because Low Vision Zoom is a brand-new app — Windows hasn’t seen it enough times yet to recognize it. The installer is digitally signed by <strong>txtbook&nbsp;LLC</strong>, our company.</p>
+                            <p class="install-note-steps-lead">To continue:</p>
+                            <ol class="install-note-steps">
+                                <li>Click <strong>More info</strong> on the blue screen.</li>
+                                <li>Check that the publisher line includes <strong>txtbook LLC</strong>.</li>
+                                <li>Click the <strong>Run anyway</strong> button that appears, and the installer opens as usual.</li>
+                            </ol>
+                            <figure class="install-note-figure">
+                                <img src="media/smartscreen-help.png" width="640" loading="lazy"
+                                     alt="The blue ‘Windows protected your PC’ screen. After clicking ‘More info,’ a ‘Run anyway’ button appears at the bottom — click it to continue." />
+                                <figcaption>Click <strong>More info</strong>, then <strong>Run anyway</strong>.</figcaption>
+                            </figure>
+                            <p>The warning fades on its own over the coming weeks as more people install the app, and you only need to do this once. It installs per-machine to Program Files, which is also what lets clicks land correctly while zoomed.</p>
+                        </div>
                     </details>
                     <details class="faq">
                         <summary>Does my purchase data stay private?</summary>
@@ -349,10 +273,10 @@
             </div>
         </section>
 
-        <!-- 9 · Quiet CTA band -->
+        <!-- 6 · Quiet CTA band -->
         <section class="cta-band">
             <div class="container">
-                <h2>Magnification that stays out of your way.</h2>
+                <h2>The best screen magnifier for Windows users with low vision.</h2>
                 <p>7-day free trial · $9.99 one-time · no subscription</p>
                 <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
                 <a href="#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
@@ -375,7 +299,7 @@
                 <div>
                     <h4>Product</h4>
                     <ul>
-                        <li><a href="#different">Why it’s different</a></li>
+                        <li><a href="#why">Why it’s better</a></li>
                         <li><a href="#how">How it works</a></li>
                         <li><a href="pricing.html">Pricing</a></li>
                         <li><a href="#faq">FAQ</a></li>
