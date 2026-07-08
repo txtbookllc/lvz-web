@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoom: مكبّر شاشة هادئ لنظام Windows. يتحرك المشهد بسلاسة ويدور حول ما تشير إليه، فلا تفقد مكانك أبدًا. تجربة مجانية لمدة 7 أيام، ثم ترخيص بدفعة واحدة قدرها $9.99. بلا اشتراك، بلا إعلانات، ولا نجمع أي بيانات.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <meta property="og:title" content="Low Vision Zoom — تكبير سلس للشاشة على Windows">
+    <meta property="og:description" content="يكبّر الشاشة بسلاسة، فلا تفقد مكانك أبدًا. اضغط باستمرار على Ctrl ومرّر عجلة الفأرة للتكبير في أي مكان في Windows. تجربة مجانية لمدة 7 أيام، ثم $9.99 مرة واحدة. خصوصية تامة، يعمل دون اتصال، بلا اشتراك.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ar_AR">
+    <meta property="og:url" content="https://lowvisionzoom.com/ar/">
+    <meta property="og:image" content="https://lowvisionzoom.com/media/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="شعار Low Vision Zoom — عدسة مكبّرة بداخلها علامة زائد — مع العبارة: أفضل مكبّر شاشة لمستخدمي Windows من ذوي ضعف البصر">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Low Vision Zoom — تكبير سلس للشاشة على Windows</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ar/">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/">
+</head>
+<body>
+    <a href="#main" class="skip-link">تخطَّ إلى المحتوى</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ar/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="الرئيسي">
+                <a href="#demo">شاهد العرض التوضيحي</a>
+                <a href="#how">كيف يعمل</a>
+                <a href="#why">لماذا هو أفضل</a>
+                <a href="/ar/pricing.html">الأسعار</a>
+                <a href="#get" data-download class="btn btn-secondary btn-nav">تنزيل</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="اللغة: العربية">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>العربية</span>
+                </summary>
+                <ul>
+                    <li><a href="/index.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/index.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/index.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/index.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/index.html" data-lang="ar" lang="ar" hreflang="ar" aria-current="true">العربية</a></li>
+                    <li><a href="/ja/index.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/index.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/index.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/index.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/index.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/index.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/index.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/index.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/index.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/index.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/index.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/index.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/index.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/index.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- 1 · Hero + controls animation -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>أفضل مكبّر شاشة<br> لمستخدمي Windows<br> من ذوي ضعف البصر</h1>
+                    <p class="lead">أداة تكبير سلسة وبسيطة مصمَّمة لتساعد عينيك على متابعة ما تقرأه</p>
+                    <div class="hero-buttons">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="#get" data-download class="btn btn-primary btn-lg">تنزيل لنظام Windows</a>
+                    </div>
+                </div>
+
+                <!-- Experiment: desktop controls animation instead of the motion demo video,
+                     to lead with how simple the app is. Previous video block is in git history.
+                     The panel stretches to match hero-content (title top → download button bottom),
+                     which is why the trust chips live outside hero-content in their own grid row. -->
+                <div class="hero-anim">
+                    <img src="/media/howto-desktop-hero.svg" width="520" height="280"
+                         alt="رسم متحرك: إصبع يضغط باستمرار على مفتاح Ctrl بينما تدور عجلة الفأرة إلى الأمام للتكبير ثم إلى الخلف للتصغير.">
+                </div>
+
+                <ul class="trust" aria-label="ما يمكنك توقعه">
+                    <li>تجربة مجانية 7 أيام</li>
+                    <li>$9.99 مرة واحدة</li>
+                    <li>بلا اشتراك</li>
+                    <li>بلا حساب</li>
+                    <li class="trust-break" aria-hidden="true"></li>
+                    <li>بلا إعلانات</li>
+                    <li>لا نجمع أي بيانات</li>
+                    <li>يعمل دون اتصال</li>
+                </ul>
+            </div>
+
+            <!-- Scroll cue: invites the visitor past the fold to the demo.
+                 Duplicates the nav link on purpose; the arrow bob is killed
+                 by the global prefers-reduced-motion rule. -->
+            <a href="#demo" class="scroll-cue">
+                <span>شاهد العرض التوضيحي</span>
+                <svg class="scroll-cue-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,9 12,17 19,9"/></svg>
+            </a>
+        </section>
+
+        <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
+             into view (see site.js §3); pauses when scrolled away. Motion-safe:
+             under prefers-reduced-motion it never autoplays — the poster shows
+             until the visitor presses Play. hero-demo.{webm,mp4} are the
+             bandwidth-friendly re-encodes of media/hero.mp4. -->
+        <section id="demo" class="demo-full section-alt" aria-labelledby="demo-heading">
+            <h2 id="demo-heading" class="visually-hidden">شاهد Low Vision Zoom أثناء العمل</h2>
+            <div class="demo-full-stage">
+                <video class="demo-full-video" muted loop playsinline preload="metadata"
+                       poster="/media/hero-demo-poster.webp"
+                       aria-label="تسجيل شاشة: Low Vision Zoom يكبّر سطح مكتب Windows بسلاسة، متحركًا برفق حول المؤشر بينما يقرأ المستخدم وينقر.">
+                    <source src="/media/hero-demo.webm" type='video/webm; codecs="av01.0.08M.08"'>
+                    <source src="/media/hero-demo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="demo-toggle demo-full-toggle" data-label-play="تشغيل العرض" data-label-pause="إيقاف العرض مؤقتًا" hidden aria-pressed="false"></button>
+            </div>
+        </section>
+
+        <!-- 3 · How it works — device-toggled gesture animation + control cards -->
+        <section id="how" class="section">
+            <div class="container">
+                <h2>مفتاح واحد وعجلة الفأرة. هذه هي الواجهة بأكملها.</h2>
+                <p class="section-sub">يعمل من لحظة تثبيته، دون أي شيء يحتاج إلى ضبط.</p>
+
+                <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
+                     copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
+                     don't edit media/howto-*.svg by hand. -->
+                <div class="howto-anim">
+                    <fieldset class="howto-switch">
+                        <legend class="visually-hidden">اعرض إيماءة التكبير المناسبة لنوع جهازك</legend>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="desktop" checked>
+                            <span>مستخدمو الحاسوب المكتبي</span>
+                        </label>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="laptop">
+                            <span>مستخدمو الحاسوب المحمول</span>
+                        </label>
+                    </fieldset>
+                    <div class="howto-pane howto-pane-desktop">
+                        <img src="/media/howto-desktop.svg" width="520" height="250"
+                             alt="رسم متحرك: إصبع يضغط باستمرار على مفتاح Ctrl بينما تدور عجلة الفأرة إلى الأمام للتكبير ثم إلى الخلف للتصغير.">
+                        <p class="demo-caption">اضغط باستمرار على <strong>Ctrl</strong> ومرّر العجلة — إلى الأمام للتكبير، وإلى الخلف للتصغير.</p>
+                    </div>
+                    <div class="howto-pane howto-pane-laptop">
+                        <img src="/media/howto-laptop.svg" width="520" height="250"
+                             alt="رسم متحرك: مع الضغط باستمرار على Ctrl وAlt، يضغط إصبع على مفتاح الزائد (+) للتكبير ثم على مفتاح الناقص (−) للتصغير.">
+                        <p class="demo-caption">اضغط باستمرار على <strong>Ctrl + Alt</strong> ثم اضغط <strong>+</strong> أو <strong>−</strong> — دون الحاجة إلى عجلة فأرة.</p>
+                    </div>
+                </div>
+
+                <!-- The cards follow the Desktop/Laptop toggle above (CSS :has() on #how,
+                     next to the howto-pane rules). Pan is two cards: same gesture, but
+                     "mouse" only makes sense on desktop — laptops say "cursor". -->
+                <div class="controls">
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + تمرير&nbsp;↑</span>
+                        <p><strong>تكبير</strong> — كبّر الشاشة بسلاسة نحو المؤشر.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + تمرير&nbsp;↓</span>
+                        <p><strong>تصغير</strong> — ارجع للخلف بالحركة اللطيفة نفسها.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + زائد / ناقص</span>
+                        <p><strong>كبّر من لوحة المفاتيح</strong> — استمر بالضغط لمواصلة التكبير. لا حاجة إلى عجلة فأرة.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Shift + تمرير&nbsp;↓</span>
+                        <p><strong>إعادة الضبط</strong> — عُد فورًا إلى الحجم الطبيعي (1×) متى احتجت إلى ذلك.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 0</span>
+                        <p><strong>إعادة الضبط</strong> — عُد فورًا إلى الحجم الطبيعي (1×).</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">حرّك الفأرة</span>
+                        <p><strong>تحريك المشهد</strong> — تحرّك نحو حافة الشاشة فينزلق المشهد ليتبعك.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">حرّك المؤشر</span>
+                        <p><strong>تحريك المشهد</strong> — تحرّك نحو حافة الشاشة فينزلق المشهد ليتبعك.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Why it's better — the perceptual case (see the app repo's
+             docs/why-smooth-zoom-helps-low-vision.md for sourcing and the
+             language guardrails: experience & design claims only, nothing
+             medical) mixed with the technical/trust facts. -->
+        <section id="why" class="section section-alt">
+            <div class="container">
+                <h2>لماذا هو أفضل: لا يجبرك أبدًا على البحث عن مكانك من جديد.</h2>
+                <p class="section-sub">معظم المكبّرات تتحرك بقفزات مفاجئة، وكل قفزة تجبر عينيك على التوقف والبحث عن الموضع الذي كانتا فيه. أما Low Vision Zoom فيتحرك بسلاسة وبلا انقطاع.</p>
+
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
+                        <h3>حركة تستطيع عيناك مجاراتها</h3>
+                        <p>عندما يقفز المكبّر فجأة، تضطر عيناك إلى اللحاق به والبحث من جديد عمّا كانتا تقرآنه. هنا، كل تغيير متحرك بمعدل 60 إطارًا في الثانية، فتنساب عيناك معه بدلًا من مطاردته.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
+                        <h3>نقطة ارتكازك لا تتحرك أبدًا</h3>
+                        <p>يدور التكبير حول النقطة الواقعة تحت المؤشر تمامًا. تبقى تلك النقطة ثابتة بينما يكبر كل شيء حولها. أنت تختار نقطة ارتكازك ببساطة بالإشارة إلى ما يهمك.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="11" y="11" width="10" height="10" rx="2"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg>
+                        <h3>مشهد واحد، لا شاشة جديدة</h3>
+                        <p>كل إطار خطوة صغيرة عن سابقه، فيبدو المشهد كأنه الصفحة نفسها تكبر بسلاسة، لا شاشة جديدة تحل محل القديمة. لا شيء يختفي، فلا شيء تضطر إلى البحث عنه من جديد.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><line x1="4" y1="16" x2="28" y2="16"/><circle cx="19" cy="16" r="4"/></svg>
+                        <h3>أنت من يحدد الإيقاع</h3>
+                        <p>التكبير تناسبي: بقدر ما تمرّر وبسرعة تمريرك تمامًا، ويمكنك التوقف أو عكس الاتجاه في منتصف الحركة. الحركة التي تبدؤها بنفسك حركة تستطيع عيناك توقّعها.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="10" width="12" height="12" rx="2"/><polyline points="6,13 3,16 6,19"/><polyline points="26,13 29,16 26,19"/></svg>
+                        <h3>ثبات تام أثناء القراءة</h3>
+                        <p>يظل المشهد ثابتًا تمامًا بينما يتجول المؤشر في منتصف الشاشة، ولا ينزلق إلا عندما تقترب من إحدى الحواف. لا انجراف مستمر تحت ما تقرأه.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
+                        <h3>هندسة Windows متينة</h3>
+                        <p>مبني على واجهة Magnification API الخاصة بنظام Windows نفسه، مع محرك حركة يعمل بمعدل 60&nbsp;إطارًا في الثانية. مثبّت موقَّع رقميًا، والنقرات تصل إلى موضعها الصحيح أثناء التكبير، وكل شيء يعمل محليًا. لا شيء يغادر جهازك.</p>
+                    </div>
+                </div>
+
+                <p class="requirements-line">مصمَّم لنظام Windows 11، معمارية 64 بت (x64) · مثبّت مكتفٍ بذاته، لا شيء آخر تحتاج إلى تنزيله · دعم ARM قادم قريبًا.</p>
+
+                <div class="good-to-know">
+                    <p><strong>معلومة مفيدة:</strong> يسميه باحثو الإبصار <em>العمى التغيّري</em> (change blindness): عندما يتغير المشهد أثناء انقطاع بصري، يسهل أن يفوتك ما تحرك وأن تفقد ما كنت تتابعه. المكبّر الذي يقفز يعيد خلق ذلك الانقطاع طوال اليوم. أما المكبّر الذي ينساب فلا يترك لعينيك أي فجوة تفقدان فيها مكانهما.</p>
+                </div>
+
+                <p class="parent-callout">هل تجهّزه لأحد والديك أو لشخص تساعده؟ يُثبَّت مرة واحدة ولا يحتاج إلى أي عناء. <a href="/ar/pricing.html#organizations">التراخيص الجماعية ←</a></p>
+            </div>
+        </section>
+
+        <!-- 5 · FAQ (includes the first-run SmartScreen guidance) -->
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <h2>الأسئلة الشائعة</h2>
+                <div class="faq-list">
+                    <details class="faq">
+                        <summary>كم يكلّف؟</summary>
+                        <div class="faq-body"><p>يمكنك تجربة Low Vision Zoom مجانًا لمدة 7 أيام بكل مزاياه مفتوحة. بعد ذلك، يبقيه ترخيص بدفعة واحدة قدرها <strong>$9.99</strong> يعمل — بلا اشتراك، مع تضمين جميع التحديثات المستقبلية. راجع <a href="/ar/pricing.html">صفحة الأسعار</a>.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>ماذا يحدث عند انتهاء الفترة التجريبية؟</summary>
+                        <div class="faq-body"><p>يستمر التطبيق في العمل — يُحدّ التكبير فقط إلى أن تُدخل مفتاح ترخيص، فتبقى شاشتك دائمًا مقروءة بما يكفي للتنقل والشراء. أدخل المفتاح في أي وقت لاستعادة التكبير الكامل فورًا؛ لا حاجة إلى إعادة التثبيت.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>ما الفرق بينه وبين «المكبّر» المدمج في Windows؟</summary>
+                        <div class="faq-body"><p>يتضمن Windows مكبّرًا جيدًا، وننصح كثيرين بتجربته أولًا. يركّز Low Vision Zoom على إحساس أكثر سلاسة وهدوءًا: تكبير متحرك لطيف (بلا قفزات)، وتكبير يتمحور حول المؤشر، وتحريك ثابت للمشهد بمنطقة سكون، وواجهة في علبة النظام لا تعترض طريقك، للتعديلات السريعة والمتكررة.</p></div>
+                    </details>
+                    <!-- Carries the full first-run SmartScreen guidance (formerly its own
+                         aside under the on-page download CTA, now retired); the
+                         install-note-* classes style the steps and figure here too. -->
+                    <details class="faq" id="faq-smartscreen">
+                        <summary>هل سيحذّرني Windows عند تثبيته؟</summary>
+                        <div class="faq-body">
+                            <p>في المرة الأولى التي تفتح فيها المثبّت، قد يعرض Windows شاشة زرقاء بملء الشاشة بعنوان <strong>«قام Windows بحماية الكمبيوتر الخاص بك»</strong> (بالإنجليزية: "Windows protected your PC"). <strong>هذا أمر طبيعي والتطبيق آمن.</strong> يحدث ذلك لأن Low Vision Zoom تطبيق جديد تمامًا — لم يرَه Windows بعدُ مراتٍ كافية ليتعرّف عليه. المثبّت موقَّع رقميًا من <strong>txtbook&nbsp;LLC</strong>، شركتنا.</p>
+                            <p class="install-note-steps-lead">للمتابعة:</p>
+                            <ol class="install-note-steps">
+                                <li>انقر على <strong>مزيد من المعلومات</strong> (More info) في الشاشة الزرقاء.</li>
+                                <li>تأكد من أن سطر الناشر يتضمن <strong>txtbook LLC</strong>.</li>
+                                <li>انقر على زر <strong>التشغيل على أي حال</strong> (Run anyway) الذي يظهر، فيُفتح المثبّت كالمعتاد.</li>
+                            </ol>
+                            <figure class="install-note-figure">
+                                <img src="/media/smartscreen-help.png" width="640" loading="lazy"
+                                     alt="الشاشة الزرقاء «قام Windows بحماية الكمبيوتر الخاص بك». بعد النقر على «مزيد من المعلومات»، يظهر زر «التشغيل على أي حال» في الأسفل — انقر عليه للمتابعة." />
+                                <figcaption>انقر على <strong>مزيد من المعلومات</strong>، ثم على <strong>التشغيل على أي حال</strong>.</figcaption>
+                            </figure>
+                            <p>يتلاشى هذا التحذير من تلقاء نفسه خلال الأسابيع القادمة مع تزايد عدد من يثبّتون التطبيق، ولن تحتاج إلى فعل ذلك إلا مرة واحدة. يُثبَّت التطبيق على مستوى الجهاز في Program Files، وهذا أيضًا ما يجعل النقرات تصل إلى موضعها الصحيح أثناء التكبير.</p>
+                        </div>
+                    </details>
+                    <details class="faq">
+                        <summary>هل تبقى بيانات شرائي خاصة؟</summary>
+                        <div class="faq-body"><p>نعم. التطبيق نفسه لا يجمع أي شيء ويعمل دون اتصال (<a href="/privacy.html">سياسة الخصوصية (بالإنجليزية)</a>). تُعالَج عمليات الشراء عبر مزوّد الدفع لدينا، Paddle، الذي يعمل بصفته البائع المسجَّل (merchant of record)؛ ولا يطّلع التطبيق أبدًا على بيانات الدفع الخاصة بك.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>هل تقدّمون استرداد الأموال؟</summary>
+                        <div class="faq-body"><p>نعم — هناك ضمان استرداد المال خلال 30 يومًا، إضافةً إلى الفترة التجريبية المجانية. راجع <a href="/refund.html">سياسة الاسترداد (بالإنجليزية)</a>.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>هل يمكن للمؤسسات شراء تراخيص متعددة؟</summary>
+                        <div class="faq-body"><p>نعم. يمكن للمدارس والعيادات والمكتبات وأصحاب العمل طلب تراخيص جماعية وفوترة — استخدموا <a href="/ar/contact.html?topic=volume">نموذج التواصل</a>.</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 · Quiet CTA band -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>أفضل مكبّر شاشة لمستخدمي Windows من ذوي ضعف البصر.</h2>
+                <p>تجربة مجانية 7 أيام · $9.99 مرة واحدة · بلا اشتراك</p>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="#get" data-download class="btn btn-primary btn-lg">تنزيل لنظام Windows</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>أفضل مكبّر شاشة لمستخدمي Windows من ذوي ضعف البصر</p>
+                    <p>&nbsp;</p>
+                    <p>منتج من txtbook&nbsp;LLC</p>
+                    <p>&nbsp;</p>
+                    <p>4601 E. Douglas Ave. STE 150</p>
+                    <p>Wichita, KS 67218</p>
+                </div>
+                <div>
+                    <h4>المنتج</h4>
+                    <ul>
+                        <li><a href="#why">لماذا هو أفضل</a></li>
+                        <li><a href="#how">كيف يعمل</a></li>
+                        <li><a href="/ar/pricing.html">الأسعار</a></li>
+                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الشؤون القانونية</h4>
+                    <ul>
+                        <li><a href="/privacy.html">الخصوصية (بالإنجليزية)</a></li>
+                        <li><a href="/terms.html">شروط الخدمة (بالإنجليزية)</a></li>
+                        <li><a href="/refund.html">سياسة الاسترداد (بالإنجليزية)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="/ar/contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

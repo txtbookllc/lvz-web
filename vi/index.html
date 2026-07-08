@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoom: trình phóng to màn hình êm dịu cho Windows. Khung nhìn phóng vào mượt mà và xoay quanh điểm bạn đang trỏ, nên bạn không bao giờ mất dấu vị trí đang đọc. Dùng thử miễn phí 7 ngày, sau đó mua bản quyền trả một lần $9.99. Không thuê bao, không quảng cáo, không thu thập dữ liệu.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <meta property="og:title" content="Low Vision Zoom — phóng to màn hình mượt mà cho Windows">
+    <meta property="og:description" content="Phóng to mượt mà, nên bạn không bao giờ mất dấu vị trí đang đọc. Giữ Ctrl và lăn con lăn chuột để phóng to ở bất cứ đâu trong Windows. Dùng thử miễn phí 7 ngày, $9.99 trả một lần. Riêng tư, hoạt động ngoại tuyến, không thuê bao.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="vi_VN">
+    <meta property="og:url" content="https://lowvisionzoom.com/vi/">
+    <meta property="og:image" content="https://lowvisionzoom.com/media/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logo Low Vision Zoom — một chiếc kính lúp có dấu cộng bên trong — cùng khẩu hiệu: trình phóng to màn hình tốt nhất dành cho người dùng Windows có thị lực kém">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Low Vision Zoom — Phóng to màn hình mượt mà cho Windows</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/vi/">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/">
+</head>
+<body>
+    <a href="#main" class="skip-link">Chuyển đến nội dung</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/vi/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Chính">
+                <a href="#demo">Xem bản demo</a>
+                <a href="#how">Cách hoạt động</a>
+                <a href="#why">Vì sao tốt hơn</a>
+                <a href="/vi/pricing.html">Bảng giá</a>
+                <a href="#get" data-download class="btn btn-secondary btn-nav">Tải xuống</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Ngôn ngữ: Tiếng Việt">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Tiếng Việt</span>
+                </summary>
+                <ul>
+                    <li><a href="/index.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/index.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/index.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/index.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/index.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/index.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/index.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/index.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/index.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/index.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/index.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/index.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/index.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/index.html" data-lang="vi" lang="vi" hreflang="vi" aria-current="true">Tiếng Việt</a></li>
+                    <li><a href="/ru/index.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/index.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/index.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/index.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/index.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- 1 · Hero + controls animation -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Trình phóng to màn hình tốt nhất<br> dành cho người dùng Windows<br> có thị lực kém</h1>
+                    <p class="lead">Một tiện ích thu phóng mượt mà, đơn giản, được thiết kế để mắt bạn dễ dàng dõi theo</p>
+                    <div class="hero-buttons">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="#get" data-download class="btn btn-primary btn-lg">Tải xuống cho Windows</a>
+                    </div>
+                </div>
+
+                <!-- Experiment: desktop controls animation instead of the motion demo video,
+                     to lead with how simple the app is. Previous video block is in git history.
+                     The panel stretches to match hero-content (title top → download button bottom),
+                     which is why the trust chips live outside hero-content in their own grid row. -->
+                <div class="hero-anim">
+                    <img src="/media/howto-desktop-hero.svg" width="520" height="280"
+                         alt="Hoạt ảnh: một ngón tay giữ phím Ctrl trong khi con lăn chuột lăn về phía trước để phóng to, rồi lăn về phía sau để thu nhỏ.">
+                </div>
+
+                <ul class="trust" aria-label="Những gì bạn có thể mong đợi">
+                    <li>Dùng thử 7 ngày miễn phí</li>
+                    <li>$9.99 trả một lần</li>
+                    <li>Không thuê bao</li>
+                    <li>Không cần tài khoản</li>
+                    <li class="trust-break" aria-hidden="true"></li>
+                    <li>Không quảng cáo</li>
+                    <li>Không thu thập dữ liệu</li>
+                    <li>Hoạt động ngoại tuyến</li>
+                </ul>
+            </div>
+
+            <!-- Scroll cue: invites the visitor past the fold to the demo.
+                 Duplicates the nav link on purpose; the arrow bob is killed
+                 by the global prefers-reduced-motion rule. -->
+            <a href="#demo" class="scroll-cue">
+                <span>Xem bản demo</span>
+                <svg class="scroll-cue-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,9 12,17 19,9"/></svg>
+            </a>
+        </section>
+
+        <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
+             into view (see site.js §3); pauses when scrolled away. Motion-safe:
+             under prefers-reduced-motion it never autoplays — the poster shows
+             until the visitor presses Play. hero-demo.{webm,mp4} are the
+             bandwidth-friendly re-encodes of media/hero.mp4. -->
+        <section id="demo" class="demo-full section-alt" aria-labelledby="demo-heading">
+            <h2 id="demo-heading" class="visually-hidden">Xem Low Vision Zoom hoạt động thực tế</h2>
+            <div class="demo-full-stage">
+                <video class="demo-full-video" muted loop playsinline preload="metadata"
+                       poster="/media/hero-demo-poster.webp"
+                       aria-label="Bản ghi màn hình: Low Vision Zoom phóng to mượt mà màn hình nền Windows, nhẹ nhàng phóng vào quanh con trỏ trong khi người dùng đọc và bấm chuột.">
+                    <source src="/media/hero-demo.webm" type='video/webm; codecs="av01.0.08M.08"'>
+                    <source src="/media/hero-demo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="demo-toggle demo-full-toggle" data-label-play="Phát bản demo" data-label-pause="Tạm dừng bản demo" hidden aria-pressed="false"></button>
+            </div>
+        </section>
+
+        <!-- 3 · How it works — device-toggled gesture animation + control cards -->
+        <section id="how" class="section">
+            <div class="container">
+                <h2>Một phím và con lăn chuột. Toàn bộ giao diện chỉ có vậy.</h2>
+                <p class="section-sub">Ứng dụng hoạt động ngay khi bạn cài đặt, không cần thiết lập gì thêm.</p>
+
+                <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
+                     copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
+                     don't edit media/howto-*.svg by hand. -->
+                <div class="howto-anim">
+                    <fieldset class="howto-switch">
+                        <legend class="visually-hidden">Hiển thị thao tác thu phóng cho loại thiết bị của bạn</legend>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="desktop" checked>
+                            <span>Người dùng máy bàn</span>
+                        </label>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="laptop">
+                            <span>Người dùng laptop</span>
+                        </label>
+                    </fieldset>
+                    <div class="howto-pane howto-pane-desktop">
+                        <img src="/media/howto-desktop.svg" width="520" height="250"
+                             alt="Hoạt ảnh: một ngón tay giữ phím Ctrl trong khi con lăn chuột lăn về phía trước để phóng to, rồi lăn về phía sau để thu nhỏ.">
+                        <p class="demo-caption">Giữ <strong>Ctrl</strong> và lăn chuột — lăn về trước để phóng to, lăn về sau để thu nhỏ.</p>
+                    </div>
+                    <div class="howto-pane howto-pane-laptop">
+                        <img src="/media/howto-laptop.svg" width="520" height="250"
+                             alt="Hoạt ảnh: trong khi giữ Ctrl và Alt, một ngón tay nhấn phím Cộng để phóng to, rồi phím Trừ để thu nhỏ.">
+                        <p class="demo-caption">Giữ <strong>Ctrl + Alt</strong> và nhấn <strong>+</strong> hoặc <strong>−</strong> — không cần con lăn chuột.</p>
+                    </div>
+                </div>
+
+                <!-- The cards follow the Desktop/Laptop toggle above (CSS :has() on #how,
+                     next to the howto-pane rules). Pan is two cards: same gesture, but
+                     "mouse" only makes sense on desktop — laptops say "cursor". -->
+                <div class="controls">
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Lăn&nbsp;↑</span>
+                        <p><strong>Phóng to</strong> — phóng đại mượt mà về phía con trỏ của bạn.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Lăn&nbsp;↓</span>
+                        <p><strong>Thu nhỏ</strong> — nhẹ nhàng thu về với cùng chuyển động êm ái.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + Cộng / Trừ</span>
+                        <p><strong>Thu phóng bằng bàn phím</strong> — giữ phím để tiếp tục thu phóng. Không cần con lăn chuột.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Shift + Lăn&nbsp;↓</span>
+                        <p><strong>Đặt lại</strong> — trở về ngay mức bình thường (1×) khi bạn cần.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 0</span>
+                        <p><strong>Đặt lại</strong> — trở về ngay mức bình thường (1×).</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Di chuyển chuột</span>
+                        <p><strong>Di chuyển khung nhìn</strong> — đưa chuột về phía mép màn hình và khung nhìn sẽ lướt theo.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Di chuyển con trỏ</span>
+                        <p><strong>Di chuyển khung nhìn</strong> — đưa con trỏ về phía mép màn hình và khung nhìn sẽ lướt theo.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Why it's better — the perceptual case (see the app repo's
+             docs/why-smooth-zoom-helps-low-vision.md for sourcing and the
+             language guardrails: experience & design claims only, nothing
+             medical) mixed with the technical/trust facts. -->
+        <section id="why" class="section section-alt">
+            <div class="container">
+                <h2>Vì sao tốt hơn: bạn không bao giờ phải tìm lại vị trí đang đọc.</h2>
+                <p class="section-sub">Hầu hết các trình phóng to di chuyển theo từng bước nhảy đột ngột, và mỗi cú nhảy buộc mắt bạn phải dừng lại để tìm xem mình vừa ở đâu. Low Vision Zoom di chuyển mượt mà và liên tục.</p>
+
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
+                        <h3>Chuyển động mà mắt bạn theo kịp</h3>
+                        <p>Khi trình phóng to nhảy giật, mắt bạn phải vọt theo và tìm lại chỗ đang đọc. Ở đây, mọi thay đổi đều được chuyển động hóa ở 60 khung hình mỗi giây, nên mắt bạn lướt đi cùng với nó thay vì phải đuổi theo.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
+                        <h3>Điểm neo của bạn không bao giờ dịch chuyển</h3>
+                        <p>Thao tác thu phóng xoay quanh đúng điểm nằm dưới con trỏ của bạn. Điểm đó đứng yên trong khi mọi thứ xung quanh lớn dần. Bạn chọn điểm neo đơn giản bằng cách trỏ vào thứ mình quan tâm.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="11" y="11" width="10" height="10" rx="2"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg>
+                        <h3>Vẫn một khung cảnh, không phải màn hình mới</h3>
+                        <p>Mỗi khung hình chỉ là một bước nhỏ so với khung trước, nên khung nhìn hiện ra như chính trang đó đang lớn dần một cách mượt mà, chứ không phải một màn hình mới thay thế màn hình cũ. Không có gì biến mất, nên không có gì phải tìm lại.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><line x1="4" y1="16" x2="28" y2="16"/><circle cx="19" cy="16" r="4"/></svg>
+                        <h3>Bạn tự định nhịp độ</h3>
+                        <p>Thu phóng theo đúng tỷ lệ: xa và nhanh đúng bằng mức bạn lăn chuột, và bạn có thể dừng hoặc đảo chiều giữa chừng. Chuyển động do chính bạn khởi phát là chuyển động mắt bạn đoán trước được.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="10" width="12" height="12" rx="2"/><polyline points="6,13 3,16 6,19"/><polyline points="26,13 29,16 26,19"/></svg>
+                        <h3>Đứng yên khi bạn đọc</h3>
+                        <p>Khung nhìn giữ nguyên hoàn toàn trong khi con trỏ của bạn di chuyển ở vùng giữa màn hình, và chỉ lướt đi khi bạn tiến gần một mép. Không có chuyện trôi dạt liên tục bên dưới dòng chữ bạn đang đọc.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
+                        <h3>Nền tảng kỹ thuật Windows vững chắc</h3>
+                        <p>Được xây dựng trên chính Magnification API của Windows với công cụ hoạt ảnh 60&nbsp;fps riêng. Trình cài đặt có chữ ký số, các cú bấm chuột vẫn chính xác khi đang phóng to, và mọi thứ chạy cục bộ. Không có gì rời khỏi PC của bạn.</p>
+                    </div>
+                </div>
+
+                <p class="requirements-line">Dành cho Windows 11, 64-bit (x64) · trình cài đặt độc lập, không cần tải thêm gì · hỗ trợ ARM sẽ sớm ra mắt.</p>
+
+                <div class="good-to-know">
+                    <p><strong>Nên biết:</strong> các nhà nghiên cứu thị giác gọi hiện tượng này là <em>change blindness</em> (mù thay đổi): khi khung nhìn thay đổi trong lúc mắt bị gián đoạn, ta rất dễ bỏ sót thứ vừa dịch chuyển và mất dấu thứ mình đang dõi theo. Một trình phóng to nhảy giật tái tạo sự gián đoạn đó suốt cả ngày. Còn một trình lướt êm thì không bao giờ để mắt bạn có khoảng trống nào khiến lạc mất vị trí.</p>
+                </div>
+
+                <p class="parent-callout">Bạn đang cài đặt giúp cha mẹ hoặc người mà bạn hỗ trợ? Ứng dụng chỉ cần cài một lần và không phải tinh chỉnh gì. <a href="/vi/pricing.html#organizations">Bản quyền số lượng lớn →</a></p>
+            </div>
+        </section>
+
+        <!-- 5 · FAQ (includes the first-run SmartScreen guidance) -->
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <h2>Câu hỏi thường gặp</h2>
+                <div class="faq-list">
+                    <details class="faq">
+                        <summary>Ứng dụng giá bao nhiêu?</summary>
+                        <div class="faq-body"><p>Low Vision Zoom miễn phí dùng thử 7 ngày với đầy đủ mọi tính năng. Sau đó, một lần mua bản quyền <strong>$9.99</strong> giúp ứng dụng tiếp tục hoạt động — không thuê bao, và mọi bản cập nhật tương lai đều được bao gồm. Xem <a href="/vi/pricing.html">trang bảng giá</a>.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Điều gì xảy ra khi hết hạn dùng thử?</summary>
+                        <div class="faq-body"><p>Ứng dụng vẫn tiếp tục hoạt động — mức phóng to chỉ bị giới hạn cho đến khi bạn nhập khóa bản quyền, nên màn hình luôn đủ dễ đọc để bạn thao tác và mua. Nhập khóa bất cứ lúc nào để khôi phục toàn bộ mức thu phóng ngay lập tức; không cần cài lại.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Ứng dụng này khác gì Kính lúp có sẵn của Windows?</summary>
+                        <div class="faq-body"><p>Windows có sẵn một trình phóng to khá tốt, và nhiều người nên thử nó trước. Low Vision Zoom tập trung vào cảm giác mượt mà, êm dịu hơn: thu phóng có hoạt ảnh nhẹ nhàng (không nhảy giật), thu phóng lấy con trỏ làm tâm, di chuyển khung nhìn ổn định với vùng tĩnh, và giao diện nằm gọn ở khay hệ thống cho những lần điều chỉnh nhanh, thường xuyên.</p></div>
+                    </details>
+                    <!-- Carries the full first-run SmartScreen guidance (formerly its own
+                         aside under the on-page download CTA, now retired); the
+                         install-note-* classes style the steps and figure here too. -->
+                    <details class="faq" id="faq-smartscreen">
+                        <summary>Windows có cảnh báo khi tôi cài đặt không?</summary>
+                        <div class="faq-body">
+                            <p>Lần đầu bạn mở trình cài đặt, Windows có thể hiển thị một thông báo màu xanh toàn màn hình <strong>“Windows đã bảo vệ PC của bạn” (Windows protected your PC)</strong>. <strong>Điều này là bình thường và ứng dụng an toàn.</strong> Nó xảy ra vì Low Vision Zoom là một ứng dụng hoàn toàn mới — Windows chưa gặp đủ nhiều lần để nhận diện. Trình cài đặt được ký số bởi <strong>txtbook&nbsp;LLC</strong>, công ty của chúng tôi.</p>
+                            <p class="install-note-steps-lead">Để tiếp tục:</p>
+                            <ol class="install-note-steps">
+                                <li>Bấm <strong>Thông tin thêm</strong> (More info) trên màn hình xanh.</li>
+                                <li>Kiểm tra rằng dòng nhà phát hành có ghi <strong>txtbook LLC</strong>.</li>
+                                <li>Bấm nút <strong>Vẫn chạy</strong> (Run anyway) vừa hiện ra, và trình cài đặt sẽ mở như bình thường.</li>
+                            </ol>
+                            <figure class="install-note-figure">
+                                <img src="/media/smartscreen-help.png" width="640" loading="lazy"
+                                     alt="Màn hình xanh “Windows đã bảo vệ PC của bạn”. Sau khi bấm “Thông tin thêm”, nút “Vẫn chạy” hiện ra ở phía dưới — bấm nút đó để tiếp tục." />
+                                <figcaption>Bấm <strong>Thông tin thêm</strong>, rồi <strong>Vẫn chạy</strong>.</figcaption>
+                            </figure>
+                            <p>Cảnh báo này sẽ tự nhạt dần trong những tuần tới khi có thêm nhiều người cài đặt ứng dụng, và bạn chỉ phải làm việc này một lần. Ứng dụng cài theo từng máy vào Program Files — đây cũng chính là điều giúp các cú bấm chuột chính xác khi đang phóng to.</p>
+                        </div>
+                    </details>
+                    <details class="faq">
+                        <summary>Dữ liệu mua hàng của tôi có được giữ riêng tư không?</summary>
+                        <div class="faq-body"><p>Có. Bản thân ứng dụng không thu thập gì và hoạt động ngoại tuyến (<a href="/privacy.html">chính sách quyền riêng tư (bằng tiếng Anh)</a>). Việc thanh toán do đối tác thanh toán của chúng tôi là Paddle xử lý, với vai trò đơn vị bán hàng chính thức (merchant of record); ứng dụng không bao giờ thấy thông tin thanh toán của bạn.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Có chính sách hoàn tiền không?</summary>
+                        <div class="faq-body"><p>Có — ngoài bản dùng thử miễn phí còn có cam kết hoàn tiền trong 30 ngày. Xem <a href="/refund.html">chính sách hoàn tiền (bằng tiếng Anh)</a>.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Tổ chức có thể mua nhiều bản quyền không?</summary>
+                        <div class="faq-body"><p>Có. Trường học, phòng khám, thư viện và doanh nghiệp có thể yêu cầu mua số lượng lớn kèm hóa đơn — hãy dùng <a href="/vi/contact.html?topic=volume">biểu mẫu liên hệ</a> của chúng tôi.</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 · Quiet CTA band -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>Trình phóng to màn hình tốt nhất dành cho người dùng Windows có thị lực kém.</h2>
+                <p>Dùng thử miễn phí 7 ngày · $9.99 trả một lần · không thuê bao</p>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="#get" data-download class="btn btn-primary btn-lg">Tải xuống cho Windows</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Trình phóng to màn hình tốt nhất dành cho người dùng Windows có thị lực kém</p>
+                    <p>&nbsp;</p>
+                    <p>Một sản phẩm của txtbook&nbsp;LLC</p>
+                    <p>&nbsp;</p>
+                    <p>4601 E. Douglas Ave. STE 150</p>
+                    <p>Wichita, KS 67218</p>
+                </div>
+                <div>
+                    <h4>Sản phẩm</h4>
+                    <ul>
+                        <li><a href="#why">Vì sao tốt hơn</a></li>
+                        <li><a href="#how">Cách hoạt động</a></li>
+                        <li><a href="/vi/pricing.html">Bảng giá</a></li>
+                        <li><a href="#faq">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Pháp lý</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Quyền riêng tư (bằng tiếng Anh)</a></li>
+                        <li><a href="/terms.html">Điều khoản dịch vụ (bằng tiếng Anh)</a></li>
+                        <li><a href="/refund.html">Chính sách hoàn tiền (bằng tiếng Anh)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="/vi/contact.html">Liên hệ với chúng tôi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Bảo lưu mọi quyền.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

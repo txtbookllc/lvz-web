@@ -47,20 +47,23 @@
     var ICON_PLAY  = '<svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5l12 7-12 7z" fill="currentColor" stroke="none"/></svg>';
     var ICON_PAUSE = '<svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="5" width="3.5" height="14" fill="currentColor" stroke="none"/><rect x="13.5" y="5" width="3.5" height="14" fill="currentColor" stroke="none"/></svg>';
 
-    function setToggleState(btn, playing, label) {
+    /* The visible label comes from data-label-pause / data-label-play so each
+       language's page carries its own wording (see i18n/TRANSLATING.md). */
+    function setToggleState(btn, playing) {
+        var label = playing ? (btn.getAttribute("data-label-pause") || "Pause demo")
+                            : (btn.getAttribute("data-label-play") || "Play demo");
         btn.innerHTML = (playing ? ICON_PAUSE : ICON_PLAY) +
-            '<span>' + (playing ? "Pause" : "Play") + " " + label + "</span>";
+            '<span>' + label + "</span>";
         btn.setAttribute("aria-pressed", playing ? "true" : "false");
     }
 
     var demoVideo  = document.querySelector(".demo-full-video");
     var demoToggle = document.querySelector(".demo-full-toggle");
     if (demoVideo && demoToggle) {
-        var label = demoToggle.getAttribute("data-label") || "demo";
         var userPaused = false;
         var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-        var syncToggle = function () { setToggleState(demoToggle, !demoVideo.paused, label); };
+        var syncToggle = function () { setToggleState(demoToggle, !demoVideo.paused); };
         demoVideo.addEventListener("play", syncToggle);
         demoVideo.addEventListener("pause", syncToggle);
 
@@ -93,5 +96,34 @@
                 }
             }, { threshold: 0.35 }).observe(demoVideo);
         }
+    }
+
+    /* ----------------------------------------------------------------------
+       4) Language switcher (header <details class="lang-switch">).
+          Navigation itself is plain links (works without JS); this stores the
+          visitor's explicit choice so English pages' head snippet can honor it
+          on later visits, and adds close-on-outside-click / Escape niceties.
+       ---------------------------------------------------------------------- */
+    var langSwitch = document.querySelector(".lang-switch");
+    if (langSwitch) {
+        langSwitch.addEventListener("click", function (e) {
+            var el = e.target;
+            while (el && el !== langSwitch && !(el.tagName === "A" && el.getAttribute("data-lang"))) {
+                el = el.parentNode;
+            }
+            if (el && el !== langSwitch) {
+                try { localStorage.setItem("lvz-lang", el.getAttribute("data-lang")); } catch (err) {}
+            }
+        });
+        document.addEventListener("click", function (e) {
+            if (langSwitch.open && !langSwitch.contains(e.target)) { langSwitch.open = false; }
+        });
+        document.addEventListener("keydown", function (e) {
+            if (e.key === "Escape" && langSwitch.open) {
+                langSwitch.open = false;
+                var summary = langSwitch.querySelector("summary");
+                if (summary) { summary.focus(); }
+            }
+        });
     }
 })();

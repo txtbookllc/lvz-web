@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoom 라이선스 구매 — $9.99 한 번만 결제, 구독 없음. 라이선스 키는 이메일로 발송됩니다. Paddle의 안전한 결제.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <title>라이선스 구매 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ko/buy.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/buy.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/buy.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/buy.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/buy.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/buy.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/buy.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/buy.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/buy.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/buy.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/buy.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/buy.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/buy.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/buy.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/buy.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/buy.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/buy.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/buy.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/buy.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/buy.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/buy.html">
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">본문으로 건너뛰기</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ko/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="주 메뉴">
+                <a href="/ko/index.html#demo">데모 보기</a>
+                <a href="/ko/index.html#how">사용 방법</a>
+                <a href="/ko/index.html#why">더 나은 이유</a>
+                <a href="/ko/pricing.html">가격</a>
+                <a href="/ko/index.html#get" data-download class="btn btn-secondary btn-nav">다운로드</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="언어: 한국어">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>한국어</span>
+                </summary>
+                <ul>
+                    <li><a href="/buy.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/buy.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/buy.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/buy.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/buy.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/buy.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/buy.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/buy.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/buy.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/buy.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/buy.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/buy.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/buy.html" data-lang="ko" lang="ko" hreflang="ko" aria-current="true">한국어</a></li>
+                    <li><a href="/vi/buy.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/buy.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/buy.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/buy.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/buy.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/buy.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">라이선스 구매</span>
+                <h1>라이선스 구매하기</h1>
+                <p class="updated">$9.99 한 번만 결제 — 구독이 아닙니다. 결제 직후 라이선스 키가 이메일로 발송됩니다.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="pricing-wrap">
+                    <!-- Purchase card (hidden once we land on the success state) -->
+                    <div class="price-card" id="buy-card">
+                        <div class="price-amount">$9<span class="cents">.99</span></div>
+                        <p class="price-period">1회 결제 라이선스 · USD</p>
+                        <ul class="price-list">
+                            <li>전체 확대 잠금 해제 — 기간 제한 없음</li>
+                            <li>$9.99 한 번만 — 한 번 결제하면 영구 소유</li>
+                            <li>구독 없음, 반복 결제 없음</li>
+                            <li>이후 모든 업데이트 포함</li>
+                            <li>계정 불필요</li>
+                            <li>30일 환불 보장</li>
+                        </ul>
+                        <button type="button" id="buy-btn" class="btn btn-primary btn-lg">라이선스 구매 — $9.99</button>
+                        <p class="cta-reassure">결제가 완료되는 즉시 라이선스 키가 이메일로 발송됩니다.</p>
+                        <p class="form-status" id="buy-status" role="status" aria-live="polite"></p>
+                        <div class="form-status is-error" id="buy-help" role="alert" hidden>
+                            <p><strong>보안 결제창이 열리지 않았습니다.</strong> 광고 차단기, 추적 차단기, 엄격한 개인정보 보호 모드(예: Brave Shields, uBlock, AdGuard)가 결제 대행사인 Paddle을 차단할 수 있습니다. 구매하시려면:</p>
+                            <ul class="price-list">
+                                <li>이 페이지에서 광고/추적 차단기를 잠시 끄고 구매 버튼을 다시 클릭하시거나, <em>또는</em></li>
+                                <li>해당 확장 프로그램이 없는 브라우저에서 시도하시거나, <em>또는</em></li>
+                                <li><a href="/ko/contact.html?topic=support">문의해 주시면</a> 안전한 결제 링크를 이메일로 보내드립니다.</li>
+                            </ul>
+                        </div>
+                        <p class="price-fineprint">결제는 판매자(merchant of record)인 <strong>Paddle</strong>이 안전하게 처리합니다. Paddle이 결제와 관련 세금을 처리하며, 앱은 결제 정보를 전혀 보지 못합니다. 구매 시 <a href="/terms.html">이용약관 (영문)</a>과 <a href="/refund.html">환불 정책 (영문)</a>에 동의하게 됩니다.</p>
+
+                        <noscript>
+                            <p class="form-status is-error">보안 결제창을 열려면 JavaScript가 필요합니다. JavaScript를 활성화하고 새로고침하시거나, <a href="/ko/contact.html?topic=general">문의해 주시면</a> 결제 링크를 보내드립니다.</p>
+                        </noscript>
+                    </div>
+                </div>
+
+                <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
+                    아직 사용해 보지 않으셨나요? 다운로드는 모든 기능이 열린 7일 무료 체험입니다 —
+                    <a href="/ko/index.html#get" data-download>먼저 다운로드</a>하시고 준비되셨을 때 구매하세요.
+                </p>
+            </div>
+        </section>
+
+        <!-- Success state — shown after Paddle redirects back with ?state=success -->
+        <section class="section" id="buy-success-section" hidden>
+            <div class="container">
+                <div class="form-success" id="buy-success" tabindex="-1">
+                    <h2>결제 완료 — 감사합니다!</h2>
+                    <p>라이선스 키가 지금 이메일로 발송되고 있습니다. (몇 분 내에 도착하지 않으면 스팸함을 확인해 주세요.)</p>
+                    <h3>Low Vision Zoom을 활성화하려면:</h3>
+                    <ol class="price-list" style="text-align:start">
+                        <li>Low Vision Zoom을 엽니다 (아직 설치 전이라면 아래 버튼으로 먼저 다운로드하세요).</li>
+                        <li>트레이 아이콘을 마우스 오른쪽 버튼으로 클릭하고 “라이선스 키 입력…”을 선택합니다.</li>
+                        <li>이메일로 받은 키를 붙여넣고 <strong>활성화</strong>를 클릭합니다. 전체 확대가 즉시 복원됩니다.</li>
+                    </ol>
+                    <p style="margin-top:var(--s-3)">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="/ko/index.html#get" data-download class="btn btn-primary btn-lg">Windows용 다운로드</a>
+                    </p>
+                    <p class="price-fineprint">이메일이 오지 않았거나 활성화에 도움이 필요하신가요? <a href="/ko/contact.html?topic=support">지원팀에 문의</a>하세요 — 주문 확인서를 준비해 두시면 좋습니다.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows를 위한 차분한 화면 확대 프로그램. txtbook&nbsp;LLC의 제품입니다.</p>
+                </div>
+                <div>
+                    <h4>제품</h4>
+                    <ul>
+                        <li><a href="/ko/index.html#why">더 나은 이유</a></li>
+                        <li><a href="/ko/index.html#how">사용 방법</a></li>
+                        <li><a href="/ko/pricing.html">가격</a></li>
+                        <li><a href="/ko/index.html#faq">자주 묻는 질문</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>법적 고지</h4>
+                    <ul>
+                        <li><a href="/privacy.html">개인정보 처리방침 (영문)</a></li>
+                        <li><a href="/terms.html">서비스 이용약관 (영문)</a></li>
+                        <li><a href="/refund.html">환불 정책 (영문)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>지원</h4>
+                    <ul>
+                        <li><a href="/ko/contact.html">문의하기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* Paddle Billing checkout for the $9.99 one-time license.
+               - Client-side token is public by design (safe to ship in page JS).
+               - Click-to-open (not auto-open): predictable for the AT audience,
+                 and avoids surprise modals / popup-blocker issues. */
+            var CLIENT_TOKEN = "live_40658bacb3fc6d120b3e65a170b";
+            var PRICE_ID = "pri_01kv3zfqj55ar4ykzachnmv54e";
+            var SUCCESS_URL = "https://lowvisionzoom.com/ko/buy.html?state=success";
+
+            var card = document.getElementById("buy-card");
+            var btn = document.getElementById("buy-btn");
+            var statusEl = document.getElementById("buy-status");
+            var helpEl = document.getElementById("buy-help");
+
+            /* If the overlay never loads within a few seconds, a blocker is
+               almost certainly eating Paddle's checkout-service request (it
+               fails silently, with no error event). Surface a recovery path. */
+            var loadTimer = null;
+            function armBlockerWatch() {
+                if (loadTimer) { clearTimeout(loadTimer); }
+                loadTimer = setTimeout(showBlockerHelp, 7000);
+            }
+            function clearBlockerWatch() {
+                if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+                if (helpEl) { helpEl.hidden = true; }
+            }
+            function showBlockerHelp() {
+                if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+                statusEl.className = "form-status";
+                statusEl.textContent = "";
+                if (helpEl) { helpEl.hidden = false; helpEl.setAttribute("tabindex", "-1"); helpEl.focus(); }
+            }
+
+            function showSuccess() {
+                if (card) { card.hidden = true; }
+                var sec = document.getElementById("buy-success-section");
+                if (sec) {
+                    sec.hidden = false;
+                    var panel = document.getElementById("buy-success");
+                    if (panel) { panel.focus(); }
+                }
+            }
+
+            // Returning from a completed checkout.
+            if (new URLSearchParams(window.location.search).get("state") === "success") {
+                showSuccess();
+                return;
+            }
+
+            function setError(msg) {
+                statusEl.className = "form-status is-error";
+                statusEl.textContent = msg;
+            }
+
+            if (typeof Paddle === "undefined") {
+                setError("보안 결제창을 불러오지 못했습니다. 페이지를 새로고침하시거나, 문의해 주시면 결제 링크를 보내드립니다.");
+                return;
+            }
+
+            try {
+                Paddle.Initialize({
+                    token: CLIENT_TOKEN,
+                    eventCallback: function (ev) {
+                        if (!ev || !ev.name) { return; }
+                        if (ev.name === "checkout.loaded") {
+                            // Overlay opened fine — no blocker problem.
+                            clearBlockerWatch();
+                        } else if (ev.name === "checkout.completed") {
+                            // Belt-and-suspenders: the successUrl redirect normally
+                            // handles this, but show success even if it doesn't fire.
+                            clearBlockerWatch();
+                            showSuccess();
+                        } else if (ev.name === "checkout.error") {
+                            showBlockerHelp();
+                        }
+                    }
+                });
+            } catch (e) {
+                setError("보안 결제를 시작하지 못했습니다. 페이지를 새로고침하시거나, 문의해 주시면 결제 링크를 보내드립니다.");
+                return;
+            }
+
+            /* Paddle sends people to the default payment link with ?_ptxn=<txn id>
+               for hosted/invoice payment links. Open that specific transaction. */
+            var ptxn = new URLSearchParams(window.location.search).get("_ptxn");
+            if (ptxn) {
+                statusEl.className = "form-status";
+                statusEl.textContent = "보안 결제창을 여는 중…";
+                try {
+                    Paddle.Checkout.open({ transactionId: ptxn, settings: { locale: "ko" } });
+                    armBlockerWatch();
+                } catch (e) {
+                    showBlockerHelp();
+                }
+            }
+
+            function openLicenseCheckout() {
+                if (helpEl) { helpEl.hidden = true; }
+                statusEl.className = "form-status";
+                statusEl.textContent = "보안 결제창을 여는 중…";
+                try {
+                    Paddle.Checkout.open({
+                        items: [{ priceId: PRICE_ID, quantity: 1 }],
+                        settings: { displayMode: "overlay", locale: "ko", successUrl: SUCCESS_URL }
+                    });
+                    armBlockerWatch();
+                } catch (e) {
+                    showBlockerHelp();
+                }
+            }
+
+            btn.addEventListener("click", openLicenseCheckout);
+
+            /* Arriving from a "Buy a license" button on another page (index/pricing):
+               the user already expressed intent, so open checkout immediately —
+               no redundant second click. */
+            if (new URLSearchParams(window.location.search).get("checkout") === "1") {
+                openLicenseCheckout();
+            }
+        })();
+    </script>
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

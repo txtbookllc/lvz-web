@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoom: Windows के लिए एक शांत स्क्रीन मैग्निफायर। दृश्य सहजता से बड़ा होता है और ठीक उसी बिंदु के चारों ओर घूमता है जिस पर आप इशारा कर रहे हैं, इसलिए आप कभी अपनी जगह नहीं खोते। 7 दिन का मुफ़्त ट्रायल, फिर $9.99 का एक-बार का लाइसेंस। कोई सदस्यता नहीं, कोई विज्ञापन नहीं, कोई डेटा एकत्र नहीं।">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <meta property="og:title" content="Low Vision Zoom — Windows के लिए सहज स्क्रीन मैग्निफिकेशन">
+    <meta property="og:description" content="स्क्रीन को सहजता से बड़ा करता है, ताकि आप कभी अपनी जगह न खोएँ। Windows में कहीं भी ज़ूम करने के लिए Ctrl दबाए रखें और स्क्रॉल करें। 7 दिन का मुफ़्त ट्रायल, $9.99 एक बार। निजी, ऑफ़लाइन, कोई सदस्यता नहीं।">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="hi_IN">
+    <meta property="og:url" content="https://lowvisionzoom.com/hi/">
+    <meta property="og:image" content="https://lowvisionzoom.com/media/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Low Vision Zoom का लोगो — अंदर प्लस चिह्न वाला एक मैग्निफायर — और टैगलाइन: कम दृष्टि वाले Windows उपयोगकर्ताओं के लिए सबसे अच्छा स्क्रीन मैग्निफायर">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Low Vision Zoom — Windows के लिए सहज स्क्रीन मैग्निफिकेशन</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/hi/">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/">
+</head>
+<body>
+    <a href="#main" class="skip-link">सीधे सामग्री पर जाएँ</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/hi/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="मुख्य">
+                <a href="#demo">डेमो देखें</a>
+                <a href="#how">यह कैसे काम करता है</a>
+                <a href="#why">यह बेहतर क्यों है</a>
+                <a href="/hi/pricing.html">कीमत</a>
+                <a href="#get" data-download class="btn btn-secondary btn-nav">डाउनलोड</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="भाषा: हिन्दी">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>हिन्दी</span>
+                </summary>
+                <ul>
+                    <li><a href="/index.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/index.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/index.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/index.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/index.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/index.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/index.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/index.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/index.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/index.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/index.html" data-lang="hi" lang="hi" hreflang="hi" aria-current="true">हिन्दी</a></li>
+                    <li><a href="/it/index.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/index.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/index.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/index.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/index.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/index.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/index.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/index.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- 1 · Hero + controls animation -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>कम दृष्टि वाले<br> Windows उपयोगकर्ताओं के लिए<br> सबसे अच्छा स्क्रीन मैग्निफायर</h1>
+                    <p class="lead">एक सहज, सरल ज़ूम यूटिलिटी, जो आपकी आँखों को दृश्य के साथ बने रहने में मदद के लिए बनाई गई है</p>
+                    <div class="hero-buttons">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="#get" data-download class="btn btn-primary btn-lg">Windows के लिए डाउनलोड करें</a>
+                    </div>
+                </div>
+
+                <!-- Experiment: desktop controls animation instead of the motion demo video,
+                     to lead with how simple the app is. Previous video block is in git history.
+                     The panel stretches to match hero-content (title top → download button bottom),
+                     which is why the trust chips live outside hero-content in their own grid row. -->
+                <div class="hero-anim">
+                    <img src="/media/howto-desktop-hero.svg" width="520" height="280"
+                         alt="एनीमेशन: एक उँगली Ctrl कुंजी दबाए रखती है, जबकि माउस व्हील आगे घूमकर ज़ूम इन और पीछे घूमकर ज़ूम आउट करता है।">
+                </div>
+
+                <ul class="trust" aria-label="क्या अपेक्षा करें">
+                    <li>7 दिन का मुफ़्त ट्रायल</li>
+                    <li>$9.99 सिर्फ़ एक बार</li>
+                    <li>कोई सदस्यता नहीं</li>
+                    <li>कोई खाता नहीं</li>
+                    <li class="trust-break" aria-hidden="true"></li>
+                    <li>कोई विज्ञापन नहीं</li>
+                    <li>कोई डेटा एकत्र नहीं</li>
+                    <li>ऑफ़लाइन काम करता है</li>
+                </ul>
+            </div>
+
+            <!-- Scroll cue: invites the visitor past the fold to the demo.
+                 Duplicates the nav link on purpose; the arrow bob is killed
+                 by the global prefers-reduced-motion rule. -->
+            <a href="#demo" class="scroll-cue">
+                <span>डेमो देखें</span>
+                <svg class="scroll-cue-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,9 12,17 19,9"/></svg>
+            </a>
+        </section>
+
+        <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
+             into view (see site.js §3); pauses when scrolled away. Motion-safe:
+             under prefers-reduced-motion it never autoplays — the poster shows
+             until the visitor presses Play. hero-demo.{webm,mp4} are the
+             bandwidth-friendly re-encodes of media/hero.mp4. -->
+        <section id="demo" class="demo-full section-alt" aria-labelledby="demo-heading">
+            <h2 id="demo-heading" class="visually-hidden">Low Vision Zoom को काम करते हुए देखें</h2>
+            <div class="demo-full-stage">
+                <video class="demo-full-video" muted loop playsinline preload="metadata"
+                       poster="/media/hero-demo-poster.webp"
+                       aria-label="स्क्रीन रिकॉर्डिंग: Low Vision Zoom एक Windows डेस्कटॉप को सहजता से बड़ा कर रहा है, कर्सर के चारों ओर धीरे-धीरे ज़ूम करते हुए, जबकि उपयोगकर्ता पढ़ता और क्लिक करता है।">
+                    <source src="/media/hero-demo.webm" type='video/webm; codecs="av01.0.08M.08"'>
+                    <source src="/media/hero-demo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="demo-toggle demo-full-toggle" data-label-play="डेमो चलाएँ" data-label-pause="डेमो रोकें" hidden aria-pressed="false"></button>
+            </div>
+        </section>
+
+        <!-- 3 · How it works — device-toggled gesture animation + control cards -->
+        <section id="how" class="section">
+            <div class="container">
+                <h2>एक कुंजी और आपका माउस व्हील। बस, यही पूरा इंटरफ़ेस है।</h2>
+                <p class="section-sub">इंस्टॉल करते ही यह काम करने लगता है — कुछ भी सेट करने की ज़रूरत नहीं।</p>
+
+                <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
+                     copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
+                     don't edit media/howto-*.svg by hand. -->
+                <div class="howto-anim">
+                    <fieldset class="howto-switch">
+                        <legend class="visually-hidden">अपने डिवाइस के प्रकार के लिए ज़ूम का इशारा देखें</legend>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="desktop" checked>
+                            <span>डेस्कटॉप उपयोगकर्ता</span>
+                        </label>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="laptop">
+                            <span>लैपटॉप उपयोगकर्ता</span>
+                        </label>
+                    </fieldset>
+                    <div class="howto-pane howto-pane-desktop">
+                        <img src="/media/howto-desktop.svg" width="520" height="250"
+                             alt="एनीमेशन: एक उँगली Ctrl कुंजी दबाए रखती है, जबकि माउस व्हील आगे घूमकर ज़ूम इन और पीछे घूमकर ज़ूम आउट करता है।">
+                        <p class="demo-caption"><strong>Ctrl</strong> दबाए रखें और स्क्रॉल करें — आगे घुमाने पर ज़ूम इन, पीछे घुमाने पर ज़ूम आउट।</p>
+                    </div>
+                    <div class="howto-pane howto-pane-laptop">
+                        <img src="/media/howto-laptop.svg" width="520" height="250"
+                             alt="एनीमेशन: Ctrl और Alt दबाए रखते हुए, एक उँगली ज़ूम इन करने के लिए Plus कुंजी दबाती है, फिर ज़ूम आउट करने के लिए Minus कुंजी।">
+                        <p class="demo-caption"><strong>Ctrl + Alt</strong> दबाए रखें और <strong>+</strong> या <strong>−</strong> दबाएँ — माउस व्हील की ज़रूरत नहीं।</p>
+                    </div>
+                </div>
+
+                <!-- The cards follow the Desktop/Laptop toggle above (CSS :has() on #how,
+                     next to the howto-pane rules). Pan is two cards: same gesture, but
+                     "mouse" only makes sense on desktop — laptops say "cursor". -->
+                <div class="controls">
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + स्क्रॉल&nbsp;↑</span>
+                        <p><strong>ज़ूम इन</strong> — आपके कर्सर की ओर सहजता से बड़ा होता है।</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + स्क्रॉल&nbsp;↓</span>
+                        <p><strong>ज़ूम आउट</strong> — उसी कोमल गति के साथ वापस लौटता है।</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + Plus / Minus</span>
+                        <p><strong>कीबोर्ड से ज़ूम करें</strong> — दबाए रखें, ज़ूम जारी रहेगा। माउस व्हील की ज़रूरत नहीं।</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Shift + स्क्रॉल&nbsp;↓</span>
+                        <p><strong>रीसेट</strong> — ज़रूरत पड़ने पर तुरंत सामान्य (1×) पर लौटें।</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 0</span>
+                        <p><strong>रीसेट</strong> — तुरंत वापस सामान्य (1×) पर।</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">माउस हिलाएँ</span>
+                        <p><strong>पैन</strong> — स्क्रीन के किनारे की ओर बढ़ें और दृश्य साथ-साथ सरकता है।</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">कर्सर हिलाएँ</span>
+                        <p><strong>पैन</strong> — स्क्रीन के किनारे की ओर बढ़ें और दृश्य साथ-साथ सरकता है।</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Why it's better — the perceptual case (see the app repo's
+             docs/why-smooth-zoom-helps-low-vision.md for sourcing and the
+             language guardrails: experience & design claims only, nothing
+             medical) mixed with the technical/trust facts. -->
+        <section id="why" class="section section-alt">
+            <div class="container">
+                <h2>यह बेहतर क्यों है: यह आपको कभी अपनी जगह दोबारा ढूँढने पर मजबूर नहीं करता।</h2>
+                <p class="section-sub">ज़्यादातर मैग्निफायर अचानक झटकों में चलते हैं, और हर झटके पर आपकी आँखों को रुककर ढूँढना पड़ता है कि वे कहाँ थीं। Low Vision Zoom सहजता से और लगातार चलता है।</p>
+
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
+                        <h3>ऐसी गति जिसके साथ आँखें चल सकें</h3>
+                        <p>जब कोई मैग्निफायर झटके से कूदता है, तो आँखों को उसके पीछे लपकना पड़ता है और फिर से ढूँढना पड़ता है कि वे क्या पढ़ रही थीं। यहाँ हर बदलाव 60 फ़्रेम प्रति सेकंड पर एनिमेट होता है, इसलिए आपकी आँखें उसका पीछा करने के बजाय उसके साथ-साथ बहती हैं।</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
+                        <h3>आपका आधार-बिंदु कभी नहीं हिलता</h3>
+                        <p>ज़ूम ठीक उसी बिंदु के चारों ओर घूमता है जो आपके कर्सर के नीचे है। वह बिंदु स्थिर रहता है और बाकी सब कुछ उसके चारों ओर बड़ा होता जाता है। जो चीज़ मायने रखती है, बस उस पर इशारा कीजिए — वही आपका आधार-बिंदु बन जाती है।</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="11" y="11" width="10" height="10" rx="2"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg>
+                        <h3>एक ही दृश्य, नई स्क्रीन नहीं</h3>
+                        <p>हर फ़्रेम पिछले फ़्रेम से बस एक छोटा-सा कदम आगे होता है, इसलिए दृश्य वही पन्ना सहजता से बड़ा होता हुआ दिखता है — कभी ऐसा नहीं लगता कि पुरानी स्क्रीन की जगह कोई नई स्क्रीन आ गई हो। कुछ भी गायब नहीं होता, इसलिए दोबारा ढूँढने को कुछ बचता ही नहीं।</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><line x1="4" y1="16" x2="28" y2="16"/><circle cx="19" cy="16" r="4"/></svg>
+                        <h3>रफ़्तार आप तय करते हैं</h3>
+                        <p>ज़ूम आनुपातिक है: ठीक उतना ही और उतनी ही तेज़ी से, जितना आप स्क्रॉल करते हैं — और आप बीच में ही रुक या पलट सकते हैं। जो गति आप खुद शुरू करते हैं, उसका अंदाज़ा आपकी आँखें पहले से लगा पाती हैं।</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="10" width="12" height="12" rx="2"/><polyline points="6,13 3,16 6,19"/><polyline points="26,13 29,16 26,19"/></svg>
+                        <h3>पढ़ते समय बिल्कुल स्थिर</h3>
+                        <p>जब तक आपका कर्सर स्क्रीन के बीच में घूमता है, दृश्य पूरी तरह स्थिर रहता है; किनारे के पास पहुँचने पर ही वह सरकता है। आपके पढ़ने के नीचे कोई लगातार खिसकाव नहीं।</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
+                        <h3>ठोस Windows इंजीनियरिंग</h3>
+                        <p>Windows के अपने Magnification API पर बना, अपने खुद के 60&nbsp;fps एनीमेशन इंजन के साथ। साइन किया हुआ इंस्टॉलर, ज़ूम के दौरान क्लिक सही जगह लगते हैं, और सब कुछ आपके कंप्यूटर पर ही चलता है। कुछ भी आपके PC से बाहर नहीं जाता।</p>
+                    </div>
+                </div>
+
+                <p class="requirements-line">Windows 11, 64-बिट (x64) के लिए बना · सेल्फ़-कंटेन्ड इंस्टॉलर, और कुछ डाउनलोड करने की ज़रूरत नहीं · ARM समर्थन जल्द आ रहा है।</p>
+
+                <div class="good-to-know">
+                    <p><strong>जानने लायक बात:</strong> दृष्टि शोधकर्ता इसे <em>चेंज ब्लाइंडनेस (change blindness)</em> कहते हैं: जब कोई दृश्य किसी दृश्य-रुकावट के दौरान बदल जाता है, तो यह चूक जाना आसान है कि क्या हिला, और आप जो देख रहे थे वह खो जाता है। झटकों में कूदने वाला मैग्निफायर दिन-भर वही रुकावट दोहराता रहता है। जो सहजता से सरकता है, वह आपकी आँखों को कभी ऐसा अंतराल देता ही नहीं जिसमें आपकी जगह खो जाए।</p>
+                </div>
+
+                <p class="parent-callout">माता-पिता या किसी ऐसे व्यक्ति के लिए सेट कर रहे हैं जिनकी आप मदद करते हैं? यह एक बार इंस्टॉल होता है और फिर किसी छेड़छाड़ की ज़रूरत नहीं। <a href="/hi/pricing.html#organizations">वॉल्यूम लाइसेंसिंग →</a></p>
+            </div>
+        </section>
+
+        <!-- 5 · FAQ (includes the first-run SmartScreen guidance) -->
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <h2>अक्सर पूछे जाने वाले सवाल</h2>
+                <div class="faq-list">
+                    <details class="faq">
+                        <summary>इसकी कीमत कितनी है?</summary>
+                        <div class="faq-body"><p>Low Vision Zoom को 7 दिन तक हर सुविधा के साथ मुफ़्त आज़माया जा सकता है। उसके बाद, एक-बार का <strong>$9.99</strong> लाइसेंस इसे चालू रखता है — कोई सदस्यता नहीं, और भविष्य के सभी अपडेट शामिल हैं। देखें <a href="/hi/pricing.html">कीमत पृष्ठ</a>।</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>ट्रायल खत्म होने पर क्या होता है?</summary>
+                        <div class="faq-body"><p>ऐप काम करता रहता है — बस मैग्निफिकेशन सीमित हो जाता है जब तक आप लाइसेंस कुंजी दर्ज नहीं करते, ताकि आपकी स्क्रीन हमेशा इतनी पढ़ने योग्य रहे कि आप नेविगेट और खरीद सकें। कभी भी कुंजी दर्ज करें — पूरा ज़ूम तुरंत लौट आता है; दोबारा इंस्टॉल करने की ज़रूरत नहीं।</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>यह Windows के बिल्ट-इन Magnifier (आवर्धक) से किस तरह अलग है?</summary>
+                        <div class="faq-body"><p>Windows में एक सक्षम मैग्निफायर शामिल है, और कई लोगों को पहले उसे आज़माना चाहिए। Low Vision Zoom एक ज़्यादा सहज, शांत अनुभव पर केंद्रित है: कोमल एनिमेटेड ज़ूम (कोई झटका नहीं), आपके कर्सर पर केंद्रित ज़ूम, स्थिर डेड-ज़ोन पैनिंग, और बार-बार के छोटे-छोटे समायोजनों के लिए रास्ते से दूर रहने वाला ट्रे इंटरफ़ेस।</p></div>
+                    </details>
+                    <!-- Carries the full first-run SmartScreen guidance (formerly its own
+                         aside under the on-page download CTA, now retired); the
+                         install-note-* classes style the steps and figure here too. -->
+                    <details class="faq" id="faq-smartscreen">
+                        <summary>क्या इंस्टॉल करते समय Windows मुझे चेतावनी देगा?</summary>
+                        <div class="faq-body">
+                            <p>इंस्टॉलर को पहली बार खोलने पर Windows पूरी स्क्रीन पर एक नीला संदेश दिखा सकता है: <strong>“Windows ने आपके PC की सुरक्षा की” (Windows protected your PC)</strong>। <strong>यह सामान्य है और ऐप सुरक्षित है।</strong> ऐसा इसलिए होता है क्योंकि Low Vision Zoom बिल्कुल नया ऐप है — Windows ने इसे अभी इतनी बार नहीं देखा कि पहचानने लगे। इंस्टॉलर हमारी कंपनी <strong>txtbook&nbsp;LLC</strong> द्वारा डिजिटल रूप से साइन किया गया है।</p>
+                            <p class="install-note-steps-lead">आगे बढ़ने के लिए:</p>
+                            <ol class="install-note-steps">
+                                <li>नीली स्क्रीन पर <strong>More info</strong> (अधिक जानकारी) पर क्लिक करें।</li>
+                                <li>जाँच लें कि प्रकाशक (publisher) वाली पंक्ति में <strong>txtbook LLC</strong> लिखा है।</li>
+                                <li>दिखाई देने वाले <strong>Run anyway</strong> (फिर भी चलाएँ) बटन पर क्लिक करें — इंस्टॉलर सामान्य रूप से खुल जाएगा।</li>
+                            </ol>
+                            <figure class="install-note-figure">
+                                <img src="/media/smartscreen-help.png" width="640" loading="lazy"
+                                     alt="नीली ‘Windows protected your PC’ स्क्रीन। ‘More info’ पर क्लिक करने के बाद नीचे ‘Run anyway’ बटन दिखाई देता है — जारी रखने के लिए उस पर क्लिक करें।" />
+                                <figcaption><strong>More info</strong> पर क्लिक करें, फिर <strong>Run anyway</strong> पर।</figcaption>
+                            </figure>
+                            <p>जैसे-जैसे और लोग ऐप इंस्टॉल करेंगे, यह चेतावनी आने वाले हफ़्तों में अपने आप हट जाएगी — और आपको यह सिर्फ़ एक बार करना होगा। यह हर मशीन पर Program Files में इंस्टॉल होता है, और यही वह वजह है जिससे ज़ूम के दौरान क्लिक सही जगह लगते हैं।</p>
+                        </div>
+                    </details>
+                    <details class="faq">
+                        <summary>क्या मेरी खरीद का डेटा निजी रहता है?</summary>
+                        <div class="faq-body"><p>हाँ। ऐप खुद कुछ भी एकत्र नहीं करता और ऑफ़लाइन काम करता है (<a href="/privacy.html">गोपनीयता नीति (अंग्रेज़ी में)</a>)। भुगतान हमारे भुगतान प्रदाता Paddle द्वारा संभाले जाते हैं, जो आधिकारिक विक्रेता (merchant of record) की भूमिका निभाता है; ऐप आपके भुगतान विवरण कभी नहीं देखता।</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>क्या आप रिफ़ंड देते हैं?</summary>
+                        <div class="faq-body"><p>हाँ — मुफ़्त ट्रायल के अलावा 30 दिन की पैसा-वापसी गारंटी भी है। देखें <a href="/refund.html">रिफ़ंड नीति (अंग्रेज़ी में)</a>।</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>क्या संस्थाएँ एक साथ कई लाइसेंस खरीद सकती हैं?</summary>
+                        <div class="faq-body"><p>हाँ। स्कूल, क्लिनिक, पुस्तकालय और नियोक्ता वॉल्यूम लाइसेंसिंग और इनवॉइसिंग का अनुरोध कर सकते हैं — हमारा <a href="/hi/contact.html?topic=volume">संपर्क फ़ॉर्म</a> इस्तेमाल करें।</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 · Quiet CTA band -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>कम दृष्टि वाले Windows उपयोगकर्ताओं के लिए सबसे अच्छा स्क्रीन मैग्निफायर।</h2>
+                <p>7 दिन का मुफ़्त ट्रायल · $9.99 एक बार · कोई सदस्यता नहीं</p>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="#get" data-download class="btn btn-primary btn-lg">Windows के लिए डाउनलोड करें</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>कम दृष्टि वाले Windows उपयोगकर्ताओं के लिए सबसे अच्छा स्क्रीन मैग्निफायर</p>
+                    <p>&nbsp;</p>
+                    <p>txtbook&nbsp;LLC का एक उत्पाद</p>
+                    <p>&nbsp;</p>
+                    <p>4601 E. Douglas Ave. STE 150</p>
+                    <p>Wichita, KS 67218</p>
+                </div>
+                <div>
+                    <h4>उत्पाद</h4>
+                    <ul>
+                        <li><a href="#why">यह बेहतर क्यों है</a></li>
+                        <li><a href="#how">यह कैसे काम करता है</a></li>
+                        <li><a href="/hi/pricing.html">कीमत</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>कानूनी</h4>
+                    <ul>
+                        <li><a href="/privacy.html">गोपनीयता (अंग्रेज़ी में)</a></li>
+                        <li><a href="/terms.html">सेवा की शर्तें (अंग्रेज़ी में)</a></li>
+                        <li><a href="/refund.html">रिफ़ंड नीति (अंग्रेज़ी में)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>सहायता</h4>
+                    <ul>
+                        <li><a href="/hi/contact.html">हमसे संपर्क करें</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

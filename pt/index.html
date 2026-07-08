@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoom: um ampliador de tela tranquilo para Windows. A visão se aproxima com suavidade e gira em torno do que você está apontando, para que você nunca perca o seu lugar. Teste grátis de 7 dias e depois uma licença única de $9.99. Sem assinatura, sem anúncios, sem coleta de dados.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <meta property="og:title" content="Low Vision Zoom — ampliação de tela suave para Windows">
+    <meta property="og:description" content="Amplia com suavidade, para que você nunca perca o seu lugar. Segure Ctrl e role para dar zoom em qualquer lugar do Windows. Teste grátis de 7 dias, $9.99 uma única vez. Privado, offline, sem assinatura.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://lowvisionzoom.com/pt/">
+    <meta property="og:image" content="https://lowvisionzoom.com/media/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Logotipo do Low Vision Zoom — uma lupa com um sinal de mais dentro — e o slogan: o melhor ampliador de tela para usuários do Windows com baixa visão">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Low Vision Zoom — Ampliação de tela suave para Windows</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/pt/">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/">
+</head>
+<body>
+    <a href="#main" class="skip-link">Ir para o conteúdo</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/pt/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Principal">
+                <a href="#demo">Veja a demonstração</a>
+                <a href="#how">Como funciona</a>
+                <a href="#why">Por que é melhor</a>
+                <a href="/pt/pricing.html">Preço</a>
+                <a href="#get" data-download class="btn btn-secondary btn-nav">Baixar</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Idioma: Português">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Português</span>
+                </summary>
+                <ul>
+                    <li><a href="/index.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/index.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/index.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/index.html" data-lang="pt" lang="pt" hreflang="pt" aria-current="true">Português</a></li>
+                    <li><a href="/ar/index.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/index.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/index.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/index.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/index.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/index.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/index.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/index.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/index.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/index.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/index.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/index.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/index.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/index.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/index.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- 1 · Hero + controls animation -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>O melhor ampliador de tela<br> para usuários do Windows<br> com baixa visão</h1>
+                    <p class="lead">Um utilitário de zoom suave e simples, criado para ajudar seus olhos a acompanhar</p>
+                    <div class="hero-buttons">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="#get" data-download class="btn btn-primary btn-lg">Baixar para Windows</a>
+                    </div>
+                </div>
+
+                <!-- Experiment: desktop controls animation instead of the motion demo video,
+                     to lead with how simple the app is. Previous video block is in git history.
+                     The panel stretches to match hero-content (title top → download button bottom),
+                     which is why the trust chips live outside hero-content in their own grid row. -->
+                <div class="hero-anim">
+                    <img src="/media/howto-desktop-hero.svg" width="520" height="280"
+                         alt="Animação: um dedo segura a tecla Ctrl enquanto a rodinha do mouse gira para a frente para ampliar e para trás para reduzir.">
+                </div>
+
+                <ul class="trust" aria-label="O que esperar">
+                    <li>Teste grátis de 7 dias</li>
+                    <li>$9.99 uma única vez</li>
+                    <li>Sem assinatura</li>
+                    <li>Sem conta</li>
+                    <li class="trust-break" aria-hidden="true"></li>
+                    <li>Sem anúncios</li>
+                    <li>Sem coleta de dados</li>
+                    <li>Funciona offline</li>
+                </ul>
+            </div>
+
+            <!-- Scroll cue: invites the visitor past the fold to the demo.
+                 Duplicates the nav link on purpose; the arrow bob is killed
+                 by the global prefers-reduced-motion rule. -->
+            <a href="#demo" class="scroll-cue">
+                <span>Veja a demonstração</span>
+                <svg class="scroll-cue-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,9 12,17 19,9"/></svg>
+            </a>
+        </section>
+
+        <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
+             into view (see site.js §3); pauses when scrolled away. Motion-safe:
+             under prefers-reduced-motion it never autoplays — the poster shows
+             until the visitor presses Play. hero-demo.{webm,mp4} are the
+             bandwidth-friendly re-encodes of media/hero.mp4. -->
+        <section id="demo" class="demo-full section-alt" aria-labelledby="demo-heading">
+            <h2 id="demo-heading" class="visually-hidden">Veja o Low Vision Zoom em ação</h2>
+            <div class="demo-full-stage">
+                <video class="demo-full-video" muted loop playsinline preload="metadata"
+                       poster="/media/hero-demo-poster.webp"
+                       aria-label="Gravação de tela: o Low Vision Zoom ampliando suavemente uma área de trabalho do Windows, aproximando-se em torno do cursor enquanto a pessoa lê e clica.">
+                    <source src="/media/hero-demo.webm" type='video/webm; codecs="av01.0.08M.08"'>
+                    <source src="/media/hero-demo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="demo-toggle demo-full-toggle" data-label-play="Reproduzir demonstração" data-label-pause="Pausar demonstração" hidden aria-pressed="false"></button>
+            </div>
+        </section>
+
+        <!-- 3 · How it works — device-toggled gesture animation + control cards -->
+        <section id="how" class="section">
+            <div class="container">
+                <h2>Uma tecla e a rodinha do mouse. Essa é toda a interface.</h2>
+                <p class="section-sub">Funciona no momento em que você instala, sem nada para configurar.</p>
+
+                <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
+                     copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
+                     don't edit media/howto-*.svg by hand. -->
+                <div class="howto-anim">
+                    <fieldset class="howto-switch">
+                        <legend class="visually-hidden">Mostrar o gesto de zoom para o seu tipo de dispositivo</legend>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="desktop" checked>
+                            <span>Usuários de desktop</span>
+                        </label>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="laptop">
+                            <span>Usuários de notebook</span>
+                        </label>
+                    </fieldset>
+                    <div class="howto-pane howto-pane-desktop">
+                        <img src="/media/howto-desktop.svg" width="520" height="250"
+                             alt="Animação: um dedo segura a tecla Ctrl enquanto a rodinha do mouse gira para a frente para ampliar e para trás para reduzir.">
+                        <p class="demo-caption">Segure <strong>Ctrl</strong> e role — para a frente amplia, para trás reduz.</p>
+                    </div>
+                    <div class="howto-pane howto-pane-laptop">
+                        <img src="/media/howto-laptop.svg" width="520" height="250"
+                             alt="Animação: com Ctrl e Alt pressionados, um dedo aperta a tecla Mais para ampliar e depois a tecla Menos para reduzir.">
+                        <p class="demo-caption">Segure <strong>Ctrl + Alt</strong> e pressione <strong>+</strong> ou <strong>−</strong> — sem precisar da rodinha do mouse.</p>
+                    </div>
+                </div>
+
+                <!-- The cards follow the Desktop/Laptop toggle above (CSS :has() on #how,
+                     next to the howto-pane rules). Pan is two cards: same gesture, but
+                     "mouse" only makes sense on desktop — laptops say "cursor". -->
+                <div class="controls">
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Rolar&nbsp;↑</span>
+                        <p><strong>Ampliar</strong> — aumente suavemente em direção ao cursor.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Rolar&nbsp;↓</span>
+                        <p><strong>Reduzir</strong> — volte para trás com o mesmo movimento delicado.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + Mais / Menos</span>
+                        <p><strong>Zoom pelo teclado</strong> — mantenha pressionado para continuar ampliando. Sem precisar da rodinha do mouse.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Shift + Rolar&nbsp;↓</span>
+                        <p><strong>Redefinir</strong> — volte instantaneamente ao normal (1×) quando precisar.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 0</span>
+                        <p><strong>Redefinir</strong> — volte instantaneamente ao normal (1×).</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Mova o mouse</span>
+                        <p><strong>Panorâmica</strong> — aproxime-se de uma borda da tela e a visão desliza para acompanhar.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Mova o cursor</span>
+                        <p><strong>Panorâmica</strong> — aproxime-se de uma borda da tela e a visão desliza para acompanhar.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Why it's better — the perceptual case (see the app repo's
+             docs/why-smooth-zoom-helps-low-vision.md for sourcing and the
+             language guardrails: experience & design claims only, nothing
+             medical) mixed with the technical/trust facts. -->
+        <section id="why" class="section section-alt">
+            <div class="container">
+                <h2>Por que é melhor: ele nunca faz você procurar de novo onde estava.</h2>
+                <p class="section-sub">A maioria dos ampliadores se move em saltos bruscos, e cada salto obriga seus olhos a parar e caçar onde estavam. O Low Vision Zoom se move de forma suave e contínua.</p>
+
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
+                        <h3>Movimento que seus olhos conseguem acompanhar</h3>
+                        <p>Quando um ampliador salta, seus olhos precisam pular atrás dele e reencontrar o que estavam lendo. Aqui, cada mudança é animada a 60 quadros por segundo, então seus olhos deslizam junto com ela em vez de correr atrás.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
+                        <h3>Seu ponto de referência nunca se move</h3>
+                        <p>O zoom gira em torno do ponto exato sob o cursor. Esse ponto permanece fixo enquanto tudo cresce ao redor dele. Você escolhe seu ponto de referência simplesmente apontando para o que importa.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="11" y="11" width="10" height="10" rx="2"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg>
+                        <h3>Uma só cena, não uma tela nova</h3>
+                        <p>Cada quadro é um pequeno passo a partir do anterior, então a visão é percebida como a mesma página crescendo suavemente, nunca como uma tela nova substituindo a antiga. Nada desaparece, então não há nada para reencontrar.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><line x1="4" y1="16" x2="28" y2="16"/><circle cx="19" cy="16" r="4"/></svg>
+                        <h3>Você define o ritmo</h3>
+                        <p>O zoom é proporcional: exatamente tão longe e tão rápido quanto você rola, e você pode parar ou inverter no meio do movimento. Um movimento que você mesmo inicia é um movimento que seus olhos conseguem prever.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="10" width="12" height="12" rx="2"/><polyline points="6,13 3,16 6,19"/><polyline points="26,13 29,16 26,19"/></svg>
+                        <h3>Parado enquanto você lê</h3>
+                        <p>A visão fica perfeitamente parada enquanto o cursor percorre o meio da tela, e só desliza quando você se aproxima de uma borda. Nada de deriva constante por baixo da sua leitura.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
+                        <h3>Engenharia sólida para Windows</h3>
+                        <p>Construído sobre a Magnification API do próprio Windows, com motor de animação próprio a 60&nbsp;fps. Instalador assinado, os cliques caem no lugar certo mesmo com zoom, e tudo roda localmente. Nada sai do seu PC.</p>
+                    </div>
+                </div>
+
+                <p class="requirements-line">Feito para Windows 11, 64 bits (x64) · instalador autossuficiente, sem nada mais para baixar · suporte a ARM em breve.</p>
+
+                <div class="good-to-know">
+                    <p><strong>Bom saber:</strong> pesquisadores da visão chamam isso de <em>cegueira à mudança</em>: quando a visão muda durante uma interrupção visual, é fácil não perceber o que se moveu e perder o que você estava acompanhando. Um ampliador que salta recria essa interrupção o dia inteiro. Um que desliza nunca dá aos seus olhos uma brecha para perder o lugar.</p>
+                </div>
+
+                <p class="parent-callout">Vai configurar para o seu pai, sua mãe ou alguém que você ajuda? Instala uma vez e não precisa de ajustes. <a href="/pt/pricing.html#organizations">Licenciamento por volume →</a></p>
+            </div>
+        </section>
+
+        <!-- 5 · FAQ (includes the first-run SmartScreen guidance) -->
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <h2>Perguntas frequentes</h2>
+                <div class="faq-list">
+                    <details class="faq">
+                        <summary>Quanto custa?</summary>
+                        <div class="faq-body"><p>O Low Vision Zoom é grátis para testar por 7 dias, com todos os recursos liberados. Depois disso, uma licença única de <strong>$9.99</strong> mantém tudo funcionando — sem assinatura, e todas as atualizações futuras estão incluídas. Veja a <a href="/pt/pricing.html">página de preço</a>.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>O que acontece quando o período de teste termina?</summary>
+                        <div class="faq-body"><p>O aplicativo continua funcionando — a ampliação apenas fica limitada até você inserir uma chave de licença, então a sua tela sempre permanece legível o suficiente para navegar e comprar. Insira uma chave a qualquer momento para restaurar o zoom completo na hora; sem precisar reinstalar.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Qual é a diferença em relação à Lupa integrada do Windows?</summary>
+                        <div class="faq-body"><p>O Windows inclui um ampliador competente, e muitas pessoas deveriam experimentá-lo primeiro. O Low Vision Zoom foca em uma sensação mais suave e tranquila: zoom animado com delicadeza (sem saltos), zoom centrado no cursor, panorâmica estável com zona de descanso e uma interface discreta na bandeja do sistema para ajustes rápidos e frequentes.</p></div>
+                    </details>
+                    <!-- Carries the full first-run SmartScreen guidance (formerly its own
+                         aside under the on-page download CTA, now retired); the
+                         install-note-* classes style the steps and figure here too. -->
+                    <details class="faq" id="faq-smartscreen">
+                        <summary>O Windows vai me avisar quando eu instalar?</summary>
+                        <div class="faq-body">
+                            <p>Na primeira vez que você abrir o instalador, o Windows pode mostrar uma mensagem azul em tela cheia: <strong>“O Windows protegeu o computador”</strong> (“Windows protected your PC”). <strong>Isso é normal e o aplicativo é seguro.</strong> Acontece porque o Low Vision Zoom é um aplicativo muito novo — o Windows ainda não o viu vezes suficientes para reconhecê-lo. O instalador é assinado digitalmente pela <strong>txtbook&nbsp;LLC</strong>, a nossa empresa.</p>
+                            <p class="install-note-steps-lead">Para continuar:</p>
+                            <ol class="install-note-steps">
+                                <li>Clique em <strong>Mais informações</strong> (“More info”) na tela azul.</li>
+                                <li>Confira se a linha do fornecedor inclui <strong>txtbook LLC</strong>.</li>
+                                <li>Clique no botão <strong>Executar assim mesmo</strong> (“Run anyway”) que aparece, e o instalador abre normalmente.</li>
+                            </ol>
+                            <figure class="install-note-figure">
+                                <img src="/media/smartscreen-help.png" width="640" loading="lazy"
+                                     alt="A tela azul “O Windows protegeu o computador”. Depois de clicar em “Mais informações”, um botão “Executar assim mesmo” aparece na parte de baixo — clique nele para continuar." />
+                                <figcaption>Clique em <strong>Mais informações</strong> e depois em <strong>Executar assim mesmo</strong>.</figcaption>
+                            </figure>
+                            <p>O aviso desaparece por conta própria ao longo das próximas semanas, à medida que mais pessoas instalam o aplicativo, e você só precisa fazer isso uma vez. Ele é instalado por máquina em Arquivos de Programas, o que também é o que faz os cliques caírem no lugar certo com o zoom ativo.</p>
+                        </div>
+                    </details>
+                    <details class="faq">
+                        <summary>Meus dados de compra permanecem privados?</summary>
+                        <div class="faq-body"><p>Sim. O aplicativo em si não coleta nada e funciona offline (<a href="/privacy.html">política de privacidade (em inglês)</a>). As compras são processadas pelo nosso provedor de pagamentos, a Paddle, que atua como vendedor oficial (merchant of record); o aplicativo nunca vê seus dados de pagamento.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Vocês oferecem reembolso?</summary>
+                        <div class="faq-body"><p>Sim — há uma garantia de devolução do dinheiro em 30 dias, além do teste grátis. Veja a <a href="/refund.html">política de reembolso (em inglês)</a>.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Organizações podem comprar várias licenças?</summary>
+                        <div class="faq-body"><p>Sim. Escolas, clínicas, bibliotecas e empregadores podem solicitar licenciamento por volume com faturamento — use nosso <a href="/pt/contact.html?topic=volume">formulário de contato</a>.</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 · Quiet CTA band -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>O melhor ampliador de tela para usuários do Windows com baixa visão.</h2>
+                <p>Teste grátis de 7 dias · $9.99 uma única vez · sem assinatura</p>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="#get" data-download class="btn btn-primary btn-lg">Baixar para Windows</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>O melhor ampliador de tela para usuários do Windows com baixa visão</p>
+                    <p>&nbsp;</p>
+                    <p>Um produto da txtbook&nbsp;LLC</p>
+                    <p>&nbsp;</p>
+                    <p>4601 E. Douglas Ave. STE 150</p>
+                    <p>Wichita, KS 67218</p>
+                </div>
+                <div>
+                    <h4>Produto</h4>
+                    <ul>
+                        <li><a href="#why">Por que é melhor</a></li>
+                        <li><a href="#how">Como funciona</a></li>
+                        <li><a href="/pt/pricing.html">Preço</a></li>
+                        <li><a href="#faq">Perguntas frequentes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Jurídico</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacidade (em inglês)</a></li>
+                        <li><a href="/terms.html">Termos de serviço (em inglês)</a></li>
+                        <li><a href="/refund.html">Política de reembolso (em inglês)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="/pt/contact.html">Fale conosco</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

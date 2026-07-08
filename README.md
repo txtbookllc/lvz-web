@@ -65,6 +65,54 @@ from the same sources). They are self-contained animated SVGs: colors follow `pr
 and motion stops under `prefers-reduced-motion`, so the site shows them with plain `<img>` tags.
 Edit the `branding/` sources and re-run that script.
 
+## Internationalization (i18n)
+
+The English pages at the repo root are the **hand-edited canonical source**. Each language in
+`i18n/languages.json` has a directory (`/es/`, `/de/`, `/zh/`, …) holding **full translated
+copies** of the four content pages (`index`, `pricing`, `buy`, `contact`). The legal pages
+(`privacy`, `terms`, `refund`) are English-only by design; translated pages link to them with an
+"(in English)" note. There is no build step — everything is committed static HTML, validated by
+one dependency-free Node tool:
+
+```bash
+node tools/i18n-check.mjs --check            # validate everything (run before every push)
+node tools/i18n-check.mjs --check --lang es  # one language only
+node tools/i18n-check.mjs --accept es        # record snapshots after (re)translating Spanish
+node tools/i18n-check.mjs --sitemap          # regenerate sitemap.xml from languages.json
+node tools/i18n-check.mjs --print-blocks pricing.html   # expected hreflang/switcher markup
+```
+
+**How it stays in sync:** `i18n/snapshots/<lang>/<page>` is a byte copy of the *English* page at
+the moment that language's translation was last accepted. `--check` diffs each snapshot against
+the current English page — any difference reports the translation as STALE with the exact diff.
+
+**The editing workflow:**
+1. Edit the English pages freely (they are normal hand-written HTML).
+2. `node tools/i18n-check.mjs --check` → lists every stale language with the diff of what changed.
+3. Hand each diff + the existing translated page to a translator (AI agent with
+   `i18n/TRANSLATING.md` as the contract) to apply *only that change*.
+4. `node tools/i18n-check.mjs --accept <lang>` per updated language, then `--check` until green,
+   then commit and push.
+
+The validator also enforces: structural parity of every translated page with its English
+counterpart (same tags/ids/classes — catches translator-mangled markup), inline-script parity
+(code identical, only user-facing string literals may differ), per-language Paddle
+`SUCCESS_URL`/`locale`, Turnstile `data-language`, `lang`/`dir` attributes (Arabic is RTL),
+canonical/og/hreflang correctness on **all** pages including English, in-language internal links,
+and untranslated-text leaks.
+
+**Language routing:** English pages carry a tiny head script — a stored choice
+(`localStorage["lvz-lang"]`, written only by an explicit switcher click or the one-time
+first-visit browser-language match) redirects to `/<lang>/…`. Translated pages never redirect.
+The header `<details class="lang-switch">` dropdown works without JS (plain links); site.js adds
+choice persistence and close-on-Escape. Crawlers see English at the root and discover languages
+via hreflang + `sitemap.xml`.
+
+**Adding a language:** add its entry to `i18n/languages.json`, update the hreflang block +
+switcher list on the English pages (`--print-blocks` prints them) and the `LANGS` array in the
+head snippet, translate the four pages per `i18n/TRANSLATING.md`, run a review pass, `--accept`,
+`--sitemap`, push. `--check` fails everywhere until all of these are done — that's intentional.
+
 ## Local preview
 
 ```bash

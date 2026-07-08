@@ -139,7 +139,7 @@ img, svg, video { display: block; max-width: 100%; }
 /* --- Accessibility primitives --- */
 .skip-link {
     position: absolute;
-    left: -999px;
+    inset-inline-start: -999px;
     top: 0;
     background: var(--accent);
     color: var(--accent-contrast);
@@ -148,7 +148,7 @@ img, svg, video { display: block; max-width: 100%; }
     z-index: 1000;
     font-weight: var(--fw-semibold);
 }
-.skip-link:focus { left: 0; }
+.skip-link:focus { inset-inline-start: 0; }
 
 :focus-visible {
     outline: var(--focus-width) solid var(--focus-ring);
@@ -216,6 +216,59 @@ img, svg, video { display: block; max-width: 100%; }
     text-decoration: underline;
     text-underline-offset: 4px;
 }
+
+/* --- Language switcher — a <details> dropdown so it works without JS.
+       site.js adds close-on-outside-click/Escape and stores the choice. --- */
+.lang-switch { position: relative; flex: none; }
+.lang-switch summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 44px;                 /* AAA target size */
+    padding: 0.25rem 0.4rem;
+    list-style: none;
+    cursor: pointer;
+    color: var(--text-muted);
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-sm);
+}
+.lang-switch summary::-webkit-details-marker { display: none; }
+.lang-switch summary::after {
+    content: "";
+    width: 0.55em; height: 0.55em;
+    border-inline-end: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: rotate(45deg) translateY(-0.15em);
+    flex: none;
+}
+.lang-switch[open] summary::after { transform: rotate(-135deg) translateY(0.1em); }
+.lang-switch summary:hover { color: var(--accent); }
+.lang-switch summary .line-icon { width: 1.3rem; height: 1.3rem; }
+.lang-switch ul {
+    position: absolute;
+    inset-inline-end: 0;
+    top: calc(100% + 0.4rem);
+    z-index: 200;
+    list-style: none;
+    min-width: 13rem;
+    max-height: min(65vh, 30rem);     /* 19 languages — let the list scroll */
+    overflow-y: auto;
+    padding: 0.4rem;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+}
+.lang-switch li a {
+    display: block;
+    padding: 0.45rem 0.8rem;
+    border-radius: 4px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: var(--fs-sm);
+}
+.lang-switch li a:hover { background: var(--accent-soft); color: var(--accent-strong); }
+.lang-switch li a[aria-current="true"] { color: var(--accent-strong); font-weight: var(--fw-bold); }
 
 /* --- Buttons --- */
 .btn {
@@ -525,7 +578,7 @@ img, svg, video { display: block; max-width: 100%; }
 /* --- Founder note (the ONLY place warm tokens live) --- */
 .founder {
     background: var(--warm-soft);
-    border-left: 4px solid var(--warm);
+    border-inline-start: 4px solid var(--warm);
     border-radius: var(--radius);
     max-width: var(--maxw-narrow);
     margin: 0 auto;
@@ -658,7 +711,7 @@ img, svg, video { display: block; max-width: 100%; }
 .control {
     background: var(--surface);
     border: 1px solid var(--border);
-    border-left: 4px solid var(--accent);
+    border-inline-start: 4px solid var(--accent);
     border-radius: var(--radius-sm);
     padding: var(--s-3);
 }
@@ -727,7 +780,7 @@ img, svg, video { display: block; max-width: 100%; }
 .good-to-know {
     background: var(--positive-bg);
     border: 1px solid var(--positive-border);
-    border-left: 4px solid var(--positive-border);
+    border-inline-start: 4px solid var(--positive-border);
     border-radius: var(--radius-sm);
     padding: var(--s-3);
     max-width: var(--maxw-prose);
@@ -740,7 +793,7 @@ img, svg, video { display: block; max-width: 100%; }
 .install-note-steps-lead { margin-bottom: var(--s-1); font-weight: var(--fw-semibold); color: var(--text); }
 .install-note-steps {
     margin: 0 0 var(--s-3);
-    padding-left: 1.4em;
+    padding-inline-start: 1.4em;
     color: var(--text-muted);
 }
 .install-note-steps li { margin-bottom: var(--s-1); }
@@ -792,7 +845,7 @@ img, svg, video { display: block; max-width: 100%; }
 .price-period { color: var(--text-muted); margin-bottom: var(--s-3); }
 .price-list {
     list-style: none;
-    text-align: left;
+    text-align: start;
     max-width: 360px;
     margin: 0 auto var(--s-3);
     display: grid;
@@ -800,13 +853,13 @@ img, svg, video { display: block; max-width: 100%; }
 }
 .price-list li {
     position: relative;
-    padding-left: 1.9rem;
+    padding-inline-start: 1.9rem;
     color: var(--text);
 }
 .price-list li::before {
     content: "✓";
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     top: 0;
     color: var(--positive-text);
     font-weight: var(--fw-bold);
@@ -834,7 +887,7 @@ img, svg, video { display: block; max-width: 100%; }
 .faq summary::-webkit-details-marker { display: none; }
 .faq summary::after {
     content: "+";
-    float: right;
+    float: inline-end;
     color: var(--accent-strong);
     font-weight: var(--fw-bold);
 }
@@ -893,7 +946,7 @@ img, svg, video { display: block; max-width: 100%; }
 .prose h2:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
 .prose h3 { font-size: 1.15rem; margin: var(--s-2) 0 0.3rem; }
 .prose p, .prose li { color: var(--text); margin-bottom: var(--s-2); }
-.prose ul, .prose ol { padding-left: 1.4rem; margin-bottom: var(--s-2); }
+.prose ul, .prose ol { padding-inline-start: 1.4rem; margin-bottom: var(--s-2); }
 .prose a { font-weight: var(--fw-semibold); }
 .prose code {
     font-family: var(--font-mono);
@@ -906,7 +959,7 @@ img, svg, video { display: block; max-width: 100%; }
 .callout {
     background: var(--positive-bg);
     border: 1px solid var(--positive-border);
-    border-left: 4px solid var(--positive-border);
+    border-inline-start: 4px solid var(--positive-border);
     border-radius: var(--radius-sm);
     padding: var(--s-3);
     margin-bottom: var(--s-4);
@@ -980,7 +1033,7 @@ img, svg, video { display: block; max-width: 100%; }
 /* Honeypot: off-screen for people, present for bots. Not display:none on purpose. */
 .hp {
     position: absolute;
-    left: -9999px;
+    inset-inline-start: -9999px;
     width: 1px;
     height: 1px;
     overflow: hidden;

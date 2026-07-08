@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="th" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoom: โปรแกรมขยายหน้าจอที่นุ่มนวลสำหรับ Windows มุมมองจะค่อยๆ ซูมเข้าและหมุนรอบจุดที่คุณชี้อยู่ ทำให้คุณไม่มีวันหลงตำแหน่งที่กำลังดู ทดลองใช้ฟรี 7 วัน จากนั้นซื้อใบอนุญาตแบบจ่ายครั้งเดียว $9.99 ไม่มีค่าสมัครสมาชิก ไม่มีโฆษณา ไม่เก็บข้อมูลใดๆ">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <meta property="og:title" content="Low Vision Zoom — การขยายหน้าจอที่นุ่มนวลสำหรับ Windows">
+    <meta property="og:description" content="ขยายภาพอย่างนุ่มนวล ทำให้คุณไม่มีวันหลงตำแหน่งที่กำลังดู กด Ctrl ค้างไว้แล้วเลื่อนล้อเมาส์เพื่อซูมได้ทุกที่ใน Windows ทดลองใช้ฟรี 7 วัน จ่ายครั้งเดียว $9.99 ใช้งานส่วนตัว ออฟไลน์ ไม่มีค่าสมัครสมาชิก">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="th_TH">
+    <meta property="og:url" content="https://lowvisionzoom.com/th/">
+    <meta property="og:image" content="https://lowvisionzoom.com/media/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="โลโก้ Low Vision Zoom — แว่นขยายที่มีเครื่องหมายบวกอยู่ข้างใน — พร้อมสโลแกน: โปรแกรมขยายหน้าจอที่ดีที่สุดสำหรับผู้ใช้ Windows ที่มีสายตาเลือนราง">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Low Vision Zoom — การขยายหน้าจอที่นุ่มนวลสำหรับ Windows</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/th/">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/">
+</head>
+<body>
+    <a href="#main" class="skip-link">ข้ามไปยังเนื้อหา</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/th/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="#demo">ดูตัวอย่างการใช้งาน</a>
+                <a href="#how">วิธีใช้งาน</a>
+                <a href="#why">ทำไมถึงดีกว่า</a>
+                <a href="/th/pricing.html">ราคา</a>
+                <a href="#get" data-download class="btn btn-secondary btn-nav">ดาวน์โหลด</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="ภาษา: ไทย">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>ไทย</span>
+                </summary>
+                <ul>
+                    <li><a href="/index.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/index.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/index.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/index.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/index.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/index.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/index.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/index.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/index.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/index.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/index.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/index.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/index.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/index.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/index.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/index.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/index.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/index.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/index.html" data-lang="th" lang="th" hreflang="th" aria-current="true">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- 1 · Hero + controls animation -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>โปรแกรมขยายหน้าจอที่ดีที่สุด<br> สำหรับผู้ใช้ Windows<br> ที่มีสายตาเลือนราง</h1>
+                    <p class="lead">เครื่องมือซูมที่นุ่มนวลและใช้งานง่าย ออกแบบมาเพื่อช่วยให้สายตาของคุณติดตามได้อย่างต่อเนื่อง</p>
+                    <div class="hero-buttons">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="#get" data-download class="btn btn-primary btn-lg">ดาวน์โหลดสำหรับ Windows</a>
+                    </div>
+                </div>
+
+                <!-- Experiment: desktop controls animation instead of the motion demo video,
+                     to lead with how simple the app is. Previous video block is in git history.
+                     The panel stretches to match hero-content (title top → download button bottom),
+                     which is why the trust chips live outside hero-content in their own grid row. -->
+                <div class="hero-anim">
+                    <img src="/media/howto-desktop-hero.svg" width="520" height="280"
+                         alt="แอนิเมชัน: นิ้วกดปุ่ม Ctrl ค้างไว้ ขณะที่ล้อเมาส์หมุนไปข้างหน้าเพื่อซูมเข้า แล้วหมุนกลับเพื่อซูมออก">
+                </div>
+
+                <ul class="trust" aria-label="What to expect">
+                    <li>ทดลองใช้ฟรี 7 วัน</li>
+                    <li>$9.99 จ่ายครั้งเดียว</li>
+                    <li>ไม่มีค่าสมัครสมาชิก</li>
+                    <li>ไม่ต้องสร้างบัญชี</li>
+                    <li class="trust-break" aria-hidden="true"></li>
+                    <li>ไม่มีโฆษณา</li>
+                    <li>ไม่เก็บข้อมูล</li>
+                    <li>ใช้งานได้แบบออฟไลน์</li>
+                </ul>
+            </div>
+
+            <!-- Scroll cue: invites the visitor past the fold to the demo.
+                 Duplicates the nav link on purpose; the arrow bob is killed
+                 by the global prefers-reduced-motion rule. -->
+            <a href="#demo" class="scroll-cue">
+                <span>ดูตัวอย่างการใช้งาน</span>
+                <svg class="scroll-cue-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,9 12,17 19,9"/></svg>
+            </a>
+        </section>
+
+        <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
+             into view (see site.js §3); pauses when scrolled away. Motion-safe:
+             under prefers-reduced-motion it never autoplays — the poster shows
+             until the visitor presses Play. hero-demo.{webm,mp4} are the
+             bandwidth-friendly re-encodes of media/hero.mp4. -->
+        <section id="demo" class="demo-full section-alt" aria-labelledby="demo-heading">
+            <h2 id="demo-heading" class="visually-hidden">ชมการทำงานของ Low Vision Zoom</h2>
+            <div class="demo-full-stage">
+                <video class="demo-full-video" muted loop playsinline preload="metadata"
+                       poster="/media/hero-demo-poster.webp"
+                       aria-label="วิดีโอบันทึกหน้าจอ: Low Vision Zoom กำลังขยายเดสก์ท็อป Windows อย่างนุ่มนวล ซูมเข้าใกล้เคอร์เซอร์ขณะที่ผู้ใช้อ่านและคลิก">
+                    <source src="/media/hero-demo.webm" type='video/webm; codecs="av01.0.08M.08"'>
+                    <source src="/media/hero-demo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="demo-toggle demo-full-toggle" data-label-play="เล่นตัวอย่าง" data-label-pause="หยุดตัวอย่างชั่วคราว" hidden aria-pressed="false"></button>
+            </div>
+        </section>
+
+        <!-- 3 · How it works — device-toggled gesture animation + control cards -->
+        <section id="how" class="section">
+            <div class="container">
+                <h2>แค่ปุ่มเดียวกับล้อเมาส์ ก็ใช้งานได้ครบ</h2>
+                <p class="section-sub">ใช้งานได้ทันทีหลังติดตั้ง ไม่ต้องตั้งค่าใดๆ</p>
+
+                <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
+                     copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
+                     don't edit media/howto-*.svg by hand. -->
+                <div class="howto-anim">
+                    <fieldset class="howto-switch">
+                        <legend class="visually-hidden">แสดงท่าทางการซูมตามประเภทอุปกรณ์ของคุณ</legend>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="desktop" checked>
+                            <span>ผู้ใช้เดสก์ท็อป</span>
+                        </label>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="laptop">
+                            <span>ผู้ใช้แล็ปท็อป</span>
+                        </label>
+                    </fieldset>
+                    <div class="howto-pane howto-pane-desktop">
+                        <img src="/media/howto-desktop.svg" width="520" height="250"
+                             alt="แอนิเมชัน: นิ้วกดปุ่ม Ctrl ค้างไว้ ขณะที่ล้อเมาส์หมุนไปข้างหน้าเพื่อซูมเข้า แล้วหมุนกลับเพื่อซูมออก">
+                        <p class="demo-caption">กด <strong>Ctrl</strong> ค้างไว้แล้วเลื่อนล้อเมาส์ — เลื่อนไปข้างหน้าเพื่อซูมเข้า เลื่อนกลับเพื่อซูมออก</p>
+                    </div>
+                    <div class="howto-pane howto-pane-laptop">
+                        <img src="/media/howto-laptop.svg" width="520" height="250"
+                             alt="แอนิเมชัน: กด Ctrl และ Alt ค้างไว้ นิ้วกดปุ่ม Plus เพื่อซูมเข้า แล้วกดปุ่ม Minus เพื่อซูมออก">
+                        <p class="demo-caption">กด <strong>Ctrl + Alt</strong> ค้างไว้แล้วกด <strong>+</strong> หรือ <strong>−</strong> — ไม่ต้องใช้ล้อเมาส์</p>
+                    </div>
+                </div>
+
+                <!-- The cards follow the Desktop/Laptop toggle above (CSS :has() on #how,
+                     next to the howto-pane rules). Pan is two cards: same gesture, but
+                     "mouse" only makes sense on desktop — laptops say "cursor". -->
+                <div class="controls">
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Scroll&nbsp;↑</span>
+                        <p><strong>ซูมเข้า</strong> — ขยายภาพอย่างนุ่มนวลเข้าหาเคอร์เซอร์ของคุณ</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Scroll&nbsp;↓</span>
+                        <p><strong>ซูมออก</strong> — ย่อกลับออกมาด้วยการเคลื่อนไหวที่นุ่มนวลแบบเดียวกัน</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + Plus / Minus</span>
+                        <p><strong>ซูมจากแป้นพิมพ์</strong> — กดค้างไว้เพื่อซูมต่อเนื่อง ไม่ต้องใช้ล้อเมาส์</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Shift + Scroll&nbsp;↓</span>
+                        <p><strong>รีเซ็ต</strong> — กลับสู่ขนาดปกติ (1×) ทันทีเมื่อต้องการ</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 0</span>
+                        <p><strong>รีเซ็ต</strong> — กลับสู่ขนาดปกติ (1×) ทันที</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Move the mouse</span>
+                        <p><strong>เลื่อนมุมมอง</strong> — เลื่อนเข้าใกล้ขอบจอ แล้วมุมมองจะไหลตามไปอย่างนุ่มนวล</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Move the cursor</span>
+                        <p><strong>เลื่อนมุมมอง</strong> — เลื่อนเข้าใกล้ขอบจอ แล้วมุมมองจะไหลตามไปอย่างนุ่มนวล</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Why it's better — the perceptual case (see the app repo's
+             docs/why-smooth-zoom-helps-low-vision.md for sourcing and the
+             language guardrails: experience & design claims only, nothing
+             medical) mixed with the technical/trust facts. -->
+        <section id="why" class="section section-alt">
+            <div class="container">
+                <h2>ทำไมถึงดีกว่า: ไม่มีวันทำให้คุณต้องหาตำแหน่งเดิมใหม่</h2>
+                <p class="section-sub">โปรแกรมขยายหน้าจอส่วนใหญ่เคลื่อนแบบกระตุกทันที และทุกครั้งที่กระตุก สายตาของคุณต้องหยุดและหาตำแหน่งเดิมที่เคยมองอยู่ Low Vision Zoom เคลื่อนไหวอย่างนุ่มนวลและต่อเนื่อง</p>
+
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
+                        <h3>การเคลื่อนไหวที่สายตาติดตามได้สบาย</h3>
+                        <p>เมื่อโปรแกรมขยายหน้าจอกระตุกเปลี่ยนทันที สายตาของคุณต้องกระโดดตามและหาจุดที่กำลังอ่านใหม่ แต่ที่นี่ทุกการเปลี่ยนแปลงเป็นแอนิเมชันที่ 60 เฟรมต่อวินาที ทำให้สายตาของคุณไหลตามไปอย่างนุ่มนวลแทนที่จะต้องไล่ตาม</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
+                        <h3>จุดยึดของคุณไม่เคยขยับ</h3>
+                        <p>การซูมจะหมุนรอบจุดที่อยู่ใต้เคอร์เซอร์ของคุณพอดี จุดนั้นจะอยู่นิ่งในขณะที่ทุกอย่างขยายใหญ่ขึ้นรอบๆ คุณเลือกจุดยึดได้ง่ายๆ เพียงแค่ชี้ไปที่สิ่งที่สำคัญ</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="11" y="11" width="10" height="10" rx="2"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg>
+                        <h3>ฉากเดียวกัน ไม่ใช่หน้าจอใหม่</h3>
+                        <p>แต่ละเฟรมเป็นการเปลี่ยนแปลงเล็กน้อยจากเฟรมก่อนหน้า มุมมองจึงดูเหมือนหน้าเดิมที่ค่อยๆ ขยายใหญ่ขึ้นอย่างนุ่มนวล ไม่ใช่หน้าจอใหม่มาแทนที่หน้าเก่า ไม่มีอะไรหายไป จึงไม่มีอะไรต้องหาใหม่</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><line x1="4" y1="16" x2="28" y2="16"/><circle cx="19" cy="16" r="4"/></svg>
+                        <h3>คุณกำหนดจังหวะเอง</h3>
+                        <p>การซูมเป็นสัดส่วนโดยตรง: ซูมได้ระยะและความเร็วตามที่คุณเลื่อนล้อเมาส์พอดี และคุณสามารถหยุดหรือย้อนกลับได้ระหว่างการเคลื่อนไหว การเคลื่อนไหวที่คุณเป็นผู้เริ่มเองคือการเคลื่อนไหวที่สายตาของคุณคาดเดาได้</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="10" width="12" height="12" rx="2"/><polyline points="6,13 3,16 6,19"/><polyline points="26,13 29,16 26,19"/></svg>
+                        <h3>นิ่งสนิทขณะที่คุณอ่าน</h3>
+                        <p>มุมมองจะนิ่งสนิทตราบใดที่เคอร์เซอร์ของคุณยังอยู่กลางจอ และจะเลื่อนไหลก็ต่อเมื่อคุณเข้าใกล้ขอบจอเท่านั้น ไม่มีการเลื่อนไหลรบกวนขณะที่คุณกำลังอ่าน</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
+                        <h3>วิศวกรรมที่แข็งแกร่งบน Windows</h3>
+                        <p>สร้างขึ้นบน Magnification API ของ Windows เอง พร้อมเอนจินแอนิเมชัน 60 เฟรมต่อวินาทีในตัว ตัวติดตั้งมีลายเซ็นดิจิทัล การคลิกทำงานถูกต้องแม้ขณะซูมอยู่ และทุกอย่างทำงานในเครื่องของคุณเท่านั้น ไม่มีข้อมูลใดออกจากพีซีของคุณ</p>
+                    </div>
+                </div>
+
+                <p class="requirements-line">ออกแบบมาสำหรับ Windows 11, 64 บิต (x64) · ตัวติดตั้งครบในตัว ไม่ต้องดาวน์โหลดอย่างอื่นเพิ่ม · รองรับ ARM เร็วๆ นี้</p>
+
+                <div class="good-to-know">
+                    <p><strong>ข้อมูลที่ควรรู้:</strong> นักวิจัยด้านการมองเห็นเรียกปรากฏการณ์นี้ว่า <em>change blindness</em> (ภาวะมองไม่เห็นการเปลี่ยนแปลง): เมื่อมุมมองเปลี่ยนไปในช่วงที่สายตาถูกขัดจังหวะ เป็นเรื่องง่ายที่จะพลาดสิ่งที่เคลื่อนไหวและหลงตำแหน่งที่กำลังติดตามอยู่ โปรแกรมขยายหน้าจอที่กระตุกเปลี่ยนจะสร้างการขัดจังหวะแบบนี้ตลอดทั้งวัน ส่วนโปรแกรมที่เคลื่อนไหวนุ่มนวลจะไม่เปิดช่องให้สายตาของคุณหลงตำแหน่งเลย</p>
+                </div>
+
+                <p class="parent-callout">กำลังตั้งค่าให้พ่อแม่หรือคนที่คุณดูแลอยู่ใช่ไหม? ติดตั้งครั้งเดียวไม่ต้องยุ่งยาก <a href="/th/pricing.html#organizations">ใบอนุญาตแบบจำนวนมาก →</a></p>
+            </div>
+        </section>
+
+        <!-- 5 · FAQ (includes the first-run SmartScreen guidance) -->
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <h2>คำถามที่พบบ่อย</h2>
+                <div class="faq-list">
+                    <details class="faq">
+                        <summary>ราคาเท่าไหร่?</summary>
+                        <div class="faq-body"><p>Low Vision Zoom ให้ทดลองใช้ฟรี 7 วันโดยปลดล็อกทุกฟีเจอร์ หลังจากนั้น ใบอนุญาตแบบจ่ายครั้งเดียว <strong>$9.99</strong> จะทำให้ใช้งานต่อได้ — ไม่มีค่าสมัครสมาชิก และรวมการอัปเดตในอนาคตทั้งหมด ดูรายละเอียดที่<a href="/th/pricing.html">หน้าราคา</a></p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>เกิดอะไรขึ้นเมื่อช่วงทดลองใช้สิ้นสุด?</summary>
+                        <div class="faq-body"><p>แอปยังคงทำงานต่อไป — เพียงแต่การขยายภาพจะถูกจำกัดจนกว่าคุณจะกรอกคีย์ใบอนุญาต ทำให้หน้าจอของคุณยังคงอ่านได้เพียงพอสำหรับการใช้งานและการซื้อ กรอกคีย์เมื่อใดก็ได้เพื่อคืนการซูมเต็มรูปแบบทันที ไม่ต้องติดตั้งใหม่</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>แตกต่างจากแว่นขยายในตัวของ Windows อย่างไร?</summary>
+                        <div class="faq-body"><p>Windows มีแว่นขยายในตัวที่ใช้งานได้ดี และหลายคนควรลองใช้ตัวนี้ก่อน Low Vision Zoom เน้นความรู้สึกที่นุ่มนวลและสงบกว่า: การซูมแบบแอนิเมชันที่นุ่มนวล (ไม่กระตุก) ซูมโดยยึดจุดศูนย์กลางที่เคอร์เซอร์ของคุณ การเลื่อนมุมมองแบบมีโซนนิ่งที่มั่นคง และอินเทอร์เฟซบนถาดระบบที่ไม่กีดขวางการทำงาน เหมาะสำหรับการปรับแต่งอย่างรวดเร็วและบ่อยครั้ง</p></div>
+                    </details>
+                    <!-- Carries the full first-run SmartScreen guidance (formerly its own
+                         aside under the on-page download CTA, now retired); the
+                         install-note-* classes style the steps and figure here too. -->
+                    <details class="faq" id="faq-smartscreen">
+                        <summary>Windows จะเตือนตอนที่ฉันติดตั้งไหม?</summary>
+                        <div class="faq-body">
+                            <p>ครั้งแรกที่คุณเปิดตัวติดตั้ง Windows อาจแสดงข้อความเต็มจอสีน้ำเงินว่า <strong>“Windows protected your PC” (Windows ปกป้อง PC ของคุณ)</strong> <strong>นี่เป็นเรื่องปกติและแอปนี้ปลอดภัย</strong> ที่เป็นเช่นนี้เพราะ Low Vision Zoom เป็นแอปใหม่ล่าสุด — Windows ยังไม่เคยเห็นมันบ่อยพอที่จะจดจำได้ ตัวติดตั้งมีลายเซ็นดิจิทัลจาก <strong>txtbook&nbsp;LLC</strong> บริษัทของเรา</p>
+                            <p class="install-note-steps-lead">วิธีดำเนินการต่อ:</p>
+                            <ol class="install-note-steps">
+                                <li>คลิก <strong>More info</strong> (ข้อมูลเพิ่มเติม) บนหน้าจอสีน้ำเงิน</li>
+                                <li>ตรวจสอบว่าบรรทัดผู้เผยแพร่มีชื่อ <strong>txtbook LLC</strong></li>
+                                <li>คลิกปุ่ม <strong>Run anyway</strong> (เรียกใช้ต่อไป) ที่ปรากฏขึ้น แล้วตัวติดตั้งจะเปิดตามปกติ</li>
+                            </ol>
+                            <figure class="install-note-figure">
+                                <img src="/media/smartscreen-help.png" width="640" loading="lazy"
+                                     alt="หน้าจอสีน้ำเงิน ‘Windows protected your PC’ หลังจากคลิก ‘More info’ ปุ่ม ‘Run anyway’ จะปรากฏที่ด้านล่าง — คลิกเพื่อดำเนินการต่อ" />
+                                <figcaption>คลิก <strong>More info</strong> แล้วตามด้วย <strong>Run anyway</strong></figcaption>
+                            </figure>
+                            <p>คำเตือนนี้จะหายไปเองในสัปดาห์ถัดๆ ไปเมื่อมีคนติดตั้งแอปมากขึ้น และคุณต้องทำขั้นตอนนี้เพียงครั้งเดียว แอปติดตั้งแบบต่อเครื่องลงใน Program Files ซึ่งเป็นสิ่งที่ทำให้การคลิกทำงานถูกต้องขณะซูมอยู่ด้วย</p>
+                        </div>
+                    </details>
+                    <details class="faq">
+                        <summary>ข้อมูลการซื้อของฉันเป็นความลับหรือไม่?</summary>
+                        <div class="faq-body"><p>ใช่ ตัวแอปเองไม่เก็บข้อมูลใดๆ และทำงานแบบออฟไลน์ได้ (<a href="/privacy.html">นโยบายความเป็นส่วนตัว (ภาษาอังกฤษ)</a>) การซื้อจะดำเนินการโดยผู้ให้บริการชำระเงินของเรา Paddle ซึ่งทำหน้าที่เป็น merchant of record (ผู้ขายที่เป็นคู่สัญญาอย่างเป็นทางการ) แอปจะไม่เห็นรายละเอียดการชำระเงินของคุณเลย</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>มีนโยบายคืนเงินไหม?</summary>
+                        <div class="faq-body"><p>มี — มีการรับประกันคืนเงินภายใน 30 วัน นอกเหนือจากช่วงทดลองใช้ฟรี ดูรายละเอียดที่<a href="/refund.html">นโยบายการคืนเงิน (ภาษาอังกฤษ)</a></p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>องค์กรสามารถซื้อใบอนุญาตหลายชุดได้ไหม?</summary>
+                        <div class="faq-body"><p>ได้ โรงเรียน คลินิก ห้องสมุด และนายจ้างสามารถขอใบอนุญาตแบบจำนวนมากพร้อมใบแจ้งหนี้ได้ — ใช้<a href="/th/contact.html?topic=volume">แบบฟอร์มติดต่อ</a>ของเรา</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 · Quiet CTA band -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>โปรแกรมขยายหน้าจอที่ดีที่สุดสำหรับผู้ใช้ Windows ที่มีสายตาเลือนราง</h2>
+                <p>ทดลองใช้ฟรี 7 วัน · จ่ายครั้งเดียว $9.99 · ไม่มีค่าสมัครสมาชิก</p>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="#get" data-download class="btn btn-primary btn-lg">ดาวน์โหลดสำหรับ Windows</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>โปรแกรมขยายหน้าจอที่ดีที่สุดสำหรับผู้ใช้ Windows ที่มีสายตาเลือนราง</p>
+                    <p>&nbsp;</p>
+                    <p>ผลิตภัณฑ์จาก txtbook&nbsp;LLC</p>
+                    <p>&nbsp;</p>
+                    <p>4601 E. Douglas Ave. STE 150</p>
+                    <p>Wichita, KS 67218</p>
+                </div>
+                <div>
+                    <h4>ผลิตภัณฑ์</h4>
+                    <ul>
+                        <li><a href="#why">ทำไมถึงดีกว่า</a></li>
+                        <li><a href="#how">วิธีใช้งาน</a></li>
+                        <li><a href="/th/pricing.html">ราคา</a></li>
+                        <li><a href="#faq">คำถามที่พบบ่อย</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>กฎหมาย</h4>
+                    <ul>
+                        <li><a href="/privacy.html">ความเป็นส่วนตัว (ภาษาอังกฤษ)</a></li>
+                        <li><a href="/terms.html">ข้อกำหนดการให้บริการ (ภาษาอังกฤษ)</a></li>
+                        <li><a href="/refund.html">นโยบายการคืนเงิน (ภาษาอังกฤษ)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>ฝ่ายสนับสนุน</h4>
+                    <ul>
+                        <li><a href="/th/contact.html">ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC สงวนลิขสิทธิ์</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

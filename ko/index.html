@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoom: Windows를 위한 차분한 화면 확대 프로그램입니다. 화면이 부드럽게 확대되며 가리키는 지점을 중심으로 움직여 읽던 곳을 놓치지 않습니다. 7일 무료 체험 후 $9.99 한 번만 결제하면 됩니다. 구독 없음, 광고 없음, 데이터 수집 없음.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <meta property="og:title" content="Low Vision Zoom — Windows를 위한 부드러운 화면 확대">
+    <meta property="og:description" content="부드럽게 확대되어 읽던 곳을 놓치지 않습니다. Ctrl 키를 누른 채 스크롤하면 Windows 어디서나 확대됩니다. 7일 무료 체험, $9.99 한 번만 결제. 개인정보 보호, 오프라인 작동, 구독 없음.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:url" content="https://lowvisionzoom.com/ko/">
+    <meta property="og:image" content="https://lowvisionzoom.com/media/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Low Vision Zoom 로고 — 플러스가 그려진 돋보기 — 와 슬로건: 저시력 Windows 사용자를 위한 최고의 화면 확대 프로그램">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Low Vision Zoom — Windows를 위한 부드러운 화면 확대</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ko/">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/">
+</head>
+<body>
+    <a href="#main" class="skip-link">본문으로 건너뛰기</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ko/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="주 메뉴">
+                <a href="#demo">데모 보기</a>
+                <a href="#how">사용 방법</a>
+                <a href="#why">더 나은 이유</a>
+                <a href="/ko/pricing.html">가격</a>
+                <a href="#get" data-download class="btn btn-secondary btn-nav">다운로드</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="언어: 한국어">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>한국어</span>
+                </summary>
+                <ul>
+                    <li><a href="/index.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/index.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/index.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/index.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/index.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/index.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/index.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/index.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/index.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/index.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/index.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/index.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/index.html" data-lang="ko" lang="ko" hreflang="ko" aria-current="true">한국어</a></li>
+                    <li><a href="/vi/index.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/index.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/index.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/index.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/index.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/index.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- 1 · Hero + controls animation -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>저시력 Windows 사용자를<br> 위한 최고의<br> 화면 확대 프로그램</h1>
+                    <p class="lead">눈이 편안하게 따라갈 수 있도록 설계된 부드럽고 간단한 확대 유틸리티</p>
+                    <div class="hero-buttons">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="#get" data-download class="btn btn-primary btn-lg">Windows용 다운로드</a>
+                    </div>
+                </div>
+
+                <!-- Experiment: desktop controls animation instead of the motion demo video,
+                     to lead with how simple the app is. Previous video block is in git history.
+                     The panel stretches to match hero-content (title top → download button bottom),
+                     which is why the trust chips live outside hero-content in their own grid row. -->
+                <div class="hero-anim">
+                    <img src="/media/howto-desktop-hero.svg" width="520" height="280"
+                         alt="애니메이션: 손가락이 Ctrl 키를 누른 채 마우스 휠을 앞으로 굴려 확대하고, 뒤로 굴려 축소합니다.">
+                </div>
+
+                <ul class="trust" aria-label="기대할 수 있는 것">
+                    <li>7일 무료 체험</li>
+                    <li>$9.99 한 번만 결제</li>
+                    <li>구독 없음</li>
+                    <li>계정 불필요</li>
+                    <li class="trust-break" aria-hidden="true"></li>
+                    <li>광고 없음</li>
+                    <li>데이터 수집 없음</li>
+                    <li>오프라인 작동</li>
+                </ul>
+            </div>
+
+            <!-- Scroll cue: invites the visitor past the fold to the demo.
+                 Duplicates the nav link on purpose; the arrow bob is killed
+                 by the global prefers-reduced-motion rule. -->
+            <a href="#demo" class="scroll-cue">
+                <span>데모 보기</span>
+                <svg class="scroll-cue-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,9 12,17 19,9"/></svg>
+            </a>
+        </section>
+
+        <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
+             into view (see site.js §3); pauses when scrolled away. Motion-safe:
+             under prefers-reduced-motion it never autoplays — the poster shows
+             until the visitor presses Play. hero-demo.{webm,mp4} are the
+             bandwidth-friendly re-encodes of media/hero.mp4. -->
+        <section id="demo" class="demo-full section-alt" aria-labelledby="demo-heading">
+            <h2 id="demo-heading" class="visually-hidden">Low Vision Zoom의 실제 동작 보기</h2>
+            <div class="demo-full-stage">
+                <video class="demo-full-video" muted loop playsinline preload="metadata"
+                       poster="/media/hero-demo-poster.webp"
+                       aria-label="화면 녹화: Low Vision Zoom이 Windows 바탕 화면을 부드럽게 확대하며, 사용자가 읽고 클릭하는 동안 커서 주변으로 자연스럽게 확대됩니다.">
+                    <source src="/media/hero-demo.webm" type='video/webm; codecs="av01.0.08M.08"'>
+                    <source src="/media/hero-demo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="demo-toggle demo-full-toggle" data-label-play="데모 재생" data-label-pause="데모 일시정지" hidden aria-pressed="false"></button>
+            </div>
+        </section>
+
+        <!-- 3 · How it works — device-toggled gesture animation + control cards -->
+        <section id="how" class="section">
+            <div class="container">
+                <h2>키 하나와 마우스 휠. 이것이 전부입니다.</h2>
+                <p class="section-sub">설치하는 순간부터 별도 설정 없이 바로 작동합니다.</p>
+
+                <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
+                     copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
+                     don't edit media/howto-*.svg by hand. -->
+                <div class="howto-anim">
+                    <fieldset class="howto-switch">
+                        <legend class="visually-hidden">사용하시는 기기에 맞는 확대 동작을 보여줍니다</legend>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="desktop" checked>
+                            <span>데스크톱 사용자</span>
+                        </label>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="laptop">
+                            <span>노트북 사용자</span>
+                        </label>
+                    </fieldset>
+                    <div class="howto-pane howto-pane-desktop">
+                        <img src="/media/howto-desktop.svg" width="520" height="250"
+                             alt="애니메이션: 손가락이 Ctrl 키를 누른 채 마우스 휠을 앞으로 굴려 확대하고, 뒤로 굴려 축소합니다.">
+                        <p class="demo-caption"><strong>Ctrl</strong> 키를 누른 채 스크롤하세요 — 앞으로 굴리면 확대, 뒤로 굴리면 축소됩니다.</p>
+                    </div>
+                    <div class="howto-pane howto-pane-laptop">
+                        <img src="/media/howto-laptop.svg" width="520" height="250"
+                             alt="애니메이션: Ctrl 키와 Alt 키를 누른 채 손가락이 플러스 키를 눌러 확대하고, 마이너스 키를 눌러 축소합니다.">
+                        <p class="demo-caption"><strong>Ctrl + Alt</strong> 키를 누른 채 <strong>+</strong> 또는 <strong>−</strong> 키를 누르세요 — 마우스 휠이 필요 없습니다.</p>
+                    </div>
+                </div>
+
+                <!-- The cards follow the Desktop/Laptop toggle above (CSS :has() on #how,
+                     next to the howto-pane rules). Pan is two cards: same gesture, but
+                     "mouse" only makes sense on desktop — laptops say "cursor". -->
+                <div class="controls">
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + 스크롤&nbsp;↑</span>
+                        <p><strong>확대</strong> — 커서를 향해 부드럽게 확대됩니다.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + 스크롤&nbsp;↓</span>
+                        <p><strong>축소</strong> — 같은 부드러운 움직임으로 다시 되돌아갑니다.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 플러스 / 마이너스</span>
+                        <p><strong>키보드로 확대·축소</strong> — 누르고 있으면 계속 확대됩니다. 마우스 휠이 필요 없습니다.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Shift + 스크롤&nbsp;↓</span>
+                        <p><strong>초기화</strong> — 필요할 때 즉시 원래 크기(1×)로 되돌립니다.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 0</span>
+                        <p><strong>초기화</strong> — 즉시 원래 크기(1×)로 되돌립니다.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">마우스 이동</span>
+                        <p><strong>화면 이동</strong> — 화면 가장자리 쪽으로 움직이면 화면이 부드럽게 따라 이동합니다.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">커서 이동</span>
+                        <p><strong>화면 이동</strong> — 화면 가장자리 쪽으로 움직이면 화면이 부드럽게 따라 이동합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Why it's better — the perceptual case (see the app repo's
+             docs/why-smooth-zoom-helps-low-vision.md for sourcing and the
+             language guardrails: experience & design claims only, nothing
+             medical) mixed with the technical/trust facts. -->
+        <section id="why" class="section section-alt">
+            <div class="container">
+                <h2>더 나은 이유: 읽던 곳을 다시 찾을 필요가 없습니다.</h2>
+                <p class="section-sub">대부분의 화면 확대 프로그램은 화면이 순간적으로 훅 바뀌고, 그때마다 눈은 멈춰서 보던 곳을 다시 찾아야 합니다. Low Vision Zoom은 부드럽고 연속적으로 움직입니다.</p>
+
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
+                        <h3>눈이 따라갈 수 있는 움직임</h3>
+                        <p>확대 프로그램이 화면을 순간적으로 바꾸면 눈은 그 뒤를 쫓아가 읽던 내용을 다시 찾아야 합니다. Low Vision Zoom은 모든 변화를 초당 60프레임으로 애니메이션 처리하므로, 눈이 쫓아가는 것이 아니라 함께 미끄러지듯 따라갑니다.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
+                        <h3>기준점은 절대 움직이지 않습니다</h3>
+                        <p>확대는 커서 바로 아래 지점을 중심으로 이루어집니다. 그 지점은 고정된 채 주변만 커집니다. 중요한 곳을 가리키기만 하면 그곳이 기준점이 됩니다.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="11" y="11" width="10" height="10" rx="2"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg>
+                        <h3>새 화면이 아니라 같은 장면</h3>
+                        <p>각 프레임이 이전 프레임에서 조금씩만 변하기 때문에, 화면은 같은 페이지가 부드럽게 커지는 것으로 보이며 옛 화면이 새 화면으로 갑자기 바뀌는 일이 없습니다. 사라지는 것이 없으니 다시 찾을 것도 없습니다.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><line x1="4" y1="16" x2="28" y2="16"/><circle cx="19" cy="16" r="4"/></svg>
+                        <h3>속도는 직접 정합니다</h3>
+                        <p>확대는 비례적입니다. 스크롤한 만큼, 스크롤한 속도로만 움직이며 도중에 멈추거나 되돌릴 수도 있습니다. 스스로 시작한 움직임은 눈이 예측할 수 있는 움직임입니다.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="10" width="12" height="12" rx="2"/><polyline points="6,13 3,16 6,19"/><polyline points="26,13 29,16 26,19"/></svg>
+                        <h3>읽는 동안에는 멈춰 있습니다</h3>
+                        <p>커서가 화면 가운데를 오가는 동안 화면은 완전히 정지해 있고, 가장자리에 다가갈 때만 부드럽게 이동합니다. 읽는 도중 화면이 계속 흔들리는 일이 없습니다.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
+                        <h3>탄탄한 Windows 엔지니어링</h3>
+                        <p>Windows 고유의 Magnification API 위에 자체 60&nbsp;fps 애니메이션 엔진을 얹어 만들었습니다. 서명된 설치 프로그램, 확대 중에도 정확하게 클릭되며, 모든 것이 로컬에서 실행됩니다. 어떤 정보도 PC를 벗어나지 않습니다.</p>
+                    </div>
+                </div>
+
+                <p class="requirements-line">Windows 11, 64비트(x64)용 · 자체 완결형 설치 프로그램, 추가 다운로드 불필요 · ARM 지원 준비 중.</p>
+
+                <div class="good-to-know">
+                    <p><strong>알아두면 좋은 점:</strong> 시각 연구자들은 이를 <em>변화맹(change blindness)</em>이라고 부릅니다. 시각이 잠시 끊기는 사이에 화면이 바뀌면, 무엇이 움직였는지 놓치고 따라가던 것을 잃어버리기 쉽습니다. 화면이 훅 바뀌는 확대 프로그램은 이런 끊김을 하루 종일 반복해서 만듭니다. 부드럽게 움직이는 확대 프로그램은 눈이 읽던 곳을 잃어버릴 틈을 아예 주지 않습니다.</p>
+                </div>
+
+                <p class="parent-callout">부모님이나 돌보시는 분을 위해 설치해 드리시나요? 한 번 설치하면 손댈 일이 없습니다. <a href="/ko/pricing.html#organizations">볼륨 라이선스 →</a></p>
+            </div>
+        </section>
+
+        <!-- 5 · FAQ (includes the first-run SmartScreen guidance) -->
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <h2>자주 묻는 질문</h2>
+                <div class="faq-list">
+                    <details class="faq">
+                        <summary>가격은 얼마인가요?</summary>
+                        <div class="faq-body"><p>Low Vision Zoom은 모든 기능이 열린 상태로 7일간 무료로 사용해 볼 수 있습니다. 이후에는 <strong>$9.99</strong> 한 번만 결제하면 계속 사용할 수 있습니다 — 구독이 아니며, 이후 모든 업데이트가 포함됩니다. <a href="/ko/pricing.html">가격 페이지</a>를 참고하세요.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>체험 기간이 끝나면 어떻게 되나요?</summary>
+                        <div class="faq-body"><p>앱은 계속 작동합니다 — 라이선스 키를 입력하기 전까지 확대 배율만 제한되므로, 화면을 읽고 구매하는 데는 항상 문제가 없습니다. 언제든 키를 입력하면 즉시 전체 확대가 복원되며, 재설치는 필요 없습니다.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Windows에 기본 내장된 돋보기와는 무엇이 다른가요?</summary>
+                        <div class="faq-body"><p>Windows에는 쓸 만한 돋보기가 내장되어 있으며, 먼저 사용해 보시는 것도 좋습니다. Low Vision Zoom은 더 부드럽고 차분한 사용감에 집중합니다. 순간적으로 바뀌지 않는 부드러운 애니메이션 확대, 커서를 중심으로 한 확대, 흔들림 없는 데드존 화면 이동, 그리고 자주 조절해도 방해되지 않는 트레이 인터페이스를 제공합니다.</p></div>
+                    </details>
+                    <!-- Carries the full first-run SmartScreen guidance (formerly its own
+                         aside under the on-page download CTA, now retired); the
+                         install-note-* classes style the steps and figure here too. -->
+                    <details class="faq" id="faq-smartscreen">
+                        <summary>설치할 때 Windows가 경고를 표시하나요?</summary>
+                        <div class="faq-body">
+                            <p>설치 프로그램을 처음 열면 Windows가 파란색 전체 화면으로 <strong>“Windows의 PC 보호(Windows protected your PC)”</strong> 메시지를 표시할 수 있습니다. <strong>이는 정상이며 앱은 안전합니다.</strong> Low Vision Zoom이 아주 새로운 앱이라 Windows가 아직 충분히 접해 보지 못해 나타나는 현상입니다. 설치 프로그램은 저희 회사인 <strong>txtbook&nbsp;LLC</strong>가 디지털 서명했습니다.</p>
+                            <p class="install-note-steps-lead">계속 진행하려면:</p>
+                            <ol class="install-note-steps">
+                                <li>파란 화면에서 <strong>추가 정보</strong>를 클릭합니다.</li>
+                                <li>게시자 줄에 <strong>txtbook LLC</strong>가 표시되는지 확인합니다.</li>
+                                <li>나타나는 <strong>실행</strong> 버튼을 클릭하면 설치 프로그램이 평소처럼 열립니다.</li>
+                            </ol>
+                            <figure class="install-note-figure">
+                                <img src="/media/smartscreen-help.png" width="640" loading="lazy"
+                                     alt="파란색 ‘Windows의 PC 보호’ 화면. ‘추가 정보’를 클릭하면 하단에 ‘실행’ 버튼이 나타나며, 이를 클릭해 계속 진행합니다." />
+                                <figcaption><strong>추가 정보</strong>를 클릭한 다음 <strong>실행</strong>을 클릭하세요.</figcaption>
+                            </figure>
+                            <p>더 많은 분들이 앱을 설치하면 이 경고는 몇 주에 걸쳐 자연스럽게 사라지며, 이 과정은 한 번만 하면 됩니다. 앱은 컴퓨터 단위로 Program Files에 설치되는데, 이 덕분에 확대 중에도 클릭이 정확하게 전달됩니다.</p>
+                        </div>
+                    </details>
+                    <details class="faq">
+                        <summary>구매 정보는 안전하게 보호되나요?</summary>
+                        <div class="faq-body"><p>네. 앱 자체는 아무것도 수집하지 않으며 오프라인으로 작동합니다(<a href="/privacy.html">개인정보 처리방침 (영문)</a>). 결제는 판매자(merchant of record) 역할을 하는 결제 대행사 Paddle이 처리하며, 앱은 결제 정보를 전혀 보지 못합니다.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>환불이 가능한가요?</summary>
+                        <div class="faq-body"><p>네 — 무료 체험에 더해 30일 환불 보장이 제공됩니다. <a href="/refund.html">환불 정책 (영문)</a>을 참고하세요.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>기관에서 여러 개의 라이선스를 구매할 수 있나요?</summary>
+                        <div class="faq-body"><p>네. 학교, 병원, 도서관, 기업 등에서는 볼륨 라이선스와 청구서 발행을 요청하실 수 있습니다 — <a href="/ko/contact.html?topic=volume">문의 양식</a>을 이용해 주세요.</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 · Quiet CTA band -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>저시력 Windows 사용자를 위한 최고의 화면 확대 프로그램.</h2>
+                <p>7일 무료 체험 · $9.99 한 번만 결제 · 구독 없음</p>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="#get" data-download class="btn btn-primary btn-lg">Windows용 다운로드</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>저시력 Windows 사용자를 위한 최고의 화면 확대 프로그램</p>
+                    <p>&nbsp;</p>
+                    <p>txtbook&nbsp;LLC의 제품입니다</p>
+                    <p>&nbsp;</p>
+                    <p>4601 E. Douglas Ave. STE 150</p>
+                    <p>Wichita, KS 67218</p>
+                </div>
+                <div>
+                    <h4>제품</h4>
+                    <ul>
+                        <li><a href="#why">더 나은 이유</a></li>
+                        <li><a href="#how">사용 방법</a></li>
+                        <li><a href="/ko/pricing.html">가격</a></li>
+                        <li><a href="#faq">자주 묻는 질문</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>법적 고지</h4>
+                    <ul>
+                        <li><a href="/privacy.html">개인정보 처리방침 (영문)</a></li>
+                        <li><a href="/terms.html">서비스 이용약관 (영문)</a></li>
+                        <li><a href="/refund.html">환불 정책 (영문)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>지원</h4>
+                    <ul>
+                        <li><a href="/ko/contact.html">문의하기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

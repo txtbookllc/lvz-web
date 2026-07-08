@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Beli lisensi Low Vision Zoom Anda — pembayaran sekali bayar $9.99, tanpa langganan. Kunci lisensi dikirim ke email Anda. Pembayaran aman oleh Paddle.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <title>Beli lisensi | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/id/buy.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/buy.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/buy.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/buy.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/buy.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/buy.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/buy.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/buy.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/buy.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/buy.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/buy.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/buy.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/buy.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/buy.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/buy.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/buy.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/buy.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/buy.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/buy.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/buy.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/buy.html">
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Langsung ke konten</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/id/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Utama">
+                <a href="/id/index.html#demo">Lihat demo</a>
+                <a href="/id/index.html#how">Cara kerjanya</a>
+                <a href="/id/index.html#why">Mengapa lebih baik</a>
+                <a href="/id/pricing.html">Harga</a>
+                <a href="/id/index.html#get" data-download class="btn btn-secondary btn-nav">Unduh</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Bahasa: Bahasa Indonesia">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Bahasa Indonesia</span>
+                </summary>
+                <ul>
+                    <li><a href="/buy.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/buy.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/buy.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/buy.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/buy.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/buy.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/buy.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/buy.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/buy.html" data-lang="id" lang="id" hreflang="id" aria-current="true">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/buy.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/buy.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/buy.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/buy.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/buy.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/buy.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/buy.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/buy.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/buy.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/buy.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Beli lisensi</span>
+                <h1>Beli lisensi Anda</h1>
+                <p class="updated">Pembayaran sekali bayar $9.99 — tanpa langganan. Kunci lisensi dikirim ke email Anda segera setelah pembayaran selesai.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="pricing-wrap">
+                    <!-- Purchase card (hidden once we land on the success state) -->
+                    <div class="price-card" id="buy-card">
+                        <div class="price-amount">$9<span class="cents">.99</span></div>
+                        <p class="price-period">lisensi sekali bayar · USD</p>
+                        <ul class="price-list">
+                            <li>Membuka zoom penuh — tanpa batas waktu</li>
+                            <li>Sekali bayar $9.99 — bayar sekali, milik Anda</li>
+                            <li>Tanpa langganan, tanpa tagihan berulang</li>
+                            <li>Semua pembaruan mendatang termasuk</li>
+                            <li>Tanpa perlu akun</li>
+                            <li>Jaminan uang kembali 30 hari</li>
+                        </ul>
+                        <button type="button" id="buy-btn" class="btn btn-primary btn-lg">Beli lisensi — $9.99</button>
+                        <p class="cta-reassure">Kunci lisensi dikirim ke email Anda begitu pembayaran selesai.</p>
+                        <p class="form-status" id="buy-status" role="status" aria-live="polite"></p>
+                        <div class="form-status is-error" id="buy-help" role="alert" hidden>
+                            <p><strong>Jendela pembayaran aman tidak terbuka.</strong> Pemblokir iklan, pemblokir pelacak, atau mode privasi ketat (mis. Brave Shields, uBlock, AdGuard) dapat memblokir penyedia pembayaran kami, Paddle. Untuk membeli:</p>
+                            <ul class="price-list">
+                                <li>Jeda pemblokir iklan/pelacak Anda untuk halaman ini, lalu klik Beli lagi, <em>atau</em></li>
+                                <li>Coba browser tanpa ekstensi tersebut, <em>atau</em></li>
+                                <li><a href="/id/contact.html?topic=support">Hubungi kami</a> dan kami akan mengirimkan tautan pembayaran aman lewat email.</li>
+                            </ul>
+                        </div>
+                        <p class="price-fineprint">Pembayaran diproses dengan aman oleh <strong>Paddle</strong>, merchant of record (penjual resmi tercatat) kami. Paddle menangani pembayaran dan pajak yang berlaku; aplikasi tidak pernah melihat detail pembayaran Anda. Dengan membeli, Anda menyetujui <a href="/terms.html">Ketentuan (dalam bahasa Inggris)</a> dan <a href="/refund.html">Kebijakan pengembalian dana (dalam bahasa Inggris)</a> kami.</p>
+
+                        <noscript>
+                            <p class="form-status is-error">Pembelian memerlukan JavaScript untuk membuka jendela pembayaran aman. Aktifkan JavaScript lalu muat ulang halaman, atau <a href="/id/contact.html?topic=general">hubungi kami</a> dan kami akan mengirimkan tautan pembayaran.</p>
+                        </noscript>
+                    </div>
+                </div>
+
+                <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
+                    Belum mencobanya? Unduhannya adalah uji coba gratis 7 hari dengan fitur lengkap —
+                    <a href="/id/index.html#get" data-download>unduh dulu</a> dan beli saat Anda siap.
+                </p>
+            </div>
+        </section>
+
+        <!-- Success state — shown after Paddle redirects back with ?state=success -->
+        <section class="section" id="buy-success-section" hidden>
+            <div class="container">
+                <div class="form-success" id="buy-success" tabindex="-1">
+                    <h2>Pembayaran selesai — terima kasih!</h2>
+                    <p>Kunci lisensi Anda sedang dalam perjalanan ke kotak masuk email Anda. (Periksa folder spam jika belum terlihat dalam beberapa menit.)</p>
+                    <h3>Untuk mengaktifkan Low Vision Zoom:</h3>
+                    <ol class="price-list" style="text-align:start">
+                        <li>Buka Low Vision Zoom (unduh dulu jika belum — tombol di bawah).</li>
+                        <li>Klik kanan ikon baki sistem dan pilih “Enter license key…” (Masukkan kunci lisensi…).</li>
+                        <li>Tempelkan kunci dari email Anda dan klik <strong>Activate</strong>. Zoom penuh pulih seketika.</li>
+                    </ol>
+                    <p style="margin-top:var(--s-3)">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="/id/index.html#get" data-download class="btn btn-primary btn-lg">Unduh untuk Windows</a>
+                    </p>
+                    <p class="price-fineprint">Email tidak sampai, atau butuh bantuan mengaktifkan? <a href="/id/contact.html?topic=support">Hubungi dukungan</a> — siapkan konfirmasi pesanan Anda.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Kaca pembesar layar yang tenang untuk Windows. Produk dari txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a href="/id/index.html#why">Mengapa lebih baik</a></li>
+                        <li><a href="/id/index.html#how">Cara kerjanya</a></li>
+                        <li><a href="/id/pricing.html">Harga</a></li>
+                        <li><a href="/id/index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hukum</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privasi (dalam bahasa Inggris)</a></li>
+                        <li><a href="/terms.html">Ketentuan layanan (dalam bahasa Inggris)</a></li>
+                        <li><a href="/refund.html">Kebijakan pengembalian dana (dalam bahasa Inggris)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Dukungan</h4>
+                    <ul>
+                        <li><a href="/id/contact.html">Hubungi kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Hak cipta dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* Paddle Billing checkout for the $9.99 one-time license.
+               - Client-side token is public by design (safe to ship in page JS).
+               - Click-to-open (not auto-open): predictable for the AT audience,
+                 and avoids surprise modals / popup-blocker issues. */
+            var CLIENT_TOKEN = "live_40658bacb3fc6d120b3e65a170b";
+            var PRICE_ID = "pri_01kv3zfqj55ar4ykzachnmv54e";
+            var SUCCESS_URL = "https://lowvisionzoom.com/id/buy.html?state=success";
+
+            var card = document.getElementById("buy-card");
+            var btn = document.getElementById("buy-btn");
+            var statusEl = document.getElementById("buy-status");
+            var helpEl = document.getElementById("buy-help");
+
+            /* If the overlay never loads within a few seconds, a blocker is
+               almost certainly eating Paddle's checkout-service request (it
+               fails silently, with no error event). Surface a recovery path. */
+            var loadTimer = null;
+            function armBlockerWatch() {
+                if (loadTimer) { clearTimeout(loadTimer); }
+                loadTimer = setTimeout(showBlockerHelp, 7000);
+            }
+            function clearBlockerWatch() {
+                if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+                if (helpEl) { helpEl.hidden = true; }
+            }
+            function showBlockerHelp() {
+                if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+                statusEl.className = "form-status";
+                statusEl.textContent = "";
+                if (helpEl) { helpEl.hidden = false; helpEl.setAttribute("tabindex", "-1"); helpEl.focus(); }
+            }
+
+            function showSuccess() {
+                if (card) { card.hidden = true; }
+                var sec = document.getElementById("buy-success-section");
+                if (sec) {
+                    sec.hidden = false;
+                    var panel = document.getElementById("buy-success");
+                    if (panel) { panel.focus(); }
+                }
+            }
+
+            // Returning from a completed checkout.
+            if (new URLSearchParams(window.location.search).get("state") === "success") {
+                showSuccess();
+                return;
+            }
+
+            function setError(msg) {
+                statusEl.className = "form-status is-error";
+                statusEl.textContent = msg;
+            }
+
+            if (typeof Paddle === "undefined") {
+                setError("Jendela pembayaran aman tidak dapat dimuat. Silakan muat ulang halaman, atau hubungi kami dan kami akan mengirimkan tautan pembayaran.");
+                return;
+            }
+
+            try {
+                Paddle.Initialize({
+                    token: CLIENT_TOKEN,
+                    eventCallback: function (ev) {
+                        if (!ev || !ev.name) { return; }
+                        if (ev.name === "checkout.loaded") {
+                            // Overlay opened fine — no blocker problem.
+                            clearBlockerWatch();
+                        } else if (ev.name === "checkout.completed") {
+                            // Belt-and-suspenders: the successUrl redirect normally
+                            // handles this, but show success even if it doesn't fire.
+                            clearBlockerWatch();
+                            showSuccess();
+                        } else if (ev.name === "checkout.error") {
+                            showBlockerHelp();
+                        }
+                    }
+                });
+            } catch (e) {
+                setError("Jendela pembayaran aman tidak dapat dimulai. Silakan muat ulang halaman, atau hubungi kami dan kami akan mengirimkan tautan pembayaran.");
+                return;
+            }
+
+            /* Paddle sends people to the default payment link with ?_ptxn=<txn id>
+               for hosted/invoice payment links. Open that specific transaction. */
+            var ptxn = new URLSearchParams(window.location.search).get("_ptxn");
+            if (ptxn) {
+                statusEl.className = "form-status";
+                statusEl.textContent = "Membuka pembayaran aman…";
+                try {
+                    Paddle.Checkout.open({ transactionId: ptxn, settings: { locale: "en" } });
+                    armBlockerWatch();
+                } catch (e) {
+                    showBlockerHelp();
+                }
+            }
+
+            function openLicenseCheckout() {
+                if (helpEl) { helpEl.hidden = true; }
+                statusEl.className = "form-status";
+                statusEl.textContent = "Membuka pembayaran aman…";
+                try {
+                    Paddle.Checkout.open({
+                        items: [{ priceId: PRICE_ID, quantity: 1 }],
+                        settings: { displayMode: "overlay", locale: "en", successUrl: SUCCESS_URL }
+                    });
+                    armBlockerWatch();
+                } catch (e) {
+                    showBlockerHelp();
+                }
+            }
+
+            btn.addEventListener("click", openLicenseCheckout);
+
+            /* Arriving from a "Buy a license" button on another page (index/pricing):
+               the user already expressed intent, so open checkout immediately —
+               no redundant second click. */
+            if (new URLSearchParams(window.location.search).get("checkout") === "1") {
+                openLicenseCheckout();
+            }
+        })();
+    </script>
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

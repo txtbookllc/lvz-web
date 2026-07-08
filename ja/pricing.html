@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoomの価格：全機能が使える7日間の無料トライアル、その後は$9.99の買い切りライセンス。サブスクなし。今後のアップデートすべて込み。30日間の返金保証付き。">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <title>価格 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ja/pricing.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/pricing.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/pricing.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/pricing.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/pricing.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/pricing.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/pricing.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/pricing.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/pricing.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/pricing.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/pricing.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/pricing.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/pricing.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/pricing.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/pricing.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/pricing.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/pricing.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/pricing.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/pricing.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/pricing.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/pricing.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">本文へスキップ</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ja/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="メイン">
+                <a href="/ja/index.html#demo">デモを見る</a>
+                <a href="/ja/index.html#how">使い方</a>
+                <a href="/ja/index.html#why">選ばれる理由</a>
+                <a href="/ja/pricing.html" aria-current="page">価格</a>
+                <a href="/ja/index.html#get" data-download class="btn btn-secondary btn-nav">ダウンロード</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="言語: 日本語">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>日本語</span>
+                </summary>
+                <ul>
+                    <li><a href="/pricing.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/pricing.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/pricing.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/pricing.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/pricing.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/pricing.html" data-lang="ja" lang="ja" hreflang="ja" aria-current="true">日本語</a></li>
+                    <li><a href="/de/pricing.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/pricing.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/pricing.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/pricing.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/pricing.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/pricing.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/pricing.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/pricing.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/pricing.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/pricing.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/pricing.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/pricing.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/pricing.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">価格</span>
+                <h1>1つの価格。サブスクなし。</h1>
+                <p class="updated">全機能を7日間無料で試して、気に入ったら$9.99の一度きりのお支払いでずっと使えます。</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="pricing-wrap">
+                    <div class="price-card">
+                        <div class="price-amount">$9<span class="cents">.99</span></div>
+                        <p class="price-period">買い切りライセンス · USD</p>
+                        <ul class="price-list">
+                            <li>全機能が使える7日間の無料トライアル</li>
+                            <li>$9.99の買い切り — 一度払えばずっと自分のもの</li>
+                            <li>サブスクなし、繰り返しの請求なし</li>
+                            <li>今後のアップデートすべて込み</li>
+                            <li>ご自身のWindows PCで利用可能</li>
+                            <li>アカウント不要</li>
+                            <li>30日間の返金保証</li>
+                        </ul>
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="/ja/index.html#get" data-download class="btn btn-primary btn-lg">Windows版をダウンロード</a>
+                        <p class="cta-reassure">7日間の無料トライアル。開始にアカウントもお支払いも不要です。</p>
+                        <a href="/ja/buy.html?checkout=1" class="btn btn-quiet btn-lg">ライセンスを購入 — $9.99</a>
+                        <p class="price-fineprint">お支払いは、販売者（merchant of record）であるPaddleが安全に処理します。まず試して、あとで購入 — ダウンロードするのは無料トライアルです。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt">
+            <div class="container">
+                <h2>トライアルとライセンスの仕組み</h2>
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="5" y="13" width="22" height="14" rx="2"/><path d="M5 17h22"/><path d="M16 13V8m0 0c-2-4-7-2-5 1 1 1.5 5 1 5-1zm0 0c2-4 7-2 5 1-1 1.5-5 1-5-1z"/></svg>
+                        <h3>1. 7日間無料</h3>
+                        <p>ダウンロードして、7日間、全機能を無料で使えます。開始にお支払い情報は不要で、アカウント作成もいりません。</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="11" cy="13" r="6"/><path d="M15 17l10 10"/><path d="M22 24l3-3 3 3"/></svg>
+                        <h3>2. ライセンスキーを購入</h3>
+                        <p>気に入ったら、$9.99の一度きりの購入でライセンスキーが手に入ります。アプリに貼り付けるだけで、フルズームが即座に戻ります。再インストールは不要です。</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 16a4 4 0 1 1 4 4H8a4 4 0 1 1 0-8h16a4 4 0 1 1 0 8h-4a4 4 0 1 1 0-8"/></svg>
+                        <h3>3. ずっと使えます</h3>
+                        <p>ライセンスに有効期限はなく、今後のアップデートもすべて含まれます。トライアル終了後もキーがない間は拡大率が制限されるだけ（無効にはなりません）なので、画面は読める状態が保たれます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="organizations" class="section">
+            <div class="container">
+                <h2>団体のお客様へ</h2>
+                <p class="section-sub">学校、障害学生・障害者支援窓口、図書館、クリニック、リハビリ施設、企業などは、請求書払い対応のボリューム購入をご利用いただけます。導入も簡単です（標準的なマシン単位のインストーラー）。必要なライセンス数をお知らせいただければ、お見積もりをお送りします。</p>
+                <div style="text-align:center;">
+                    <a href="/ja/contact.html?topic=volume" class="btn btn-primary btn-lg">ボリューム価格を問い合わせる</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>まず無料で試して、決めるのはあとで。</h2>
+                <p>7日間トライアル · $9.99の買い切り · 30日間の返金保証</p>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="/ja/index.html#get" data-download class="btn btn-primary btn-lg">Windows版をダウンロード</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows向けの落ち着いた画面拡大ソフト。txtbook&nbsp;LLCの製品です。</p>
+                </div>
+                <div>
+                    <h4>製品</h4>
+                    <ul>
+                        <li><a href="/ja/index.html#why">選ばれる理由</a></li>
+                        <li><a href="/ja/index.html#how">使い方</a></li>
+                        <li><a href="/ja/pricing.html" aria-current="page">価格</a></li>
+                        <li><a href="/ja/index.html#faq">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>法的情報</h4>
+                    <ul>
+                        <li><a href="/privacy.html">プライバシー（英語）</a></li>
+                        <li><a href="/terms.html">利用規約（英語）</a></li>
+                        <li><a href="/refund.html">返金ポリシー（英語）</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>サポート</h4>
+                    <ul>
+                        <li><a href="/ja/contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

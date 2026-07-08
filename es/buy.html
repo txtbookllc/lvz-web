@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Compre su licencia de Low Vision Zoom — un pago único de $9.99, sin suscripción. Su clave de licencia le llega por correo electrónico. Pago seguro con Paddle.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <title>Comprar una licencia | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/es/buy.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/buy.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/buy.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/buy.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/buy.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/buy.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/buy.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/buy.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/buy.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/buy.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/buy.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/buy.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/buy.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/buy.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/buy.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/buy.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/buy.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/buy.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/buy.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/buy.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/buy.html">
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Ir al contenido</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/es/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Principal">
+                <a href="/es/index.html#demo">Ver la demostración</a>
+                <a href="/es/index.html#how">Cómo funciona</a>
+                <a href="/es/index.html#why">Por qué es mejor</a>
+                <a href="/es/pricing.html">Precio</a>
+                <a href="/es/index.html#get" data-download class="btn btn-secondary btn-nav">Descargar</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Idioma: Español">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Español</span>
+                </summary>
+                <ul>
+                    <li><a href="/buy.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/buy.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/buy.html" data-lang="es" lang="es" hreflang="es" aria-current="true">Español</a></li>
+                    <li><a href="/pt/buy.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/buy.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/buy.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/buy.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/buy.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/buy.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/buy.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/buy.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/buy.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/buy.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/buy.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/buy.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/buy.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/buy.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/buy.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/buy.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Comprar una licencia</span>
+                <h1>Compre su licencia</h1>
+                <p class="updated">Un pago único de $9.99 — sin suscripción. Su clave de licencia le llega por correo electrónico justo después de pagar.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="pricing-wrap">
+                    <!-- Purchase card (hidden once we land on the success state) -->
+                    <div class="price-card" id="buy-card">
+                        <div class="price-amount">$9<span class="cents">.99</span></div>
+                        <p class="price-period">licencia de pago único · USD</p>
+                        <ul class="price-list">
+                            <li>Desbloquea el zoom completo — sin límite de tiempo</li>
+                            <li>Pago único de $9.99 — pague una vez y es suyo</li>
+                            <li>Sin suscripción, sin cargos recurrentes</li>
+                            <li>Todas las actualizaciones futuras incluidas</li>
+                            <li>No requiere cuenta</li>
+                            <li>Garantía de devolución de dinero de 30 días</li>
+                        </ul>
+                        <button type="button" id="buy-btn" class="btn btn-primary btn-lg">Comprar una licencia — $9.99</button>
+                        <p class="cta-reassure">Su clave de licencia se le envía por correo electrónico en cuanto se completa el pago.</p>
+                        <p class="form-status" id="buy-status" role="status" aria-live="polite"></p>
+                        <div class="form-status is-error" id="buy-help" role="alert" hidden>
+                            <p><strong>La ventana de pago seguro no se abrió.</strong> Un bloqueador de anuncios o de rastreadores, o un modo de privacidad estricto (p. ej. Brave Shields, uBlock, AdGuard), puede bloquear a nuestro proveedor de pagos, Paddle. Para comprar:</p>
+                            <ul class="price-list">
+                                <li>Pause su bloqueador de anuncios/rastreadores en esta página y vuelva a hacer clic en Comprar, <em>o</em></li>
+                                <li>Pruebe con un navegador sin esa extensión, <em>o</em></li>
+                                <li><a href="/es/contact.html?topic=support">Contáctenos</a> y le enviaremos por correo un enlace de pago seguro.</li>
+                            </ul>
+                        </div>
+                        <p class="price-fineprint">Los pagos los procesa de forma segura <strong>Paddle</strong>, nuestro vendedor oficial (merchant of record). Paddle gestiona el pago y los impuestos aplicables; la aplicación nunca ve sus datos de pago. Al comprar, acepta nuestros <a href="/terms.html">Términos (en inglés)</a> y nuestra <a href="/refund.html">Política de reembolsos (en inglés)</a>.</p>
+
+                        <noscript>
+                            <p class="form-status is-error">La compra necesita JavaScript para abrir la ventana de pago seguro. Active JavaScript y recargue la página, o <a href="/es/contact.html?topic=general">contáctenos</a> y le enviaremos un enlace de pago.</p>
+                        </noscript>
+                    </div>
+                </div>
+
+                <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
+                    ¿Aún no lo ha probado? La descarga es una prueba gratuita de 7 días con todas las funciones —
+                    <a href="/es/index.html#get" data-download>descárguelo primero</a> y compre cuando lo decida.
+                </p>
+            </div>
+        </section>
+
+        <!-- Success state — shown after Paddle redirects back with ?state=success -->
+        <section class="section" id="buy-success-section" hidden>
+            <div class="container">
+                <div class="form-success" id="buy-success" tabindex="-1">
+                    <h2>Pago completado — ¡gracias!</h2>
+                    <p>Su clave de licencia ya está en camino a su bandeja de entrada. (Revise el correo no deseado si no la ve en unos minutos.)</p>
+                    <h3>Para activar Low Vision Zoom:</h3>
+                    <ol class="price-list" style="text-align:start">
+                        <li>Abra Low Vision Zoom (descárguelo primero si aún no lo ha hecho — botón abajo).</li>
+                        <li>Haga clic derecho en el icono de la bandeja del sistema y elija «Ingresar clave de licencia…» ("Enter license key…").</li>
+                        <li>Pegue la clave de su correo y haga clic en <strong>Activar</strong>. El zoom completo se restaura al instante.</li>
+                    </ol>
+                    <p style="margin-top:var(--s-3)">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="/es/index.html#get" data-download class="btn btn-primary btn-lg">Descargar para Windows</a>
+                    </p>
+                    <p class="price-fineprint">¿No recibió el correo o necesita ayuda para activar? <a href="/es/contact.html?topic=support">Contacte a soporte</a> — tenga a mano su confirmación de pedido.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Una lupa de pantalla tranquila para Windows. Un producto de txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Producto</h4>
+                    <ul>
+                        <li><a href="/es/index.html#why">Por qué es mejor</a></li>
+                        <li><a href="/es/index.html#how">Cómo funciona</a></li>
+                        <li><a href="/es/pricing.html">Precio</a></li>
+                        <li><a href="/es/index.html#faq">Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacidad (en inglés)</a></li>
+                        <li><a href="/terms.html">Términos del servicio (en inglés)</a></li>
+                        <li><a href="/refund.html">Política de reembolsos (en inglés)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Soporte</h4>
+                    <ul>
+                        <li><a href="/es/contact.html">Contáctenos</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* Paddle Billing checkout for the $9.99 one-time license.
+               - Client-side token is public by design (safe to ship in page JS).
+               - Click-to-open (not auto-open): predictable for the AT audience,
+                 and avoids surprise modals / popup-blocker issues. */
+            var CLIENT_TOKEN = "live_40658bacb3fc6d120b3e65a170b";
+            var PRICE_ID = "pri_01kv3zfqj55ar4ykzachnmv54e";
+            var SUCCESS_URL = "https://lowvisionzoom.com/es/buy.html?state=success";
+
+            var card = document.getElementById("buy-card");
+            var btn = document.getElementById("buy-btn");
+            var statusEl = document.getElementById("buy-status");
+            var helpEl = document.getElementById("buy-help");
+
+            /* If the overlay never loads within a few seconds, a blocker is
+               almost certainly eating Paddle's checkout-service request (it
+               fails silently, with no error event). Surface a recovery path. */
+            var loadTimer = null;
+            function armBlockerWatch() {
+                if (loadTimer) { clearTimeout(loadTimer); }
+                loadTimer = setTimeout(showBlockerHelp, 7000);
+            }
+            function clearBlockerWatch() {
+                if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+                if (helpEl) { helpEl.hidden = true; }
+            }
+            function showBlockerHelp() {
+                if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+                statusEl.className = "form-status";
+                statusEl.textContent = "";
+                if (helpEl) { helpEl.hidden = false; helpEl.setAttribute("tabindex", "-1"); helpEl.focus(); }
+            }
+
+            function showSuccess() {
+                if (card) { card.hidden = true; }
+                var sec = document.getElementById("buy-success-section");
+                if (sec) {
+                    sec.hidden = false;
+                    var panel = document.getElementById("buy-success");
+                    if (panel) { panel.focus(); }
+                }
+            }
+
+            // Returning from a completed checkout.
+            if (new URLSearchParams(window.location.search).get("state") === "success") {
+                showSuccess();
+                return;
+            }
+
+            function setError(msg) {
+                statusEl.className = "form-status is-error";
+                statusEl.textContent = msg;
+            }
+
+            if (typeof Paddle === "undefined") {
+                setError("La ventana de pago seguro no se pudo cargar. Recargue la página, o contáctenos y le enviaremos un enlace de pago.");
+                return;
+            }
+
+            try {
+                Paddle.Initialize({
+                    token: CLIENT_TOKEN,
+                    eventCallback: function (ev) {
+                        if (!ev || !ev.name) { return; }
+                        if (ev.name === "checkout.loaded") {
+                            // Overlay opened fine — no blocker problem.
+                            clearBlockerWatch();
+                        } else if (ev.name === "checkout.completed") {
+                            // Belt-and-suspenders: the successUrl redirect normally
+                            // handles this, but show success even if it doesn't fire.
+                            clearBlockerWatch();
+                            showSuccess();
+                        } else if (ev.name === "checkout.error") {
+                            showBlockerHelp();
+                        }
+                    }
+                });
+            } catch (e) {
+                setError("La ventana de pago seguro no se pudo iniciar. Recargue la página, o contáctenos y le enviaremos un enlace de pago.");
+                return;
+            }
+
+            /* Paddle sends people to the default payment link with ?_ptxn=<txn id>
+               for hosted/invoice payment links. Open that specific transaction. */
+            var ptxn = new URLSearchParams(window.location.search).get("_ptxn");
+            if (ptxn) {
+                statusEl.className = "form-status";
+                statusEl.textContent = "Abriendo el pago seguro…";
+                try {
+                    Paddle.Checkout.open({ transactionId: ptxn, settings: { locale: "es" } });
+                    armBlockerWatch();
+                } catch (e) {
+                    showBlockerHelp();
+                }
+            }
+
+            function openLicenseCheckout() {
+                if (helpEl) { helpEl.hidden = true; }
+                statusEl.className = "form-status";
+                statusEl.textContent = "Abriendo el pago seguro…";
+                try {
+                    Paddle.Checkout.open({
+                        items: [{ priceId: PRICE_ID, quantity: 1 }],
+                        settings: { displayMode: "overlay", locale: "es", successUrl: SUCCESS_URL }
+                    });
+                    armBlockerWatch();
+                } catch (e) {
+                    showBlockerHelp();
+                }
+            }
+
+            btn.addEventListener("click", openLicenseCheckout);
+
+            /* Arriving from a "Buy a license" button on another page (index/pricing):
+               the user already expressed intent, so open checkout immediately —
+               no redundant second click. */
+            if (new URLSearchParams(window.location.search).get("checkout") === "1") {
+                openLicenseCheckout();
+            }
+        })();
+    </script>
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

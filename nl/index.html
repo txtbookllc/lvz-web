@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoom: een rustige schermloep voor Windows. De weergave zoomt zachtjes in en draait om het punt waar u naar wijst, zodat u nooit de weg kwijtraakt. 7 dagen gratis proberen, daarna een eenmalige licentie voor $9.99. Geen abonnement, geen advertenties, geen gegevensverzameling.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <meta property="og:title" content="Low Vision Zoom — soepele schermvergroting voor Windows">
+    <meta property="og:description" content="Vergroot soepel, zodat u nooit de weg kwijtraakt. Houd Ctrl ingedrukt en scroll om overal in Windows in te zoomen. 7 dagen gratis proberen, eenmalig $9.99. Privé, offline, geen abonnement.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="nl_NL">
+    <meta property="og:url" content="https://lowvisionzoom.com/nl/">
+    <meta property="og:image" content="https://lowvisionzoom.com/media/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Low Vision Zoom-logo — een loep met een plusteken erin — en de slogan: de beste schermloep voor Windows-gebruikers met een visuele beperking">
+    <meta name="twitter:card" content="summary_large_image">
+    <title>Low Vision Zoom — Soepele schermvergroting voor Windows</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/nl/">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/">
+</head>
+<body>
+    <a href="#main" class="skip-link">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/nl/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primair">
+                <a href="#demo">Bekijk de demo</a>
+                <a href="#how">Zo werkt het</a>
+                <a href="#why">Waarom het beter is</a>
+                <a href="/nl/pricing.html">Prijzen</a>
+                <a href="#get" data-download class="btn btn-secondary btn-nav">Downloaden</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Taal: Nederlands">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Nederlands</span>
+                </summary>
+                <ul>
+                    <li><a href="/index.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/index.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/index.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/index.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/index.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/index.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/index.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/index.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/index.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/index.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/index.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/index.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/index.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/index.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/index.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/index.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/index.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/index.html" data-lang="nl" lang="nl" hreflang="nl" aria-current="true">Nederlands</a></li>
+                    <li><a href="/th/index.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- 1 · Hero + controls animation -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>De beste schermloep<br> voor Windows-gebruikers<br> met een visuele beperking</h1>
+                    <p class="lead">Een soepel, eenvoudig zoomprogramma dat uw ogen helpt de tekst te volgen</p>
+                    <div class="hero-buttons">
+                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                        <a href="#get" data-download class="btn btn-primary btn-lg">Downloaden voor Windows</a>
+                    </div>
+                </div>
+
+                <!-- Experiment: desktop controls animation instead of the motion demo video,
+                     to lead with how simple the app is. Previous video block is in git history.
+                     The panel stretches to match hero-content (title top → download button bottom),
+                     which is why the trust chips live outside hero-content in their own grid row. -->
+                <div class="hero-anim">
+                    <img src="/media/howto-desktop-hero.svg" width="520" height="280"
+                         alt="Animatie: een vinger houdt de Ctrl-toets ingedrukt terwijl het muiswiel naar voren rolt om in te zoomen, en daarna naar achteren om uit te zoomen.">
+                </div>
+
+                <ul class="trust" aria-label="Wat u kunt verwachten">
+                    <li>7 dagen gratis proberen</li>
+                    <li>$9.99 eenmalig</li>
+                    <li>Geen abonnement</li>
+                    <li>Geen account</li>
+                    <li class="trust-break" aria-hidden="true"></li>
+                    <li>Geen advertenties</li>
+                    <li>Geen gegevensverzameling</li>
+                    <li>Werkt offline</li>
+                </ul>
+            </div>
+
+            <!-- Scroll cue: invites the visitor past the fold to the demo.
+                 Duplicates the nav link on purpose; the arrow bob is killed
+                 by the global prefers-reduced-motion rule. -->
+            <a href="#demo" class="scroll-cue">
+                <span>Bekijk de demo</span>
+                <svg class="scroll-cue-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,9 12,17 19,9"/></svg>
+            </a>
+        </section>
+
+        <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
+             into view (see site.js §3); pauses when scrolled away. Motion-safe:
+             under prefers-reduced-motion it never autoplays — the poster shows
+             until the visitor presses Play. hero-demo.{webm,mp4} are the
+             bandwidth-friendly re-encodes of media/hero.mp4. -->
+        <section id="demo" class="demo-full section-alt" aria-labelledby="demo-heading">
+            <h2 id="demo-heading" class="visually-hidden">Bekijk Low Vision Zoom in actie</h2>
+            <div class="demo-full-stage">
+                <video class="demo-full-video" muted loop playsinline preload="metadata"
+                       poster="/media/hero-demo-poster.webp"
+                       aria-label="Schermopname: Low Vision Zoom vergroot soepel een Windows-bureaublad en zoomt zachtjes in rond de cursor terwijl de gebruiker leest en klikt.">
+                    <source src="/media/hero-demo.webm" type='video/webm; codecs="av01.0.08M.08"'>
+                    <source src="/media/hero-demo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="demo-toggle demo-full-toggle" data-label-play="Demo afspelen" data-label-pause="Demo pauzeren" hidden aria-pressed="false"></button>
+            </div>
+        </section>
+
+        <!-- 3 · How it works — device-toggled gesture animation + control cards -->
+        <section id="how" class="section">
+            <div class="container">
+                <h2>Eén toets en uw muiswiel. Dat is de hele bediening.</h2>
+                <p class="section-sub">Het werkt zodra u het installeert, zonder iets in te stellen.</p>
+
+                <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
+                     copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
+                     don't edit media/howto-*.svg by hand. -->
+                <div class="howto-anim">
+                    <fieldset class="howto-switch">
+                        <legend class="visually-hidden">Toon het zoomgebaar voor uw apparaattype</legend>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="desktop" checked>
+                            <span>Desktopgebruikers</span>
+                        </label>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="laptop">
+                            <span>Laptopgebruikers</span>
+                        </label>
+                    </fieldset>
+                    <div class="howto-pane howto-pane-desktop">
+                        <img src="/media/howto-desktop.svg" width="520" height="250"
+                             alt="Animatie: een vinger houdt de Ctrl-toets ingedrukt terwijl het muiswiel naar voren rolt om in te zoomen, en daarna naar achteren om uit te zoomen.">
+                        <p class="demo-caption">Houd <strong>Ctrl</strong> ingedrukt en scroll — naar voren zoomt in, naar achteren zoomt uit.</p>
+                    </div>
+                    <div class="howto-pane howto-pane-laptop">
+                        <img src="/media/howto-laptop.svg" width="520" height="250"
+                             alt="Animatie: terwijl Ctrl en Alt ingedrukt worden gehouden, drukt een vinger op de Plus-toets om in te zoomen, en daarna op de Min-toets om uit te zoomen.">
+                        <p class="demo-caption">Houd <strong>Ctrl + Alt</strong> ingedrukt en druk op <strong>+</strong> of <strong>−</strong> — geen muiswiel nodig.</p>
+                    </div>
+                </div>
+
+                <!-- The cards follow the Desktop/Laptop toggle above (CSS :has() on #how,
+                     next to the howto-pane rules). Pan is two cards: same gesture, but
+                     "mouse" only makes sense on desktop — laptops say "cursor". -->
+                <div class="controls">
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Scrollen&nbsp;↑</span>
+                        <p><strong>Inzoomen</strong> — vergroot soepel richting uw cursor.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Scrollen&nbsp;↓</span>
+                        <p><strong>Uitzoomen</strong> — zoomt met dezelfde zachte beweging weer terug uit.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + Plus / Minus</span>
+                        <p><strong>Zoomen via het toetsenbord</strong> — houd ingedrukt om te blijven zoomen. Geen muiswiel nodig.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Shift + Scrollen&nbsp;↓</span>
+                        <p><strong>Resetten</strong> — springt direct terug naar normaal (1×) wanneer u dat nodig heeft.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 0</span>
+                        <p><strong>Resetten</strong> — springt direct terug naar normaal (1×).</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Beweeg de muis</span>
+                        <p><strong>Schuiven</strong> — beweeg richting een schermrand en de weergave glijdt mee.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Beweeg de cursor</span>
+                        <p><strong>Schuiven</strong> — beweeg richting een schermrand en de weergave glijdt mee.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Why it's better — the perceptual case (see the app repo's
+             docs/why-smooth-zoom-helps-low-vision.md for sourcing and the
+             language guardrails: experience & design claims only, nothing
+             medical) mixed with the technical/trust facts. -->
+        <section id="why" class="section section-alt">
+            <div class="container">
+                <h2>Waarom het beter is: u hoeft nooit opnieuw uw plek te zoeken.</h2>
+                <p class="section-sub">De meeste schermloepen bewegen met plotselinge sprongen, en elke sprong dwingt uw ogen te stoppen en te zoeken waar ze waren. Low Vision Zoom beweegt soepel en doorlopend.</p>
+
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
+                        <h3>Beweging die uw ogen kunnen volgen</h3>
+                        <p>Als een schermloep springt, moeten uw ogen erachteraan springen en opnieuw vinden wat ze aan het lezen waren. Hier wordt elke verandering geanimeerd met 60 beelden per seconde, zodat uw ogen meeglijden in plaats van erachteraan te jagen.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
+                        <h3>Uw ankerpunt blijft staan</h3>
+                        <p>De zoom draait precies om het punt onder uw cursor. Dat punt blijft vast staan terwijl alles eromheen groeit. U kiest uw anker simpelweg door te wijzen naar wat belangrijk is.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="11" y="11" width="10" height="10" rx="2"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg>
+                        <h3>Eén beeld, geen nieuw scherm</h3>
+                        <p>Elk beeld is een kleine stap ten opzichte van het vorige, zodat de weergave aanvoelt als dezelfde pagina die soepel groeit — nooit als een nieuw scherm dat het oude vervangt. Niets verdwijnt, dus er is niets om opnieuw te zoeken.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><line x1="4" y1="16" x2="28" y2="16"/><circle cx="19" cy="16" r="4"/></svg>
+                        <h3>U bepaalt het tempo</h3>
+                        <p>Zoomen is proportioneel: precies zo ver en zo snel als u scrollt, en u kunt halverwege stoppen of omkeren. Beweging die u zelf start, is beweging die uw ogen kunnen voorspellen.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="10" width="12" height="12" rx="2"/><polyline points="6,13 3,16 6,19"/><polyline points="26,13 29,16 26,19"/></svg>
+                        <h3>Stil terwijl u leest</h3>
+                        <p>De weergave blijft volkomen stil terwijl uw cursor door het midden van het scherm beweegt, en glijdt alleen mee wanneer u een rand nadert. Geen voortdurende verschuiving onder uw tekst.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
+                        <h3>Solide Windows-techniek</h3>
+                        <p>Gebouwd op de eigen Magnification-API van Windows, met een eigen animatie-engine van 60&nbsp;fps. Gesigneerd installatieprogramma, klikken komen ook tijdens het zoomen goed aan, en alles draait lokaal. Er verlaat niets uw pc.</p>
+                    </div>
+                </div>
+
+                <p class="requirements-line">Gemaakt voor Windows 11, 64-bit (x64) · zelfstandig installatieprogramma, verder niets te downloaden · ARM-ondersteuning volgt binnenkort.</p>
+
+                <div class="good-to-know">
+                    <p><strong>Goed om te weten:</strong> visieonderzoekers noemen dit <em>change blindness</em> (veranderingsblindheid): wanneer een beeld verandert tijdens een visuele onderbreking, is het makkelijk te missen wat er verschoven is en de draad kwijt te raken. Een schermloep die springt, veroorzaakt die onderbreking de hele dag door. Eén die glijdt, geeft uw ogen nooit de kans om uw plek kwijt te raken.</p>
+                </div>
+
+                <p class="parent-callout">Stelt u het in voor een ouder of iemand die u helpt? Het wordt eenmaal geïnstalleerd en hoeft daarna niet meer te worden aangepast. <a href="/nl/pricing.html#organizations">Volumelicenties →</a></p>
+            </div>
+        </section>
+
+        <!-- 5 · FAQ (includes the first-run SmartScreen guidance) -->
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <h2>Veelgestelde vragen</h2>
+                <div class="faq-list">
+                    <details class="faq">
+                        <summary>Wat kost het?</summary>
+                        <div class="faq-body"><p>Low Vision Zoom is 7 dagen gratis te proberen, met alle functies beschikbaar. Daarna houdt een eenmalige licentie van <strong>$9.99</strong> de app draaiende — geen abonnement, en alle toekomstige updates zijn inbegrepen. Zie de <a href="/nl/pricing.html">prijspagina</a>.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Wat gebeurt er als de proefperiode afloopt?</summary>
+                        <div class="faq-body"><p>De app blijft werken — de vergroting wordt alleen beperkt totdat u een licentiesleutel invoert, zodat uw scherm altijd leesbaar genoeg blijft om te navigeren en te kopen. Voer op elk moment een sleutel in om de volledige zoom direct te herstellen; opnieuw installeren is niet nodig.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Hoe verschilt dit van de ingebouwde Windows-vergroting?</summary>
+                        <div class="faq-body"><p>Windows bevat een prima schermloep, en veel mensen kunnen die het beste eerst proberen. Low Vision Zoom richt zich op een soepeler, rustiger gevoel: zacht geanimeerd zoomen (geen sprongen), zoom gecentreerd op uw cursor, stabiel schuiven met een vaste dode zone, en een onopvallende interface in het systeemvak voor snelle, frequente aanpassingen.</p></div>
+                    </details>
+                    <!-- Carries the full first-run SmartScreen guidance (formerly its own
+                         aside under the on-page download CTA, now retired); the
+                         install-note-* classes style the steps and figure here too. -->
+                    <details class="faq" id="faq-smartscreen">
+                        <summary>Waarschuwt Windows mij bij de installatie?</summary>
+                        <div class="faq-body">
+                            <p>De eerste keer dat u het installatieprogramma opent, kan Windows een blauw scherm over het hele beeld tonen met de melding <strong>„Windows heeft uw pc beschermd”</strong> ("Windows protected your PC"). <strong>Dit is normaal en de app is veilig.</strong> Het gebeurt omdat Low Vision Zoom een gloednieuwe app is — Windows heeft hem nog niet vaak genoeg gezien om hem te herkennen. Het installatieprogramma is digitaal ondertekend door <strong>txtbook&nbsp;LLC</strong>, ons bedrijf.</p>
+                            <p class="install-note-steps-lead">Zo gaat u verder:</p>
+                            <ol class="install-note-steps">
+                                <li>Klik op het blauwe scherm op <strong>Meer info</strong>.</li>
+                                <li>Controleer of bij de uitgever <strong>txtbook LLC</strong> staat vermeld.</li>
+                                <li>Klik op de knop <strong>Toch uitvoeren</strong> die verschijnt, en het installatieprogramma opent zoals gebruikelijk.</li>
+                            </ol>
+                            <figure class="install-note-figure">
+                                <img src="/media/smartscreen-help.png" width="640" loading="lazy"
+                                     alt="Het blauwe scherm ‘Windows heeft uw pc beschermd’. Na het klikken op ‘Meer info’ verschijnt onderaan een knop ‘Toch uitvoeren’ — klik daarop om verder te gaan." />
+                                <figcaption>Klik op <strong>Meer info</strong>, dan op <strong>Toch uitvoeren</strong>.</figcaption>
+                            </figure>
+                            <p>De waarschuwing verdwijnt vanzelf in de komende weken, naarmate meer mensen de app installeren, en u hoeft dit maar één keer te doen. De app wordt per apparaat geïnstalleerd in Program Files, wat er ook voor zorgt dat klikken tijdens het zoomen goed terechtkomen.</p>
+                        </div>
+                    </details>
+                    <details class="faq">
+                        <summary>Blijven mijn aankoopgegevens privé?</summary>
+                        <div class="faq-body"><p>Ja. De app zelf verzamelt niets en werkt offline (<a href="/privacy.html">privacybeleid (in het Engels)</a>). Aankopen worden afgehandeld door onze betalingsprovider Paddle, die optreedt als merchant of record; de app ziet uw betaalgegevens nooit.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Bieden jullie terugbetalingen aan?</summary>
+                        <div class="faq-body"><p>Ja — naast de gratis proefperiode geldt een niet-goed-geld-terug-garantie van 30 dagen. Zie het <a href="/refund.html">terugbetalingsbeleid (in het Engels)</a>.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Kunnen organisaties meerdere licenties kopen?</summary>
+                        <div class="faq-body"><p>Ja. Scholen, klinieken, bibliotheken en werkgevers kunnen volumelicenties met facturering aanvragen — gebruik ons <a href="/nl/contact.html?topic=volume">contactformulier</a>.</p></div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6 · Quiet CTA band -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>De beste schermloep voor Windows-gebruikers met een visuele beperking.</h2>
+                <p>7 dagen gratis proberen · $9.99 eenmalig · geen abonnement</p>
+                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
+                <a href="#get" data-download class="btn btn-primary btn-lg">Downloaden voor Windows</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>De beste schermloep voor Windows-gebruikers met een visuele beperking</p>
+                    <p>&nbsp;</p>
+                    <p>Een product van txtbook&nbsp;LLC</p>
+                    <p>&nbsp;</p>
+                    <p>4601 E. Douglas Ave. STE 150</p>
+                    <p>Wichita, KS 67218</p>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#why">Waarom het beter is</a></li>
+                        <li><a href="#how">Zo werkt het</a></li>
+                        <li><a href="/nl/pricing.html">Prijzen</a></li>
+                        <li><a href="#faq">Veelgestelde vragen</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Juridisch</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacybeleid (in het Engels)</a></li>
+                        <li><a href="/terms.html">Gebruiksvoorwaarden (in het Engels)</a></li>
+                        <li><a href="/refund.html">Terugbetalingsbeleid (in het Engels)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Ondersteuning</h4>
+                    <ul>
+                        <li><a href="/nl/contact.html">Neem contact op</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Skontaktuj się z Low Vision Zoom. Wyślij pytanie dotyczące aplikacji, licencji, zwrotów lub pomocy technicznej, a odpowiemy e-mailem.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <title>Kontakt | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/pl/contact.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/contact.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/contact.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/contact.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/contact.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/contact.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/contact.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/contact.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/contact.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/contact.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/contact.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/contact.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/contact.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/contact.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/contact.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/contact.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/contact.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/contact.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/contact.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/contact.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/contact.html">
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Przejdź do treści</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/pl/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Główna">
+                <a href="/pl/index.html#demo">Zobacz pokaz</a>
+                <a href="/pl/index.html#how">Jak to działa</a>
+                <a href="/pl/index.html#why">Dlaczego jest lepsza</a>
+                <a href="/pl/pricing.html">Cennik</a>
+                <a href="/pl/index.html#get" data-download class="btn btn-secondary btn-nav">Pobierz</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Język: polski">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Polski</span>
+                </summary>
+                <ul>
+                    <li><a href="/contact.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/contact.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/contact.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/contact.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/contact.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/contact.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/contact.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/contact.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/contact.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/contact.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/contact.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/contact.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/contact.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/contact.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/contact.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/contact.html" data-lang="pl" lang="pl" hreflang="pl" aria-current="true">Polski</a></li>
+                    <li><a href="/uk/contact.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/contact.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/contact.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Kontakt</span>
+                <h1>Kontakt</h1>
+                <p class="updated">Masz pytania dotyczące aplikacji, licencji, zwrotów lub czegokolwiek innego? Wyślij wiadomość, a odpowiemy e-mailem.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="form-card">
+                    <form id="contact-form" novalidate>
+                        <div class="field">
+                            <label for="topic">Czego dotyczy zgłoszenie?</label>
+                            <select id="topic" name="topic">
+                                <option value="general">Pytanie ogólne</option>
+                                <option value="support">Pomoc techniczna / rozwiązywanie problemów</option>
+                                <option value="volume">Licencje grupowe</option>
+                                <option value="refund">Prośba o zwrot</option>
+                                <option value="launch">Powiadom mnie o premierze</option>
+                                <option value="privacy">Pytanie o prywatność</option>
+                                <option value="terms">Pytanie o warunki korzystania</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="name">Twoje imię i nazwisko</label>
+                            <input type="text" id="name" name="name" autocomplete="name"
+                                   maxlength="100" required aria-required="true" aria-describedby="name-error">
+                            <p class="field-error" id="name-error" role="alert"></p>
+                        </div>
+
+                        <div class="field">
+                            <label for="email">Twój e-mail</label>
+                            <input type="email" id="email" name="email" autocomplete="email"
+                                   maxlength="200" required aria-required="true"
+                                   aria-describedby="email-hint email-error">
+                            <p class="field-hint" id="email-hint">Wykorzystamy go wyłącznie do odpowiedzi na Twoją wiadomość. Odpowiedź może zostać wysłana w języku angielskim.</p>
+                            <p class="field-error" id="email-error" role="alert"></p>
+                        </div>
+
+                        <div class="field">
+                            <label for="message">Wiadomość</label>
+                            <textarea id="message" name="message" rows="6" maxlength="5000"
+                                      required aria-required="true" aria-describedby="message-error"></textarea>
+                            <p class="field-error" id="message-error" role="alert"></p>
+                        </div>
+
+                        <!-- Honeypot: hidden from people, tempting to bots. Leave empty. -->
+                        <div class="hp" aria-hidden="true">
+                            <label for="company">Firma (pozostaw to pole puste)</label>
+                            <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="field">
+                            <div class="cf-turnstile" data-sitekey="0x4AAAAAADlariPbXNXBs5-W" data-theme="auto" data-language="pl"></div>
+                        </div>
+
+                        <button type="submit" id="submit-btn" class="btn btn-primary btn-lg">Wyślij wiadomość</button>
+
+                        <p class="field-hint">Twoje imię i e-mail wykorzystujemy wyłącznie do udzielenia odpowiedzi — nigdy do marketingu ani reklam. Formularz przeprowadza weryfikację antyspamową Cloudflare Turnstile i dostarcza wiadomość do naszej skrzynki pomocy przez Resend. Zobacz naszą <a href="/privacy.html">Politykę prywatności (w j. angielskim)</a>.</p>
+
+                        <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+
+                        <noscript>
+                            <p class="field-hint">Ten formularz wymaga włączonego JavaScript, aby wysłać wiadomość i przeprowadzić weryfikację antyspamową. Włącz JavaScript i odśwież stronę.</p>
+                        </noscript>
+                    </form>
+
+                    <div id="form-success" class="form-success" tabindex="-1" hidden>
+                        <h2>Dziękujemy — Twoja wiadomość jest w drodze.</h2>
+                        <p>Odpowiemy na podany przez Ciebie adres e-mail najszybciej, jak to możliwe.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Spokojna lupa ekranowa dla Windows. Produkt firmy txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="/pl/index.html#why">Dlaczego jest lepsza</a></li>
+                        <li><a href="/pl/index.html#how">Jak to działa</a></li>
+                        <li><a href="/pl/pricing.html">Cennik</a></li>
+                        <li><a href="/pl/index.html#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Informacje prawne</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Prywatność (w j. angielskim)</a></li>
+                        <li><a href="/terms.html">Warunki korzystania (w j. angielskim)</a></li>
+                        <li><a href="/refund.html">Polityka zwrotów (w j. angielskim)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Pomoc</h4>
+                    <ul>
+                        <li><a href="/pl/contact.html" aria-current="page">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var ENDPOINT = "https://lvz-contact.lowvisionzoom.workers.dev/contact";
+            var form = document.getElementById("contact-form");
+            var statusEl = document.getElementById("form-status");
+            var submitBtn = document.getElementById("submit-btn");
+
+            // Preselect the topic from ?topic= (e.g. links like contact.html?topic=refund).
+            var params = new URLSearchParams(window.location.search);
+            var topic = params.get("topic");
+            if (topic) {
+                var sel = document.getElementById("topic");
+                if ([].some.call(sel.options, function (o) { return o.value === topic; })) {
+                    sel.value = topic;
+                }
+            }
+
+            function setError(id, msg) {
+                var el = document.getElementById(id + "-error");
+                var field = document.getElementById(id);
+                if (el) el.textContent = msg || "";
+                if (field) {
+                    if (msg) { field.setAttribute("aria-invalid", "true"); }
+                    else { field.removeAttribute("aria-invalid"); }
+                }
+                return !msg;
+            }
+
+            function validate(data) {
+                var ok = true;
+                ok = setError("name", data.name ? "" : "Podaj swoje imię i nazwisko.") && ok;
+                var emailOk = data.email && /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(data.email);
+                ok = setError("email", emailOk ? "" : "Podaj prawidłowy adres e-mail.") && ok;
+                ok = setError("message", data.message ? "" : "Wpisz wiadomość.") && ok;
+                return ok;
+            }
+
+            form.addEventListener("submit", function (e) {
+                e.preventDefault();
+                statusEl.className = "form-status";
+                statusEl.textContent = "";
+
+                var data = {
+                    topic: document.getElementById("topic").value,
+                    name: document.getElementById("name").value.trim(),
+                    email: document.getElementById("email").value.trim(),
+                    message: document.getElementById("message").value.trim(),
+                    company: document.getElementById("company").value
+                };
+
+                if (!validate(data)) {
+                    statusEl.className = "form-status is-error";
+                    statusEl.textContent = "Popraw zaznaczone pola i spróbuj ponownie.";
+                    return;
+                }
+
+                var tokenField = form.querySelector('[name="cf-turnstile-response"]');
+                var token = tokenField ? tokenField.value : "";
+                if (!token) {
+                    statusEl.className = "form-status is-error";
+                    statusEl.textContent = "Ukończ weryfikację „Nie jestem robotem” i wyślij ponownie.";
+                    return;
+                }
+                data.turnstileToken = token;
+
+                submitBtn.disabled = true;
+                statusEl.textContent = "Wysyłanie…";
+
+                fetch(ENDPOINT, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(data)
+                }).then(function (r) {
+                    return r.json().catch(function () { return { ok: r.ok }; });
+                }).then(function (res) {
+                    if (res && res.ok) {
+                        form.hidden = true;
+                        document.getElementById("form-success").hidden = false;
+                        document.getElementById("form-success").focus();
+                    } else {
+                        throw new Error((res && res.error) || "send failed");
+                    }
+                }).catch(function () {
+                    submitBtn.disabled = false;
+                    statusEl.className = "form-status is-error";
+                    statusEl.textContent = "Niestety, podczas wysyłania wiadomości wystąpił problem. Spróbuj ponownie za chwilę.";
+                    if (window.turnstile) { try { window.turnstile.reset(); } catch (e) {} }
+                });
+            });
+        })();
+    </script>
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

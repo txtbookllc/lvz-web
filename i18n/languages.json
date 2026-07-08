@@ -1,0 +1,25 @@
+{
+  "origin": "https://lowvisionzoom.com",
+  "translatedPages": ["index.html", "pricing.html", "buy.html", "contact.html"],
+  "englishOnlyPages": ["privacy.html", "terms.html", "refund.html"],
+  "languages": [
+    { "code": "zh", "hreflang": "zh-Hans", "nativeName": "中文（简体）", "englishName": "Chinese (Simplified)", "ogLocale": "zh_CN", "paddleLocale": "zh-Hans", "turnstileLang": "zh-cn", "dir": "ltr" },
+    { "code": "es", "hreflang": "es", "nativeName": "Español", "englishName": "Spanish", "ogLocale": "es_ES", "paddleLocale": "es", "turnstileLang": "es", "dir": "ltr" },
+    { "code": "pt", "hreflang": "pt", "nativeName": "Português", "englishName": "Portuguese", "ogLocale": "pt_BR", "paddleLocale": "pt-BR", "turnstileLang": "pt-br", "dir": "ltr" },
+    { "code": "ar", "hreflang": "ar", "nativeName": "العربية", "englishName": "Arabic", "ogLocale": "ar_AR", "paddleLocale": "ar", "turnstileLang": "ar", "dir": "rtl" },
+    { "code": "ja", "hreflang": "ja", "nativeName": "日本語", "englishName": "Japanese", "ogLocale": "ja_JP", "paddleLocale": "ja", "turnstileLang": "ja", "dir": "ltr" },
+    { "code": "de", "hreflang": "de", "nativeName": "Deutsch", "englishName": "German", "ogLocale": "de_DE", "paddleLocale": "de", "turnstileLang": "de", "dir": "ltr" },
+    { "code": "fr", "hreflang": "fr", "nativeName": "Français", "englishName": "French", "ogLocale": "fr_FR", "paddleLocale": "fr", "turnstileLang": "fr", "dir": "ltr" },
+    { "code": "id", "hreflang": "id", "nativeName": "Bahasa Indonesia", "englishName": "Indonesian", "ogLocale": "id_ID", "paddleLocale": "en", "turnstileLang": "id", "dir": "ltr" },
+    { "code": "tr", "hreflang": "tr", "nativeName": "Türkçe", "englishName": "Turkish", "ogLocale": "tr_TR", "paddleLocale": "tr", "turnstileLang": "tr", "dir": "ltr" },
+    { "code": "hi", "hreflang": "hi", "nativeName": "हिन्दी", "englishName": "Hindi", "ogLocale": "hi_IN", "paddleLocale": "en", "turnstileLang": "hi", "dir": "ltr" },
+    { "code": "it", "hreflang": "it", "nativeName": "Italiano", "englishName": "Italian", "ogLocale": "it_IT", "paddleLocale": "it", "turnstileLang": "it", "dir": "ltr" },
+    { "code": "ko", "hreflang": "ko", "nativeName": "한국어", "englishName": "Korean", "ogLocale": "ko_KR", "paddleLocale": "ko", "turnstileLang": "ko", "dir": "ltr" },
+    { "code": "vi", "hreflang": "vi", "nativeName": "Tiếng Việt", "englishName": "Vietnamese", "ogLocale": "vi_VN", "paddleLocale": "en", "turnstileLang": "vi", "dir": "ltr" },
+    { "code": "ru", "hreflang": "ru", "nativeName": "Русский", "englishName": "Russian", "ogLocale": "ru_RU", "paddleLocale": "ru", "turnstileLang": "ru", "dir": "ltr" },
+    { "code": "pl", "hreflang": "pl", "nativeName": "Polski", "englishName": "Polish", "ogLocale": "pl_PL", "paddleLocale": "pl", "turnstileLang": "pl", "dir": "ltr" },
+    { "code": "uk", "hreflang": "uk", "nativeName": "Українська", "englishName": "Ukrainian", "ogLocale": "uk_UA", "paddleLocale": "en", "turnstileLang": "uk", "dir": "ltr" },
+    { "code": "nl", "hreflang": "nl", "nativeName": "Nederlands", "englishName": "Dutch", "ogLocale": "nl_NL", "paddleLocale": "nl", "turnstileLang": "nl", "dir": "ltr" },
+    { "code": "th", "hreflang": "th", "nativeName": "ไทย", "englishName": "Thai", "ogLocale": "th_TH", "paddleLocale": "en", "turnstileLang": "th", "dir": "ltr" }
+  ]
+}
