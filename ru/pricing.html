@@ -68,7 +68,7 @@
                 <a href="/ru/index.html#how">Как это работает</a>
                 <a href="/ru/index.html#why">Почему это лучше</a>
                 <a href="/ru/pricing.html" aria-current="page">Цены</a>
-                <a href="/ru/index.html#get" data-download class="btn btn-secondary btn-nav">Скачать</a>
+                <a href="/ru/index.html#get" class="btn btn-secondary btn-nav">Скачать</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Язык: Русский">
@@ -124,8 +124,15 @@
                             <li>Аккаунт не требуется</li>
                             <li>30-дневная гарантия возврата денег</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/ru/index.html#get" data-download class="btn btn-primary btn-lg">Скачать для Windows</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/ru.svg" alt="Скачать в Microsoft Store">
+                            </a>
+                            <a href="/ru/index.html#get" data-download class="download-direct">Или скачайте установщик напрямую с этого сайта (.msi)</a>
+                        </div>
                         <p class="cta-reassure">Бесплатная 7-дневная пробная версия. Без аккаунта, без оплаты для начала.</p>
                         <a href="/ru/buy.html?checkout=1" class="btn btn-quiet btn-lg">Купить лицензию — $9.99</a>
                         <p class="price-fineprint">Платежи безопасно обрабатывает Paddle, наш продавец по договору (merchant of record). Сначала вы пробуете, а покупаете позже — загрузка и есть бесплатная пробная версия.</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>Попробуйте бесплатно. Решите позже.</h2>
                 <p>7-дневная пробная версия · $9.99 разово · 30-дневная гарантия возврата денег</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/ru/index.html#get" data-download class="btn btn-primary btn-lg">Скачать для Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ru.svg" alt="Скачать в Microsoft Store">
+                    </a>
+                    <a href="/ru/index.html#get" data-download class="download-direct">Или скачайте установщик напрямую с этого сайта (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

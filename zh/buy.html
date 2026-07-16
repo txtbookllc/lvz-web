@@ -69,7 +69,7 @@
                 <a href="/zh/index.html#how">使用方法</a>
                 <a href="/zh/index.html#why">为什么更好</a>
                 <a href="/zh/pricing.html">价格</a>
-                <a href="/zh/index.html#get" data-download class="btn btn-secondary btn-nav">下载</a>
+                <a href="/zh/index.html#get" class="btn btn-secondary btn-nav">下载</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="语言：中文（简体）">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     还没试用过？下载的就是免费的全功能 7 天试用版——
-                    <a href="/zh/index.html#get" data-download>先下载试用</a>，准备好后再购买。
+                    <a href="/zh/index.html#get">先下载试用</a>，准备好后再购买。
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>右键点击系统托盘图标，选择“输入许可证密钥…”。</li>
                         <li>粘贴邮件中的密钥并点击<strong>激活</strong>。完整缩放会立即恢复。</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/zh/index.html#get" data-download class="btn btn-primary btn-lg">下载 Windows 版</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/zh.svg" alt="从 Microsoft Store 获取">
+                        </a>
+                        <a href="/zh/index.html#get" data-download class="download-direct">或直接从本网站下载安装程序（.msi）</a>
+                    </div>
                     <p class="price-fineprint">没有收到邮件，或者激活时需要帮助？<a href="/zh/contact.html?topic=support">联系支持</a>——请准备好您的订单确认信息。</p>
                 </div>
             </div>

@@ -68,7 +68,7 @@
                 <a href="/th/index.html#how">วิธีใช้งาน</a>
                 <a href="/th/index.html#why">ทำไมถึงดีกว่า</a>
                 <a href="/th/pricing.html" aria-current="page">ราคา</a>
-                <a href="/th/index.html#get" data-download class="btn btn-secondary btn-nav">ดาวน์โหลด</a>
+                <a href="/th/index.html#get" class="btn btn-secondary btn-nav">ดาวน์โหลด</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="ภาษา: ไทย">
@@ -124,8 +124,15 @@
                             <li>ไม่ต้องสร้างบัญชี</li>
                             <li>รับประกันคืนเงินภายใน 30 วัน</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/th/index.html#get" data-download class="btn btn-primary btn-lg">ดาวน์โหลดสำหรับ Windows</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/th.svg" alt="รับจาก Microsoft Store">
+                            </a>
+                            <a href="/th/index.html#get" data-download class="download-direct">หรือดาวน์โหลดตัวติดตั้งโดยตรงจากเว็บไซต์นี้ (.msi)</a>
+                        </div>
                         <p class="cta-reassure">ทดลองใช้ฟรี 7 วัน ไม่ต้องสร้างบัญชี ไม่ต้องชำระเงินเพื่อเริ่มต้น</p>
                         <a href="/th/buy.html?checkout=1" class="btn btn-quiet btn-lg">ซื้อใบอนุญาต — $9.99</a>
                         <p class="price-fineprint">การชำระเงินดำเนินการอย่างปลอดภัยโดย Paddle ผู้เป็นคู่สัญญาการขายอย่างเป็นทางการ (merchant of record) ของเรา ทดลองใช้ก่อน แล้วค่อยซื้อทีหลัง — การดาวน์โหลดคือช่วงทดลองใช้ฟรี</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>ลองใช้ฟรีก่อน แล้วค่อยตัดสินใจ</h2>
                 <p>ทดลองใช้ฟรี 7 วัน · จ่ายครั้งเดียว $9.99 · รับประกันคืนเงินภายใน 30 วัน</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/th/index.html#get" data-download class="btn btn-primary btn-lg">ดาวน์โหลดสำหรับ Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/th.svg" alt="รับจาก Microsoft Store">
+                    </a>
+                    <a href="/th/index.html#get" data-download class="download-direct">หรือดาวน์โหลดตัวติดตั้งโดยตรงจากเว็บไซต์นี้ (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

@@ -69,7 +69,7 @@
                 <a href="/de/index.html#how">So funktioniert es</a>
                 <a href="/de/index.html#why">Warum es besser ist</a>
                 <a href="/de/pricing.html">Preise</a>
-                <a href="/de/index.html#get" data-download class="btn btn-secondary btn-nav">Herunterladen</a>
+                <a href="/de/index.html#get" class="btn btn-secondary btn-nav">Herunterladen</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Sprache: Deutsch">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     Noch nicht ausprobiert? Der Download ist eine kostenlose, voll funktionsfähige 7-Tage-Testversion —
-                    <a href="/de/index.html#get" data-download>laden Sie sie zuerst herunter</a> und kaufen Sie, wenn Sie bereit sind.
+                    <a href="/de/index.html#get">laden Sie sie zuerst herunter</a> und kaufen Sie, wenn Sie bereit sind.
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>Klicken Sie mit der rechten Maustaste auf das Symbol im Infobereich und wählen Sie „Lizenzschlüssel eingeben…“.</li>
                         <li>Fügen Sie den Schlüssel aus Ihrer E-Mail ein und klicken Sie auf <strong>Aktivieren</strong>. Der volle Zoom ist sofort wiederhergestellt.</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/de/index.html#get" data-download class="btn btn-primary btn-lg">Für Windows herunterladen</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/de.svg" alt="Im Microsoft Store laden">
+                        </a>
+                        <a href="/de/index.html#get" data-download class="download-direct">Oder den Installer direkt von dieser Website herunterladen (.msi)</a>
+                    </div>
                     <p class="price-fineprint">E-Mail nicht erhalten oder Hilfe beim Aktivieren nötig? <a href="/de/contact.html?topic=support">Kontaktieren Sie den Support</a> — halten Sie Ihre Bestellbestätigung bereit.</p>
                 </div>
             </div>

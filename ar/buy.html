@@ -69,7 +69,7 @@
                 <a href="/ar/index.html#how">كيف يعمل</a>
                 <a href="/ar/index.html#why">لماذا هو أفضل</a>
                 <a href="/ar/pricing.html">الأسعار</a>
-                <a href="/ar/index.html#get" data-download class="btn btn-secondary btn-nav">تنزيل</a>
+                <a href="/ar/index.html#get" class="btn btn-secondary btn-nav">تنزيل</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="اللغة: العربية">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     لم تجرّبه بعد؟ التنزيل هو نسخة تجريبية مجانية كاملة المزايا لمدة 7 أيام —
-                    <a href="/ar/index.html#get" data-download>نزّله أولًا</a> واشترِ عندما تكون جاهزًا.
+                    <a href="/ar/index.html#get">نزّله أولًا</a> واشترِ عندما تكون جاهزًا.
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>انقر بزر الفأرة الأيمن على أيقونة علبة النظام واختر «إدخال مفتاح الترخيص…».</li>
                         <li>الصق المفتاح من بريدك الإلكتروني وانقر على <strong>تفعيل</strong>. يعود التكبير الكامل فورًا.</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/ar/index.html#get" data-download class="btn btn-primary btn-lg">تنزيل لنظام Windows</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/ar.svg" alt="احصل عليه من Microsoft Store">
+                        </a>
+                        <a href="/ar/index.html#get" data-download class="download-direct">أو نزّل المثبّت مباشرةً من هذا الموقع (.msi)</a>
+                    </div>
                     <p class="price-fineprint">لم تصلك الرسالة، أو تحتاج إلى مساعدة في التفعيل؟ <a href="/ar/contact.html?topic=support">تواصل مع الدعم</a> — وأبقِ تأكيد طلبك في متناول يدك.</p>
                 </div>
             </div>

@@ -78,7 +78,7 @@
                 <a href="#how">Nasıl çalışır</a>
                 <a href="#why">Neden daha iyi</a>
                 <a href="/tr/pricing.html">Fiyat</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">İndir</a>
+                <a href="#get" class="btn btn-secondary btn-nav">İndir</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Dil: Türkçe">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>Az gören Windows<br> kullanıcıları için<br> en iyi ekran büyüteci</h1>
                     <p class="lead">Gözlerinizin takip etmesine yardımcı olmak için tasarlanmış akıcı, sade bir yakınlaştırma aracı</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">Windows için indirin</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/tr.svg" alt="Microsoft Store'dan edinin">
+                            </a>
+                            <a href="#get" data-download class="download-direct">Veya yükleyiciyi doğrudan bu siteden indirin (.msi)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>Kurarken Windows beni uyarır mı?</summary>
                         <div class="faq-body">
-                            <p>Yükleyiciyi ilk kez açtığınızda Windows, tam ekran mavi bir <strong>“Windows bilgisayarınızı korudu”</strong> (“Windows protected your PC”) mesajı gösterebilir. <strong>Bu normaldir ve uygulama güvenlidir.</strong> Bunun nedeni Low Vision Zoom'un yepyeni bir uygulama olmasıdır — Windows onu tanıyacak kadar sık görmemiştir henüz. Yükleyici, şirketimiz <strong>txtbook&nbsp;LLC</strong> tarafından dijital olarak imzalanmıştır.</p>
+                            <p>Yükleyiciyi ilk kez açtığınızda Windows, tam ekran mavi bir <strong>“Windows bilgisayarınızı korudu”</strong> (“Windows protected your PC”) mesajı gösterebilir. <strong>Bu normaldir ve uygulama güvenlidir.</strong> Bunun nedeni Low Vision Zoom'un yepyeni bir uygulama olmasıdır — Windows onu tanıyacak kadar sık görmemiştir henüz. Yükleyici, şirketimiz <strong>txtbook&nbsp;LLC</strong> tarafından dijital olarak imzalanmıştır. Bu ekranı tamamen atlamak isterseniz uygulamayı <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a>'dan yükleyin — Store üzerinden yüklemelerde SmartScreen uyarısı görünmez.</p>
                             <p class="install-note-steps-lead">Devam etmek için:</p>
                             <ol class="install-note-steps">
                                 <li>Mavi ekranda <strong>Ek bilgi</strong> bağlantısına tıklayın.</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>Az gören Windows kullanıcıları için en iyi ekran büyüteci.</h2>
                 <p>7 gün ücretsiz deneme · tek seferlik $9.99 · abonelik yok</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">Windows için indirin</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/tr.svg" alt="Microsoft Store'dan edinin">
+                    </a>
+                    <a href="#get" data-download class="download-direct">Veya yükleyiciyi doğrudan bu siteden indirin (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

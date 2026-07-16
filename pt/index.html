@@ -78,7 +78,7 @@
                 <a href="#how">Como funciona</a>
                 <a href="#why">Por que é melhor</a>
                 <a href="/pt/pricing.html">Preço</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">Baixar</a>
+                <a href="#get" class="btn btn-secondary btn-nav">Baixar</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Idioma: Português">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>O melhor ampliador de tela<br> para usuários do Windows<br> com baixa visão</h1>
                     <p class="lead">Um utilitário de zoom suave e simples, criado para ajudar seus olhos a acompanhar</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">Baixar para Windows</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/pt.svg" alt="Obter na Microsoft Store">
+                            </a>
+                            <a href="#get" data-download class="download-direct">Ou baixe o instalador diretamente deste site (.msi)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>O Windows vai me avisar quando eu instalar?</summary>
                         <div class="faq-body">
-                            <p>Na primeira vez que você abrir o instalador, o Windows pode mostrar uma mensagem azul em tela cheia: <strong>“O Windows protegeu o computador”</strong> (“Windows protected your PC”). <strong>Isso é normal e o aplicativo é seguro.</strong> Acontece porque o Low Vision Zoom é um aplicativo muito novo — o Windows ainda não o viu vezes suficientes para reconhecê-lo. O instalador é assinado digitalmente pela <strong>txtbook&nbsp;LLC</strong>, a nossa empresa.</p>
+                            <p>Na primeira vez que você abrir o instalador, o Windows pode mostrar uma mensagem azul em tela cheia: <strong>“O Windows protegeu o computador”</strong> (“Windows protected your PC”). <strong>Isso é normal e o aplicativo é seguro.</strong> Acontece porque o Low Vision Zoom é um aplicativo muito novo — o Windows ainda não o viu vezes suficientes para reconhecê-lo. O instalador é assinado digitalmente pela <strong>txtbook&nbsp;LLC</strong>, a nossa empresa. Prefere evitar essa tela por completo? Instale pela <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> — instalações pela loja não mostram o aviso do SmartScreen.</p>
                             <p class="install-note-steps-lead">Para continuar:</p>
                             <ol class="install-note-steps">
                                 <li>Clique em <strong>Mais informações</strong> (“More info”) na tela azul.</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>O melhor ampliador de tela para usuários do Windows com baixa visão.</h2>
                 <p>Teste grátis de 7 dias · $9.99 uma única vez · sem assinatura</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">Baixar para Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/pt.svg" alt="Obter na Microsoft Store">
+                    </a>
+                    <a href="#get" data-download class="download-direct">Ou baixe o instalador diretamente deste site (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

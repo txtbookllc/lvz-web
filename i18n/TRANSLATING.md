@@ -92,6 +92,14 @@ Your language's entry in `i18n/languages.json` (code, `hreflang`, `ogLocale`, `p
 
 ## Per-page rules
 
+### Microsoft Store badge (index.html, pricing.html, buy.html)
+- The primary install CTA is an `<a class="store-badge">` wrapping an official localized badge
+  image. Set the `<img src>` to your language's badge, `/media/store-badge/XX.svg` (all site
+  languages have one; they come from get.microsoft.com/images/), and translate the `alt`.
+- The badge link's `href` (apps.microsoft.com) is external — keep it byte-identical to English.
+- The `class="download-direct"` link under the badge is the secondary direct download —
+  translate its text like any other link.
+
 ### index.html
 - `og:locale` content → your `ogLocale`.
 - The two howto `<img>` `alt` texts and the demo `video` `aria-label` describe animations —

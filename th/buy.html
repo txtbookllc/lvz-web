@@ -69,7 +69,7 @@
                 <a href="/th/index.html#how">วิธีใช้งาน</a>
                 <a href="/th/index.html#why">ทำไมถึงดีกว่า</a>
                 <a href="/th/pricing.html">ราคา</a>
-                <a href="/th/index.html#get" data-download class="btn btn-secondary btn-nav">ดาวน์โหลด</a>
+                <a href="/th/index.html#get" class="btn btn-secondary btn-nav">ดาวน์โหลด</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="ภาษา: ไทย">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     ยังไม่เคยทดลองใช้ใช่ไหม? การดาวน์โหลดคือการทดลองใช้ฟรีแบบเต็มฟีเจอร์ 7 วัน —
-                    <a href="/th/index.html#get" data-download>ดาวน์โหลดก่อน</a> แล้วซื้อเมื่อพร้อม
+                    <a href="/th/index.html#get">ดาวน์โหลดก่อน</a> แล้วซื้อเมื่อพร้อม
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>คลิกขวาที่ไอคอนบนถาดระบบแล้วเลือก “Enter license key…” (กรอกคีย์ใบอนุญาต…)</li>
                         <li>วางคีย์จากอีเมลของคุณแล้วคลิก <strong>Activate</strong> (เปิดใช้งาน) การซูมเต็มรูปแบบจะกลับคืนมาทันที</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/th/index.html#get" data-download class="btn btn-primary btn-lg">ดาวน์โหลดสำหรับ Windows</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/th.svg" alt="รับจาก Microsoft Store">
+                        </a>
+                        <a href="/th/index.html#get" data-download class="download-direct">หรือดาวน์โหลดตัวติดตั้งโดยตรงจากเว็บไซต์นี้ (.msi)</a>
+                    </div>
                     <p class="price-fineprint">ไม่ได้รับอีเมล หรือต้องการความช่วยเหลือในการเปิดใช้งาน? <a href="/th/contact.html?topic=support">ติดต่อฝ่ายสนับสนุน</a> — เตรียมใบยืนยันคำสั่งซื้อของคุณไว้ให้พร้อม</p>
                 </div>
             </div>

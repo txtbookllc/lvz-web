@@ -69,7 +69,7 @@
                 <a href="/pl/index.html#how">Jak to działa</a>
                 <a href="/pl/index.html#why">Dlaczego jest lepsza</a>
                 <a href="/pl/pricing.html">Cennik</a>
-                <a href="/pl/index.html#get" data-download class="btn btn-secondary btn-nav">Pobierz</a>
+                <a href="/pl/index.html#get" class="btn btn-secondary btn-nav">Pobierz</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Język: polski">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     Jeszcze nie próbowałeś aplikacji? Pobrana wersja to bezpłatny, pełnofunkcyjny 7-dniowy okres próbny —
-                    <a href="/pl/index.html#get" data-download>pobierz ją najpierw</a> i kup licencję, gdy będziesz gotowy.
+                    <a href="/pl/index.html#get">pobierz ją najpierw</a> i kup licencję, gdy będziesz gotowy.
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>Kliknij prawym przyciskiem myszy ikonę w zasobniku systemowym i wybierz „Wprowadź klucz licencyjny…” ("Enter license key…").</li>
                         <li>Wklej klucz z e-maila i kliknij <strong>Aktywuj</strong>. Pełne powiększenie zostaje przywrócone natychmiast.</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/pl/index.html#get" data-download class="btn btn-primary btn-lg">Pobierz dla Windows</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/pl.svg" alt="Pobierz z Microsoft Store">
+                        </a>
+                        <a href="/pl/index.html#get" data-download class="download-direct">Lub pobierz instalator bezpośrednio z tej strony (.msi)</a>
+                    </div>
                     <p class="price-fineprint">Nie otrzymałeś e-maila lub potrzebujesz pomocy z aktywacją? <a href="/pl/contact.html?topic=support">Skontaktuj się z pomocą techniczną</a> — miej pod ręką potwierdzenie zamówienia.</p>
                 </div>
             </div>

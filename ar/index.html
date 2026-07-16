@@ -78,7 +78,7 @@
                 <a href="#how">كيف يعمل</a>
                 <a href="#why">لماذا هو أفضل</a>
                 <a href="/ar/pricing.html">الأسعار</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">تنزيل</a>
+                <a href="#get" class="btn btn-secondary btn-nav">تنزيل</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="اللغة: العربية">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>أفضل مكبّر شاشة<br> لمستخدمي Windows<br> من ذوي ضعف البصر</h1>
                     <p class="lead">أداة تكبير سلسة وبسيطة مصمَّمة لتساعد عينيك على متابعة ما تقرأه</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">تنزيل لنظام Windows</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/ar.svg" alt="احصل عليه من Microsoft Store">
+                            </a>
+                            <a href="#get" data-download class="download-direct">أو نزّل المثبّت مباشرةً من هذا الموقع (.msi)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>هل سيحذّرني Windows عند تثبيته؟</summary>
                         <div class="faq-body">
-                            <p>في المرة الأولى التي تفتح فيها المثبّت، قد يعرض Windows شاشة زرقاء بملء الشاشة بعنوان <strong>«قام Windows بحماية الكمبيوتر الخاص بك»</strong> (بالإنجليزية: "Windows protected your PC"). <strong>هذا أمر طبيعي والتطبيق آمن.</strong> يحدث ذلك لأن Low Vision Zoom تطبيق جديد تمامًا — لم يرَه Windows بعدُ مراتٍ كافية ليتعرّف عليه. المثبّت موقَّع رقميًا من <strong>txtbook&nbsp;LLC</strong>، شركتنا.</p>
+                            <p>في المرة الأولى التي تفتح فيها المثبّت، قد يعرض Windows شاشة زرقاء بملء الشاشة بعنوان <strong>«قام Windows بحماية الكمبيوتر الخاص بك»</strong> (بالإنجليزية: "Windows protected your PC"). <strong>هذا أمر طبيعي والتطبيق آمن.</strong> يحدث ذلك لأن Low Vision Zoom تطبيق جديد تمامًا — لم يرَه Windows بعدُ مراتٍ كافية ليتعرّف عليه. المثبّت موقَّع رقميًا من <strong>txtbook&nbsp;LLC</strong>، شركتنا. وإذا كنت تفضّل تجنّب هذه الشاشة تمامًا، فثبّت التطبيق من <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> — فالتثبيت من المتجر لا يعرض تحذير SmartScreen.</p>
                             <p class="install-note-steps-lead">للمتابعة:</p>
                             <ol class="install-note-steps">
                                 <li>انقر على <strong>مزيد من المعلومات</strong> (More info) في الشاشة الزرقاء.</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>أفضل مكبّر شاشة لمستخدمي Windows من ذوي ضعف البصر.</h2>
                 <p>تجربة مجانية 7 أيام · $9.99 مرة واحدة · بلا اشتراك</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">تنزيل لنظام Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ar.svg" alt="احصل عليه من Microsoft Store">
+                    </a>
+                    <a href="#get" data-download class="download-direct">أو نزّل المثبّت مباشرةً من هذا الموقع (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

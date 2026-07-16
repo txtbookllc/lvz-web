@@ -78,7 +78,7 @@
                 <a href="#how">Cách hoạt động</a>
                 <a href="#why">Vì sao tốt hơn</a>
                 <a href="/vi/pricing.html">Bảng giá</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">Tải xuống</a>
+                <a href="#get" class="btn btn-secondary btn-nav">Tải xuống</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Ngôn ngữ: Tiếng Việt">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>Trình phóng to màn hình tốt nhất<br> dành cho người dùng Windows<br> có thị lực kém</h1>
                     <p class="lead">Một tiện ích thu phóng mượt mà, đơn giản, được thiết kế để mắt bạn dễ dàng dõi theo</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">Tải xuống cho Windows</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/vi.svg" alt="Tải trên Microsoft Store">
+                            </a>
+                            <a href="#get" data-download class="download-direct">Hoặc tải trình cài đặt trực tiếp từ trang web này (.msi)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>Windows có cảnh báo khi tôi cài đặt không?</summary>
                         <div class="faq-body">
-                            <p>Lần đầu bạn mở trình cài đặt, Windows có thể hiển thị một thông báo màu xanh toàn màn hình <strong>“Windows đã bảo vệ PC của bạn” (Windows protected your PC)</strong>. <strong>Điều này là bình thường và ứng dụng an toàn.</strong> Nó xảy ra vì Low Vision Zoom là một ứng dụng hoàn toàn mới — Windows chưa gặp đủ nhiều lần để nhận diện. Trình cài đặt được ký số bởi <strong>txtbook&nbsp;LLC</strong>, công ty của chúng tôi.</p>
+                            <p>Lần đầu bạn mở trình cài đặt, Windows có thể hiển thị một thông báo màu xanh toàn màn hình <strong>“Windows đã bảo vệ PC của bạn” (Windows protected your PC)</strong>. <strong>Điều này là bình thường và ứng dụng an toàn.</strong> Nó xảy ra vì Low Vision Zoom là một ứng dụng hoàn toàn mới — Windows chưa gặp đủ nhiều lần để nhận diện. Trình cài đặt được ký số bởi <strong>txtbook&nbsp;LLC</strong>, công ty của chúng tôi. Nếu bạn muốn bỏ qua hoàn toàn màn hình này, hãy cài đặt từ <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> — cài đặt qua Store sẽ không hiển thị cảnh báo SmartScreen.</p>
                             <p class="install-note-steps-lead">Để tiếp tục:</p>
                             <ol class="install-note-steps">
                                 <li>Bấm <strong>Thông tin thêm</strong> (More info) trên màn hình xanh.</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>Trình phóng to màn hình tốt nhất dành cho người dùng Windows có thị lực kém.</h2>
                 <p>Dùng thử miễn phí 7 ngày · $9.99 trả một lần · không thuê bao</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">Tải xuống cho Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/vi.svg" alt="Tải trên Microsoft Store">
+                    </a>
+                    <a href="#get" data-download class="download-direct">Hoặc tải trình cài đặt trực tiếp từ trang web này (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

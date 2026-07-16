@@ -78,7 +78,7 @@
                 <a href="#how">Cara kerjanya</a>
                 <a href="#why">Mengapa lebih baik</a>
                 <a href="/id/pricing.html">Harga</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">Unduh</a>
+                <a href="#get" class="btn btn-secondary btn-nav">Unduh</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Bahasa: Bahasa Indonesia">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>Kaca pembesar layar terbaik<br> untuk pengguna Windows<br> dengan penglihatan rendah</h1>
                     <p class="lead">Utilitas zoom yang halus dan sederhana, dirancang agar mata Anda mudah mengikuti tampilan</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">Unduh untuk Windows</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/id.svg" alt="Dapatkan di Microsoft Store">
+                            </a>
+                            <a href="#get" data-download class="download-direct">Atau unduh pemasang langsung dari situs ini (.msi)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>Apakah Windows akan menampilkan peringatan saat saya memasangnya?</summary>
                         <div class="faq-body">
-                            <p>Saat pertama kali Anda membuka pemasangnya, Windows mungkin menampilkan pesan biru layar penuh <strong>“Windows melindungi PC Anda”</strong> (“Windows protected your PC”). <strong>Ini normal dan aplikasinya aman.</strong> Hal ini terjadi karena Low Vision Zoom adalah aplikasi yang masih sangat baru — Windows belum cukup sering melihatnya untuk mengenalinya. Pemasangnya ditandatangani secara digital oleh <strong>txtbook&nbsp;LLC</strong>, perusahaan kami.</p>
+                            <p>Saat pertama kali Anda membuka pemasangnya, Windows mungkin menampilkan pesan biru layar penuh <strong>“Windows melindungi PC Anda”</strong> (“Windows protected your PC”). <strong>Ini normal dan aplikasinya aman.</strong> Hal ini terjadi karena Low Vision Zoom adalah aplikasi yang masih sangat baru — Windows belum cukup sering melihatnya untuk mengenalinya. Pemasangnya ditandatangani secara digital oleh <strong>txtbook&nbsp;LLC</strong>, perusahaan kami. Jika Anda ingin melewati layar ini sepenuhnya, pasang dari <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> — pemasangan melalui Store tidak menampilkan peringatan SmartScreen.</p>
                             <p class="install-note-steps-lead">Untuk melanjutkan:</p>
                             <ol class="install-note-steps">
                                 <li>Klik <strong>Info selengkapnya</strong> (More info) pada layar biru tersebut.</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>Kaca pembesar layar terbaik untuk pengguna Windows dengan penglihatan rendah.</h2>
                 <p>Uji coba gratis 7 hari · $9.99 sekali bayar · tanpa langganan</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">Unduh untuk Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/id.svg" alt="Dapatkan di Microsoft Store">
+                    </a>
+                    <a href="#get" data-download class="download-direct">Atau unduh pemasang langsung dari situs ini (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

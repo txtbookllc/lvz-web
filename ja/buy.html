@@ -69,7 +69,7 @@
                 <a href="/ja/index.html#how">使い方</a>
                 <a href="/ja/index.html#why">選ばれる理由</a>
                 <a href="/ja/pricing.html">価格</a>
-                <a href="/ja/index.html#get" data-download class="btn btn-secondary btn-nav">ダウンロード</a>
+                <a href="/ja/index.html#get" class="btn btn-secondary btn-nav">ダウンロード</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="言語: 日本語">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     まだ試していませんか？ダウンロードするのは、全機能が使える7日間の無料トライアルです —
-                    <a href="/ja/index.html#get" data-download>まずダウンロード</a>して、気に入ってからご購入ください。
+                    <a href="/ja/index.html#get">まずダウンロード</a>して、気に入ってからご購入ください。
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>タスクトレイのアイコンを右クリックし、「ライセンスキーを入力…」を選びます。</li>
                         <li>メールに記載のキーを貼り付けて<strong>有効化</strong>をクリックします。フルズームが即座に戻ります。</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/ja/index.html#get" data-download class="btn btn-primary btn-lg">Windows版をダウンロード</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/ja.svg" alt="Microsoft Store で入手">
+                        </a>
+                        <a href="/ja/index.html#get" data-download class="download-direct">またはこのサイトからインストーラーを直接ダウンロード（.msi）</a>
+                    </div>
                     <p class="price-fineprint">メールが届かない場合や、有効化でお困りの場合は、<a href="/ja/contact.html?topic=support">サポートまでご連絡ください</a> — 注文確認メールをお手元にご用意ください。</p>
                 </div>
             </div>

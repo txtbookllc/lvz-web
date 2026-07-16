@@ -12,10 +12,13 @@
 
     /* ----------------------------------------------------------------------
        1) Download URL — the hosted signed MSI on Cloudflare R2 (a stable,
-       direct HTTPS URL we control; no GitHub redirect). Every "Download
-       for Windows" button on every page reads from here. On each release,
-       overwrite the LowVisionZoom.msi object in R2 and purge the Cloudflare
-       cache for this path (or switch to versioned object keys).
+       direct HTTPS URL we control; no GitHub redirect). Since July 16, 2026
+       the PRIMARY install CTA is the Microsoft Store badge (hardcoded href in
+       the HTML — Store installs show no SmartScreen warning); this URL feeds
+       the secondary "download directly" [data-download] links on every page,
+       and the same URL in latest.json feeds the in-app update check. On each
+       release, overwrite the LowVisionZoom.msi object in R2 and purge the
+       Cloudflare cache for this path.
        ---------------------------------------------------------------------- */
     var DOWNLOAD_URL = "https://download.lowvisionzoom.com/LowVisionZoom.msi";
 

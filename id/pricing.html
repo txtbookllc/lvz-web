@@ -68,7 +68,7 @@
                 <a href="/id/index.html#how">Cara kerjanya</a>
                 <a href="/id/index.html#why">Mengapa lebih baik</a>
                 <a href="/id/pricing.html" aria-current="page">Harga</a>
-                <a href="/id/index.html#get" data-download class="btn btn-secondary btn-nav">Unduh</a>
+                <a href="/id/index.html#get" class="btn btn-secondary btn-nav">Unduh</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Bahasa: Bahasa Indonesia">
@@ -124,8 +124,15 @@
                             <li>Tanpa perlu akun</li>
                             <li>Jaminan uang kembali 30 hari</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/id/index.html#get" data-download class="btn btn-primary btn-lg">Unduh untuk Windows</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/id.svg" alt="Dapatkan di Microsoft Store">
+                            </a>
+                            <a href="/id/index.html#get" data-download class="download-direct">Atau unduh pemasang langsung dari situs ini (.msi)</a>
+                        </div>
                         <p class="cta-reassure">Uji coba gratis 7 hari. Tanpa akun, tanpa pembayaran untuk memulai.</p>
                         <a href="/id/buy.html?checkout=1" class="btn btn-quiet btn-lg">Beli lisensi — $9.99</a>
                         <p class="price-fineprint">Pembayaran diproses dengan aman oleh Paddle, merchant of record (penjual resmi tercatat) kami. Anda mencoba dulu, membeli belakangan — unduhannya adalah uji coba gratis.</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>Coba gratis. Putuskan nanti.</h2>
                 <p>Uji coba 7 hari · $9.99 sekali bayar · jaminan uang kembali 30 hari</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/id/index.html#get" data-download class="btn btn-primary btn-lg">Unduh untuk Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/id.svg" alt="Dapatkan di Microsoft Store">
+                    </a>
+                    <a href="/id/index.html#get" data-download class="download-direct">Atau unduh pemasang langsung dari situs ini (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

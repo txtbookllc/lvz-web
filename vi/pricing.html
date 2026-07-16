@@ -68,7 +68,7 @@
                 <a href="/vi/index.html#how">Cách hoạt động</a>
                 <a href="/vi/index.html#why">Vì sao tốt hơn</a>
                 <a href="/vi/pricing.html" aria-current="page">Bảng giá</a>
-                <a href="/vi/index.html#get" data-download class="btn btn-secondary btn-nav">Tải xuống</a>
+                <a href="/vi/index.html#get" class="btn btn-secondary btn-nav">Tải xuống</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Ngôn ngữ: Tiếng Việt">
@@ -124,8 +124,15 @@
                             <li>Không cần tài khoản</li>
                             <li>Bảo đảm hoàn tiền trong 30 ngày</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/vi/index.html#get" data-download class="btn btn-primary btn-lg">Tải xuống cho Windows</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/vi.svg" alt="Tải trên Microsoft Store">
+                            </a>
+                            <a href="/vi/index.html#get" data-download class="download-direct">Hoặc tải trình cài đặt trực tiếp từ trang web này (.msi)</a>
+                        </div>
                         <p class="cta-reassure">Dùng thử miễn phí 7 ngày. Không cần tài khoản, không cần thanh toán để bắt đầu.</p>
                         <a href="/vi/buy.html?checkout=1" class="btn btn-quiet btn-lg">Mua bản quyền — $9.99</a>
                         <p class="price-fineprint">Thanh toán được xử lý an toàn bởi Paddle, đơn vị bán hàng chính thức (merchant of record) của chúng tôi. Bạn dùng thử trước, mua sau — bản tải xuống chính là bản dùng thử miễn phí.</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>Dùng thử miễn phí. Quyết định sau.</h2>
                 <p>Dùng thử 7 ngày · $9.99 trả một lần · bảo đảm hoàn tiền trong 30 ngày</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/vi/index.html#get" data-download class="btn btn-primary btn-lg">Tải xuống cho Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/vi.svg" alt="Tải trên Microsoft Store">
+                    </a>
+                    <a href="/vi/index.html#get" data-download class="download-direct">Hoặc tải trình cài đặt trực tiếp từ trang web này (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

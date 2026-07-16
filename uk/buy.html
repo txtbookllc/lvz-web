@@ -69,7 +69,7 @@
                 <a href="/uk/index.html#how">Як це працює</a>
                 <a href="/uk/index.html#why">Чому це краще</a>
                 <a href="/uk/pricing.html">Ціни</a>
-                <a href="/uk/index.html#get" data-download class="btn btn-secondary btn-nav">Завантажити</a>
+                <a href="/uk/index.html#get" class="btn btn-secondary btn-nav">Завантажити</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Мова: Українська">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     Ще не пробували? Завантаження — це безкоштовна повнофункціональна 7-денна пробна версія —
-                    <a href="/uk/index.html#get" data-download>завантажте її спочатку</a> і купіть, коли будете готові.
+                    <a href="/uk/index.html#get">завантажте її спочатку</a> і купіть, коли будете готові.
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>Натисніть правою кнопкою миші на значок у треї та виберіть "Ввести ліцензійний ключ…".</li>
                         <li>Вставте ключ зі свого листа й натисніть <strong>Активувати</strong>. Повний зум відновиться миттєво.</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/uk/index.html#get" data-download class="btn btn-primary btn-lg">Завантажити для Windows</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/uk.svg" alt="Завантажити з Microsoft Store">
+                        </a>
+                        <a href="/uk/index.html#get" data-download class="download-direct">Або завантажте інсталятор безпосередньо з цього сайту (.msi)</a>
+                    </div>
                     <p class="price-fineprint">Не отримали лист або потрібна допомога з активацією? <a href="/uk/contact.html?topic=support">Зв'яжіться зі службою підтримки</a> — тримайте напоготові підтвердження замовлення.</p>
                 </div>
             </div>

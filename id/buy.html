@@ -69,7 +69,7 @@
                 <a href="/id/index.html#how">Cara kerjanya</a>
                 <a href="/id/index.html#why">Mengapa lebih baik</a>
                 <a href="/id/pricing.html">Harga</a>
-                <a href="/id/index.html#get" data-download class="btn btn-secondary btn-nav">Unduh</a>
+                <a href="/id/index.html#get" class="btn btn-secondary btn-nav">Unduh</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Bahasa: Bahasa Indonesia">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     Belum mencobanya? Unduhannya adalah uji coba gratis 7 hari dengan fitur lengkap —
-                    <a href="/id/index.html#get" data-download>unduh dulu</a> dan beli saat Anda siap.
+                    <a href="/id/index.html#get">unduh dulu</a> dan beli saat Anda siap.
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>Klik kanan ikon baki sistem dan pilih “Enter license key…” (Masukkan kunci lisensi…).</li>
                         <li>Tempelkan kunci dari email Anda dan klik <strong>Activate</strong>. Zoom penuh pulih seketika.</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/id/index.html#get" data-download class="btn btn-primary btn-lg">Unduh untuk Windows</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/id.svg" alt="Dapatkan di Microsoft Store">
+                        </a>
+                        <a href="/id/index.html#get" data-download class="download-direct">Atau unduh pemasang langsung dari situs ini (.msi)</a>
+                    </div>
                     <p class="price-fineprint">Email tidak sampai, atau butuh bantuan mengaktifkan? <a href="/id/contact.html?topic=support">Hubungi dukungan</a> — siapkan konfirmasi pesanan Anda.</p>
                 </div>
             </div>

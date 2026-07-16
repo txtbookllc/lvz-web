@@ -78,7 +78,7 @@
                 <a href="#how">यह कैसे काम करता है</a>
                 <a href="#why">यह बेहतर क्यों है</a>
                 <a href="/hi/pricing.html">कीमत</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">डाउनलोड</a>
+                <a href="#get" class="btn btn-secondary btn-nav">डाउनलोड</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="भाषा: हिन्दी">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>कम दृष्टि वाले<br> Windows उपयोगकर्ताओं के लिए<br> सबसे अच्छा स्क्रीन मैग्निफायर</h1>
                     <p class="lead">एक सहज, सरल ज़ूम यूटिलिटी, जो आपकी आँखों को दृश्य के साथ बने रहने में मदद के लिए बनाई गई है</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">Windows के लिए डाउनलोड करें</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/hi.svg" alt="Microsoft Store से प्राप्त करें">
+                            </a>
+                            <a href="#get" data-download class="download-direct">या इंस्टॉलर को सीधे इस साइट से डाउनलोड करें (.msi)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>क्या इंस्टॉल करते समय Windows मुझे चेतावनी देगा?</summary>
                         <div class="faq-body">
-                            <p>इंस्टॉलर को पहली बार खोलने पर Windows पूरी स्क्रीन पर एक नीला संदेश दिखा सकता है: <strong>“Windows ने आपके PC की सुरक्षा की” (Windows protected your PC)</strong>। <strong>यह सामान्य है और ऐप सुरक्षित है।</strong> ऐसा इसलिए होता है क्योंकि Low Vision Zoom बिल्कुल नया ऐप है — Windows ने इसे अभी इतनी बार नहीं देखा कि पहचानने लगे। इंस्टॉलर हमारी कंपनी <strong>txtbook&nbsp;LLC</strong> द्वारा डिजिटल रूप से साइन किया गया है।</p>
+                            <p>इंस्टॉलर को पहली बार खोलने पर Windows पूरी स्क्रीन पर एक नीला संदेश दिखा सकता है: <strong>“Windows ने आपके PC की सुरक्षा की” (Windows protected your PC)</strong>। <strong>यह सामान्य है और ऐप सुरक्षित है।</strong> ऐसा इसलिए होता है क्योंकि Low Vision Zoom बिल्कुल नया ऐप है — Windows ने इसे अभी इतनी बार नहीं देखा कि पहचानने लगे। इंस्टॉलर हमारी कंपनी <strong>txtbook&nbsp;LLC</strong> द्वारा डिजिटल रूप से साइन किया गया है। यदि आप इस स्क्रीन से पूरी तरह बचना चाहते हैं, तो <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> से इंस्टॉल करें — Store से इंस्टॉल करने पर SmartScreen चेतावनी नहीं दिखती।</p>
                             <p class="install-note-steps-lead">आगे बढ़ने के लिए:</p>
                             <ol class="install-note-steps">
                                 <li>नीली स्क्रीन पर <strong>More info</strong> (अधिक जानकारी) पर क्लिक करें।</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>कम दृष्टि वाले Windows उपयोगकर्ताओं के लिए सबसे अच्छा स्क्रीन मैग्निफायर।</h2>
                 <p>7 दिन का मुफ़्त ट्रायल · $9.99 एक बार · कोई सदस्यता नहीं</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">Windows के लिए डाउनलोड करें</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/hi.svg" alt="Microsoft Store से प्राप्त करें">
+                    </a>
+                    <a href="#get" data-download class="download-direct">या इंस्टॉलर को सीधे इस साइट से डाउनलोड करें (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

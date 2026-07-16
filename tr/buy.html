@@ -69,7 +69,7 @@
                 <a href="/tr/index.html#how">Nasıl çalışır</a>
                 <a href="/tr/index.html#why">Neden daha iyi</a>
                 <a href="/tr/pricing.html">Fiyat</a>
-                <a href="/tr/index.html#get" data-download class="btn btn-secondary btn-nav">İndir</a>
+                <a href="/tr/index.html#get" class="btn btn-secondary btn-nav">İndir</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Dil: Türkçe">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     Henüz denemediniz mi? İndirdiğiniz sürüm, tüm özellikleriyle ücretsiz 7 günlük denemedir —
-                    <a href="/tr/index.html#get" data-download>önce indirin</a>, hazır olduğunuzda satın alın.
+                    <a href="/tr/index.html#get">önce indirin</a>, hazır olduğunuzda satın alın.
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>Sistem tepsisindeki simgeye sağ tıklayın ve “Lisans anahtarı gir…” seçeneğini seçin.</li>
                         <li>E-postanızdaki anahtarı yapıştırın ve <strong>Etkinleştir</strong>'e tıklayın. Tam yakınlaştırma anında geri gelir.</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/tr/index.html#get" data-download class="btn btn-primary btn-lg">Windows için indirin</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/tr.svg" alt="Microsoft Store'dan edinin">
+                        </a>
+                        <a href="/tr/index.html#get" data-download class="download-direct">Veya yükleyiciyi doğrudan bu siteden indirin (.msi)</a>
+                    </div>
                     <p class="price-fineprint">E-posta gelmedi mi ya da etkinleştirmede yardım mı gerekiyor? <a href="/tr/contact.html?topic=support">Destek ile iletişime geçin</a> — sipariş onayınızı hazır bulundurun.</p>
                 </div>
             </div>

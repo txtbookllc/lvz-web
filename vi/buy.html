@@ -69,7 +69,7 @@
                 <a href="/vi/index.html#how">Cách hoạt động</a>
                 <a href="/vi/index.html#why">Vì sao tốt hơn</a>
                 <a href="/vi/pricing.html">Bảng giá</a>
-                <a href="/vi/index.html#get" data-download class="btn btn-secondary btn-nav">Tải xuống</a>
+                <a href="/vi/index.html#get" class="btn btn-secondary btn-nav">Tải xuống</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Ngôn ngữ: Tiếng Việt">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     Chưa dùng thử? Bản tải xuống là một bản dùng thử miễn phí 7 ngày với đầy đủ tính năng —
-                    <a href="/vi/index.html#get" data-download>hãy tải xuống trước</a> và mua khi bạn đã sẵn sàng.
+                    <a href="/vi/index.html#get">hãy tải xuống trước</a> và mua khi bạn đã sẵn sàng.
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>Bấm chuột phải vào biểu tượng khay hệ thống và chọn "Nhập khóa bản quyền…" ("Enter license key…").</li>
                         <li>Dán khóa từ email của bạn và bấm <strong>Kích hoạt</strong>. Mức phóng to đầy đủ được khôi phục ngay lập tức.</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/vi/index.html#get" data-download class="btn btn-primary btn-lg">Tải xuống cho Windows</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/vi.svg" alt="Tải trên Microsoft Store">
+                        </a>
+                        <a href="/vi/index.html#get" data-download class="download-direct">Hoặc tải trình cài đặt trực tiếp từ trang web này (.msi)</a>
+                    </div>
                     <p class="price-fineprint">Chưa nhận được email, hoặc cần trợ giúp kích hoạt? <a href="/vi/contact.html?topic=support">Liên hệ bộ phận hỗ trợ</a> — hãy giữ sẵn xác nhận đơn hàng của bạn.</p>
                 </div>
             </div>

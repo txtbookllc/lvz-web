@@ -69,7 +69,7 @@
                 <a href="/ru/index.html#how">Как это работает</a>
                 <a href="/ru/index.html#why">Почему это лучше</a>
                 <a href="/ru/pricing.html">Цены</a>
-                <a href="/ru/index.html#get" data-download class="btn btn-secondary btn-nav">Скачать</a>
+                <a href="/ru/index.html#get" class="btn btn-secondary btn-nav">Скачать</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Язык: Русский">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     Ещё не пробовали? Загрузка — это бесплатная, полнофункциональная 7-дневная пробная версия —
-                    <a href="/ru/index.html#get" data-download>сначала скачайте её</a> и купите, когда будете готовы.
+                    <a href="/ru/index.html#get">сначала скачайте её</a> и купите, когда будете готовы.
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>Щёлкните правой кнопкой мыши по значку в области уведомлений и выберите «Ввести лицензионный ключ…».</li>
                         <li>Вставьте ключ из письма и нажмите <strong>«Активировать»</strong>. Полное увеличение будет восстановлено мгновенно.</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/ru/index.html#get" data-download class="btn btn-primary btn-lg">Скачать для Windows</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/ru.svg" alt="Скачать в Microsoft Store">
+                        </a>
+                        <a href="/ru/index.html#get" data-download class="download-direct">Или скачайте установщик напрямую с этого сайта (.msi)</a>
+                    </div>
                     <p class="price-fineprint">Не получили письмо или нужна помощь с активацией? <a href="/ru/contact.html?topic=support">Свяжитесь со службой поддержки</a> — держите под рукой подтверждение заказа.</p>
                 </div>
             </div>

@@ -78,7 +78,7 @@
                 <a href="#how">Comment ça marche</a>
                 <a href="#why">Pourquoi c’est mieux</a>
                 <a href="/fr/pricing.html">Tarif</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">Télécharger</a>
+                <a href="#get" class="btn btn-secondary btn-nav">Télécharger</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Langue&nbsp;: Français">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>La meilleure loupe d’écran<br> pour les personnes malvoyantes<br> sous Windows</h1>
                     <p class="lead">Un outil de zoom fluide et simple, conçu pour aider vos yeux à suivre</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">Télécharger pour Windows</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/fr.svg" alt="Obtenir sur le Microsoft Store">
+                            </a>
+                            <a href="#get" data-download class="download-direct">Ou téléchargez l’installateur directement depuis ce site (.msi)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>Windows va-t-il m’avertir lors de l’installation&nbsp;?</summary>
                         <div class="faq-body">
-                            <p>La première fois que vous ouvrez l’installateur, Windows peut afficher un message bleu plein écran <strong>«&nbsp;Windows a protégé votre ordinateur&nbsp;»</strong> (« Windows protected your PC »). <strong>C’est normal et l’application est sûre.</strong> Cela arrive parce que Low Vision Zoom est une application toute récente — Windows ne l’a pas encore vue assez souvent pour la reconnaître. L’installateur est signé numériquement par <strong>txtbook&nbsp;LLC</strong>, notre société.</p>
+                            <p>La première fois que vous ouvrez l’installateur, Windows peut afficher un message bleu plein écran <strong>«&nbsp;Windows a protégé votre ordinateur&nbsp;»</strong> (« Windows protected your PC »). <strong>C’est normal et l’application est sûre.</strong> Cela arrive parce que Low Vision Zoom est une application toute récente — Windows ne l’a pas encore vue assez souvent pour la reconnaître. L’installateur est signé numériquement par <strong>txtbook&nbsp;LLC</strong>, notre société. Pour éviter totalement cet écran, installez l’application depuis le <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> : les installations via le Store n’affichent pas l’avertissement SmartScreen.</p>
                             <p class="install-note-steps-lead">Pour continuer&nbsp;:</p>
                             <ol class="install-note-steps">
                                 <li>Cliquez sur <strong>Informations complémentaires</strong> sur l’écran bleu.</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>La meilleure loupe d’écran pour les personnes malvoyantes sous Windows.</h2>
                 <p>Essai gratuit de 7 jours · $9.99 en une seule fois · sans abonnement</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">Télécharger pour Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/fr.svg" alt="Obtenir sur le Microsoft Store">
+                    </a>
+                    <a href="#get" data-download class="download-direct">Ou téléchargez l’installateur directement depuis ce site (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

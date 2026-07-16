@@ -156,6 +156,9 @@ function structuralStream(page) {
             if (TRANSLATABLE_ATTRS.has(k)) continue;
             const v = e.attrs[k];
             if ((k === "href" || k === "action") && v && isInternal(v)) continue;
+            // Store badge art is localized per language (/media/store-badge/XX.svg);
+            // existence is still verified by checkLinks.
+            if (k === "src" && v.startsWith("/media/store-badge/")) continue;
             parts.push(`${k}=${v}`);
         }
         return `tag:${e.tag}[${parts.join("|")}]`;

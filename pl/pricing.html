@@ -68,7 +68,7 @@
                 <a href="/pl/index.html#how">Jak to działa</a>
                 <a href="/pl/index.html#why">Dlaczego jest lepsza</a>
                 <a href="/pl/pricing.html" aria-current="page">Cennik</a>
-                <a href="/pl/index.html#get" data-download class="btn btn-secondary btn-nav">Pobierz</a>
+                <a href="/pl/index.html#get" class="btn btn-secondary btn-nav">Pobierz</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Język: polski">
@@ -124,8 +124,15 @@
                             <li>Bez wymaganego konta</li>
                             <li>30-dniowa gwarancja zwrotu pieniędzy</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/pl/index.html#get" data-download class="btn btn-primary btn-lg">Pobierz dla Windows</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/pl.svg" alt="Pobierz z Microsoft Store">
+                            </a>
+                            <a href="/pl/index.html#get" data-download class="download-direct">Lub pobierz instalator bezpośrednio z tej strony (.msi)</a>
+                        </div>
                         <p class="cta-reassure">Bezpłatny 7-dniowy okres próbny. Bez konta i bez płatności na start.</p>
                         <a href="/pl/buy.html?checkout=1" class="btn btn-quiet btn-lg">Kup licencję — $9.99</a>
                         <p class="price-fineprint">Płatności bezpiecznie przetwarza Paddle, nasz sprzedawca formalny (merchant of record). Najpierw testujesz, kupujesz później — pobrana wersja to bezpłatny okres próbny.</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>Wypróbuj bezpłatnie. Zdecyduj później.</h2>
                 <p>7-dniowy okres próbny · $9.99 jednorazowo · 30-dniowa gwarancja zwrotu pieniędzy</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/pl/index.html#get" data-download class="btn btn-primary btn-lg">Pobierz dla Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/pl.svg" alt="Pobierz z Microsoft Store">
+                    </a>
+                    <a href="/pl/index.html#get" data-download class="download-direct">Lub pobierz instalator bezpośrednio z tej strony (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

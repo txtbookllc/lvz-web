@@ -69,7 +69,7 @@
                 <a href="/hi/index.html#how">यह कैसे काम करता है</a>
                 <a href="/hi/index.html#why">यह बेहतर क्यों है</a>
                 <a href="/hi/pricing.html">कीमत</a>
-                <a href="/hi/index.html#get" data-download class="btn btn-secondary btn-nav">डाउनलोड</a>
+                <a href="/hi/index.html#get" class="btn btn-secondary btn-nav">डाउनलोड</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="भाषा: हिन्दी">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     अभी तक आज़माया नहीं? डाउनलोड एक मुफ़्त, पूरी सुविधाओं वाला 7 दिन का ट्रायल है —
-                    <a href="/hi/index.html#get" data-download>पहले इसे डाउनलोड करें</a> और तैयार होने पर खरीदें।
+                    <a href="/hi/index.html#get">पहले इसे डाउनलोड करें</a> और तैयार होने पर खरीदें।
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>ट्रे आइकन पर राइट-क्लिक करें और “Enter license key…” चुनें।</li>
                         <li>अपने ईमेल से कुंजी पेस्ट करें और <strong>Activate</strong> पर क्लिक करें। पूरा ज़ूम तुरंत लौट आता है।</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/hi/index.html#get" data-download class="btn btn-primary btn-lg">Windows के लिए डाउनलोड करें</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/hi.svg" alt="Microsoft Store से प्राप्त करें">
+                        </a>
+                        <a href="/hi/index.html#get" data-download class="download-direct">या इंस्टॉलर को सीधे इस साइट से डाउनलोड करें (.msi)</a>
+                    </div>
                     <p class="price-fineprint">ईमेल नहीं मिला, या सक्रिय करने में मदद चाहिए? <a href="/hi/contact.html?topic=support">सहायता से संपर्क करें</a> — अपना ऑर्डर पुष्टिकरण तैयार रखें।</p>
                 </div>
             </div>

@@ -69,7 +69,7 @@
                 <a href="/nl/index.html#how">Zo werkt het</a>
                 <a href="/nl/index.html#why">Waarom het beter is</a>
                 <a href="/nl/pricing.html">Prijzen</a>
-                <a href="/nl/index.html#get" data-download class="btn btn-secondary btn-nav">Downloaden</a>
+                <a href="/nl/index.html#get" class="btn btn-secondary btn-nav">Downloaden</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Taal: Nederlands">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     Nog niet geprobeerd? De download is een gratis, volwaardige proefperiode van 7 dagen —
-                    <a href="/nl/index.html#get" data-download>download hem eerst</a> en koop wanneer u zover bent.
+                    <a href="/nl/index.html#get">download hem eerst</a> en koop wanneer u zover bent.
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>Klik met de rechtermuisknop op het pictogram in het systeemvak en kies „Licentiesleutel invoeren…”.</li>
                         <li>Plak de sleutel uit uw e-mail en klik op <strong>Activeren</strong>. De volledige zoom wordt direct hersteld.</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/nl/index.html#get" data-download class="btn btn-primary btn-lg">Downloaden voor Windows</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/nl.svg" alt="Verkrijgbaar in de Microsoft Store">
+                        </a>
+                        <a href="/nl/index.html#get" data-download class="download-direct">Of download het installatieprogramma rechtstreeks van deze site (.msi)</a>
+                    </div>
                     <p class="price-fineprint">Geen e-mail ontvangen, of hulp nodig bij het activeren? <a href="/nl/contact.html?topic=support">Neem contact op met support</a> — houd uw orderbevestiging bij de hand.</p>
                 </div>
             </div>

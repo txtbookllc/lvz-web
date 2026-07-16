@@ -78,7 +78,7 @@
                 <a href="#how">使い方</a>
                 <a href="#why">選ばれる理由</a>
                 <a href="/ja/pricing.html">価格</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">ダウンロード</a>
+                <a href="#get" class="btn btn-secondary btn-nav">ダウンロード</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="言語: 日本語">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>ロービジョンの<br> Windowsユーザーのための<br> 最高の画面拡大ソフト</h1>
                     <p class="lead">目で追いやすいように設計された、なめらかでシンプルなズームユーティリティ</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">Windows版をダウンロード</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/ja.svg" alt="Microsoft Store で入手">
+                            </a>
+                            <a href="#get" data-download class="download-direct">またはこのサイトからインストーラーを直接ダウンロード（.msi）</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>インストール時にWindowsの警告が出ますか？</summary>
                         <div class="faq-body">
-                            <p>インストーラーを初めて開くと、Windowsが青い全画面の<strong>「WindowsによってPCが保護されました」（Windows protected your PC）</strong>というメッセージを表示することがあります。<strong>これは正常な動作で、アプリは安全です。</strong>Low Vision Zoomは生まれたばかりのアプリで、Windowsがまだ十分な回数見ていないために表示されるものです。インストーラーは当社<strong>txtbook&nbsp;LLC</strong>によってデジタル署名されています。</p>
+                            <p>インストーラーを初めて開くと、Windowsが青い全画面の<strong>「WindowsによってPCが保護されました」（Windows protected your PC）</strong>というメッセージを表示することがあります。<strong>これは正常な動作で、アプリは安全です。</strong>Low Vision Zoomは生まれたばかりのアプリで、Windowsがまだ十分な回数見ていないために表示されるものです。インストーラーは当社<strong>txtbook&nbsp;LLC</strong>によってデジタル署名されています。 この画面を完全に避けたい場合は、<a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> からインストールしてください。ストア経由のインストールでは SmartScreen の警告は表示されません。</p>
                             <p class="install-note-steps-lead">続行するには：</p>
                             <ol class="install-note-steps">
                                 <li>青い画面で<strong>詳細情報</strong>をクリックします。</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>ロービジョンのWindowsユーザーのための最高の画面拡大ソフト。</h2>
                 <p>7日間無料トライアル · $9.99の買い切り · サブスクなし</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">Windows版をダウンロード</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ja.svg" alt="Microsoft Store で入手">
+                    </a>
+                    <a href="#get" data-download class="download-direct">またはこのサイトからインストーラーを直接ダウンロード（.msi）</a>
+                </div>
             </div>
         </section>
     </main>

@@ -323,6 +323,38 @@ img, svg, video { display: block; max-width: 100%; }
 }
 .btn-quiet:hover { background: var(--surface-sunk); color: var(--accent-strong); }
 
+/* --- Store-first download CTA (July 16, 2026) ---------------------------
+   The Microsoft Store badge is the primary install channel (Store installs
+   show no SmartScreen warning); the direct MSI download is the quiet link
+   below it. Badge art: official localized SVGs in /media/store-badge/
+   (fetched from get.microsoft.com/images/); text is path-outlined and
+   widths vary per language, so the img carries no width/height attributes
+   and is sized here by height alone. */
+.get-app {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--s-2);
+}
+.store-badge {
+    display: inline-block;
+    border-radius: 6px;
+    transition: transform var(--motion) var(--ease),
+                box-shadow var(--motion) var(--ease);
+}
+.store-badge:hover { transform: translateY(-2px); box-shadow: var(--shadow); }
+.store-badge img { display: block; height: 68px; width: auto; }
+.download-direct {
+    color: var(--accent-strong);
+    font-weight: var(--fw-semibold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+/* Centered on the inverted cta-band, where the page background color is the
+   readable ink; the badge's dark plate carries its own contrast. */
+.cta-band .get-app { align-items: center; }
+.cta-band .download-direct { color: var(--bg); }
+
 /* --- Reassurance microcopy under primary CTAs --- */
 .cta-reassure {
     color: var(--text-muted);
@@ -1089,6 +1121,7 @@ img, svg, video { display: block; max-width: 100%; }
         transition-duration: 0.001ms !important;
     }
     .btn-primary:hover { transform: none; }
+    .store-badge:hover { transform: none; }
     /* Demos never auto-run; the still always shows. Play stays an explicit opt-in
        (the toggle still works), but motion is never the default. */
 }

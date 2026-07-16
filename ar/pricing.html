@@ -68,7 +68,7 @@
                 <a href="/ar/index.html#how">كيف يعمل</a>
                 <a href="/ar/index.html#why">لماذا هو أفضل</a>
                 <a href="/ar/pricing.html" aria-current="page">الأسعار</a>
-                <a href="/ar/index.html#get" data-download class="btn btn-secondary btn-nav">تنزيل</a>
+                <a href="/ar/index.html#get" class="btn btn-secondary btn-nav">تنزيل</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="اللغة: العربية">
@@ -124,8 +124,15 @@
                             <li>لا حاجة إلى حساب</li>
                             <li>ضمان استرداد المال خلال 30 يومًا</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/ar/index.html#get" data-download class="btn btn-primary btn-lg">تنزيل لنظام Windows</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/ar.svg" alt="احصل عليه من Microsoft Store">
+                            </a>
+                            <a href="/ar/index.html#get" data-download class="download-direct">أو نزّل المثبّت مباشرةً من هذا الموقع (.msi)</a>
+                        </div>
                         <p class="cta-reassure">تجربة مجانية لمدة 7 أيام. لا حساب ولا دفع للبدء.</p>
                         <a href="/ar/buy.html?checkout=1" class="btn btn-quiet btn-lg">اشترِ ترخيصًا — $9.99</a>
                         <p class="price-fineprint">تُعالَج المدفوعات بأمان عبر Paddle، البائع المسجَّل (merchant of record) لدينا. جرّب أولًا واشترِ لاحقًا — التنزيل هو النسخة التجريبية المجانية.</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>جرّبه مجانًا. وقرّر لاحقًا.</h2>
                 <p>تجربة 7 أيام · $9.99 مرة واحدة · ضمان استرداد المال خلال 30 يومًا</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/ar/index.html#get" data-download class="btn btn-primary btn-lg">تنزيل لنظام Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ar.svg" alt="احصل عليه من Microsoft Store">
+                    </a>
+                    <a href="/ar/index.html#get" data-download class="download-direct">أو نزّل المثبّت مباشرةً من هذا الموقع (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

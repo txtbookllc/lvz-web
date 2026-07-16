@@ -78,7 +78,7 @@
                 <a href="#how">使用方法</a>
                 <a href="#why">为什么更好</a>
                 <a href="/zh/pricing.html">价格</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">下载</a>
+                <a href="#get" class="btn btn-secondary btn-nav">下载</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="语言：中文（简体）">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>专为低视力 Windows 用户<br> 打造的<br> 最佳屏幕放大镜</h1>
                     <p class="lead">一款平滑、简单的屏幕缩放工具，让您的眼睛轻松跟随画面</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">下载 Windows 版</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/zh.svg" alt="从 Microsoft Store 获取">
+                            </a>
+                            <a href="#get" data-download class="download-direct">或直接从本网站下载安装程序（.msi）</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>安装时 Windows 会警告我吗？</summary>
                         <div class="faq-body">
-                            <p>第一次打开安装程序时，Windows 可能会显示一个全屏的蓝色提示：<strong>“Windows 已保护你的电脑”（Windows protected your PC）</strong>。<strong>这是正常现象，本应用是安全的。</strong>之所以出现，是因为 Low Vision Zoom 是一款全新的应用——Windows 见到它的次数还不够多，尚未将其识别为常见软件。安装程序已由我们的公司 <strong>txtbook&nbsp;LLC</strong> 进行数字签名。</p>
+                            <p>第一次打开安装程序时，Windows 可能会显示一个全屏的蓝色提示：<strong>“Windows 已保护你的电脑”（Windows protected your PC）</strong>。<strong>这是正常现象，本应用是安全的。</strong>之所以出现，是因为 Low Vision Zoom 是一款全新的应用——Windows 见到它的次数还不够多，尚未将其识别为常见软件。安装程序已由我们的公司 <strong>txtbook&nbsp;LLC</strong> 进行数字签名。 想完全跳过这个提示？可以改从 <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> 安装——通过商店安装不会显示 SmartScreen 警告。</p>
                             <p class="install-note-steps-lead">继续安装的方法：</p>
                             <ol class="install-note-steps">
                                 <li>在蓝色界面上点击<strong>“更多信息”</strong>。</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>为低视力 Windows 用户打造的最佳屏幕放大镜。</h2>
                 <p>免费试用 7 天 · $9.99 一次性付费 · 无订阅</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">下载 Windows 版</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/zh.svg" alt="从 Microsoft Store 获取">
+                    </a>
+                    <a href="#get" data-download class="download-direct">或直接从本网站下载安装程序（.msi）</a>
+                </div>
             </div>
         </section>
     </main>

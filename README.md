@@ -19,6 +19,7 @@ served by **GitHub Pages** from the `main` branch root at <https://lowvisionzoom
 | `media/og-card.png` | — | OG/social share card (1200×630) — **generated** |
 | `media/howto-desktop.svg` | — | "How it works" gesture animation, Ctrl+scroll (animated SVG) — **generated** |
 | `media/howto-laptop.svg` | — | "How it works" gesture animation, Ctrl+Alt+Plus/Minus — **generated** |
+| `media/store-badge/*.svg` | — | Official localized "Get it from Microsoft" badges (primary install CTA since July 16, 2026) — fetched from `get.microsoft.com/images/`, one per site language |
 | `CNAME` | — | Pins the GitHub Pages custom domain to `lowvisionzoom.com` |
 | `.nojekyll` | — | Disables Jekyll processing (plain static site) |
 

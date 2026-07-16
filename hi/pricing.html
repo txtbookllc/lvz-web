@@ -68,7 +68,7 @@
                 <a href="/hi/index.html#how">यह कैसे काम करता है</a>
                 <a href="/hi/index.html#why">यह बेहतर क्यों है</a>
                 <a href="/hi/pricing.html" aria-current="page">कीमत</a>
-                <a href="/hi/index.html#get" data-download class="btn btn-secondary btn-nav">डाउनलोड</a>
+                <a href="/hi/index.html#get" class="btn btn-secondary btn-nav">डाउनलोड</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="भाषा: हिन्दी">
@@ -124,8 +124,15 @@
                             <li>किसी खाते की ज़रूरत नहीं</li>
                             <li>30 दिन की पैसा-वापसी गारंटी</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/hi/index.html#get" data-download class="btn btn-primary btn-lg">Windows के लिए डाउनलोड करें</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/hi.svg" alt="Microsoft Store से प्राप्त करें">
+                            </a>
+                            <a href="/hi/index.html#get" data-download class="download-direct">या इंस्टॉलर को सीधे इस साइट से डाउनलोड करें (.msi)</a>
+                        </div>
                         <p class="cta-reassure">7 दिन का मुफ़्त ट्रायल। शुरू करने के लिए न खाता, न भुगतान।</p>
                         <a href="/hi/buy.html?checkout=1" class="btn btn-quiet btn-lg">लाइसेंस खरीदें — $9.99</a>
                         <p class="price-fineprint">भुगतान सुरक्षित रूप से Paddle द्वारा संसाधित होते हैं, जो हमारा आधिकारिक विक्रेता (merchant of record) है। आप पहले आज़माते हैं और बाद में खरीदते हैं — डाउनलोड ही मुफ़्त ट्रायल है।</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>मुफ़्त आज़माएँ। फ़ैसला बाद में करें।</h2>
                 <p>7 दिन का ट्रायल · $9.99 एक बार · 30 दिन की पैसा-वापसी गारंटी</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/hi/index.html#get" data-download class="btn btn-primary btn-lg">Windows के लिए डाउनलोड करें</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/hi.svg" alt="Microsoft Store से प्राप्त करें">
+                    </a>
+                    <a href="/hi/index.html#get" data-download class="download-direct">या इंस्टॉलर को सीधे इस साइट से डाउनलोड करें (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

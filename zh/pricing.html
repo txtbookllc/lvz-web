@@ -68,7 +68,7 @@
                 <a href="/zh/index.html#how">使用方法</a>
                 <a href="/zh/index.html#why">为什么更好</a>
                 <a href="/zh/pricing.html" aria-current="page">价格</a>
-                <a href="/zh/index.html#get" data-download class="btn btn-secondary btn-nav">下载</a>
+                <a href="/zh/index.html#get" class="btn btn-secondary btn-nav">下载</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="语言：中文（简体）">
@@ -124,8 +124,15 @@
                             <li>无需账户</li>
                             <li>30 天退款保证</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/zh/index.html#get" data-download class="btn btn-primary btn-lg">下载 Windows 版</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/zh.svg" alt="从 Microsoft Store 获取">
+                            </a>
+                            <a href="/zh/index.html#get" data-download class="download-direct">或直接从本网站下载安装程序（.msi）</a>
+                        </div>
                         <p class="cta-reassure">免费试用 7 天。无需账户，开始试用不需要付款。</p>
                         <a href="/zh/buy.html?checkout=1" class="btn btn-quiet btn-lg">购买许可证 — $9.99</a>
                         <p class="price-fineprint">付款由我们的登记商户（merchant of record）Paddle 安全处理。您可以先试后买——下载的就是免费试用版。</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>先免费试用，之后再决定。</h2>
                 <p>7 天试用 · $9.99 一次性付费 · 30 天退款保证</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/zh/index.html#get" data-download class="btn btn-primary btn-lg">下载 Windows 版</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/zh.svg" alt="从 Microsoft Store 获取">
+                    </a>
+                    <a href="/zh/index.html#get" data-download class="download-direct">或直接从本网站下载安装程序（.msi）</a>
+                </div>
             </div>
         </section>
     </main>

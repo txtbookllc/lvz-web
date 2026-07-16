@@ -78,7 +78,7 @@
                 <a href="#how">วิธีใช้งาน</a>
                 <a href="#why">ทำไมถึงดีกว่า</a>
                 <a href="/th/pricing.html">ราคา</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">ดาวน์โหลด</a>
+                <a href="#get" class="btn btn-secondary btn-nav">ดาวน์โหลด</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="ภาษา: ไทย">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>โปรแกรมขยายหน้าจอที่ดีที่สุด<br> สำหรับผู้ใช้ Windows<br> ที่มีสายตาเลือนราง</h1>
                     <p class="lead">เครื่องมือซูมที่นุ่มนวลและใช้งานง่าย ออกแบบมาเพื่อช่วยให้สายตาของคุณติดตามได้อย่างต่อเนื่อง</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">ดาวน์โหลดสำหรับ Windows</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/th.svg" alt="รับจาก Microsoft Store">
+                            </a>
+                            <a href="#get" data-download class="download-direct">หรือดาวน์โหลดตัวติดตั้งโดยตรงจากเว็บไซต์นี้ (.msi)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>Windows จะเตือนตอนที่ฉันติดตั้งไหม?</summary>
                         <div class="faq-body">
-                            <p>ครั้งแรกที่คุณเปิดตัวติดตั้ง Windows อาจแสดงข้อความเต็มจอสีน้ำเงินว่า <strong>“Windows protected your PC” (Windows ปกป้อง PC ของคุณ)</strong> <strong>นี่เป็นเรื่องปกติและแอปนี้ปลอดภัย</strong> ที่เป็นเช่นนี้เพราะ Low Vision Zoom เป็นแอปใหม่ล่าสุด — Windows ยังไม่เคยเห็นมันบ่อยพอที่จะจดจำได้ ตัวติดตั้งมีลายเซ็นดิจิทัลจาก <strong>txtbook&nbsp;LLC</strong> บริษัทของเรา</p>
+                            <p>ครั้งแรกที่คุณเปิดตัวติดตั้ง Windows อาจแสดงข้อความเต็มจอสีน้ำเงินว่า <strong>“Windows protected your PC” (Windows ปกป้อง PC ของคุณ)</strong> <strong>นี่เป็นเรื่องปกติและแอปนี้ปลอดภัย</strong> ที่เป็นเช่นนี้เพราะ Low Vision Zoom เป็นแอปใหม่ล่าสุด — Windows ยังไม่เคยเห็นมันบ่อยพอที่จะจดจำได้ ตัวติดตั้งมีลายเซ็นดิจิทัลจาก <strong>txtbook&nbsp;LLC</strong> บริษัทของเรา หากต้องการข้ามหน้าจอนี้ไปเลย ให้ติดตั้งจาก <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> แทน — การติดตั้งผ่าน Store จะไม่แสดงคำเตือน SmartScreen</p>
                             <p class="install-note-steps-lead">วิธีดำเนินการต่อ:</p>
                             <ol class="install-note-steps">
                                 <li>คลิก <strong>More info</strong> (ข้อมูลเพิ่มเติม) บนหน้าจอสีน้ำเงิน</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>โปรแกรมขยายหน้าจอที่ดีที่สุดสำหรับผู้ใช้ Windows ที่มีสายตาเลือนราง</h2>
                 <p>ทดลองใช้ฟรี 7 วัน · จ่ายครั้งเดียว $9.99 · ไม่มีค่าสมัครสมาชิก</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">ดาวน์โหลดสำหรับ Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/th.svg" alt="รับจาก Microsoft Store">
+                    </a>
+                    <a href="#get" data-download class="download-direct">หรือดาวน์โหลดตัวติดตั้งโดยตรงจากเว็บไซต์นี้ (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

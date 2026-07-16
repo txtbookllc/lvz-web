@@ -68,7 +68,7 @@
                 <a href="/nl/index.html#how">Zo werkt het</a>
                 <a href="/nl/index.html#why">Waarom het beter is</a>
                 <a href="/nl/pricing.html" aria-current="page">Prijzen</a>
-                <a href="/nl/index.html#get" data-download class="btn btn-secondary btn-nav">Downloaden</a>
+                <a href="/nl/index.html#get" class="btn btn-secondary btn-nav">Downloaden</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Taal: Nederlands">
@@ -124,8 +124,15 @@
                             <li>Geen account nodig</li>
                             <li>30 dagen niet-goed-geld-terug-garantie</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/nl/index.html#get" data-download class="btn btn-primary btn-lg">Downloaden voor Windows</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/nl.svg" alt="Verkrijgbaar in de Microsoft Store">
+                            </a>
+                            <a href="/nl/index.html#get" data-download class="download-direct">Of download het installatieprogramma rechtstreeks van deze site (.msi)</a>
+                        </div>
                         <p class="cta-reassure">7 dagen gratis proberen. Geen account, geen betaling om te beginnen.</p>
                         <a href="/nl/buy.html?checkout=1" class="btn btn-quiet btn-lg">Een licentie kopen — $9.99</a>
                         <p class="price-fineprint">Betalingen worden veilig verwerkt door Paddle, onze merchant of record. U probeert eerst en koopt later — de download is de gratis proefperiode.</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>Probeer het gratis. Beslis later.</h2>
                 <p>7 dagen proberen · $9.99 eenmalig · 30 dagen niet-goed-geld-terug-garantie</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/nl/index.html#get" data-download class="btn btn-primary btn-lg">Downloaden voor Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/nl.svg" alt="Verkrijgbaar in de Microsoft Store">
+                    </a>
+                    <a href="/nl/index.html#get" data-download class="download-direct">Of download het installatieprogramma rechtstreeks van deze site (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

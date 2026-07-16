@@ -68,7 +68,7 @@
                 <a href="/tr/index.html#how">Nasıl çalışır</a>
                 <a href="/tr/index.html#why">Neden daha iyi</a>
                 <a href="/tr/pricing.html" aria-current="page">Fiyat</a>
-                <a href="/tr/index.html#get" data-download class="btn btn-secondary btn-nav">İndir</a>
+                <a href="/tr/index.html#get" class="btn btn-secondary btn-nav">İndir</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Dil: Türkçe">
@@ -124,8 +124,15 @@
                             <li>Hesap gerekmez</li>
                             <li>30 gün para iade garantisi</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/tr/index.html#get" data-download class="btn btn-primary btn-lg">Windows için indirin</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/tr.svg" alt="Microsoft Store'dan edinin">
+                            </a>
+                            <a href="/tr/index.html#get" data-download class="download-direct">Veya yükleyiciyi doğrudan bu siteden indirin (.msi)</a>
+                        </div>
                         <p class="cta-reassure">7 gün ücretsiz deneme. Başlamak için hesap da ödeme de gerekmez.</p>
                         <a href="/tr/buy.html?checkout=1" class="btn btn-quiet btn-lg">Lisans satın alın — $9.99</a>
                         <p class="price-fineprint">Ödemeler, kayıtlı satıcımız (merchant of record) Paddle tarafından güvenle işlenir. Önce dener, sonra satın alırsınız — indirdiğiniz sürüm ücretsiz denemedir.</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>Ücretsiz deneyin. Kararı sonra verin.</h2>
                 <p>7 gün deneme · tek seferlik $9.99 · 30 gün para iade garantisi</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/tr/index.html#get" data-download class="btn btn-primary btn-lg">Windows için indirin</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/tr.svg" alt="Microsoft Store'dan edinin">
+                    </a>
+                    <a href="/tr/index.html#get" data-download class="download-direct">Veya yükleyiciyi doğrudan bu siteden indirin (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

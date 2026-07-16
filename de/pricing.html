@@ -68,7 +68,7 @@
                 <a href="/de/index.html#how">So funktioniert es</a>
                 <a href="/de/index.html#why">Warum es besser ist</a>
                 <a href="/de/pricing.html" aria-current="page">Preise</a>
-                <a href="/de/index.html#get" data-download class="btn btn-secondary btn-nav">Herunterladen</a>
+                <a href="/de/index.html#get" class="btn btn-secondary btn-nav">Herunterladen</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Sprache: Deutsch">
@@ -124,8 +124,15 @@
                             <li>Kein Konto erforderlich</li>
                             <li>30 Tage Geld-zurück-Garantie</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/de/index.html#get" data-download class="btn btn-primary btn-lg">Für Windows herunterladen</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/de.svg" alt="Im Microsoft Store laden">
+                            </a>
+                            <a href="/de/index.html#get" data-download class="download-direct">Oder den Installer direkt von dieser Website herunterladen (.msi)</a>
+                        </div>
                         <p class="cta-reassure">Kostenlose 7-Tage-Testphase. Kein Konto, keine Zahlung zum Start.</p>
                         <a href="/de/buy.html?checkout=1" class="btn btn-quiet btn-lg">Lizenz kaufen — $9.99</a>
                         <p class="price-fineprint">Zahlungen werden sicher von Paddle abgewickelt, unserem offiziellen Verkäufer (merchant of record). Sie testen zuerst und kaufen später — der Download ist die kostenlose Testversion.</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>Kostenlos testen. Später entscheiden.</h2>
                 <p>7-Tage-Test · $9.99 einmalig · 30 Tage Geld-zurück-Garantie</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/de/index.html#get" data-download class="btn btn-primary btn-lg">Für Windows herunterladen</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/de.svg" alt="Im Microsoft Store laden">
+                    </a>
+                    <a href="/de/index.html#get" data-download class="download-direct">Oder den Installer direkt von dieser Website herunterladen (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

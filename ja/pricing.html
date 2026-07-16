@@ -68,7 +68,7 @@
                 <a href="/ja/index.html#how">使い方</a>
                 <a href="/ja/index.html#why">選ばれる理由</a>
                 <a href="/ja/pricing.html" aria-current="page">価格</a>
-                <a href="/ja/index.html#get" data-download class="btn btn-secondary btn-nav">ダウンロード</a>
+                <a href="/ja/index.html#get" class="btn btn-secondary btn-nav">ダウンロード</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="言語: 日本語">
@@ -124,8 +124,15 @@
                             <li>アカウント不要</li>
                             <li>30日間の返金保証</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/ja/index.html#get" data-download class="btn btn-primary btn-lg">Windows版をダウンロード</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/ja.svg" alt="Microsoft Store で入手">
+                            </a>
+                            <a href="/ja/index.html#get" data-download class="download-direct">またはこのサイトからインストーラーを直接ダウンロード（.msi）</a>
+                        </div>
                         <p class="cta-reassure">7日間の無料トライアル。開始にアカウントもお支払いも不要です。</p>
                         <a href="/ja/buy.html?checkout=1" class="btn btn-quiet btn-lg">ライセンスを購入 — $9.99</a>
                         <p class="price-fineprint">お支払いは、販売者（merchant of record）であるPaddleが安全に処理します。まず試して、あとで購入 — ダウンロードするのは無料トライアルです。</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>まず無料で試して、決めるのはあとで。</h2>
                 <p>7日間トライアル · $9.99の買い切り · 30日間の返金保証</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/ja/index.html#get" data-download class="btn btn-primary btn-lg">Windows版をダウンロード</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ja.svg" alt="Microsoft Store で入手">
+                    </a>
+                    <a href="/ja/index.html#get" data-download class="download-direct">またはこのサイトからインストーラーを直接ダウンロード（.msi）</a>
+                </div>
             </div>
         </section>
     </main>

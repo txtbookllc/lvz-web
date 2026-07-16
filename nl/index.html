@@ -78,7 +78,7 @@
                 <a href="#how">Zo werkt het</a>
                 <a href="#why">Waarom het beter is</a>
                 <a href="/nl/pricing.html">Prijzen</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">Downloaden</a>
+                <a href="#get" class="btn btn-secondary btn-nav">Downloaden</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Taal: Nederlands">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>De beste schermloep<br> voor Windows-gebruikers<br> met een visuele beperking</h1>
                     <p class="lead">Een soepel, eenvoudig zoomprogramma dat uw ogen helpt de tekst te volgen</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">Downloaden voor Windows</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/nl.svg" alt="Verkrijgbaar in de Microsoft Store">
+                            </a>
+                            <a href="#get" data-download class="download-direct">Of download het installatieprogramma rechtstreeks van deze site (.msi)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>Waarschuwt Windows mij bij de installatie?</summary>
                         <div class="faq-body">
-                            <p>De eerste keer dat u het installatieprogramma opent, kan Windows een blauw scherm over het hele beeld tonen met de melding <strong>„Windows heeft uw pc beschermd”</strong> ("Windows protected your PC"). <strong>Dit is normaal en de app is veilig.</strong> Het gebeurt omdat Low Vision Zoom een gloednieuwe app is — Windows heeft hem nog niet vaak genoeg gezien om hem te herkennen. Het installatieprogramma is digitaal ondertekend door <strong>txtbook&nbsp;LLC</strong>, ons bedrijf.</p>
+                            <p>De eerste keer dat u het installatieprogramma opent, kan Windows een blauw scherm over het hele beeld tonen met de melding <strong>„Windows heeft uw pc beschermd”</strong> ("Windows protected your PC"). <strong>Dit is normaal en de app is veilig.</strong> Het gebeurt omdat Low Vision Zoom een gloednieuwe app is — Windows heeft hem nog niet vaak genoeg gezien om hem te herkennen. Het installatieprogramma is digitaal ondertekend door <strong>txtbook&nbsp;LLC</strong>, ons bedrijf. Wilt u dit scherm helemaal vermijden? Installeer dan via de <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> — bij installatie via de Store verschijnt de SmartScreen-waarschuwing niet.</p>
                             <p class="install-note-steps-lead">Zo gaat u verder:</p>
                             <ol class="install-note-steps">
                                 <li>Klik op het blauwe scherm op <strong>Meer info</strong>.</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>De beste schermloep voor Windows-gebruikers met een visuele beperking.</h2>
                 <p>7 dagen gratis proberen · $9.99 eenmalig · geen abonnement</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">Downloaden voor Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/nl.svg" alt="Verkrijgbaar in de Microsoft Store">
+                    </a>
+                    <a href="#get" data-download class="download-direct">Of download het installatieprogramma rechtstreeks van deze site (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

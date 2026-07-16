@@ -69,7 +69,7 @@
                 <a href="/index.html#how">How it works</a>
                 <a href="/index.html#why">Why it's better</a>
                 <a href="/pricing.html">Pricing</a>
-                <a href="/index.html#get" data-download class="btn btn-secondary btn-nav">Download</a>
+                <a href="/index.html#get" class="btn btn-secondary btn-nav">Download</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Language: English">
@@ -146,7 +146,7 @@
 
                 <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
                     Haven’t tried it yet? The download is a free, full-featured 7-day trial —
-                    <a href="/index.html#get" data-download>download it first</a> and buy when you’re ready.
+                    <a href="/index.html#get">download it first</a> and buy when you’re ready.
                 </p>
             </div>
         </section>
@@ -163,10 +163,15 @@
                         <li>Right-click the tray icon and choose “Enter license key…”.</li>
                         <li>Paste the key from your email and click <strong>Activate</strong>. Full zoom is restored instantly.</li>
                     </ol>
-                    <p style="margin-top:var(--s-3)">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/index.html#get" data-download class="btn btn-primary btn-lg">Download for Windows</a>
-                    </p>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/en.svg" alt="Get it from the Microsoft Store">
+                        </a>
+                        <a href="/index.html#get" data-download class="download-direct">Or download the installer directly from this site (.msi)</a>
+                    </div>
                     <p class="price-fineprint">Didn’t get the email, or need a hand activating? <a href="/contact.html?topic=support">Contact support</a> — keep your order confirmation handy.</p>
                 </div>
             </div>

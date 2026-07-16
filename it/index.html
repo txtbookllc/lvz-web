@@ -78,7 +78,7 @@
                 <a href="#how">Come funziona</a>
                 <a href="#why">Perché è migliore</a>
                 <a href="/it/pricing.html">Prezzo</a>
-                <a href="#get" data-download class="btn btn-secondary btn-nav">Scarica</a>
+                <a href="#get" class="btn btn-secondary btn-nav">Scarica</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Lingua: Italiano">
@@ -117,9 +117,16 @@
                 <div class="hero-content">
                     <h1>Il miglior ingranditore di schermo<br> per gli utenti Windows<br> con ipovisione</h1>
                     <p class="lead">Un’utilità di zoom fluida e semplice, progettata per aiutare gli occhi a non perdere il segno</p>
-                    <div class="hero-buttons">
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="#get" data-download class="btn btn-primary btn-lg">Scarica per Windows</a>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/it.svg" alt="Ottieni dal Microsoft Store">
+                            </a>
+                            <a href="#get" data-download class="download-direct">Oppure scarica il programma di installazione direttamente da questo sito (.msi)</a>
+                        </div>
                     </div>
                 </div>
 
@@ -315,7 +322,7 @@
                     <details class="faq" id="faq-smartscreen">
                         <summary>Windows mi avviserà durante l’installazione?</summary>
                         <div class="faq-body">
-                            <p>La prima volta che apre il programma di installazione, Windows può mostrare una schermata blu a tutto schermo con il messaggio <strong>“PC protetto da Windows”</strong> (“Windows protected your PC”). <strong>È normale e l’app è sicura.</strong> Succede perché Low Vision Zoom è un’app nuovissima — Windows non l’ha ancora vista abbastanza volte da riconoscerla. Il programma di installazione è firmato digitalmente da <strong>txtbook&nbsp;LLC</strong>, la nostra azienda.</p>
+                            <p>La prima volta che apre il programma di installazione, Windows può mostrare una schermata blu a tutto schermo con il messaggio <strong>“PC protetto da Windows”</strong> (“Windows protected your PC”). <strong>È normale e l’app è sicura.</strong> Succede perché Low Vision Zoom è un’app nuovissima — Windows non l’ha ancora vista abbastanza volte da riconoscerla. Il programma di installazione è firmato digitalmente da <strong>txtbook&nbsp;LLC</strong>, la nostra azienda. Per evitare del tutto questa schermata, è possibile installare l’app dal <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a>: le installazioni dallo Store non mostrano l’avviso SmartScreen.</p>
                             <p class="install-note-steps-lead">Per continuare:</p>
                             <ol class="install-note-steps">
                                 <li>Faccia clic su <strong>Ulteriori informazioni</strong> nella schermata blu.</li>
@@ -351,8 +358,15 @@
             <div class="container">
                 <h2>Il miglior ingranditore di schermo per gli utenti Windows con ipovisione.</h2>
                 <p>7 giorni di prova gratuita · $9.99 una tantum · nessun abbonamento</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="#get" data-download class="btn btn-primary btn-lg">Scarica per Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/it.svg" alt="Ottieni dal Microsoft Store">
+                    </a>
+                    <a href="#get" data-download class="download-direct">Oppure scarica il programma di installazione direttamente da questo sito (.msi)</a>
+                </div>
             </div>
         </section>
     </main>

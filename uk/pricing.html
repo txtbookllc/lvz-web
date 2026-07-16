@@ -68,7 +68,7 @@
                 <a href="/uk/index.html#how">Як це працює</a>
                 <a href="/uk/index.html#why">Чому це краще</a>
                 <a href="/uk/pricing.html" aria-current="page">Ціни</a>
-                <a href="/uk/index.html#get" data-download class="btn btn-secondary btn-nav">Завантажити</a>
+                <a href="/uk/index.html#get" class="btn btn-secondary btn-nav">Завантажити</a>
             </nav>
             <details class="lang-switch">
                 <summary aria-label="Мова: Українська">
@@ -124,8 +124,15 @@
                             <li>Обліковий запис не потрібен</li>
                             <li>30-денна гарантія повернення коштів</li>
                         </ul>
-                        <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                        <a href="/uk/index.html#get" data-download class="btn btn-primary btn-lg">Завантажити для Windows</a>
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/uk.svg" alt="Завантажити з Microsoft Store">
+                            </a>
+                            <a href="/uk/index.html#get" data-download class="download-direct">Або завантажте інсталятор безпосередньо з цього сайту (.msi)</a>
+                        </div>
                         <p class="cta-reassure">Безкоштовна 7-денна пробна версія. Без облікового запису, без оплати для початку.</p>
                         <a href="/uk/buy.html?checkout=1" class="btn btn-quiet btn-lg">Купити ліцензію — $9.99</a>
                         <p class="price-fineprint">Платежі безпечно обробляє Paddle, наш офіційний продавець (merchant of record). Спочатку ви пробуєте, а купуєте пізніше — завантаження і є безкоштовною пробною версією.</p>
@@ -171,8 +178,15 @@
             <div class="container">
                 <h2>Спробуйте безкоштовно. Вирішите пізніше.</h2>
                 <p>7-денна пробна версія · $9.99 одноразово · 30-денна гарантія повернення коштів</p>
-                <!-- TODO at launch: download URL is set from DOWNLOAD_URL in site.js -->
-                <a href="/uk/index.html#get" data-download class="btn btn-primary btn-lg">Завантажити для Windows</a>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/uk.svg" alt="Завантажити з Microsoft Store">
+                    </a>
+                    <a href="/uk/index.html#get" data-download class="download-direct">Або завантажте інсталятор безпосередньо з цього сайту (.msi)</a>
+                </div>
             </div>
         </section>
     </main>
