@@ -40,14 +40,13 @@ verifies a **Cloudflare Turnstile** token, then relays the message to `support@l
 `?topic=` to preselect the reason). Turnstile sitekey is public in the HTML; the secret +
 `RESEND_API_KEY` are Worker secrets.
 
-## ⚠️ Launch placeholders to replace
+## Commerce wiring (live)
 
-Stubbed until the installer is hosted and Paddle checkout is live. Search the HTML for `TODO`:
-
-1. **Download URL** — the "Get the free trial" / download buttons currently point at the `#get`
-   section. Replace with the hosted signed-MSI URL. (`index.html`, `pricing.html`)
-2. **Paddle checkout** — wire `/buy` and the launch CTAs to the Paddle checkout link/overlay once
-   live. ("Email me at launch" currently routes to the contact form, which is fine pre-launch.)
+The site launched June 2026; nothing is stubbed. The **primary install CTA is the Microsoft Store
+badge** (since July 16, 2026; hardcoded HTML, localized badges in `media/store-badge/`). The
+secondary direct-download links are driven by `DOWNLOAD_URL` in `site.js`; `buy.html` runs the
+Paddle checkout overlay; `latest.json` feeds the in-app update check. Per-release steps are in
+the ops runbook, kept in the private app repo (`low-vision-zoom/docs/website-runbook.md`).
 
 > The legal/policy text is real, written for this product. Have it reviewed before relying on it.
 
@@ -123,4 +122,8 @@ python -m http.server 8000   # then open http://localhost:8000
 ## Deploy
 
 Commit to `main` and push — GitHub Pages rebuilds automatically (usually within a minute or two).
-The custom domain is pinned by `CNAME`.
+The custom domain is pinned by `CNAME`. The full deploy procedure — verifying the Pages build
+(it fails transiently), the empty-commit retrigger, Cloudflare cache purge, release-day steps
+(`latest.json`, `DOWNLOAD_URL`), and the demo-video encode recipe — lives in the **ops runbook
+in the private app repo** (`low-vision-zoom/docs/website-runbook.md`; a gitignored local stub
+`RUNBOOK.md` here points to it, keeping ops detail off this public Pages repo).

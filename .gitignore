@@ -18,3 +18,6 @@ npm-debug.log
 # Build/dist
 dist/
 build/
+
+# Local ops runbook (kept off GitHub / the public Pages site)
+RUNBOOK.md
