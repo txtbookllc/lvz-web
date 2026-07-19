@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 280" width="520" height="280" role="img"
+     aria-label="Animation: a finger holds the Ctrl key while the mouse wheel rolls forward to zoom in, then holds it again while the wheel rolls backward to zoom out">
+  <!-- HERO VARIANT of howto-desktop.svg: taller canvas (250 → 280) with the ZOOM IN / ZOOM OUT
+       labels moved down so they don't crowd the line art. Hand-derived from media/howto-desktop.svg
+       (which is generated — see its header); if that file is regenerated, re-apply this diff:
+       viewBox/height 250 → 280, label y 243 → 271. Used only by the hero section of index.html. -->
+  <style>
+    svg {
+      --ink: #f0ece3;
+      --paper: #1f1d18;
+      --accent: #4fd1bd;
+      color: var(--ink);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    /* One 6s loop, two presses: ctrl held while wheel rolls forward (zoom in),
+       brief lift, ctrl held again while wheel rolls backward (zoom out). */
+    @keyframes finger-hold { 0%,4% { transform: translateY(0); } 10%,46% { transform: translateY(7px); } 52%,58% { transform: translateY(0); } 64%,96% { transform: translateY(7px); } 100% { transform: translateY(0); } }
+    @keyframes key-hold   { 0%,4% { transform: translateY(0); } 10%,46% { transform: translateY(3px); } 52%,58% { transform: translateY(0); } 64%,96% { transform: translateY(3px); } 100% { transform: translateY(0); } }
+    @keyframes key-shade  { 0%,4% { opacity: 0; } 10%,46% { opacity: 0.1; } 52%,58% { opacity: 0; } 64%,96% { opacity: 0.1; } 100% { opacity: 0; } }
+    @keyframes scroll     { 0%,12% { transform: translateY(0); } 44%,64% { transform: translateY(-52px); } 96%,100% { transform: translateY(0); } }
+    @keyframes zin  { 0%,10% { opacity: 0; } 16%,42% { opacity: 1; } 48%,100% { opacity: 0; } }
+    @keyframes zout { 0%,62% { opacity: 0; } 68%,94% { opacity: 1; } 100% { opacity: 0; } }
+    .finger { animation: finger-hold 6s ease-in-out infinite; }
+    .key    { animation: key-hold 6s ease-in-out infinite; }
+    .key-shade { animation: key-shade 6s ease-in-out infinite; }
+    .hatch  { animation: scroll 6s ease-in-out infinite; }
+    .zoomin  { animation: zin 6s ease-in-out infinite; opacity: 0; }
+    .zoomout { animation: zout 6s ease-in-out infinite; opacity: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      svg * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="7" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/>
+    </filter>
+    <clipPath id="wheelclip"><rect x="382" y="44" width="18" height="42" rx="8"/></clipPath>
+  </defs>
+  <g filter="url(#rough)" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- ===== left panel: keyboard corner ===== -->
+    <!-- shift key (neighbour, above) -->
+    <rect x="66" y="58" width="128" height="58" rx="10" opacity="0.5"/>
+    <text x="130" y="93" text-anchor="middle" font-size="17" fill="currentColor" stroke="none" opacity="0.5">shift</text>
+    <!-- fn key (neighbour, right) -->
+    <rect x="164" y="138" width="66" height="60" rx="10" opacity="0.5"/>
+    <text x="197" y="174" text-anchor="middle" font-size="17" fill="currentColor" stroke="none" opacity="0.5">fn</text>
+    <!-- ctrl key -->
+    <g class="key">
+      <rect class="key-shade" x="54" y="138" width="96" height="60" rx="10" fill="currentColor" stroke="none" opacity="0"/>
+      <rect x="54" y="138" width="96" height="60" rx="10"/>
+      <text x="114" y="162" text-anchor="middle" font-size="18" fill="currentColor" stroke="none">ctrl</text>
+    </g>
+    <!-- finger pressing ctrl, approaching from bottom-left -->
+    <g class="finger">
+      <g transform="translate(-12,18)">
+        <path d="M-30,244 C18,206 52,182 80,155 C88,147 100,146 107,154 C114,162 114,172 107,180 C80,208 44,246 -2,284" fill="var(--paper)"/>
+        <path d="M88,151 Q100,153 102,165" stroke-width="2.4"/>
+        <path d="M42,196 q10,7 12,17" stroke-width="2.4" opacity="0.6"/>
+      </g>
+    </g>
+
+    <!-- plus between panels -->
+    <g stroke-width="4" opacity="0.85">
+      <path d="M258,116 v28"/>
+      <path d="M244,130 h28"/>
+    </g>
+
+    <!-- ===== right panel: mouse ===== -->
+    <!-- body -->
+    <path d="M336,64 C336,40 360,28 391,28 C422,28 446,40 446,64 L446,168 C446,196 424,212 391,212 C358,212 336,196 336,168 Z"/>
+    <!-- button seam above + below wheel -->
+    <path d="M391,28 v10"/>
+    <path d="M391,92 v18"/>
+    <!-- wheel (enlarged for clarity) -->
+    <rect x="378" y="38" width="26" height="54" rx="12"/>
+    <g clip-path="url(#wheelclip)">
+      <g class="hatch" stroke-width="2.6">
+        <path d="M384,31 h14"/><path d="M384,44 h14"/><path d="M384,57 h14"/><path d="M384,70 h14"/><path d="M384,83 h14"/><path d="M384,96 h14"/><path d="M384,109 h14"/><path d="M384,122 h14"/><path d="M384,135 h14"/><path d="M384,148 h14"/>
+      </g>
+    </g>
+
+    <!-- zoom direction labels, synced to the two scroll phases -->
+    <text class="zoomin"  x="264" y="271" text-anchor="middle" font-size="32" font-weight="800" letter-spacing="2" fill="var(--accent)" stroke="none">PERBESAR</text>
+    <text class="zoomout" x="264" y="271" text-anchor="middle" font-size="32" font-weight="800" letter-spacing="2" fill="var(--accent)" stroke="none">PERKECIL</text>
+  </g>
+</svg>

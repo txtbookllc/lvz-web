@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 250" width="520" height="250" role="img"
+     aria-label="Animation: Ctrl and Alt keys held down while a finger presses the plus key to zoom in, then the minus key to zoom out">
+  <!-- Low Vision Zoom "how to use" gesture animation — laptop / keyboard-only (Ctrl+Alt+Plus/Minus).
+       Source of truth for the website (media/howto-laptop.svg) and the app About-dialog GIFs
+       (Assets/howto-laptop-*.gif). Regenerate downstream assets with packaging/generate-howto-anims.ps1.
+       Self-contained: dark palette (the website is dark-only; the app GIF generator overrides
+       these tokens with its own themed values); motion stops under prefers-reduced-motion. -->
+  <style>
+    svg {
+      --ink: #f0ece3;
+      --paper: #1f1d18;
+      --accent: #4fd1bd;
+      color: var(--ink);
+      font-family: 'Segoe UI', sans-serif;
+    }
+    /* Same 6s two-phase loop as the desktop scene: hold + (zoom in), brief lift while the
+       whole key blinks out and the glyph swaps to −, hold − (zoom out). */
+    @keyframes finger-hold { 0%,4% { transform: translateY(0); } 10%,46% { transform: translateY(7px); } 52%,58% { transform: translateY(0); } 64%,96% { transform: translateY(7px); } 100% { transform: translateY(0); } }
+    @keyframes key-hold   { 0%,4% { transform: translateY(0); } 10%,46% { transform: translateY(3px); } 52%,58% { transform: translateY(0); } 64%,96% { transform: translateY(3px); } 100% { transform: translateY(0); } }
+    @keyframes key-shade  { 0%,4% { opacity: 0; } 10%,46% { opacity: 0.1; } 52%,58% { opacity: 0; } 64%,96% { opacity: 0.1; } 100% { opacity: 0; } }
+    @keyframes key-blink   { 0%,1% { opacity: 0; } 4%,53% { opacity: 1; } 54.5%,57% { opacity: 0; } 60%,96% { opacity: 1; } 99%,100% { opacity: 0; } }
+    @keyframes glyph-plus  { 0%,55% { opacity: 1; } 55.1%,99% { opacity: 0; } 99.1%,100% { opacity: 1; } }
+    @keyframes glyph-minus { 0%,55% { opacity: 0; } 55.1%,99% { opacity: 1; } 99.1%,100% { opacity: 0; } }
+    @keyframes zin  { 0%,10% { opacity: 0; } 16%,42% { opacity: 1; } 48%,100% { opacity: 0; } }
+    @keyframes zout { 0%,62% { opacity: 0; } 68%,94% { opacity: 1; } 100% { opacity: 0; } }
+    .finger { animation: finger-hold 6s ease-in-out infinite; }
+    .key    { animation: key-hold 6s ease-in-out infinite; }
+    .keyblink { animation: key-blink 6s linear infinite; }
+    .key-shade { animation: key-shade 6s ease-in-out infinite; }
+    .glyphplus  { animation: glyph-plus 6s ease-in-out infinite; }
+    .glyphminus { animation: glyph-minus 6s ease-in-out infinite; opacity: 0; }
+    .zoomin  { animation: zin 6s ease-in-out infinite; opacity: 0; }
+    .zoomout { animation: zout 6s ease-in-out infinite; opacity: 0; }
+    @media (prefers-reduced-motion: reduce) {
+      svg * { animation: none !important; }
+    }
+  </style>
+  <defs>
+    <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="11" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.6"/>
+    </filter>
+  </defs>
+  <g filter="url(#rough)" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+
+    <!-- ctrl: held -->
+    <g transform="translate(0,4)">
+      <rect x="48" y="112" width="108" height="72" rx="11" fill="currentColor" stroke="none" opacity="0.1"/>
+      <rect x="48" y="112" width="108" height="72" rx="11"/>
+      <text x="102" y="155" text-anchor="middle" font-size="20" fill="currentColor" stroke="none">ctrl</text>
+    </g>
+    <!-- alt: held -->
+    <g transform="translate(0,4)">
+      <rect x="176" y="112" width="108" height="72" rx="11" fill="currentColor" stroke="none" opacity="0.1"/>
+      <rect x="176" y="112" width="108" height="72" rx="11"/>
+      <text x="230" y="155" text-anchor="middle" font-size="20" fill="currentColor" stroke="none">alt</text>
+    </g>
+    <!-- plus/minus key: held for each phase, blinks out during the lift while the glyph swaps -->
+    <g class="key">
+      <g class="keyblink">
+        <rect class="key-shade" x="304" y="112" width="108" height="72" rx="11" fill="currentColor" stroke="none" opacity="0"/>
+        <rect x="304" y="112" width="108" height="72" rx="11"/>
+        <g class="glyphplus" stroke-width="4.5">
+          <path d="M358,131 v34"/>
+          <path d="M341,148 h34"/>
+        </g>
+        <g class="glyphminus" stroke-width="4.5">
+          <path d="M341,148 h34"/>
+        </g>
+      </g>
+    </g>
+    <!-- finger on the +/− key: the desktop scene's finger, flipped, from bottom-right -->
+    <g class="finger">
+      <g transform="translate(496,6) scale(-1,1)">
+        <path d="M-30,244 C18,206 52,182 80,155 C88,147 100,146 107,154 C114,162 114,172 107,180 C80,208 44,246 -2,284" fill="var(--paper)"/>
+        <path d="M88,151 Q100,153 102,165" stroke-width="2.4"/>
+        <path d="M42,196 q10,7 12,17" stroke-width="2.4" opacity="0.6"/>
+      </g>
+    </g>
+
+    <!-- zoom direction labels, synced to the two phases -->
+    <text class="zoomin"  x="264" y="243" text-anchor="middle" font-size="32" font-weight="800" letter-spacing="2" fill="var(--accent)" stroke="none">PRZYBLIŻ</text>
+    <text class="zoomout" x="264" y="243" text-anchor="middle" font-size="32" font-weight="800" letter-spacing="2" fill="var(--accent)" stroke="none">ODDAL</text>
+  </g>
+</svg>
