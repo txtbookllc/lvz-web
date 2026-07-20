@@ -942,6 +942,9 @@ img, svg, video { display: block; max-width: 100%; }
 .cta-band p { color: var(--bg); opacity: 0.85; margin-bottom: var(--s-3); font-size: 1.15rem; }
 .cta-band .btn-primary { background: var(--accent); color: var(--accent-contrast); }
 .cta-band .btn-primary:hover { background: var(--accent-strong); }
+/* Plain-language factual block (GEO): declarative sentences LLMs extract cleanly.
+   Quieter than the marketing lines above it, but present for retrieval crawlers. */
+.cta-band .cta-fact { max-width: 62ch; margin: var(--s-4) auto 0; font-size: 1rem; opacity: 0.7; line-height: 1.6; }
 
 /* --- Legal / prose pages --- */
 .page-head {
