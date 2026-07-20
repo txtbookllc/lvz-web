@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Why a smooth screen magnifier is easier to follow than one that jumps: how spatial constancy, smooth pursuit, and change blindness explain the feeling of losing your place — and how Low Vision Zoom is designed around them.">
+    <meta name="theme-color" content="#14130f">
+    <!-- English-only for now. When the translated copies (/XX/why-smooth-magnification.html) land,
+         add the hreflang block, the language switcher, and the i18n redirect script — generate the
+         markup with `node tools/i18n-check.mjs --print-blocks why-smooth-magnification.html`.
+         TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Why smooth magnification is easier to follow than magnification that jumps",
+      "description": "A plain-language, sourced explanation of why a screen magnifier that moves smoothly keeps your place while one that jumps makes you re-find it — grounded in spatial constancy, smooth pursuit, and change blindness.",
+      "url": "https://lowvisionzoom.com/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "en",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Screen magnification" },
+        { "@type": "Thing", "name": "Low vision" },
+        { "@type": "Thing", "name": "Spatial constancy" },
+        { "@type": "Thing", "name": "Smooth pursuit eye movement" },
+        { "@type": "Thing", "name": "Change blindness" }
+      ]
+    }
+    </script>
+    <title>Why smooth magnification is easier to follow | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="/index.html#demo">See the demo</a>
+                <a href="/index.html#how">How it works</a>
+                <a href="/index.html#why">Why it's better</a>
+                <a href="/pricing.html">Pricing</a>
+                <a href="/index.html#get" data-download class="btn btn-secondary btn-nav">Download</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Why smoothness matters</span>
+                <h1>Why smooth magnification is easier to follow than magnification that jumps</h1>
+                <p class="updated">A plain-language explanation, with sources</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Most screen magnifiers move your view in sudden jumps. Every jump forces your eyes and your brain to stop, re-find where they were, and start over. Low Vision Zoom moves continuously — it eases into the zoom, pivots around the point you are pointing at, and glides when it pans — so your attention never loses its grip on the thing you care about. That is not a vague nicety; it lines up with several well-documented properties of how human vision works.</p>
+                    </div>
+
+                    <p>Nothing on this page is a medical claim. These are generally understood principles of human vision and human–computer interaction, used to explain why a smoother magnifier is easier to live in than a jumpy one. None of the studies cited here studied Low Vision Zoom; they describe how vision and interface motion work in general.</p>
+
+                    <h2>The feeling of “losing your place” has a name</h2>
+                    <p>When people say a magnifier makes them “lose track of where they are,” they are describing something real. Your visual system does not store the screen as a photograph; it keeps a running internal map of where things are and holds your gaze locked onto a chosen point. Several mechanisms keep that map stable — and an abrupt jump in magnification breaks all of them at once.</p>
+
+                    <h3>1. Spatial constancy</h3>
+                    <p>Your brain works hard to make the world feel stable even though your eyes are constantly moving. This is called <strong>spatial constancy</strong>, or spatial updating: as you move, the brain predicts where everything should end up and quietly keeps the map aligned. Smooth, continuous motion is exactly the kind of input that system is built to handle — it can update the map on the fly. A sudden teleport gives it nothing to interpolate, so the map is invalidated and has to be rebuilt from scratch. That rebuild is the “where did I just go?” moment.</p>
+                    <p>Low Vision Zoom keeps spatial constancy intact by never teleporting. The magnification eases toward its target over roughly a third of a second, and panning glides instead of snapping. Your internal map is updated, not erased.</p>
+
+                    <h3>2. Smooth pursuit, and the cost of re-fixating</h3>
+                    <p>The eye has two ways to move. <strong>Smooth pursuit</strong> continuously tracks a target that is moving steadily — the eye glides and stays locked on. <strong>Saccades</strong> are the fast, ballistic jumps between fixation points, and vision is suppressed during a saccade, so afterward the eye has to re-acquire and re-focus on the target.</p>
+                    <p>A jumpy magnifier forces a saccade plus a re-acquisition every time it moves. For someone with reduced visual acuity, re-finding a small target after a jump is slower and less certain than it is for someone with sharp central vision. A smooth zoom lets the eye's pursuit system do the work instead: it can ride the motion and keep its lock, so there is no blind jump and no hunt to re-find your spot. Low Vision Zoom is built around this — a 60-frame-per-second animation loop means the view always moves in small, trackable increments your eyes can follow rather than chase.</p>
+
+                    <h3>3. Perceptual continuity — the brain treats it as the same scene</h3>
+                    <p>When an object moves smoothly, the brain perceives it as one continuous object that moved. When the same object instead disappears and reappears somewhere else, the brain has to re-solve “is this the same thing, and what happened?” That re-solving is effortful and is a classic trigger for <strong>change blindness</strong>, where a change that happens across a visual disruption simply is not noticed, and you lose items you were tracking.</p>
+                    <p>Low Vision Zoom preserves continuity. Because every frame is a small step from the last, the content under magnification reads as the same scene smoothly growing — not a new screen that replaced the old one. Nothing vanishes and reappears, so there is nothing to lose.</p>
+
+                    <h3>4. A fixed visual anchor: zooming into the cursor</h3>
+                    <p>This is the most direct answer to “losing the anchor.” Low Vision Zoom pivots the zoom around the point under your cursor — the content directly beneath the mouse stays put while everything magnifies around it. Many magnifiers instead zoom toward a screen corner or center and then pan to catch up, which means the very thing you were looking at slides out from under you before coming back.</p>
+                    <p>By keeping your point of regard fixed during the zoom, the app gives your gaze a stable anchor to hold onto through the entire magnification. You decide what the anchor is simply by pointing at it. Your fixation point never has to move, so spatial constancy and your eye's lock are both preserved through the one moment that usually breaks them.</p>
+
+                    <h3>5. Predictable, self-paced control</h3>
+                    <p>Motion the brain initiates itself is easier to anticipate than motion imposed on it. Low Vision Zoom's <strong>Ctrl + scroll</strong> is continuous and proportional: you zoom exactly as far and exactly as fast as you turn the wheel, and you can stop, reverse, or hold at any point. The motion is yours, so it is predictable — and predictable motion is far less disorienting than a magnifier that lurches to a preset level on its own.</p>
+
+                    <h2>Why this matters specifically for low vision</h2>
+                    <p>People living with reduced central vision often rely on strategies that an abrupt magnifier quietly works against:</p>
+                    <ul>
+                        <li><strong>Eccentric viewing and a preferred retinal locus.</strong> When sharp central vision is reduced, many people learn to view slightly off-center, using a consistent preferred spot on the retina as their working point of focus. Re-establishing that alignment after every jump is real, repeated effort. A magnifier that never makes you re-find your spot lets that hard-won alignment hold.</li>
+                        <li><strong>The re-find penalty.</strong> With less acuity to spare, the cost of re-acquiring a small target after a blind jump is higher than it is for a fully sighted user. Smoothness removes the jump, and with it the penalty.</li>
+                        <li><strong>Attention and working memory.</strong> Every “where am I now?” reset spends attention and working memory that you would rather spend on the actual task — reading, writing, navigating. Handing the tracking to your perceptual system, which follows smooth motion effortlessly, frees up that effort for the work itself.</li>
+                    </ul>
+                    <p>None of this is a treatment claim. It is the difference between a tool that fights how low-vision viewing works and one that is shaped around it.</p>
+
+                    <h2>Every design choice serves the same goal</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="How each feature maps to a perceptual principle">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Low Vision Zoom features and the perceptual principle each one serves</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Feature</th>
+                                    <th scope="col">What it does</th>
+                                    <th scope="col">The principle it serves</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Smooth animated zoom (~⅓ second ease-out, 60 fps)</th>
+                                    <td>Magnification eases toward its target instead of snapping</td>
+                                    <td>Spatial constancy; smooth pursuit; perceptual continuity</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Zoom pivots into the cursor</th>
+                                    <td>The point under the mouse stays fixed while everything scales around it</td>
+                                    <td>A stable visual anchor; fixation is never displaced</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cursor-following with a dead zone</th>
+                                    <td>The view holds still while your cursor roams a generous central band, and only pans — by gliding — when you near an edge</td>
+                                    <td>No needless motion; pans are smooth pursuit, never teleports</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ctrl + scroll proportional control</th>
+                                    <td>You set the zoom level continuously, as fast or slow as you like</td>
+                                    <td>Self-paced, predictable, self-initiated motion</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Whole-desktop, multi-monitor view</th>
+                                    <td>One continuous magnified space that follows you across screens, not per-window islands</td>
+                                    <td>A single coherent spatial map to update, rather than several</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tuned defaults, nothing to configure</th>
+                                    <td>Smoothness, speed, and dead-zone feel are pre-tuned and fixed</td>
+                                    <td>The smooth behavior is the default, not something to discover and set up</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>That is the whole idea behind the product: a magnifier that moves the way the human visual system is built to follow, so it keeps you anchored where others make you lose your place. You can <a href="/index.html#demo">watch it in action</a>, see how it <a href="/compare.html">compares to other magnifiers</a>, or <a href="/index.html#get">try it free for 7 days</a>.</p>
+
+                    <h2>Sources and further reading</h2>
+                    <p>These are credible, peer-reviewed or authority-published sources for the general principles cited above. They describe how human vision and interface motion work in general — none of them studied Low Vision Zoom, and none should be read as evidence of a specific outcome from the app.</p>
+
+                    <h3>Spatial constancy and visual stability across eye movements</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — visual sensitivity is reduced during fast eye movements, and this suppression begins in the retina. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">Read it</a>.</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — how the brain builds a unified percept from the sequence of images across eye movements. <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">Abstract</a>.</li>
+                    </ul>
+
+                    <h3>Smooth pursuit — the eye's continuous-tracking system</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — the eye smoothly tracks and anticipates moving targets, with better accuracy for self-generated or realistic target motion. <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">Abstract</a>.</li>
+                    </ul>
+
+                    <h3>Change blindness — losing items across a visual disruption</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — the striking failure to see large changes that normally would be noticed easily. <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">Abstract</a>.</li>
+                        <li>Rensink, <em>Change Blindness</em>, in Neurobiology of Attention (Elsevier, 2005) — the effect can be induced by making a change during an eye movement, a blink, or a brief flash. <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>.</li>
+                    </ul>
+
+                    <h3>Central vision loss, eccentric viewing, and the preferred retinal locus</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — people with a central scotoma use a preferred retinal locus outside the affected area, and training that off-center viewing is called eccentric viewing training. <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">Read it</a>.</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">Abstract</a>.</li>
+                    </ul>
+
+                    <h3>Motion and continuity in user-interface design</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — motion can prevent disorientation and help users keep track of context through transitions. <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">Read it</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>See the smoothness for yourself</h2>
+                <p>7-day free trial · $9.99 one-time · no subscription · no account</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/en.svg" alt="Get it from the Microsoft Store">
+                    </a>
+                    <a href="/index.html#get" data-download class="download-direct">Or download the installer directly from this site (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>A calm screen magnifier for Windows. A product of txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/index.html#why">Why it’s better</a></li>
+                        <li><a href="/index.html#how">How it works</a></li>
+                        <li><a href="/pricing.html">Pricing</a></li>
+                        <li><a href="/compare.html">Compare magnifiers</a></li>
+                        <li><a href="/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacy</a></li>
+                        <li><a href="/terms.html">Terms of service</a></li>
+                        <li><a href="/refund.html">Refund policy</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

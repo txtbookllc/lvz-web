@@ -8,7 +8,8 @@
 
 Key facts:
 
-- Platform: Windows 10 and Windows 11
+- Platform: Windows 10 and Windows 11, 64-bit (x64); Windows on ARM not supported today
+- Magnification: smooth, cursor-anchored zoom up to 5x (magnification only — no speech, screen reader, or color filters)
 - Price: US $9.99 one-time license (no subscription, no ads)
 - Free trial: 7 days, full-featured
 - Privacy: works fully offline, collects no data
@@ -19,6 +20,9 @@ Key facts:
 ## Pages
 
 - [Home](https://lowvisionzoom.com/): overview, download links, how-to gestures
+- [FAQ](https://lowvisionzoom.com/faq.html): common questions about screen magnification on Windows and how Low Vision Zoom fits
+- [Compare](https://lowvisionzoom.com/compare.html): honest comparison with Windows Magnifier, ZoomText, SuperNova, and Magnifixer, including reasons not to choose Low Vision Zoom
+- [Why smooth magnification](https://lowvisionzoom.com/why-smooth-magnification.html): the vision-science reasoning (spatial constancy, smooth pursuit, change blindness) behind the smooth zoom, with sources
 - [Pricing](https://lowvisionzoom.com/pricing.html): license terms and price
 - [Buy](https://lowvisionzoom.com/buy.html): purchase a license
 - [Contact](https://lowvisionzoom.com/contact.html): support contact

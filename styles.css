@@ -1002,6 +1002,62 @@ img, svg, video { display: block; max-width: 100%; }
 .callout p, .callout h2 { color: var(--positive-text); margin: 0; }
 .callout h2 { border: none; padding: 0; font-size: 1.15rem; margin-bottom: 0.4rem; }
 
+/* --- Comparison table (compare.html) ---
+   The table needs more room than --maxw-prose, so the wrapper breaks out of the
+   prose column and centres itself, then scrolls horizontally on narrow screens.
+   It carries tabindex="0" so keyboard users can scroll it without a mouse; the
+   focus ring is suppressed unless focus arrived from the keyboard. */
+.table-wrap {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1080px, calc(100vw - 2 * var(--s-3)));
+    overflow-x: auto;
+    margin-bottom: var(--s-3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+.table-wrap:focus { outline: none; }
+.table-wrap:focus-visible {
+    outline: var(--focus-width) solid var(--focus-ring);
+    outline-offset: var(--focus-offset);
+}
+.cmp-table {
+    border-collapse: collapse;
+    min-width: 60rem;
+    font-size: var(--fs-sm);
+    line-height: 1.45;
+}
+.cmp-table th,
+.cmp-table td {
+    padding: var(--s-2);
+    text-align: start;
+    vertical-align: top;
+    border-bottom: 1px solid var(--border);
+}
+.cmp-table thead th {
+    background: var(--surface-sunk);
+    color: var(--text);
+    font-weight: var(--fw-bold);
+    border-bottom: 1px solid var(--border-strong);
+    white-space: nowrap;
+}
+.cmp-table tbody th[scope="row"] {
+    color: var(--text-muted);
+    font-weight: var(--fw-semibold);
+    background: var(--surface-sunk);
+    min-width: 12rem;
+}
+/* Our own column — marked, but not shouted. */
+.cmp-table thead th:nth-child(2),
+.cmp-table tbody td:nth-child(2) {
+    background: var(--accent-soft);
+    border-inline: 1px solid var(--accent-border);
+}
+.cmp-table thead th:nth-child(2) { color: var(--accent-strong); }
+.cmp-table tbody tr:last-child th,
+.cmp-table tbody tr:last-child td { border-bottom: none; }
+
 /* --- Footer --- */
 .site-footer {
     background: var(--bg-alt);
