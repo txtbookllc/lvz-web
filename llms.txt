@@ -1,0 +1,30 @@
+# Low Vision Zoom
+
+> Low Vision Zoom is a screen magnifier app for Windows 10 and 11, designed for
+> people with low vision. It lives in the system tray. Hold Ctrl and scroll the
+> mouse wheel to zoom anywhere in Windows; the view eases in smoothly and pivots
+> around the mouse pointer, so users never lose their place on screen. It is an
+> alternative to the built-in Windows Magnifier and to ZoomText.
+
+Key facts:
+
+- Platform: Windows 10 and Windows 11
+- Price: US $9.99 one-time license (no subscription, no ads)
+- Free trial: 7 days, full-featured
+- Privacy: works fully offline, collects no data
+- Install: Microsoft Store (https://apps.microsoft.com/detail/xpfnwzmxmnp6pv) or direct MSI download from the website
+- Languages: website and app localized into 18 languages
+- Developer: txtbook LLC
+
+## Pages
+
+- [Home](https://lowvisionzoom.com/): overview, download links, how-to gestures
+- [Pricing](https://lowvisionzoom.com/pricing.html): license terms and price
+- [Buy](https://lowvisionzoom.com/buy.html): purchase a license
+- [Contact](https://lowvisionzoom.com/contact.html): support contact
+- [Privacy](https://lowvisionzoom.com/privacy.html): privacy policy (no data collected)
+
+## Optional
+
+- [Terms](https://lowvisionzoom.com/terms.html)
+- [Refund policy](https://lowvisionzoom.com/refund.html)
