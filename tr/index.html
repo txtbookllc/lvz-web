@@ -39,6 +39,33 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Low Vision Zoom logosu — içinde artı işareti olan bir büyüteç — ve slogan: az gören Windows kullanıcıları için en iyi ekran büyüteci">
     <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom, az gören kişiler için tasarlanmış, Windows 10 ve 11 için bir ekran büyütecidir. Windows'un her yerinde yakınlaştırmak için Ctrl tuşunu basılı tutup kaydırın; görüntü yumuşakça yakınlaşır ve fare imlecinin çevresinde döner, böylece yerinizi asla kaybetmezsiniz. Çevrimdışı çalışır, hiçbir veri toplamaz. 7 gün ücretsiz deneme, ardından tek seferlik $9.99 lisans — abonelik yok.",
+      "url": "https://lowvisionzoom.com/tr/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/tr/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
     <title>Low Vision Zoom — Windows için Akıcı Ekran Büyütme</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
@@ -289,7 +316,7 @@
                     </div>
                 </div>
 
-                <p class="requirements-line">Windows 11, 64 bit (x64) için tasarlandı · kendi kendine yeten yükleyici, ek indirme gerekmez · ARM desteği yakında geliyor.</p>
+                <p class="requirements-line">Windows 10 ve 11, 64 bit (x64) için tasarlandı · kendi kendine yeten yükleyici, başka bir şey indirmenize gerek yok · Windows on ARM bugün için desteklenmiyor.</p>
 
                 <div class="good-to-know">
                     <p><strong>Bilmekte fayda var:</strong> görme araştırmacıları buna <em>değişim körlüğü</em> der: bir görüntü, görsel bir kesinti sırasında değiştiğinde neyin hareket ettiğini kaçırmak ve takip ettiğiniz şeyi kaybetmek kolaydır. Sıçrayan bir büyüteç bu kesintiyi gün boyu yeniden yaratır. Süzülerek hareket eden bir büyüteç ise gözlerinize yerinizi kaybedecekleri bir boşluk hiç bırakmaz.</p>
@@ -312,10 +339,6 @@
                         <summary>Deneme süresi bitince ne olur?</summary>
                         <div class="faq-body"><p>Uygulama çalışmaya devam eder — lisans anahtarı girene kadar yalnızca büyütme sınırlanır; böylece ekranınız gezinip satın alabilecek kadar her zaman okunur kalır. İstediğiniz an bir anahtar girin, tam yakınlaştırma anında geri gelir; yeniden kurulum gerekmez.</p></div>
                     </details>
-                    <details class="faq">
-                        <summary>Windows'un yerleşik Büyüteç'inden farkı ne?</summary>
-                        <div class="faq-body"><p>Windows'ta yetenekli bir büyüteç bulunur ve birçok kişi önce onu denemelidir. Low Vision Zoom daha akıcı, daha sakin bir deneyime odaklanır: yumuşak animasyonlu yakınlaştırma (ani sıçrama yok), imlecinizi merkez alan yakınlaştırma, dengeli ölü-bölge kaydırma ve sık, hızlı ayarlamalar için göz önünde durmayan bir sistem tepsisi arayüzü.</p></div>
-                    </details>
                     <!-- Carries the full first-run SmartScreen guidance (formerly its own
                          aside under the on-page download CTA, now retired); the
                          install-note-* classes style the steps and figure here too. -->
@@ -337,19 +360,11 @@
                             <p>Bu uyarı, uygulamayı daha çok kişi kurdukça önümüzdeki haftalarda kendiliğinden kaybolur ve bunu yalnızca bir kez yapmanız gerekir. Uygulama makine bazında Program Files klasörüne kurulur; yakınlaştırılmış durumda tıklamaların doğru yere gitmesini sağlayan da budur.</p>
                         </div>
                     </details>
-                    <details class="faq">
-                        <summary>Satın alma verilerim gizli kalır mı?</summary>
-                        <div class="faq-body"><p>Evet. Uygulamanın kendisi hiçbir veri toplamaz ve çevrimdışı çalışır (<a href="/privacy.html">gizlilik politikası (İngilizce)</a>). Satın alma işlemleri, kayıtlı satıcı (merchant of record) sıfatıyla hareket eden ödeme sağlayıcımız Paddle tarafından yürütülür; uygulama ödeme bilgilerinizi asla görmez.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Para iadesi yapıyor musunuz?</summary>
-                        <div class="faq-body"><p>Evet — ücretsiz denemeye ek olarak 30 gün içinde para iade garantisi vardır. <a href="/refund.html">İade politikasına (İngilizce)</a> bakın.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Kurumlar birden fazla lisans satın alabilir mi?</summary>
-                        <div class="faq-body"><p>Evet. Okullar, klinikler, kütüphaneler ve işverenler faturalı toplu lisanslama talep edebilir — <a href="/tr/contact.html?topic=volume">iletişim formumuzu</a> kullanın.</p></div>
-                    </details>
                 </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">Başka sorularınız mı var — gizlilik, iade, birden fazla lisans, diğer büyüteçlerle nasıl karşılaştırıldığı? <a href="/tr/faq.html">Tüm sık sorulan soruları görün →</a></p>
             </div>
         </section>
 
@@ -390,7 +405,7 @@
                         <li><a href="#why">Neden daha iyi</a></li>
                         <li><a href="#how">Nasıl çalışır</a></li>
                         <li><a href="/tr/pricing.html">Fiyat</a></li>
-                        <li><a href="#faq">SSS</a></li>
+                        <li><a href="/tr/faq.html">SSS</a></li>
                     </ul>
                 </div>
                 <div>

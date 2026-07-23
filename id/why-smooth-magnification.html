@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mengapa kaca pembesar layar yang halus lebih mudah diikuti daripada yang meloncat: bagaimana konstansi spasial, kejaran halus, dan change blindness menjelaskan rasa kehilangan posisi — dan bagaimana Low Vision Zoom dirancang dengan mempertimbangkannya.">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Mengapa perbesaran yang halus lebih mudah diikuti daripada perbesaran yang meloncat",
+      "description": "Penjelasan bersumber dengan bahasa sederhana tentang mengapa kaca pembesar layar yang bergerak halus menjaga posisi Anda sementara yang meloncat membuat Anda harus mencarinya lagi — berlandaskan konstansi spasial, kejaran halus, dan change blindness.",
+      "url": "https://lowvisionzoom.com/id/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "id",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Perbesaran layar" },
+        { "@type": "Thing", "name": "Penglihatan rendah" },
+        { "@type": "Thing", "name": "Konstansi spasial" },
+        { "@type": "Thing", "name": "Gerakan mata kejaran halus" },
+        { "@type": "Thing", "name": "Change blindness" }
+      ]
+    }
+    </script>
+    <title>Mengapa perbesaran yang halus lebih mudah diikuti | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Langsung ke konten</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/id/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Utama">
+                <a href="/id/index.html#demo">Lihat demo</a>
+                <a href="/id/index.html#how">Cara kerjanya</a>
+                <a href="/id/index.html#why">Mengapa lebih baik</a>
+                <a href="/id/pricing.html">Harga</a>
+                <a href="/id/index.html#get" data-download class="btn btn-secondary btn-nav">Unduh</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Bahasa: Bahasa Indonesia">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Bahasa Indonesia</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id" aria-current="true">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Mengapa kehalusan penting</span>
+                <h1>Mengapa perbesaran yang halus lebih mudah diikuti daripada perbesaran yang meloncat</h1>
+                <p class="updated">Penjelasan dengan bahasa sederhana, disertai sumber</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Kebanyakan kaca pembesar layar menggerakkan tampilan Anda dengan loncatan tiba-tiba. Setiap loncatan memaksa mata dan otak Anda untuk berhenti, mencari kembali di mana posisinya tadi, dan memulai lagi dari awal. Low Vision Zoom bergerak secara berkesinambungan — ia meluncur perlahan ke dalam zoom, berporos di sekitar titik yang Anda tunjuk, dan meluncur saat menggeser — sehingga perhatian Anda tidak pernah kehilangan pegangan pada hal yang Anda pedulikan. Itu bukan basa-basi yang samar; itu selaras dengan beberapa sifat yang terdokumentasi dengan baik tentang cara kerja penglihatan manusia.</p>
+                    </div>
+
+                    <p>Tidak ada apa pun di halaman ini yang merupakan klaim medis. Ini adalah prinsip-prinsip yang secara umum dipahami tentang penglihatan manusia dan interaksi manusia–komputer, digunakan untuk menjelaskan mengapa kaca pembesar yang lebih halus lebih nyaman untuk digunakan sehari-hari daripada yang meloncat-loncat. Tidak satu pun studi yang dikutip di sini meneliti Low Vision Zoom; mereka menggambarkan cara kerja penglihatan dan gerak antarmuka secara umum.</p>
+
+                    <h2>Rasa “kehilangan posisi” itu punya nama</h2>
+                    <p>Ketika orang mengatakan sebuah kaca pembesar membuat mereka “kehilangan jejak di mana mereka berada,” mereka menggambarkan sesuatu yang nyata. Sistem penglihatan Anda tidak menyimpan layar sebagai foto; ia menjaga peta internal yang terus berjalan tentang di mana letak segala sesuatu dan menahan pandangan Anda terkunci pada satu titik pilihan. Beberapa mekanisme menjaga peta itu tetap stabil — dan sebuah loncatan perbesaran yang tiba-tiba merusak semuanya sekaligus.</p>
+
+                    <h3>1. Konstansi spasial</h3>
+                    <p>Otak Anda bekerja keras agar dunia terasa stabil meskipun mata Anda terus bergerak. Ini disebut <strong>konstansi spasial</strong> (spatial constancy), atau pembaruan spasial: saat Anda bergerak, otak memperkirakan ke mana segala sesuatu seharusnya berakhir dan diam-diam menjaga peta itu tetap selaras. Gerak yang halus dan berkesinambungan adalah persis jenis masukan yang sistem itu dibangun untuk menanganinya — ia bisa memperbarui peta secara langsung. Sebuah teleportasi mendadak tidak memberinya apa pun untuk diinterpolasi, sehingga peta menjadi tidak sah dan harus dibangun ulang dari awal. Pembangunan ulang itulah momen “tadi saya sampai mana?”.</p>
+                    <p>Low Vision Zoom menjaga konstansi spasial tetap utuh dengan tidak pernah berteleportasi. Perbesaran meluncur perlahan menuju sasarannya selama kira-kira sepertiga detik, dan penggeseran meluncur alih-alih menyentak. Peta internal Anda diperbarui, bukan dihapus.</p>
+
+                    <h3>2. Kejaran halus, dan biaya harus memfiksasi ulang</h3>
+                    <p>Mata memiliki dua cara untuk bergerak. <strong>Kejaran halus</strong> (smooth pursuit) terus-menerus melacak sasaran yang bergerak dengan mantap — mata meluncur dan tetap terkunci padanya. <strong>Sakade</strong> (saccade) adalah loncatan cepat dan balistik antar titik fiksasi, dan penglihatan ditekan selama sebuah sakade, sehingga sesudahnya mata harus memperoleh kembali dan memfokuskan ulang pada sasaran.</p>
+                    <p>Kaca pembesar yang meloncat memaksa sebuah sakade ditambah perolehan kembali setiap kali ia bergerak. Bagi seseorang dengan ketajaman penglihatan yang berkurang, mencari kembali sasaran kecil setelah sebuah loncatan lebih lambat dan kurang pasti daripada bagi seseorang dengan penglihatan sentral yang tajam. Zoom yang halus membiarkan sistem kejaran mata melakukan pekerjaannya sebagai gantinya: ia bisa menaiki gerakan itu dan menjaga penguncingannya, sehingga tidak ada loncatan buta dan tidak ada perburuan untuk menemukan kembali posisi Anda. Low Vision Zoom dibangun di sekitar hal ini — loop animasi 60 bingkai per detik berarti tampilan selalu bergerak dalam kenaikan kecil yang dapat dilacak dan bisa diikuti mata Anda alih-alih dikejar.</p>
+
+                    <h3>3. Kesinambungan persepsi — otak memperlakukannya sebagai adegan yang sama</h3>
+                    <p>Ketika sebuah objek bergerak dengan halus, otak mempersepsikannya sebagai satu objek berkesinambungan yang berpindah. Ketika objek yang sama justru menghilang dan muncul kembali di tempat lain, otak harus memecahkan ulang “apakah ini benda yang sama, dan apa yang terjadi?” Pemecahan ulang itu menyita usaha dan merupakan pemicu klasik <strong>change blindness</strong> (kebutaan terhadap perubahan), di mana suatu perubahan yang terjadi melintasi gangguan visual sekadar tidak disadari, dan Anda kehilangan hal-hal yang sedang Anda ikuti.</p>
+                    <p>Low Vision Zoom menjaga kesinambungan. Karena setiap bingkai adalah langkah kecil dari yang sebelumnya, konten di bawah perbesaran terbaca sebagai adegan yang sama yang membesar dengan halus — bukan layar baru yang menggantikan yang lama. Tidak ada yang lenyap dan muncul kembali, jadi tidak ada yang hilang.</p>
+
+                    <h3>4. Jangkar visual yang tetap: memperbesar ke arah kursor</h3>
+                    <p>Ini adalah jawaban paling langsung terhadap “kehilangan jangkar.” Low Vision Zoom memutar poros zoom di sekitar titik di bawah kursor Anda — konten tepat di bawah mouse tetap di tempatnya sementara segala sesuatu membesar di sekitarnya. Banyak kaca pembesar justru memperbesar ke arah sudut atau tengah layar lalu menggeser untuk menyusul, yang berarti hal yang sedang Anda lihat meluncur pergi dari bawah Anda sebelum kembali lagi.</p>
+                    <p>Dengan menjaga titik pandang Anda tetap selama zoom, aplikasi memberi pandangan Anda sebuah jangkar stabil untuk dipegang sepanjang seluruh perbesaran. Anda menentukan apa jangkarnya cukup dengan menunjuknya. Titik fiksasi Anda tidak perlu bergerak sama sekali, sehingga konstansi spasial dan penguncingan mata Anda sama-sama terjaga melewati satu momen yang biasanya merusaknya.</p>
+
+                    <h3>5. Kendali yang dapat diprediksi dan berirama sendiri</h3>
+                    <p>Gerakan yang diprakarsai otak sendiri lebih mudah diantisipasi daripada gerakan yang dipaksakan padanya. <strong>Ctrl + gulir</strong> pada Low Vision Zoom bersifat berkesinambungan dan proporsional: Anda memperbesar persis sejauh dan persis secepat Anda memutar roda, dan Anda bisa berhenti, membalik arah, atau menahan di titik mana pun. Gerakan itu milik Anda, jadi dapat diprediksi — dan gerakan yang dapat diprediksi jauh lebih tidak membingungkan daripada kaca pembesar yang menyentak ke tingkat yang sudah ditetapkan dengan sendirinya.</p>
+
+                    <h2>Mengapa ini penting khususnya untuk low vision</h2>
+                    <p>Orang yang hidup dengan penglihatan sentral yang berkurang sering mengandalkan strategi yang diam-diam dilawan oleh kaca pembesar yang tiba-tiba:</p>
+                    <ul>
+                        <li><strong>Penglihatan eksentrik dan lokus retina pilihan.</strong> Ketika penglihatan sentral yang tajam berkurang, banyak orang belajar melihat sedikit di luar pusat, menggunakan sebuah titik pilihan yang konsisten pada retina sebagai titik fokus kerja mereka. Menetapkan kembali penyelarasan itu setelah setiap loncatan adalah usaha yang nyata dan berulang. Kaca pembesar yang tidak pernah membuat Anda mencari kembali posisi Anda membiarkan penyelarasan yang susah payah didapat itu tetap bertahan.</li>
+                        <li><strong>Denda mencari-kembali.</strong> Dengan ketajaman yang lebih sedikit tersisa, biaya untuk memperoleh kembali sasaran kecil setelah loncatan buta lebih tinggi daripada bagi pengguna dengan penglihatan penuh. Kehalusan menghilangkan loncatan itu, dan bersamanya, dendanya.</li>
+                        <li><strong>Perhatian dan memori kerja.</strong> Setiap penyetelan ulang “di mana saya sekarang?” menghabiskan perhatian dan memori kerja yang lebih ingin Anda gunakan untuk tugas yang sebenarnya — membaca, menulis, menavigasi. Menyerahkan pelacakan kepada sistem persepsi Anda, yang mengikuti gerak halus tanpa susah payah, membebaskan usaha itu untuk pekerjaan itu sendiri.</li>
+                    </ul>
+                    <p>Tidak satu pun dari ini merupakan klaim pengobatan. Ini adalah perbedaan antara alat yang melawan cara kerja penglihatan low vision dan alat yang dibentuk mengelilinginya.</p>
+
+                    <h2>Setiap pilihan desain melayani tujuan yang sama</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Bagaimana setiap fitur memetakan ke prinsip persepsi">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Fitur Low Vision Zoom dan prinsip persepsi yang dilayani masing-masing</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Fitur</th>
+                                    <th scope="col">Apa yang dilakukannya</th>
+                                    <th scope="col">Prinsip yang dilayaninya</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Zoom beranimasi halus (peluncuran ~⅓ detik, 60 fps)</th>
+                                    <td>Perbesaran meluncur perlahan menuju sasarannya alih-alih menyentak</td>
+                                    <td>Konstansi spasial; kejaran halus; kesinambungan persepsi</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Zoom berporos ke arah kursor</th>
+                                    <td>Titik di bawah mouse tetap diam sementara segala sesuatu membesar di sekitarnya</td>
+                                    <td>Jangkar visual yang stabil; fiksasi tidak pernah tergeser</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Mengikuti kursor dengan zona-diam</th>
+                                    <td>Tampilan tetap diam sementara kursor Anda menjelajahi pita tengah yang lapang, dan hanya menggeser — dengan meluncur — ketika Anda mendekati tepi</td>
+                                    <td>Tidak ada gerak yang tak perlu; penggeseran adalah kejaran halus, tidak pernah teleportasi</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Kendali proporsional Ctrl + gulir</th>
+                                    <td>Anda menetapkan tingkat zoom secara berkesinambungan, secepat atau selambat yang Anda suka</td>
+                                    <td>Gerak yang berirama sendiri, dapat diprediksi, dan diprakarsai sendiri</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tampilan seluruh desktop, banyak monitor</th>
+                                    <td>Satu ruang yang diperbesar secara berkesinambungan yang mengikuti Anda antar layar, bukan pulau-pulau per jendela</td>
+                                    <td>Satu peta spasial yang koheren untuk diperbarui, alih-alih beberapa</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Pengaturan bawaan yang sudah disetel, tanpa ada yang perlu dikonfigurasi</th>
+                                    <td>Kehalusan, kecepatan, dan rasa zona-diam sudah disetel dan tetap</td>
+                                    <td>Perilaku yang halus adalah bawaannya, bukan sesuatu yang harus ditemukan dan disiapkan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>Itulah keseluruhan gagasan di balik produk ini: kaca pembesar yang bergerak dengan cara yang sistem penglihatan manusia memang dibangun untuk mengikutinya, sehingga ia menjaga Anda tetap berjangkar di tempat sementara yang lain membuat Anda kehilangan posisi. Anda bisa <a href="/id/index.html#demo">menontonnya beraksi</a>, melihat bagaimana ia <a href="/id/compare.html">dibandingkan dengan kaca pembesar lain</a>, atau <a href="/id/index.html#get">mencobanya gratis selama 7 hari</a>.</p>
+
+                    <h2>Sumber dan bacaan lanjutan</h2>
+                    <p>Ini adalah sumber-sumber kredibel, yang ditinjau sejawat atau diterbitkan oleh otoritas, untuk prinsip-prinsip umum yang dikutip di atas. Mereka menggambarkan cara kerja penglihatan manusia dan gerak antarmuka secara umum — tidak satu pun dari mereka meneliti Low Vision Zoom, dan tidak satu pun boleh dibaca sebagai bukti hasil tertentu dari aplikasi ini.</p>
+
+                    <h3>Konstansi spasial dan stabilitas visual melintasi gerakan mata</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — sensitivitas visual berkurang selama gerakan mata yang cepat, dan penekanan ini bermula di retina. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">Baca</a>.</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — bagaimana otak membangun persepsi terpadu dari rangkaian citra melintasi gerakan mata. <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">Abstrak</a>.</li>
+                    </ul>
+
+                    <h3>Kejaran halus — sistem pelacakan berkesinambungan mata</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — mata dengan halus melacak dan mengantisipasi sasaran yang bergerak, dengan akurasi lebih baik untuk gerak sasaran yang dibuat sendiri atau realistis. <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">Abstrak</a>.</li>
+                    </ul>
+
+                    <h3>Change blindness — kehilangan hal-hal melintasi gangguan visual</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — kegagalan mencolok dalam melihat perubahan besar yang biasanya akan mudah disadari. <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">Abstrak</a>.</li>
+                        <li>Rensink, <em>Change Blindness</em>, dalam Neurobiology of Attention (Elsevier, 2005) — efek ini dapat dipicu dengan membuat suatu perubahan selama gerakan mata, kedipan, atau kilatan singkat. <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>.</li>
+                    </ul>
+
+                    <h3>Kehilangan penglihatan sentral, penglihatan eksentrik, dan lokus retina pilihan</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — orang dengan skotoma sentral menggunakan lokus retina pilihan di luar area yang terpengaruh, dan pelatihan penglihatan di luar pusat itu disebut pelatihan penglihatan eksentrik. <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">Baca</a>.</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">Abstrak</a>.</li>
+                    </ul>
+
+                    <h3>Gerak dan kesinambungan dalam desain antarmuka pengguna</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — gerak dapat mencegah kebingungan dan membantu pengguna tetap melacak konteks melalui transisi. <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">Baca</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Lihat sendiri kehalusannya</h2>
+                <p>Uji coba gratis 7 hari · $9.99 sekali bayar · tanpa langganan · tanpa akun</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/id.svg" alt="Dapatkan di Microsoft Store">
+                    </a>
+                    <a href="/id/index.html#get" data-download class="download-direct">Atau unduh pemasang langsung dari situs ini (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Kaca pembesar layar yang tenang untuk Windows. Produk dari txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a href="/id/index.html#why">Mengapa lebih baik</a></li>
+                        <li><a href="/id/index.html#how">Cara kerjanya</a></li>
+                        <li><a href="/id/pricing.html">Harga</a></li>
+                        <li><a href="/id/compare.html">Bandingkan kaca pembesar</a></li>
+                        <li><a href="/id/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hukum</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privasi (dalam bahasa Inggris)</a></li>
+                        <li><a href="/terms.html">Ketentuan layanan (dalam bahasa Inggris)</a></li>
+                        <li><a href="/refund.html">Kebijakan pengembalian dana (dalam bahasa Inggris)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Dukungan</h4>
+                    <ul>
+                        <li><a href="/id/contact.html">Hubungi kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Hak cipta dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

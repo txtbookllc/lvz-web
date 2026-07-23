@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="一份关于 Windows 屏幕放大镜的诚实对比：Low Vision Zoom、内置的 Windows Magnifier、ZoomText、SuperNova 和 Magnifixer——各自能做什么、各自适合谁，以及什么时候不该选择我们的产品。">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom 与 Windows Magnifier、ZoomText 和 SuperNova 的对比",
+      "description": "Windows 屏幕放大镜的并排对比：内置的 Windows Magnifier、ZoomText、SuperNova、Magnifixer 和 Low Vision Zoom——包括各自适合谁，以及不选择 Low Vision Zoom 的理由。",
+      "url": "https://lowvisionzoom.com/zh/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "zh",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "屏幕放大软件" },
+        { "@type": "Thing", "name": "低视力辅助技术" },
+        { "@type": "Thing", "name": "Windows 无障碍" }
+      ]
+    }
+    </script>
+    <title>Windows 屏幕放大镜对比 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">跳到正文</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/zh/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="主导航">
+                <a href="/zh/index.html#demo">观看演示</a>
+                <a href="/zh/index.html#how">使用方法</a>
+                <a href="/zh/index.html#why">为什么更好</a>
+                <a href="/zh/pricing.html">价格</a>
+                <a href="/zh/index.html#get" data-download class="btn btn-secondary btn-nav">下载</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="语言：中文（简体）">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>中文（简体）</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans" aria-current="true">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">对比</span>
+                <h1>适用于 Windows 的屏幕放大镜</h1>
+                <p class="updated">竞品信息核实于 2026 年 7 月 20 日</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>如果您从未用过放大镜，请先试试 Windows 中已经内置的那一款。它是免费的。如果您需要将电脑内容朗读出来，或需要非常高的放大倍数，或需要盲文，那么您需要一套完整的辅助技术套件，例如 <strong>ZoomText</strong> 或 <strong>SuperNova</strong>，此时 <strong>Low Vision Zoom 将无法满足您的需求</strong>。Low Vision Zoom 是一款小巧、经济的工具，只做一件事：平滑、锚定光标的放大，最高 5×，没有任何需要配置的地方。</p>
+                    </div>
+
+                    <h2>这篇文章由谁撰写，以及如何看待它</h2>
+                    <p>Low Vision Zoom 是我们开发的，所以请像看待由其中一方参与者撰写的任何比较那样看待本页。我们努力在三个具体方面做到公平：关于其他产品的每一项说明都来自该厂商自己的公开文档，并附有链接；所列的每一款产品都至少有一项做得比我们的产品更好；下面还有一节专门讲述<a href="#not-for-you">不购买 Low Vision Zoom 的理由</a>。</p>
+                    <p>我们特意不以具体数字列出竞争对手的价格。辅助技术的定价会变化，因国家/地区而异，而且对个人、学校和用人单位往往各不相同——在这里照抄一个数字很快就会过时。我们列出每款产品的<em>许可模式</em>，并链接到厂商，以便您自己查看当前价格。</p>
+                    <p>本页最重要的建议：<strong>这里的每一款产品都可以在付费之前先试用。</strong>放大是非常因人而异的，一款放大镜对<em>您的</em>眼睛来说是什么感觉，比任何功能对照表都更重要。请亲自试一试。</p>
+
+                    <h2>您应该选择哪一款？</h2>
+                    <ul>
+                        <li><strong>您还没有试用过任何放大镜</strong>——请使用您电脑上已有的 <strong>Windows Magnifier</strong>。按 <code>Windows key</code> + <code>Plus</code>。它不花一分钱，而且可能已经满足您的全部需求。</li>
+                        <li><strong>您需要将屏幕内容朗读出来，或者您使用盲文</strong>——您需要 <strong>ZoomText Magnifier/Reader</strong>、<strong>SuperNova</strong> 或一款屏幕阅读器。Low Vision Zoom 完全没有语音，也完全不支持盲文。</li>
+                        <li><strong>您需要超过 5× 的放大倍数</strong>——Low Vision Zoom 最高只到 5×。Windows Magnifier、ZoomText 和 SuperNova 都能达到高得多的倍数。</li>
+                        <li><strong>您需要颜色滤镜、对比度反转或焦点高亮</strong>——Windows Magnifier 免费提供其中一部分功能；ZoomText 和 SuperNova 提供的更多。Low Vision Zoom 完全没有这些功能。</li>
+                        <li><strong>您想要一个免费的第三方选择</strong>——<strong>Magnifixer</strong> 是免费的，提供一个带有反色显示和颜色模式的放大镜窗口。</li>
+                        <li><strong>您主要想在工作时不断地放大和缩小，而目前觉得这个过程跳动或繁琐</strong>——这正是 Low Vision Zoom 专为之打造的具体场景。它围绕您的光标平滑放大，没有任何设置，一次性收费 $9.99。<a href="/zh/index.html#demo">观看演示</a>并试用免费版。</li>
+                    </ul>
+
+                    <h2>功能对照</h2>
+                    <p>标记为「请咨询厂商」的单元格，是我们不愿代替他人转述的内容——请点击产品标题中的链接以获取权威答案。</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="功能对照表">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">五款 Windows 屏幕放大镜的功能对照</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">它是什么</th>
+                                    <td>一款单一用途的缩放工具</td>
+                                    <td>Windows 内置的放大镜</td>
+                                    <td>一套完整的低视力套件</td>
+                                    <td>一套完整的低视力套件</td>
+                                    <td>一个免费的放大镜窗口</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">许可模式</th>
+                                    <td>一次性 $9.99，包含更新</td>
+                                    <td>免费——随 Windows 附带</td>
+                                    <td>年度许可（请咨询厂商）</td>
+                                    <td>按版本许可（请咨询厂商）</td>
+                                    <td>免费</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">最大放大倍数</th>
+                                    <td>5×</td>
+                                    <td>最高 1600%（16×）</td>
+                                    <td>最高 36×</td>
+                                    <td>高——请咨询厂商</td>
+                                    <td>请咨询厂商</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">如何调整缩放</th>
+                                    <td>Ctrl + 鼠标滚轮，或 Ctrl + Alt + Plus / Minus。连续且成比例——视图平滑过渡到新的倍数，而不是直接切换过去</td>
+                                    <td>Windows key + Plus / Minus，或使用工具栏。按设定的档位逐级切换；档位大小可配置</td>
+                                    <td>键盘快捷键和工具栏；分档的放大倍数——请咨询厂商</td>
+                                    <td>键盘快捷键和控制面板；分档的放大倍数——请咨询厂商</td>
+                                    <td>在其自身窗口中可调节缩放</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">缩放以何处为中心</th>
+                                    <td>鼠标光标下方的那个点，在视图围绕它缩放时保持固定</td>
+                                    <td>跟随鼠标、键盘焦点、文本光标或 Narrator——由您选择</td>
+                                    <td>跟随鼠标、焦点和光标——请咨询厂商</td>
+                                    <td>跟随鼠标、焦点和光标——请咨询厂商</td>
+                                    <td>您所指向的区域</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">朗读文本</th>
+                                    <td>否</td>
+                                    <td>是——提供朗读控制</td>
+                                    <td>是，在 Magnifier/Reader 版本中</td>
+                                    <td>是，在 Speech 和 Screen Reader 版本中</td>
+                                    <td>否</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">完整屏幕阅读器</th>
+                                    <td>否</td>
+                                    <td>Narrator 随 Windows 附带，需单独使用</td>
+                                    <td>在与 JAWS 组成的 Fusion 套装中提供</td>
+                                    <td>是，在 Screen Reader 版本中</td>
+                                    <td>否</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">盲文支持</th>
+                                    <td>否</td>
+                                    <td>通过 Narrator 实现</td>
+                                    <td>请咨询厂商</td>
+                                    <td>是，在更高版本中</td>
+                                    <td>否</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">颜色滤镜、对比度、反色</th>
+                                    <td>否</td>
+                                    <td>是——颜色反转</td>
+                                    <td>是——丰富的滤镜和增强功能</td>
+                                    <td>是——功能丰富，包括针对每台显示器的设置</td>
+                                    <td>是——反色显示和颜色模式</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">高倍缩放下的文本平滑</th>
+                                    <td>否——按像素放大</td>
+                                    <td>是——提供平滑选项</td>
+                                    <td>是——xFont 渲染</td>
+                                    <td>是——True Fonts</td>
+                                    <td>是——平滑滤镜</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">多显示器</th>
+                                    <td>是——一个连续的桌面，跨屏幕跟随您</td>
+                                    <td>是</td>
+                                    <td>是——请咨询厂商</td>
+                                    <td>是——每台显示器可独立设置倍数</td>
+                                    <td>请咨询厂商</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">需要配置的设置</th>
+                                    <td>无——行为已预先调校并固定</td>
+                                    <td>若干项</td>
+                                    <td>大量</td>
+                                    <td>大量</td>
+                                    <td>若干项</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">离线可用，无需账户</th>
+                                    <td>是——许可证在您的设备上进行验证</td>
+                                    <td>是</td>
+                                    <td>请咨询厂商</td>
+                                    <td>请咨询厂商</td>
+                                    <td>请咨询厂商</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">收集的数据</th>
+                                    <td>无——<a href="/privacy.html">隐私政策（英文）</a></td>
+                                    <td>请查看 Microsoft 的隐私声明</td>
+                                    <td>请咨询厂商</td>
+                                    <td>请咨询厂商</td>
+                                    <td>请咨询厂商</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">平台</th>
+                                    <td>Windows 10 和 11，64 位（x64）</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">不购买 Low Vision Zoom 的理由</h2>
+                    <p>我们宁愿您把 $9.99 花在对您有帮助的东西上，而不是花在没有帮助的东西上。如果以下任何一条适用于您，请不要购买 Low Vision Zoom：</p>
+                    <ul>
+                        <li><strong>您需要超过 5× 的放大倍数。</strong>这是应用中的硬性上限，而不是一项设置。如果 5× 对您来说不够，本产品的任何部分都帮不上忙。</li>
+                        <li><strong>您需要语音。</strong>没有文字转语音，没有文档阅读器，也没有屏幕阅读器。这些都不在 $9.99 功能的计划之内。</li>
+                        <li><strong>您需要颜色反转或对比度滤镜</strong>才能舒适地阅读。Windows Magnifier 免费提供此功能；我们完全不提供。</li>
+                        <li><strong>您需要在高倍放大下保持清晰的文本。</strong>我们按屏幕原样放大；那些套件会重新渲染文本以保持清晰。在高缩放倍数下，这个差异很大，而且很重要。</li>
+                        <li><strong>您需要厂商支持、培训或采购渠道。</strong>我们是一家非常小的公司，只有一个电子邮件地址。对于需要正式支持的工作场所无障碍方案来说，这并不合适。</li>
+                        <li><strong>您不使用鼠标或触控板。</strong>该设计的核心是指向您想放大的内容。虽然有键盘快捷键，但仅使用键盘的用户在别处会得到更好的服务。</li>
+                        <li><strong>您使用的是 Windows on ARM 或 32 位电脑。</strong>目前不支持。</li>
+                    </ul>
+
+                    <h2>您也许根本不需要放大镜</h2>
+                    <p>在购买任何东西之前，值得先试试您电脑上已有的免费选项。对许多人来说，它们已经足够：</p>
+                    <ul>
+                        <li><strong>永久放大所有内容：</strong>Windows <em>设置 → 系统 → 显示 → 缩放</em>。将其设为 150% 或 175% 会在各处放大所有文字和图标，无需任何额外软件。</li>
+                        <li><strong>仅放大文字：</strong>Windows <em>设置 → 辅助功能 → 文本大小</em>。</li>
+                        <li><strong>缩放网页：</strong>在任何浏览器中按 <code>Ctrl</code> + <code>Plus</code>，它会重新排版文字，而不是放大像素——就阅读网页而言，通常比任何放大镜都更易读。</li>
+                        <li><strong>内置放大镜：</strong><code>Windows key</code> + <code>Plus</code>。</li>
+                    </ul>
+                    <p>当您需要一整天在所有应用中不断进出细节时，放大镜是合适的工具。当您真正需要的只是始终更大的文字时，它就是错误的工具。</p>
+
+                    <h2>Low Vision Zoom 适合的场景</h2>
+                    <p>Low Vision Zoom 之所以存在，是因为它的开发者想要一件具体的事：一整天不断地放大再缩小，而每次都不丢失自己在屏幕上的位置。它连续放大而不是分档放大，围绕光标下方的点旋转，让您正在看的东西保持不动，并在您的光标在屏幕中部游走时保持视图静止。除了一个按键和滚轮之外，没有任何需要设置或学习的东西。</p>
+                    <p>这就是产品的全部。如果上面描述的正是您遇到的问题，<a href="/zh/index.html#get">免费 7 天试用</a>会在几分钟内告诉您它是否适合您的眼睛。如果不适合，本页上的其他某款产品会更适合您，我们也宁愿为您指出它。您可以进一步了解<a href="/zh/why-smooth-magnification.html">为什么平滑放大更易于跟随</a>，或查看<a href="/zh/faq.html">常见问题</a>。</p>
+
+                    <h2>来源</h2>
+                    <p>关于其他产品的说明来自其厂商自己的公开页面，核对于 2026 年 7 月 20 日：</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft——使用放大镜让屏幕上的内容更易看清</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific——ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin——SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software——Magnifixer</a></li>
+                    </ul>
+                    <p>Windows、Windows Magnifier 和 Narrator 是 Microsoft 的产品。ZoomText 和 JAWS 是 Freedom Scientific / Vispero 的产品。SuperNova 是 Dolphin Computer Access 的产品。Magnifixer 是 Blacksun Software 的产品。我们与它们中的任何一方都没有关联，未获得其认可，也不是其合作伙伴，我们使用它们的名称仅仅是为了标识其产品。如果您认为本页上的任何内容歪曲了您的产品，请<a href="/zh/contact.html">告诉我们</a>，我们会予以更正。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>先试用，再决定</h2>
+                <p>7 天免费试用 · $9.99 一次性付费 · 无订阅 · 无需账户</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/zh.svg" alt="从 Microsoft Store 获取">
+                    </a>
+                    <a href="/zh/index.html#get" data-download class="download-direct">或直接从本网站下载安装程序（.msi）</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom 是一款适用于 Windows 10 和 11 的屏幕放大镜。它以鼠标光标为中心，平滑地放大至 5×。一次性收费 $9.99。可从 Microsoft Store 获取，或直接下载 MSI 安装包。它可离线运行，且不收集任何数据。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>一款平静的 Windows 屏幕放大镜。txtbook&nbsp;LLC 出品。</p>
+                </div>
+                <div>
+                    <h4>产品</h4>
+                    <ul>
+                        <li><a href="/zh/index.html#why">为什么更好</a></li>
+                        <li><a href="/zh/index.html#how">使用方法</a></li>
+                        <li><a href="/zh/pricing.html">价格</a></li>
+                        <li><a href="/zh/compare.html" aria-current="page">比较放大镜</a></li>
+                        <li><a href="/zh/faq.html">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>法律</h4>
+                    <ul>
+                        <li><a href="/privacy.html">隐私政策（英文）</a></li>
+                        <li><a href="/terms.html">服务条款（英文）</a></li>
+                        <li><a href="/refund.html">退款政策（英文）</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="/zh/contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC。保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

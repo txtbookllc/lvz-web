@@ -11,10 +11,16 @@ a $9.99 one-time license with a 7-day free trial. The audience includes many old
 screen-reader/assistive-technology users. The voice is calm, plain, respectful, and concrete —
 never hype, never medical claims, never pity. Translate meaning and tone, not word-for-word.
 
-You produce **full translated copies** of these four pages into the language directory
+You produce **full translated copies** of these seven pages into the language directory
 (e.g. `/es/index.html`):
 
-- `index.html`, `pricing.html`, `buy.html`, `contact.html`
+- `index.html`, `pricing.html`, `buy.html`, `contact.html` — the core product pages.
+- `faq.html` — frequently asked questions. Also carries a duplicated `FAQPage` schema in the
+  `<head>`; see the per-page rules.
+- `compare.html` — an honest comparison with other Windows magnifiers. The **Competitor and
+  product names** rules below apply here with full force.
+- `why-smooth-magnification.html` — a sourced vision-science explainer. The **Medical-claims
+  guardrails** below apply here with full force.
 
 The legal pages (`privacy.html`, `terms.html`, `refund.html`) are **not** translated — they stay
 English-only at the site root.
@@ -38,6 +44,75 @@ Your language's entry in `i18n/languages.json` (code, `hreflang`, `ogLocale`, `p
 | **merchant of record** | Use the standard local commerce term if one exists; otherwise keep English with a brief gloss. |
 | **tray / system tray** | The Windows notification-area concept — use the local Windows term. |
 | **license key** | Local software-licensing term. |
+
+## Competitor and product names (non-negotiable)
+
+These rules matter everywhere, but above all on `compare.html` and `faq.html`, which name other
+products.
+
+1. **Product and company names are never translated or transliterated.** Keep them exactly as
+   printed, in Latin script, even on a page written in a non-Latin script: **Windows Magnifier,
+   ZoomText, SuperNova, Magnifixer, Narrator, JAWS, Fusion, Freedom Scientific, Vispero, Dolphin
+   (Dolphin Computer Access), Blacksun Software, Microsoft.** "Low Vision Zoom" and "txtbook LLC"
+   follow the same rule (already in the glossary).
+   - *Windows Magnifier* and *Narrator* are the **English product names** of Microsoft's built-in
+     features. If your locale's Windows ships a localized name for the Magnifier feature, you may
+     add it once in parentheses the first time it appears, but keep the English name as the primary
+     reference so the comparison stays unambiguous. Do not silently replace it with the local name.
+2. **Translate every claim about another product as a neutral, faithful statement — exactly as
+   strong, and exactly as weak, as the English.** Do not sharpen, editorialize, or make a
+   competitor sound worse (or better) than the English does. Never add coloring words that are not
+   in the source — no "only", "merely", "unfortunately", "bloated", "overpriced", "clunky", or the
+   like. If the English says a product "is typically sold as an annual license", your translation
+   says exactly that and no more.
+   - **Why this is non-negotiable:** these pages publish in 18 countries. A translation that turns
+     a neutral fact into a disparaging claim about a *named* competitor can be a false or misleading
+     statement under local advertising and unfair-competition law in some of those jurisdictions.
+     The English is deliberately careful; your job is to preserve that care, not to "improve" it.
+3. **"see vendor" / "see [vendor]" cells and phrases** mean "we will not state this on their behalf
+   second-hand." Translate the phrase; never replace it with a specific claim of your own invention.
+4. **The fairness and affiliation disclosure** on `compare.html` ("We are not affiliated with,
+   endorsed by, or partnered with any of them… we use their names only to identify their products…")
+   is a legal disclaimer, not marketing copy. Translate it in full and faithfully. Do not soften,
+   shorten, or drop any part of it. The same goes for the "Who wrote this, and how to read it"
+   fairness framing and the "reasons not to buy Low Vision Zoom" section — they are what keeps the
+   page honest; keep their candor.
+5. **Competitor links and dates are not changed.** External `href`s (support.microsoft.com,
+   freedomscientific.com, yourdolphin.com, blacksunsoftware.com, apps.microsoft.com …) stay
+   byte-identical. The dated "verified July 20, 2026" / "checked on July 20, 2026" wording is
+   translated as text, but **the date itself is never changed**.
+
+## Medical-claims guardrails (why-smooth-magnification.html)
+
+This page's safety depends entirely on staying in **design-and-experience** language and never
+crossing into a medical or clinical claim. The English is written carefully to do exactly that; a
+translation that drifts into health-benefit language creates real regulatory risk in some markets.
+
+1. **Describe the app's *behavior* and the *experience* of using it, and reference the perceptual
+   *principle* only in general terms.** That is the register of the entire page — match it.
+2. **Never render anything as a claim that the app *treats, corrects, cures, prevents, diagnoses,
+   or reduces the symptoms of* any condition** — not macular degeneration or AMD, not low vision
+   itself, not eye strain, not fatigue, not anything. The English never makes such a claim; your
+   translation must not either.
+3. **Introduce no clinical-outcome language** that is absent from the English: no "clinically
+   proven", "reduces eye strain", "doctor recommended", "therapeutic", or any wording that reads as
+   a guaranteed health benefit. Where the English hedges — "many people with low vision find…",
+   "generally understood principles of vision", "designed to work with how the eye tracks motion" —
+   translate the hedge at **equal strength**. The hedges are load-bearing.
+4. **The disclaimer sentences are the most important on the page.** "Nothing on this page is a
+   medical claim.", "None of this is a treatment claim.", "none of them studied Low Vision Zoom",
+   "none should be read as evidence of a specific outcome from the app" — translate every one of
+   these fully and unambiguously. Never drop, weaken, or bury them.
+5. **Citations stay in English.** Author names, paper/article titles, and journal or publisher
+   names (*Communications Biology*, *Nature*, *Annual Review of Vision Science*, *Trends in
+   Cognitive Sciences*, American Optometric Association, Nielsen Norman Group, and the rest) are
+   **not** translated or transliterated — they identify a specific English-language source. You MAY
+   translate the short plain-language gloss that follows each citation (the "— what it says" clause)
+   and generic link text ("Abstract", "Read it", "PDF"). Every citation URL stays byte-identical.
+6. **Scientific terms** (spatial constancy, smooth pursuit, saccade, change blindness, preferred
+   retinal locus, eccentric viewing) use your language's established scientific term where one
+   exists; where there is no standard term, keep the English and gloss it once. Never coin a term
+   that sounds like a diagnosis.
 
 ## Technical rules — structure
 
@@ -64,6 +139,31 @@ Your language's entry in `i18n/languages.json` (code, `hreflang`, `ogLocale`, `p
   `placeholder`, `data-label-play`, `data-label-pause`.
 - User-facing string literals inside inline scripts (e.g. "Opening secure checkout…",
   validation and error messages).
+
+## Technical rules — JSON-LD structured data
+
+Several pages carry `<script type="application/ld+json">` blocks in the `<head>` (index.html has a
+`SoftwareApplication`; faq.html a `FAQPage`; compare.html and why-smooth-magnification.html an
+`Article`). These are machine-readable and matter for search and AI visibility. Handle them like
+this, and no more:
+
+**The structure of the block — every key, in the same order — must stay byte-identical to English.
+Only the string *values* may change.** (The checker compares each inline script's code against the
+English one up to its string literals; adding, removing, or renaming a key changes the code and the
+page is rejected.) So:
+
+- **Translate only these human-readable string values:** `name`, `headline`, `description`, and — in
+  the `FAQPage` — every `Question` `name` and every `acceptedAnswer.text`.
+- **`"inLanguage"`: only where the English block already has that key**, change its value to your
+  language code (e.g. `"en"` → `"es"`). **Never add an `inLanguage` key** to a block that lacks one
+  (the homepage `SoftwareApplication` has none — leave it without one).
+- **Any `"url"` value that points at the page you are translating** becomes its `/XX/` form (e.g. the
+  `FAQPage` `"url": "https://lowvisionzoom.com/faq.html"` → `".../es/faq.html"`). Leave the
+  organization/author/publisher URLs (`https://lowvisionzoom.com/`), `image`, `installUrl`,
+  `offers.url`, prices, `priceCurrency`, `softwareVersion`, `operatingSystem`, `datePublished`, and
+  `dateModified` **exactly** as in English.
+- **Do not add, remove, reorder, or translate keys.** The `FAQPage` `acceptedAnswer.text` is plain
+  text — no links, no HTML tags; keep it plain.
 
 ## Technical rules — head, links, locale plumbing
 
@@ -102,6 +202,12 @@ Your language's entry in `i18n/languages.json` (code, `hreflang`, `ogLocale`, `p
 
 ### index.html
 - `og:locale` content → your `ogLocale`.
+- The `SoftwareApplication` JSON-LD block in `<head>`: translate its `description` string (see the
+  JSON-LD rules above). Leave `price`, `priceCurrency`, `softwareVersion`, `operatingSystem`, the
+  URLs, and `image` unchanged.
+- The homepage FAQ is a short **teaser** — three questions (cost, trial end, SmartScreen) with a
+  "See all frequently asked questions →" link to `/faq.html`. Keep it a teaser: the full,
+  schema-marked FAQ lives on `faq.html`; do not expand the homepage back into a full FAQ copy.
 - The two howto `<img>` `alt` texts and the demo `video` `aria-label` describe animations —
   translate them fully (they are what screen-reader users get instead of the animation).
 - Trust chips ("7 day free trial", "No ads", …): keep them chip-short.
@@ -124,6 +230,39 @@ Your language's entry in `i18n/languages.json` (code, `hreflang`, `ogLocale`, `p
 - Turnstile widget: set `data-language="<turnstileLang>"` (English page has `data-language="auto"`).
 - The email field hint ("We'll only use this to reply to you.") gains one translated sentence:
   "We may reply in English." — support is English-speaking; visitors may write in any language.
+
+### faq.html
+- Every answer exists **twice**: the visible HTML inside each `<details>`, and the plain-text
+  `acceptedAnswer.text` in the `FAQPage` JSON-LD (`<head>`). Translate **both**, and keep them
+  saying the same thing. Keep each JSON-LD `Question` `name` in sync with its visible `<summary>`.
+  See the JSON-LD rules above for what else changes in that block (`inLanguage`, self-`url`).
+- Keep `<code>` key names (Ctrl, Alt, Shift, Plus, Minus, "Windows key", Esc, 0) per the glossary.
+- The three `<h2>` group headings (Choosing a magnifier / Using Low Vision Zoom / Buying, trial,
+  and trust) are ordinary headings — translate them.
+
+### compare.html
+- **Read "Competitor and product names" above first** — those rules govern this page.
+- The comparison `<table>`: translate every column header, row header, and visible cell, but never
+  change the table's shape (same rows, same columns, same order). Short cell values — "Yes", "No",
+  "None", "see vendor", "—" — become the natural short equivalents in your language.
+- `Article` JSON-LD: translate `headline` and `description`; set `inLanguage` and the self-`url`
+  per the JSON-LD rules; leave `datePublished` / `dateModified` unchanged.
+- The `.cta-fact` factual paragraph at the foot of the page: translate it **in full** from this
+  page's English. It has one sentence more than the homepage's version — the "It magnifies up to
+  5×, smoothly, centered on the mouse cursor" sentence — **keep that sentence**. Word the sentences
+  it shares with the homepage the same way your locale's homepage already words them.
+
+### why-smooth-magnification.html
+- **Read "Medical-claims guardrails" above first** — those rules govern this page, and this page is
+  the reason they exist.
+- `Article` JSON-LD: translate `headline` and `description`; set `inLanguage` and the self-`url`;
+  leave dates unchanged. The `about` `name` values are perceptual-science terms — use your
+  language's standard term where one exists, otherwise leave them in English.
+- The `<table>` mapping each feature to the principle it serves: translate the cells, keep the
+  structure.
+- The citation list follows the guardrails: source identity (authors, titles, journals) stays in
+  English; the plain-language gloss after each citation and generic link text may be translated;
+  URLs are byte-identical.
 
 ## Quality bar
 

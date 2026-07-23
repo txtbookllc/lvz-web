@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="th" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="คำตอบสำหรับคำถามที่พบบ่อยเกี่ยวกับการขยายหน้าจอบน Windows และเกี่ยวกับ Low Vision Zoom: วิธีซูม การเปรียบเทียบกับ Windows Magnifier ที่ติดตั้งมาให้ในตัวและ ZoomText ราคา การทดลองใช้ฟรี ความเป็นส่วนตัว และการติดตั้ง">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "th",
+      "url": "https://lowvisionzoom.com/th/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "โปรแกรมขยายหน้าจอที่ดีที่สุดสำหรับ Windows คืออะไร?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ไม่มีตัวเลือกที่ดีที่สุดเพียงหนึ่งเดียว — ทั้งนี้ขึ้นอยู่กับสิ่งที่คุณต้องการ และขั้นตอนแรกที่ถูกต้องคือการทดลองใช้แบบไม่เสียค่าใช้จ่าย พีซี Windows ทุกเครื่องมี Windows Magnifier ติดตั้งมาให้อยู่แล้ว (กด Windows key + Plus เพื่อเริ่มใช้งาน) สำหรับหลายคนเพียงเท่านี้ก็เพียงพอ หากคุณต้องการให้อ่านหน้าจอออกเสียง ขยายภาพในระดับสูงมาก ตัวกรองสี หรืออักษรเบรลล์ ชุดโปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกแบบครบวงจรอย่าง ZoomText หรือ SuperNova คือหมวดหมู่ที่เหมาะสม แต่หากสิ่งที่คุณต้องการคือการซูมที่นุ่มนวลและสงบซึ่งติดตามเคอร์เซอร์ของคุณขณะทำงาน โดยไม่ต้องตั้งค่าใดๆ Low Vision Zoom ถูกสร้างขึ้นมาเพื่อกรณีนี้โดยเฉพาะ ในราคา $9.99 จ่ายครั้งเดียว เนื่องจากการขยายภาพเป็นเรื่องเฉพาะบุคคล จึงควรลองใช้ตัวเลือกใดก็ตามก่อนตัดสินใจจ่ายเงิน"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "มีทางเลือกอื่นนอกจาก Windows Magnifier ไหม?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "มี นอกเหนือจาก Windows Magnifier ที่ Microsoft ติดตั้งมาให้ในตัวแล้ว โปรแกรมขยายหน้าจอจากผู้พัฒนารายอื่นสำหรับ Windows ยังมี ZoomText และ SuperNova (ชุดโปรแกรมสำหรับผู้มีสายตาเลือนรางแบบครบวงจร มีทั้งเสียงพูดและเครื่องมือช่วยอ่าน) Magnifixer ที่ใช้งานได้ฟรี และ Low Vision Zoom ซึ่งเป็นโปรแกรมขนาดเล็กราคา $9.99 ที่เน้นการซูมแบบนุ่มนวลและยึดตามเคอร์เซอร์ ผู้คนมักมองหาทางเลือกอื่นเมื่อต้องการความรู้สึกที่นุ่มนวลกว่า การซูมที่ยึดตามตัวชี้เมาส์ หรือฟีเจอร์ด้านเสียงและสีที่เครื่องมือในตัวไม่มีให้ ทางเลือกใดจะเหมาะกับคุณขึ้นอยู่กับว่าคุณต้องการสิ่งใดในบรรดานี้"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "มีทางเลือกที่ถูกกว่า ZoomText ไหม?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ขึ้นอยู่กับว่าคุณใช้ฟีเจอร์ใดของ ZoomText เป็นหลัก ZoomText เป็นชุดโปรแกรมสำหรับผู้มีสายตาเลือนรางแบบครบวงจร มีทั้งเสียงพูด เครื่องมืออ่านเอกสาร การปรับปรุงด้านสีและการโฟกัสอย่างละเอียด และการขยายภาพในระดับสูงมาก โดยทั่วไปจำหน่ายในรูปแบบใบอนุญาตรายปี หากคุณใช้ฟีเจอร์การอ่านและการปรับปรุงเหล่านั้น คำตอบที่ตรงไปตรงมาคือเครื่องมือที่ถูกกว่าจะไม่สามารถทดแทนได้ แต่หากสิ่งที่คุณต้องการหลักๆ คือการขยายภาพอย่างนุ่มนวลที่ติดตามเคอร์เซอร์ของคุณ Low Vision Zoom ทำสิ่งนั้นได้เพียงอย่างเดียวในราคา $9.99 จ่ายครั้งเดียว — แต่ไม่มีเสียงพูด ไม่มีการอ่าน ไม่มีตัวกรองสี และหยุดที่การขยายภาพ 5 เท่า ส่วน Windows Magnifier ก็ใช้งานได้ฟรีเช่นกันและมีความสามารถมากกว่าที่หลายคนคิด"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom อ่านข้อความออกเสียงหรือไม่?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ไม่ Low Vision Zoom ทำหน้าที่ขยายภาพเท่านั้น ไม่มีระบบแปลงข้อความเป็นเสียง ไม่มีเครื่องมืออ่านเอกสาร และไม่มีโปรแกรมอ่านหน้าจอ หากคุณต้องการให้อ่านหน้าจอออกเสียง ลองพิจารณา ZoomText Magnifier/Reader, SuperNova รุ่นที่มีเสียงพูดหรือโปรแกรมอ่านหน้าจอ หรือ Narrator ที่ Windows ติดตั้งมาให้ในตัวและใช้งานได้ฟรี"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom แตกต่างจาก Windows Magnifier ที่ติดตั้งมาให้ในตัวอย่างไร?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifier ใช้งานได้ฟรี ติดตั้งมาให้ในตัว และมีความสามารถดี หลายคนจึงควรลองใช้ก่อนเป็นอันดับแรก Low Vision Zoom แตกต่างตรงความรู้สึกในการใช้งานมากกว่าจำนวนฟีเจอร์ การซูมของมันต่อเนื่องและค่อยๆ ผ่อนเข้าสู่ระดับใหม่อย่างนุ่มนวลแทนที่จะกระโดดเป็นขั้นๆ หมุนรอบจุดที่อยู่ใต้เคอร์เซอร์เมาส์ของคุณพอดี ทำให้สิ่งที่คุณกำลังมองอยู่ไม่ขยับ และมุมมองจะนิ่งอยู่กับที่ตราบใดที่เคอร์เซอร์ของคุณยังอยู่กลางจอ ตัวโปรแกรมไม่มีการตั้งค่าใดๆ และอยู่ในถาดระบบ นอกจากนี้ยังมีข้อจำกัดมากกว่า Windows Magnifier ในบางด้าน: ไม่มีเสียงพูด ไม่มีตัวกรองสี และหยุดที่ 5x"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ฉันจะซูมเข้าบน Windows 11 ได้อย่างไร?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows มีโปรแกรมขยายหน้าจอในตัว: กดปุ่ม Windows key ค้างไว้แล้วกด Plus เพื่อซูมเข้า กด Minus เพื่อซูมออก และกด Windows key พร้อมกับ Escape เพื่อปิดการทำงาน คุณยังสามารถขยายทุกอย่างให้ใหญ่ขึ้นอย่างถาวรได้ที่ การตั้งค่า ระบบ การแสดงผล มาตราส่วน หรือขยายเฉพาะข้อความได้ที่ การตั้งค่า การช่วยการเข้าถึง ขนาดข้อความ เมื่อติดตั้ง Low Vision Zoom แล้ว คุณสามารถกด Ctrl ค้างไว้แล้วเลื่อนล้อเมาส์เพื่อซูมได้อย่างนุ่มนวลทุกที่ใน Windows หรือใช้ Ctrl และ Alt พร้อมกับ Plus หรือ Minus หากไม่มีล้อเมาส์"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "มีโปรแกรมขยายหน้าจอที่ซูมด้วยล้อเมาส์ไหม?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "มี Low Vision Zoom ซูมด้วย Ctrl และล้อเมาส์: กด Ctrl ค้างไว้แล้วหมุนล้อไปข้างหน้าเพื่อซูมเข้า หมุนกลับเพื่อซูมออก การซูมเป็นสัดส่วนโดยตรง คุณจะซูมได้ระยะและความเร็วตามที่คุณหมุนล้อพอดี และภาพจะค่อยๆ ผ่อนเข้าสู่ระดับใหม่อย่างนุ่มนวลโดยยังคงอยู่ตรงกลางที่จุดใต้ตัวชี้ของคุณ Ctrl, Shift และเลื่อนลง จะดีดกลับสู่ขนาดปกติทันที นี่คือวิธีหลักที่แอปนี้ถูกออกแบบมาให้ใช้งาน"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom ใช้งานได้กับจอภาพหลายจอไหม?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ได้ โปรแกรมจะขยายเดสก์ท็อป Windows ทั้งหมดให้เป็นพื้นที่ต่อเนื่องเดียวกัน และติดตามเคอร์เซอร์ของคุณจากจอหนึ่งไปยังอีกจอหนึ่ง แทนที่จะแยกจัดการแต่ละจอต่างหาก นี่เป็นแนวทางเดียวกับที่โหมดเต็มจอของ Windows Magnifier ที่ติดตั้งมาให้ในตัวใช้"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ฉันจะซูมบนแล็ปท็อปที่ไม่มีล้อเมาส์ได้อย่างไร?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ใช้แป้นพิมพ์ กด Ctrl และ Alt ค้างไว้แล้วกด Plus เพื่อซูมเข้า หรือ Minus เพื่อซูมออก กดปุ่มค้างไว้เพื่อซูมต่อเนื่อง Ctrl, Alt และ 0 จะรีเซ็ตกลับสู่ขนาดปกติ ไม่จำเป็นต้องมีล้อเมาส์หรือเมาส์ภายนอก แอปจึงใช้งานได้บนแล็ปท็อปที่มีแค่ทัชแพด"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ใช้งานได้ในเกมและวิดีโอเต็มจอไหม?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ใช้งานได้เกือบทุกที่ Low Vision Zoom ขยายเดสก์ท็อป Windows ทั้งหมด จึงครอบคลุมเบราว์เซอร์ อีเมล เอกสาร วิดีโอที่เล่นในหน้าต่าง และเชลล์ของ Windows เอง ข้อยกเว้นคือเกมหรือแอปที่เข้าควบคุมหน้าจอแบบเอ็กซ์คลูซีฟทั้งหมดและข้ามเดสก์ท็อปปกติไป เนื้อหานั้นอาจไม่ถูกขยายภาพ การเรียกใช้เกมดังกล่าวในโหมดหน้าต่างหรือโหมดหน้าต่างไร้ขอบจะทำให้การขยายภาพกลับมาทำงานตามปกติ"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom สามารถขยายหน้าจอได้มากแค่ไหน?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "สูงสุด 5x เป็นขั้นละครึ่งเท่า นี่เป็นข้อจำกัดที่ตั้งใจไว้สำหรับเครื่องมือซูมขนาดเล็กที่ใช้งานสบาย และต่ำกว่า Windows Magnifier ที่ติดตั้งมาให้ในตัว (สูงสุด 16x) หรือชุดโปรแกรมครบวงจรอย่าง ZoomText (สูงสุด 36x) หากคุณต้องการมากกว่า 5x Low Vision Zoom ไม่ใช่เครื่องมือที่เหมาะกับคุณ"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom ราคาเท่าไหร่?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "เป็นใบอนุญาตแบบจ่ายครั้งเดียวราคา $9.99 รวมการอัปเดตในอนาคตทั้งหมด ไม่มีค่าสมัครสมาชิก ไม่ต้องสร้างบัญชี และไม่มีโฆษณา คุณสามารถทดลองใช้ทุกฟีเจอร์ฟรี 7 วันก่อน และมีการรับประกันคืนเงินภายใน 30 วันหลังการซื้อ"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "จะเกิดอะไรขึ้นเมื่อช่วงทดลองใช้ฟรีสิ้นสุดลง?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "แอปยังคงทำงานต่อไป เมื่อช่วงทดลองใช้ 7 วันสิ้นสุดลง การขยายภาพจะถูกจำกัดเท่านั้น ไม่ใช่ปิดการทำงาน ทำให้หน้าจอของคุณยังคงอ่านได้เพียงพอสำหรับการใช้งานทั่วไปและการซื้อใบอนุญาต กรอกคีย์ใบอนุญาตเมื่อใดก็ได้เพื่อคืนการซูมเต็มรูปแบบทันที โดยไม่ต้องติดตั้งใหม่"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom เก็บข้อมูลใดๆ หรือไม่ และใช้งานแบบออฟไลน์ได้ไหม?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "แอปนี้ไม่เก็บข้อมูลส่วนบุคคล ไม่มีการวิเคราะห์การใช้งาน และไม่มีการส่งข้อมูลทางไกล และทำงานได้แบบออฟไลน์เต็มรูปแบบ แอปไม่บันทึกหรือส่งเนื้อหาบนหน้าจอของคุณออกไปที่ใด คีย์ใบอนุญาตของคุณจะถูกตรวจสอบบนอุปกรณ์ของคุณเอง โดยไม่ต้องมีบัญชีและไม่มีการเชื่อมต่อกลับเซิร์ฟเวอร์อย่างเงียบๆ ช่วงเวลาเดียวที่แอปเชื่อมต่ออินเทอร์เน็ตคือเมื่อคุณเลือก Check for updates จากเมนูถาดระบบ"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows จะเตือนฉันตอนติดตั้ง Low Vision Zoom ไหม?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "อาจจะใช่ หากคุณใช้การดาวน์โหลดโดยตรง ครั้งแรกที่คุณเปิดตัวติดตั้ง Windows อาจแสดงข้อความ SmartScreen สีน้ำเงินว่า Windows protected your PC (Windows ปกป้อง PC ของคุณ) นี่เป็นเรื่องปกติสำหรับแอปใหม่และปลอดภัย ตัวติดตั้งมีลายเซ็นดิจิทัลจาก txtbook LLC คลิก More info (ข้อมูลเพิ่มเติม) ตรวจสอบว่าผู้เผยแพร่คือ txtbook LLC แล้วคลิก Run anyway (เรียกใช้ต่อไป) หากต้องการข้ามหน้าจอนี้ไปเลย ให้ติดตั้งจาก Microsoft Store แทน ซึ่งจะไม่แสดงคำเตือนนี้"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ข้อกำหนดระบบมีอะไรบ้าง?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low Vision Zoom ทำงานบน Windows 10 และ Windows 11, 64 บิต (x64) ตัวติดตั้งครบในตัว จึงไม่ต้องดาวน์โหลดอย่างอื่นเพิ่มเติม ยังไม่รองรับ Windows on ARM และพีซี 32 บิตในขณะนี้"
+          }
+        }
+      ]
+    }
+    </script>
+    <title>คำถามที่พบบ่อย | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">ข้ามไปยังเนื้อหา</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/th/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="/th/index.html#demo">ดูตัวอย่างการใช้งาน</a>
+                <a href="/th/index.html#how">วิธีใช้งาน</a>
+                <a href="/th/index.html#why">ทำไมถึงดีกว่า</a>
+                <a href="/th/pricing.html">ราคา</a>
+                <a href="/th/index.html#get" data-download class="btn btn-secondary btn-nav">ดาวน์โหลด</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="ภาษา: ไทย">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>ไทย</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th" aria-current="true">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">คำถามที่พบบ่อย</span>
+                <h1>คำถามที่พบบ่อย</h1>
+                <p class="updated">การขยายหน้าจอบน Windows และตำแหน่งของ Low Vision Zoom</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">การเลือกโปรแกรมขยายหน้าจอ</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>โปรแกรมขยายหน้าจอที่ดีที่สุดสำหรับ Windows คืออะไร?</summary>
+                            <div class="faq-body">
+                                <p>ไม่มีตัวเลือกที่ดีที่สุดเพียงหนึ่งเดียว — ทั้งนี้ขึ้นอยู่กับสิ่งที่คุณต้องการ และขั้นตอนแรกที่ถูกต้องคือการทดลองใช้แบบไม่เสียค่าใช้จ่าย พีซี Windows ทุกเครื่องมี <strong>Windows Magnifier</strong> ติดตั้งมาให้อยู่แล้ว (กด <code>Windows key</code> + <code>Plus</code> เพื่อเริ่มใช้งาน) สำหรับหลายคนเพียงเท่านี้ก็เพียงพอ หากคุณต้องการให้อ่านหน้าจอออกเสียง ขยายภาพในระดับสูงมาก ตัวกรองสี หรืออักษรเบรลล์ ชุดโปรแกรมเทคโนโลยีสิ่งอำนวยความสะดวกแบบครบวงจรอย่าง <strong>ZoomText</strong> หรือ <strong>SuperNova</strong> คือหมวดหมู่ที่เหมาะสม แต่หากสิ่งที่คุณต้องการคือการซูมที่นุ่มนวลและสงบซึ่งติดตามเคอร์เซอร์ของคุณขณะทำงาน โดยไม่ต้องตั้งค่าใดๆ <strong>Low Vision Zoom</strong> ถูกสร้างขึ้นมาเพื่อกรณีนี้โดยเฉพาะ ในราคา $9.99 จ่ายครั้งเดียว เนื่องจากการขยายภาพเป็นเรื่องเฉพาะบุคคล จึงควรลองใช้ตัวเลือกใดก็ตามก่อนตัดสินใจจ่ายเงิน ดู<a href="/th/compare.html">การเปรียบเทียบอย่างตรงไปตรงมา</a>ของเรา</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>มีทางเลือกอื่นนอกจาก Windows Magnifier ไหม?</summary>
+                            <div class="faq-body">
+                                <p>มี นอกเหนือจาก Windows Magnifier ที่ Microsoft ติดตั้งมาให้ในตัวแล้ว โปรแกรมขยายหน้าจอจากผู้พัฒนารายอื่นสำหรับ Windows ยังมี <strong>ZoomText</strong> และ <strong>SuperNova</strong> (ชุดโปรแกรมสำหรับผู้มีสายตาเลือนรางแบบครบวงจร มีทั้งเสียงพูดและเครื่องมือช่วยอ่าน) <strong>Magnifixer</strong> ที่ใช้งานได้ฟรี และ <strong>Low Vision Zoom</strong> ซึ่งเป็นโปรแกรมขนาดเล็กราคา $9.99 ที่เน้นการซูมแบบนุ่มนวลและยึดตามเคอร์เซอร์ ผู้คนมักมองหาทางเลือกอื่นเมื่อต้องการความรู้สึกที่นุ่มนวลกว่า การซูมที่ยึดตามตัวชี้เมาส์ หรือฟีเจอร์ด้านเสียงและสีที่เครื่องมือในตัวไม่มีให้ ทางเลือกใดจะเหมาะกับคุณขึ้นอยู่กับว่าคุณต้องการสิ่งใดในบรรดานี้ — <a href="/th/compare.html">หน้าเปรียบเทียบ</a>แสดงให้ดูเทียบกันแบบเคียงข้าง</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>มีทางเลือกที่ถูกกว่า ZoomText ไหม?</summary>
+                            <div class="faq-body">
+                                <p>ขึ้นอยู่กับว่าคุณใช้ฟีเจอร์ใดของ ZoomText เป็นหลัก ZoomText เป็นชุดโปรแกรมสำหรับผู้มีสายตาเลือนรางแบบครบวงจร มีทั้งเสียงพูด เครื่องมืออ่านเอกสาร การปรับปรุงด้านสีและการโฟกัสอย่างละเอียด และการขยายภาพในระดับสูงมาก โดยทั่วไปจำหน่ายในรูปแบบใบอนุญาตรายปี หากคุณใช้ฟีเจอร์การอ่านและการปรับปรุงเหล่านั้น คำตอบที่ตรงไปตรงมาคือเครื่องมือที่ถูกกว่าจะไม่สามารถทดแทนได้ แต่หากสิ่งที่คุณต้องการหลักๆ คือการขยายภาพอย่างนุ่มนวลที่ติดตามเคอร์เซอร์ของคุณ Low Vision Zoom ทำสิ่งนั้นได้เพียงอย่างเดียวในราคา <strong>$9.99</strong> จ่ายครั้งเดียว — แต่ไม่มีเสียงพูด ไม่มีการอ่าน ไม่มีตัวกรองสี และหยุดที่ 5× ส่วน Windows Magnifier ก็ใช้งานได้ฟรีเช่นกันและมีความสามารถมากกว่าที่หลายคนคิด</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom อ่านข้อความออกเสียงหรือไม่?</summary>
+                            <div class="faq-body">
+                                <p><strong>ไม่</strong> Low Vision Zoom ทำหน้าที่ขยายภาพเท่านั้น ไม่มีระบบแปลงข้อความเป็นเสียง ไม่มีเครื่องมืออ่านเอกสาร และไม่มีโปรแกรมอ่านหน้าจอ หากคุณต้องการให้อ่านหน้าจอออกเสียง ลองพิจารณา <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> รุ่นที่มีเสียงพูดหรือโปรแกรมอ่านหน้าจอ หรือ <strong>Narrator</strong> ที่ Windows ติดตั้งมาให้ในตัวและใช้งานได้ฟรี</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom แตกต่างจาก Windows Magnifier ที่ติดตั้งมาให้ในตัวอย่างไร?</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifier ใช้งานได้ฟรี ติดตั้งมาให้ในตัว และมีความสามารถดี หลายคนจึงควรลองใช้ก่อนเป็นอันดับแรก Low Vision Zoom แตกต่างตรง<em>ความรู้สึกในการใช้งาน</em>มากกว่าจำนวนฟีเจอร์ การซูมของมันต่อเนื่องและค่อยๆ ผ่อนเข้าสู่ระดับใหม่อย่างนุ่มนวลแทนที่จะกระโดดเป็นขั้นๆ หมุนรอบจุดที่อยู่ใต้เคอร์เซอร์เมาส์ของคุณพอดี ทำให้สิ่งที่คุณกำลังมองอยู่ไม่ขยับ และมุมมองจะนิ่งอยู่กับที่ตราบใดที่เคอร์เซอร์ของคุณยังอยู่กลางจอ ตัวโปรแกรมไม่มีการตั้งค่าใดๆ และอยู่ในถาดระบบ นอกจากนี้ยังมีข้อจำกัดมากกว่า Windows Magnifier ในบางด้าน: ไม่มีเสียงพูด ไม่มีตัวกรองสี และหยุดที่ 5× อ่านเพิ่มเติมเกี่ยวกับเหตุผลเบื้องหลังการเคลื่อนไหวที่นุ่มนวลได้ที่<a href="/th/why-smooth-magnification.html">เหตุใดการขยายภาพแบบนุ่มนวลจึงติดตามได้ง่ายกว่า</a></p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">การใช้งาน Low Vision Zoom</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>ฉันจะซูมเข้าบน Windows 11 ได้อย่างไร?</summary>
+                            <div class="faq-body">
+                                <p>Windows มีโปรแกรมขยายหน้าจอในตัว: กดปุ่ม <code>Windows key</code> ค้างไว้แล้วกด <code>Plus</code> เพื่อซูมเข้า กด <code>Minus</code> เพื่อซูมออก และกด <code>Windows key</code> + <code>Esc</code> เพื่อปิดการทำงาน คุณยังสามารถขยายทุกอย่างให้ใหญ่ขึ้นอย่างถาวรได้ที่ <em>การตั้งค่า → ระบบ → การแสดงผล → มาตราส่วน</em> หรือขยายเฉพาะข้อความได้ที่ <em>การตั้งค่า → การช่วยการเข้าถึง → ขนาดข้อความ</em> เมื่อติดตั้ง Low Vision Zoom แล้ว คุณสามารถกด <strong>Ctrl</strong> ค้างไว้แล้วเลื่อนล้อเมาส์เพื่อซูมได้อย่างนุ่มนวลทุกที่ใน Windows หรือใช้ <strong>Ctrl + Alt + Plus / Minus</strong> หากไม่มีล้อเมาส์</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>มีโปรแกรมขยายหน้าจอที่ซูมด้วยล้อเมาส์ไหม?</summary>
+                            <div class="faq-body">
+                                <p>มี Low Vision Zoom ซูมด้วย <strong>Ctrl + ล้อเมาส์</strong>: กด Ctrl ค้างไว้แล้วหมุนล้อไปข้างหน้าเพื่อซูมเข้า หมุนกลับเพื่อซูมออก การซูมเป็นสัดส่วนโดยตรง คุณจะซูมได้ระยะและความเร็วตามที่คุณหมุนล้อพอดี และภาพจะค่อยๆ ผ่อนเข้าสู่ระดับใหม่อย่างนุ่มนวลโดยยังคงอยู่ตรงกลางที่จุดใต้ตัวชี้ของคุณ <strong>Ctrl + Shift + เลื่อนลง</strong> จะดีดกลับสู่ขนาดปกติทันที นี่คือวิธีหลักที่แอปนี้ถูกออกแบบมาให้ใช้งาน</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom ใช้งานได้กับจอภาพหลายจอไหม?</summary>
+                            <div class="faq-body">
+                                <p>ได้ โปรแกรมจะขยายเดสก์ท็อป Windows ทั้งหมดให้เป็นพื้นที่ต่อเนื่องเดียวกัน และติดตามเคอร์เซอร์ของคุณจากจอหนึ่งไปยังอีกจอหนึ่ง แทนที่จะแยกจัดการแต่ละจอต่างหาก นี่เป็นแนวทางเดียวกับที่โหมดเต็มจอของ Windows Magnifier ที่ติดตั้งมาให้ในตัวใช้</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>ฉันจะซูมบนแล็ปท็อปที่ไม่มีล้อเมาส์ได้อย่างไร?</summary>
+                            <div class="faq-body">
+                                <p>ใช้แป้นพิมพ์ กด <strong>Ctrl + Alt</strong> ค้างไว้แล้วกด <strong>Plus</strong> เพื่อซูมเข้า หรือ <strong>Minus</strong> เพื่อซูมออก กดปุ่มค้างไว้เพื่อซูมต่อเนื่อง <strong>Ctrl + Alt + 0</strong> จะรีเซ็ตกลับสู่ขนาดปกติ ไม่จำเป็นต้องมีล้อเมาส์หรือเมาส์ภายนอก แอปจึงใช้งานได้บนแล็ปท็อปที่มีแค่ทัชแพด</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>ใช้งานได้ในเกมและวิดีโอเต็มจอไหม?</summary>
+                            <div class="faq-body">
+                                <p>ใช้งานได้เกือบทุกที่ Low Vision Zoom ขยายเดสก์ท็อป Windows ทั้งหมด จึงครอบคลุมเบราว์เซอร์ อีเมล เอกสาร วิดีโอที่เล่นในหน้าต่าง และเชลล์ของ Windows เอง ข้อยกเว้นคือเกมหรือแอปที่เข้าควบคุมหน้าจอแบบ<em>เอ็กซ์คลูซีฟ</em>ทั้งหมดและข้ามเดสก์ท็อปปกติไป เนื้อหานั้นอาจไม่ถูกขยายภาพ การเรียกใช้เกมดังกล่าวในโหมดหน้าต่างหรือโหมดหน้าต่างไร้ขอบจะทำให้การขยายภาพกลับมาทำงานตามปกติ</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom สามารถขยายหน้าจอได้มากแค่ไหน?</summary>
+                            <div class="faq-body">
+                                <p>สูงสุด <strong>5×</strong> เป็นขั้นละครึ่งเท่า นี่เป็นข้อจำกัดที่ตั้งใจไว้สำหรับเครื่องมือซูมขนาดเล็กที่ใช้งานสบาย และต่ำกว่า Windows Magnifier ที่ติดตั้งมาให้ในตัว (สูงสุด 16×) หรือชุดโปรแกรมครบวงจรอย่าง ZoomText (สูงสุด 36×) หากคุณต้องการมากกว่า 5× Low Vision Zoom ไม่ใช่เครื่องมือที่เหมาะกับคุณ — <a href="/th/compare.html">หน้าเปรียบเทียบ</a>จะแนะนำตัวเลือกที่ขยายได้สูงกว่านี้</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">การซื้อ การทดลองใช้ และความน่าเชื่อถือ</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Low Vision Zoom ราคาเท่าไหร่?</summary>
+                            <div class="faq-body">
+                                <p>เป็นใบอนุญาตแบบจ่ายครั้งเดียวราคา <strong>$9.99</strong> รวมการอัปเดตในอนาคตทั้งหมด ไม่มีค่าสมัครสมาชิก ไม่ต้องสร้างบัญชี และไม่มีโฆษณา คุณสามารถทดลองใช้ทุกฟีเจอร์ฟรี 7 วันก่อน และมีการรับประกันคืนเงินภายใน 30 วันหลังการซื้อ ดู<a href="/th/pricing.html">หน้าราคา</a></p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>จะเกิดอะไรขึ้นเมื่อช่วงทดลองใช้ฟรีสิ้นสุดลง?</summary>
+                            <div class="faq-body">
+                                <p>แอปยังคงทำงานต่อไป เมื่อช่วงทดลองใช้ 7 วันสิ้นสุดลง การขยายภาพจะถูกจำกัดเท่านั้น ไม่ใช่ปิดการทำงาน ทำให้หน้าจอของคุณยังคงอ่านได้เพียงพอสำหรับการใช้งานทั่วไปและการซื้อใบอนุญาต กรอกคีย์ใบอนุญาตเมื่อใดก็ได้เพื่อคืนการซูมเต็มรูปแบบทันที โดยไม่ต้องติดตั้งใหม่</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom เก็บข้อมูลใดๆ หรือไม่ และใช้งานแบบออฟไลน์ได้ไหม?</summary>
+                            <div class="faq-body">
+                                <p>แอปนี้<strong>ไม่</strong>เก็บข้อมูลส่วนบุคคล ไม่มีการวิเคราะห์การใช้งาน และไม่มีการส่งข้อมูลทางไกล (telemetry) และทำงานได้แบบออฟไลน์เต็มรูปแบบ แอปไม่บันทึกหรือส่งเนื้อหาบนหน้าจอของคุณออกไปที่ใด คีย์ใบอนุญาตของคุณจะถูกตรวจสอบบนอุปกรณ์ของคุณเอง โดยไม่ต้องมีบัญชีและไม่มีการเชื่อมต่อกลับเซิร์ฟเวอร์อย่างเงียบๆ ช่วงเวลาเดียวที่แอปเชื่อมต่ออินเทอร์เน็ตคือเมื่อคุณเลือก <strong>Check for updates</strong> (ตรวจสอบการอัปเดต) จากเมนูถาดระบบ รายละเอียดทั้งหมดอยู่ใน<a href="/privacy.html">นโยบายความเป็นส่วนตัว (ภาษาอังกฤษ)</a></p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Windows จะเตือนฉันตอนติดตั้ง Low Vision Zoom ไหม?</summary>
+                            <div class="faq-body">
+                                <p>อาจจะใช่ หากคุณใช้การดาวน์โหลดโดยตรง ครั้งแรกที่คุณเปิดตัวติดตั้ง Windows อาจแสดงข้อความ SmartScreen สีน้ำเงินว่า <strong>“Windows protected your PC” (Windows ปกป้อง PC ของคุณ)</strong> นี่เป็นเรื่องปกติสำหรับแอปใหม่และปลอดภัย ตัวติดตั้งมีลายเซ็นดิจิทัลจาก <strong>txtbook LLC</strong> คลิก <strong>More info</strong> (ข้อมูลเพิ่มเติม) ตรวจสอบว่าผู้เผยแพร่คือ txtbook LLC แล้วคลิก <strong>Run anyway</strong> (เรียกใช้ต่อไป) หากต้องการข้ามหน้าจอนี้ไปเลย ให้ติดตั้งจาก <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> แทน ซึ่งจะไม่แสดงคำเตือนนี้</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>ข้อกำหนดระบบมีอะไรบ้าง?</summary>
+                            <div class="faq-body">
+                                <p>Low Vision Zoom ทำงานบน <strong>Windows 10 และ Windows 11, 64 บิต (x64)</strong> ตัวติดตั้งครบในตัว จึงไม่ต้องดาวน์โหลดอย่างอื่นเพิ่มเติม ยังไม่รองรับ Windows on ARM และพีซี 32 บิตในขณะนี้</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">ยังมีคำถามอยู่ใช่ไหม? <a href="/th/contact.html">ติดต่อเรา</a> — มีคนจริงๆ คอยตอบกลับคุณ</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>ทดลองใช้ฟรี 7 วัน</h2>
+                <p>ทดลองใช้ฟรี 7 วัน · จ่ายครั้งเดียว $9.99 · ไม่มีค่าสมัครสมาชิก · ไม่ต้องสร้างบัญชี</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/th.svg" alt="รับจาก Microsoft Store">
+                    </a>
+                    <a href="/th/index.html#get" data-download class="download-direct">หรือดาวน์โหลดตัวติดตั้งโดยตรงจากเว็บไซต์นี้ (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>โปรแกรมขยายหน้าจอที่นุ่มนวลสำหรับ Windows ผลิตภัณฑ์จาก txtbook&nbsp;LLC</p>
+                </div>
+                <div>
+                    <h4>ผลิตภัณฑ์</h4>
+                    <ul>
+                        <li><a href="/th/index.html#why">ทำไมถึงดีกว่า</a></li>
+                        <li><a href="/th/index.html#how">วิธีใช้งาน</a></li>
+                        <li><a href="/th/pricing.html">ราคา</a></li>
+                        <li><a href="/th/compare.html">เปรียบเทียบโปรแกรมขยายหน้าจอ</a></li>
+                        <li><a href="/th/faq.html" aria-current="page">คำถามที่พบบ่อย</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>กฎหมาย</h4>
+                    <ul>
+                        <li><a href="/privacy.html">ความเป็นส่วนตัว (ภาษาอังกฤษ)</a></li>
+                        <li><a href="/terms.html">ข้อกำหนดการให้บริการ (ภาษาอังกฤษ)</a></li>
+                        <li><a href="/refund.html">นโยบายการคืนเงิน (ภาษาอังกฤษ)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>ฝ่ายสนับสนุน</h4>
+                    <ul>
+                        <li><a href="/th/contact.html">ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC สงวนลิขสิทธิ์</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

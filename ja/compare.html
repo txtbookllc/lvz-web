@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Windowsの画面拡大ソフトの正直な比較：Low Vision Zoom、内蔵のWindows Magnifier、ZoomText、SuperNova、Magnifixer — それぞれが何をするか、どんな人に向いているか、そして当社を選ばない方がよいのはどんなときか。">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision ZoomとWindows Magnifier、ZoomText、SuperNovaの比較",
+      "description": "Windows向けの画面拡大ソフトを並べて比較します。内蔵のWindows Magnifier、ZoomText、SuperNova、Magnifixer、そしてLow Vision Zoom — それぞれがどんな人に向いているか、そしてLow Vision Zoomを選ばない方がよい理由も含みます。",
+      "url": "https://lowvisionzoom.com/ja/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "ja",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "画面拡大ソフト" },
+        { "@type": "Thing", "name": "ロービジョン向け支援技術" },
+        { "@type": "Thing", "name": "Windowsのアクセシビリティ" }
+      ]
+    }
+    </script>
+    <title>Windows向けの画面拡大ソフトを比較 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">本文へスキップ</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ja/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="メイン">
+                <a href="/ja/index.html#demo">デモを見る</a>
+                <a href="/ja/index.html#how">使い方</a>
+                <a href="/ja/index.html#why">選ばれる理由</a>
+                <a href="/ja/pricing.html">価格</a>
+                <a href="/ja/index.html#get" data-download class="btn btn-secondary btn-nav">ダウンロード</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="言語: 日本語">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>日本語</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja" aria-current="true">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">比較</span>
+                <h1>Windows向けの画面拡大ソフト</h1>
+                <p class="updated">競合製品の詳細を2026年7月20日に確認しました</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>これまで拡大ソフトを使ったことがないなら、まずはWindowsにもともと内蔵されているものから始めてください。無料です。画面を読み上げてほしい、非常に高い拡大率が必要、または点字が必要という場合は、<strong>ZoomText</strong>や<strong>SuperNova</strong>のような総合的な支援技術スイートが必要で、<strong>Low Vision Zoomでは足りません</strong>。Low Vision Zoomは、1つのことだけを行う小さくて手ごろなツールです。つまり、カーソルを基準にした最大5倍までのなめらかな拡大で、設定するものは何もありません。</p>
+                    </div>
+
+                    <h2>このページを書いたのは誰か、そしてどう読めばよいか</h2>
+                    <p>私たちはLow Vision Zoomを作っている当事者ですので、このページも、比較対象の一方が書いた比較として受け止めてください。私たちは3つの具体的な方法で公平であろうと努めました。他社製品に関するすべての記述は、その提供元自身の公開ドキュメントに基づき、そこへのリンクを付けています。掲載したどの製品にも、当社より優れている点が少なくとも1つあります。そして下には、<a href="#not-for-you">Low Vision Zoomを買わない方がよい理由</a>のセクションがあります。</p>
+                    <p>私たちはあえて、競合製品の価格を数字では示していません。支援技術の価格は変わり、国によって異なり、個人・学校・雇用主でしばしば異なります — ここに書き写した数字は、遠からず古くなってしまうでしょう。私たちは各製品の<em>ライセンス形態</em>を示し、現在の価格をご自身で確認できるよう提供元へのリンクを付けています。</p>
+                    <p>このページで最も大切な助言はこれです。<strong>ここに挙げたどの製品も、支払う前に試すことができます。</strong>拡大はきわめて個人的なもので、拡大ソフトが<em>あなたの</em>目にどう感じられるかは、どんな機能表よりも重要です。ぜひ試してみてください。</p>
+
+                    <h2>どれを選べばよいか</h2>
+                    <ul>
+                        <li><strong>まだどの拡大ソフトも試していない</strong> — すでにお使いのPCに入っている<strong>Windows Magnifier</strong>（拡大鏡）を使ってください。<code>Windows key</code> + <code>Plus</code>を押します。費用はかからず、それだけで十分かもしれません。</li>
+                        <li><strong>画面を読み上げてほしい、または点字を使う</strong> — <strong>ZoomText Magnifier/Reader</strong>、<strong>SuperNova</strong>、またはスクリーンリーダーが必要です。Low Vision Zoomには音声も点字対応も一切ありません。</li>
+                        <li><strong>5倍を超える拡大が必要</strong> — Low Vision Zoomは5倍で止まります。Windows Magnifier、ZoomText、SuperNovaはいずれも、はるかに高い倍率まで対応します。</li>
+                        <li><strong>カラーフィルター、コントラストの反転、フォーカスの強調表示が必要</strong> — Windows Magnifierにはこの一部が無料で備わっており、ZoomTextとSuperNovaにはさらに多くの機能があります。Low Vision Zoomにはこれらは一切ありません。</li>
+                        <li><strong>無料のサードパーティ製の選択肢が欲しい</strong> — <strong>Magnifixer</strong>は無料で、反転表示やカラーモードを備えた拡大ウィンドウを提供します。</li>
+                        <li><strong>おもに、作業しながら絶えず拡大・縮小したいのに、今それがぎくしゃくして煩わしいと感じている</strong> — これはLow Vision Zoomがまさに作られた場面です。カーソルのまわりをなめらかに拡大し、設定はなく、$9.99の一度きりのお支払いです。<a href="/ja/index.html#demo">デモを見て</a>、無料トライアルをお試しください。</li>
+                    </ul>
+
+                    <h2>機能の比較</h2>
+                    <p>「提供元にご確認ください」と記した欄は、他者に代わって私たちが又聞きで断言したくない事項です — 確かな答えは、製品見出しのリンクからご確認ください。</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="機能の比較表">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Windows向け画面拡大ソフト5製品の機能比較</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">どんな製品か</th>
+                                    <td>単一目的のズームユーティリティ</td>
+                                    <td>Windowsに内蔵された拡大鏡</td>
+                                    <td>ロービジョン向けの総合スイート</td>
+                                    <td>ロービジョン向けの総合スイート</td>
+                                    <td>無料の拡大ウィンドウ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ライセンス形態</th>
+                                    <td>$9.99の買い切り、アップデート込み</td>
+                                    <td>無料 — Windowsに付属</td>
+                                    <td>年間ライセンス（提供元にご確認ください）</td>
+                                    <td>エディションごとのライセンス（提供元にご確認ください）</td>
+                                    <td>無料</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">最大拡大率</th>
+                                    <td>5倍</td>
+                                    <td>最大1600%（16倍）</td>
+                                    <td>最大36倍</td>
+                                    <td>高倍率 — 提供元にご確認ください</td>
+                                    <td>提供元にご確認ください</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ズームの変え方</th>
+                                    <td>Ctrl + マウスホイール、またはCtrl + Alt + Plus / Minus。連続的で比例的 — 表示は新しい倍率に切り替わるのではなく、なめらかに近づいていきます</td>
+                                    <td>Windows key + Plus / Minus、またはツールバー。決められた段階を1つずつ進みます。刻み幅は設定できます</td>
+                                    <td>キーボードショートカットとツールバー。段階式の拡大率 — 提供元にご確認ください</td>
+                                    <td>キーボードショートカットとコントロールパネル。段階式の拡大率 — 提供元にご確認ください</td>
+                                    <td>専用ウィンドウ内で調整できるズーム</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ズームの中心</th>
+                                    <td>マウスカーソルの真下の点。表示がそのまわりで拡大する間、その点は固定されたままです</td>
+                                    <td>マウス、キーボードフォーカス、テキストカーソル、またはNarrator（ナレーター）に追従 — お好みで選べます</td>
+                                    <td>マウス、フォーカス、カーソルに追従 — 提供元にご確認ください</td>
+                                    <td>マウス、フォーカス、カーソルに追従 — 提供元にご確認ください</td>
+                                    <td>指し示した領域</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">テキストの読み上げ</th>
+                                    <td>いいえ</td>
+                                    <td>はい — 読み上げ操作あり</td>
+                                    <td>はい、Magnifier/Readerエディションで</td>
+                                    <td>はい、SpeechおよびScreen Readerエディションで</td>
+                                    <td>いいえ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">フル機能のスクリーンリーダー</th>
+                                    <td>いいえ</td>
+                                    <td>NarratorがWindowsに別途付属しています</td>
+                                    <td>JAWSとのFusionバンドルで利用可能</td>
+                                    <td>はい、Screen Readerエディションで</td>
+                                    <td>いいえ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">点字対応</th>
+                                    <td>いいえ</td>
+                                    <td>Narrator経由で</td>
+                                    <td>提供元にご確認ください</td>
+                                    <td>はい、上位エディションで</td>
+                                    <td>いいえ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">カラーフィルター、コントラスト、反転</th>
+                                    <td>いいえ</td>
+                                    <td>はい — 色の反転</td>
+                                    <td>はい — 豊富なフィルターと強調表示</td>
+                                    <td>はい — モニターごとの設定を含め豊富に</td>
+                                    <td>はい — 反転表示とカラーモード</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">高倍率でのテキストの平滑化</th>
+                                    <td>いいえ — ピクセルを拡大します</td>
+                                    <td>はい — 平滑化オプション</td>
+                                    <td>はい — xFontレンダリング</td>
+                                    <td>はい — True Fonts</td>
+                                    <td>はい — 平滑化フィルター</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">複数モニター</th>
+                                    <td>はい — 一続きのデスクトップとして、画面をまたいで付いてきます</td>
+                                    <td>はい</td>
+                                    <td>はい — 提供元にご確認ください</td>
+                                    <td>はい — モニターごとに独立した倍率</td>
+                                    <td>提供元にご確認ください</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">設定する項目</th>
+                                    <td>なし — 動作はあらかじめ調整され固定されています</td>
+                                    <td>いくつか</td>
+                                    <td>多数</td>
+                                    <td>多数</td>
+                                    <td>いくつか</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">オフラインで動作、アカウント不要</th>
+                                    <td>はい — ライセンスはお使いのデバイス上で確認されます</td>
+                                    <td>はい</td>
+                                    <td>提供元にご確認ください</td>
+                                    <td>提供元にご確認ください</td>
+                                    <td>提供元にご確認ください</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">収集するデータ</th>
+                                    <td>なし — <a href="/privacy.html">プライバシーポリシー（英語）</a></td>
+                                    <td>Microsoftのプライバシーに関する声明をご覧ください</td>
+                                    <td>提供元にご確認ください</td>
+                                    <td>提供元にご確認ください</td>
+                                    <td>提供元にご確認ください</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">プラットフォーム</th>
+                                    <td>Windows 10および11、64ビット（x64）</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">Low Vision Zoomを買わない方がよい理由</h2>
+                    <p>私たちは、あなたが$9.99を、役に立たないものではなく役に立つものに使ってほしいと思っています。次のいずれかに当てはまる場合は、Low Vision Zoomを買わないでください:</p>
+                    <ul>
+                        <li><strong>5倍を超える拡大が必要。</strong>これはアプリの動かせない上限であり、設定ではありません。5倍で足りないなら、この製品のどの部分もお役に立ちません。</li>
+                        <li><strong>音声が必要。</strong>テキスト読み上げも、文書リーダーも、スクリーンリーダーもありません。いずれも$9.99の機能として予定されていません。</li>
+                        <li><strong>快適に読むために色の反転やコントラストフィルターが必要。</strong>Windows Magnifierはこれを無料で行いますが、私たちはまったく行いません。</li>
+                        <li><strong>高倍率で鮮明なテキストが必要。</strong>私たちは画面をそのまま拡大します。総合スイートはテキストを再描画して鮮明さを保ちます。高いズーム倍率では、その違いは大きく、重要です。</li>
+                        <li><strong>提供元のサポート、トレーニング、または調達ルートが必要。</strong>私たちはメールアドレスを1つ持つだけの、とても小さな会社です。正式なサポートが求められる職場での配慮には向きません。</li>
+                        <li><strong>マウスやトラックパッドを使わない。</strong>この設計は、拡大したいものを指し示すことを中心にしています。キーボードショートカットはありますが、キーボードだけで操作する方は、ほかの製品の方が向いています。</li>
+                        <li><strong>Windows on ARM、または32ビットのPCを使っている。</strong>現時点では対応していません。</li>
+                    </ul>
+
+                    <h2>そもそも拡大ソフトは必要ないかもしれません</h2>
+                    <p>何かを買う前に、すでにお使いの機器にある無料の選択肢を試してみる価値があります。多くの方にとっては、それで十分です:</p>
+                    <ul>
+                        <li><strong>すべてを恒久的に大きくする:</strong> Windowsの<em>設定 → システム → ディスプレイ → 拡大／縮小</em>。これを150%や175%にすると、追加のソフトなしで、あらゆる場所の文字とアイコンがすべて大きくなります。</li>
+                        <li><strong>文字だけを大きくする:</strong> Windowsの<em>設定 → アクセシビリティ → テキストのサイズ</em>。</li>
+                        <li><strong>Webページを拡大する:</strong> どのブラウザでも<code>Ctrl</code> + <code>Plus</code>。ピクセルを拡大するのではなく文字を折り返し直すので、Webページを読むにはたいてい、どの拡大ソフトよりも読みやすくなります。</li>
+                        <li><strong>内蔵の拡大鏡:</strong> <code>Windows key</code> + <code>Plus</code>。</li>
+                    </ul>
+                    <p>拡大ソフトは、あらゆるアプリで一日を通して詳細に出入りする必要があるときに適したツールです。本当に必要だったのが常に大きい文字であるなら、それは適さないツールです。</p>
+
+                    <h2>Low Vision Zoomが向いている場面</h2>
+                    <p>Low Vision Zoomが生まれたのは、その開発者がある特定の1つのことを望んだからです。それは、一日中絶えず拡大したり元に戻したりしても、そのたびに画面上で見ていた場所を見失わないことでした。段階的にではなく連続的に拡大し、カーソルの真下の点を軸に回るので、見ているものはその場にとどまり、カーソルが画面の中央あたりを動いている間は表示を静止させたままにします。設定するものは何もなく、キー1つとスクロールホイール以外に覚えることもありません。</p>
+                    <p>それが製品のすべてです。上の説明がまさにあなたの困りごとなら、<a href="/ja/index.html#get">7日間の無料トライアル</a>が、あなたの目に合うかどうかを数分で教えてくれます。もし合わなければ、このページのほかの製品のどれかがあなたにより役立つはずで、私たちはむしろそちらをご案内します。<a href="/ja/why-smooth-magnification.html">なめらかな拡大がなぜ目で追いやすいのか</a>について、さらにお読みいただくこともできますし、<a href="/ja/faq.html">よくある質問</a>もご覧いただけます。</p>
+
+                    <h2>出典</h2>
+                    <p>他社製品に関する記述は、各提供元自身の公開ページに基づき、2026年7月20日に確認しました:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — 拡大鏡を使って画面上のものを見やすくする</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows、Windows Magnifier、NarratorはMicrosoftの製品です。ZoomTextとJAWSはFreedom Scientific / Visperoの製品です。SuperNovaはDolphin Computer Accessの製品です。MagnifixerはBlacksun Softwareの製品です。私たちはこれらのいずれとも提携関係になく、推奨も後援も受けておらず、これらの名称は各社の製品を特定する目的でのみ使用しています。このページの内容がご自身の製品を誤って伝えていると思われる場合は、<a href="/ja/contact.html">お知らせください</a>。訂正します。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>決める前にお試しください</h2>
+                <p>7日間無料トライアル · $9.99の買い切り · サブスクなし · アカウント不要</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ja.svg" alt="Microsoft Store で入手">
+                    </a>
+                    <a href="/ja/index.html#get" data-download class="download-direct">またはこのサイトからインストーラーを直接ダウンロード（.msi）</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom は Windows 10 および 11 向けの画面拡大ソフトです。マウスカーソルを中心に、なめらかに最大5倍まで拡大します。買い切りで $9.99 です。Microsoft Store または MSI の直接ダウンロードで入手できます。オフラインで動作し、データを収集しません。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows向けの落ち着いた画面拡大ソフト。txtbook&nbsp;LLCの製品です。</p>
+                </div>
+                <div>
+                    <h4>製品</h4>
+                    <ul>
+                        <li><a href="/ja/index.html#why">選ばれる理由</a></li>
+                        <li><a href="/ja/index.html#how">使い方</a></li>
+                        <li><a href="/ja/pricing.html">価格</a></li>
+                        <li><a href="/ja/compare.html" aria-current="page">拡大ソフトを比較</a></li>
+                        <li><a href="/ja/faq.html">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>法的情報</h4>
+                    <ul>
+                        <li><a href="/privacy.html">プライバシー（英語）</a></li>
+                        <li><a href="/terms.html">利用規約（英語）</a></li>
+                        <li><a href="/refund.html">返金ポリシー（英語）</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>サポート</h4>
+                    <ul>
+                        <li><a href="/ja/contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

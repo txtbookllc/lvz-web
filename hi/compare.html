@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Windows स्क्रीन मैग्निफायरों की एक ईमानदार तुलना: Low Vision Zoom, अंतर्निहित Windows Magnifier, ZoomText, SuperNova और Magnifixer — हर एक क्या करता है, किसके लिए उपयुक्त है, और कब हमारा न चुनें।">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom बनाम Windows Magnifier, ZoomText और SuperNova",
+      "description": "Windows के लिए स्क्रीन मैग्निफायरों की आमने-सामने तुलना: अंतर्निहित Windows Magnifier, ZoomText, SuperNova, Magnifixer और Low Vision Zoom — साथ में यह भी कि हर एक किसके लिए उपयुक्त है और Low Vision Zoom न चुनने के कारण।",
+      "url": "https://lowvisionzoom.com/hi/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "hi",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "स्क्रीन मैग्निफिकेशन सॉफ़्टवेयर" },
+        { "@type": "Thing", "name": "कम दृष्टि के लिए सहायक तकनीक" },
+        { "@type": "Thing", "name": "Windows सुलभता" }
+      ]
+    }
+    </script>
+    <title>Windows के लिए स्क्रीन मैग्निफायरों की तुलना | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">सीधे सामग्री पर जाएँ</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/hi/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="मुख्य">
+                <a href="/hi/index.html#demo">डेमो देखें</a>
+                <a href="/hi/index.html#how">यह कैसे काम करता है</a>
+                <a href="/hi/index.html#why">यह बेहतर क्यों है</a>
+                <a href="/hi/pricing.html">कीमत</a>
+                <a href="/hi/index.html#get" data-download class="btn btn-secondary btn-nav">डाउनलोड</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="भाषा: हिन्दी">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>हिन्दी</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi" aria-current="true">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">तुलना</span>
+                <h1>Windows के लिए स्क्रीन मैग्निफायर</h1>
+                <p class="updated">प्रतिस्पर्धियों का विवरण 20 जुलाई 2026 को सत्यापित किया गया</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>अगर आपने पहले कभी कोई मैग्निफायर नहीं आज़माया है, तो उसी से शुरू करें जो पहले से Windows में अंतर्निहित है। यह मुफ़्त है। अगर आपको अपना कंप्यूटर ज़ोर से पढ़कर सुनाया जाना चाहिए, या बहुत ऊँचे मैग्निफिकेशन की ज़रूरत है, या ब्रेल की ज़रूरत है, तो आपको <strong>ZoomText</strong> या <strong>SuperNova</strong> जैसी एक पूर्ण सहायक-तकनीक सुइट चाहिए, और <strong>Low Vision Zoom आपके लिए पर्याप्त नहीं होगा</strong>। Low Vision Zoom एक छोटा, सस्ता उपकरण है जो एक ही काम करता है: 5× तक सहज, कर्सर-केंद्रित मैग्निफिकेशन, जिसमें कॉन्फ़िगर करने को कुछ नहीं।</p>
+                    </div>
+
+                    <h2>यह किसने लिखा है, और इसे कैसे पढ़ें</h2>
+                    <p>Low Vision Zoom हम बनाते हैं, इसलिए इस पृष्ठ को वैसे ही लें जैसे आप किसी भी ऐसी तुलना को लेते जिसे उसमें शामिल किसी एक पक्ष ने लिखा हो। हमने तीन ठोस तरीकों से निष्पक्ष रहने की कोशिश की है: किसी दूसरे उत्पाद के बारे में हर दावा उसी विक्रेता के अपने सार्वजनिक दस्तावेज़ों से आता है और उसी से लिंक करता है; सूचीबद्ध हर उत्पाद में कम-से-कम एक चीज़ ऐसी है जिसे वह हमसे बेहतर करता है; और नीचे <a href="#not-for-you">Low Vision Zoom न खरीदने के कारण</a> पर एक अनुभाग है।</p>
+                    <p>हम जानबूझकर प्रतिस्पर्धियों की कीमतें संख्याओं के रूप में सूचीबद्ध नहीं करते। सहायक-तकनीक की कीमतें बदलती रहती हैं, देश के अनुसार अलग होती हैं, और अक्सर व्यक्तियों, स्कूलों और नियोक्ताओं के लिए भिन्न होती हैं — यहाँ नकल की गई कोई संख्या जल्द ही पुरानी पड़ जाएगी। हम हर उत्पाद का <em>लाइसेंसिंग मॉडल</em> सूचीबद्ध करते हैं और विक्रेता से लिंक करते हैं ताकि आप वर्तमान कीमत खुद जाँच सकें।</p>
+                    <p>इस पृष्ठ की सबसे ज़रूरी सलाह: <strong>यहाँ हर उत्पाद को भुगतान करने से पहले आज़माया जा सकता है।</strong> मैग्निफिकेशन बेहद निजी चीज़ है, और किसी भी सुविधा-तालिका से ज़्यादा यह मायने रखता है कि एक मैग्निफायर <em>आपकी</em> आँखों को कैसा महसूस होता है। उन्हें आज़माएँ।</p>
+
+                    <h2>आपको कौन-सा चुनना चाहिए?</h2>
+                    <ul>
+                        <li><strong>आपने अभी तक कोई मैग्निफायर नहीं आज़माया है</strong> — उसी <strong>Windows Magnifier</strong> का उपयोग करें जो पहले से आपके PC पर है। <code>Windows key</code> + <code>Plus</code> दबाएँ। इसकी कोई कीमत नहीं और शायद आपको बस इतने की ही ज़रूरत हो।</li>
+                        <li><strong>आपको अपनी स्क्रीन ज़ोर से पढ़कर सुनाई जानी चाहिए, या आप ब्रेल का उपयोग करते हैं</strong> — आपको <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong>, या एक स्क्रीन रीडर चाहिए। Low Vision Zoom में न कोई वाक् (speech) है और न ब्रेल समर्थन।</li>
+                        <li><strong>आपको 5× से अधिक मैग्निफिकेशन चाहिए</strong> — Low Vision Zoom 5× पर रुक जाता है। Windows Magnifier, ZoomText और SuperNova सभी इससे कहीं ऊँचे जाते हैं।</li>
+                        <li><strong>आपको रंग फ़िल्टर, कंट्रास्ट उलटाव, या फ़ोकस हाइलाइटिंग चाहिए</strong> — Windows Magnifier में इसमें से कुछ मुफ़्त है; ZoomText और SuperNova में इससे कहीं ज़्यादा है। Low Vision Zoom में इनमें से कुछ नहीं।</li>
+                        <li><strong>आप एक मुफ़्त थर्ड-पार्टी विकल्प चाहते हैं</strong> — <strong>Magnifixer</strong> मुफ़्त है और उलटे प्रदर्शन तथा रंग मोड के साथ एक मैग्निफायर विंडो देता है।</li>
+                        <li><strong>आप मुख्य रूप से काम करते समय लगातार ज़ूम इन और आउट करना चाहते हैं, और आज आपको यह उछलता या झंझट भरा लगता है</strong> — यही वह ख़ास स्थिति है जिसके लिए Low Vision Zoom बनाया गया था। यह आपके कर्सर के चारों ओर सहजता से बड़ा करता है, इसमें कोई सेटिंग नहीं, और इसकी कीमत एक बार $9.99 है। <a href="/hi/index.html#demo">डेमो देखें</a> और मुफ़्त ट्रायल आज़माएँ।</li>
+                    </ul>
+
+                    <h2>सुविधा तुलना</h2>
+                    <p>“विक्रेता से जानकारी लें” चिह्नित कक्ष वे बातें हैं जिन्हें हम किसी और की ओर से दूसरे मुँह से नहीं कहना चाहते — आधिकारिक उत्तर के लिए उत्पाद के शीर्षक में दिए लिंक का अनुसरण करें।</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="सुविधा तुलना तालिका">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">पाँच Windows स्क्रीन मैग्निफायरों की सुविधा तुलना</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">यह क्या है</th>
+                                    <td>एक एकल-उद्देश्य ज़ूम यूटिलिटी</td>
+                                    <td>Windows में अंतर्निहित मैग्निफायर</td>
+                                    <td>एक पूर्ण लो-विज़न सुइट</td>
+                                    <td>एक पूर्ण लो-विज़न सुइट</td>
+                                    <td>एक मुफ़्त मैग्निफायर विंडो</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">लाइसेंसिंग मॉडल</th>
+                                    <td>एक बार $9.99, अपडेट शामिल</td>
+                                    <td>मुफ़्त — Windows के साथ शामिल</td>
+                                    <td>वार्षिक लाइसेंस (विक्रेता से जानकारी लें)</td>
+                                    <td>संस्करण के अनुसार लाइसेंस (विक्रेता से जानकारी लें)</td>
+                                    <td>मुफ़्त</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">अधिकतम मैग्निफिकेशन</th>
+                                    <td>5×</td>
+                                    <td>1600% तक (16×)</td>
+                                    <td>36× तक</td>
+                                    <td>ऊँचा — विक्रेता से जानकारी लें</td>
+                                    <td>विक्रेता से जानकारी लें</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">आप ज़ूम कैसे बदलते हैं</th>
+                                    <td>Ctrl + माउस व्हील, या Ctrl + Alt + Plus / Minus। लगातार और आनुपातिक — दृश्य नए स्तर पर सहजता से पहुँचता है, बजाय उस पर एकाएक चले जाने के</td>
+                                    <td>Windows key + Plus / Minus, या टूलबार। तय स्तरों में चरणबद्ध चलता है; चरण का आकार कॉन्फ़िगर किया जा सकता है</td>
+                                    <td>कीबोर्ड शॉर्टकट और टूलबार; चरणबद्ध मैग्निफिकेशन स्तर — विक्रेता से जानकारी लें</td>
+                                    <td>कीबोर्ड शॉर्टकट और कंट्रोल पैनल; चरणबद्ध मैग्निफिकेशन स्तर — विक्रेता से जानकारी लें</td>
+                                    <td>अपनी अलग विंडो में समायोज्य ज़ूम</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ज़ूम किस पर केंद्रित होता है</th>
+                                    <td>आपके माउस कर्सर के नीचे का बिंदु, जो स्थिर रहता है जबकि दृश्य उसके चारों ओर बड़ा होता है</td>
+                                    <td>माउस, कीबोर्ड फ़ोकस, टेक्स्ट कर्सर, या Narrator का अनुसरण करता है — आपकी पसंद</td>
+                                    <td>माउस, फ़ोकस और कर्सर का अनुसरण करता है — विक्रेता से जानकारी लें</td>
+                                    <td>माउस, फ़ोकस और कर्सर का अनुसरण करता है — विक्रेता से जानकारी लें</td>
+                                    <td>जिस क्षेत्र पर आप इशारा करते हैं</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">टेक्स्ट ज़ोर से पढ़ता है</th>
+                                    <td>नहीं</td>
+                                    <td>हाँ — पठन नियंत्रण मौजूद हैं</td>
+                                    <td>हाँ, Magnifier/Reader संस्करण में</td>
+                                    <td>हाँ, Speech और Screen Reader संस्करणों में</td>
+                                    <td>नहीं</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">पूर्ण स्क्रीन रीडर</th>
+                                    <td>नहीं</td>
+                                    <td>Narrator Windows के साथ अलग से शामिल है</td>
+                                    <td>JAWS के साथ Fusion बंडल में उपलब्ध</td>
+                                    <td>हाँ, Screen Reader संस्करण में</td>
+                                    <td>नहीं</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ब्रेल समर्थन</th>
+                                    <td>नहीं</td>
+                                    <td>Narrator के माध्यम से</td>
+                                    <td>विक्रेता से जानकारी लें</td>
+                                    <td>हाँ, ऊँचे संस्करणों में</td>
+                                    <td>नहीं</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">रंग फ़िल्टर, कंट्रास्ट, उलटाव</th>
+                                    <td>नहीं</td>
+                                    <td>हाँ — रंग उलटाव</td>
+                                    <td>हाँ — विस्तृत फ़िल्टर और संवर्द्धन</td>
+                                    <td>हाँ — विस्तृत, प्रति-मॉनिटर सेटिंग सहित</td>
+                                    <td>हाँ — उलटा प्रदर्शन और रंग मोड</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ऊँचे ज़ूम पर टेक्स्ट स्मूदिंग</th>
+                                    <td>नहीं — पिक्सेल बड़े करता है</td>
+                                    <td>हाँ — स्मूदिंग विकल्प</td>
+                                    <td>हाँ — xFont रेंडरिंग</td>
+                                    <td>हाँ — True Fonts</td>
+                                    <td>हाँ — स्मूदिंग फ़िल्टर</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">एकाधिक मॉनिटर</th>
+                                    <td>हाँ — एक सतत डेस्कटॉप, स्क्रीनों के बीच आपका अनुसरण करता है</td>
+                                    <td>हाँ</td>
+                                    <td>हाँ — विक्रेता से जानकारी लें</td>
+                                    <td>हाँ — प्रति मॉनिटर स्वतंत्र स्तर</td>
+                                    <td>विक्रेता से जानकारी लें</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">कॉन्फ़िगर करने के लिए सेटिंग</th>
+                                    <td>कोई नहीं — व्यवहार पहले से ट्यून किया हुआ और तय है</td>
+                                    <td>कई</td>
+                                    <td>विस्तृत</td>
+                                    <td>विस्तृत</td>
+                                    <td>कई</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ऑफ़लाइन काम करता है, कोई खाता नहीं</th>
+                                    <td>हाँ — लाइसेंस आपके डिवाइस पर जाँचा जाता है</td>
+                                    <td>हाँ</td>
+                                    <td>विक्रेता से जानकारी लें</td>
+                                    <td>विक्रेता से जानकारी लें</td>
+                                    <td>विक्रेता से जानकारी लें</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">एकत्र किया गया डेटा</th>
+                                    <td>कोई नहीं — <a href="/privacy.html">गोपनीयता नीति (अंग्रेज़ी में)</a></td>
+                                    <td>Microsoft का गोपनीयता कथन देखें</td>
+                                    <td>विक्रेता से जानकारी लें</td>
+                                    <td>विक्रेता से जानकारी लें</td>
+                                    <td>विक्रेता से जानकारी लें</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">प्लेटफ़ॉर्म</th>
+                                    <td>Windows 10 और 11, 64-बिट (x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">Low Vision Zoom न खरीदने के कारण</h2>
+                    <p>हम चाहेंगे कि आप अपने $9.99 किसी ऐसी चीज़ पर खर्च करें जो आपकी मदद करे, न कि किसी ऐसी चीज़ पर जो न करे। Low Vision Zoom मत खरीदिए अगर इनमें से कोई भी बात लागू होती है:</p>
+                    <ul>
+                        <li><strong>आपको 5× से अधिक मैग्निफिकेशन चाहिए।</strong> यह ऐप में एक कठोर सीमा है, कोई सेटिंग नहीं। अगर 5× आपके लिए पर्याप्त नहीं है, तो इस उत्पाद का कोई भी हिस्सा आपकी मदद नहीं करेगा।</li>
+                        <li><strong>आपको वाक् (speech) चाहिए।</strong> इसमें न कोई टेक्स्ट-टू-स्पीच है, न दस्तावेज़ रीडर, और न स्क्रीन रीडर। इनमें से कुछ भी $9.99 वाली सुविधा के रूप में नियोजित नहीं है।</li>
+                        <li><strong>आपको आराम से पढ़ने के लिए रंग उलटाव या कंट्रास्ट फ़िल्टर चाहिए।</strong> Windows Magnifier यह मुफ़्त में करता है; हम इसे बिल्कुल नहीं करते।</li>
+                        <li><strong>आपको ऊँचे मैग्निफिकेशन पर तीखा टेक्स्ट चाहिए।</strong> हम स्क्रीन को जैसी है वैसा ही बड़ा करते हैं; सुइट टेक्स्ट को फिर से रेंडर करते हैं ताकि वह तीखा बना रहे। ऊँचे ज़ूम स्तरों पर यह अंतर बड़ा होता है और यह मायने रखता है।</li>
+                        <li><strong>आपको विक्रेता समर्थन, प्रशिक्षण, या एक खरीद-प्रक्रिया (procurement) मार्ग चाहिए।</strong> हम एक ईमेल पते वाली बहुत छोटी कंपनी हैं। औपचारिक समर्थन आवश्यकता वाली कार्यस्थल-अनुकूलन के लिए यह ठीक नहीं बैठता।</li>
+                        <li><strong>आप माउस या ट्रैकपैड का उपयोग नहीं करते।</strong> डिज़ाइन इस बात पर केंद्रित है कि आप जिसे बड़ा करना चाहते हैं उस पर इशारा करें। कीबोर्ड शॉर्टकट हैं, लेकिन केवल-कीबोर्ड उपयोगकर्ता के लिए कहीं और बेहतर सेवा मिलेगी।</li>
+                        <li><strong>आप Windows on ARM पर, या 32-बिट PC पर हैं।</strong> आज समर्थित नहीं है।</li>
+                    </ul>
+
+                    <h2>शायद आपको किसी मैग्निफायर की ज़रूरत ही न हो</h2>
+                    <p>कुछ भी खरीदने से पहले, अपने कंप्यूटर पर पहले से मौजूद मुफ़्त विकल्पों को आज़माना सार्थक है। कई लोगों के लिए वे पर्याप्त हैं:</p>
+                    <ul>
+                        <li><strong>हर चीज़ को स्थायी रूप से बड़ा करें:</strong> Windows <em>Settings → System → Display → Scale</em>। इसे 150% या 175% पर सेट करने से हर जगह सारा टेक्स्ट और आइकन बड़े हो जाते हैं, बिना किसी अतिरिक्त सॉफ़्टवेयर के।</li>
+                        <li><strong>केवल टेक्स्ट को बड़ा करें:</strong> Windows <em>Settings → Accessibility → Text size</em>।</li>
+                        <li><strong>किसी वेब पेज को ज़ूम करें:</strong> किसी भी ब्राउज़र में <code>Ctrl</code> + <code>Plus</code>, जो पिक्सेल बड़े करने के बजाय टेक्स्ट को फिर से बहाता (reflow) है — वेब पेज पढ़ने के लिए यह आमतौर पर किसी भी मैग्निफायर से ज़्यादा पठनीय होता है।</li>
+                        <li><strong>अंतर्निहित मैग्निफायर:</strong> <code>Windows key</code> + <code>Plus</code>।</li>
+                    </ul>
+                    <p>मैग्निफायर तब सही उपकरण है जब आपको दिन भर हर एप्लिकेशन में विवरण के अंदर-बाहर आना-जाना पड़े। यह तब ग़लत उपकरण है जब आपको दरअसल हर समय बड़े टेक्स्ट की ही ज़रूरत थी।</p>
+
+                    <h2>Low Vision Zoom कहाँ फिट बैठता है</h2>
+                    <p>Low Vision Zoom इसलिए मौजूद है क्योंकि इसके डेवलपर को एक ख़ास चीज़ चाहिए थी: लगातार, पूरे दिन, ज़ूम इन और वापस आउट करना, बिना हर बार स्क्रीन पर अपनी जगह खोए। यह चरणों में नहीं बल्कि लगातार बड़ा करता है, कर्सर के नीचे के बिंदु के चारों ओर घूमता है ताकि आप जिसे देख रहे हैं वह अपनी जगह टिका रहे, और जब आपका कर्सर स्क्रीन के बीच में घूमता है तब दृश्य को स्थिर रखता है। सेट अप करने को कुछ नहीं और एक कुंजी तथा स्क्रॉल व्हील से आगे सीखने को कुछ नहीं।</p>
+                    <p>यही पूरा उत्पाद है। अगर ऊपर दिया विवरण आपकी समस्या है, तो <a href="/hi/index.html#get">7 दिन का मुफ़्त ट्रायल</a> कुछ ही मिनटों में बता देगा कि यह आपकी आँखों के लिए काम करता है या नहीं। अगर नहीं, तो इस पृष्ठ के अन्य उत्पादों में से कोई आपको बेहतर सेवा देगा, और हम बल्कि आपको उसी की ओर इशारा करना चाहेंगे। आप इस बारे में और पढ़ सकते हैं कि <a href="/hi/why-smooth-magnification.html">सहज मैग्निफिकेशन का अनुसरण करना आसान क्यों है</a>, या <a href="/hi/faq.html">अक्सर पूछे जाने वाले प्रश्न</a> देख सकते हैं।</p>
+
+                    <h2>स्रोत</h2>
+                    <p>अन्य उत्पादों के बारे में दावे उनके विक्रेताओं के अपने सार्वजनिक पृष्ठों से आते हैं, जो 20 जुलाई 2026 को जाँचे गए:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — स्क्रीन पर चीज़ों को देखना आसान बनाने के लिए Magnifier का उपयोग करें</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows, Windows Magnifier और Narrator, Microsoft के उत्पाद हैं। ZoomText और JAWS, Freedom Scientific / Vispero के उत्पाद हैं। SuperNova, Dolphin Computer Access का एक उत्पाद है। Magnifixer, Blacksun Software का एक उत्पाद है। हम इनमें से किसी से भी संबद्ध नहीं हैं, न इनके द्वारा समर्थित हैं, और न इनके साथ भागीदार हैं, और हम इनके नामों का उपयोग केवल उनके उत्पादों की पहचान के लिए करते हैं। अगर आपको लगता है कि इस पृष्ठ पर कुछ भी आपके उत्पाद को ग़लत ढंग से प्रस्तुत करता है, तो <a href="/hi/contact.html">हमें बताएँ</a> और हम उसे सुधार देंगे।</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>फ़ैसला करने से पहले इसे आज़माएँ</h2>
+                <p>7 दिन का मुफ़्त ट्रायल · $9.99 एक बार · कोई सदस्यता नहीं · कोई खाता नहीं</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/hi.svg" alt="Microsoft Store से प्राप्त करें">
+                    </a>
+                    <a href="/hi/index.html#get" data-download class="download-direct">या इंस्टॉलर को सीधे इस साइट से डाउनलोड करें (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom, Windows 10 और 11 के लिए एक स्क्रीन मैग्निफायर है। यह माउस कर्सर पर केंद्रित होकर, सहजता से 5× तक बड़ा करता है। इसकी कीमत एक बार $9.99 है। यह Microsoft Store से या सीधे MSI डाउनलोड के रूप में उपलब्ध है। यह ऑफ़लाइन काम करता है और कोई डेटा एकत्र नहीं करता।</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows के लिए एक शांत स्क्रीन मैग्निफायर। txtbook&nbsp;LLC का एक उत्पाद।</p>
+                </div>
+                <div>
+                    <h4>उत्पाद</h4>
+                    <ul>
+                        <li><a href="/hi/index.html#why">यह बेहतर क्यों है</a></li>
+                        <li><a href="/hi/index.html#how">यह कैसे काम करता है</a></li>
+                        <li><a href="/hi/pricing.html">कीमत</a></li>
+                        <li><a href="/hi/compare.html" aria-current="page">मैग्निफायरों की तुलना</a></li>
+                        <li><a href="/hi/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>कानूनी</h4>
+                    <ul>
+                        <li><a href="/privacy.html">गोपनीयता (अंग्रेज़ी में)</a></li>
+                        <li><a href="/terms.html">सेवा की शर्तें (अंग्रेज़ी में)</a></li>
+                        <li><a href="/refund.html">रिफ़ंड नीति (अंग्रेज़ी में)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>सहायता</h4>
+                    <ul>
+                        <li><a href="/hi/contact.html">हमसे संपर्क करें</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

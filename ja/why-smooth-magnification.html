@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="なめらかな画面拡大ソフトが、飛ぶように動くものより目で追いやすい理由：空間恒常性、滑動性眼球運動、変化の見落としが、見ていた場所を見失う感覚をどう説明するか、そしてLow Vision Zoomがそれらをどう踏まえて設計されているか。">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "なめらかな拡大が、飛ぶ拡大よりも目で追いやすい理由",
+      "description": "なめらかに動く画面拡大ソフトが見ていた場所を保つ一方で、飛ぶように動くものはそれを探し直させる理由を、平易な言葉と出典とともに説明します — 空間恒常性、滑動性眼球運動、変化の見落としに基づいています。",
+      "url": "https://lowvisionzoom.com/ja/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "ja",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "画面拡大" },
+        { "@type": "Thing", "name": "ロービジョン" },
+        { "@type": "Thing", "name": "空間恒常性" },
+        { "@type": "Thing", "name": "滑動性眼球運動" },
+        { "@type": "Thing", "name": "変化の見落とし" }
+      ]
+    }
+    </script>
+    <title>なめらかな拡大が目で追いやすい理由 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">本文へスキップ</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ja/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="メイン">
+                <a href="/ja/index.html#demo">デモを見る</a>
+                <a href="/ja/index.html#how">使い方</a>
+                <a href="/ja/index.html#why">選ばれる理由</a>
+                <a href="/ja/pricing.html">価格</a>
+                <a href="/ja/index.html#get" data-download class="btn btn-secondary btn-nav">ダウンロード</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="言語: 日本語">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>日本語</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja" aria-current="true">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">なめらかさが大切な理由</span>
+                <h1>なめらかな拡大が、飛ぶ拡大よりも目で追いやすい理由</h1>
+                <p class="updated">出典付きの、平易な言葉による説明</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>ほとんどの画面拡大ソフトは、表示を突然の飛躍で動かします。飛ぶたびに、目と脳は止まり、どこを見ていたかを探し直し、はじめからやり直すことを強いられます。Low Vision Zoomは連続的に動きます — ズームにゆるやかに入り、あなたが指している点を軸に回り、パンするときはすべるように動くので、あなたの注意は大切なものへの手がかりを決して失いません。これは漠然とした心地よさの話ではありません。人間の視覚の仕組みについて、よく記録されたいくつもの性質と一致しています。</p>
+                    </div>
+
+                    <p>このページのいかなる内容も、医療的な主張ではありません。ここにあるのは、人間の視覚と、人間とコンピューターの相互作用について一般的に理解されている原理で、なめらかな拡大ソフトの方が、飛ぶものよりも一緒に過ごしやすい理由を説明するために用いています。ここで引用したどの研究も、Low Vision Zoomを対象に研究したものではありません。それらは、視覚とインターフェースの動きが一般にどう働くかを説明しています。</p>
+
+                    <h2>「見ていた場所を見失う」感覚には名前があります</h2>
+                    <p>拡大ソフトのせいで「自分がどこにいるか分からなくなる」と人が言うとき、それは現実のことを言い表しています。あなたの視覚系は、画面を写真のように蓄えているのではありません。ものがどこにあるかの内的な地図を絶えず保ち、選んだ一点に視線を固定し続けます。いくつもの仕組みがその地図を安定させています — そして拡大率の急な飛躍は、それらを一度にすべて壊してしまいます。</p>
+
+                    <h3>1. 空間恒常性</h3>
+                    <p>あなたの脳は、目が絶えず動いていても世界が安定して感じられるように、懸命に働いています。これは<strong>空間恒常性</strong>、または空間更新と呼ばれます。あなたが動くと、脳はすべてが最終的にどこへ来るはずかを予測し、地図をそっと整え続けます。なめらかで連続的な動きは、まさにその仕組みが扱うようにできている種類の入力です — 動きながら地図を更新できます。突然のテレポートは、補間する手がかりを何も与えないので、地図は無効になり、一から作り直さなければなりません。その作り直しが、「今どこへ行ったんだ?」という瞬間です。</p>
+                    <p>Low Vision Zoomは、決してテレポートしないことで空間恒常性を保ちます。拡大はおよそ3分の1秒かけて目標へゆるやかに近づき、パンは飛ぶのではなくすべるように動きます。あなたの内的な地図は、消されるのではなく、更新されます。</p>
+
+                    <h3>2. 滑動性眼球運動と、視線を固定し直すコスト</h3>
+                    <p>目には2通りの動き方があります。<strong>滑動性眼球運動（スムーズパスート）</strong>は、一定の速さで動く目標を連続的に追いかけます — 目はすべるように動き、目標に固定されたままです。<strong>サッカード（衝動性眼球運動）</strong>は、固視点の間を飛ぶ速く弾道的な跳躍で、サッカードの間は視覚が抑制されるため、その後、目は目標をとらえ直して合わせ直さなくてはなりません。</p>
+                    <p>飛ぶ拡大ソフトは、動くたびにサッカードと、とらえ直しを強います。視力が低下している人にとって、飛躍のあとで小さな目標を探し直すことは、鮮明な中心視を持つ人よりも遅く、確実性も低くなります。なめらかなズームは、代わりに目の滑動性の仕組みに仕事をさせます。動きに乗って固定を保てるので、見えないままの飛躍も、場所を探し直す手間もありません。Low Vision Zoomはこれを中心に作られています — 毎秒60フレームのアニメーションループにより、表示は常に、目が追いかけるのではなく乗っていける、小さく追える刻みで動きます。</p>
+
+                    <h3>3. 知覚の連続性 — 脳が同じ場面として扱う</h3>
+                    <p>ものがなめらかに動くと、脳はそれを、動いた1つの連続した物体として知覚します。同じ物体が代わりに消えて別の場所に現れると、脳は「これは同じものか、そして何が起きたのか?」を解き直さなくてはなりません。その解き直しには労力がかかり、<strong>変化の見落とし（チェンジ・ブラインドネス）</strong>を引き起こす典型的なきっかけになります。これは、視覚的な中断をまたいで起きた変化がまったく気づかれず、追っていたものを見失う現象です。</p>
+                    <p>Low Vision Zoomは連続性を保ちます。各フレームが直前からの小さな一歩であるため、拡大された内容は、古い画面に取って代わった新しい画面ではなく、同じ場面がなめらかに大きくなっていくものとして見えます。何も消えて現れ直さないので、見失うものもありません。</p>
+
+                    <h3>4. 固定された視覚的な基準点 — カーソルに向かって拡大する</h3>
+                    <p>これは「基準点を失う」ことへの最も直接的な答えです。Low Vision Zoomは、カーソルの真下にある点を軸にズームを回します — マウスのすぐ下にある内容はその場にとどまり、まわりのすべてが拡大します。多くの拡大ソフトは代わりに、画面の隅や中央に向かってズームし、それからパンして追いつくため、まさに見ていたものが、戻ってくる前に自分の下から滑り出てしまいます。</p>
+                    <p>ズームの間、あなたの注視点を固定したままにすることで、アプリは拡大の全体を通じて、視線がしがみつける安定した基準点を与えます。何を基準点にするかは、それを指し示すだけで決まります。あなたの固視点は動く必要がないので、それを通常は壊してしまう唯一の瞬間を通じて、空間恒常性と目の固定の両方が保たれます。</p>
+
+                    <h3>5. 予測でき、自分のペースで行える操作</h3>
+                    <p>脳が自ら始める動きは、押しつけられる動きよりも予測しやすいものです。Low Vision Zoomの<strong>Ctrl + スクロール</strong>は連続的で比例的です。ホイールを回した分だけ、回した速さでちょうど拡大でき、どこででも止め、逆にし、保つことができます。動きはあなたのものなので、予測できます — そして予測できる動きは、自分の判断で決められた倍率へガクッと動く拡大ソフトよりも、はるかに混乱を招きません。</p>
+
+                    <h2>これがロービジョンにとって特に重要な理由</h2>
+                    <p>中心視野が低下した状態で暮らす人は、急な拡大ソフトがそっと妨げてしまう工夫に頼っていることがよくあります:</p>
+                    <ul>
+                        <li><strong>偏心視と優先網膜部位。</strong>鮮明な中心視が低下すると、多くの人は少し中心を外して見ることを身につけ、網膜上の一定の優先的な点を、作業上の焦点として使います。飛躍のたびにその位置合わせをやり直すのは、現実の、繰り返される労力です。場所を探し直させることのない拡大ソフトなら、苦労して得たその位置合わせを保てます。</li>
+                        <li><strong>探し直しの負担。</strong>余裕のある視力が少ないほど、見えない飛躍のあとで小さな目標をとらえ直すコストは、完全に晴眼の人よりも高くなります。なめらかさは飛躍を取り除き、それとともに負担も取り除きます。</li>
+                        <li><strong>注意とワーキングメモリ。</strong>「今どこにいるんだ?」というリセットのたびに、本来は実際の作業 — 読む、書く、たどる — に使いたい注意とワーキングメモリが費やされます。なめらかな動きを難なく追う知覚系に追跡を委ねれば、その労力を作業そのものに使えるようになります。</li>
+                    </ul>
+                    <p>これらのいずれも、治療に関する主張ではありません。これは、ロービジョンでの見え方の仕組みに逆らうツールと、それに沿うように形づくられたツールとの違いです。</p>
+
+                    <h2>どの設計の選択も、同じ目標に役立っています</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="各機能が知覚上の原理にどう対応するか">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Low Vision Zoomの機能と、それぞれが役立つ知覚上の原理</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">機能</th>
+                                    <th scope="col">何をするか</th>
+                                    <th scope="col">役立つ原理</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">なめらかなアニメーションのズーム（約⅓秒のイーズアウト、60 fps）</th>
+                                    <td>拡大が、パッと切り替わるのではなく、目標へゆるやかに近づきます</td>
+                                    <td>空間恒常性、滑動性眼球運動、知覚の連続性</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ズームがカーソルを軸に回る</th>
+                                    <td>マウスの下の点が固定されたまま、まわりのすべてが拡大します</td>
+                                    <td>安定した視覚的な基準点。固視が移動させられることはありません</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">デッドゾーン付きのカーソル追従</th>
+                                    <td>カーソルが広い中央の帯を動き回る間は表示が静止し、端に近づいたときだけ — すべるように — パンします</td>
+                                    <td>無駄な動きなし。パンは滑動性眼球運動によるもので、決してテレポートではありません</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ctrl + スクロールの比例操作</th>
+                                    <td>ズーム倍率を、好きな速さで連続的に設定できます</td>
+                                    <td>自分のペースで、予測でき、自分で始める動き</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">デスクトップ全体、複数モニターの表示</th>
+                                    <td>ウィンドウごとに分かれた島ではなく、画面をまたいで付いてくる一続きの拡大空間</td>
+                                    <td>更新すべき空間の地図が、複数ではなく1つの一貫したもの</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">調整済みの初期設定、設定するものはなし</th>
+                                    <td>なめらかさ、速さ、デッドゾーンの感触は、あらかじめ調整され固定されています</td>
+                                    <td>なめらかな動作が初期状態であり、見つけ出して設定するものではありません</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>それが製品の背後にある考えのすべてです。人間の視覚系が追うようにできている動き方で動く拡大ソフトなので、ほかのものが場所を見失わせるところで、あなたをその場につなぎとめます。<a href="/ja/index.html#demo">実際の動作を見る</a>ことも、<a href="/ja/compare.html">ほかの拡大ソフトとの比較</a>を見ることも、<a href="/ja/index.html#get">7日間無料で試す</a>こともできます。</p>
+
+                    <h2>出典とさらに読むために</h2>
+                    <p>これらは、上で引用した一般的な原理についての、信頼できる、査読済みまたは権威ある機関が公表した出典です。人間の視覚とインターフェースの動きが一般にどう働くかを説明するもので — そのいずれもLow Vision Zoomを対象に研究したものではなく、いずれも、このアプリによる特定の結果の証拠として読まれるべきではありません。</p>
+
+                    <h3>空間恒常性と、眼球運動をまたいだ視覚の安定性</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — 速い眼球運動の間は視覚感度が低下し、この抑制は網膜で始まる。<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">読む</a>。</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — 眼球運動をまたいだ一連の画像から、脳がどのように統一された知覚像を作り上げるか。<a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">抄録</a>。</li>
+                    </ul>
+
+                    <h3>滑動性眼球運動 — 目の連続的な追跡の仕組み</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — 目は動く目標をなめらかに追跡し先読みし、自ら生み出した動きや現実的な目標の動きに対してより高い精度を示す。<a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">抄録</a>。</li>
+                    </ul>
+
+                    <h3>変化の見落とし — 視覚的な中断をまたいでものを見失う</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — 普段なら容易に気づくはずの大きな変化を見落とすという、驚くべき失敗。<a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">抄録</a>。</li>
+                        <li>Rensink, <em>Change Blindness</em>, in Neurobiology of Attention (Elsevier, 2005) — この効果は、眼球運動、まばたき、または短い明滅の間に変化を起こすことで誘発できる。<a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>。</li>
+                    </ul>
+
+                    <h3>中心視野の喪失、偏心視、そして優先網膜部位</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — 中心暗点のある人は、影響を受けた領域の外にある優先網膜部位を使い、その中心を外した見方を訓練することを偏心視訓練と呼ぶ。<a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">読む</a>。</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">抄録</a>。</li>
+                    </ul>
+
+                    <h3>ユーザーインターフェース設計における動きと連続性</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — 動きは、混乱を防ぎ、遷移を通じて利用者が文脈を見失わないよう助けることができる。<a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">読む</a>。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>なめらかさをご自身で確かめてください</h2>
+                <p>7日間無料トライアル · $9.99の買い切り · サブスクなし · アカウント不要</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ja.svg" alt="Microsoft Store で入手">
+                    </a>
+                    <a href="/ja/index.html#get" data-download class="download-direct">またはこのサイトからインストーラーを直接ダウンロード（.msi）</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows向けの落ち着いた画面拡大ソフト。txtbook&nbsp;LLCの製品です。</p>
+                </div>
+                <div>
+                    <h4>製品</h4>
+                    <ul>
+                        <li><a href="/ja/index.html#why">選ばれる理由</a></li>
+                        <li><a href="/ja/index.html#how">使い方</a></li>
+                        <li><a href="/ja/pricing.html">価格</a></li>
+                        <li><a href="/ja/compare.html">拡大ソフトを比較</a></li>
+                        <li><a href="/ja/faq.html">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>法的情報</h4>
+                    <ul>
+                        <li><a href="/privacy.html">プライバシー（英語）</a></li>
+                        <li><a href="/terms.html">利用規約（英語）</a></li>
+                        <li><a href="/refund.html">返金ポリシー（英語）</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>サポート</h4>
+                    <ul>
+                        <li><a href="/ja/contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Windowsでの画面拡大とLow Vision Zoomについてのよくある質問への回答：ズームの方法、Windows標準の拡大鏡やZoomTextとの比較、価格、無料トライアル、プライバシー、インストールについて。">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "ja",
+      "url": "https://lowvisionzoom.com/ja/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Windows向けの最高の画面拡大ソフトはどれですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "唯一の「最高」というものはありません。必要なものによって決まりますし、正しい最初の一歩は無料です。すべてのWindows PCにはすでにWindows Magnifierが付属しており（Windows keyとPlusを押すと起動します）、多くの人にとってはそれで十分です。画面を音声で読み上げてほしい、非常に高い倍率が必要、色フィルターや点字が必要という場合は、ZoomTextやSuperNovaのような本格的な支援技術スイートが適しています。設定不要で、なめらかに、落ち着いてカーソルに追従するズームが欲しいだけなら、Low Vision Zoomはまさにその用途のために作られており、$9.99の買い切りです。拡大の好みは人それぞれなので、支払う前にどのオプションも試してみてください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows Magnifierの代わりになるものはありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。Microsoft純正のWindows Magnifierのほかに、Windows向けのサードパーティ製拡大鏡としては、音声と読み上げツールを備えた本格的なロービジョン向けスイートであるZoomTextとSuperNova、無料のMagnifixer、そしてなめらかでカーソルに追従するズームに絞った小さな$9.99のユーティリティであるLow Vision Zoomがあります。人がこうした代替を探すのは、より滑らかな使い心地、マウスポインターを中心にしたズーム、あるいは標準ツールにはない音声や色の機能が欲しいときです。どの代替が合うかは、そのうちどれが必要かによって決まります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ZoomTextより安価な代替品はありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "どのZoomTextの機能を使っているかによります。ZoomTextは、音声、ドキュメントリーダー、豊富な色・フォーカス強調機能、非常に高い倍率を備えた本格的なロービジョン向けスイートで、通常は年間ライセンスとして販売されています。そうした読み上げや強調機能を使っているなら、正直なところ、より安価なツールではそれらを代替できません。主に、カーソルに追従するなめらかな拡大だけが欲しいのであれば、Low Vision Zoomはその一点に絞って買い切り$9.99で提供します——ただし音声も読み上げも色フィルターもなく、倍率は5倍までです。Windows Magnifierも無料で、多くの人が思っている以上に高機能です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoomはテキストを音声で読み上げますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "いいえ。Low Vision Zoomは拡大機能のみです。テキスト読み上げも、ドキュメントリーダーも、スクリーンリーダーもありません。画面を音声で読み上げてほしい場合は、ZoomText Magnifier/Reader、音声版またはスクリーンリーダー版のSuperNova、あるいは無料であるWindows標準のNarratorをご検討ください。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoomは、Windows標準の拡大鏡と何が違いますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifierは無料で標準搭載されており、高機能なので、多くの人はまずこれを試すべきです。Low Vision Zoomは機能の数ではなく、使い心地で差別化されています。ズームは段階的ではなく連続的で新しい倍率へなめらかに移行し、マウスカーソルの真下にある正確な一点を中心に拡大するため見ている場所がそのまま保たれ、カーソルが画面の中央あたりを動いている間は表示を静止させます。設定はなく、システムトレイに常駐します。またWindows Magnifierより劣る点もあります：音声がなく、色フィルターがなく、倍率は5倍までです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows 11でズームするにはどうすればいいですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windowsには標準の拡大鏡があります：Windows keyを押しながらPlusを押すと拡大、Minusで縮小、Windows keyとEscでオフになります。設定、システム、ディスプレイ、拡大率で画面全体を恒久的に大きくすることも、設定、アクセシビリティ、テキストサイズで文字だけを大きくすることもできます。Low Vision Zoomをインストールすると、Ctrlを押しながらマウスホイールを回すとWindowsのどこでもなめらかにズームでき、マウスホイールがない場合はCtrlとAltにPlusまたはMinusを組み合わせて使えます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "マウスホイールでズームできる拡大ソフトはありますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。Low Vision ZoomはCtrlとマウスホイールでズームします：Ctrlを押しながらホイールを前に回すと拡大、後ろに回すと縮小します。ズームは比例的で、ホイールを回した分だけ、回した速さで進み、ポインターの下の一点を中心に保ったままなめらかに新しい倍率へ移行します。Ctrl、Shift、スクロールダウンで瞬時に等倍へ戻ります。これがこのアプリの基本の使い方です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoomは複数モニターで使えますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。Windowsのデスクトップ全体を1つの連続した空間として拡大し、それぞれの画面を別々に扱うのではなく、モニターをまたいでカーソルに追従します。これはWindows標準の拡大鏡の全画面モードと同じ考え方です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "マウスホイールのないノートPCではどうやってズームしますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "キーボードを使います。CtrlとAltを押しながらPlusを押すと拡大、Minusを押すと縮小します。押し続けるとズームし続けます。Ctrl、Alt、0で等倍にリセットされます。マウスホイールも外付けマウスも不要なので、トラックパッドしかないノートPCでも使えます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ゲームや全画面動画でも動作しますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ほぼどこでも動作します。Low Vision Zoomは、Windowsデスクトップ全体を拡大するので、ブラウザ、メール、ドキュメント、ウィンドウ内で再生される動画、Windowsのシェル自体にも適用されます。例外は、通常のデスクトップを経由せず画面全体を排他的に制御するゲームやアプリで、その場合は拡大されないことがあります。そうしたゲームをウィンドウモードやボーダーレスウィンドウモードで実行すると、拡大機能が復活します。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoomは画面をどれくらい拡大できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最大5倍まで、0.5刻みで拡大できます。これは、小さく快適なズームツールとしてあえて設けた上限で、Windows標準の拡大鏡（最大16倍）やZoomTextのような本格スイート（最大36倍）よりも低い値です。5倍を超える倍率が必要な場合、Low Vision Zoomは適した選択肢ではありません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoomの価格はいくらですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "$9.99の買い切りライセンスで、今後のアップデートもすべて含まれます。サブスクリプションも、アカウントも、広告もありません。まずすべての機能を7日間無料でお試しいただけ、購入後には30日間の返金保証があります。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "無料トライアルが終わるとどうなりますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "アプリはそのまま動き続けます。7日間のトライアルが終わると、機能が停止するのではなく拡大率が制限されるだけなので、画面は操作や購入に困らない程度に常に読める状態を保ちます。いつでもライセンスキーを入力すれば、フルズームが即座に元に戻ります。再インストールは不要です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoomはデータを収集しますか？オフラインでも動作しますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "このアプリは個人データも、アナリティクスも、テレメトリも一切収集せず、完全にオフラインで動作します。画面の内容をキャプチャしたり送信したりすることもありません。ライセンスキーはお使いの端末上で確認され、アカウントも本国への問い合わせもありません。インターネットに接続するのは、トレイメニューから「アップデートを確認」を選んだときだけです。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoomをインストールすると、Windowsが警告を表示しますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "直接ダウンロードを利用した場合、表示されることがあります。インストーラーを初めて開くとき、Windowsが青い「WindowsによってPCが保護されました」というSmartScreenのメッセージを表示することがあります。これは新しいアプリでは普通のことで、安全です。インストーラーはtxtbook LLCによってデジタル署名されています。「詳細情報」をクリックし、発行元がtxtbook LLCであることを確認してから、「実行」をクリックしてください。この画面を完全に回避したい場合は、代わりにMicrosoft Storeからインストールしてください。ストア経由では警告は表示されません。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "システム要件を教えてください。",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low Vision ZoomはWindows 10およびWindows 11の64ビット（x64）で動作します。インストーラーは自己完結型なので、ほかに何もダウンロードする必要はありません。Windows on ARMと32ビットPCは現在サポートされていません。"
+          }
+        }
+      ]
+    }
+    </script>
+    <title>よくある質問 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">本文へスキップ</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ja/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="メイン">
+                <a href="/ja/index.html#demo">デモを見る</a>
+                <a href="/ja/index.html#how">使い方</a>
+                <a href="/ja/index.html#why">選ばれる理由</a>
+                <a href="/ja/pricing.html">価格</a>
+                <a href="/ja/index.html#get" data-download class="btn btn-secondary btn-nav">ダウンロード</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="言語: 日本語">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>日本語</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja" aria-current="true">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">よくある質問</span>
+                <h1>よくある質問</h1>
+                <p class="updated">Windowsでの画面拡大と、Low Vision Zoomがどう役立つか</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">拡大ソフトを選ぶ</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Windows向けの最高の画面拡大ソフトはどれですか？</summary>
+                            <div class="faq-body">
+                                <p>唯一の「最高」というものはありません。必要なものによって決まりますし、正しい最初の一歩は無料です。すべてのWindows PCにはすでに<strong>Windows Magnifier</strong>が付属しており（<code>Windows key</code> + <code>Plus</code>を押すと起動します）、多くの人にとってはそれで十分です。画面を音声で読み上げてほしい、非常に高い倍率が必要、色フィルターや点字が必要という場合は、<strong>ZoomText</strong>や<strong>SuperNova</strong>のような本格的な支援技術スイートが適しています。設定不要で、なめらかに、落ち着いてカーソルに追従するズームが欲しいだけなら、<strong>Low Vision Zoom</strong>はまさにその用途のために作られており、$9.99の買い切りです。拡大の好みは人それぞれなので、支払う前にどのオプションも試してみてください。<a href="/ja/compare.html">正直な比較</a>もご覧ください。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Windows Magnifierの代わりになるものはありますか？</summary>
+                            <div class="faq-body">
+                                <p>はい。Microsoft純正のWindows Magnifierのほかに、Windows向けのサードパーティ製拡大鏡としては、音声と読み上げツールを備えた本格的なロービジョン向けスイートである<strong>ZoomText</strong>と<strong>SuperNova</strong>、無料の<strong>Magnifixer</strong>、そしてなめらかでカーソルに追従するズームに絞った小さな$9.99のユーティリティである<strong>Low Vision Zoom</strong>があります。人がこうした代替を探すのは、より滑らかな使い心地、マウスポインターを中心にしたズーム、あるいは標準ツールにはない音声や色の機能が欲しいときです。どの代替が合うかは、そのうちどれが必要かによって決まります——<a href="/ja/compare.html">比較ページ</a>で並べて確認できます。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>ZoomTextより安価な代替品はありますか？</summary>
+                            <div class="faq-body">
+                                <p>どのZoomTextの機能を使っているかによります。ZoomTextは、音声、ドキュメントリーダー、豊富な色・フォーカス強調機能、非常に高い倍率を備えた本格的なロービジョン向けスイートで、通常は年間ライセンスとして販売されています。そうした読み上げや強調機能を使っているなら、正直なところ、より安価なツールではそれらを代替できません。主に、カーソルに追従するなめらかな拡大だけが欲しいのであれば、Low Vision Zoomはその一点に絞って買い切り<strong>$9.99</strong>で提供します——ただし音声も読み上げも色フィルターもなく、倍率は5×までです。Windows Magnifierも無料で、多くの人が思っている以上に高機能です。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoomはテキストを音声で読み上げますか？</summary>
+                            <div class="faq-body">
+                                <p><strong>いいえ。</strong>Low Vision Zoomは拡大機能のみです。テキスト読み上げも、ドキュメントリーダーも、スクリーンリーダーもありません。画面を音声で読み上げてほしい場合は、<strong>ZoomText Magnifier/Reader</strong>、音声版またはスクリーンリーダー版の<strong>SuperNova</strong>、あるいは無料であるWindows標準の<strong>Narrator</strong>をご検討ください。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoomは、Windows標準の拡大鏡と何が違いますか？</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifierは無料で標準搭載されており、高機能なので、多くの人はまずこれを試すべきです。Low Vision Zoomは機能の数ではなく、<em>使い心地</em>で差別化されています。ズームは段階的ではなく連続的で新しい倍率へなめらかに移行し、マウスカーソルの真下にある正確な一点を中心に拡大するため見ている場所がそのまま保たれ、カーソルが画面の中央あたりを動いている間は表示を静止させます。設定はなく、システムトレイに常駐します。またWindows Magnifierより劣る点もあります：音声がなく、色フィルターがなく、倍率は5×までです。なめらかな動きの理由について詳しくは、<a href="/ja/why-smooth-magnification.html">なめらかな拡大が追いやすい理由</a>をご覧ください。</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">Low Vision Zoomの使い方</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Windows 11でズームするにはどうすればいいですか？</summary>
+                            <div class="faq-body">
+                                <p>Windowsには標準の拡大鏡があります：<code>Windows key</code>を押しながら<code>Plus</code>を押すと拡大、<code>Minus</code>で縮小、<code>Windows key</code> + <code>Esc</code>でオフになります。<em>設定 → システム → ディスプレイ → 拡大率</em>で画面全体を恒久的に大きくすることも、<em>設定 → アクセシビリティ → テキストサイズ</em>で文字だけを大きくすることもできます。Low Vision Zoomをインストールすると、<strong>Ctrl</strong>を押しながらマウスホイールを回すとWindowsのどこでもなめらかにズームでき、マウスホイールがない場合は<strong>Ctrl + Alt + Plus / Minus</strong>を使えます。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>マウスホイールでズームできる拡大ソフトはありますか？</summary>
+                            <div class="faq-body">
+                                <p>はい。Low Vision Zoomは<strong>Ctrl + マウスホイール</strong>でズームします：Ctrlを押しながらホイールを前に回すと拡大、後ろに回すと縮小します。ズームは比例的で、ホイールを回した分だけ、回した速さで進み、ポインターの下の一点を中心に保ったままなめらかに新しい倍率へ移行します。<strong>Ctrl + Shift + スクロールダウン</strong>で瞬時に等倍へ戻ります。これがこのアプリの基本の使い方です。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoomは複数モニターで使えますか？</summary>
+                            <div class="faq-body">
+                                <p>はい。Windowsのデスクトップ全体を1つの連続した空間として拡大し、それぞれの画面を別々に扱うのではなく、モニターをまたいでカーソルに追従します。これはWindows標準の拡大鏡の全画面モードと同じ考え方です。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>マウスホイールのないノートPCではどうやってズームしますか？</summary>
+                            <div class="faq-body">
+                                <p>キーボードを使います。<strong>Ctrl + Alt</strong>を押しながら<strong>Plus</strong>を押すと拡大、<strong>Minus</strong>を押すと縮小します。押し続けるとズームし続けます。<strong>Ctrl + Alt + 0</strong>で等倍にリセットされます。マウスホイールも外付けマウスも不要なので、トラックパッドしかないノートPCでも使えます。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>ゲームや全画面動画でも動作しますか？</summary>
+                            <div class="faq-body">
+                                <p>ほぼどこでも動作します。Low Vision Zoomは、Windowsデスクトップ全体を拡大するので、ブラウザ、メール、ドキュメント、ウィンドウ内で再生される動画、Windowsのシェル自体にも適用されます。例外は、通常のデスクトップを経由せず画面全体を<em>排他的に</em>制御するゲームやアプリで、その場合は拡大されないことがあります。そうしたゲームをウィンドウモードやボーダーレスウィンドウモードで実行すると、拡大機能が復活します。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoomは画面をどれくらい拡大できますか？</summary>
+                            <div class="faq-body">
+                                <p>最大<strong>5×</strong>まで、0.5刻みで拡大できます。これは、小さく快適なズームツールとしてあえて設けた上限で、Windows標準の拡大鏡（最大16×）やZoomTextのような本格スイート（最大36×）よりも低い値です。5×を超える倍率が必要な場合、Low Vision Zoomは適した選択肢ではありません——<a href="/ja/compare.html">比較ページ</a>でより高倍率の製品を紹介しています。</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">購入、トライアル、信頼性</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Low Vision Zoomの価格はいくらですか？</summary>
+                            <div class="faq-body">
+                                <p><strong>$9.99</strong>の買い切りライセンスで、今後のアップデートもすべて含まれます。サブスクリプションも、アカウントも、広告もありません。まずすべての機能を7日間無料でお試しいただけ、購入後には30日間の返金保証があります。<a href="/ja/pricing.html">価格ページ</a>をご覧ください。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>無料トライアルが終わるとどうなりますか？</summary>
+                            <div class="faq-body">
+                                <p>アプリはそのまま動き続けます。7日間のトライアルが終わると、機能が停止するのではなく拡大率が制限されるだけなので、画面は操作や購入に困らない程度に常に読める状態を保ちます。いつでもライセンスキーを入力すれば、フルズームが即座に元に戻ります。再インストールは不要です。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoomはデータを収集しますか？オフラインでも動作しますか？</summary>
+                            <div class="faq-body">
+                                <p>このアプリは個人データも、アナリティクスも、テレメトリも<strong>一切</strong>収集せず、完全にオフラインで動作します。画面の内容をキャプチャしたり送信したりすることもありません。ライセンスキーはお使いの端末上で確認され、アカウントも本国への問い合わせもありません。インターネットに接続するのは、トレイメニューから<strong>アップデートを確認</strong>を選んだときだけです。詳しくは<a href="/privacy.html">プライバシーポリシー（英語）</a>をご覧ください。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoomをインストールすると、Windowsが警告を表示しますか？</summary>
+                            <div class="faq-body">
+                                <p>直接ダウンロードを利用した場合、表示されることがあります。インストーラーを初めて開くとき、Windowsが青い<strong>「WindowsによってPCが保護されました」（Windows protected your PC）</strong>というSmartScreenのメッセージを表示することがあります。これは新しいアプリでは普通のことで、安全です。インストーラーは<strong>txtbook LLC</strong>によってデジタル署名されています。<strong>「詳細情報」</strong>をクリックし、発行元がtxtbook LLCであることを確認してから、<strong>「実行」</strong>をクリックしてください。この画面を完全に回避したい場合は、代わりに<a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a>からインストールしてください。ストア経由では警告は表示されません。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>システム要件を教えてください。</summary>
+                            <div class="faq-body">
+                                <p>Low Vision Zoomは<strong>Windows 10およびWindows 11の64ビット（x64）</strong>で動作します。インストーラーは自己完結型なので、ほかに何もダウンロードする必要はありません。Windows on ARMと32ビットPCは現在サポートされていません。</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">まだ疑問がありますか？<a href="/ja/contact.html">お問い合わせください</a>——実際の担当者がお答えします。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>7日間無料でお試しください</h2>
+                <p>7日間無料トライアル · $9.99の買い切り · サブスクなし · アカウント不要</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ja.svg" alt="Microsoft Store で入手">
+                    </a>
+                    <a href="/ja/index.html#get" data-download class="download-direct">またはこのサイトからインストーラーを直接ダウンロード（.msi）</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows向けの落ち着いた画面拡大ソフト。txtbook&nbsp;LLCの製品です。</p>
+                </div>
+                <div>
+                    <h4>製品</h4>
+                    <ul>
+                        <li><a href="/ja/index.html#why">選ばれる理由</a></li>
+                        <li><a href="/ja/index.html#how">使い方</a></li>
+                        <li><a href="/ja/pricing.html">価格</a></li>
+                        <li><a href="/ja/compare.html">拡大ソフトを比較</a></li>
+                        <li><a href="/ja/faq.html" aria-current="page">よくある質問</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>法的情報</h4>
+                    <ul>
+                        <li><a href="/privacy.html">プライバシー（英語）</a></li>
+                        <li><a href="/terms.html">利用規約（英語）</a></li>
+                        <li><a href="/refund.html">返金ポリシー（英語）</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>サポート</h4>
+                    <ul>
+                        <li><a href="/ja/contact.html">お問い合わせ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

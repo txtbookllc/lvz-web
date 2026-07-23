@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="إجابات عن الأسئلة الشائعة حول تكبير الشاشة في Windows وحول Low Vision Zoom: كيفية التكبير، وكيف يُقارَن بأداة Windows Magnifier المدمجة وZoomText، والسعر، والتجربة المجانية، والخصوصية، والتثبيت.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "ar",
+      "url": "https://lowvisionzoom.com/ar/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "ما هو أفضل مكبّر شاشة لنظام Windows؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا يوجد مكبّر واحد هو الأفضل بإطلاق — يعتمد الأمر على ما تحتاجه، والخطوة الأولى الصحيحة مجانية. يتضمن كل حاسوب يعمل بنظام Windows بالفعل Windows Magnifier (اضغط على مفتاح Windows وPlus لتشغيله)؛ وهذا يكفي كثيرين. إذا كنت تحتاج إلى قراءة شاشتك بصوت عالٍ، أو تكبيرًا مرتفعًا جدًا، أو مرشّحات ألوان، أو برايل، فإن الفئة المناسبة هي مجموعة تقنية مساعدة كاملة مثل ZoomText أو SuperNova. أما إذا كان ما تريده هو تكبير سلس وهادئ يتابع مؤشرك أثناء عملك دون إعدادات لضبطها، فإن Low Vision Zoom مصمَّم لهذه الحالة بالتحديد ويكلّف $9.99 مرة واحدة. ولأن التكبير أمر شخصي، جرّب أي خيار قبل أن تدفع."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل توجد بدائل لأداة Windows Magnifier؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم. إلى جانب Windows Magnifier المدمجة من Microsoft، تشمل مكبّرات الشاشة الأخرى لنظام Windows: ZoomText وSuperNova (مجموعتان كاملتان لضعف البصر مع أدوات نطق وقراءة)، وMagnifixer المجانية، وLow Vision Zoom، وهي أداة صغيرة بسعر $9.99 تركّز على تكبير سلس مرتكز على المؤشر. يبحث الناس عادةً عن بديل عندما يريدون إحساسًا أكثر سلاسة، أو تكبيرًا يتمحور حول مؤشر الفأرة، أو ميزات نطق وألوان لا تقدّمها الأداة المدمجة. أي بديل يناسبك يعتمد على أي من هذه الاحتياجات لديك."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل توجد بدائل أرخص من ZoomText؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يعتمد الأمر على أي ميزات من ZoomText تعتمد عليها. ZoomText مجموعة كاملة لضعف البصر تضم نطقًا، وقارئ مستندات، وتحسينات ألوان وتركيز واسعة، وتكبيرًا مرتفعًا جدًا، وعادةً ما تُباع كترخيص سنوي. إذا كنت تستخدم ميزات القراءة والتحسين تلك، فالإجابة الصادقة هي أن أداة أرخص لن تحل محلها. أما إذا كان ما تريده أساسًا هو تكبير سلس يتابع مؤشرك، فإن Low Vision Zoom يقدّم هذا الشيء الواحد بدفعة واحدة قدرها $9.99 — لكنه بلا نطق، وبلا قراءة، وبلا مرشّحات ألوان، ويتوقف عند 5×. كما أن Windows Magnifier مجانية وأكثر قدرة مما يظن كثيرون."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يقرأ Low Vision Zoom النص بصوت عالٍ؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا. Low Vision Zoom مخصَّص للتكبير فقط. لا يتضمن تحويل النص إلى كلام، ولا قارئ مستندات، ولا قارئ شاشة. إذا كنت تحتاج إلى قراءة شاشتك بصوت عالٍ، فانظر إلى ZoomText Magnifier/Reader، أو SuperNova بإصدار النطق أو قارئ الشاشة، أو Narrator المدمج في Windows، وهو مجاني."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما الفرق بين Low Vision Zoom وأداة Windows Magnifier المدمجة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifier مجانية ومدمجة وقادرة، وينبغي لكثيرين تجربتها أولًا. يختلف Low Vision Zoom في الإحساس لا في عدد الميزات. تكبيره مستمر وينساب بسلاسة إلى المستوى الجديد بدلًا من التنقّل بقفزات، ويتمحور حول النقطة الدقيقة الواقعة تحت مؤشر الفأرة فيبقى ما تنظر إليه ثابتًا، ويُبقي المشهد ساكنًا بينما يتجول مؤشرك في منتصف الشاشة. لا يملك إعدادات ويعيش في علبة النظام. وهو أيضًا أكثر محدودية من Windows Magnifier في بعض النواحي: لا نطق فيه، ولا مرشّحات ألوان، ويتوقف عند 5×."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف أكبّر الشاشة في Windows 11؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يتضمن Windows مكبّرًا مدمجًا: اضغط باستمرار على مفتاح Windows واضغط Plus للتكبير، وMinus للتصغير، ومفتاح Windows مع Escape لإيقافه. يمكنك أيضًا تكبير كل شيء بشكل دائم من الإعدادات، النظام، العرض، المقياس، أو تكبير النص فقط من الإعدادات، إمكانية الوصول، حجم النص. مع تثبيت Low Vision Zoom، تضغط باستمرار على Ctrl وتدير عجلة الفأرة للتكبير بسلاسة في أي مكان في Windows، أو تستخدم Ctrl وAlt مع Plus أو Minus إذا لم تكن لديك عجلة فأرة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يوجد مكبّر يكبّر بعجلة الفأرة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم. يكبّر Low Vision Zoom باستخدام Ctrl وعجلة الفأرة: اضغط باستمرار على Ctrl وأدر العجلة إلى الأمام للتكبير، وإلى الخلف للتصغير. التكبير تناسبي، فتتقدّم بالضبط بقدر ما تديره وبنفس سرعته، وينساب بسلاسة إلى المستوى الجديد بينما يبقى متمحورًا حول النقطة الواقعة تحت مؤشرك. Ctrl وShift وتمرير للأسفل يعيدك فورًا إلى الوضع الطبيعي. هذه هي الطريقة الرئيسية التي صُمِّم التطبيق ليُستخدم بها."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يعمل Low Vision Zoom مع عدة شاشات؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "نعم. يكبّر سطح مكتب Windows بالكامل كمساحة واحدة متصلة، ويتابع مؤشرك من شاشة إلى أخرى بدلًا من التعامل مع كل شاشة على حدة. هذا هو النهج نفسه الذي يستخدمه وضع ملء الشاشة في Windows Magnifier المدمجة."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كيف أكبّر على حاسوب محمول بلا عجلة فأرة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "استخدم لوحة المفاتيح. اضغط باستمرار على Ctrl وAlt واضغط Plus للتكبير أو Minus للتصغير؛ استمر بالضغط لمواصلة التكبير. Ctrl وAlt و0 يعيدانك إلى الوضع الطبيعي. لا حاجة إلى عجلة فأرة أو فأرة خارجية، لذا يعمل التطبيق على حاسوب محمول بلوحة اللمس فقط."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يعمل في الألعاب والفيديو بملء الشاشة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يعمل في كل مكان تقريبًا. يكبّر Low Vision Zoom سطح مكتب Windows بالكامل، لذا ينطبق على متصفحك، والبريد الإلكتروني، والمستندات، والفيديو المشغَّل في نافذة، وواجهة Windows نفسها. الاستثناء هو لعبة أو تطبيق يستحوذ حصريًا على الشاشة بالكامل ويتجاوز سطح المكتب العادي؛ فقد لا يُكبَّر ذلك المحتوى. تشغيل تلك اللعبة في وضع النافذة أو النافذة بلا حدود يعيد التكبير."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كم يمكن أن يكبّر Low Vision Zoom الشاشة؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "حتى 5×، بزيادات نصف درجة. هذا حدّ متعمَّد لأداة تكبير صغيرة ومريحة، وهو أقل من Windows Magnifier المدمجة (حتى 16×) أو المجموعات الكاملة مثل ZoomText (حتى 36×). إذا كنت بحاجة إلى أكثر من 5×، فإن Low Vision Zoom ليس الأداة المناسبة لك."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "كم يكلّف Low Vision Zoom؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "إنه ترخيص بدفعة واحدة قدرها $9.99، مع تضمين جميع التحديثات المستقبلية. لا يوجد اشتراك، ولا حساب، ولا إعلانات. يمكنك تجربة كل ميزة مجانًا لمدة 7 أيام أولًا، وهناك ضمان استرداد المال خلال 30 يومًا بعد الشراء."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ماذا يحدث عند انتهاء الفترة التجريبية المجانية؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يستمر التطبيق في العمل. عند انتهاء الفترة التجريبية البالغة 7 أيام، يُحدّ التكبير فقط بدلًا من إيقافه تمامًا، فتبقى شاشتك دائمًا مقروءة بما يكفي للتنقل وشراء ترخيص. أدخل مفتاح ترخيص في أي وقت لاستعادة التكبير الكامل فورًا، دون إعادة تثبيت."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل يجمع Low Vision Zoom أي بيانات، وهل يعمل دون اتصال؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "لا يجمع التطبيق أي بيانات شخصية، ولا تحليلات، ولا قياسًا عن بُعد، ويعمل دون اتصال بالكامل. لا يلتقط محتوى شاشتك ولا ينقله. يُتحقَّق من مفتاح ترخيصك على جهازك دون حساب ودون اتصال خفي بخادم. المرة الوحيدة التي يتصل فيها بالإنترنت هي عندما تختار البحث عن تحديثات من قائمة علبة النظام."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "هل سيحذّرني Windows عند تثبيت Low Vision Zoom؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ربما، إذا استخدمت التنزيل المباشر. في المرة الأولى التي تفتح فيها المثبّت، قد يعرض Windows رسالة SmartScreen زرقاء بعنوان قام Windows بحماية الكمبيوتر الخاص بك. هذا أمر طبيعي لتطبيق جديد وهو آمن؛ المثبّت موقَّع رقميًا من txtbook LLC. انقر على مزيد من المعلومات، تحقّق من أن الناشر هو txtbook LLC، ثم انقر على تشغيل على أي حال. لتخطي هذه الشاشة تمامًا، ثبّت التطبيق من Microsoft Store بدلًا من ذلك، حيث لا يظهر التحذير."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ما متطلبات النظام؟",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "يعمل Low Vision Zoom على Windows 10 وWindows 11، بمعمارية 64 بت (x64). المثبّت مكتفٍ بذاته، فلا حاجة إلى تنزيل أي شيء آخر. لا يُدعم اليوم كل من Windows on ARM وأجهزة الكمبيوتر ذات 32 بت."
+          }
+        }
+      ]
+    }
+    </script>
+    <title>الأسئلة الشائعة | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">تخطَّ إلى المحتوى</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ar/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="الرئيسي">
+                <a href="/ar/index.html#demo">شاهد العرض التوضيحي</a>
+                <a href="/ar/index.html#how">كيف يعمل</a>
+                <a href="/ar/index.html#why">لماذا هو أفضل</a>
+                <a href="/ar/pricing.html">الأسعار</a>
+                <a href="/ar/index.html#get" data-download class="btn btn-secondary btn-nav">تنزيل</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="اللغة: العربية">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>العربية</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar" aria-current="true">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">الأسئلة الشائعة</span>
+                <h1>الأسئلة الشائعة</h1>
+                <p class="updated">تكبير الشاشة في نظام Windows، وموقع Low Vision Zoom من ذلك</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">اختيار مكبّر</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>ما هو أفضل مكبّر شاشة لنظام Windows؟</summary>
+                            <div class="faq-body">
+                                <p>لا يوجد مكبّر واحد هو الأفضل بإطلاق — يعتمد الأمر على ما تحتاجه، والخطوة الأولى الصحيحة مجانية. يتضمن كل حاسوب يعمل بنظام Windows بالفعل <strong>Windows Magnifier</strong> (اضغط على <code>Windows key</code> + <code>Plus</code> لتشغيله)؛ وهذا يكفي كثيرين. إذا كنت تحتاج إلى قراءة شاشتك بصوت عالٍ، أو تكبيرًا مرتفعًا جدًا، أو مرشّحات ألوان، أو برايل، فإن الفئة المناسبة هي مجموعة تقنية مساعدة كاملة مثل <strong>ZoomText</strong> أو <strong>SuperNova</strong>. أما إذا كان ما تريده هو تكبير سلس وهادئ يتابع مؤشرك أثناء عملك دون إعدادات لضبطها، فإن <strong>Low Vision Zoom</strong> مصمَّم لهذه الحالة بالتحديد ويكلّف $9.99 مرة واحدة. ولأن التكبير أمر شخصي، جرّب أي خيار قبل أن تدفع. اطّلع على <a href="/ar/compare.html">مقارنتنا الصادقة</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>هل توجد بدائل لأداة Windows Magnifier؟</summary>
+                            <div class="faq-body">
+                                <p>نعم. إلى جانب Windows Magnifier المدمجة من Microsoft، تشمل مكبّرات الشاشة الأخرى لنظام Windows: <strong>ZoomText</strong> و<strong>SuperNova</strong> (مجموعتان كاملتان لضعف البصر مع أدوات نطق وقراءة)، و<strong>Magnifixer</strong> المجانية، و<strong>Low Vision Zoom</strong>، وهي أداة صغيرة بسعر $9.99 تركّز على تكبير سلس مرتكز على المؤشر. يبحث الناس عادةً عن بديل عندما يريدون إحساسًا أكثر سلاسة، أو تكبيرًا يتمحور حول مؤشر الفأرة، أو ميزات نطق وألوان لا تقدّمها الأداة المدمجة. أي بديل يناسبك يعتمد على أي من هذه الاحتياجات لديك — تعرضها <a href="/ar/compare.html">صفحة المقارنة</a> جنبًا إلى جنب.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>هل توجد بدائل أرخص من ZoomText؟</summary>
+                            <div class="faq-body">
+                                <p>يعتمد الأمر على أي ميزات من ZoomText تعتمد عليها. ZoomText مجموعة كاملة لضعف البصر تضم نطقًا، وقارئ مستندات، وتحسينات ألوان وتركيز واسعة، وتكبيرًا مرتفعًا جدًا، وعادةً ما تُباع كترخيص سنوي. إذا كنت تستخدم ميزات القراءة والتحسين تلك، فالإجابة الصادقة هي أن أداة أرخص لن تحل محلها. أما إذا كان ما تريده أساسًا هو تكبير سلس يتابع مؤشرك، فإن Low Vision Zoom يقدّم هذا الشيء الواحد بدفعة واحدة قدرها <strong>$9.99</strong> — لكنه بلا نطق، وبلا قراءة، وبلا مرشّحات ألوان، ويتوقف عند 5×. كما أن Windows Magnifier مجانية وأكثر قدرة مما يظن كثيرون.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>هل يقرأ Low Vision Zoom النص بصوت عالٍ؟</summary>
+                            <div class="faq-body">
+                                <p><strong>لا.</strong> Low Vision Zoom مخصَّص للتكبير فقط. لا يتضمن تحويل النص إلى كلام، ولا قارئ مستندات، ولا قارئ شاشة. إذا كنت تحتاج إلى قراءة شاشتك بصوت عالٍ، فانظر إلى <strong>ZoomText Magnifier/Reader</strong>، أو <strong>SuperNova</strong> بإصدار النطق أو قارئ الشاشة، أو <strong>Narrator</strong> المدمج في Windows، وهو مجاني.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>ما الفرق بين Low Vision Zoom وأداة Windows Magnifier المدمجة؟</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifier مجانية ومدمجة وقادرة، وينبغي لكثيرين تجربتها أولًا. يختلف Low Vision Zoom في <em>الإحساس</em> لا في عدد الميزات. تكبيره مستمر وينساب بسلاسة إلى المستوى الجديد بدلًا من التنقّل بقفزات، ويتمحور حول النقطة الدقيقة الواقعة تحت مؤشر الفأرة فيبقى ما تنظر إليه ثابتًا، ويُبقي المشهد ساكنًا بينما يتجول مؤشرك في منتصف الشاشة. لا يملك إعدادات ويعيش في علبة النظام. وهو أيضًا أكثر محدودية من Windows Magnifier في بعض النواحي: لا نطق فيه، ولا مرشّحات ألوان، ويتوقف عند 5×. هناك المزيد عن سبب هذه الحركة السلسة في <a href="/ar/why-smooth-magnification.html">لماذا يسهل متابعة التكبير السلس</a>.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">استخدام Low Vision Zoom</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>كيف أكبّر الشاشة في Windows 11؟</summary>
+                            <div class="faq-body">
+                                <p>يتضمن Windows مكبّرًا مدمجًا: اضغط باستمرار على <code>Windows key</code> واضغط <code>Plus</code> للتكبير، و<code>Minus</code> للتصغير، و<code>Windows key</code> + <code>Esc</code> لإيقافه. يمكنك أيضًا تكبير كل شيء بشكل دائم من <em>الإعدادات ← النظام ← العرض ← المقياس</em>، أو تكبير النص فقط من <em>الإعدادات ← إمكانية الوصول ← حجم النص</em>. مع تثبيت Low Vision Zoom، تضغط باستمرار على <strong>Ctrl</strong> وتدير عجلة الفأرة للتكبير بسلاسة في أي مكان في Windows، أو تستخدم <strong>Ctrl + Alt + Plus / Minus</strong> إذا لم تكن لديك عجلة فأرة.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>هل يوجد مكبّر يكبّر بعجلة الفأرة؟</summary>
+                            <div class="faq-body">
+                                <p>نعم. يكبّر Low Vision Zoom باستخدام <strong>Ctrl + عجلة الفأرة</strong>: اضغط باستمرار على Ctrl وأدر العجلة إلى الأمام للتكبير، وإلى الخلف للتصغير. التكبير تناسبي، فتتقدّم بالضبط بقدر ما تديره وبنفس سرعته، وينساب بسلاسة إلى المستوى الجديد بينما يبقى متمحورًا حول النقطة الواقعة تحت مؤشرك. <strong>Ctrl + Shift + تمرير للأسفل</strong> يعيدك فورًا إلى الوضع الطبيعي. هذه هي الطريقة الرئيسية التي صُمِّم التطبيق ليُستخدم بها.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>هل يعمل Low Vision Zoom مع عدة شاشات؟</summary>
+                            <div class="faq-body">
+                                <p>نعم. يكبّر سطح مكتب Windows بالكامل كمساحة واحدة متصلة، ويتابع مؤشرك من شاشة إلى أخرى بدلًا من التعامل مع كل شاشة على حدة. هذا هو النهج نفسه الذي يستخدمه وضع ملء الشاشة في Windows Magnifier المدمجة.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>كيف أكبّر على حاسوب محمول بلا عجلة فأرة؟</summary>
+                            <div class="faq-body">
+                                <p>استخدم لوحة المفاتيح. اضغط باستمرار على <strong>Ctrl + Alt</strong> واضغط <strong>Plus</strong> للتكبير أو <strong>Minus</strong> للتصغير؛ استمر بالضغط لمواصلة التكبير. <strong>Ctrl + Alt + 0</strong> يعيدك إلى الوضع الطبيعي. لا حاجة إلى عجلة فأرة أو فأرة خارجية، لذا يعمل التطبيق على حاسوب محمول بلوحة اللمس فقط.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>هل يعمل في الألعاب والفيديو بملء الشاشة؟</summary>
+                            <div class="faq-body">
+                                <p>يعمل في كل مكان تقريبًا. يكبّر Low Vision Zoom سطح مكتب Windows بالكامل، لذا ينطبق على متصفحك، والبريد الإلكتروني، والمستندات، والفيديو المشغَّل في نافذة، وواجهة Windows نفسها. الاستثناء هو لعبة أو تطبيق يستحوذ <em>حصريًا</em> على الشاشة بالكامل ويتجاوز سطح المكتب العادي؛ فقد لا يُكبَّر ذلك المحتوى. تشغيل تلك اللعبة في وضع النافذة أو النافذة بلا حدود يعيد التكبير.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>كم يمكن أن يكبّر Low Vision Zoom الشاشة؟</summary>
+                            <div class="faq-body">
+                                <p>حتى <strong>5×</strong>، بزيادات نصف درجة. هذا حدّ متعمَّد لأداة تكبير صغيرة ومريحة، وهو أقل من Windows Magnifier المدمجة (حتى 16×) أو المجموعات الكاملة مثل ZoomText (حتى 36×). إذا كنت بحاجة إلى أكثر من 5×، فإن Low Vision Zoom ليس الأداة المناسبة لك — تدلّك <a href="/ar/compare.html">صفحة المقارنة</a> على أدوات تصل إلى مستويات أعلى.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">الشراء والتجربة والثقة</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>كم يكلّف Low Vision Zoom؟</summary>
+                            <div class="faq-body">
+                                <p>إنه ترخيص بدفعة واحدة قدرها <strong>$9.99</strong>، مع تضمين جميع التحديثات المستقبلية. لا يوجد اشتراك، ولا حساب، ولا إعلانات. يمكنك تجربة كل ميزة مجانًا لمدة 7 أيام أولًا، وهناك ضمان استرداد المال خلال 30 يومًا بعد الشراء. راجع <a href="/ar/pricing.html">صفحة الأسعار</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>ماذا يحدث عند انتهاء الفترة التجريبية المجانية؟</summary>
+                            <div class="faq-body">
+                                <p>يستمر التطبيق في العمل. عند انتهاء الفترة التجريبية البالغة 7 أيام، يُحدّ التكبير فقط بدلًا من إيقافه تمامًا، فتبقى شاشتك دائمًا مقروءة بما يكفي للتنقل وشراء ترخيص. أدخل مفتاح ترخيص في أي وقت لاستعادة التكبير الكامل فورًا، دون إعادة تثبيت.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>هل يجمع Low Vision Zoom أي بيانات، وهل يعمل دون اتصال؟</summary>
+                            <div class="faq-body">
+                                <p>لا يجمع التطبيق <strong>أي</strong> بيانات شخصية، ولا تحليلات، ولا قياسًا عن بُعد، ويعمل دون اتصال بالكامل. لا يلتقط محتوى شاشتك ولا ينقله. يُتحقَّق من مفتاح ترخيصك على جهازك دون حساب ودون اتصال خفي بخادم. المرة الوحيدة التي يتصل فيها بالإنترنت هي عندما تختار <strong>البحث عن تحديثات</strong> من قائمة علبة النظام. التفاصيل الكاملة في <a href="/privacy.html">سياسة الخصوصية (بالإنجليزية)</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>هل سيحذّرني Windows عند تثبيت Low Vision Zoom؟</summary>
+                            <div class="faq-body">
+                                <p>ربما، إذا استخدمت التنزيل المباشر. في المرة الأولى التي تفتح فيها المثبّت، قد يعرض Windows رسالة SmartScreen زرقاء بعنوان <strong>«قام Windows بحماية الكمبيوتر الخاص بك»</strong> (Windows protected your PC). هذا أمر طبيعي لتطبيق جديد وهو آمن؛ المثبّت موقَّع رقميًا من <strong>txtbook LLC</strong>. انقر على <strong>مزيد من المعلومات</strong> (More info)، تحقّق من أن الناشر هو txtbook LLC، ثم انقر على <strong>تشغيل على أي حال</strong> (Run anyway). لتخطي هذه الشاشة تمامًا، ثبّت التطبيق من <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> بدلًا من ذلك، حيث لا يظهر التحذير.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>ما متطلبات النظام؟</summary>
+                            <div class="faq-body">
+                                <p>يعمل Low Vision Zoom على <strong>Windows 10 وWindows 11، بمعمارية 64 بت (x64)</strong>. المثبّت مكتفٍ بذاته، فلا حاجة إلى تنزيل أي شيء آخر. لا يُدعم اليوم كل من Windows on ARM وأجهزة الكمبيوتر ذات 32 بت.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">هل ما زال لديك سؤال؟ <a href="/ar/contact.html">تواصل معنا</a> — سيردّ عليك شخص حقيقي.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>جرّبه مجانًا لمدة 7 أيام</h2>
+                <p>تجربة مجانية 7 أيام · $9.99 مرة واحدة · بلا اشتراك · بلا حساب</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ar.svg" alt="احصل عليه من Microsoft Store">
+                    </a>
+                    <a href="/ar/index.html#get" data-download class="download-direct">أو نزّل المثبّت مباشرةً من هذا الموقع (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>مكبّر شاشة هادئ لنظام Windows. منتج من txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>المنتج</h4>
+                    <ul>
+                        <li><a href="/ar/index.html#why">لماذا هو أفضل</a></li>
+                        <li><a href="/ar/index.html#how">كيف يعمل</a></li>
+                        <li><a href="/ar/pricing.html">الأسعار</a></li>
+                        <li><a href="/ar/compare.html">مقارنة المكبّرات</a></li>
+                        <li><a href="/ar/faq.html" aria-current="page">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الشؤون القانونية</h4>
+                    <ul>
+                        <li><a href="/privacy.html">الخصوصية (بالإنجليزية)</a></li>
+                        <li><a href="/terms.html">شروط الخدمة (بالإنجليزية)</a></li>
+                        <li><a href="/refund.html">سياسة الاسترداد (بالإنجليزية)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="/ar/contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

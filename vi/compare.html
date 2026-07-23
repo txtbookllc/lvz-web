@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="So sánh trung thực các trình phóng to màn hình cho Windows: Low Vision Zoom, Windows Magnifier có sẵn, ZoomText, SuperNova và Magnifixer — mỗi ứng dụng làm được gì, phù hợp với ai, và khi nào không nên chọn sản phẩm của chúng tôi.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom so với Windows Magnifier, ZoomText và SuperNova",
+      "description": "So sánh song song các trình phóng to màn hình cho Windows: Windows Magnifier có sẵn, ZoomText, SuperNova, Magnifixer và Low Vision Zoom — bao gồm cả việc mỗi sản phẩm phù hợp với ai và những lý do không nên chọn Low Vision Zoom.",
+      "url": "https://lowvisionzoom.com/vi/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "vi",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Phần mềm phóng to màn hình" },
+        { "@type": "Thing", "name": "Công nghệ hỗ trợ tiếp cận cho người thị lực kém" },
+        { "@type": "Thing", "name": "Hỗ trợ tiếp cận trên Windows" }
+      ]
+    }
+    </script>
+    <title>So sánh trình phóng to màn hình cho Windows | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Chuyển đến nội dung</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/vi/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Chính">
+                <a href="/vi/index.html#demo">Xem bản demo</a>
+                <a href="/vi/index.html#how">Cách hoạt động</a>
+                <a href="/vi/index.html#why">Vì sao tốt hơn</a>
+                <a href="/vi/pricing.html">Bảng giá</a>
+                <a href="/vi/index.html#get" data-download class="btn btn-secondary btn-nav">Tải xuống</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Ngôn ngữ: Tiếng Việt">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Tiếng Việt</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi" aria-current="true">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">So sánh</span>
+                <h1>Trình phóng to màn hình cho Windows</h1>
+                <p class="updated">Thông tin đối thủ cạnh tranh được xác minh vào ngày 20 tháng 7 năm 2026</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Nếu bạn chưa từng dùng thử trình phóng to nào, hãy bắt đầu với trình đã có sẵn trong Windows. Nó miễn phí. Nếu bạn cần máy tính đọc to nội dung, cần mức phóng đại rất cao, hoặc cần chữ nổi Braille, bạn cần một bộ công cụ hỗ trợ tiếp cận đầy đủ như <strong>ZoomText</strong> hoặc <strong>SuperNova</strong>, và <strong>Low Vision Zoom sẽ không đủ dùng cho bạn</strong>. Low Vision Zoom là một công cụ nhỏ gọn, giá rẻ, chỉ làm một việc: phóng to mượt mà, neo theo con trỏ, tối đa 5×, không cần cấu hình gì.</p>
+                    </div>
+
+                    <h2>Ai viết trang này, và nên đọc như thế nào</h2>
+                    <p>Chúng tôi là nhà sản xuất Low Vision Zoom, vì vậy hãy đọc trang này như cách bạn đọc bất kỳ bài so sánh nào được viết bởi một trong các bên liên quan. Chúng tôi đã cố gắng giữ sự công bằng theo ba cách cụ thể: mọi nhận định về sản phẩm khác đều lấy từ chính tài liệu công khai của nhà sản xuất đó và có liên kết đến tài liệu ấy; mọi sản phẩm được liệt kê đều có ít nhất một điểm làm tốt hơn sản phẩm của chúng tôi; và có một mục bên dưới về <a href="#not-for-you">những lý do không nên mua Low Vision Zoom</a>.</p>
+                    <p>Chúng tôi cố tình không liệt kê giá của các đối thủ cạnh tranh bằng con số cụ thể. Giá của công nghệ hỗ trợ tiếp cận thay đổi theo thời gian, khác nhau tùy quốc gia, và thường khác nhau giữa cá nhân, trường học và người sử dụng lao động — một con số được ghi ở đây sẽ nhanh chóng lỗi thời. Chúng tôi liệt kê <em>mô hình cấp phép</em> của từng sản phẩm và liên kết đến nhà sản xuất để bạn có thể tự kiểm tra giá hiện tại.</p>
+                    <p>Lời khuyên quan trọng nhất trên trang này: <strong>mọi sản phẩm ở đây đều có thể dùng thử trước khi bạn trả tiền.</strong> Việc phóng to là điều rất riêng tư với từng người, và cảm giác mà một trình phóng to mang lại cho đôi mắt <em>của bạn</em> quan trọng hơn bất kỳ bảng tính năng nào. Hãy dùng thử.</p>
+
+                    <h2>Bạn nên chọn loại nào?</h2>
+                    <ul>
+                        <li><strong>Bạn chưa từng dùng thử trình phóng to nào</strong> — hãy dùng <strong>Windows Magnifier</strong> đã có sẵn trên máy tính của bạn. Nhấn <code>phím Windows</code> + <code>Cộng</code>. Nó không tốn phí và có thể là tất cả những gì bạn cần.</li>
+                        <li><strong>Bạn cần màn hình được đọc to, hoặc bạn dùng chữ nổi Braille</strong> — bạn cần <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong>, hoặc một trình đọc màn hình. Low Vision Zoom hoàn toàn không có giọng đọc và không hỗ trợ chữ nổi Braille.</li>
+                        <li><strong>Bạn cần mức phóng đại hơn 5×</strong> — Low Vision Zoom dừng lại ở 5×. Windows Magnifier, ZoomText và SuperNova đều có thể phóng cao hơn nhiều.</li>
+                        <li><strong>Bạn cần bộ lọc màu, đảo ngược độ tương phản, hoặc làm nổi bật điểm lấy nét</strong> — Windows Magnifier có một số tính năng này miễn phí; ZoomText và SuperNova có nhiều hơn thế. Low Vision Zoom không có tính năng nào trong số này.</li>
+                        <li><strong>Bạn muốn một lựa chọn miễn phí từ bên thứ ba</strong> — <strong>Magnifixer</strong> miễn phí và cung cấp một cửa sổ phóng to với chế độ đảo màu hiển thị và các chế độ màu khác.</li>
+                        <li><strong>Bạn chủ yếu muốn phóng to rồi thu nhỏ liên tục trong lúc làm việc, và thấy cách làm hiện tại bị giật hoặc rườm rà</strong> — đây chính là trường hợp cụ thể mà Low Vision Zoom được tạo ra để giải quyết. Nó phóng to mượt mà quanh con trỏ của bạn, không có cài đặt nào, và chỉ có giá $9.99 trả một lần. <a href="/vi/index.html#demo">Xem bản demo</a> và dùng thử bản dùng thử miễn phí.</li>
+                    </ul>
+
+                    <h2>So sánh tính năng</h2>
+                    <p>Các ô ghi “xem thông tin từ nhà sản xuất” là những điều chúng tôi không muốn nói thay cho người khác — hãy theo liên kết ở tiêu đề sản phẩm để có câu trả lời chính thức.</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Bảng so sánh tính năng">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Bảng so sánh tính năng của năm trình phóng to màn hình cho Windows</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Đây là gì</th>
+                                    <td>Một tiện ích thu phóng chuyên biệt cho một mục đích</td>
+                                    <td>Trình phóng to có sẵn trong Windows</td>
+                                    <td>Một bộ công cụ đầy đủ cho người thị lực kém</td>
+                                    <td>Một bộ công cụ đầy đủ cho người thị lực kém</td>
+                                    <td>Một cửa sổ phóng to miễn phí</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Mô hình cấp phép</th>
+                                    <td>Trả một lần $9.99, bao gồm các bản cập nhật</td>
+                                    <td>Miễn phí — đi kèm với Windows</td>
+                                    <td>Giấy phép hằng năm (xem thông tin từ nhà sản xuất)</td>
+                                    <td>Giấy phép theo phiên bản (xem thông tin từ nhà sản xuất)</td>
+                                    <td>Miễn phí</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Mức phóng đại tối đa</th>
+                                    <td>5×</td>
+                                    <td>Lên đến 1600% (16×)</td>
+                                    <td>Lên đến 36×</td>
+                                    <td>Cao — xem thông tin từ nhà sản xuất</td>
+                                    <td>Xem thông tin từ nhà sản xuất</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cách thay đổi mức thu phóng</th>
+                                    <td>Ctrl + lăn chuột, hoặc Ctrl + Alt + Cộng / Trừ. Liên tục và tỷ lệ thuận — khung nhìn chuyển dần đến mức mới thay vì chuyển đổi ngay lập tức</td>
+                                    <td>Phím Windows + Cộng / Trừ, hoặc thanh công cụ. Di chuyển qua các mức đã đặt sẵn theo từng bước; có thể cấu hình kích thước bước</td>
+                                    <td>Phím tắt và thanh công cụ; các mức phóng đại theo bước — xem thông tin từ nhà sản xuất</td>
+                                    <td>Phím tắt và bảng điều khiển; các mức phóng đại theo bước — xem thông tin từ nhà sản xuất</td>
+                                    <td>Thu phóng có thể điều chỉnh trong cửa sổ riêng của nó</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Thu phóng lấy tâm ở đâu</th>
+                                    <td>Điểm nằm dưới con trỏ chuột của bạn, được giữ cố định trong khi khung nhìn phóng to xoay quanh nó</td>
+                                    <td>Theo chuột, tiêu điểm bàn phím, con trỏ văn bản, hoặc Narrator — tùy bạn chọn</td>
+                                    <td>Theo chuột, tiêu điểm và con trỏ — xem thông tin từ nhà sản xuất</td>
+                                    <td>Theo chuột, tiêu điểm và con trỏ — xem thông tin từ nhà sản xuất</td>
+                                    <td>Khu vực bạn đang trỏ tới</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Đọc to văn bản</th>
+                                    <td>Không</td>
+                                    <td>Có — có các nút điều khiển đọc</td>
+                                    <td>Có, trong phiên bản Magnifier/Reader</td>
+                                    <td>Có, trong các phiên bản Speech và Screen Reader</td>
+                                    <td>Không</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Trình đọc màn hình đầy đủ</th>
+                                    <td>Không</td>
+                                    <td>Narrator đi kèm riêng với Windows</td>
+                                    <td>Có sẵn trong gói Fusion cùng với JAWS</td>
+                                    <td>Có, trong phiên bản Screen Reader</td>
+                                    <td>Không</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Hỗ trợ chữ nổi Braille</th>
+                                    <td>Không</td>
+                                    <td>Qua Narrator</td>
+                                    <td>Xem thông tin từ nhà sản xuất</td>
+                                    <td>Có, trong các phiên bản cao cấp hơn</td>
+                                    <td>Không</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Bộ lọc màu, tương phản, đảo màu</th>
+                                    <td>Không</td>
+                                    <td>Có — đảo màu</td>
+                                    <td>Có — nhiều bộ lọc và cải tiến</td>
+                                    <td>Có — phong phú, bao gồm cả cài đặt riêng cho từng màn hình</td>
+                                    <td>Có — chế độ đảo màu hiển thị và các chế độ màu</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Làm mượt văn bản khi phóng to cao</th>
+                                    <td>Không — phóng to trực tiếp điểm ảnh</td>
+                                    <td>Có — có tùy chọn làm mượt</td>
+                                    <td>Có — công nghệ dựng chữ xFont</td>
+                                    <td>Có — True Fonts</td>
+                                    <td>Có — bộ lọc làm mượt</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Nhiều màn hình</th>
+                                    <td>Có — một màn hình nền liền mạch, theo bạn qua các màn hình</td>
+                                    <td>Có</td>
+                                    <td>Có — xem thông tin từ nhà sản xuất</td>
+                                    <td>Có — mức thu phóng độc lập cho từng màn hình</td>
+                                    <td>Xem thông tin từ nhà sản xuất</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cài đặt cần cấu hình</th>
+                                    <td>Không có — hành vi được tinh chỉnh sẵn và cố định</td>
+                                    <td>Một số</td>
+                                    <td>Phong phú</td>
+                                    <td>Phong phú</td>
+                                    <td>Một số</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Hoạt động ngoại tuyến, không cần tài khoản</th>
+                                    <td>Có — bản quyền được kiểm tra ngay trên thiết bị của bạn</td>
+                                    <td>Có</td>
+                                    <td>Xem thông tin từ nhà sản xuất</td>
+                                    <td>Xem thông tin từ nhà sản xuất</td>
+                                    <td>Xem thông tin từ nhà sản xuất</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Dữ liệu được thu thập</th>
+                                    <td>Không có — <a href="/privacy.html">chính sách quyền riêng tư (bằng tiếng Anh)</a></td>
+                                    <td>Xem tuyên bố quyền riêng tư của Microsoft</td>
+                                    <td>Xem thông tin từ nhà sản xuất</td>
+                                    <td>Xem thông tin từ nhà sản xuất</td>
+                                    <td>Xem thông tin từ nhà sản xuất</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Nền tảng</th>
+                                    <td>Windows 10 và 11, 64-bit (x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">Những lý do không nên mua Low Vision Zoom</h2>
+                    <p>Chúng tôi thà bạn chi $9.99 cho thứ gì đó thực sự giúp ích cho bạn, còn hơn là cho thứ không giúp được gì. Đừng mua Low Vision Zoom nếu bất kỳ điều nào sau đây đúng với bạn:</p>
+                    <ul>
+                        <li><strong>Bạn cần mức phóng đại hơn 5×.</strong> Đây là giới hạn cứng trong ứng dụng, không phải một cài đặt có thể thay đổi. Nếu 5× không đủ với bạn, không phần nào của sản phẩm này có thể giúp được.</li>
+                        <li><strong>Bạn cần giọng đọc.</strong> Không có chuyển văn bản thành giọng nói, không có trình đọc tài liệu, và không có trình đọc màn hình. Không có tính năng nào trong số này được lên kế hoạch bổ sung ở mức giá $9.99.</li>
+                        <li><strong>Bạn cần đảo màu hoặc bộ lọc tương phản</strong> để đọc thoải mái. Windows Magnifier làm được điều này miễn phí; chúng tôi hoàn toàn không làm điều đó.</li>
+                        <li><strong>Bạn cần văn bản sắc nét ở mức phóng đại cao.</strong> Chúng tôi phóng to màn hình đúng như nó vốn có; các bộ công cụ kia dựng lại văn bản để nó luôn sắc nét. Ở mức thu phóng cao, sự khác biệt này rất lớn và có ý nghĩa quan trọng.</li>
+                        <li><strong>Bạn cần hỗ trợ từ nhà sản xuất, đào tạo, hoặc một quy trình mua sắm chính thức.</strong> Chúng tôi là một công ty rất nhỏ chỉ có một địa chỉ email. Điều đó không phù hợp với một biện pháp hỗ trợ tại nơi làm việc đòi hỏi yêu cầu hỗ trợ chính thức.</li>
+                        <li><strong>Bạn không dùng chuột hoặc bàn di chuột.</strong> Thiết kế của ứng dụng xoay quanh việc trỏ vào thứ bạn muốn phóng to. Có các phím tắt, nhưng người dùng chỉ dựa vào bàn phím sẽ được phục vụ tốt hơn ở nơi khác.</li>
+                        <li><strong>Bạn đang dùng Windows on ARM, hoặc một PC 32-bit.</strong> Hiện chưa được hỗ trợ.</li>
+                    </ul>
+
+                    <h2>Có thể bạn không cần trình phóng to nào cả</h2>
+                    <p>Trước khi mua bất cứ thứ gì, hãy thử các tùy chọn miễn phí đã có sẵn trên máy tính của bạn. Với nhiều người, chúng đã đủ dùng:</p>
+                    <ul>
+                        <li><strong>Phóng to mọi thứ vĩnh viễn:</strong> Windows <em>Cài đặt → Hệ thống → Màn hình → Tỷ lệ</em>. Đặt mức này thành 150% hoặc 175% sẽ phóng to toàn bộ văn bản và biểu tượng ở mọi nơi, mà không cần thêm phần mềm nào.</li>
+                        <li><strong>Chỉ phóng to văn bản:</strong> Windows <em>Cài đặt → Hỗ trợ tiếp cận → Kích thước văn bản</em>.</li>
+                        <li><strong>Phóng to một trang web:</strong> <code>Ctrl</code> + <code>Cộng</code> trong bất kỳ trình duyệt nào, giúp bố cục lại văn bản thay vì phóng to điểm ảnh — thường dễ đọc hơn bất kỳ trình phóng to nào khi đọc trang web.</li>
+                        <li><strong>Trình phóng to có sẵn:</strong> <code>phím Windows</code> + <code>Cộng</code>.</li>
+                    </ul>
+                    <p>Trình phóng to là công cụ phù hợp khi bạn cần liên tục phóng vào rồi ra khỏi chi tiết suốt cả ngày, trong mọi ứng dụng. Đó là công cụ không phù hợp khi thứ bạn thực sự cần là văn bản lớn hơn ở mọi lúc.</p>
+
+                    <h2>Low Vision Zoom phù hợp ở đâu</h2>
+                    <p>Low Vision Zoom ra đời vì người phát triển nó muốn một điều cụ thể: phóng to rồi thu nhỏ liên tục, suốt cả ngày, mà không bị mất dấu vị trí trên màn hình mỗi lần như vậy. Nó phóng to liên tục thay vì theo từng bước, xoay quanh điểm nằm dưới con trỏ để thứ bạn đang nhìn luôn đứng yên, và giữ khung nhìn cố định trong khi con trỏ của bạn di chuyển ở vùng giữa màn hình. Không có gì cần thiết lập và không có gì cần học ngoài một phím và con lăn chuột.</p>
+                    <p>Đó là toàn bộ sản phẩm. Nếu mô tả trên đây đúng là vấn đề bạn đang gặp phải, <a href="/vi/index.html#get">bản dùng thử miễn phí 7 ngày</a> sẽ cho bạn biết chỉ trong vài phút liệu nó có phù hợp với mắt bạn hay không. Nếu không, một trong những sản phẩm khác trên trang này sẽ phục vụ bạn tốt hơn, và chúng tôi thà giới thiệu bạn đến đó. Bạn có thể đọc thêm về <a href="/vi/why-smooth-magnification.html">vì sao phóng to mượt mà lại dễ theo dõi hơn</a>, hoặc xem <a href="/vi/faq.html">các câu hỏi thường gặp</a>.</p>
+
+                    <h2>Nguồn tham khảo</h2>
+                    <p>Các thông tin về sản phẩm khác được lấy từ chính các trang công khai của nhà sản xuất, kiểm tra vào ngày 20 tháng 7 năm 2026:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — Sử dụng Magnifier để giúp mọi thứ trên màn hình dễ nhìn hơn</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows, Windows Magnifier và Narrator là các sản phẩm của Microsoft. ZoomText và JAWS là các sản phẩm của Freedom Scientific / Vispero. SuperNova là một sản phẩm của Dolphin Computer Access. Magnifixer là một sản phẩm của Blacksun Software. Chúng tôi không có liên kết, không được chứng thực, và không hợp tác với bất kỳ đơn vị nào trong số này, và chúng tôi chỉ sử dụng tên của họ để nhận diện sản phẩm của họ. Nếu bạn cho rằng có điều gì trên trang này trình bày sai lệch về sản phẩm của bạn, <a href="/vi/contact.html">hãy cho chúng tôi biết</a> và chúng tôi sẽ sửa lại.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Dùng thử trước khi quyết định</h2>
+                <p>Dùng thử miễn phí 7 ngày · $9.99 trả một lần · không thuê bao · không cần tài khoản</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/vi.svg" alt="Tải trên Microsoft Store">
+                    </a>
+                    <a href="/vi/index.html#get" data-download class="download-direct">Hoặc tải trình cài đặt trực tiếp từ trang web này (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom là trình phóng to màn hình dành cho Windows 10 và 11. Nó phóng to tối đa 5×, mượt mà, lấy tâm ở con trỏ chuột. Ứng dụng có giá $9.99, trả một lần. Bạn có thể tải từ Microsoft Store hoặc tải trực tiếp tệp MSI. Ứng dụng hoạt động ngoại tuyến và không thu thập dữ liệu.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Một trình phóng to màn hình êm dịu cho Windows. Một sản phẩm của txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Sản phẩm</h4>
+                    <ul>
+                        <li><a href="/vi/index.html#why">Vì sao tốt hơn</a></li>
+                        <li><a href="/vi/index.html#how">Cách hoạt động</a></li>
+                        <li><a href="/vi/pricing.html">Bảng giá</a></li>
+                        <li><a href="/vi/compare.html" aria-current="page">So sánh trình phóng to</a></li>
+                        <li><a href="/vi/faq.html">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Pháp lý</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Quyền riêng tư (bằng tiếng Anh)</a></li>
+                        <li><a href="/terms.html">Điều khoản dịch vụ (bằng tiếng Anh)</a></li>
+                        <li><a href="/refund.html">Chính sách hoàn tiền (bằng tiếng Anh)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="/vi/contact.html">Liên hệ với chúng tôi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Bảo lưu mọi quyền.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

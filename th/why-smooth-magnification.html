@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="th" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ทำไมโปรแกรมขยายหน้าจอที่เคลื่อนไหวนุ่มนวลจึงติดตามได้ง่ายกว่าแบบที่กระตุกเปลี่ยนทันที: ทำความเข้าใจ spatial constancy, smooth pursuit และ change blindness ที่อธิบายความรู้สึกหลงตำแหน่ง — และ Low Vision Zoom ถูกออกแบบมาให้สอดคล้องกับกลไกเหล่านี้อย่างไร">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "ทำไมการซูมแบบนุ่มนวลจึงติดตามได้ง่ายกว่าการซูมที่กระตุกเปลี่ยนทันที",
+      "description": "คำอธิบายด้วยภาษาที่เข้าใจง่าย พร้อมแหล่งอ้างอิง ว่าทำไมโปรแกรมขยายหน้าจอที่เคลื่อนไหวนุ่มนวลจึงช่วยให้คุณไม่หลงตำแหน่ง ในขณะที่แบบกระตุกเปลี่ยนทันทีทำให้คุณต้องหาตำแหน่งใหม่ — อิงจากหลักการ spatial constancy, smooth pursuit และ change blindness",
+      "url": "https://lowvisionzoom.com/th/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "th",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "การขยายหน้าจอ" },
+        { "@type": "Thing", "name": "สายตาเลือนราง" },
+        { "@type": "Thing", "name": "Spatial constancy" },
+        { "@type": "Thing", "name": "Smooth pursuit eye movement" },
+        { "@type": "Thing", "name": "Change blindness" }
+      ]
+    }
+    </script>
+    <title>ทำไมการซูมแบบนุ่มนวลจึงติดตามได้ง่ายกว่า | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">ข้ามไปยังเนื้อหา</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/th/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="/th/index.html#demo">ดูตัวอย่างการใช้งาน</a>
+                <a href="/th/index.html#how">วิธีใช้งาน</a>
+                <a href="/th/index.html#why">ทำไมถึงดีกว่า</a>
+                <a href="/th/pricing.html">ราคา</a>
+                <a href="/th/index.html#get" data-download class="btn btn-secondary btn-nav">ดาวน์โหลด</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="ภาษา: ไทย">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>ไทย</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th" aria-current="true">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">ทำไมความนุ่มนวลจึงสำคัญ</span>
+                <h1>ทำไมการซูมแบบนุ่มนวลจึงติดตามได้ง่ายกว่าการซูมที่กระตุกเปลี่ยนทันที</h1>
+                <p class="updated">คำอธิบายด้วยภาษาที่เข้าใจง่าย พร้อมแหล่งอ้างอิง</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>โปรแกรมขยายหน้าจอส่วนใหญ่เปลี่ยนมุมมองแบบกระตุกทันที ทุกครั้งที่กระตุก สายตาและสมองของคุณต้องหยุด หาตำแหน่งเดิมที่เคยอยู่ แล้วเริ่มใหม่ Low Vision Zoom เคลื่อนไหวอย่างต่อเนื่อง — ค่อยๆ ซูมเข้า หมุนรอบจุดที่คุณกำลังชี้อยู่ และไหลลื่นเมื่อเลื่อนมุมมอง — เพื่อให้ความสนใจของคุณไม่หลุดจากสิ่งที่คุณกำลังสนใจอยู่เลย นี่ไม่ใช่แค่ความสะดวกที่คลุมเครือ แต่สอดคล้องกับคุณสมบัติที่มีการศึกษาอย่างดีหลายประการเกี่ยวกับการทำงานของการมองเห็นของมนุษย์</p>
+                    </div>
+
+                    <p>ไม่มีข้อความใดในหน้านี้เป็นการอ้างสิทธิ์ทางการแพทย์ สิ่งเหล่านี้คือหลักการที่เข้าใจกันโดยทั่วไปเกี่ยวกับการมองเห็นของมนุษย์และปฏิสัมพันธ์ระหว่างมนุษย์กับคอมพิวเตอร์ ใช้เพื่ออธิบายว่าทำไมโปรแกรมขยายที่นุ่มนวลกว่าจึงใช้งานได้สบายกว่าแบบที่กระตุกเปลี่ยนทันที ไม่มีงานวิจัยใดที่อ้างอิงในหน้านี้ศึกษา Low Vision Zoom โดยตรง งานวิจัยเหล่านี้อธิบายการทำงานของการมองเห็นและการเคลื่อนไหวของอินเทอร์เฟซโดยทั่วไป</p>
+
+                    <h2>ความรู้สึก “หลงตำแหน่งที่กำลังดู” มีชื่อเรียก</h2>
+                    <p>เมื่อผู้คนบอกว่าโปรแกรมขยายหน้าจอทำให้พวกเขา “หลงตำแหน่งที่กำลังดูอยู่” พวกเขากำลังอธิบายสิ่งที่เกิดขึ้นจริง ระบบการมองเห็นของคุณไม่ได้เก็บภาพหน้าจอเป็นรูปถ่าย แต่มันสร้างแผนที่ภายในที่คอยอัปเดตตำแหน่งของสิ่งต่างๆ และล็อกสายตาของคุณไว้กับจุดที่เลือก มีกลไกหลายอย่างที่ช่วยให้แผนที่นั้นคงที่ — และการกระตุกเปลี่ยนขนาดภาพทันทีจะทำลายกลไกเหล่านั้นทั้งหมดพร้อมกัน</p>
+
+                    <h3>1. Spatial constancy (ความคงที่เชิงพื้นที่)</h3>
+                    <p>สมองของคุณทำงานหนักเพื่อให้โลกรู้สึกมั่นคง แม้ว่าดวงตาของคุณจะเคลื่อนไหวอยู่ตลอดเวลา สิ่งนี้เรียกว่า <strong>spatial constancy</strong> หรือการอัปเดตเชิงพื้นที่ (spatial updating): ขณะที่คุณเคลื่อนไหว สมองจะคาดการณ์ว่าทุกสิ่งควรอยู่ที่ใด และคอยปรับแผนที่ให้สอดคล้องกันอย่างเงียบๆ การเคลื่อนไหวที่นุ่มนวลและต่อเนื่องเป็นสิ่งที่ระบบนี้ถูกสร้างมาเพื่อรองรับโดยตรง — มันสามารถอัปเดตแผนที่ได้ทันที ในขณะที่การกระโดดข้ามตำแหน่งทันทีไม่มีอะไรให้ระบบนี้ประมวลผลต่อเนื่อง แผนที่จึงถูกยกเลิกและต้องสร้างใหม่ทั้งหมด นั่นคือช่วงเวลาของความรู้สึก “ฉันเพิ่งไปอยู่ตรงไหน?”</p>
+                    <p>Low Vision Zoom รักษา spatial constancy ไว้ได้เพราะไม่มีการกระโดดข้ามตำแหน่งเลย การขยายภาพจะค่อยๆ เข้าใกล้เป้าหมายในเวลาประมาณหนึ่งในสามวินาที และการเลื่อนมุมมองก็ไหลลื่นแทนที่จะกระตุก แผนที่ภายในของคุณจึงถูกอัปเดต ไม่ใช่ถูกลบทิ้ง</p>
+
+                    <h3>2. Smooth pursuit และต้นทุนของการโฟกัสใหม่</h3>
+                    <p>ดวงตามีวิธีการเคลื่อนไหวสองแบบ <strong>Smooth pursuit</strong> คือการติดตามเป้าหมายที่เคลื่อนที่อย่างสม่ำเสมออย่างต่อเนื่อง — ดวงตาไหลลื่นและคงการล็อกไว้ ส่วน <strong>saccades</strong> (แซกเคด) คือการกระโดดอย่างรวดเร็วระหว่างจุดโฟกัส และการมองเห็นจะถูกระงับชั่วขณะในระหว่างแซกเคด ทำให้หลังจากนั้นดวงตาต้องหาตำแหน่งและโฟกัสใหม่กับเป้าหมาย</p>
+                    <p>โปรแกรมขยายที่กระตุกเปลี่ยนทันทีบังคับให้เกิดทั้งแซกเคดและการโฟกัสใหม่ทุกครั้งที่มันเคลื่อนไหว สำหรับผู้ที่มีความคมชัดในการมองเห็นลดลง การหาตำแหน่งเป้าหมายขนาดเล็กใหม่หลังการกระตุกนั้นช้ากว่าและไม่แน่นอนกว่าสำหรับผู้ที่มีการมองเห็นส่วนกลางที่คมชัด การซูมแบบนุ่มนวลปล่อยให้ระบบ pursuit ของดวงตาทำงานแทน — มันสามารถไหลตามการเคลื่อนไหวและคงการล็อกไว้ได้ จึงไม่มีการกระโดดแบบมองไม่เห็นและไม่ต้องตามหาตำแหน่งใหม่ Low Vision Zoom ถูกสร้างขึ้นโดยยึดหลักการนี้ — วงจรแอนิเมชัน 60 เฟรมต่อวินาทีหมายความว่ามุมมองจะเคลื่อนไหวเป็นขั้นเล็กๆ ที่ติดตามได้เสมอ ให้สายตาของคุณไหลตามแทนที่จะต้องไล่ตาม</p>
+
+                    <h3>3. ความต่อเนื่องเชิงการรับรู้ — สมองมองว่าเป็นฉากเดียวกัน</h3>
+                    <p>เมื่อวัตถุเคลื่อนที่อย่างนุ่มนวล สมองจะรับรู้ว่าเป็นวัตถุเดียวกันที่เคลื่อนที่ต่อเนื่อง แต่เมื่อวัตถุเดียวกันหายไปแล้วปรากฏขึ้นใหม่ที่อื่นแทน สมองต้องประมวลผลใหม่ว่า “นี่คือสิ่งเดียวกันหรือไม่ และเกิดอะไรขึ้น?” การประมวลผลใหม่นี้ต้องใช้ความพยายาม และเป็นตัวกระตุ้นคลาสสิกของ <strong>change blindness</strong> (ภาวะมองไม่เห็นการเปลี่ยนแปลง) ซึ่งการเปลี่ยนแปลงที่เกิดขึ้นระหว่างการขัดจังหวะทางสายตาจะไม่ถูกสังเกตเห็นเลย และคุณจะสูญเสียสิ่งที่กำลังติดตามอยู่</p>
+                    <p>Low Vision Zoom รักษาความต่อเนื่องไว้ เพราะแต่ละเฟรมเป็นการเปลี่ยนแปลงเล็กน้อยจากเฟรมก่อนหน้า เนื้อหาที่ถูกขยายจึงดูเหมือนฉากเดียวกันที่ค่อยๆ ขยายใหญ่ขึ้นอย่างนุ่มนวล ไม่ใช่หน้าจอใหม่ที่มาแทนที่หน้าจอเดิม ไม่มีอะไรหายไปแล้วปรากฏใหม่ จึงไม่มีอะไรต้องสูญเสีย</p>
+
+                    <h3>4. จุดยึดทางสายตาที่คงที่: การซูมเข้าที่เคอร์เซอร์</h3>
+                    <p>นี่คือคำตอบที่ตรงที่สุดต่อปัญหา “การสูญเสียจุดยึด” Low Vision Zoom หมุนการซูมรอบจุดที่อยู่ใต้เคอร์เซอร์ของคุณ — เนื้อหาที่อยู่ใต้เมาส์โดยตรงจะอยู่นิ่งในขณะที่ทุกอย่างขยายใหญ่ขึ้นรอบๆ โปรแกรมขยายหลายตัวกลับซูมไปที่มุมหรือกึ่งกลางหน้าจอแล้วค่อยเลื่อนตามทีหลัง ซึ่งหมายความว่าสิ่งที่คุณกำลังมองอยู่จะเลื่อนหลุดออกไปก่อนที่จะกลับมา</p>
+                    <p>ด้วยการรักษาจุดที่คุณกำลังมองให้คงที่ระหว่างการซูม แอปจึงให้สายตาของคุณมีจุดยึดที่มั่นคงตลอดการขยายภาพทั้งหมด คุณเป็นผู้กำหนดจุดยึดเพียงแค่ชี้ไปที่จุดนั้น จุดโฟกัสของคุณไม่ต้องขยับเลย ทำให้ทั้ง spatial constancy และการล็อกของสายตาคงอยู่ตลอดช่วงเวลาที่มักจะทำลายสิ่งเหล่านี้</p>
+
+                    <h3>5. การควบคุมที่คาดเดาได้และกำหนดจังหวะได้เอง</h3>
+                    <p>การเคลื่อนไหวที่สมองเป็นผู้เริ่มเองนั้นคาดเดาได้ง่ายกว่าการเคลื่อนไหวที่ถูกกำหนดจากภายนอก <strong>Ctrl + เลื่อนล้อเมาส์</strong> ของ Low Vision Zoom เป็นการควบคุมแบบต่อเนื่องและเป็นสัดส่วน: คุณซูมได้ระยะและความเร็วตามที่คุณหมุนล้อเมาส์พอดี และคุณสามารถหยุด ย้อนกลับ หรือค้างไว้ ณ จุดใดก็ได้ การเคลื่อนไหวเป็นของคุณเอง จึงคาดเดาได้ — และการเคลื่อนไหวที่คาดเดาได้นั้นทำให้หลงทิศทางน้อยกว่าโปรแกรมขยายที่กระโดดไปยังระดับที่ตั้งไว้ล่วงหน้าเองอย่างมาก</p>
+
+                    <h2>ทำไมเรื่องนี้จึงสำคัญเป็นพิเศษสำหรับผู้มีสายตาเลือนราง</h2>
+                    <p>ผู้ที่มีการมองเห็นส่วนกลางลดลงมักพึ่งพากลยุทธ์ที่โปรแกรมขยายแบบกระตุกทันทีขัดขวางอยู่อย่างเงียบๆ:</p>
+                    <ul>
+                        <li><strong>Eccentric viewing (การมองแบบเยื้องศูนย์) และ preferred retinal locus (จุดที่เลือกใช้บนจอตา)</strong> เมื่อการมองเห็นส่วนกลางที่คมชัดลดลง หลายคนเรียนรู้ที่จะมองแบบเยื้องจากจุดกึ่งกลางเล็กน้อย โดยใช้จุดที่คงที่บนจอตาเป็นจุดโฟกัสหลัก การต้องปรับแนวการมองนั้นใหม่ทุกครั้งหลังการกระตุกเป็นความพยายามที่แท้จริงและเกิดขึ้นซ้ำๆ โปรแกรมขยายที่ไม่ทำให้คุณต้องหาตำแหน่งใหม่จะช่วยให้การปรับแนวที่ได้มาอย่างยากลำบากนี้คงอยู่ได้</li>
+                        <li><strong>ต้นทุนของการหาตำแหน่งใหม่</strong> เมื่อมีความคมชัดในการมองเห็นเหลือน้อยลง ต้นทุนของการหาเป้าหมายขนาดเล็กใหม่หลังการกระโดดแบบมองไม่เห็นนั้นสูงกว่าสำหรับผู้ที่มีสายตาปกติ ความนุ่มนวลขจัดการกระโดดนี้ออกไป พร้อมกับต้นทุนที่ตามมาด้วย</li>
+                        <li><strong>ความสนใจและความจำใช้งาน</strong> ทุกครั้งที่ต้องตั้งคำถามว่า “ตอนนี้ฉันอยู่ตรงไหน?” จะใช้ความสนใจและความจำใช้งานที่คุณอยากใช้กับงานจริงมากกว่า — การอ่าน การเขียน การนำทาง การมอบหน้าที่ติดตามให้ระบบการรับรู้ของคุณ ซึ่งติดตามการเคลื่อนไหวที่นุ่มนวลได้อย่างง่ายดาย จะช่วยปลดปล่อยความพยายามนั้นไว้ใช้กับงานจริง</li>
+                    </ul>
+                    <p>ทั้งหมดนี้ไม่ใช่การอ้างสิทธิ์เรื่องการรักษา แต่เป็นความแตกต่างระหว่างเครื่องมือที่ขัดกับวิธีที่การมองเห็นแบบสายตาเลือนรางทำงาน กับเครื่องมือที่ถูกออกแบบให้สอดคล้องกับมัน</p>
+
+                    <h2>ทุกการออกแบบมีเป้าหมายเดียวกัน</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="ฟีเจอร์แต่ละอย่างสอดคล้องกับหลักการรับรู้ใด">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">ฟีเจอร์ของ Low Vision Zoom และหลักการรับรู้ที่แต่ละฟีเจอร์รองรับ</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">ฟีเจอร์</th>
+                                    <th scope="col">ทำอะไร</th>
+                                    <th scope="col">หลักการที่รองรับ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">การซูมแบบแอนิเมชันนุ่มนวล (ค่อยๆ หยุดประมาณ ⅓ วินาที, 60 fps)</th>
+                                    <td>การขยายภาพค่อยๆ เข้าใกล้เป้าหมายแทนที่จะกระตุกทันที</td>
+                                    <td>Spatial constancy; smooth pursuit; ความต่อเนื่องเชิงการรับรู้</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">การซูมหมุนรอบเคอร์เซอร์</th>
+                                    <td>จุดที่อยู่ใต้เมาส์จะอยู่นิ่งในขณะที่ทุกอย่างขยายขนาดรอบๆ</td>
+                                    <td>จุดยึดทางสายตาที่มั่นคง; จุดโฟกัสไม่เคยเคลื่อนที่</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">การเลื่อนตามเคอร์เซอร์แบบมีโซนนิ่ง</th>
+                                    <td>มุมมองจะนิ่งสนิทในขณะที่เคอร์เซอร์อยู่ในบริเวณกลางจอที่กว้าง และจะเลื่อนไหล — อย่างนุ่มนวล — ก็ต่อเมื่อคุณเข้าใกล้ขอบจอเท่านั้น</td>
+                                    <td>ไม่มีการเคลื่อนไหวที่ไม่จำเป็น; การเลื่อนคือ smooth pursuit ไม่ใช่การกระโดดข้าม</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">การควบคุมแบบเป็นสัดส่วนด้วย Ctrl + เลื่อนล้อเมาส์</th>
+                                    <td>คุณกำหนดระดับการซูมได้อย่างต่อเนื่อง เร็วหรือช้าตามใจชอบ</td>
+                                    <td>การเคลื่อนไหวที่กำหนดจังหวะเอง คาดเดาได้ และเริ่มต้นโดยตัวเอง</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">มุมมองครอบคลุมทั้งเดสก์ท็อป หลายจอ</th>
+                                    <td>พื้นที่ที่ขยายแล้วเป็นผืนเดียวต่อเนื่องที่ตามคุณไปทุกหน้าจอ ไม่ใช่แยกเป็นเกาะตามแต่ละหน้าต่าง</td>
+                                    <td>แผนที่เชิงพื้นที่ที่สอดคล้องกันเพียงหนึ่งเดียวที่ต้องอัปเดต แทนที่จะเป็นหลายแผนที่</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ค่าเริ่มต้นที่ปรับแต่งไว้แล้ว ไม่ต้องตั้งค่าอะไรเลย</th>
+                                    <td>ความนุ่มนวล ความเร็ว และความรู้สึกของโซนนิ่งถูกปรับแต่งและกำหนดไว้ล่วงหน้า</td>
+                                    <td>พฤติกรรมที่นุ่มนวลคือค่าเริ่มต้น ไม่ใช่สิ่งที่ต้องค้นหาและตั้งค่าเอง</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>นี่คือแนวคิดทั้งหมดเบื้องหลังผลิตภัณฑ์นี้: โปรแกรมขยายที่เคลื่อนไหวในแบบที่ระบบการมองเห็นของมนุษย์ถูกสร้างมาให้ติดตามได้ ทำให้คุณยังคงมีจุดยึดในขณะที่โปรแกรมอื่นทำให้คุณหลงตำแหน่ง คุณสามารถ<a href="/th/index.html#demo">ชมการทำงานจริง</a> ดูว่ามัน<a href="/th/compare.html">เทียบกับโปรแกรมขยายอื่นอย่างไร</a> หรือ<a href="/th/index.html#get">ทดลองใช้ฟรี 7 วัน</a></p>
+
+                    <h2>แหล่งอ้างอิงและข้อมูลเพิ่มเติม</h2>
+                    <p>ต่อไปนี้เป็นแหล่งอ้างอิงที่น่าเชื่อถือ ผ่านการตรวจสอบโดยผู้เชี่ยวชาญ หรือเผยแพร่โดยหน่วยงานที่มีความน่าเชื่อถือ สำหรับหลักการทั่วไปที่อ้างถึงข้างต้น แหล่งข้อมูลเหล่านี้อธิบายการทำงานของการมองเห็นและการเคลื่อนไหวของอินเทอร์เฟซของมนุษย์โดยทั่วไป — ไม่มีแหล่งใดที่ศึกษา Low Vision Zoom โดยตรง และไม่ควรตีความว่าเป็นหลักฐานของผลลัพธ์เฉพาะเจาะจงจากแอปนี้</p>
+
+                    <h3>Spatial constancy และความมั่นคงทางสายตาระหว่างการเคลื่อนไหวของดวงตา</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — ความไวในการมองเห็นลดลงระหว่างการเคลื่อนไหวของดวงตาที่รวดเร็ว และการระงับนี้เริ่มต้นที่จอตา <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">อ่านเพิ่มเติม</a></li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — สมองสร้างการรับรู้ที่เป็นหนึ่งเดียวจากลำดับภาพระหว่างการเคลื่อนไหวของดวงตาได้อย่างไร <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">บทคัดย่อ</a></li>
+                    </ul>
+
+                    <h3>Smooth pursuit — ระบบติดตามต่อเนื่องของดวงตา</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — ดวงตาติดตามและคาดการณ์เป้าหมายที่เคลื่อนที่ได้อย่างนุ่มนวล โดยมีความแม่นยำดีกว่าเมื่อการเคลื่อนไหวของเป้าหมายเป็นแบบที่ตนเองสร้างขึ้นหรือสมจริง <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">บทคัดย่อ</a></li>
+                    </ul>
+
+                    <h3>Change blindness — การสูญเสียสิ่งที่ติดตามระหว่างการขัดจังหวะทางสายตา</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — ความล้มเหลวที่น่าประหลาดใจในการมองเห็นการเปลี่ยนแปลงขนาดใหญ่ที่ปกติแล้วควรสังเกตเห็นได้ง่าย <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">บทคัดย่อ</a></li>
+                        <li>Rensink, <em>Change Blindness</em>, in Neurobiology of Attention (Elsevier, 2005) — ผลกระทบนี้สามารถเกิดขึ้นได้จากการเปลี่ยนแปลงระหว่างการเคลื่อนไหวของดวงตา การกะพริบตา หรือแสงวาบสั้นๆ <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a></li>
+                    </ul>
+
+                    <h3>การสูญเสียการมองเห็นส่วนกลาง, eccentric viewing และ preferred retinal locus</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — ผู้ที่มี central scotoma (จุดบอดกลางจอตา) ใช้ preferred retinal locus นอกบริเวณที่ได้รับผลกระทบ และการฝึกการมองแบบเยื้องศูนย์นี้เรียกว่า eccentric viewing training <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">อ่านเพิ่มเติม</a></li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998) <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">บทคัดย่อ</a></li>
+                    </ul>
+
+                    <h3>การเคลื่อนไหวและความต่อเนื่องในการออกแบบส่วนติดต่อผู้ใช้</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — การเคลื่อนไหวสามารถป้องกันความสับสนและช่วยให้ผู้ใช้ติดตามบริบทระหว่างการเปลี่ยนหน้าได้ <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">อ่านเพิ่มเติม</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>ลองสัมผัสความนุ่มนวลด้วยตัวเอง</h2>
+                <p>ทดลองใช้ฟรี 7 วัน · จ่ายครั้งเดียว $9.99 · ไม่มีค่าสมัครสมาชิก · ไม่ต้องสร้างบัญชี</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/th.svg" alt="รับจาก Microsoft Store">
+                    </a>
+                    <a href="/th/index.html#get" data-download class="download-direct">หรือดาวน์โหลดตัวติดตั้งโดยตรงจากเว็บไซต์นี้ (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>โปรแกรมขยายหน้าจอที่นุ่มนวลสำหรับ Windows ผลิตภัณฑ์จาก txtbook&nbsp;LLC</p>
+                </div>
+                <div>
+                    <h4>ผลิตภัณฑ์</h4>
+                    <ul>
+                        <li><a href="/th/index.html#why">ทำไมถึงดีกว่า</a></li>
+                        <li><a href="/th/index.html#how">วิธีใช้งาน</a></li>
+                        <li><a href="/th/pricing.html">ราคา</a></li>
+                        <li><a href="/th/compare.html">เปรียบเทียบโปรแกรมขยายหน้าจอ</a></li>
+                        <li><a href="/th/faq.html">คำถามที่พบบ่อย</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>กฎหมาย</h4>
+                    <ul>
+                        <li><a href="/privacy.html">ความเป็นส่วนตัว (ภาษาอังกฤษ)</a></li>
+                        <li><a href="/terms.html">ข้อกำหนดการให้บริการ (ภาษาอังกฤษ)</a></li>
+                        <li><a href="/refund.html">นโยบายการคืนเงิน (ภาษาอังกฤษ)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>ฝ่ายสนับสนุน</h4>
+                    <ul>
+                        <li><a href="/th/contact.html">ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC สงวนลิขสิทธิ์</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Windows पर स्क्रीन मैग्निफिकेशन और Low Vision Zoom के बारे में आम सवालों के जवाब: ज़ूम कैसे करें, यह बिल्ट-इन Windows Magnifier और ZoomText से कैसे अलग है, कीमत, मुफ़्त ट्रायल, गोपनीयता, और इंस्टॉल करना।">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "hi",
+      "url": "https://lowvisionzoom.com/hi/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Windows के लिए सबसे अच्छा स्क्रीन मैग्निफायर कौन सा है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "कोई एक ही सबसे अच्छा विकल्प नहीं है — यह इस पर निर्भर करता है कि आपको क्या चाहिए, और सही पहला कदम मुफ़्त है। हर Windows PC में पहले से ही Windows Magnifier (आवर्धक) शामिल है (इसे शुरू करने के लिए Windows key और Plus दबाएँ); कई लोगों के लिए यह पर्याप्त है। अगर आपको स्क्रीन ज़ोर से पढ़कर सुनाई जानी चाहिए, बहुत ज़्यादा मैग्निफिकेशन, रंग फ़िल्टर या ब्रेल चाहिए, तो ZoomText या SuperNova जैसा एक पूर्ण सहायक-तकनीक सुइट सही श्रेणी है। अगर आप चाहते हैं एक सहज, शांत ज़ूम जो काम करते समय आपके कर्सर के साथ चले, बिना किसी सेटिंग को कॉन्फ़िगर किए, तो Low Vision Zoom ठीक इसी ज़रूरत के लिए बनाया गया है और इसकी कीमत एक बार $9.99 है। चूँकि मैग्निफिकेशन एक निजी पसंद है, भुगतान करने से पहले कोई भी विकल्प आज़माएँ।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या Windows Magnifier का कोई विकल्प है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "हाँ। Microsoft के बिल्ट-इन Windows Magnifier के अलावा, Windows के लिए तीसरे-पक्ष के मैग्निफायरों में ZoomText और SuperNova (स्पीच और पढ़ने के टूल वाले पूर्ण कम-दृष्टि सुइट), मुफ़्त Magnifixer, और Low Vision Zoom शामिल हैं, जो एक सहज, कर्सर-आधारित ज़ूम पर केंद्रित एक छोटी $9.99 की यूटिलिटी है। लोग आमतौर पर तब कोई विकल्प ढूँढते हैं जब उन्हें ज़्यादा सहज अनुभव चाहिए, माउस पॉइंटर पर केंद्रित ज़ूम चाहिए, या स्पीच और रंग जैसी सुविधाएँ चाहिए जो बिल्ट-इन टूल नहीं देता। कौन-सा विकल्प सही बैठता है यह इस पर निर्भर करता है कि आपको इनमें से क्या चाहिए।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या ZoomText का कोई सस्ता विकल्प है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "यह इस पर निर्भर करता है कि आप ZoomText की किन सुविधाओं पर निर्भर हैं। ZoomText स्पीच, एक डॉक्यूमेंट रीडर, व्यापक रंग और फ़ोकस एन्हांसमेंट, और बहुत ज़्यादा मैग्निफिकेशन वाला एक पूर्ण कम-दृष्टि सुइट है, जो आमतौर पर वार्षिक लाइसेंस के रूप में बेचा जाता है। अगर आप उन पढ़ने और एन्हांसमेंट सुविधाओं का इस्तेमाल करते हैं, तो ईमानदार जवाब यह है कि कोई सस्ता टूल उनकी जगह नहीं ले सकता। अगर आप मुख्य रूप से एक सहज मैग्निफिकेशन चाहते हैं जो आपके कर्सर के साथ चले, तो Low Vision Zoom यह एक काम एक-बार के $9.99 में करता है — लेकिन इसमें कोई स्पीच नहीं, कोई पढ़ने की सुविधा नहीं, कोई रंग फ़िल्टर नहीं, और यह 5x पर रुक जाता है। Windows Magnifier भी मुफ़्त है और कई लोगों के अंदाज़े से कहीं ज़्यादा सक्षम है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या Low Vision Zoom टेक्स्ट को ज़ोर से पढ़ता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "नहीं। Low Vision Zoom सिर्फ़ मैग्निफिकेशन करता है। इसमें कोई टेक्स्ट-टू-स्पीच नहीं, कोई डॉक्यूमेंट रीडर नहीं, और कोई स्क्रीन रीडर नहीं है। अगर आपको स्क्रीन ज़ोर से पढ़कर सुनाई जानी चाहिए, तो ZoomText Magnifier/Reader, स्पीच या स्क्रीन-रीडर एडिशन में SuperNova, या Windows के बिल्ट-इन Narrator को देखें, जो मुफ़्त है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom बिल्ट-इन Windows Magnifier से किस तरह अलग है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifier मुफ़्त है, बिल्ट-इन है, और सक्षम है, और कई लोगों को इसे पहले आज़माना चाहिए। Low Vision Zoom सुविधाओं की गिनती से ज़्यादा अनुभव में अलग है। इसका ज़ूम निरंतर है और झटके से नहीं बल्कि सहजता से नए स्तर तक पहुँचता है, यह आपके माउस कर्सर के ठीक नीचे वाले बिंदु के चारों ओर घूमता है ताकि आप जो देख रहे हैं वह अपनी जगह बना रहे, और जब तक आपका कर्सर स्क्रीन के बीच में घूमता है यह दृश्य को स्थिर रखता है। इसमें कोई सेटिंग नहीं है और यह सिस्टम ट्रे में रहता है। यह कुछ मामलों में Windows Magnifier से ज़्यादा सीमित भी है: इसमें कोई स्पीच नहीं, कोई रंग फ़िल्टर नहीं, और यह 5x पर रुक जाता है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows 11 पर ज़ूम कैसे करें?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows में एक बिल्ट-इन मैग्निफायर है: ज़ूम इन करने के लिए Windows key दबाए रखें और Plus दबाएँ, ज़ूम आउट के लिए Minus, और इसे बंद करने के लिए Windows key के साथ Escape। आप Settings, System, Display, Scale में जाकर सब कुछ स्थायी रूप से बड़ा भी कर सकते हैं, या Settings, Accessibility, Text size में सिर्फ़ टेक्स्ट बड़ा कर सकते हैं। Low Vision Zoom इंस्टॉल होने पर, Windows में कहीं भी सहजता से ज़ूम करने के लिए Ctrl दबाए रखें और माउस व्हील घुमाएँ, या माउस व्हील न होने पर Ctrl और Alt के साथ Plus या Minus इस्तेमाल करें।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या ऐसा कोई मैग्निफायर है जो माउस व्हील से ज़ूम करता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "हाँ। Low Vision Zoom Ctrl और माउस व्हील से ज़ूम करता है: Ctrl दबाए रखें और आगे की ओर व्हील घुमाकर ज़ूम इन करें, पीछे की ओर घुमाकर ज़ूम आउट करें। ज़ूम आनुपातिक है, यानी आप ठीक उतना ही और उतनी ही तेज़ी से आगे बढ़ते हैं जितना आप व्हील घुमाते हैं, और यह आपके पॉइंटर के नीचे वाले बिंदु पर केंद्रित रहते हुए सहजता से नए स्तर तक पहुँचता है। Ctrl, Shift और नीचे स्क्रॉल तुरंत सामान्य स्थिति में लौटा देता है। ऐप को इस्तेमाल करने का यही मुख्य तरीका है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या Low Vision Zoom कई मॉनिटरों के साथ काम करता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "हाँ। यह पूरे Windows डेस्कटॉप को एक निरंतर स्थान के रूप में बड़ा करता है और हर स्क्रीन को अलग-अलग मानने के बजाय आपके कर्सर का एक मॉनिटर से दूसरे मॉनिटर तक पीछा करता है। यही तरीका बिल्ट-इन Windows Magnifier के फ़ुल-स्क्रीन मोड में भी इस्तेमाल होता है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "बिना माउस व्हील वाले लैपटॉप पर ज़ूम कैसे करें?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "कीबोर्ड इस्तेमाल करें। Ctrl और Alt दबाए रखें और ज़ूम इन के लिए Plus दबाएँ या ज़ूम आउट के लिए Minus; ज़ूम जारी रखने के लिए कुंजी दबाए रखें। Ctrl, Alt और 0 सामान्य स्थिति में लौटा देता है। किसी माउस व्हील या बाहरी माउस की ज़रूरत नहीं, इसलिए ऐप केवल ट्रैकपैड वाले लैपटॉप पर भी काम करता है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या यह गेम और फ़ुल-स्क्रीन वीडियो में काम करता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "यह लगभग हर जगह काम करता है। Low Vision Zoom पूरे Windows डेस्कटॉप को बड़ा करता है, इसलिए यह आपके ब्राउज़र, ईमेल, दस्तावेज़ों, किसी विंडो में चल रहे वीडियो, और खुद Windows शेल पर भी लागू होता है। अपवाद वह गेम या ऐप है जो पूरी स्क्रीन पर एक्सक्लूसिव नियंत्रण ले लेता है और सामान्य डेस्कटॉप को दरकिनार कर देता है; उस सामग्री पर मैग्निफिकेशन लागू नहीं हो सकता। ऐसे गेम को विंडो मोड या बॉर्डरलेस-विंडो मोड में चलाने से मैग्निफिकेशन फिर से काम करने लगता है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom स्क्रीन को कितना बड़ा कर सकता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "5x तक, आधे-आधे चरणों (half-step) में। यह एक छोटे, आरामदायक ज़ूम टूल के लिए एक जान-बूझकर रखी गई सीमा है, और यह बिल्ट-इन Windows Magnifier (16x तक) या ZoomText जैसे पूर्ण सुइट (36x तक) से कम है। अगर आपको 5x से ज़्यादा चाहिए, तो Low Vision Zoom आपके लिए सही टूल नहीं है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom की कीमत कितनी है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "यह एक-बार का $9.99 लाइसेंस है, जिसमें भविष्य के सभी अपडेट शामिल हैं। कोई सदस्यता नहीं, कोई खाता नहीं, और कोई विज्ञापन नहीं। आप पहले हर सुविधा 7 दिन तक मुफ़्त आज़मा सकते हैं, और खरीद के बाद 30 दिन की पैसा-वापसी गारंटी है।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "मुफ़्त ट्रायल खत्म होने पर क्या होता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ऐप काम करता रहता है। जब 7 दिन का ट्रायल खत्म होता है, तो मैग्निफिकेशन बंद होने के बजाय बस सीमित हो जाता है, ताकि आपकी स्क्रीन हमेशा इतनी पढ़ने योग्य बनी रहे कि आप नेविगेट कर सकें और लाइसेंस खरीद सकें। पूरा ज़ूम तुरंत बहाल करने के लिए कभी भी लाइसेंस कुंजी दर्ज करें, दोबारा इंस्टॉल करने की ज़रूरत नहीं।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या Low Vision Zoom कोई डेटा एकत्र करता है, और क्या यह ऑफ़लाइन काम करता है?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ऐप कोई निजी डेटा, कोई एनालिटिक्स, और कोई टेलीमेट्री एकत्र नहीं करता, और यह पूरी तरह ऑफ़लाइन काम करता है। यह आपकी स्क्रीन की सामग्री को न तो कैप्चर करता है, न भेजता है। आपकी लाइसेंस कुंजी आपके डिवाइस पर ही जाँची जाती है, बिना किसी खाते और बिना छुपकर सर्वर से संपर्क किए। यह इंटरनेट से सिर्फ़ तभी जुड़ता है जब आप ट्रे मेनू से अपडेट के लिए जाँचें चुनते हैं।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "क्या Low Vision Zoom इंस्टॉल करते समय Windows मुझे चेतावनी देगा?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "हो सकता है, अगर आप डायरेक्ट डाउनलोड इस्तेमाल करते हैं। इंस्टॉलर को पहली बार खोलने पर Windows एक नीला “Windows ने आपके PC की सुरक्षा की” (Windows protected your PC) SmartScreen संदेश दिखा सकता है। यह एक नए ऐप के लिए सामान्य है और सुरक्षित है; इंस्टॉलर txtbook LLC द्वारा डिजिटल रूप से साइन किया गया है। More info (अधिक जानकारी) पर क्लिक करें, जाँच लें कि प्रकाशक txtbook LLC है, फिर Run anyway (फिर भी चलाएँ) पर क्लिक करें। इस स्क्रीन से पूरी तरह बचने के लिए, इसके बजाय Microsoft Store से इंस्टॉल करें, जहाँ यह चेतावनी नहीं दिखती।"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "सिस्टम आवश्यकताएँ क्या हैं?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low Vision Zoom Windows 10 और Windows 11, 64-बिट (x64) पर चलता है। इंस्टॉलर सेल्फ़-कंटेन्ड है, इसलिए और कुछ डाउनलोड करने की ज़रूरत नहीं। Windows on ARM और 32-बिट PC आज समर्थित नहीं हैं।"
+          }
+        }
+      ]
+    }
+    </script>
+    <title>अक्सर पूछे जाने वाले सवाल | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">सीधे सामग्री पर जाएँ</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/hi/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="मुख्य">
+                <a href="/hi/index.html#demo">डेमो देखें</a>
+                <a href="/hi/index.html#how">यह कैसे काम करता है</a>
+                <a href="/hi/index.html#why">यह बेहतर क्यों है</a>
+                <a href="/hi/pricing.html">कीमत</a>
+                <a href="/hi/index.html#get" data-download class="btn btn-secondary btn-nav">डाउनलोड</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="भाषा: हिन्दी">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>हिन्दी</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi" aria-current="true">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">FAQ</span>
+                <h1>अक्सर पूछे जाने वाले सवाल</h1>
+                <p class="updated">Windows पर स्क्रीन मैग्निफिकेशन, और Low Vision Zoom इसमें कैसे फ़िट बैठता है</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">मैग्निफायर चुनना</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Windows के लिए सबसे अच्छा स्क्रीन मैग्निफायर कौन सा है?</summary>
+                            <div class="faq-body">
+                                <p>कोई एक ही सबसे अच्छा विकल्प नहीं है — यह इस पर निर्भर करता है कि आपको क्या चाहिए, और सही पहला कदम मुफ़्त है। हर Windows PC में पहले से ही <strong>Windows Magnifier</strong> (आवर्धक) शामिल है (इसे शुरू करने के लिए <code>Windows key</code> + <code>Plus</code> दबाएँ); कई लोगों के लिए यह पर्याप्त है। अगर आपको स्क्रीन ज़ोर से पढ़कर सुनाई जानी चाहिए, बहुत ज़्यादा मैग्निफिकेशन, रंग फ़िल्टर या ब्रेल चाहिए, तो <strong>ZoomText</strong> या <strong>SuperNova</strong> जैसा एक पूर्ण सहायक-तकनीक सुइट सही श्रेणी है। अगर आप चाहते हैं एक सहज, शांत ज़ूम जो काम करते समय आपके कर्सर के साथ चले, बिना किसी सेटिंग को कॉन्फ़िगर किए, तो <strong>Low Vision Zoom</strong> ठीक इसी ज़रूरत के लिए बनाया गया है और इसकी कीमत एक बार $9.99 है। चूँकि मैग्निफिकेशन एक निजी पसंद है, भुगतान करने से पहले कोई भी विकल्प आज़माएँ। हमारी <a href="/hi/compare.html">ईमानदार तुलना</a> देखें।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>क्या Windows Magnifier का कोई विकल्प है?</summary>
+                            <div class="faq-body">
+                                <p>हाँ। Microsoft के बिल्ट-इन Windows Magnifier के अलावा, Windows के लिए तीसरे-पक्ष के मैग्निफायरों में <strong>ZoomText</strong> और <strong>SuperNova</strong> (स्पीच और पढ़ने के टूल वाले पूर्ण कम-दृष्टि सुइट), मुफ़्त <strong>Magnifixer</strong>, और <strong>Low Vision Zoom</strong> शामिल हैं, जो एक सहज, कर्सर-आधारित ज़ूम पर केंद्रित एक छोटी $9.99 की यूटिलिटी है। लोग आमतौर पर तब कोई विकल्प ढूँढते हैं जब उन्हें ज़्यादा सहज अनुभव चाहिए, माउस पॉइंटर पर केंद्रित ज़ूम चाहिए, या स्पीच और रंग जैसी सुविधाएँ चाहिए जो बिल्ट-इन टूल नहीं देता। कौन-सा विकल्प सही बैठता है यह इस पर निर्भर करता है कि आपको इनमें से क्या चाहिए — <a href="/hi/compare.html">तुलना पृष्ठ</a> उन्हें साथ-साथ रखकर दिखाता है।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>क्या ZoomText का कोई सस्ता विकल्प है?</summary>
+                            <div class="faq-body">
+                                <p>यह इस पर निर्भर करता है कि आप ZoomText की किन सुविधाओं पर निर्भर हैं। ZoomText स्पीच, एक डॉक्यूमेंट रीडर, व्यापक रंग और फ़ोकस एन्हांसमेंट, और बहुत ज़्यादा मैग्निफिकेशन वाला एक पूर्ण कम-दृष्टि सुइट है, जो आमतौर पर वार्षिक लाइसेंस के रूप में बेचा जाता है। अगर आप उन पढ़ने और एन्हांसमेंट सुविधाओं का इस्तेमाल करते हैं, तो ईमानदार जवाब यह है कि कोई सस्ता टूल उनकी जगह नहीं ले सकता। अगर आप मुख्य रूप से एक सहज मैग्निफिकेशन चाहते हैं जो आपके कर्सर के साथ चले, तो Low Vision Zoom यह एक काम एक-बार के <strong>$9.99</strong> में करता है — लेकिन इसमें कोई स्पीच नहीं, कोई पढ़ने की सुविधा नहीं, कोई रंग फ़िल्टर नहीं, और यह 5× पर रुक जाता है। Windows Magnifier भी मुफ़्त है और कई लोगों के अंदाज़े से कहीं ज़्यादा सक्षम है।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>क्या Low Vision Zoom टेक्स्ट को ज़ोर से पढ़ता है?</summary>
+                            <div class="faq-body">
+                                <p><strong>नहीं।</strong> Low Vision Zoom सिर्फ़ मैग्निफिकेशन करता है। इसमें कोई टेक्स्ट-टू-स्पीच नहीं, कोई डॉक्यूमेंट रीडर नहीं, और कोई स्क्रीन रीडर नहीं है। अगर आपको स्क्रीन ज़ोर से पढ़कर सुनाई जानी चाहिए, तो <strong>ZoomText Magnifier/Reader</strong>, स्पीच या स्क्रीन-रीडर एडिशन में <strong>SuperNova</strong>, या Windows के बिल्ट-इन <strong>Narrator</strong> को देखें, जो मुफ़्त है।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom बिल्ट-इन Windows Magnifier से किस तरह अलग है?</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifier मुफ़्त है, बिल्ट-इन है, और सक्षम है, और कई लोगों को इसे पहले आज़माना चाहिए। Low Vision Zoom सुविधाओं की गिनती से ज़्यादा <em>अनुभव</em> में अलग है। इसका ज़ूम निरंतर है और झटके से नहीं बल्कि सहजता से नए स्तर तक पहुँचता है, यह आपके माउस कर्सर के ठीक नीचे वाले बिंदु के चारों ओर घूमता है ताकि आप जो देख रहे हैं वह अपनी जगह बना रहे, और जब तक आपका कर्सर स्क्रीन के बीच में घूमता है यह दृश्य को स्थिर रखता है। इसमें कोई सेटिंग नहीं है और यह सिस्टम ट्रे में रहता है। यह कुछ मामलों में Windows Magnifier से ज़्यादा सीमित भी है: इसमें कोई स्पीच नहीं, कोई रंग फ़िल्टर नहीं, और यह 5× पर रुक जाता है। सहज गति के पीछे के तर्क के बारे में और जानकारी <a href="/hi/why-smooth-magnification.html">सहज मैग्निफिकेशन को फ़ॉलो करना आसान क्यों है</a> में है।</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">Low Vision Zoom का इस्तेमाल करना</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Windows 11 पर ज़ूम कैसे करें?</summary>
+                            <div class="faq-body">
+                                <p>Windows में एक बिल्ट-इन मैग्निफायर है: ज़ूम इन करने के लिए <code>Windows key</code> दबाए रखें और <code>Plus</code> दबाएँ, ज़ूम आउट के लिए <code>Minus</code>, और इसे बंद करने के लिए <code>Windows key</code> + <code>Esc</code>। आप <em>Settings → System → Display → Scale</em> में जाकर सब कुछ स्थायी रूप से बड़ा भी कर सकते हैं, या <em>Settings → Accessibility → Text size</em> में सिर्फ़ टेक्स्ट बड़ा कर सकते हैं। Low Vision Zoom इंस्टॉल होने पर, Windows में कहीं भी सहजता से ज़ूम करने के लिए <strong>Ctrl</strong> दबाए रखें और माउस व्हील घुमाएँ, या माउस व्हील न होने पर <strong>Ctrl + Alt + Plus / Minus</strong> इस्तेमाल करें।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>क्या ऐसा कोई मैग्निफायर है जो माउस व्हील से ज़ूम करता है?</summary>
+                            <div class="faq-body">
+                                <p>हाँ। Low Vision Zoom <strong>Ctrl + माउस व्हील</strong> से ज़ूम करता है: Ctrl दबाए रखें और आगे की ओर व्हील घुमाकर ज़ूम इन करें, पीछे की ओर घुमाकर ज़ूम आउट करें। ज़ूम आनुपातिक है, यानी आप ठीक उतना ही और उतनी ही तेज़ी से आगे बढ़ते हैं जितना आप व्हील घुमाते हैं, और यह आपके पॉइंटर के नीचे वाले बिंदु पर केंद्रित रहते हुए सहजता से नए स्तर तक पहुँचता है। <strong>Ctrl + Shift + नीचे स्क्रॉल</strong> तुरंत सामान्य स्थिति में लौटा देता है। ऐप को इस्तेमाल करने का यही मुख्य तरीका है।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>क्या Low Vision Zoom कई मॉनिटरों के साथ काम करता है?</summary>
+                            <div class="faq-body">
+                                <p>हाँ। यह पूरे Windows डेस्कटॉप को एक निरंतर स्थान के रूप में बड़ा करता है और हर स्क्रीन को अलग-अलग मानने के बजाय आपके कर्सर का एक मॉनिटर से दूसरे मॉनिटर तक पीछा करता है। यही तरीका बिल्ट-इन Windows Magnifier के फ़ुल-स्क्रीन मोड में भी इस्तेमाल होता है।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>बिना माउस व्हील वाले लैपटॉप पर ज़ूम कैसे करें?</summary>
+                            <div class="faq-body">
+                                <p>कीबोर्ड इस्तेमाल करें। <strong>Ctrl + Alt</strong> दबाए रखें और ज़ूम इन के लिए <strong>Plus</strong> दबाएँ या ज़ूम आउट के लिए <strong>Minus</strong>; ज़ूम जारी रखने के लिए कुंजी दबाए रखें। <strong>Ctrl + Alt + 0</strong> सामान्य स्थिति में लौटा देता है। किसी माउस व्हील या बाहरी माउस की ज़रूरत नहीं, इसलिए ऐप केवल ट्रैकपैड वाले लैपटॉप पर भी काम करता है।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>क्या यह गेम और फ़ुल-स्क्रीन वीडियो में काम करता है?</summary>
+                            <div class="faq-body">
+                                <p>यह लगभग हर जगह काम करता है। Low Vision Zoom पूरे Windows डेस्कटॉप को बड़ा करता है, इसलिए यह आपके ब्राउज़र, ईमेल, दस्तावेज़ों, किसी विंडो में चल रहे वीडियो, और खुद Windows शेल पर भी लागू होता है। अपवाद वह गेम या ऐप है जो पूरी स्क्रीन पर <em>एक्सक्लूसिव</em> नियंत्रण ले लेता है और सामान्य डेस्कटॉप को दरकिनार कर देता है; उस सामग्री पर मैग्निफिकेशन लागू नहीं हो सकता। ऐसे गेम को विंडो मोड या बॉर्डरलेस-विंडो मोड में चलाने से मैग्निफिकेशन फिर से काम करने लगता है।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom स्क्रीन को कितना बड़ा कर सकता है?</summary>
+                            <div class="faq-body">
+                                <p><strong>5×</strong> तक, आधे-आधे चरणों (half-step) में। यह एक छोटे, आरामदायक ज़ूम टूल के लिए एक जान-बूझकर रखी गई सीमा है, और यह बिल्ट-इन Windows Magnifier (16× तक) या ZoomText जैसे पूर्ण सुइट (36× तक) से कम है। अगर आपको 5× से ज़्यादा चाहिए, तो Low Vision Zoom आपके लिए सही टूल नहीं है — <a href="/hi/compare.html">तुलना पृष्ठ</a> आपको ऐसे विकल्प दिखाता है जो इससे ज़्यादा जाते हैं।</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">खरीद, ट्रायल, और भरोसा</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Low Vision Zoom की कीमत कितनी है?</summary>
+                            <div class="faq-body">
+                                <p>यह एक-बार का <strong>$9.99</strong> लाइसेंस है, जिसमें भविष्य के सभी अपडेट शामिल हैं। कोई सदस्यता नहीं, कोई खाता नहीं, और कोई विज्ञापन नहीं। आप पहले हर सुविधा 7 दिन तक मुफ़्त आज़मा सकते हैं, और खरीद के बाद 30 दिन की पैसा-वापसी गारंटी है। देखें <a href="/hi/pricing.html">कीमत पृष्ठ</a>।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>मुफ़्त ट्रायल खत्म होने पर क्या होता है?</summary>
+                            <div class="faq-body">
+                                <p>ऐप काम करता रहता है। जब 7 दिन का ट्रायल खत्म होता है, तो मैग्निफिकेशन बंद होने के बजाय बस सीमित हो जाता है, ताकि आपकी स्क्रीन हमेशा इतनी पढ़ने योग्य बनी रहे कि आप नेविगेट कर सकें और लाइसेंस खरीद सकें। पूरा ज़ूम तुरंत बहाल करने के लिए कभी भी लाइसेंस कुंजी दर्ज करें, दोबारा इंस्टॉल करने की ज़रूरत नहीं।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>क्या Low Vision Zoom कोई डेटा एकत्र करता है, और क्या यह ऑफ़लाइन काम करता है?</summary>
+                            <div class="faq-body">
+                                <p>ऐप <strong>कोई</strong> निजी डेटा, कोई एनालिटिक्स, और कोई टेलीमेट्री एकत्र नहीं करता, और यह पूरी तरह ऑफ़लाइन काम करता है। यह आपकी स्क्रीन की सामग्री को न तो कैप्चर करता है, न भेजता है। आपकी लाइसेंस कुंजी आपके डिवाइस पर ही जाँची जाती है, बिना किसी खाते और बिना छुपकर सर्वर से संपर्क किए। यह इंटरनेट से सिर्फ़ तभी जुड़ता है जब आप ट्रे मेनू से <strong>अपडेट के लिए जाँचें</strong> चुनते हैं। पूरी जानकारी <a href="/privacy.html">गोपनीयता नीति (अंग्रेज़ी में)</a> में है।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>क्या Low Vision Zoom इंस्टॉल करते समय Windows मुझे चेतावनी देगा?</summary>
+                            <div class="faq-body">
+                                <p>हो सकता है, अगर आप डायरेक्ट डाउनलोड इस्तेमाल करते हैं। इंस्टॉलर को पहली बार खोलने पर Windows एक नीला <strong>“Windows ने आपके PC की सुरक्षा की” (Windows protected your PC)</strong> SmartScreen संदेश दिखा सकता है। यह एक नए ऐप के लिए सामान्य है और सुरक्षित है; इंस्टॉलर <strong>txtbook LLC</strong> द्वारा डिजिटल रूप से साइन किया गया है। <strong>More info</strong> (अधिक जानकारी) पर क्लिक करें, जाँच लें कि प्रकाशक txtbook LLC है, फिर <strong>Run anyway</strong> (फिर भी चलाएँ) पर क्लिक करें। इस स्क्रीन से पूरी तरह बचने के लिए, इसके बजाय <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> से इंस्टॉल करें, जहाँ यह चेतावनी नहीं दिखती।</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>सिस्टम आवश्यकताएँ क्या हैं?</summary>
+                            <div class="faq-body">
+                                <p>Low Vision Zoom <strong>Windows 10 और Windows 11, 64-बिट (x64)</strong> पर चलता है। इंस्टॉलर सेल्फ़-कंटेन्ड है, इसलिए और कुछ डाउनलोड करने की ज़रूरत नहीं। Windows on ARM और 32-बिट PC आज समर्थित नहीं हैं।</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">अभी भी कोई सवाल है? <a href="/hi/contact.html">हमसे संपर्क करें</a> — एक असली व्यक्ति जवाब देगा।</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>7 दिन मुफ़्त आज़माएँ</h2>
+                <p>7 दिन का मुफ़्त ट्रायल · $9.99 एक बार · कोई सदस्यता नहीं · कोई खाता नहीं</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/hi.svg" alt="Microsoft Store से प्राप्त करें">
+                    </a>
+                    <a href="/hi/index.html#get" data-download class="download-direct">या इंस्टॉलर को सीधे इस साइट से डाउनलोड करें (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows के लिए एक शांत स्क्रीन मैग्निफायर। txtbook&nbsp;LLC का एक उत्पाद।</p>
+                </div>
+                <div>
+                    <h4>उत्पाद</h4>
+                    <ul>
+                        <li><a href="/hi/index.html#why">यह बेहतर क्यों है</a></li>
+                        <li><a href="/hi/index.html#how">यह कैसे काम करता है</a></li>
+                        <li><a href="/hi/pricing.html">कीमत</a></li>
+                        <li><a href="/hi/compare.html">मैग्निफायरों की तुलना करें</a></li>
+                        <li><a href="/hi/faq.html" aria-current="page">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>कानूनी</h4>
+                    <ul>
+                        <li><a href="/privacy.html">गोपनीयता (अंग्रेज़ी में)</a></li>
+                        <li><a href="/terms.html">सेवा की शर्तें (अंग्रेज़ी में)</a></li>
+                        <li><a href="/refund.html">रिफ़ंड नीति (अंग्रेज़ी में)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>सहायता</h4>
+                    <ul>
+                        <li><a href="/hi/contact.html">हमसे संपर्क करें</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vì sao một trình phóng to màn hình mượt mà lại dễ theo dõi hơn loại nhảy giật: cách spatial constancy, smooth pursuit và change blindness lý giải cảm giác mất dấu vị trí — và cách Low Vision Zoom được thiết kế dựa trên các nguyên lý đó.">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Vì sao phóng to mượt mà dễ theo dõi hơn phóng to nhảy giật",
+      "description": "Lời giải thích bằng ngôn ngữ dễ hiểu, có nguồn tham khảo, về việc vì sao một trình phóng to màn hình di chuyển mượt mà giúp bạn giữ được vị trí, trong khi loại nhảy giật khiến bạn phải tìm lại — dựa trên spatial constancy, smooth pursuit và change blindness.",
+      "url": "https://lowvisionzoom.com/vi/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "vi",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Phóng to màn hình" },
+        { "@type": "Thing", "name": "Thị lực kém" },
+        { "@type": "Thing", "name": "Spatial constancy" },
+        { "@type": "Thing", "name": "Smooth pursuit eye movement" },
+        { "@type": "Thing", "name": "Change blindness" }
+      ]
+    }
+    </script>
+    <title>Vì sao phóng to mượt mà dễ theo dõi hơn | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Chuyển đến nội dung</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/vi/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Chính">
+                <a href="/vi/index.html#demo">Xem bản demo</a>
+                <a href="/vi/index.html#how">Cách hoạt động</a>
+                <a href="/vi/index.html#why">Vì sao tốt hơn</a>
+                <a href="/vi/pricing.html">Bảng giá</a>
+                <a href="/vi/index.html#get" data-download class="btn btn-secondary btn-nav">Tải xuống</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Ngôn ngữ: Tiếng Việt">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Tiếng Việt</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi" aria-current="true">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Vì sao sự mượt mà quan trọng</span>
+                <h1>Vì sao phóng to mượt mà dễ theo dõi hơn phóng to nhảy giật</h1>
+                <p class="updated">Một lời giải thích bằng ngôn ngữ dễ hiểu, kèm nguồn tham khảo</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Hầu hết các trình phóng to màn hình di chuyển khung nhìn bằng những cú nhảy đột ngột. Mỗi cú nhảy buộc mắt và não bạn phải dừng lại, tìm lại vị trí vừa ở đó, rồi bắt đầu lại từ đầu. Low Vision Zoom di chuyển liên tục — nó phóng vào một cách êm dịu, xoay quanh điểm bạn đang trỏ, và lướt đi khi di chuyển khung nhìn — nên sự chú ý của bạn không bao giờ mất dấu thứ mình đang quan tâm. Đây không phải là một điều dễ chịu mơ hồ; nó khớp với nhiều đặc điểm đã được nghiên cứu kỹ về cách thị giác con người hoạt động.</p>
+                    </div>
+
+                    <p>Không có nội dung nào trên trang này là tuyên bố y khoa. Đây là những nguyên lý được hiểu chung về thị giác con người và tương tác người–máy, dùng để giải thích vì sao một trình phóng to mượt mà lại dễ sống chung hơn một trình phóng to nhảy giật. Không nghiên cứu nào được trích dẫn ở đây nghiên cứu về Low Vision Zoom; chúng mô tả cách thị giác và chuyển động giao diện hoạt động nói chung.</p>
+
+                    <h2>Cảm giác “mất dấu vị trí” có một cái tên</h2>
+                    <p>Khi mọi người nói một trình phóng to khiến họ “mất dấu vị trí đang ở đâu”, họ đang mô tả một điều có thật. Hệ thị giác của bạn không lưu màn hình như một bức ảnh; nó duy trì một bản đồ nội tại liên tục về vị trí mọi thứ và giữ ánh nhìn của bạn khóa vào một điểm đã chọn. Nhiều cơ chế giữ cho bản đồ đó ổn định — và một cú nhảy đột ngột về mức phóng to phá vỡ tất cả chúng cùng một lúc.</p>
+
+                    <h3>1. Spatial constancy</h3>
+                    <p>Não bạn làm việc rất nhiều để khiến thế giới cảm thấy ổn định dù mắt bạn liên tục chuyển động. Điều này được gọi là <strong>spatial constancy</strong> (tính ổn định không gian), hay cập nhật không gian: khi bạn di chuyển, não dự đoán mọi thứ sẽ kết thúc ở đâu và âm thầm giữ cho bản đồ luôn khớp. Chuyển động mượt mà, liên tục chính là loại đầu vào mà hệ thống này được xây dựng để xử lý — nó có thể cập nhật bản đồ ngay khi đang diễn ra. Một cú dịch chuyển tức thời không cho nó gì để nội suy, nên bản đồ bị vô hiệu và phải được xây lại từ đầu. Việc xây lại đó chính là khoảnh khắc “mình vừa đi đâu vậy?”.</p>
+                    <p>Low Vision Zoom giữ nguyên vẹn spatial constancy bằng cách không bao giờ dịch chuyển tức thời. Mức phóng to êm dịu tiến tới mục tiêu trong khoảng một phần ba giây, và việc di chuyển khung nhìn lướt đi thay vì nhảy giật. Bản đồ nội tại của bạn được cập nhật, chứ không bị xóa đi.</p>
+
+                    <h3>2. Smooth pursuit, và cái giá của việc định vị lại</h3>
+                    <p>Mắt có hai cách di chuyển. <strong>Smooth pursuit</strong> (bám đuổi mượt) liên tục theo dõi một mục tiêu đang di chuyển đều đặn — mắt lướt theo và giữ khóa vào đó. <strong>Saccade</strong> là những bước nhảy nhanh, đường đạn, giữa các điểm định thị, và thị giác bị ức chế trong lúc saccade, nên sau đó mắt phải định vị và lấy nét lại mục tiêu.</p>
+                    <p>Một trình phóng to nhảy giật buộc phải có một saccade cộng với việc định vị lại mỗi khi nó di chuyển. Với người có thị lực giảm, việc tìm lại một mục tiêu nhỏ sau một cú nhảy chậm hơn và kém chắc chắn hơn so với người có thị lực trung tâm sắc nét. Một cú phóng to mượt mà để hệ thống bám đuổi của mắt làm việc thay thế: nó có thể lướt theo chuyển động và giữ khóa, nên không có cú nhảy mù nào và không cần tìm kiếm lại vị trí. Low Vision Zoom được xây dựng dựa trên điều này — vòng lặp hoạt ảnh 60 khung hình mỗi giây nghĩa là khung nhìn luôn di chuyển theo những bước nhỏ, có thể theo dõi được, mà mắt bạn có thể dõi theo thay vì phải đuổi bắt.</p>
+
+                    <h3>3. Tính liên tục cảm nhận — não coi đó là cùng một cảnh</h3>
+                    <p>Khi một vật thể di chuyển mượt mà, não nhận thức nó là một vật thể liên tục đã di chuyển. Khi cùng vật thể đó thay vào đó biến mất rồi xuất hiện lại ở nơi khác, não phải giải lại câu hỏi “đây có phải cùng một thứ không, và chuyện gì đã xảy ra?”. Việc giải lại đó tốn công sức và là tác nhân kinh điển gây ra <strong>change blindness</strong> (mù thay đổi), khi một thay đổi xảy ra trong lúc thị giác bị gián đoạn đơn giản là không được nhận ra, và bạn mất dấu những thứ mình đang theo dõi.</p>
+                    <p>Low Vision Zoom giữ được tính liên tục. Vì mỗi khung hình chỉ là một bước nhỏ so với khung trước, nội dung đang được phóng to đọc như cùng một cảnh đang lớn dần mượt mà — không phải một màn hình mới thay thế màn hình cũ. Không có gì biến mất rồi xuất hiện lại, nên không có gì để mất.</p>
+
+                    <h3>4. Một điểm neo thị giác cố định: phóng vào con trỏ</h3>
+                    <p>Đây là câu trả lời trực tiếp nhất cho việc “mất điểm neo”. Low Vision Zoom xoay việc phóng to quanh điểm nằm dưới con trỏ của bạn — nội dung ngay dưới chuột đứng yên trong khi mọi thứ xung quanh phóng to lên. Nhiều trình phóng to khác lại phóng về phía một góc hoặc trung tâm màn hình rồi di chuyển khung nhìn để bắt kịp, nghĩa là chính thứ bạn đang nhìn trượt ra khỏi tầm mắt trước khi quay lại.</p>
+                    <p>Bằng cách giữ cố định điểm bạn đang nhìn trong suốt quá trình phóng to, ứng dụng cho ánh nhìn của bạn một điểm neo ổn định để bám vào suốt toàn bộ quá trình phóng to. Bạn quyết định điểm neo đơn giản bằng cách trỏ vào nó. Điểm định thị của bạn không bao giờ phải di chuyển, nên cả spatial constancy lẫn sự khóa của mắt bạn đều được giữ nguyên qua đúng khoảnh khắc thường phá vỡ chúng.</p>
+
+                    <h3>5. Điều khiển có thể đoán trước, theo nhịp độ của riêng bạn</h3>
+                    <p>Chuyển động do chính não khởi phát dễ đoán trước hơn chuyển động bị áp đặt lên nó. Thao tác <strong>Ctrl + lăn chuột</strong> của Low Vision Zoom liên tục và tỷ lệ thuận: bạn phóng to đúng bằng khoảng cách và tốc độ mà bạn lăn con lăn chuột, và bạn có thể dừng, đảo chiều, hoặc giữ nguyên tại bất kỳ điểm nào. Chuyển động là của chính bạn, nên nó có thể đoán trước được — và chuyển động có thể đoán trước ít gây mất phương hướng hơn nhiều so với một trình phóng to tự động giật đến một mức đã đặt sẵn.</p>
+
+                    <h2>Vì sao điều này đặc biệt quan trọng với người có thị lực kém</h2>
+                    <p>Những người sống với thị lực trung tâm giảm thường dựa vào các chiến lược mà một trình phóng to đột ngột âm thầm cản trở:</p>
+                    <ul>
+                        <li><strong>Eccentric viewing và preferred retinal locus.</strong> Khi thị lực trung tâm sắc nét bị giảm, nhiều người học cách nhìn hơi lệch tâm, dùng một điểm nhất quán được ưa thích trên võng mạc làm điểm lấy nét làm việc. Việc thiết lập lại sự căn chỉnh đó sau mỗi cú nhảy là một nỗ lực thật, lặp đi lặp lại. Một trình phóng to không bao giờ khiến bạn phải tìm lại vị trí sẽ giúp sự căn chỉnh khó khăn đó được giữ vững.</li>
+                        <li><strong>Cái giá của việc tìm lại vị trí.</strong> Với ít thị lực dự phòng hơn, cái giá của việc định vị lại một mục tiêu nhỏ sau một cú nhảy mù cao hơn so với người có thị lực bình thường. Sự mượt mà loại bỏ cú nhảy, và cùng với đó là cái giá phải trả.</li>
+                        <li><strong>Sự chú ý và trí nhớ làm việc.</strong> Mỗi lần đặt lại câu hỏi “mình đang ở đâu bây giờ?” tiêu tốn sự chú ý và trí nhớ làm việc mà lẽ ra bạn nên dành cho công việc thực sự — đọc, viết, điều hướng. Giao việc theo dõi cho hệ thống cảm nhận của bạn, vốn theo dõi chuyển động mượt mà một cách không tốn sức, giải phóng nỗ lực đó cho chính công việc.</li>
+                    </ul>
+                    <p>Không điều nào trong số này là một tuyên bố điều trị. Đó là sự khác biệt giữa một công cụ chống lại cách thị lực kém hoạt động và một công cụ được định hình xoay quanh nó.</p>
+
+                    <h2>Mọi lựa chọn thiết kế đều phục vụ cùng một mục tiêu</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Cách mỗi tính năng ánh xạ tới một nguyên lý cảm nhận">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Các tính năng của Low Vision Zoom và nguyên lý cảm nhận mà mỗi tính năng phục vụ</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Tính năng</th>
+                                    <th scope="col">Nó làm gì</th>
+                                    <th scope="col">Nguyên lý nó phục vụ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Phóng to có hoạt ảnh mượt mà (giảm tốc ~⅓ giây, 60 fps)</th>
+                                    <td>Mức phóng to êm dịu tiến tới mục tiêu thay vì nhảy giật</td>
+                                    <td>Spatial constancy; smooth pursuit; tính liên tục cảm nhận</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Phóng to xoay quanh con trỏ</th>
+                                    <td>Điểm nằm dưới chuột đứng yên trong khi mọi thứ xung quanh phóng to</td>
+                                    <td>Một điểm neo thị giác ổn định; điểm định thị không bao giờ bị dịch chuyển</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Theo con trỏ với vùng tĩnh (dead zone)</th>
+                                    <td>Khung nhìn giữ nguyên khi con trỏ của bạn di chuyển trong một dải trung tâm rộng, và chỉ di chuyển — bằng cách lướt đi — khi bạn tiến gần một mép</td>
+                                    <td>Không có chuyển động thừa; việc di chuyển khung nhìn là smooth pursuit, không bao giờ là dịch chuyển tức thời</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Điều khiển tỷ lệ thuận Ctrl + lăn chuột</th>
+                                    <td>Bạn đặt mức phóng to liên tục, nhanh hay chậm tùy thích</td>
+                                    <td>Chuyển động theo nhịp độ riêng, có thể đoán trước, tự khởi phát</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Khung nhìn toàn màn hình nền, đa màn hình</th>
+                                    <td>Một không gian phóng to liên tục duy nhất theo bạn qua các màn hình, không phải từng ốc đảo theo cửa sổ</td>
+                                    <td>Một bản đồ không gian mạch lạc duy nhất cần cập nhật, thay vì nhiều bản đồ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Thiết lập mặc định đã tinh chỉnh, không cần cấu hình</th>
+                                    <td>Độ mượt, tốc độ và cảm giác vùng tĩnh đã được tinh chỉnh sẵn và cố định</td>
+                                    <td>Hành vi mượt mà là mặc định, không phải điều phải khám phá và thiết lập</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>Đó là toàn bộ ý tưởng đằng sau sản phẩm: một trình phóng to di chuyển theo đúng cách hệ thị giác con người được xây dựng để theo dõi, nên nó giữ bạn neo lại đúng chỗ trong khi những trình khác khiến bạn mất dấu vị trí. Bạn có thể <a href="/vi/index.html#demo">xem nó hoạt động thực tế</a>, xem nó <a href="/vi/compare.html">so sánh với các trình phóng to khác</a> ra sao, hoặc <a href="/vi/index.html#get">dùng thử miễn phí 7 ngày</a>.</p>
+
+                    <h2>Nguồn tham khảo và đọc thêm</h2>
+                    <p>Đây là những nguồn đáng tin cậy, đã qua bình duyệt hoặc do các cơ quan uy tín xuất bản, cho các nguyên lý chung được trích dẫn ở trên. Chúng mô tả cách thị giác con người và chuyển động giao diện hoạt động nói chung — không nguồn nào nghiên cứu về Low Vision Zoom, và không nguồn nào nên được đọc như bằng chứng cho một kết quả cụ thể từ ứng dụng.</p>
+
+                    <h3>Spatial constancy và tính ổn định thị giác qua các chuyển động của mắt</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — độ nhạy thị giác giảm trong các chuyển động mắt nhanh, và sự ức chế này bắt đầu từ võng mạc. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">Đọc bài</a>.</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — cách não xây dựng một nhận thức thống nhất từ chuỗi hình ảnh qua các chuyển động mắt. <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">Tóm tắt</a>.</li>
+                    </ul>
+
+                    <h3>Smooth pursuit — hệ thống theo dõi liên tục của mắt</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — mắt theo dõi mượt mà và dự đoán các mục tiêu đang di chuyển, với độ chính xác tốt hơn cho chuyển động mục tiêu tự tạo hoặc thực tế. <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">Tóm tắt</a>.</li>
+                    </ul>
+
+                    <h3>Change blindness — mất dấu các đối tượng qua một sự gián đoạn thị giác</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — sự thất bại đáng chú ý trong việc nhận ra những thay đổi lớn mà bình thường sẽ dễ dàng được nhận thấy. <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">Tóm tắt</a>.</li>
+                        <li>Rensink, <em>Change Blindness</em>, in Neurobiology of Attention (Elsevier, 2005) — hiệu ứng này có thể được gây ra bằng cách tạo một thay đổi trong lúc mắt chuyển động, chớp mắt, hoặc một khoảnh khắc lóe sáng ngắn. <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>.</li>
+                    </ul>
+
+                    <h3>Mất thị lực trung tâm, eccentric viewing và preferred retinal locus</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — người có scotoma trung tâm dùng một preferred retinal locus nằm ngoài vùng bị ảnh hưởng, và việc luyện tập cách nhìn lệch tâm đó được gọi là eccentric viewing training. <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">Đọc bài</a>.</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">Tóm tắt</a>.</li>
+                    </ul>
+
+                    <h3>Chuyển động và tính liên tục trong thiết kế giao diện người dùng</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — chuyển động có thể ngăn mất phương hướng và giúp người dùng theo dõi ngữ cảnh qua các chuyển tiếp. <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">Đọc bài</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Tự mình trải nghiệm sự mượt mà</h2>
+                <p>Dùng thử miễn phí 7 ngày · $9.99 trả một lần · không thuê bao · không cần tài khoản</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/vi.svg" alt="Tải trên Microsoft Store">
+                    </a>
+                    <a href="/vi/index.html#get" data-download class="download-direct">Hoặc tải trình cài đặt trực tiếp từ trang web này (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Một trình phóng to màn hình êm dịu cho Windows. Một sản phẩm của txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Sản phẩm</h4>
+                    <ul>
+                        <li><a href="/vi/index.html#why">Vì sao tốt hơn</a></li>
+                        <li><a href="/vi/index.html#how">Cách hoạt động</a></li>
+                        <li><a href="/vi/pricing.html">Bảng giá</a></li>
+                        <li><a href="/vi/compare.html">So sánh trình phóng to</a></li>
+                        <li><a href="/vi/faq.html">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Pháp lý</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Quyền riêng tư (bằng tiếng Anh)</a></li>
+                        <li><a href="/terms.html">Điều khoản dịch vụ (bằng tiếng Anh)</a></li>
+                        <li><a href="/refund.html">Chính sách hoàn tiền (bằng tiếng Anh)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="/vi/contact.html">Liên hệ với chúng tôi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Bảo lưu mọi quyền.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

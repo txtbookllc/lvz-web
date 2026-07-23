@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="th" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="การเปรียบเทียบอย่างตรงไปตรงมาของโปรแกรมขยายหน้าจอสำหรับ Windows: Low Vision Zoom, Windows Magnifier ที่มากับเครื่อง, ZoomText, SuperNova และ Magnifixer — แต่ละตัวทำอะไรได้บ้าง เหมาะกับใคร และเมื่อไหร่ที่ไม่ควรเลือกของเรา">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom เทียบกับ Windows Magnifier, ZoomText และ SuperNova",
+      "description": "การเปรียบเทียบแบบเคียงข้างกันของโปรแกรมขยายหน้าจอสำหรับ Windows ได้แก่ Windows Magnifier ที่มากับเครื่อง, ZoomText, SuperNova, Magnifixer และ Low Vision Zoom — รวมถึงเหมาะกับใครและเหตุผลที่ไม่ควรเลือก Low Vision Zoom",
+      "url": "https://lowvisionzoom.com/th/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "th",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "ซอฟต์แวร์ขยายหน้าจอ" },
+        { "@type": "Thing", "name": "เทคโนโลยีสิ่งอำนวยความสะดวกสำหรับสายตาเลือนราง" },
+        { "@type": "Thing", "name": "การช่วยการเข้าถึงของ Windows" }
+      ]
+    }
+    </script>
+    <title>เปรียบเทียบโปรแกรมขยายหน้าจอสำหรับ Windows | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">ข้ามไปยังเนื้อหา</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/th/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primary">
+                <a href="/th/index.html#demo">ดูตัวอย่างการใช้งาน</a>
+                <a href="/th/index.html#how">วิธีใช้งาน</a>
+                <a href="/th/index.html#why">ทำไมถึงดีกว่า</a>
+                <a href="/th/pricing.html">ราคา</a>
+                <a href="/th/index.html#get" data-download class="btn btn-secondary btn-nav">ดาวน์โหลด</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="ภาษา: ไทย">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>ไทย</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th" aria-current="true">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">การเปรียบเทียบ</span>
+                <h1>โปรแกรมขยายหน้าจอสำหรับ Windows</h1>
+                <p class="updated">ตรวจสอบข้อมูลคู่แข่งล่าสุดเมื่อวันที่ 20 กรกฎาคม 2026</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>หากคุณไม่เคยลองใช้โปรแกรมขยายหน้าจอมาก่อน ให้เริ่มจากโปรแกรมที่มากับ Windows อยู่แล้ว ซึ่งไม่มีค่าใช้จ่าย หากคุณต้องการให้อ่านหน้าจอออกเสียง หรือต้องการการขยายภาพระดับสูงมาก หรือต้องการอักษรเบรลล์ คุณต้องใช้ชุดเทคโนโลยีสิ่งอำนวยความสะดวกแบบเต็มรูปแบบ เช่น <strong>ZoomText</strong> หรือ <strong>SuperNova</strong> และ <strong>Low Vision Zoom จะไม่เพียงพอสำหรับคุณ</strong> Low Vision Zoom เป็นเครื่องมือขนาดเล็กราคาประหยัดที่ทำสิ่งเดียว: การขยายภาพที่นุ่มนวลและยึดตามเคอร์เซอร์สูงสุด 5× โดยไม่ต้องตั้งค่าใดๆ</p>
+                    </div>
+
+                    <h2>ใครเป็นผู้เขียนหน้านี้ และควรอ่านอย่างไร</h2>
+                    <p>เราเป็นผู้สร้าง Low Vision Zoom ดังนั้นโปรดอ่านหน้านี้ในแบบเดียวกับที่คุณจะอ่านการเปรียบเทียบใดๆ ที่เขียนโดยหนึ่งในผู้มีส่วนเกี่ยวข้อง เราพยายามรักษาความเป็นธรรมในสามด้านที่เจาะจง: ทุกข้อความที่กล่าวถึงผลิตภัณฑ์อื่นมาจากเอกสารสาธารณะของผู้ผลิตรายนั้นเองและมีลิงก์อ้างอิงไปยังแหล่งที่มา; ผลิตภัณฑ์ทุกตัวที่ระบุไว้มีอย่างน้อยหนึ่งจุดที่ทำได้ดีกว่าของเรา; และมีหัวข้อด้านล่างเกี่ยวกับ<a href="#not-for-you">เหตุผลที่ไม่ควรซื้อ Low Vision Zoom</a></p>
+                    <p>เราตั้งใจไม่ระบุราคาของคู่แข่งเป็นตัวเลข เพราะราคาของเทคโนโลยีสิ่งอำนวยความสะดวกเปลี่ยนแปลงได้ แตกต่างกันไปตามประเทศ และมักแตกต่างกันสำหรับบุคคลทั่วไป โรงเรียน และนายจ้าง — ตัวเลขที่คัดลอกไว้ที่นี่จะล้าสมัยไปในไม่ช้า เราระบุ<em>รูปแบบใบอนุญาต</em>ของแต่ละผลิตภัณฑ์และใส่ลิงก์ไปยังผู้ผลิต เพื่อให้คุณตรวจสอบราคาปัจจุบันได้ด้วยตัวเอง</p>
+                    <p>คำแนะนำที่สำคัญที่สุดในหน้านี้: <strong>ผลิตภัณฑ์ทุกตัวในนี้สามารถทดลองใช้ได้ก่อนจ่ายเงิน</strong> การขยายภาพเป็นเรื่องเฉพาะบุคคลอย่างมาก และความรู้สึกที่โปรแกรมขยายหน้าจอมีต่อสายตา<em>ของคุณ</em>สำคัญกว่าตารางฟีเจอร์ใดๆ ลองใช้ดูก่อน</p>
+
+                    <h2>คุณควรเลือกตัวไหน?</h2>
+                    <ul>
+                        <li><strong>คุณยังไม่เคยลองใช้โปรแกรมขยายหน้าจอเลย</strong> — ใช้ <strong>Windows Magnifier</strong> ที่มีอยู่แล้วในพีซีของคุณ กด <code>Windows key</code> + <code>Plus</code> ไม่มีค่าใช้จ่าย และอาจเป็นทั้งหมดที่คุณต้องการ</li>
+                        <li><strong>คุณต้องการให้อ่านหน้าจอออกเสียง หรือใช้อักษรเบรลล์</strong> — คุณต้องใช้ <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> หรือโปรแกรมอ่านหน้าจอ Low Vision Zoom ไม่มีระบบเสียงพูดและไม่รองรับอักษรเบรลล์เลย</li>
+                        <li><strong>คุณต้องการการขยายภาพมากกว่า 5×</strong> — Low Vision Zoom ขยายได้สูงสุดที่ 5× ในขณะที่ Windows Magnifier, ZoomText และ SuperNova ล้วนขยายได้สูงกว่านั้นมาก</li>
+                        <li><strong>คุณต้องการฟิลเตอร์สี การกลับสีคอนทราสต์ หรือการไฮไลต์จุดโฟกัส</strong> — Windows Magnifier มีฟีเจอร์เหล่านี้บางส่วนให้ใช้ฟรี ส่วน ZoomText และ SuperNova มีให้มากกว่านั้นมาก Low Vision Zoom ไม่มีฟีเจอร์เหล่านี้เลย</li>
+                        <li><strong>คุณต้องการตัวเลือกฟรีจากผู้พัฒนารายอื่น</strong> — <strong>Magnifixer</strong> ให้ใช้งานฟรีและมีหน้าต่างขยายภาพพร้อมโหมดกลับสีจอและโหมดสีต่างๆ</li>
+                        <li><strong>สิ่งที่คุณต้องการหลักๆ คือการซูมเข้าออกตลอดเวลาระหว่างทำงาน และรู้สึกว่าวิธีที่ใช้อยู่ตอนนี้กระตุกหรือยุ่งยาก</strong> — นี่คือกรณีเฉพาะที่ Low Vision Zoom ถูกสร้างขึ้นมาเพื่อรองรับ มันขยายภาพอย่างนุ่มนวลรอบเคอร์เซอร์ของคุณ ไม่มีการตั้งค่าใดๆ และมีราคา $9.99 จ่ายเพียงครั้งเดียว <a href="/th/index.html#demo">ดูตัวอย่างการใช้งาน</a> แล้วลองใช้ช่วงทดลองฟรี</li>
+                    </ul>
+
+                    <h2>การเปรียบเทียบฟีเจอร์</h2>
+                    <p>ช่องที่ระบุว่า “ดูข้อมูลจากผู้ผลิต” คือสิ่งที่เราไม่ต้องการระบุแทนผู้อื่นโดยไม่ได้รับข้อมูลโดยตรง — คลิกลิงก์ที่หัวข้อผลิตภัณฑ์เพื่อดูคำตอบที่เป็นทางการ</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="ตารางเปรียบเทียบฟีเจอร์">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">การเปรียบเทียบฟีเจอร์ของโปรแกรมขยายหน้าจอสำหรับ Windows ห้าตัว</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">คืออะไร</th>
+                                    <td>เครื่องมือซูมสำหรับจุดประสงค์เดียว</td>
+                                    <td>โปรแกรมขยายหน้าจอที่มากับ Windows</td>
+                                    <td>ชุดโปรแกรมสำหรับสายตาเลือนรางแบบครบวงจร</td>
+                                    <td>ชุดโปรแกรมสำหรับสายตาเลือนรางแบบครบวงจร</td>
+                                    <td>หน้าต่างขยายภาพฟรี</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">รูปแบบใบอนุญาต</th>
+                                    <td>จ่ายครั้งเดียว $9.99 รวมการอัปเดต</td>
+                                    <td>ฟรี — มากับ Windows</td>
+                                    <td>ใบอนุญาตรายปี (ดูข้อมูลจากผู้ผลิต)</td>
+                                    <td>ใบอนุญาตตามรุ่น (ดูข้อมูลจากผู้ผลิต)</td>
+                                    <td>ฟรี</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">การขยายภาพสูงสุด</th>
+                                    <td>5×</td>
+                                    <td>สูงสุด 1600% (16×)</td>
+                                    <td>สูงสุด 36×</td>
+                                    <td>สูง — ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>ดูข้อมูลจากผู้ผลิต</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">วิธีเปลี่ยนระดับการซูม</th>
+                                    <td>Ctrl + ล้อเมาส์ หรือ Ctrl + Alt + Plus / Minus การซูมต่อเนื่องและเป็นสัดส่วน — มุมมองจะค่อยๆ ปรับไปยังระดับใหม่แทนที่จะสลับทันที</td>
+                                    <td>Windows key + Plus / Minus หรือแถบเครื่องมือ เปลี่ยนระดับเป็นขั้นๆ ที่กำหนดไว้ล่วงหน้า และปรับขนาดขั้นได้</td>
+                                    <td>แป้นพิมพ์ลัดและแถบเครื่องมือ ระดับการขยายแบบขั้นๆ — ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>แป้นพิมพ์ลัดและแผงควบคุม ระดับการขยายแบบขั้นๆ — ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>ปรับระดับซูมได้ในหน้าต่างของตัวเอง</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">จุดศูนย์กลางของการซูม</th>
+                                    <td>จุดที่อยู่ใต้เคอร์เซอร์เมาส์ของคุณ ซึ่งอยู่นิ่งในขณะที่มุมมองขยายรอบๆ จุดนั้น</td>
+                                    <td>ตามเมาส์ โฟกัสแป้นพิมพ์ เคอร์เซอร์ข้อความ หรือ Narrator — เลือกได้ตามต้องการ</td>
+                                    <td>ตามเมาส์ โฟกัส และเคอร์เซอร์ — ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>ตามเมาส์ โฟกัส และเคอร์เซอร์ — ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>บริเวณที่คุณชี้ไป</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">อ่านข้อความออกเสียง</th>
+                                    <td>ไม่มี</td>
+                                    <td>มี — มีปุ่มควบคุมการอ่าน</td>
+                                    <td>มี ในรุ่น Magnifier/Reader</td>
+                                    <td>มี ในรุ่น Speech และ Screen Reader</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">โปรแกรมอ่านหน้าจอแบบเต็มรูปแบบ</th>
+                                    <td>ไม่มี</td>
+                                    <td>Narrator มากับ Windows แยกต่างหาก</td>
+                                    <td>มีให้ในชุด Fusion ที่รวมกับ JAWS</td>
+                                    <td>มี ในรุ่น Screen Reader</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">รองรับอักษรเบรลล์</th>
+                                    <td>ไม่มี</td>
+                                    <td>ผ่าน Narrator</td>
+                                    <td>ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>มี ในรุ่นที่สูงขึ้น</td>
+                                    <td>ไม่มี</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ฟิลเตอร์สี คอนทราสต์ การกลับสี</th>
+                                    <td>ไม่มี</td>
+                                    <td>มี — การกลับสี</td>
+                                    <td>มี — ฟิลเตอร์และการปรับปรุงที่ครอบคลุม</td>
+                                    <td>มี — ครอบคลุม รวมถึงการตั้งค่าแยกตามจอ</td>
+                                    <td>มี — โหมดกลับสีจอและโหมดสี</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">การปรับความคมชัดข้อความเมื่อซูมสูง</th>
+                                    <td>ไม่มี — ขยายพิกเซลตรงๆ</td>
+                                    <td>มี — มีตัวเลือกปรับความคมชัด</td>
+                                    <td>มี — การเรนเดอร์แบบ xFont</td>
+                                    <td>มี — True Fonts</td>
+                                    <td>มี — ฟิลเตอร์ปรับความคมชัด</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">หลายจอภาพ</th>
+                                    <td>มี — เดสก์ท็อปต่อเนื่องเดียว ติดตามคุณข้ามหน้าจอได้</td>
+                                    <td>มี</td>
+                                    <td>มี — ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>มี — ตั้งระดับซูมแยกอิสระตามจอ</td>
+                                    <td>ดูข้อมูลจากผู้ผลิต</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">การตั้งค่าที่ต้องกำหนด</th>
+                                    <td>ไม่มี — พฤติกรรมถูกปรับแต่งไว้ล่วงหน้าและตายตัว</td>
+                                    <td>มีหลายรายการ</td>
+                                    <td>ครอบคลุมมาก</td>
+                                    <td>ครอบคลุมมาก</td>
+                                    <td>มีหลายรายการ</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ใช้งานได้แบบออฟไลน์ ไม่ต้องมีบัญชี</th>
+                                    <td>มี — ตรวจสอบใบอนุญาตบนอุปกรณ์ของคุณ</td>
+                                    <td>มี</td>
+                                    <td>ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>ดูข้อมูลจากผู้ผลิต</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ข้อมูลที่เก็บรวบรวม</th>
+                                    <td>ไม่มี — <a href="/privacy.html">นโยบายความเป็นส่วนตัว (ภาษาอังกฤษ)</a></td>
+                                    <td>ดูคำชี้แจงความเป็นส่วนตัวของ Microsoft</td>
+                                    <td>ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>ดูข้อมูลจากผู้ผลิต</td>
+                                    <td>ดูข้อมูลจากผู้ผลิต</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">แพลตฟอร์ม</th>
+                                    <td>Windows 10 และ 11, 64 บิต (x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">เหตุผลที่ไม่ควรซื้อ Low Vision Zoom</h2>
+                    <p>เราอยากให้คุณใช้เงิน $9.99 กับสิ่งที่ช่วยคุณได้จริง มากกว่าสิ่งที่ช่วยไม่ได้ อย่าซื้อ Low Vision Zoom หากข้อใดข้อหนึ่งต่อไปนี้ตรงกับคุณ:</p>
+                    <ul>
+                        <li><strong>คุณต้องการการขยายภาพมากกว่า 5×</strong> นี่คือขีดจำกัดตายตัวในแอป ไม่ใช่การตั้งค่าที่ปรับได้ หาก 5× ไม่เพียงพอสำหรับคุณ ไม่มีส่วนใดของผลิตภัณฑ์นี้ที่จะช่วยได้</li>
+                        <li><strong>คุณต้องการระบบเสียงพูด</strong> ไม่มีระบบแปลงข้อความเป็นเสียง ไม่มีโปรแกรมอ่านเอกสาร และไม่มีโปรแกรมอ่านหน้าจอ ไม่มีแผนที่จะเพิ่มฟีเจอร์เหล่านี้ในราคา $9.99</li>
+                        <li><strong>คุณต้องการการกลับสีหรือฟิลเตอร์คอนทราสต์</strong> เพื่ออ่านได้อย่างสบายตา Windows Magnifier มีฟีเจอร์นี้ให้ฟรี ส่วนเราไม่มีฟีเจอร์นี้เลย</li>
+                        <li><strong>คุณต้องการข้อความที่คมชัดเมื่อขยายภาพระดับสูง</strong> เราขยายหน้าจอตามที่เป็นอยู่ ในขณะที่ชุดโปรแกรมเหล่านั้นเรนเดอร์ข้อความใหม่เพื่อให้ยังคงคมชัด เมื่อซูมในระดับสูง ความแตกต่างนี้จะเห็นได้ชัดและมีความสำคัญ</li>
+                        <li><strong>คุณต้องการการสนับสนุนจากผู้ผลิต การฝึกอบรม หรือช่องทางจัดซื้อจัดจ้างที่เป็นทางการ</strong> เราเป็นบริษัทขนาดเล็กมากที่มีเพียงอีเมลติดต่อ ซึ่งไม่เหมาะกับการจัดหาสิ่งอำนวยความสะดวกในที่ทำงานที่ต้องการการสนับสนุนอย่างเป็นทางการ</li>
+                        <li><strong>คุณไม่ได้ใช้เมาส์หรือแทร็กแพด</strong> การออกแบบเน้นการชี้ไปยังสิ่งที่คุณต้องการขยาย แม้จะมีแป้นพิมพ์ลัดให้ใช้ แต่ผู้ใช้ที่พึ่งพาแป้นพิมพ์เพียงอย่างเดียวจะได้รับการตอบสนองที่ดีกว่าจากที่อื่น</li>
+                        <li><strong>คุณใช้ Windows on ARM หรือพีซีแบบ 32 บิต</strong> ยังไม่รองรับในขณะนี้</li>
+                    </ul>
+
+                    <h2>คุณอาจไม่จำเป็นต้องใช้โปรแกรมขยายหน้าจอเลยก็ได้</h2>
+                    <p>ก่อนซื้ออะไรก็ตาม ลองใช้ตัวเลือกฟรีที่มีอยู่แล้วในคอมพิวเตอร์ของคุณดูก่อน สำหรับหลายคนแล้วสิ่งเหล่านี้ก็เพียงพอ:</p>
+                    <ul>
+                        <li><strong>ขยายทุกอย่างให้ใหญ่ขึ้นอย่างถาวร:</strong> Windows <em>การตั้งค่า → ระบบ → การแสดงผล → ขนาด</em> การตั้งค่านี้เป็น 150% หรือ 175% จะขยายข้อความและไอคอนทั้งหมดทุกที่ โดยไม่ต้องใช้ซอฟต์แวร์เพิ่มเติม</li>
+                        <li><strong>ขยายเฉพาะข้อความ:</strong> Windows <em>การตั้งค่า → การช่วยการเข้าถึง → ขนาดข้อความ</em></li>
+                        <li><strong>ซูมหน้าเว็บ:</strong> <code>Ctrl</code> + <code>Plus</code> ในเบราว์เซอร์ใดก็ได้ ซึ่งจะจัดเรียงข้อความใหม่แทนที่จะขยายพิกเซล — มักจะอ่านได้ง่ายกว่าโปรแกรมขยายหน้าจอใดๆ เมื่ออ่านหน้าเว็บ</li>
+                        <li><strong>โปรแกรมขยายหน้าจอที่มากับเครื่อง:</strong> <code>Windows key</code> + <code>Plus</code></li>
+                    </ul>
+                    <p>โปรแกรมขยายหน้าจอเป็นเครื่องมือที่เหมาะสมเมื่อคุณต้องเข้าออกรายละเอียดตลอดวันในทุกแอปพลิเคชัน แต่เป็นเครื่องมือที่ไม่เหมาะสมเมื่อสิ่งที่คุณต้องการจริงๆ คือข้อความที่ใหญ่ขึ้นตลอดเวลา</p>
+
+                    <h2>จุดที่ Low Vision Zoom เหมาะสม</h2>
+                    <p>Low Vision Zoom ถือกำเนิดขึ้นเพราะผู้พัฒนาต้องการสิ่งหนึ่งโดยเฉพาะ: การซูมเข้าออกตลอดเวลาทั้งวัน โดยไม่หลงตำแหน่งที่กำลังดูอยู่บนหน้าจอในแต่ละครั้ง มันขยายภาพอย่างต่อเนื่องแทนที่จะเป็นขั้นๆ หมุนรอบจุดที่อยู่ใต้เคอร์เซอร์เพื่อให้สิ่งที่คุณกำลังมองอยู่นิ่งอยู่กับที่ และคงมุมมองไว้นิ่งขณะที่เคอร์เซอร์ของคุณเคลื่อนอยู่กลางจอ ไม่มีอะไรต้องตั้งค่าและไม่มีอะไรต้องเรียนรู้นอกจากปุ่มเดียวกับล้อเมาส์</p>
+                    <p>นั่นคือทั้งหมดของผลิตภัณฑ์นี้ หากคำอธิบายข้างต้นตรงกับปัญหาที่คุณมี <a href="/th/index.html#get">ช่วงทดลองใช้ฟรี 7 วัน</a> จะบอกคุณได้ภายในไม่กี่นาทีว่ามันเหมาะกับสายตาของคุณหรือไม่ หากไม่เหมาะ ผลิตภัณฑ์อื่นในหน้านี้จะตอบโจทย์คุณได้ดีกว่า และเราอยากแนะนำให้คุณไปใช้ผลิตภัณฑ์เหล่านั้นแทน คุณสามารถอ่านเพิ่มเติมเกี่ยวกับ<a href="/th/why-smooth-magnification.html">เหตุผลที่การขยายภาพแบบนุ่มนวลติดตามได้ง่ายกว่า</a> หรือดู<a href="/th/faq.html">คำถามที่พบบ่อย</a></p>
+
+                    <h2>แหล่งข้อมูลอ้างอิง</h2>
+                    <p>ข้อความที่กล่าวถึงผลิตภัณฑ์อื่นมาจากหน้าเว็บสาธารณะของผู้ผลิตแต่ละรายเอง ตรวจสอบล่าสุดเมื่อวันที่ 20 กรกฎาคม 2026:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — ใช้ Magnifier เพื่อทำให้สิ่งต่างๆ บนหน้าจอมองเห็นได้ง่ายขึ้น</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows, Windows Magnifier และ Narrator เป็นผลิตภัณฑ์ของ Microsoft ZoomText และ JAWS เป็นผลิตภัณฑ์ของ Freedom Scientific / Vispero SuperNova เป็นผลิตภัณฑ์ของ Dolphin Computer Access Magnifixer เป็นผลิตภัณฑ์ของ Blacksun Software เราไม่มีส่วนเกี่ยวข้อง ไม่ได้รับการรับรอง และไม่ได้เป็นพันธมิตรกับผลิตภัณฑ์เหล่านี้แต่อย่างใด และเราใช้ชื่อของผลิตภัณฑ์เหล่านี้เพียงเพื่อระบุถึงผลิตภัณฑ์นั้นๆ เท่านั้น หากคุณเชื่อว่ามีสิ่งใดในหน้านี้ที่บิดเบือนข้อมูลเกี่ยวกับผลิตภัณฑ์ของคุณ <a href="/th/contact.html">แจ้งเรา</a> แล้วเราจะแก้ไขให้ถูกต้อง</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>ลองใช้ก่อนตัดสินใจ</h2>
+                <p>ทดลองใช้ฟรี 7 วัน · จ่ายครั้งเดียว $9.99 · ไม่มีค่าสมัครสมาชิก · ไม่ต้องสร้างบัญชี</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/th.svg" alt="รับจาก Microsoft Store">
+                    </a>
+                    <a href="/th/index.html#get" data-download class="download-direct">หรือดาวน์โหลดตัวติดตั้งโดยตรงจากเว็บไซต์นี้ (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom เป็นโปรแกรมขยายหน้าจอสำหรับ Windows 10 และ 11 ขยายภาพได้สูงสุด 5× อย่างนุ่มนวล โดยยึดศูนย์กลางที่เคอร์เซอร์เมาส์ ราคา $9.99 จ่ายครั้งเดียว มีให้ดาวน์โหลดจาก Microsoft Store หรือเป็นไฟล์ MSI โดยตรง ทำงานแบบออฟไลน์และไม่เก็บข้อมูลใด ๆ</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>โปรแกรมขยายหน้าจอที่นุ่มนวลสำหรับ Windows ผลิตภัณฑ์จาก txtbook&nbsp;LLC</p>
+                </div>
+                <div>
+                    <h4>ผลิตภัณฑ์</h4>
+                    <ul>
+                        <li><a href="/th/index.html#why">ทำไมถึงดีกว่า</a></li>
+                        <li><a href="/th/index.html#how">วิธีใช้งาน</a></li>
+                        <li><a href="/th/pricing.html">ราคา</a></li>
+                        <li><a href="/th/compare.html" aria-current="page">เปรียบเทียบโปรแกรมขยายหน้าจอ</a></li>
+                        <li><a href="/th/faq.html">คำถามที่พบบ่อย</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>กฎหมาย</h4>
+                    <ul>
+                        <li><a href="/privacy.html">ความเป็นส่วนตัว (ภาษาอังกฤษ)</a></li>
+                        <li><a href="/terms.html">ข้อกำหนดการให้บริการ (ภาษาอังกฤษ)</a></li>
+                        <li><a href="/refund.html">นโยบายการคืนเงิน (ภาษาอังกฤษ)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>ฝ่ายสนับสนุน</h4>
+                    <ul>
+                        <li><a href="/th/contact.html">ติดต่อเรา</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC สงวนลิขสิทธิ์</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

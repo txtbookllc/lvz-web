@@ -1,7 +1,7 @@
 {
   "origin": "https://lowvisionzoom.com",
-  "translatedPages": ["index.html", "pricing.html", "buy.html", "contact.html"],
-  "englishOnlyPages": ["privacy.html", "terms.html", "refund.html", "faq.html", "compare.html", "why-smooth-magnification.html"],
+  "translatedPages": ["index.html", "pricing.html", "buy.html", "contact.html", "faq.html", "compare.html", "why-smooth-magnification.html"],
+  "englishOnlyPages": ["privacy.html", "terms.html", "refund.html"],
   "languages": [
     { "code": "zh", "hreflang": "zh-Hans", "nativeName": "中文（简体）", "englishName": "Chinese (Simplified)", "ogLocale": "zh_CN", "paddleLocale": "zh-Hans", "turnstileLang": "zh-cn", "dir": "ltr" },
     { "code": "es", "hreflang": "es", "nativeName": "Español", "englishName": "Spanish", "ogLocale": "es_ES", "paddleLocale": "es", "turnstileLang": "es", "dir": "ltr" },

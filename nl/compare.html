@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="nl" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Een eerlijke vergelijking van schermloepen voor Windows: Low Vision Zoom, de ingebouwde Windows Magnifier, ZoomText, SuperNova en Magnifixer — wat elk programma doet, voor wie het geschikt is en wanneer u beter niet voor die van ons kiest.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom vergeleken met Windows Magnifier, ZoomText en SuperNova",
+      "description": "Een vergelijking naast elkaar van schermloepen voor Windows: de ingebouwde Windows Magnifier, ZoomText, SuperNova, Magnifixer en Low Vision Zoom — inclusief voor wie elk geschikt is en redenen om niet voor Low Vision Zoom te kiezen.",
+      "url": "https://lowvisionzoom.com/nl/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "nl",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Software voor schermvergroting" },
+        { "@type": "Thing", "name": "Hulptechnologie voor slechtzienden" },
+        { "@type": "Thing", "name": "Toegankelijkheid van Windows" }
+      ]
+    }
+    </script>
+    <title>Schermloepen voor Windows vergeleken | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Ga naar inhoud</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/nl/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primair">
+                <a href="/nl/index.html#demo">Bekijk de demo</a>
+                <a href="/nl/index.html#how">Zo werkt het</a>
+                <a href="/nl/index.html#why">Waarom het beter is</a>
+                <a href="/nl/pricing.html">Prijzen</a>
+                <a href="/nl/index.html#get" data-download class="btn btn-secondary btn-nav">Downloaden</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Taal: Nederlands">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Nederlands</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl" aria-current="true">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Vergelijking</span>
+                <h1>Schermloepen voor Windows</h1>
+                <p class="updated">Gegevens over concurrerende producten geverifieerd op 20 juli 2026</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Als u nog nooit een schermloep hebt geprobeerd, begin dan met de loep die al in Windows is ingebouwd. Die is gratis. Als u nodig hebt dat uw computer voorleest, of zeer sterke vergroting nodig hebt, of braille nodig hebt, dan hebt u een volledige suite met hulptechnologie nodig zoals <strong>ZoomText</strong> of <strong>SuperNova</strong>, en zal <strong>Low Vision Zoom niet genoeg voor u zijn</strong>. Low Vision Zoom is een klein, goedkoop hulpmiddel dat één ding doet: vloeiende, aan de cursor verankerde vergroting tot 5×, zonder iets in te stellen.</p>
+                    </div>
+
+                    <h2>Wie dit heeft geschreven, en hoe u het moet lezen</h2>
+                    <p>Wij maken Low Vision Zoom, dus behandel deze pagina zoals u elke vergelijking zou behandelen die door een van de deelnemers is geschreven. We hebben op drie specifieke manieren geprobeerd eerlijk te zijn: elke bewering over een ander product komt uit de eigen openbare documentatie van die leverancier en verwijst daarnaar; elk vermeld product doet minstens één ding beter dan het onze; en verderop staat een sectie over <a href="#not-for-you">redenen om Low Vision Zoom niet te kopen</a>.</p>
+                    <p>We vermelden de prijzen van concurrenten bewust niet als bedragen. Prijzen van hulptechnologie veranderen, verschillen per land en zijn vaak anders voor particulieren, scholen en werkgevers — een bedrag dat hier is overgenomen, zou al snel verouderd zijn. We vermelden het <em>licentiemodel</em> van elk product en verwijzen naar de leverancier, zodat u de actuele prijs zelf kunt controleren.</p>
+                    <p>Het belangrijkste advies op deze pagina: <strong>elk product hier kan worden geprobeerd voordat u betaalt.</strong> Vergroting is heel persoonlijk, en hoe een loep aanvoelt voor <em>uw</em> ogen is belangrijker dan welke functietabel dan ook. Probeer ze.</p>
+
+                    <h2>Welke moet u kiezen?</h2>
+                    <ul>
+                        <li><strong>U hebt nog geen enkele schermloep geprobeerd</strong> — gebruik de <strong>Windows Magnifier</strong> die al op uw pc staat. Druk op <code>Windows-toets</code> + <code>Plus</code>. Het kost niets en het is misschien alles wat u nodig hebt.</li>
+                        <li><strong>U hebt nodig dat uw scherm wordt voorgelezen, of u gebruikt braille</strong> — dan hebt u <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> of een schermlezer nodig. Low Vision Zoom heeft helemaal geen spraak en geen braille-ondersteuning.</li>
+                        <li><strong>U hebt meer dan 5× vergroting nodig</strong> — Low Vision Zoom stopt bij 5×. Windows Magnifier, ZoomText en SuperNova gaan allemaal veel hoger.</li>
+                        <li><strong>U hebt kleurfilters, contrastomkering of focusmarkering nodig</strong> — Windows Magnifier heeft hier een deel van, gratis; ZoomText en SuperNova hebben veel meer. Low Vision Zoom heeft er niets van.</li>
+                        <li><strong>U wilt een gratis optie van derden</strong> — <strong>Magnifixer</strong> is gratis en biedt een vergrotingsvenster met omgekeerde weergave en kleurmodi.</li>
+                        <li><strong>U wilt vooral voortdurend in- en uitzoomen terwijl u werkt, en u vindt dat nu schokkerig of omslachtig</strong> — dit is precies het geval waarvoor Low Vision Zoom is gemaakt. Het vergroot vloeiend rond uw cursor, heeft geen instellingen en kost eenmalig $9.99. <a href="/nl/index.html#demo">Bekijk de demo</a> en probeer de gratis proefperiode.</li>
+                    </ul>
+
+                    <h2>Functievergelijking</h2>
+                    <p>Cellen met de aanduiding “raadpleeg de leverancier” gaan over zaken die we niet uit de tweede hand namens iemand anders willen vermelden — volg de link in de productkop voor het gezaghebbende antwoord.</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Tabel met functievergelijking">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Functievergelijking van vijf schermloepen voor Windows</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Wat het is</th>
+                                    <td>Een zoomhulpprogramma met één doel</td>
+                                    <td>De in Windows ingebouwde loep</td>
+                                    <td>Een volledige suite voor slechtzienden</td>
+                                    <td>Een volledige suite voor slechtzienden</td>
+                                    <td>Een gratis vergrotingsvenster</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Licentiemodel</th>
+                                    <td>Eenmalig $9.99, updates inbegrepen</td>
+                                    <td>Gratis — inbegrepen bij Windows</td>
+                                    <td>Jaarlicentie (raadpleeg de leverancier)</td>
+                                    <td>Licentie per editie (raadpleeg de leverancier)</td>
+                                    <td>Gratis</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Maximale vergroting</th>
+                                    <td>5×</td>
+                                    <td>Tot 1600% (16×)</td>
+                                    <td>Tot 36×</td>
+                                    <td>Hoog — raadpleeg de leverancier</td>
+                                    <td>Raadpleeg de leverancier</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Hoe u de zoom wijzigt</th>
+                                    <td>Ctrl + muiswiel, of Ctrl + Alt + Plus / Min. Continu en proportioneel — de weergave gaat soepel naar het nieuwe niveau in plaats van er hard naartoe te springen</td>
+                                    <td>Windows-toets + Plus / Min, of de werkbalk. Doorloopt vaste niveaus; de stapgrootte is instelbaar</td>
+                                    <td>Sneltoetsen en werkbalk; vergrotingsniveaus in stappen — raadpleeg de leverancier</td>
+                                    <td>Sneltoetsen en bedieningspaneel; vergrotingsniveaus in stappen — raadpleeg de leverancier</td>
+                                    <td>Instelbare zoom in een eigen venster</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Waarop de zoom zich centreert</th>
+                                    <td>Het punt onder uw muiscursor, dat vast blijft terwijl de weergave eromheen schaalt</td>
+                                    <td>Volgt de muis, toetsenbordfocus, tekstcursor of Narrator — uw keuze</td>
+                                    <td>Volgt de muis, focus en cursor — raadpleeg de leverancier</td>
+                                    <td>Volgt de muis, focus en cursor — raadpleeg de leverancier</td>
+                                    <td>Het gebied dat u aanwijst</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Leest tekst voor</th>
+                                    <td>Nee</td>
+                                    <td>Ja — heeft leesbediening</td>
+                                    <td>Ja, in de editie Magnifier/Reader</td>
+                                    <td>Ja, in de edities Speech en Screen Reader</td>
+                                    <td>Nee</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Volledige schermlezer</th>
+                                    <td>Nee</td>
+                                    <td>Narrator is apart inbegrepen bij Windows</td>
+                                    <td>Beschikbaar in de Fusion-bundel met JAWS</td>
+                                    <td>Ja, in de editie Screen Reader</td>
+                                    <td>Nee</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Braille-ondersteuning</th>
+                                    <td>Nee</td>
+                                    <td>Via Narrator</td>
+                                    <td>Raadpleeg de leverancier</td>
+                                    <td>Ja, in hogere edities</td>
+                                    <td>Nee</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Kleurfilters, contrast, omkeren</th>
+                                    <td>Nee</td>
+                                    <td>Ja — kleuromkering</td>
+                                    <td>Ja — uitgebreide filters en verbeteringen</td>
+                                    <td>Ja — uitgebreid, inclusief instellingen per monitor</td>
+                                    <td>Ja — omgekeerde weergave en kleurmodi</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tekstverzachting bij sterke zoom</th>
+                                    <td>Nee — vergroot pixels</td>
+                                    <td>Ja — verzachtingsoptie</td>
+                                    <td>Ja — xFont-rendering</td>
+                                    <td>Ja — True Fonts</td>
+                                    <td>Ja — verzachtingsfilters</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Meerdere monitoren</th>
+                                    <td>Ja — één doorlopend bureaublad, volgt u over de schermen heen</td>
+                                    <td>Ja</td>
+                                    <td>Ja — raadpleeg de leverancier</td>
+                                    <td>Ja — onafhankelijke niveaus per monitor</td>
+                                    <td>Raadpleeg de leverancier</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Instellingen om te configureren</th>
+                                    <td>Geen — het gedrag is vooraf afgesteld en vast</td>
+                                    <td>Verschillende</td>
+                                    <td>Uitgebreid</td>
+                                    <td>Uitgebreid</td>
+                                    <td>Verschillende</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Werkt offline, zonder account</th>
+                                    <td>Ja — de licentie wordt op uw apparaat gecontroleerd</td>
+                                    <td>Ja</td>
+                                    <td>Raadpleeg de leverancier</td>
+                                    <td>Raadpleeg de leverancier</td>
+                                    <td>Raadpleeg de leverancier</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Verzamelde gegevens</th>
+                                    <td>Geen — <a href="/privacy.html">privacybeleid (in het Engels)</a></td>
+                                    <td>Zie de privacyverklaring van Microsoft</td>
+                                    <td>Raadpleeg de leverancier</td>
+                                    <td>Raadpleeg de leverancier</td>
+                                    <td>Raadpleeg de leverancier</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Platform</th>
+                                    <td>Windows 10 en 11, 64-bit (x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">Redenen om Low Vision Zoom niet te kopen</h2>
+                    <p>We geven er de voorkeur aan dat u $9.99 uitgeeft aan iets dat u helpt in plaats van aan iets dat dat niet doet. Koop Low Vision Zoom niet als een van deze punten op u van toepassing is:</p>
+                    <ul>
+                        <li><strong>U hebt meer dan 5× vergroting nodig.</strong> Dit is een harde limiet in de app, geen instelling. Als 5× niet genoeg voor u is, zal geen enkel onderdeel van dit product helpen.</li>
+                        <li><strong>U hebt spraak nodig.</strong> Er is geen tekst-naar-spraak, geen documentlezer en geen schermlezer. Niets daarvan is gepland als functie van $9.99.</li>
+                        <li><strong>U hebt kleuromkering of contrastfilters nodig</strong> om comfortabel te lezen. Windows Magnifier doet dit gratis; wij doen het helemaal niet.</li>
+                        <li><strong>U hebt scherpe tekst nodig bij sterke vergroting.</strong> Wij vergroten het scherm zoals het is; de suites renderen de tekst opnieuw zodat die scherp blijft. Bij sterke zoomniveaus is dat verschil groot en telt het.</li>
+                        <li><strong>U hebt leveranciersondersteuning, training of een inkoopkanaal nodig.</strong> Wij zijn een heel klein bedrijf met een e-mailadres. Dat past slecht bij een werkplekaanpassing met een formele ondersteuningsvereiste.</li>
+                        <li><strong>U gebruikt geen muis of trackpad.</strong> Het ontwerp draait om het aanwijzen van wat u vergroot wilt zien. Er zijn sneltoetsen, maar wie alleen het toetsenbord gebruikt, is elders beter af.</li>
+                        <li><strong>U gebruikt Windows op ARM, of een 32-bit pc.</strong> Wordt momenteel niet ondersteund.</li>
+                    </ul>
+
+                    <h2>Misschien hebt u helemaal geen schermloep nodig</h2>
+                    <p>Voordat u iets koopt, is het de moeite waard de gratis opties te proberen die al op uw computer staan. Voor veel mensen zijn ze voldoende:</p>
+                    <ul>
+                        <li><strong>Alles blijvend groter maken:</strong> Windows <em>Instellingen → Systeem → Beeldscherm → Schaal</em>. Door dit op 150% of 175% te zetten, worden overal alle tekst en pictogrammen groter, zonder extra software.</li>
+                        <li><strong>Alleen de tekst groter maken:</strong> Windows <em>Instellingen → Toegankelijkheid → Tekstgrootte</em>.</li>
+                        <li><strong>Een webpagina inzoomen:</strong> <code>Ctrl</code> + <code>Plus</code> in elke browser, waardoor de tekst opnieuw wordt geplaatst in plaats van pixels te vergroten — meestal beter leesbaar dan welke loep dan ook voor het lezen van webpagina's.</li>
+                        <li><strong>De ingebouwde loep:</strong> <code>Windows-toets</code> + <code>Plus</code>.</li>
+                    </ul>
+                    <p>Een schermloep is het juiste hulpmiddel wanneer u de hele dag door en in elke toepassing in en uit het detail moet bewegen. Het is het verkeerde hulpmiddel wanneer u eigenlijk de hele tijd grotere tekst nodig had.</p>
+
+                    <h2>Waar Low Vision Zoom wél past</h2>
+                    <p>Low Vision Zoom bestaat omdat de ontwikkelaar één specifiek ding wilde: voortdurend in- en weer uitzoomen, de hele dag, zonder telkens zijn plek op het scherm kwijt te raken. Het vergroot continu in plaats van in stappen, draait om het punt onder de cursor zodat wat u bekijkt op zijn plaats blijft, en houdt de weergave stil terwijl uw cursor door het midden van het scherm beweegt. Er is niets in te stellen en niets te leren behalve één toets en het scrollwiel.</p>
+                    <p>Dat is het hele product. Als de beschrijving hierboven het probleem is dat u hebt, zal de <a href="/nl/index.html#get">gratis proefperiode van 7 dagen</a> u binnen enkele minuten vertellen of het werkt voor uw ogen. Zo niet, dan bedient een van de andere producten op deze pagina u beter, en wij verwijzen u daar liever naartoe. U kunt meer lezen over <a href="/nl/why-smooth-magnification.html">waarom vloeiende vergroting gemakkelijker te volgen is</a>, of de <a href="/nl/faq.html">veelgestelde vragen</a> bekijken.</p>
+
+                    <h2>Bronnen</h2>
+                    <p>Beweringen over andere producten komen van de eigen openbare pagina's van hun leveranciers, gecontroleerd op 20 juli 2026:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — Vergrootglas gebruiken om items op het scherm gemakkelijker te zien</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows, Windows Magnifier en Narrator zijn producten van Microsoft. ZoomText en JAWS zijn producten van Freedom Scientific / Vispero. SuperNova is een product van Dolphin Computer Access. Magnifixer is een product van Blacksun Software. Wij zijn niet gelieerd aan, goedgekeurd door of een partner van een van hen, en we gebruiken hun namen alleen om hun producten aan te duiden. Als u van mening bent dat iets op deze pagina uw product verkeerd weergeeft, <a href="/nl/contact.html">laat het ons weten</a> en we zullen het corrigeren.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Probeer het voordat u beslist</h2>
+                <p>7 dagen gratis proberen · $9.99 eenmalig · geen abonnement · geen account</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/nl.svg" alt="Verkrijgbaar in de Microsoft Store">
+                    </a>
+                    <a href="/nl/index.html#get" data-download class="download-direct">Of download het installatieprogramma rechtstreeks van deze site (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom is een schermloep voor Windows 10 en 11. Hij vergroot tot 5×, vloeiend, gecentreerd op de muiscursor. De app kost eenmalig $9.99. Hij is verkrijgbaar in de Microsoft Store of als directe MSI-download. Hij werkt offline en verzamelt geen gegevens.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Een rustige schermloep voor Windows. Een product van txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="/nl/index.html#why">Waarom het beter is</a></li>
+                        <li><a href="/nl/index.html#how">Zo werkt het</a></li>
+                        <li><a href="/nl/pricing.html">Prijzen</a></li>
+                        <li><a href="/nl/compare.html" aria-current="page">Schermloepen vergelijken</a></li>
+                        <li><a href="/nl/faq.html">Veelgestelde vragen</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Juridisch</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privacybeleid (in het Engels)</a></li>
+                        <li><a href="/terms.html">Gebruiksvoorwaarden (in het Engels)</a></li>
+                        <li><a href="/refund.html">Terugbetalingsbeleid (in het Engels)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Ondersteuning</h4>
+                    <ul>
+                        <li><a href="/nl/contact.html">Neem contact op</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

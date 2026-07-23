@@ -38,7 +38,12 @@ const TRANSLATABLE_ATTRS = new Set([
 
 // English text allowed to appear verbatim on a translated page (leak heuristic).
 const LEAK_WHITELIST = ["Low Vision Zoom", "txtbook", "Douglas Ave", "Wichita",
-    "Paddle", "Ctrl", "Alt", "SmartScreen", "Windows", "$9.99", "USD"];
+    "Paddle", "Ctrl", "Alt", "SmartScreen", "Windows", "$9.99", "USD",
+    // Bibliographic proper nouns (journal / organization names) that legitimately stay in the
+    // source language in citations on why-smooth-magnification.html, per i18n/TRANSLATING.md's
+    // medical-claims guardrails. Citation *titles* stay English too, but are exempted structurally
+    // by the <em>/<cite> rule in the leak check below rather than listed here.
+    "Optometry and Vision Science", "Nielsen Norman Group"];
 
 const VOID_TAGS = new Set(["area", "base", "br", "col", "embed", "hr", "img",
     "input", "link", "meta", "param", "source", "track", "wbr"]);
@@ -65,6 +70,7 @@ function decodeEntities(s) {
 function parsePage(html, file) {
     const events = [];   // {kind:"tag"|"end"|"decl", tag, attrs}
     const texts = [];    // normalized visible text nodes
+    const citeTexts = new Set(); // visible text inside <em>/<cite> — may stay in the source language
     const scripts = [];  // inline <script> bodies
     const links = [];    // {tag, attr, value}
     const URL_ATTRS = { a: ["href"], link: ["href"], img: ["src"],
@@ -78,7 +84,12 @@ function parsePage(html, file) {
             const raw = html.slice(i, j);
             if (!stack.includes("style")) {
                 const t = decodeEntities(raw).replace(/[\s ]+/g, " ").trim();
-                if (t) texts.push(t);
+                if (t) {
+                    texts.push(t);
+                    // Emphasis/citation titles (e.g. paper titles wrapped in <em>) legitimately
+                    // stay in the source language; exempt them from the untranslated-leak heuristic.
+                    if (stack.includes("em") || stack.includes("cite")) citeTexts.add(t);
+                }
             }
             i = j;
             continue;
@@ -137,7 +148,7 @@ function parsePage(html, file) {
             stack.push(tag);
         }
     }
-    return { events, texts, scripts, links, file };
+    return { events, texts, citeTexts, scripts, links, file };
 }
 
 const readPage = (path) => parsePage(readFileSync(path, "utf8"), path);
@@ -462,6 +473,7 @@ function checkTranslatedPage(langCfg, page) {
     const enTexts = new Set(en.texts);
     for (const t of tr.texts) {
         if (t.split(" ").length > 4 && enTexts.has(t)
+            && !tr.citeTexts.has(t)
             && !LEAK_WHITELIST.some((w) => t.includes(w))) {
             fail(where, `untranslated English text: ${JSON.stringify(t.slice(0, 80))}`);
         }

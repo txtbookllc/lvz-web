@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="مقارنة صادقة لمكبّرات الشاشة على نظام Windows: Low Vision Zoom، وأداة Windows Magnifier المدمجة، وZoomText، وSuperNova، وMagnifixer — ما الذي يفعله كلٌّ منها، ولمن يناسب كلٌّ منها، ومتى لا تختار أداتنا.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom مقابل Windows Magnifier وZoomText وSuperNova",
+      "description": "مقارنة جنبًا إلى جنب لمكبّرات الشاشة على نظام Windows: أداة Windows Magnifier المدمجة، وZoomText، وSuperNova، وMagnifixer، وLow Vision Zoom — بما في ذلك لمن يناسب كلٌّ منها وأسباب عدم اختيار Low Vision Zoom.",
+      "url": "https://lowvisionzoom.com/ar/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "ar",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "برنامج تكبير الشاشة" },
+        { "@type": "Thing", "name": "التقنية المساعِدة لضعاف البصر" },
+        { "@type": "Thing", "name": "إمكانية الوصول في Windows" }
+      ]
+    }
+    </script>
+    <title>مقارنة مكبّرات الشاشة لنظام Windows | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">تخطَّ إلى المحتوى</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ar/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="الرئيسي">
+                <a href="/ar/index.html#demo">شاهد العرض التوضيحي</a>
+                <a href="/ar/index.html#how">كيف يعمل</a>
+                <a href="/ar/index.html#why">لماذا هو أفضل</a>
+                <a href="/ar/pricing.html">الأسعار</a>
+                <a href="/ar/index.html#get" data-download class="btn btn-secondary btn-nav">تنزيل</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="اللغة: العربية">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>العربية</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar" aria-current="true">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">مقارنة</span>
+                <h1>مكبّرات الشاشة لنظام Windows</h1>
+                <p class="updated">جرى التحقق من تفاصيل المنتجات المنافِسة في 20 يوليو 2026</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>إن لم تجرّب مكبّرًا من قبل، فابدأ بالمكبّر المدمج في Windows بالفعل. إنه مجاني. إذا كنت بحاجة إلى قراءة محتوى حاسوبك بصوت عالٍ، أو إلى تكبير عالٍ جدًا، أو إلى برايل، فأنت بحاجة إلى مجموعة تقنية مساعِدة كاملة مثل <strong>ZoomText</strong> أو <strong>SuperNova</strong>، و<strong>لن يكون Low Vision Zoom كافيًا لك</strong>. إن Low Vision Zoom أداة صغيرة وزهيدة الثمن تؤدي مهمة واحدة: تكبير سلس مثبَّت على المؤشر حتى 5×، دون أي شيء لضبطه.</p>
+                    </div>
+
+                    <h2>من كتب هذا، وكيف تقرأه</h2>
+                    <p>نحن من نصنع Low Vision Zoom، لذا تعامل مع هذه الصفحة كما تتعامل مع أي مقارنة يكتبها أحد الأطراف المعنية. لقد حاولنا أن نكون منصفين بثلاث طرق محددة: كل ادعاء عن منتج آخر مصدره الوثائق العلنية الخاصة بذلك المورّد ويرتبط بها؛ ولكل منتج مذكور شيء واحد على الأقل يؤديه أفضل من أداتنا؛ وفي الأسفل قسم عن <a href="#not-for-you">أسباب عدم شراء Low Vision Zoom</a>.</p>
+                    <p>نحن لا نذكر أسعار المنافسين كأرقام عن قصد. فأسعار التقنية المساعِدة تتغيّر، وتختلف من بلد إلى آخر، وكثيرًا ما تختلف بالنسبة إلى الأفراد والمدارس وأصحاب العمل — وأي رقم يُنسخ هنا سيصبح قديمًا قبل مضي وقت طويل. نحن نذكر <em>نموذج الترخيص</em> لكل منتج ونرتبط بالمورّد لتتمكن من التحقق من السعر الحالي بنفسك.</p>
+                    <p>أهم نصيحة في هذه الصفحة: <strong>يمكن تجربة كل منتج هنا قبل أن تدفع.</strong> فالتكبير شأن شخصي إلى حد بعيد، وإحساس المكبّر بالنسبة إلى <em>عينيك</em> أهم من أي جدول مزايا. جرّبها.</p>
+
+                    <h2>أيها ينبغي أن تختار؟</h2>
+                    <ul>
+                        <li><strong>لم تجرّب أي مكبّر بعد</strong> — استخدم <strong>Windows Magnifier</strong> الموجود بالفعل على حاسوبك. اضغط <code>Windows key</code> + <code>Plus</code>. لا يكلّف شيئًا وقد يكون كل ما تحتاجه.</li>
+                        <li><strong>تحتاج إلى قراءة شاشتك بصوت عالٍ، أو تستخدم برايل</strong> — تحتاج إلى <strong>ZoomText Magnifier/Reader</strong> أو <strong>SuperNova</strong> أو قارئ شاشة. لا يوفّر Low Vision Zoom أي نطق ولا أي دعم لبرايل على الإطلاق.</li>
+                        <li><strong>تحتاج إلى تكبير أكثر من 5×</strong> — يتوقف Low Vision Zoom عند 5×. أما Windows Magnifier وZoomText وSuperNova فتصل جميعها إلى مستويات أعلى بكثير.</li>
+                        <li><strong>تحتاج إلى مرشّحات ألوان أو عكس التباين أو تمييز موضع التركيز</strong> — يوفّر Windows Magnifier بعض ذلك مجانًا؛ ويوفّر ZoomText وSuperNova ما هو أكثر بكثير. أما Low Vision Zoom فلا يوفّر أيًّا من ذلك.</li>
+                        <li><strong>تريد خيارًا مجانيًا من جهة خارجية</strong> — إن <strong>Magnifixer</strong> مجاني ويوفّر نافذة مكبّر بعرض معكوس وأنماط ألوان.</li>
+                        <li><strong>تريد أساسًا التكبير والتصغير باستمرار أثناء عملك، وتجد ذلك اليوم متقطّعًا أو مزعجًا</strong> — هذه هي الحالة المحددة التي بُني من أجلها Low Vision Zoom. فهو يكبّر بسلاسة حول مؤشرك، وليست له إعدادات، ويكلّف $9.99 مرة واحدة. <a href="/ar/index.html#demo">شاهد العرض التوضيحي</a> وجرّب النسخة المجانية.</li>
+                    </ul>
+
+                    <h2>مقارنة المزايا</h2>
+                    <p>الخلايا المؤشَّر عليها بـ «راجع المورّد» أمور لا نريد ذكرها من مصدر غير مباشر نيابةً عن غيرنا — اتبع الرابط في عنوان المنتج للحصول على الإجابة الموثوقة.</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="جدول مقارنة المزايا">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">مقارنة مزايا خمسة مكبّرات شاشة لنظام Windows</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ما هو</th>
+                                    <td>أداة تكبير أحادية الغرض</td>
+                                    <td>المكبّر المدمج في Windows</td>
+                                    <td>مجموعة كاملة لضعاف البصر</td>
+                                    <td>مجموعة كاملة لضعاف البصر</td>
+                                    <td>نافذة مكبّر مجانية</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">نموذج الترخيص</th>
+                                    <td>دفعة واحدة $9.99، مع التحديثات</td>
+                                    <td>مجاني — مشمول مع Windows</td>
+                                    <td>ترخيص سنوي (راجع المورّد)</td>
+                                    <td>ترخيص حسب الإصدار (راجع المورّد)</td>
+                                    <td>مجاني</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">أقصى تكبير</th>
+                                    <td>5×</td>
+                                    <td>حتى 1600% (16×)</td>
+                                    <td>حتى 36×</td>
+                                    <td>عالٍ — راجع المورّد</td>
+                                    <td>راجع المورّد</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">كيف تغيّر التكبير</th>
+                                    <td>Ctrl + عجلة الفأرة، أو Ctrl + Alt + Plus / Minus. مستمر ومتناسب — تنتقل الرؤية بسلاسة إلى المستوى الجديد بدلًا من القفز إليه</td>
+                                    <td>Windows key + Plus / Minus، أو شريط الأدوات. يتنقّل عبر مستويات محددة؛ وحجم الخطوة قابل للضبط</td>
+                                    <td>اختصارات لوحة المفاتيح وشريط الأدوات؛ مستويات تكبير متدرّجة — راجع المورّد</td>
+                                    <td>اختصارات لوحة المفاتيح ولوحة التحكم؛ مستويات تكبير متدرّجة — راجع المورّد</td>
+                                    <td>تكبير قابل للتعديل في نافذته الخاصة</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">على ماذا يتمركز التكبير</th>
+                                    <td>النقطة الواقعة أسفل مؤشر الفأرة، تبقى ثابتة بينما تتغيّر الرؤية بمقياسها حولها</td>
+                                    <td>يتبع الفأرة أو تركيز لوحة المفاتيح أو مؤشر النص أو Narrator — حسب اختيارك</td>
+                                    <td>يتبع الفأرة والتركيز والمؤشر — راجع المورّد</td>
+                                    <td>يتبع الفأرة والتركيز والمؤشر — راجع المورّد</td>
+                                    <td>المنطقة التي تشير إليها</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">يقرأ النص بصوت عالٍ</th>
+                                    <td>لا</td>
+                                    <td>نعم — يتضمّن عناصر تحكم في القراءة</td>
+                                    <td>نعم، في إصدار Magnifier/Reader</td>
+                                    <td>نعم، في إصداري Speech وScreen Reader</td>
+                                    <td>لا</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">قارئ شاشة كامل</th>
+                                    <td>لا</td>
+                                    <td>Narrator مشمول مع Windows، بشكل منفصل</td>
+                                    <td>متاح في حزمة Fusion مع JAWS</td>
+                                    <td>نعم، في إصدار Screen Reader</td>
+                                    <td>لا</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">دعم برايل</th>
+                                    <td>لا</td>
+                                    <td>عبر Narrator</td>
+                                    <td>راجع المورّد</td>
+                                    <td>نعم، في الإصدارات الأعلى</td>
+                                    <td>لا</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">مرشّحات الألوان والتباين والعكس</th>
+                                    <td>لا</td>
+                                    <td>نعم — عكس الألوان</td>
+                                    <td>نعم — مرشّحات وتحسينات واسعة</td>
+                                    <td>نعم — واسعة، بما في ذلك إعدادات لكل شاشة</td>
+                                    <td>نعم — عرض معكوس وأنماط ألوان</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">تنعيم النص عند التكبير العالي</th>
+                                    <td>لا — يكبّر البكسلات</td>
+                                    <td>نعم — خيار تنعيم</td>
+                                    <td>نعم — عرض xFont</td>
+                                    <td>نعم — True Fonts</td>
+                                    <td>نعم — مرشّحات تنعيم</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">شاشات متعددة</th>
+                                    <td>نعم — سطح مكتب واحد متصل، يتبعك عبر الشاشات</td>
+                                    <td>نعم</td>
+                                    <td>نعم — راجع المورّد</td>
+                                    <td>نعم — مستويات مستقلة لكل شاشة</td>
+                                    <td>راجع المورّد</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">إعدادات لضبطها</th>
+                                    <td>لا شيء — السلوك مضبوط مسبقًا وثابت</td>
+                                    <td>عدة</td>
+                                    <td>واسعة</td>
+                                    <td>واسعة</td>
+                                    <td>عدة</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">يعمل دون اتصال، بلا حساب</th>
+                                    <td>نعم — يُتحقَّق من الترخيص على جهازك</td>
+                                    <td>نعم</td>
+                                    <td>راجع المورّد</td>
+                                    <td>راجع المورّد</td>
+                                    <td>راجع المورّد</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">البيانات المجمّعة</th>
+                                    <td>لا شيء — <a href="/privacy.html">سياسة الخصوصية (بالإنجليزية)</a></td>
+                                    <td>راجع بيان خصوصية Microsoft</td>
+                                    <td>راجع المورّد</td>
+                                    <td>راجع المورّد</td>
+                                    <td>راجع المورّد</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">النظام الأساسي</th>
+                                    <td>Windows 10 و11، 64-بت (x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">أسباب عدم شراء Low Vision Zoom</h2>
+                    <p>نفضّل أن تنفق $9.99 على شيء يساعدك بدلًا من شيء لا يساعدك. لا تشترِ Low Vision Zoom إذا انطبق عليك أي مما يلي:</p>
+                    <ul>
+                        <li><strong>تحتاج إلى تكبير أكثر من 5×.</strong> هذا حد صارم في التطبيق، وليس إعدادًا. إذا لم يكن 5× كافيًا لك، فلن يساعدك أي جزء من هذا المنتج.</li>
+                        <li><strong>تحتاج إلى نطق.</strong> لا يوجد تحويل نص إلى كلام، ولا قارئ مستندات، ولا قارئ شاشة. ولا شيء من ذلك مخطَّط له كميزة بسعر $9.99.</li>
+                        <li><strong>تحتاج إلى عكس الألوان أو مرشّحات التباين</strong> لتقرأ براحة. يفعل Windows Magnifier هذا مجانًا؛ ونحن لا نفعله على الإطلاق.</li>
+                        <li><strong>تحتاج إلى نص حاد عند التكبير العالي.</strong> نحن نكبّر الشاشة كما هي؛ أما المجموعات الكاملة فتعيد عرض النص ليبقى حادًا. وعند مستويات التكبير العالية يكون هذا الفرق كبيرًا ومهمًا.</li>
+                        <li><strong>تحتاج إلى دعم المورّد أو تدريب أو مسار شراء.</strong> نحن شركة صغيرة جدًا لديها عنوان بريد إلكتروني. وهذا لا يناسب كثيرًا ترتيبات مكان العمل التي تتطلّب دعمًا رسميًا.</li>
+                        <li><strong>لا تستخدم فأرة أو لوحة تعقّب.</strong> يتمحور التصميم حول الإشارة إلى ما تريد تكبيره. توجد اختصارات لوحة المفاتيح، لكن من يستخدم لوحة المفاتيح وحدها يُخدَم على نحو أفضل في مكان آخر.</li>
+                        <li><strong>تستخدم Windows on ARM أو حاسوبًا بنظام 32-بت.</strong> غير مدعوم اليوم.</li>
+                    </ul>
+
+                    <h2>قد لا تحتاج إلى مكبّر على الإطلاق</h2>
+                    <p>قبل شراء أي شيء، يجدر بك تجربة الخيارات المجانية الموجودة بالفعل على حاسوبك. فهي كافية لكثير من الناس:</p>
+                    <ul>
+                        <li><strong>تكبير كل شيء بشكل دائم:</strong> Windows <em>الإعدادات ← النظام ← الشاشة ← المقياس</em>. ضبط هذا على 150% أو 175% يكبّر كل النصوص والأيقونات في كل مكان، دون أي برامج إضافية.</li>
+                        <li><strong>تكبير النص فقط:</strong> Windows <em>الإعدادات ← إمكانية الوصول ← حجم النص</em>.</li>
+                        <li><strong>تكبير صفحة ويب:</strong> <code>Ctrl</code> + <code>Plus</code> في أي متصفّح، وهو ما يعيد تدفّق النص بدلًا من تكبير البكسلات — وعادةً ما يكون أوضح للقراءة من أي مكبّر عند قراءة صفحات الويب.</li>
+                        <li><strong>المكبّر المدمج:</strong> <code>Windows key</code> + <code>Plus</code>.</li>
+                    </ul>
+                    <p>المكبّر هو الأداة الصحيحة عندما تحتاج إلى الدخول والخروج من التفاصيل طوال اليوم عبر كل تطبيق. وهو الأداة الخاطئة عندما يكون ما تحتاجه فعلًا نصًا أكبر طوال الوقت.</p>
+
+                    <h2>أين يناسب Low Vision Zoom فعلًا</h2>
+                    <p>وُجد Low Vision Zoom لأن مطوّره أراد شيئًا واحدًا محددًا: أن يكبّر ويصغّر باستمرار، طوال اليوم، دون أن يفقد موضعه على الشاشة في كل مرة. فهو يكبّر بشكل مستمر بدلًا من التكبير بخطوات، ويدور حول النقطة الواقعة أسفل المؤشر بحيث يبقى ما تنظر إليه في مكانه، ويُبقي الرؤية ثابتة بينما يتجوّل مؤشرك في وسط الشاشة. لا شيء لإعداده ولا شيء لتعلّمه سوى مفتاح واحد وعجلة التمرير.</p>
+                    <p>هذا هو المنتج بأكمله. إذا كان الوصف أعلاه هو المشكلة التي لديك، فإن <a href="/ar/index.html#get">التجربة المجانية لمدة 7 أيام</a> ستخبرك خلال دقائق قليلة بما إذا كان يناسب عينيك. وإن لم يكن كذلك، فسيخدمك أحد المنتجات الأخرى في هذه الصفحة على نحو أفضل، ونفضّل أن نوجّهك إليه. يمكنك قراءة المزيد عن <a href="/ar/why-smooth-magnification.html">لماذا التكبير السلس أسهل في المتابعة</a>، أو الاطلاع على <a href="/ar/faq.html">الأسئلة الشائعة</a>.</p>
+
+                    <h2>المصادر</h2>
+                    <p>الادعاءات عن المنتجات الأخرى مصدرها الصفحات العلنية الخاصة بمورّديها، جرى التحقق منها في 20 يوليو 2026:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — استخدام المكبّر لتسهيل رؤية العناصر على الشاشة</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>إن Windows وWindows Magnifier وNarrator منتجات لشركة Microsoft. وZoomText وJAWS منتجان لشركة Freedom Scientific / Vispero. وSuperNova منتج لشركة Dolphin Computer Access. وMagnifixer منتج لشركة Blacksun Software. نحن لسنا تابعين لأي منها، ولا معتمَدين منها، ولا شركاء لها، ونستخدم أسماءها فقط للتعريف بمنتجاتها. إذا كنت ترى أن أي شيء في هذه الصفحة يشوّه تمثيل منتجك، <a href="/ar/contact.html">فأخبرنا</a> وسنصحّحه.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>جرّبه قبل أن تقرّر</h2>
+                <p>تجربة مجانية لمدة 7 أيام · $9.99 مرة واحدة · بلا اشتراك · بلا حساب</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ar.svg" alt="احصل عليه من Microsoft Store">
+                    </a>
+                    <a href="/ar/index.html#get" data-download class="download-direct">أو نزّل المثبّت مباشرةً من هذا الموقع (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom هو مكبّر شاشة لنظامي Windows 10 و11. يكبّر حتى 5×، بسلاسة، مع تمركزه حول مؤشر الفأرة. سعره $9.99 لمرة واحدة. يتوفّر من متجر Microsoft Store أو كتنزيل مباشر بصيغة MSI. يعمل دون اتصال بالإنترنت ولا يجمع أي بيانات.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>مكبّر شاشة هادئ لنظام Windows. منتج من txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>المنتج</h4>
+                    <ul>
+                        <li><a href="/ar/index.html#why">لماذا هو أفضل</a></li>
+                        <li><a href="/ar/index.html#how">كيف يعمل</a></li>
+                        <li><a href="/ar/pricing.html">الأسعار</a></li>
+                        <li><a href="/ar/compare.html" aria-current="page">قارن المكبّرات</a></li>
+                        <li><a href="/ar/faq.html">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الشؤون القانونية</h4>
+                    <ul>
+                        <li><a href="/privacy.html">الخصوصية (بالإنجليزية)</a></li>
+                        <li><a href="/terms.html">شروط الخدمة (بالإنجليزية)</a></li>
+                        <li><a href="/refund.html">سياسة الاسترداد (بالإنجليزية)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="/ar/contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

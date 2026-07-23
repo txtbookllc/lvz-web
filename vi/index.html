@@ -39,6 +39,33 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Logo Low Vision Zoom — một chiếc kính lúp có dấu cộng bên trong — cùng khẩu hiệu: trình phóng to màn hình tốt nhất dành cho người dùng Windows có thị lực kém">
     <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom là một trình phóng to màn hình dành cho Windows 10 và 11, được thiết kế cho người dùng có thị lực kém. Giữ Ctrl và lăn chuột để phóng to ở bất cứ đâu trong Windows; khung nhìn phóng vào mượt mà và xoay quanh con trỏ chuột, nên bạn không bao giờ mất dấu vị trí đang đọc. Hoạt động ngoại tuyến, không thu thập dữ liệu. Dùng thử miễn phí 7 ngày, sau đó mua bản quyền trả một lần $9.99 — không thuê bao.",
+      "url": "https://lowvisionzoom.com/vi/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/vi/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
     <title>Low Vision Zoom — Phóng to màn hình mượt mà cho Windows</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
@@ -289,7 +316,7 @@
                     </div>
                 </div>
 
-                <p class="requirements-line">Dành cho Windows 11, 64-bit (x64) · trình cài đặt độc lập, không cần tải thêm gì · hỗ trợ ARM sẽ sớm ra mắt.</p>
+                <p class="requirements-line">Dành cho Windows 10 và 11, 64-bit (x64) · trình cài đặt độc lập, không cần tải thêm gì · hiện chưa hỗ trợ Windows trên ARM.</p>
 
                 <div class="good-to-know">
                     <p><strong>Nên biết:</strong> các nhà nghiên cứu thị giác gọi hiện tượng này là <em>change blindness</em> (mù thay đổi): khi khung nhìn thay đổi trong lúc mắt bị gián đoạn, ta rất dễ bỏ sót thứ vừa dịch chuyển và mất dấu thứ mình đang dõi theo. Một trình phóng to nhảy giật tái tạo sự gián đoạn đó suốt cả ngày. Còn một trình lướt êm thì không bao giờ để mắt bạn có khoảng trống nào khiến lạc mất vị trí.</p>
@@ -312,10 +339,6 @@
                         <summary>Điều gì xảy ra khi hết hạn dùng thử?</summary>
                         <div class="faq-body"><p>Ứng dụng vẫn tiếp tục hoạt động — mức phóng to chỉ bị giới hạn cho đến khi bạn nhập khóa bản quyền, nên màn hình luôn đủ dễ đọc để bạn thao tác và mua. Nhập khóa bất cứ lúc nào để khôi phục toàn bộ mức thu phóng ngay lập tức; không cần cài lại.</p></div>
                     </details>
-                    <details class="faq">
-                        <summary>Ứng dụng này khác gì Kính lúp có sẵn của Windows?</summary>
-                        <div class="faq-body"><p>Windows có sẵn một trình phóng to khá tốt, và nhiều người nên thử nó trước. Low Vision Zoom tập trung vào cảm giác mượt mà, êm dịu hơn: thu phóng có hoạt ảnh nhẹ nhàng (không nhảy giật), thu phóng lấy con trỏ làm tâm, di chuyển khung nhìn ổn định với vùng tĩnh, và giao diện nằm gọn ở khay hệ thống cho những lần điều chỉnh nhanh, thường xuyên.</p></div>
-                    </details>
                     <!-- Carries the full first-run SmartScreen guidance (formerly its own
                          aside under the on-page download CTA, now retired); the
                          install-note-* classes style the steps and figure here too. -->
@@ -337,19 +360,11 @@
                             <p>Cảnh báo này sẽ tự nhạt dần trong những tuần tới khi có thêm nhiều người cài đặt ứng dụng, và bạn chỉ phải làm việc này một lần. Ứng dụng cài theo từng máy vào Program Files — đây cũng chính là điều giúp các cú bấm chuột chính xác khi đang phóng to.</p>
                         </div>
                     </details>
-                    <details class="faq">
-                        <summary>Dữ liệu mua hàng của tôi có được giữ riêng tư không?</summary>
-                        <div class="faq-body"><p>Có. Bản thân ứng dụng không thu thập gì và hoạt động ngoại tuyến (<a href="/privacy.html">chính sách quyền riêng tư (bằng tiếng Anh)</a>). Việc thanh toán do đối tác thanh toán của chúng tôi là Paddle xử lý, với vai trò đơn vị bán hàng chính thức (merchant of record); ứng dụng không bao giờ thấy thông tin thanh toán của bạn.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Có chính sách hoàn tiền không?</summary>
-                        <div class="faq-body"><p>Có — ngoài bản dùng thử miễn phí còn có cam kết hoàn tiền trong 30 ngày. Xem <a href="/refund.html">chính sách hoàn tiền (bằng tiếng Anh)</a>.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Tổ chức có thể mua nhiều bản quyền không?</summary>
-                        <div class="faq-body"><p>Có. Trường học, phòng khám, thư viện và doanh nghiệp có thể yêu cầu mua số lượng lớn kèm hóa đơn — hãy dùng <a href="/vi/contact.html?topic=volume">biểu mẫu liên hệ</a> của chúng tôi.</p></div>
-                    </details>
                 </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">Còn thắc mắc khác — quyền riêng tư, hoàn tiền, mua nhiều bản quyền, so sánh với các trình phóng to khác? <a href="/vi/faq.html">Xem tất cả câu hỏi thường gặp →</a></p>
             </div>
         </section>
 
@@ -390,7 +405,7 @@
                         <li><a href="#why">Vì sao tốt hơn</a></li>
                         <li><a href="#how">Cách hoạt động</a></li>
                         <li><a href="/vi/pricing.html">Bảng giá</a></li>
-                        <li><a href="#faq">Câu hỏi thường gặp</a></li>
+                        <li><a href="/vi/faq.html">Câu hỏi thường gặp</a></li>
                     </ul>
                 </div>
                 <div>

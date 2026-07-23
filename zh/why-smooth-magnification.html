@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="zh" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="为什么平滑的屏幕放大镜比跳动的更易于跟随：空间恒常性、平滑追踪与变化盲视如何解释「丢失位置」的感觉——以及 Low Vision Zoom 如何围绕它们进行设计。">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "为什么平滑放大比跳动的放大更易于跟随",
+      "description": "用通俗语言并附有来源，解释为什么平滑移动的屏幕放大镜能让您保持位置，而跳动的放大镜会让您不得不重新找回位置——基于空间恒常性、平滑追踪和变化盲视。",
+      "url": "https://lowvisionzoom.com/zh/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "zh",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "屏幕放大" },
+        { "@type": "Thing", "name": "低视力" },
+        { "@type": "Thing", "name": "空间恒常性" },
+        { "@type": "Thing", "name": "平滑追踪眼动" },
+        { "@type": "Thing", "name": "变化盲视" }
+      ]
+    }
+    </script>
+    <title>为什么平滑放大更易于跟随 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">跳到正文</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/zh/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="主导航">
+                <a href="/zh/index.html#demo">观看演示</a>
+                <a href="/zh/index.html#how">使用方法</a>
+                <a href="/zh/index.html#why">为什么更好</a>
+                <a href="/zh/pricing.html">价格</a>
+                <a href="/zh/index.html#get" data-download class="btn btn-secondary btn-nav">下载</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="语言：中文（简体）">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>中文（简体）</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans" aria-current="true">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">为什么平滑很重要</span>
+                <h1>为什么平滑放大比跳动的放大更易于跟随</h1>
+                <p class="updated">用通俗语言解释，并附有来源</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>大多数屏幕放大镜会以突然的跳动来移动您的视图。每一次跳动都迫使您的眼睛和大脑停下来，重新找回它们刚才所在的位置，然后从头开始。Low Vision Zoom 则连续移动——它平缓地进入缩放，围绕您所指向的那个点旋转，并在平移时滑动前行——因此您的注意力永远不会失去对您所关注之物的把握。这不是一句含糊的漂亮话；它与人类视觉运作方式的若干有充分文献记载的特性相吻合。</p>
+                    </div>
+
+                    <p>本页的任何内容都不是医学主张。这些是人类视觉与人机交互中普遍公认的原理，用来解释为什么一款更平滑的放大镜比一款跳动的放大镜更宜于长期使用。这里引用的任何研究都没有研究过 Low Vision Zoom；它们描述的是视觉和界面运动的一般运作方式。</p>
+
+                    <h2>「丢失位置」的感觉有一个名字</h2>
+                    <p>当人们说一款放大镜让他们「弄不清自己在哪儿」时，他们描述的是真实存在的东西。您的视觉系统并不是把屏幕当作一张照片来存储；它维持着一张关于事物所在位置的、持续更新的内部地图，并让您的目光牢牢锁定在选定的一个点上。有若干机制在维持这张地图的稳定——而放大倍数上的一次突兀跳动，会同时打破所有这些机制。</p>
+
+                    <h3>1. 空间恒常性</h3>
+                    <p>尽管您的眼睛一直在移动，您的大脑却努力让世界感觉起来是稳定的。这被称为<strong>空间恒常性</strong>，或空间更新：在您移动时，大脑会预测一切最终应当落在哪里，并悄悄地让这张地图保持对齐。平滑、连续的运动，正是这个系统天生擅长处理的那种输入——它可以随时更新地图。而一次突然的瞬间跳转，没有给它任何可供插值的东西，于是地图失效，只能从头重建。这次重建，就是「我刚才跑到哪儿去了？」的那一刻。</p>
+                    <p>Low Vision Zoom 从不做瞬间跳转，因而保持了空间恒常性的完整。放大会在大约三分之一秒的时间内平缓地趋向目标，平移是滑动而不是猛地跳过去。您的内部地图得到的是更新，而不是被抹去。</p>
+
+                    <h3>2. 平滑追踪，以及重新定位的代价</h3>
+                    <p>眼睛有两种移动方式。<strong>平滑追踪</strong>会连续地跟踪一个稳定移动的目标——眼睛滑动着并始终锁定其上。<strong>扫视</strong>是在各注视点之间快速、弹道式的跳跃，而在一次扫视期间视觉会被抑制，因此之后眼睛必须重新捕获并重新聚焦到目标上。</p>
+                    <p>一款跳动的放大镜，每次移动都会迫使一次扫视外加一次重新捕获。对于视力较弱的人来说，在一次跳动之后重新找到一个小目标，比视力中心清晰的人更慢、也更不确定。而平滑的缩放则让眼睛的追踪系统来承担这项工作：它可以顺着运动前行并保持锁定，因此既没有盲目的跳跃，也无需重新寻找您的位置。Low Vision Zoom 正是围绕这一点构建的——每秒 60 帧的动画循环，意味着视图始终以微小、可追踪的增量移动，让您的眼睛可以跟随，而不是追赶。</p>
+
+                    <h3>3. 知觉的连续性——大脑把它当作同一个场景</h3>
+                    <p>当一个物体平滑移动时，大脑会把它感知为同一个发生了移动的连续物体。而当同一个物体转而消失、再在别处重新出现时，大脑就得重新求解「这是同一个东西吗，刚才发生了什么？」这种重新求解是费力的，也是<strong>变化盲视</strong>的一个典型诱因——一个跨越视觉中断发生的变化，就是根本没被注意到，于是您丢失了正在追踪的东西。</p>
+                    <p>Low Vision Zoom 保持了连续性。因为每一帧都只是从上一帧迈出的一小步，被放大的内容读起来就是同一个场景在平滑地变大——而不是一个把旧屏幕替换掉的新屏幕。没有东西消失又重现，所以也就没有东西会丢失。</p>
+
+                    <h3>4. 一个固定的视觉锚点：向光标处缩放</h3>
+                    <p>这是对「丢失锚点」最直接的回应。Low Vision Zoom 让缩放围绕您光标下方的那个点旋转——正处于鼠标下方的内容保持不动，而周围的一切都在放大。许多放大镜则改为向屏幕的某个角落或中心缩放，然后再平移追上，这意味着您正在看的那个东西会从您眼皮底下滑走，之后才回来。</p>
+                    <p>通过在缩放期间让您的注视点保持固定，应用给了您的目光一个稳定的锚点，可以在整个放大过程中一直抓住它。您只需指向某物，就决定了锚点是什么。您的注视点从不必移动，因此空间恒常性和您眼睛的锁定，都在那个通常会打破它们的唯一时刻里得以保全。</p>
+
+                    <h3>5. 可预测、自定节奏的控制</h3>
+                    <p>大脑自己发起的运动，比强加于它的运动更容易预料。Low Vision Zoom 的 <strong>Ctrl + 滚轮</strong>是连续且成比例的：您转动滚轮多远、多快，就恰好缩放多远、多快，并且可以在任意一点停下、反向或保持。这个运动是您自己的，所以它可预测——而可预测的运动，比一款自行猛地跳到某个预设倍数的放大镜要少得多的迷失感。</p>
+
+                    <h2>为什么这对低视力尤其重要</h2>
+                    <p>中心视力减退的人往往依赖一些策略，而一款突兀的放大镜会悄悄地与这些策略作对：</p>
+                    <ul>
+                        <li><strong>偏心注视与优先视网膜位点。</strong>当清晰的中心视力减退时，许多人学会稍微偏离中心地看东西，把视网膜上一个固定的优先位点当作自己工作时的聚焦点。每次跳动之后都要重新建立这种对齐，是真实而反复的付出。一款从不让您重新寻找位置的放大镜，能让这份来之不易的对齐保持下去。</li>
+                        <li><strong>重新寻找的代价。</strong>可动用的视力更少，在一次盲目跳动之后重新捕获一个小目标的代价，就比视力健全的用户更高。平滑消除了跳动，也随之消除了这份代价。</li>
+                        <li><strong>注意力与工作记忆。</strong>每一次「我现在在哪儿？」的重置，都要花掉注意力和工作记忆，而您宁愿把它们花在真正的任务上——阅读、写作、导航。把追踪交给您毫不费力就能跟随平滑运动的知觉系统，就能把这份精力腾出来用在工作本身。</li>
+                    </ul>
+                    <p>这一切都不是治疗主张。它只是两种工具之间的区别：一种与低视力观看的运作方式相抗，另一种则围绕它而塑形。</p>
+
+                    <h2>每一个设计选择都服务于同一个目标</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="每项功能如何对应一条知觉原理">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Low Vision Zoom 的功能，以及每一项所服务的知觉原理</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">功能</th>
+                                    <th scope="col">它做什么</th>
+                                    <th scope="col">它服务的原理</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">平滑的动画缩放（约 ⅓ 秒的缓出，60 fps）</th>
+                                    <td>放大平缓地趋向目标，而不是猛地跳过去</td>
+                                    <td>空间恒常性；平滑追踪；知觉连续性</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">缩放围绕光标旋转</th>
+                                    <td>鼠标下方的那个点保持固定，而周围的一切都在缩放</td>
+                                    <td>一个稳定的视觉锚点；注视点从不被移位</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">带有静止区的光标跟随</th>
+                                    <td>当您的光标在宽阔的中央区域内游走时视图保持静止，只有在您接近边缘时才平移——而且是以滑动的方式</td>
+                                    <td>没有多余的运动；平移是平滑追踪，绝不是瞬间跳转</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ctrl + 滚轮的成比例控制</th>
+                                    <td>您连续地设定缩放倍数，想多快就多快、想多慢就多慢</td>
+                                    <td>自定节奏、可预测、由您自己发起的运动</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">覆盖整个桌面的多显示器视图</th>
+                                    <td>一个连续的放大空间，跨屏幕跟随您，而不是每个窗口各自为政的孤岛</td>
+                                    <td>只需更新一张连贯的空间地图，而不是好几张</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">调校好的默认值，无需配置</th>
+                                    <td>平滑度、速度和静止区的手感都已预先调校并固定</td>
+                                    <td>平滑的行为就是默认，而不是需要去发现和设置的东西</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>这就是这款产品背后的全部理念：一款按照人类视觉系统天生善于跟随的方式来移动的放大镜，因此它让您保持锚定，而其他放大镜却让您丢失位置。您可以<a href="/zh/index.html#demo">观看它的实际运行</a>，看看它<a href="/zh/compare.html">与其他放大镜的对比</a>，或<a href="/zh/index.html#get">免费试用 7 天</a>。</p>
+
+                    <h2>来源与延伸阅读</h2>
+                    <p>以下是关于上文所引一般原理的可信来源，均为同行评审或权威机构发布。它们描述的是人类视觉与界面运动的一般运作方式——它们中没有任何一项研究过 Low Vision Zoom，也都不应被解读为该应用具有某种特定效果的证据。</p>
+
+                    <h3>空间恒常性与眼动过程中的视觉稳定性</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — 在快速眼动期间视觉敏感度会下降，而这种抑制始于视网膜。<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">阅读全文</a>。</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — 大脑如何从眼动过程中的一系列图像构建出一个统一的知觉。<a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">摘要</a>。</li>
+                    </ul>
+
+                    <h3>平滑追踪——眼睛的连续跟踪系统</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — 眼睛平滑地跟踪并预判移动的目标，对于自生成或逼真的目标运动其精度更高。<a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">摘要</a>。</li>
+                    </ul>
+
+                    <h3>变化盲视——在视觉中断过程中丢失事物</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — 一种引人注目的失误：看不见那些本该轻易被注意到的巨大变化。<a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">摘要</a>。</li>
+                        <li>Rensink, <em>Change Blindness</em>, in Neurobiology of Attention (Elsevier, 2005) — 这种效应可以通过在一次眼动、一次眨眼或一次短暂闪烁期间制造变化而引发。<a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>。</li>
+                    </ul>
+
+                    <h3>中心视力丧失、偏心注视与优先视网膜位点</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — 有中心暗点的人会使用受影响区域之外的优先视网膜位点，而训练这种偏离中心的注视被称为偏心注视训练。<a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">阅读全文</a>。</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">摘要</a>。</li>
+                    </ul>
+
+                    <h3>用户界面设计中的运动与连续性</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — 运动可以防止迷失方向，并帮助用户在过渡过程中把握住上下文。<a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">阅读全文</a>。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>亲自感受这份平滑</h2>
+                <p>7 天免费试用 · $9.99 一次性付费 · 无订阅 · 无需账户</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/zh.svg" alt="从 Microsoft Store 获取">
+                    </a>
+                    <a href="/zh/index.html#get" data-download class="download-direct">或直接从本网站下载安装程序（.msi）</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>一款平静的 Windows 屏幕放大镜。txtbook&nbsp;LLC 出品。</p>
+                </div>
+                <div>
+                    <h4>产品</h4>
+                    <ul>
+                        <li><a href="/zh/index.html#why">为什么更好</a></li>
+                        <li><a href="/zh/index.html#how">使用方法</a></li>
+                        <li><a href="/zh/pricing.html">价格</a></li>
+                        <li><a href="/zh/compare.html">比较放大镜</a></li>
+                        <li><a href="/zh/faq.html">常见问题</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>法律</h4>
+                    <ul>
+                        <li><a href="/privacy.html">隐私政策（英文）</a></li>
+                        <li><a href="/terms.html">服务条款（英文）</a></li>
+                        <li><a href="/refund.html">退款政策（英文）</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="/zh/contact.html">联系我们</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC。保留所有权利。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

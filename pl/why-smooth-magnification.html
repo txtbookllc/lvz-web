@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dlaczego płynna lupa ekranowa jest łatwiejsza do śledzenia niż taka, która skacze: jak stałość przestrzenna, płynne śledzenie wzrokiem i ślepota na zmianę wyjaśniają uczucie gubienia miejsca — i jak Low Vision Zoom jest zaprojektowany z myślą o tych mechanizmach.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Dlaczego płynne powiększenie jest łatwiejsze do śledzenia niż powiększenie, które skacze",
+      "description": "Napisane prostym językiem, oparte na źródłach wyjaśnienie, dlaczego lupa ekranowa poruszająca się płynnie utrzymuje Twoje miejsce, podczas gdy taka, która skacze, zmusza Cię do jego ponownego odnajdywania — oparte na stałości przestrzennej, płynnym śledzeniu wzrokiem i ślepocie na zmianę.",
+      "url": "https://lowvisionzoom.com/pl/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "pl",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Powiększenie ekranu" },
+        { "@type": "Thing", "name": "Słaby wzrok" },
+        { "@type": "Thing", "name": "Stałość przestrzenna" },
+        { "@type": "Thing", "name": "Płynne śledzenie wzrokiem" },
+        { "@type": "Thing", "name": "Ślepota na zmianę" }
+      ]
+    }
+    </script>
+    <title>Dlaczego płynne powiększenie jest łatwiejsze do śledzenia | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Przejdź do treści</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/pl/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Główna">
+                <a href="/pl/index.html#demo">Zobacz pokaz</a>
+                <a href="/pl/index.html#how">Jak to działa</a>
+                <a href="/pl/index.html#why">Dlaczego jest lepsza</a>
+                <a href="/pl/pricing.html">Cennik</a>
+                <a href="/pl/index.html#get" data-download class="btn btn-secondary btn-nav">Pobierz</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Język: polski">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Polski</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl" aria-current="true">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Dlaczego płynność ma znaczenie</span>
+                <h1>Dlaczego płynne powiększenie jest łatwiejsze do śledzenia niż powiększenie, które skacze</h1>
+                <p class="updated">Wyjaśnienie prostym językiem, ze źródłami</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Większość lup ekranowych porusza widokiem nagłymi skokami. Każdy skok zmusza oczy i mózg do zatrzymania się, ponownego odnalezienia miejsca, w którym były, i rozpoczęcia od nowa. Low Vision Zoom porusza się w sposób ciągły — płynnie wchodzi w powiększenie, obraca się wokół punktu, na który wskazujesz, i płynie podczas przesuwania — dzięki czemu Twoja uwaga nigdy nie traci uchwytu na tym, na czym Ci zależy. To nie jest niejasna uprzejmość; pokrywa się to z kilkoma dobrze udokumentowanymi właściwościami działania ludzkiego wzroku.</p>
+                    </div>
+
+                    <p>Nic na tej stronie nie jest twierdzeniem medycznym. To ogólnie przyjęte zasady dotyczące ludzkiego wzroku i interakcji człowieka z komputerem, użyte, by wyjaśnić, dlaczego płynniejsza lupa jest łatwiejsza w codziennym użytkowaniu niż skacząca. Żadne z cytowanych tu badań nie dotyczyło Low Vision Zoom; opisują one ogólne zasady działania wzroku i ruchu w interfejsie.</p>
+
+                    <h2>Uczucie „gubienia miejsca” ma swoją nazwę</h2>
+                    <p>Kiedy ludzie mówią, że lupa sprawia, że „gubią orientację, gdzie są”, opisują coś realnego. Twój układ wzrokowy nie przechowuje ekranu jak fotografii; utrzymuje bieżącą wewnętrzną mapę tego, gdzie co się znajduje, i trzyma wzrok zablokowany na wybranym punkcie. Kilka mechanizmów utrzymuje tę mapę w stabilności — a gwałtowny skok powiększenia rozbija je wszystkie naraz.</p>
+
+                    <h3>1. Stałość przestrzenna</h3>
+                    <p>Twój mózg intensywnie pracuje, by świat wydawał się stabilny, mimo że Twoje oczy nieustannie się poruszają. Nazywa się to <strong>stałością przestrzenną</strong> (spatial constancy), czyli aktualizacją przestrzenną: gdy się poruszasz, mózg przewiduje, gdzie wszystko powinno się znaleźć, i po cichu utrzymuje mapę w zgodności. Płynny, ciągły ruch to dokładnie ten rodzaj sygnału, do obsługi którego ten system został zbudowany — może na bieżąco aktualizować mapę. Nagłe teleportowanie nie daje mu niczego do interpolacji, więc mapa zostaje unieważniona i musi być zbudowana od nowa. Ta odbudowa to właśnie moment „gdzie ja się teraz znalazłem?”.</p>
+                    <p>Low Vision Zoom zachowuje stałość przestrzenną, nigdy się nie teleportując. Powiększenie płynnie zbliża się do celu przez mniej więcej jedną trzecią sekundy, a przesuwanie płynie, zamiast się przeskakiwać. Twoja wewnętrzna mapa jest aktualizowana, a nie kasowana.</p>
+
+                    <h3>2. Płynne śledzenie wzrokiem i koszt ponownej fiksacji</h3>
+                    <p>Oko porusza się na dwa sposoby. <strong>Płynne śledzenie</strong> (smooth pursuit) w sposób ciągły podąża za celem, który porusza się w miarę stałym tempie — oko płynie i pozostaje zablokowane na celu. <strong>Sakkady</strong> to szybkie, balistyczne skoki między punktami fiksacji, a podczas sakkady widzenie jest wygaszane, więc potem oko musi na nowo odnaleźć i ponownie skupić się na celu.</p>
+                    <p>Skacząca lupa wymusza sakkadę oraz ponowne odnalezienie celu przy każdym ruchu. U osoby z obniżoną ostrością wzroku ponowne odnalezienie małego celu po skoku jest wolniejsze i mniej pewne niż u osoby z ostrym widzeniem centralnym. Płynne powiększenie pozwala zamiast tego pracować systemowi śledzenia oka: może on „jechać” razem z ruchem i utrzymywać blokadę, więc nie ma ślepego skoku ani poszukiwania utraconego miejsca. Low Vision Zoom jest zbudowany właśnie wokół tej zasady — pętla animacji o częstotliwości 60 klatek na sekundę oznacza, że widok zawsze porusza się małymi, możliwymi do śledzenia krokami, za którymi oczy mogą podążać, zamiast je gonić.</p>
+
+                    <h3>3. Ciągłość percepcyjna — mózg traktuje to jako tę samą scenę</h3>
+                    <p>Kiedy obiekt porusza się płynnie, mózg odbiera go jako jeden ciągły obiekt, który się przemieścił. Kiedy ten sam obiekt zamiast tego znika i pojawia się ponownie gdzie indziej, mózg musi na nowo rozstrzygnąć: „czy to ta sama rzecz i co się właśnie stało?”. To ponowne rozstrzyganie wymaga wysiłku i jest klasycznym wyzwalaczem <strong>ślepoty na zmianę</strong> (change blindness), w której zmiana zachodząca w trakcie wizualnego zakłócenia po prostu nie zostaje zauważona, a Ty tracisz elementy, które śledziłeś.</p>
+                    <p>Low Vision Zoom zachowuje ciągłość. Ponieważ każda klatka jest niewielkim krokiem od poprzedniej, treść pod powiększeniem odczytywana jest jako ta sama scena, która płynnie rośnie — a nie jako nowy ekran zastępujący poprzedni. Nic nie znika i nie pojawia się ponownie, więc nie ma czego zgubić.</p>
+
+                    <h3>4. Stały punkt odniesienia wzrokowego: powiększanie wokół kursora</h3>
+                    <p>To najbardziej bezpośrednia odpowiedź na „utratę punktu odniesienia”. Low Vision Zoom obraca powiększenie wokół punktu znajdującego się pod kursorem — treść bezpośrednio pod myszą pozostaje na miejscu, podczas gdy wszystko wokół rośnie. Wiele lup zamiast tego powiększa w stronę rogu lub środka ekranu, a następnie przesuwa się, by „dogonić” — co oznacza, że rzecz, na którą właśnie patrzyłeś, zsuwa się spod Ciebie, zanim wróci.</p>
+                    <p>Utrzymując punkt Twojego spojrzenia nieruchomym podczas powiększania, aplikacja daje wzrokowi stabilny punkt odniesienia, którego może się trzymać przez cały czas trwania powiększenia. To Ty decydujesz, czym jest ten punkt odniesienia, po prostu na niego wskazując. Twój punkt fiksacji nigdy nie musi się poruszać, więc zarówno stałość przestrzenna, jak i blokada wzroku zostają zachowane właśnie w tym momencie, w którym zwykle się rozpadają.</p>
+
+                    <h3>5. Przewidywalna, kontrolowana we własnym tempie kontrola</h3>
+                    <p>Ruch, który mózg sam inicjuje, jest łatwiejszy do przewidzenia niż ruch narzucony z zewnątrz. Gest <strong>Ctrl + przewijanie</strong> w Low Vision Zoom jest ciągły i proporcjonalny: powiększasz dokładnie tak daleko i tak szybko, jak przewijasz kółkiem, i możesz w każdej chwili zatrzymać, cofnąć lub wstrzymać ruch. Ten ruch jest Twój, więc jest przewidywalny — a przewidywalny ruch jest znacznie mniej dezorientujący niż lupa, która sama gwałtownie przeskakuje do ustalonego z góry poziomu.</p>
+
+                    <h2>Dlaczego ma to szczególne znaczenie przy słabym wzroku</h2>
+                    <p>Osoby żyjące z obniżonym widzeniem centralnym często opierają się na strategiach, którym gwałtowna lupa po cichu przeszkadza:</p>
+                    <ul>
+                        <li><strong>Widzenie ekscentryczne i preferowana zona siatkówki.</strong> Gdy ostre widzenie centralne jest obniżone, wiele osób uczy się patrzeć nieco poza środkiem, wykorzystując stałe, preferowane miejsce na siatkówce jako swój roboczy punkt skupienia. Ponowne ustanawianie tego wyrównania po każdym skoku to realny, powtarzający się wysiłek. Lupa, która nigdy nie zmusza do ponownego odnajdywania miejsca, pozwala temu wypracowanemu wyrównaniu się utrzymać.</li>
+                        <li><strong>Kara za ponowne odnajdywanie.</strong> Przy mniejszej ostrości wzroku do dyspozycji koszt ponownego odnalezienia małego celu po ślepym skoku jest wyższy niż u w pełni widzącego użytkownika. Płynność usuwa skok, a wraz z nim tę karę.</li>
+                        <li><strong>Uwaga i pamięć robocza.</strong> Każdy reset typu „gdzie teraz jestem?” zużywa uwagę i pamięć roboczą, którą wolałbyś przeznaczyć na samo zadanie — czytanie, pisanie, nawigację. Oddanie śledzenia systemowi percepcyjnemu, który bez wysiłku podąża za płynnym ruchem, uwalnia ten wysiłek na rzecz samej pracy.</li>
+                    </ul>
+                    <p>Nic z tego nie jest twierdzeniem o działaniu leczniczym. To różnica między narzędziem, które walczy z tym, jak działa widzenie przy słabym wzroku, a takim, które jest zaprojektowane wokół tego mechanizmu.</p>
+
+                    <h2>Każda decyzja projektowa służy temu samemu celowi</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Jak każda funkcja odpowiada zasadzie percepcyjnej">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Funkcje Low Vision Zoom i zasada percepcyjna, której każda z nich służy</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Funkcja</th>
+                                    <th scope="col">Co robi</th>
+                                    <th scope="col">Zasada, której służy</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Płynne animowane powiększenie (~⅓ sekundy wyhamowania, 60 fps)</th>
+                                    <td>Powiększenie płynnie zbliża się do celu zamiast się przeskakiwać</td>
+                                    <td>Stałość przestrzenna; płynne śledzenie wzrokiem; ciągłość percepcyjna</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Powiększenie obraca się wokół kursora</th>
+                                    <td>Punkt pod myszą pozostaje nieruchomy, podczas gdy wszystko wokół się skaluje</td>
+                                    <td>Stabilny punkt odniesienia wzrokowego; fiksacja nigdy nie zostaje przesunięta</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Podążanie za kursorem ze strefą martwą</th>
+                                    <td>Widok pozostaje nieruchomy, gdy kursor porusza się w szerokim, centralnym pasie, i przesuwa się — płynnie — tylko przy zbliżeniu do krawędzi</td>
+                                    <td>Brak zbędnego ruchu; przesunięcia to płynne śledzenie, nigdy teleportacja</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Proporcjonalna kontrola Ctrl + przewijanie</th>
+                                    <td>Poziom powiększenia ustawiasz w sposób ciągły, tak szybko lub wolno, jak chcesz</td>
+                                    <td>Ruch kontrolowany we własnym tempie, przewidywalny, samodzielnie inicjowany</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Widok całego pulpitu, wielu monitorów</th>
+                                    <td>Jedna ciągła powiększona przestrzeń, która podąża za Tobą między ekranami, a nie osobne „wyspy” dla każdego okna</td>
+                                    <td>Jedna spójna mapa przestrzenna do aktualizacji zamiast kilku</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Dopracowane ustawienia domyślne, nic do konfigurowania</th>
+                                    <td>Płynność, prędkość i zachowanie strefy martwej są wstępnie dopracowane i stałe</td>
+                                    <td>Płynne zachowanie jest ustawieniem domyślnym, a nie czymś do odkrycia i skonfigurowania</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>To cała idea stojąca za tym produktem: lupa, która porusza się tak, jak zbudowany jest ludzki układ wzrokowy, by podążać za ruchem — dzięki czemu utrzymuje Cię zakotwiczonym tam, gdzie inne lupy sprawiają, że gubisz miejsce. Możesz <a href="/pl/index.html#demo">obejrzeć to w akcji</a>, zobaczyć, jak <a href="/pl/compare.html">wypada w porównaniu z innymi lupami</a>, lub <a href="/pl/index.html#get">wypróbować bezpłatnie przez 7 dni</a>.</p>
+
+                    <h2>Źródła i dodatkowa lektura</h2>
+                    <p>Poniżej znajdują się wiarygodne, recenzowane naukowo lub publikowane przez uznane instytucje źródła dla ogólnych zasad przytoczonych powyżej. Opisują one ogólne działanie ludzkiego wzroku i ruchu w interfejsie — żadne z nich nie dotyczyło Low Vision Zoom i żadnego nie należy odczytywać jako dowodu konkretnego efektu działania tej aplikacji.</p>
+
+                    <h3>Stałość przestrzenna i stabilność widzenia podczas ruchów oczu</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — wrażliwość wzrokowa jest obniżona podczas szybkich ruchów oczu, a to wygaszenie zaczyna się już w siatkówce. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">Czytaj</a>.</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — jak mózg buduje jednolity obraz percepcyjny z sekwencji obrazów podczas ruchów oczu. <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">Abstrakt</a>.</li>
+                    </ul>
+
+                    <h3>Płynne śledzenie wzrokiem — ciągły system śledzenia oka</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — oko płynnie śledzi i antycypuje poruszające się cele, z lepszą dokładnością dla ruchu celu inicjowanego samodzielnie lub realistycznego. <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">Abstrakt</a>.</li>
+                    </ul>
+
+                    <h3>Ślepota na zmianę — utrata elementów podczas wizualnego zakłócenia</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — uderzająca niezdolność do zauważenia dużych zmian, które normalnie byłyby łatwo dostrzeżone. <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">Abstrakt</a>.</li>
+                        <li>Rensink, <em>Change Blindness</em>, w Neurobiology of Attention (Elsevier, 2005) — efekt ten można wywołać, wprowadzając zmianę podczas ruchu oka, mrugnięcia lub krótkiego błysku. <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>.</li>
+                    </ul>
+
+                    <h3>Utrata widzenia centralnego, widzenie ekscentryczne i preferowana zona siatkówki</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — osoby z mroczkiem centralnym korzystają z preferowanej zony siatkówki poza obszarem dotkniętym zmianą, a trening takiego pozaśrodkowego patrzenia nazywany jest treningiem widzenia ekscentrycznego. <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">Czytaj</a>.</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">Abstrakt</a>.</li>
+                    </ul>
+
+                    <h3>Ruch i ciągłość w projektowaniu interfejsów użytkownika</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — ruch może zapobiegać dezorientacji i pomagać użytkownikom zachować kontekst podczas przejść. <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">Czytaj</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Przekonaj się o płynności sam</h2>
+                <p>7 dni bezpłatnie · $9.99 jednorazowo · bez subskrypcji · bez konta</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/pl.svg" alt="Pobierz z Microsoft Store">
+                    </a>
+                    <a href="/pl/index.html#get" data-download class="download-direct">Lub pobierz instalator bezpośrednio z tej strony (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Spokojna lupa ekranowa dla Windows. Produkt firmy txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="/pl/index.html#why">Dlaczego jest lepsza</a></li>
+                        <li><a href="/pl/index.html#how">Jak to działa</a></li>
+                        <li><a href="/pl/pricing.html">Cennik</a></li>
+                        <li><a href="/pl/compare.html">Porównaj lupy ekranowe</a></li>
+                        <li><a href="/pl/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Informacje prawne</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Prywatność (w j. angielskim)</a></li>
+                        <li><a href="/terms.html">Warunki korzystania (w j. angielskim)</a></li>
+                        <li><a href="/refund.html">Polityka zwrotów (w j. angielskim)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Pomoc</h4>
+                    <ul>
+                        <li><a href="/pl/contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

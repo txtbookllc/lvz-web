@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Чесне порівняння програм-луп для Windows: Low Vision Zoom, вбудована Windows Magnifier, ZoomText, SuperNova і Magnifixer — що робить кожна, кому вона підходить і коли не варто обирати нашу.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom проти Windows Magnifier, ZoomText і SuperNova",
+      "description": "Пряме порівняння програм-луп для Windows: вбудована Windows Magnifier, ZoomText, SuperNova, Magnifixer і Low Vision Zoom — зокрема кому підходить кожна та причини не обирати Low Vision Zoom.",
+      "url": "https://lowvisionzoom.com/uk/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "uk",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Програмне забезпечення для збільшення екрана" },
+        { "@type": "Thing", "name": "Асистивні технології для людей зі слабким зором" },
+        { "@type": "Thing", "name": "Спеціальні можливості Windows" }
+      ]
+    }
+    </script>
+    <title>Порівняння програм-луп для Windows | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти до вмісту</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/uk/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Основна">
+                <a href="/uk/index.html#demo">Переглянути демо</a>
+                <a href="/uk/index.html#how">Як це працює</a>
+                <a href="/uk/index.html#why">Чому це краще</a>
+                <a href="/uk/pricing.html">Ціни</a>
+                <a href="/uk/index.html#get" data-download class="btn btn-secondary btn-nav">Завантажити</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Мова: Українська">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Українська</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk" aria-current="true">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Порівняння</span>
+                <h1>Програми-лупи для Windows</h1>
+                <p class="updated">Дані про конкурентів перевірено 20 липня 2026 року</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Якщо ви ще не пробували жодної програми-лупи, почніть із тієї, що вже вбудована у Windows. Вона безкоштовна. Якщо вам потрібно, щоб комп'ютер читав текст уголос, або потрібне дуже велике збільшення, або потрібен шрифт Брайля, вам знадобиться повноцінний комплекс асистивних технологій, як-от <strong>ZoomText</strong> або <strong>SuperNova</strong>, і <strong>Low Vision Zoom вам буде недостатньо</strong>. Low Vision Zoom — невеликий недорогий інструмент, який робить одне: плавне збільшення до 5×, прив'язане до курсора, без жодних налаштувань.</p>
+                    </div>
+
+                    <h2>Хто це написав і як це читати</h2>
+                    <p>Ми створюємо Low Vision Zoom, тож ставтеся до цієї сторінки так само, як до будь-якого порівняння, написаного одним з учасників. Ми намагалися бути чесними трьома конкретними способами: кожне твердження про інший продукт узято з власної публічної документації відповідного постачальника і містить посилання на неї; кожен перелічений продукт має принаймні одну перевагу над нашим; і нижче є розділ про <a href="#not-for-you">причини не купувати Low Vision Zoom</a>.</p>
+                    <p>Ми навмисно не наводимо ціни конкурентів у вигляді чисел. Вартість асистивних технологій змінюється, відрізняється за країнами і часто буває різною для приватних осіб, шкіл і роботодавців — число, скопійоване сюди, невдовзі застаріло б. Ми вказуємо <em>модель ліцензування</em> кожного продукту і даємо посилання на постачальника, щоб ви могли самостійно перевірити поточну ціну.</p>
+                    <p>Найважливіша порада на цій сторінці: <strong>кожен продукт тут можна спробувати до оплати.</strong> Збільшення — річ глибоко особиста, і те, як програма-лупа відчувається саме <em>вашими</em> очима, важливіше за будь-яку таблицю функцій. Спробуйте їх.</p>
+
+                    <h2>Яку обрати?</h2>
+                    <ul>
+                        <li><strong>Ви ще не пробували жодної програми-лупи</strong> — скористайтеся <strong>Windows Magnifier</strong>, яка вже є на вашому ПК. Натисніть <code>клавіша Windows</code> + <code>Плюс</code>. Це нічого не коштує, і, можливо, цього буде достатньо.</li>
+                        <li><strong>Вам потрібно, щоб екран читався вголос, або ви користуєтесь шрифтом Брайля</strong> — вам потрібен <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> або програма читання з екрана. У Low Vision Zoom немає ні озвучення, ні підтримки шрифту Брайля.</li>
+                        <li><strong>Вам потрібне збільшення понад 5×</strong> — Low Vision Zoom зупиняється на 5×. Windows Magnifier, ZoomText і SuperNova йдуть значно вище.</li>
+                        <li><strong>Вам потрібні кольорові фільтри, інверсія контрасту або підсвічування фокуса</strong> — у Windows Magnifier частина цього є безкоштовно; у ZoomText і SuperNova — значно більше. У Low Vision Zoom немає нічого з цього.</li>
+                        <li><strong>Вам потрібен безкоштовний сторонній варіант</strong> — <strong>Magnifixer</strong> безкоштовний і пропонує вікно збільшення з інвертованим відображенням і кольоровими режимами.</li>
+                        <li><strong>Ви переважно хочете постійно наближати й віддаляти зображення під час роботи, і сьогодні це здається вам різким або незручним</strong> — саме для цього випадку створено Low Vision Zoom. Він плавно збільшує навколо вашого курсора, не має налаштувань і коштує $9.99 одноразово. <a href="/uk/index.html#demo">Перегляньте демо</a> і спробуйте безкоштовну пробну версію.</li>
+                    </ul>
+
+                    <h2>Порівняння функцій</h2>
+                    <p>Комірки, позначені «див. постачальника», — це те, що ми не хочемо стверджувати з чужих слів від чийогось імені: перейдіть за посиланням у заголовку продукту, щоб отримати достовірну відповідь.</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Таблиця порівняння функцій">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Порівняння функцій п'яти програм для збільшення екрана Windows</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Що це</th>
+                                    <td>Однофункціональна утиліта збільшення</td>
+                                    <td>Програма-лупа, вбудована у Windows</td>
+                                    <td>Повноцінний комплекс для людей зі слабким зором</td>
+                                    <td>Повноцінний комплекс для людей зі слабким зором</td>
+                                    <td>Безкоштовне вікно збільшення</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Модель ліцензування</th>
+                                    <td>Одноразово $9.99, оновлення включено</td>
+                                    <td>Безкоштовно — входить до складу Windows</td>
+                                    <td>Річна ліцензія (див. постачальника)</td>
+                                    <td>Ліцензія за редакцією (див. постачальника)</td>
+                                    <td>Безкоштовно</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Максимальне збільшення</th>
+                                    <td>5×</td>
+                                    <td>До 1600% (16×)</td>
+                                    <td>До 36×</td>
+                                    <td>Високе — див. постачальника</td>
+                                    <td>Див. постачальника</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Як змінювати масштаб</th>
+                                    <td>Ctrl + коліщатко миші або Ctrl + Alt + Плюс / Мінус. Безперервно і пропорційно — зображення плавно переходить до нового рівня, а не перемикається на нього</td>
+                                    <td>Клавіша Windows + Плюс / Мінус або панель інструментів. Перемикання за заданими рівнями; розмір кроку налаштовується</td>
+                                    <td>Сполучення клавіш і панель інструментів; ступеневі рівні збільшення — див. постачальника</td>
+                                    <td>Сполучення клавіш і панель керування; ступеневі рівні збільшення — див. постачальника</td>
+                                    <td>Регульоване збільшення у власному вікні</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Навколо чого центрується збільшення</th>
+                                    <td>Точка під курсором миші залишається нерухомою, поки зображення масштабується навколо неї</td>
+                                    <td>Слідує за мишею, фокусом клавіатури, текстовим курсором або Narrator — на ваш вибір</td>
+                                    <td>Слідує за мишею, фокусом і курсором — див. постачальника</td>
+                                    <td>Слідує за мишею, фокусом і курсором — див. постачальника</td>
+                                    <td>Ділянка, на яку ви вказуєте</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Читає текст уголос</th>
+                                    <td>Ні</td>
+                                    <td>Так — є елементи керування читанням</td>
+                                    <td>Так, у редакції Magnifier/Reader</td>
+                                    <td>Так, у редакціях Speech і Screen Reader</td>
+                                    <td>Ні</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Повноцінна програма читання з екрана</th>
+                                    <td>Ні</td>
+                                    <td>Narrator входить до складу Windows окремо</td>
+                                    <td>Доступно в комплекті Fusion з JAWS</td>
+                                    <td>Так, у редакції Screen Reader</td>
+                                    <td>Ні</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Підтримка шрифту Брайля</th>
+                                    <td>Ні</td>
+                                    <td>Через Narrator</td>
+                                    <td>Див. постачальника</td>
+                                    <td>Так, у старших редакціях</td>
+                                    <td>Ні</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Кольорові фільтри, контраст, інверсія</th>
+                                    <td>Ні</td>
+                                    <td>Так — інверсія кольорів</td>
+                                    <td>Так — розширені фільтри та покращення</td>
+                                    <td>Так — розширені, зокрема налаштування для кожного монітора</td>
+                                    <td>Так — інвертоване відображення і кольорові режими</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Згладжування тексту при великому збільшенні</th>
+                                    <td>Ні — збільшує пікселі</td>
+                                    <td>Так — є параметр згладжування</td>
+                                    <td>Так — рендеринг xFont</td>
+                                    <td>Так — True Fonts</td>
+                                    <td>Так — фільтри згладжування</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Кілька моніторів</th>
+                                    <td>Так — один безперервний робочий стіл, який слідує за вами між екранами</td>
+                                    <td>Так</td>
+                                    <td>Так — див. постачальника</td>
+                                    <td>Так — незалежні рівні для кожного монітора</td>
+                                    <td>Див. постачальника</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Налаштування для конфігурування</th>
+                                    <td>Немає — поведінка наперед налаштована і зафіксована</td>
+                                    <td>Кілька</td>
+                                    <td>Розширені</td>
+                                    <td>Розширені</td>
+                                    <td>Кілька</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Працює офлайн, без облікового запису</th>
+                                    <td>Так — ліцензія перевіряється на вашому пристрої</td>
+                                    <td>Так</td>
+                                    <td>Див. постачальника</td>
+                                    <td>Див. постачальника</td>
+                                    <td>Див. постачальника</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Дані, що збираються</th>
+                                    <td>Немає — <a href="/privacy.html">політика конфіденційності (англійською)</a></td>
+                                    <td>Див. заяву про конфіденційність Microsoft</td>
+                                    <td>Див. постачальника</td>
+                                    <td>Див. постачальника</td>
+                                    <td>Див. постачальника</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Платформа</th>
+                                    <td>Windows 10 і 11, 64-розрядна (x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">Причини не купувати Low Vision Zoom</h2>
+                    <p>Ми радше воліли б, щоб ви витратили $9.99 на те, що вам допоможе, а не на те, що не допоможе. Не купуйте Low Vision Zoom, якщо стосується хоча б одне з наведеного:</p>
+                    <ul>
+                        <li><strong>Вам потрібне збільшення понад 5×.</strong> Це жорстке обмеження застосунку, а не налаштування. Якщо 5× вам недостатньо, жодна частина цього продукту не допоможе.</li>
+                        <li><strong>Вам потрібне озвучення.</strong> Тут немає ні синтезу мовлення, ні читання документів, ні програми читання з екрана. Ніщо з цього не планується як функція за $9.99.</li>
+                        <li><strong>Вам потрібні інверсія кольорів або фільтри контрасту</strong>, щоб читати комфортно. Windows Magnifier робить це безкоштовно; ми не робимо цього взагалі.</li>
+                        <li><strong>Вам потрібен чіткий текст при великому збільшенні.</strong> Ми збільшуємо екран таким, як він є; комплекси перемальовують текст, щоб він залишався чітким. При великих рівнях збільшення ця різниця значна, і вона має значення.</li>
+                        <li><strong>Вам потрібні підтримка постачальника, навчання або процедура закупівлі.</strong> Ми дуже маленька компанія з електронною поштою. Це погано підходить для адаптації робочого місця з формальною вимогою до підтримки.</li>
+                        <li><strong>Ви не користуєтеся мишею або трекпадом.</strong> В основі конструкції — вказування на те, що ви хочете збільшити. Є сполучення клавіш, але користувачу, який працює лише з клавіатурою, краще підійде щось інше.</li>
+                        <li><strong>У вас Windows на ARM або 32-розрядний ПК.</strong> Наразі не підтримується.</li>
+                    </ul>
+
+                    <h2>Можливо, вам узагалі не потрібна програма-лупа</h2>
+                    <p>Перш ніж щось купувати, варто спробувати безкоштовні варіанти, які вже є на вашому комп'ютері. Багатьом людям їх достатньо:</p>
+                    <ul>
+                        <li><strong>Зробити все більшим назавжди:</strong> Windows <em>Параметри → Система → Дисплей → Масштаб</em>. Встановивши 150% або 175%, ви збільшите весь текст і значки повсюди без будь-якого додаткового програмного забезпечення.</li>
+                        <li><strong>Зробити більшим лише текст:</strong> Windows <em>Параметри → Спеціальні можливості → Розмір тексту</em>.</li>
+                        <li><strong>Збільшити вебсторінку:</strong> <code>Ctrl</code> + <code>Плюс</code> у будь-якому браузері — текст переформатовується, а не збільшується попіксельно, що зазвичай зручніше для читання вебсторінок, ніж будь-яка програма-лупа.</li>
+                        <li><strong>Вбудована програма-лупа:</strong> <code>клавіша Windows</code> + <code>Плюс</code>.</li>
+                    </ul>
+                    <p>Програма-лупа — правильний інструмент, коли протягом дня в усіх застосунках потрібно то наближатися до деталей, то віддалятися від них. Це неправильний інструмент, якщо насправді вам був потрібен просто більший текст постійно.</p>
+
+                    <h2>Де Low Vision Zoom підходить</h2>
+                    <p>Low Vision Zoom існує, тому що його розробнику була потрібна одна конкретна річ: постійно, весь день, наближати й знову віддаляти зображення, жодного разу не втрачаючи своє місце на екрані. Він збільшує безперервно, а не ступенями, обертається навколо точки під курсором, тож те, на що ви дивитеся, залишається на місці, і утримує зображення нерухомим, поки курсор переміщується в середині екрана. Тут нічого не потрібно налаштовувати і нема чого вчити, крім однієї клавіші та коліщатка прокрутки.</p>
+                    <p>Це весь продукт. Якщо описане вище — саме ваша проблема, <a href="/uk/index.html#get">безкоштовна 7-денна пробна версія</a> за кілька хвилин покаже, чи підходить вона вашим очам. Якщо ні, один з інших продуктів на цій сторінці підійде вам краще, і ми радше направимо вас до нього. Ви можете детальніше прочитати про те, <a href="/uk/why-smooth-magnification.html">чому за плавним збільшенням легше стежити</a>, або переглянути <a href="/uk/faq.html">часті запитання</a>.</p>
+
+                    <h2>Джерела</h2>
+                    <p>Твердження про інші продукти взято з публічних сторінок їхніх постачальників, перевірених 20 липня 2026 року:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — Використання екранної лупи, щоб об'єкти на екрані було легше бачити</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows, Windows Magnifier і Narrator — продукти Microsoft. ZoomText і JAWS — продукти Freedom Scientific / Vispero. SuperNova — продукт Dolphin Computer Access. Magnifixer — продукт Blacksun Software. Ми не пов'язані з жодним з них, не схвалені й не є партнерами жодного з них, і використовуємо їхні назви лише для позначення їхніх продуктів. Якщо ви вважаєте, що щось на цій сторінці неправильно представляє ваш продукт, <a href="/uk/contact.html">повідомте нам</a>, і ми це виправимо.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Спробуйте, перш ніж вирішити</h2>
+                <p>7-денна безкоштовна пробна версія · $9.99 одноразово · без підписки · без облікового запису</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/uk.svg" alt="Завантажити з Microsoft Store">
+                    </a>
+                    <a href="/uk/index.html#get" data-download class="download-direct">Або завантажте інсталятор безпосередньо з цього сайту (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom — це екранна лупа для Windows 10 і 11. Вона плавно збільшує до 5×, з центром на курсорі миші. Вона коштує $9.99 одноразово. Доступна в Microsoft Store або як пряме завантаження у форматі MSI. Працює офлайн і не збирає жодних даних.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Спокійна програма-лупа для екрана Windows. Продукт компанії txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Продукт</h4>
+                    <ul>
+                        <li><a href="/uk/index.html#why">Чому це краще</a></li>
+                        <li><a href="/uk/index.html#how">Як це працює</a></li>
+                        <li><a href="/uk/pricing.html">Ціни</a></li>
+                        <li><a href="/uk/compare.html" aria-current="page">Порівняти лупи</a></li>
+                        <li><a href="/uk/faq.html">Часті запитання</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Юридична інформація</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Конфіденційність (англійською)</a></li>
+                        <li><a href="/terms.html">Умови надання послуг (англійською)</a></li>
+                        <li><a href="/refund.html">Політика повернення коштів (англійською)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Підтримка</h4>
+                    <ul>
+                        <li><a href="/uk/contact.html">Зв'язатися з нами</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Усі права захищено.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

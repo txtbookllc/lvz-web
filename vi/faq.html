@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Câu trả lời cho những câu hỏi thường gặp về phóng to màn hình trên Windows và về Low Vision Zoom: cách thu phóng, cách so sánh với Windows Magnifier có sẵn và ZoomText, giá cả, bản dùng thử miễn phí, quyền riêng tư và cách cài đặt.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "vi",
+      "url": "https://lowvisionzoom.com/vi/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Trình phóng to màn hình nào tốt nhất cho Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không có một câu trả lời duy nhất — điều đó tùy thuộc vào nhu cầu của bạn, và bước đầu tiên đúng đắn là miễn phí. Mọi PC Windows đều đã có sẵn Windows Magnifier (nhấn phím Windows và Cộng để khởi động); với nhiều người, như vậy là đủ. Nếu bạn cần màn hình được đọc to, mức phóng đại rất cao, bộ lọc màu, hoặc chữ nổi Braille, một bộ công cụ hỗ trợ tiếp cận toàn diện như ZoomText hoặc SuperNova mới là loại phù hợp. Nếu điều bạn muốn là thu phóng mượt mà, êm dịu, theo sát con trỏ trong khi bạn làm việc, không cần cấu hình gì, thì Low Vision Zoom được xây dựng riêng cho trường hợp đó và chỉ có giá $9.99 một lần. Vì việc phóng to là chuyện cá nhân, hãy dùng thử bất kỳ lựa chọn nào trước khi bạn trả tiền."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Có lựa chọn thay thế nào cho Windows Magnifier không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có. Ngoài Windows Magnifier có sẵn của Microsoft, các trình phóng to bên thứ ba cho Windows còn có ZoomText và SuperNova (các bộ công cụ đầy đủ cho người thị lực kém với công cụ đọc bằng giọng nói và đọc tài liệu), Magnifixer miễn phí, và Low Vision Zoom, một tiện ích nhỏ giá $9.99 tập trung vào thu phóng mượt mà, neo theo con trỏ. Người dùng thường tìm một lựa chọn thay thế khi họ muốn cảm giác mượt mà hơn, thu phóng lấy tâm là con trỏ chuột, hoặc các tính năng giọng nói và màu sắc mà công cụ có sẵn không cung cấp. Lựa chọn nào phù hợp tùy thuộc vào việc bạn cần gì trong số đó."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Có lựa chọn thay thế nào rẻ hơn ZoomText không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Điều đó tùy thuộc vào việc bạn dựa vào những tính năng nào của ZoomText. ZoomText là một bộ công cụ đầy đủ cho người thị lực kém với giọng nói, trình đọc tài liệu, các cải tiến mở rộng về màu sắc và tiêu điểm, cùng mức phóng đại rất cao, thường được bán dưới dạng bản quyền theo năm. Nếu bạn đang dùng những tính năng đọc và tăng cường đó, câu trả lời trung thực là một công cụ rẻ hơn sẽ không thay thế được chúng. Nếu điều bạn chủ yếu muốn là thu phóng mượt mà theo sát con trỏ, Low Vision Zoom làm đúng một việc đó với giá trả một lần $9.99 — nhưng nó không có giọng nói, không đọc văn bản, không bộ lọc màu, và dừng ở mức 5x. Windows Magnifier cũng miễn phí và có nhiều khả năng hơn nhiều người nghĩ."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom có đọc văn bản to lên không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Không. Low Vision Zoom chỉ có chức năng phóng to. Ứng dụng không có chuyển văn bản thành giọng nói, không có trình đọc tài liệu, và không có trình đọc màn hình. Nếu bạn cần màn hình được đọc to, hãy xem ZoomText Magnifier/Reader, SuperNova ở phiên bản có giọng nói hoặc trình đọc màn hình, hoặc Narrator có sẵn của Windows, miễn phí."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom khác gì so với Windows Magnifier có sẵn?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifier miễn phí, có sẵn, và đầy đủ khả năng, nên nhiều người nên dùng thử nó trước. Low Vision Zoom khác biệt ở cảm giác sử dụng hơn là số lượng tính năng. Mức thu phóng của nó liên tục và chuyển mượt mà đến mức mới thay vì nhảy từng bước, nó xoay quanh đúng điểm nằm dưới con trỏ chuột của bạn nên thứ bạn đang nhìn luôn đứng yên, và nó giữ khung nhìn đứng yên trong khi con trỏ của bạn di chuyển ở vùng giữa màn hình. Ứng dụng không có cài đặt gì và nằm trong khay hệ thống. Nó cũng hạn chế hơn Windows Magnifier ở một số điểm: không có giọng nói, không bộ lọc màu, và dừng ở mức 5x."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Làm sao để thu phóng trên Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows có sẵn một trình phóng to: giữ phím Windows và nhấn Cộng để phóng to, Trừ để thu nhỏ, và phím Windows cùng Escape để tắt. Bạn cũng có thể phóng to mọi thứ vĩnh viễn trong Cài đặt, Hệ thống, Màn hình, Tỷ lệ, hoặc chỉ phóng to văn bản trong Cài đặt, Hỗ trợ tiếp cận, Cỡ chữ. Khi đã cài Low Vision Zoom, bạn giữ Ctrl và lăn con lăn chuột để thu phóng mượt mà ở bất cứ đâu trong Windows, hoặc dùng Ctrl và Alt cùng Cộng hoặc Trừ nếu bạn không có con lăn chuột."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Có trình phóng to nào thu phóng bằng con lăn chuột không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có. Low Vision Zoom thu phóng bằng Ctrl và con lăn chuột: giữ Ctrl và lăn con lăn về phía trước để phóng to, về phía sau để thu nhỏ. Mức thu phóng tỷ lệ thuận với thao tác của bạn, nên bạn đi xa và nhanh đúng bằng mức bạn lăn chuột, và nó chuyển mượt mà đến mức mới trong khi vẫn giữ tâm là điểm nằm dưới con trỏ của bạn. Ctrl, Shift và lăn xuống đưa về mức bình thường ngay lập tức. Đây là cách chính mà ứng dụng được thiết kế để sử dụng."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom có hoạt động với nhiều màn hình không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có. Ứng dụng phóng to toàn bộ màn hình nền Windows như một không gian liên tục và theo con trỏ của bạn từ màn hình này sang màn hình khác, thay vì xử lý riêng từng màn hình. Đây cũng chính là cách chế độ toàn màn hình của Windows Magnifier có sẵn hoạt động."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Làm sao để thu phóng trên laptop không có con lăn chuột?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dùng bàn phím. Giữ Ctrl và Alt rồi nhấn Cộng để phóng to hoặc Trừ để thu nhỏ; giữ phím để tiếp tục thu phóng. Ctrl, Alt và 0 đưa về mức bình thường. Không cần con lăn chuột hay chuột ngoài, nên ứng dụng vẫn hoạt động trên laptop chỉ dùng bàn di chuột."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ứng dụng có hoạt động trong trò chơi và video toàn màn hình không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ứng dụng hoạt động ở hầu hết mọi nơi. Low Vision Zoom phóng to toàn bộ màn hình nền Windows, nên nó áp dụng cho trình duyệt, email, tài liệu, video phát trong cửa sổ, và cả chính giao diện Windows. Ngoại lệ là một trò chơi hoặc ứng dụng chiếm quyền kiểm soát độc quyền toàn màn hình và bỏ qua màn hình nền thông thường; nội dung đó có thể không được phóng to. Chạy trò chơi đó ở chế độ cửa sổ hoặc cửa sổ không viền sẽ khôi phục việc phóng to."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom có thể phóng to màn hình đến mức nào?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tối đa 5x, theo từng nấc nửa bước. Đây là giới hạn có chủ đích cho một công cụ thu phóng nhỏ gọn, thoải mái, và thấp hơn Windows Magnifier có sẵn (tối đa 16x) hoặc các bộ phần mềm đầy đủ như ZoomText (tối đa 36x). Nếu bạn cần hơn 5x, Low Vision Zoom không phải công cụ phù hợp với bạn."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom có giá bao nhiêu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Đây là bản quyền trả một lần $9.99, đã bao gồm mọi bản cập nhật trong tương lai. Không có thuê bao, không cần tài khoản, và không quảng cáo. Bạn có thể dùng thử miễn phí mọi tính năng trong 7 ngày trước, và có bảo đảm hoàn tiền trong 30 ngày sau khi mua."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Điều gì xảy ra khi hết hạn dùng thử miễn phí?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ứng dụng vẫn tiếp tục hoạt động. Khi hết 7 ngày dùng thử, mức phóng to chỉ đơn giản bị giới hạn chứ không bị tắt hẳn, nên màn hình của bạn luôn đủ dễ đọc để thao tác và mua bản quyền. Nhập khóa bản quyền bất cứ lúc nào để khôi phục toàn bộ mức thu phóng ngay lập tức, không cần cài lại."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom có thu thập dữ liệu không, và có hoạt động ngoại tuyến không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ứng dụng không thu thập dữ liệu cá nhân, không phân tích, và không đo từ xa (telemetry), đồng thời hoạt động hoàn toàn ngoại tuyến. Ứng dụng không ghi lại hay truyền nội dung màn hình của bạn. Khóa bản quyền của bạn được kiểm tra ngay trên máy, không cần tài khoản và không gửi dữ liệu về máy chủ. Thời điểm duy nhất ứng dụng kết nối internet là khi bạn chọn Kiểm tra cập nhật từ menu khay hệ thống."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows có cảnh báo tôi khi cài đặt Low Vision Zoom không?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Có thể, nếu bạn dùng bản tải trực tiếp. Lần đầu bạn mở trình cài đặt, Windows có thể hiển thị thông báo SmartScreen màu xanh “Windows đã bảo vệ PC của bạn” (Windows protected your PC). Điều này là bình thường đối với một ứng dụng mới và hoàn toàn an toàn; trình cài đặt được ký số bởi txtbook LLC. Bấm Thông tin thêm, kiểm tra rằng nhà phát hành là txtbook LLC, rồi bấm Vẫn chạy. Để bỏ qua hoàn toàn màn hình này, hãy cài đặt từ Microsoft Store, nơi cảnh báo này không xuất hiện."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Yêu cầu hệ thống là gì?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low Vision Zoom chạy trên Windows 10 và Windows 11, 64-bit (x64). Trình cài đặt độc lập, nên không cần tải thêm gì khác. Windows trên ARM và các PC 32-bit hiện chưa được hỗ trợ."
+          }
+        }
+      ]
+    }
+    </script>
+    <title>Câu hỏi thường gặp | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Chuyển đến nội dung</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/vi/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Chính">
+                <a href="/vi/index.html#demo">Xem bản demo</a>
+                <a href="/vi/index.html#how">Cách hoạt động</a>
+                <a href="/vi/index.html#why">Vì sao tốt hơn</a>
+                <a href="/vi/pricing.html">Bảng giá</a>
+                <a href="/vi/index.html#get" data-download class="btn btn-secondary btn-nav">Tải xuống</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Ngôn ngữ: Tiếng Việt">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Tiếng Việt</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi" aria-current="true">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Câu hỏi thường gặp</span>
+                <h1>Câu hỏi thường gặp</h1>
+                <p class="updated">Phóng to màn hình trên Windows, và cách Low Vision Zoom phù hợp</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">Chọn trình phóng to</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Trình phóng to màn hình nào tốt nhất cho Windows?</summary>
+                            <div class="faq-body">
+                                <p>Không có một câu trả lời duy nhất — điều đó tùy thuộc vào nhu cầu của bạn, và bước đầu tiên đúng đắn là miễn phí. Mọi PC Windows đều đã có sẵn <strong>Windows Magnifier</strong> (nhấn <code>phím Windows</code> + <code>Cộng</code> để khởi động); với nhiều người, như vậy là đủ. Nếu bạn cần màn hình được đọc to, mức phóng đại rất cao, bộ lọc màu, hoặc chữ nổi Braille, một bộ công cụ hỗ trợ tiếp cận toàn diện như <strong>ZoomText</strong> hoặc <strong>SuperNova</strong> mới là loại phù hợp. Nếu điều bạn muốn là thu phóng mượt mà, êm dịu, theo sát con trỏ trong khi bạn làm việc, không cần cấu hình gì, thì <strong>Low Vision Zoom</strong> được xây dựng riêng cho trường hợp đó và chỉ có giá $9.99 một lần. Vì việc phóng to là chuyện cá nhân, hãy dùng thử bất kỳ lựa chọn nào trước khi bạn trả tiền. Xem <a href="/vi/compare.html">so sánh trung thực</a> của chúng tôi.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Có lựa chọn thay thế nào cho Windows Magnifier không?</summary>
+                            <div class="faq-body">
+                                <p>Có. Ngoài Windows Magnifier có sẵn của Microsoft, các trình phóng to bên thứ ba cho Windows còn có <strong>ZoomText</strong> và <strong>SuperNova</strong> (các bộ công cụ đầy đủ cho người thị lực kém với công cụ đọc bằng giọng nói và đọc tài liệu), <strong>Magnifixer</strong> miễn phí, và <strong>Low Vision Zoom</strong>, một tiện ích nhỏ giá $9.99 tập trung vào thu phóng mượt mà, neo theo con trỏ. Người dùng thường tìm một lựa chọn thay thế khi họ muốn cảm giác mượt mà hơn, thu phóng lấy tâm là con trỏ chuột, hoặc các tính năng giọng nói và màu sắc mà công cụ có sẵn không cung cấp. Lựa chọn nào phù hợp tùy thuộc vào việc bạn cần gì trong số đó — <a href="/vi/compare.html">trang so sánh</a> trình bày chúng cạnh nhau.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Có lựa chọn thay thế nào rẻ hơn ZoomText không?</summary>
+                            <div class="faq-body">
+                                <p>Điều đó tùy thuộc vào việc bạn dựa vào những tính năng nào của ZoomText. ZoomText là một bộ công cụ đầy đủ cho người thị lực kém với giọng nói, trình đọc tài liệu, các cải tiến mở rộng về màu sắc và tiêu điểm, cùng mức phóng đại rất cao, thường được bán dưới dạng bản quyền theo năm. Nếu bạn đang dùng những tính năng đọc và tăng cường đó, câu trả lời trung thực là một công cụ rẻ hơn sẽ không thay thế được chúng. Nếu điều bạn chủ yếu muốn là thu phóng mượt mà theo sát con trỏ, Low Vision Zoom làm đúng một việc đó với giá trả một lần <strong>$9.99</strong> — nhưng nó không có giọng nói, không đọc văn bản, không bộ lọc màu, và dừng ở mức 5×. Windows Magnifier cũng miễn phí và có nhiều khả năng hơn nhiều người nghĩ.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom có đọc văn bản to lên không?</summary>
+                            <div class="faq-body">
+                                <p><strong>Không.</strong> Low Vision Zoom chỉ có chức năng phóng to. Ứng dụng không có chuyển văn bản thành giọng nói, không có trình đọc tài liệu, và không có trình đọc màn hình. Nếu bạn cần màn hình được đọc to, hãy xem <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> ở phiên bản có giọng nói hoặc trình đọc màn hình, hoặc <strong>Narrator</strong> có sẵn của Windows, miễn phí.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom khác gì so với Windows Magnifier có sẵn?</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifier miễn phí, có sẵn, và đầy đủ khả năng, nên nhiều người nên dùng thử nó trước. Low Vision Zoom khác biệt ở <em>cảm giác sử dụng</em> hơn là số lượng tính năng. Mức thu phóng của nó liên tục và chuyển mượt mà đến mức mới thay vì nhảy từng bước, nó xoay quanh đúng điểm nằm dưới con trỏ chuột của bạn nên thứ bạn đang nhìn luôn đứng yên, và nó giữ khung nhìn đứng yên trong khi con trỏ của bạn di chuyển ở vùng giữa màn hình. Ứng dụng không có cài đặt gì và nằm trong khay hệ thống. Nó cũng hạn chế hơn Windows Magnifier ở một số điểm: không có giọng nói, không bộ lọc màu, và dừng ở mức 5×. Có thêm lý giải về chuyển động mượt mà này trong bài viết <a href="/vi/why-smooth-magnification.html">vì sao thu phóng mượt mà lại dễ theo dõi hơn</a>.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">Sử dụng Low Vision Zoom</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Làm sao để thu phóng trên Windows 11?</summary>
+                            <div class="faq-body">
+                                <p>Windows có sẵn một trình phóng to: giữ <code>phím Windows</code> và nhấn <code>Cộng</code> để phóng to, <code>Trừ</code> để thu nhỏ, và <code>phím Windows</code> + <code>Esc</code> để tắt. Bạn cũng có thể phóng to mọi thứ vĩnh viễn trong <em>Cài đặt → Hệ thống → Màn hình → Tỷ lệ</em>, hoặc chỉ phóng to văn bản trong <em>Cài đặt → Hỗ trợ tiếp cận → Cỡ chữ</em>. Khi đã cài Low Vision Zoom, bạn giữ <strong>Ctrl</strong> và lăn con lăn chuột để thu phóng mượt mà ở bất cứ đâu trong Windows, hoặc dùng <strong>Ctrl + Alt + Cộng / Trừ</strong> nếu bạn không có con lăn chuột.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Có trình phóng to nào thu phóng bằng con lăn chuột không?</summary>
+                            <div class="faq-body">
+                                <p>Có. Low Vision Zoom thu phóng bằng <strong>Ctrl + con lăn chuột</strong>: giữ Ctrl và lăn con lăn về phía trước để phóng to, về phía sau để thu nhỏ. Mức thu phóng tỷ lệ thuận với thao tác của bạn, nên bạn đi xa và nhanh đúng bằng mức bạn lăn chuột, và nó chuyển mượt mà đến mức mới trong khi vẫn giữ tâm là điểm nằm dưới con trỏ của bạn. <strong>Ctrl + Shift + Lăn xuống</strong> đưa về mức bình thường ngay lập tức. Đây là cách chính mà ứng dụng được thiết kế để sử dụng.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom có hoạt động với nhiều màn hình không?</summary>
+                            <div class="faq-body">
+                                <p>Có. Ứng dụng phóng to toàn bộ màn hình nền Windows như một không gian liên tục và theo con trỏ của bạn từ màn hình này sang màn hình khác, thay vì xử lý riêng từng màn hình. Đây cũng chính là cách chế độ toàn màn hình của Windows Magnifier có sẵn hoạt động.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Làm sao để thu phóng trên laptop không có con lăn chuột?</summary>
+                            <div class="faq-body">
+                                <p>Dùng bàn phím. Giữ <strong>Ctrl + Alt</strong> và nhấn <strong>Cộng</strong> để phóng to hoặc <strong>Trừ</strong> để thu nhỏ; giữ phím để tiếp tục thu phóng. <strong>Ctrl + Alt + 0</strong> đưa về mức bình thường. Không cần con lăn chuột hay chuột ngoài, nên ứng dụng vẫn hoạt động trên laptop chỉ dùng bàn di chuột.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Ứng dụng có hoạt động trong trò chơi và video toàn màn hình không?</summary>
+                            <div class="faq-body">
+                                <p>Ứng dụng hoạt động ở hầu hết mọi nơi. Low Vision Zoom phóng to toàn bộ màn hình nền Windows, nên nó áp dụng cho trình duyệt, email, tài liệu, video phát trong cửa sổ, và cả chính giao diện Windows. Ngoại lệ là một trò chơi hoặc ứng dụng chiếm quyền kiểm soát <em>độc quyền</em> toàn màn hình và bỏ qua màn hình nền thông thường; nội dung đó có thể không được phóng to. Chạy trò chơi đó ở chế độ cửa sổ hoặc cửa sổ không viền sẽ khôi phục việc phóng to.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom có thể phóng to màn hình đến mức nào?</summary>
+                            <div class="faq-body">
+                                <p>Tối đa <strong>5×</strong>, theo từng nấc nửa bước. Đây là giới hạn có chủ đích cho một công cụ thu phóng nhỏ gọn, thoải mái, và thấp hơn Windows Magnifier có sẵn (tối đa 16×) hoặc các bộ phần mềm đầy đủ như ZoomText (tối đa 36×). Nếu bạn cần hơn 5×, Low Vision Zoom không phải công cụ phù hợp với bạn — <a href="/vi/compare.html">trang so sánh</a> sẽ chỉ cho bạn những lựa chọn có mức phóng đại cao hơn.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">Mua, dùng thử và niềm tin</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Low Vision Zoom có giá bao nhiêu?</summary>
+                            <div class="faq-body">
+                                <p>Đây là bản quyền trả một lần <strong>$9.99</strong>, đã bao gồm mọi bản cập nhật trong tương lai. Không có thuê bao, không cần tài khoản, và không quảng cáo. Bạn có thể dùng thử miễn phí mọi tính năng trong 7 ngày trước, và có bảo đảm hoàn tiền trong 30 ngày sau khi mua. Xem <a href="/vi/pricing.html">trang bảng giá</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Điều gì xảy ra khi hết hạn dùng thử miễn phí?</summary>
+                            <div class="faq-body">
+                                <p>Ứng dụng vẫn tiếp tục hoạt động. Khi hết 7 ngày dùng thử, mức phóng to chỉ đơn giản bị giới hạn chứ không bị tắt hẳn, nên màn hình của bạn luôn đủ dễ đọc để thao tác và mua bản quyền. Nhập khóa bản quyền bất cứ lúc nào để khôi phục toàn bộ mức thu phóng ngay lập tức, không cần cài lại.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom có thu thập dữ liệu không, và có hoạt động ngoại tuyến không?</summary>
+                            <div class="faq-body">
+                                <p>Ứng dụng <strong>không</strong> thu thập dữ liệu cá nhân, không phân tích, và không đo từ xa (telemetry), đồng thời hoạt động hoàn toàn ngoại tuyến. Ứng dụng không ghi lại hay truyền nội dung màn hình của bạn. Khóa bản quyền của bạn được kiểm tra ngay trên máy, không cần tài khoản và không gửi dữ liệu về máy chủ. Thời điểm duy nhất ứng dụng kết nối internet là khi bạn chọn <strong>Kiểm tra cập nhật</strong> từ menu khay hệ thống. Chi tiết đầy đủ có trong <a href="/privacy.html">chính sách quyền riêng tư (bằng tiếng Anh)</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Windows có cảnh báo tôi khi cài đặt Low Vision Zoom không?</summary>
+                            <div class="faq-body">
+                                <p>Có thể, nếu bạn dùng bản tải trực tiếp. Lần đầu bạn mở trình cài đặt, Windows có thể hiển thị một thông báo màu xanh <strong>“Windows đã bảo vệ PC của bạn”</strong> SmartScreen. Điều này là bình thường đối với một ứng dụng mới và hoàn toàn an toàn; trình cài đặt được ký số bởi <strong>txtbook LLC</strong>. Bấm <strong>Thông tin thêm</strong>, kiểm tra rằng nhà phát hành là txtbook LLC, rồi bấm <strong>Vẫn chạy</strong>. Để bỏ qua hoàn toàn màn hình này, hãy cài đặt từ <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> — nơi cảnh báo này không xuất hiện.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Yêu cầu hệ thống là gì?</summary>
+                            <div class="faq-body">
+                                <p>Low Vision Zoom chạy trên <strong>Windows 10 và Windows 11, 64-bit (x64)</strong>. Trình cài đặt độc lập, nên không cần tải thêm gì khác. Windows trên ARM và các PC 32-bit hiện chưa được hỗ trợ.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">Vẫn còn thắc mắc? <a href="/vi/contact.html">Liên hệ với chúng tôi</a> — một người thật sẽ trả lời bạn.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Dùng thử miễn phí 7 ngày</h2>
+                <p>Dùng thử miễn phí 7 ngày · $9.99 trả một lần · không thuê bao · không cần tài khoản</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/vi.svg" alt="Tải trên Microsoft Store">
+                    </a>
+                    <a href="/vi/index.html#get" data-download class="download-direct">Hoặc tải trình cài đặt trực tiếp từ trang web này (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Một trình phóng to màn hình êm dịu cho Windows. Một sản phẩm của txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Sản phẩm</h4>
+                    <ul>
+                        <li><a href="/vi/index.html#why">Vì sao tốt hơn</a></li>
+                        <li><a href="/vi/index.html#how">Cách hoạt động</a></li>
+                        <li><a href="/vi/pricing.html">Bảng giá</a></li>
+                        <li><a href="/vi/compare.html">So sánh trình phóng to</a></li>
+                        <li><a href="/vi/faq.html" aria-current="page">Câu hỏi thường gặp</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Pháp lý</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Quyền riêng tư (bằng tiếng Anh)</a></li>
+                        <li><a href="/terms.html">Điều khoản dịch vụ (bằng tiếng Anh)</a></li>
+                        <li><a href="/refund.html">Chính sách hoàn tiền (bằng tiếng Anh)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="/vi/contact.html">Liên hệ với chúng tôi</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Bảo lưu mọi quyền.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Чому плавна програма-лупа для екрана легша для стеження, ніж та, що стрибає: як просторова константність, плавне стеження очима та сліпота до змін пояснюють відчуття втрати свого місця — і як Low Vision Zoom спроєктовано з урахуванням цього.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Чому плавне збільшення легше відстежувати, ніж збільшення, що стрибає",
+      "description": "Написане простою мовою, підкріплене джерелами пояснення того, чому програма-лупа для екрана, яка рухається плавно, зберігає ваше місце, тоді як та, що стрибає, змушує вас шукати його знову — на основі просторової константності, плавного стеження очима та сліпоти до змін.",
+      "url": "https://lowvisionzoom.com/uk/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "uk",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Збільшення екрана" },
+        { "@type": "Thing", "name": "Слабкий зір" },
+        { "@type": "Thing", "name": "Просторова константність" },
+        { "@type": "Thing", "name": "Плавне стеження очима" },
+        { "@type": "Thing", "name": "Сліпота до змін" }
+      ]
+    }
+    </script>
+    <title>Чому плавне збільшення легше відстежувати | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти до вмісту</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/uk/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Основна">
+                <a href="/uk/index.html#demo">Переглянути демо</a>
+                <a href="/uk/index.html#how">Як це працює</a>
+                <a href="/uk/index.html#why">Чому це краще</a>
+                <a href="/uk/pricing.html">Ціни</a>
+                <a href="/uk/index.html#get" data-download class="btn btn-secondary btn-nav">Завантажити</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Мова: Українська">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Українська</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk" aria-current="true">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Чому плавність важлива</span>
+                <h1>Чому плавне збільшення легше відстежувати, ніж збільшення, що стрибає</h1>
+                <p class="updated">Пояснення простою мовою, з джерелами</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Більшість програм-луп для екрана рухають зображення різкими стрибками. Кожен стрибок змушує ваші очі й мозок зупинитися, заново знайти, де вони були, і почати спочатку. Low Vision Zoom рухається безперервно — плавно входить у масштабування, обертається навколо точки, на яку ви вказуєте, і плавно ковзає під час панорамування — тож ваша увага ніколи не втрачає зв'язок із тим, що вам важливо. Це не абстрактна приємність; це узгоджується з кількома добре задокументованими властивостями роботи людського зору.</p>
+                    </div>
+
+                    <p>Ніщо на цій сторінці не є медичним твердженням. Це загальновизнані принципи роботи людського зору та взаємодії людини з комп'ютером, використані для пояснення того, чому плавніша лупа зручніша в повсякденному використанні, ніж стрибуча. Жодне з цитованих тут досліджень не стосувалося Low Vision Zoom; вони описують загальні принципи роботи зору й руху в інтерфейсі.</p>
+
+                    <h2>Відчуття "втрати свого місця" має назву</h2>
+                    <p>Коли люди кажуть, що лупа змушує їх "втрачати орієнтацію, де вони перебувають", вони описують дещо реальне. Ваша зорова система не зберігає екран як фотографію; вона підтримує актуальну внутрішню карту того, де що розташоване, і утримує ваш погляд заблокованим на обраній точці. Кілька механізмів підтримують стабільність цієї карти — і різкий стрибок масштабування руйнує їх усі одразу.</p>
+
+                    <h3>1. Просторова константність</h3>
+                    <p>Ваш мозок наполегливо працює, щоб світ здавався стабільним, попри те, що ваші очі постійно рухаються. Це називається <strong>просторовою константністю</strong> (spatial constancy), або просторовим оновленням: коли ви рухаєтеся, мозок передбачає, де все повинно опинитися, і непомітно підтримує узгодженість карти. Плавний, безперервний рух — це саме той тип вхідних даних, для обробки якого ця система призначена: вона може оновлювати карту на льоту. Раптова телепортація не дає їй нічого для інтерполяції, тож карта стає недійсною і має бути побудована заново. Ця перебудова — і є той момент "куди я щойно потрапив?".</p>
+                    <p>Low Vision Zoom зберігає просторову константність, ніколи не телепортуючи зображення. Масштабування плавно наближається до цілі приблизно за третину секунди, а панорамування плавно ковзає замість того, щоб різко перемикатися. Ваша внутрішня карта оновлюється, а не стирається.</p>
+
+                    <h3>2. Плавне стеження очима та ціна повторної фіксації</h3>
+                    <p>Око рухається двома способами. <strong>Плавне стеження</strong> (smooth pursuit) безперервно відстежує ціль, яка рухається рівномірно, — око плавно ковзає й залишається заблокованим на цілі. <strong>Саккади</strong> — це швидкі, балістичні стрибки між точками фіксації, і під час саккади зір пригнічується, тож після неї око має знову знайти й сфокусуватися на цілі.</p>
+                    <p>Стрибуча лупа змушує до саккади плюс повторного пошуку цілі щоразу, коли рухається. Для людини зі зниженою гостротою зору повторний пошук малої цілі після стрибка займає більше часу й менш надійний, ніж для людини з чітким центральним зором. Плавне масштабування натомість дає змогу системі стеження ока виконувати цю роботу: вона може "їхати" разом із рухом і зберігати блокування, тож немає сліпого стрибка й немає пошуку втраченого місця. Low Vision Zoom побудований саме навколо цього принципу — цикл анімації з частотою 60 кадрів на секунду означає, що зображення завжди рухається малими, легкими для відстеження кроками, за якими очі можуть слідувати, а не наздоганяти.</p>
+
+                    <h3>3. Перцептивна безперервність — мозок сприймає це як ту саму сцену</h3>
+                    <p>Коли об'єкт рухається плавно, мозок сприймає його як один безперервний об'єкт, що перемістився. Коли той самий об'єкт натомість зникає й з'являється десь-інде, мозку доводиться заново вирішувати: "чи це та сама річ, і що щойно сталося?". Це повторне вирішення вимагає зусиль і є класичним тригером <strong>сліпоти до змін</strong> (change blindness), коли зміна, що відбувається під час візуального переривання, просто залишається непоміченою, і ви втрачаєте елементи, за якими стежили.</p>
+                    <p>Low Vision Zoom зберігає безперервність. Оскільки кожен кадр — це невеликий крок від попереднього, вміст під масштабуванням сприймається як та сама сцена, що плавно збільшується, а не як новий екран, що замінив старий. Ніщо не зникає й не з'являється знову, тож нема чого втрачати.</p>
+
+                    <h3>4. Фіксована візуальна опора: масштабування навколо курсора</h3>
+                    <p>Це найпряміша відповідь на "втрату опори". Low Vision Zoom обертає масштабування навколо точки під вашим курсором — вміст безпосередньо під мишею залишається на місці, поки все навколо збільшується. Багато луп натомість масштабують у бік кута або центру екрана, а потім панорамують, щоб "наздогнати", — а це означає, що саме те, на що ви дивилися, зсувається з-під вас, перш ніж повернутися.</p>
+                    <p>Утримуючи вашу точку погляду нерухомою під час масштабування, застосунок дає вашому зору стабільну опору, за яку можна триматися протягом усього масштабування. Ви самі вирішуєте, що є цією опорою, просто вказуючи на неї. Ваша точка фіксації ніколи не мусить рухатися, тож і просторова константність, і блокування ока зберігаються саме в той момент, коли зазвичай руйнуються.</p>
+
+                    <h3>5. Передбачуваний контроль у власному темпі</h3>
+                    <p>Рух, який мозок ініціює сам, легше передбачити, ніж рух, нав'язаний ззовні. Жест <strong>Ctrl + прокрутка</strong> у Low Vision Zoom безперервний і пропорційний: ви масштабуєте рівно настільки далеко й швидко, наскільки прокручуєте коліщатко, і можете в будь-який момент зупинити, скасувати або призупинити рух. Цей рух — ваш, тож він передбачуваний, а передбачуваний рух значно менше дезорієнтує, ніж лупа, яка сама різко перемикається на заздалегідь визначений рівень.</p>
+
+                    <h2>Чому це особливо важливо при слабкому зорі</h2>
+                    <p>Люди зі зниженим центральним зором часто покладаються на стратегії, яким різка лупа непомітно заважає:</p>
+                    <ul>
+                        <li><strong>Ексцентричний зір і бажана зона сітківки.</strong> Коли чіткий центральний зір знижений, багато людей навчаються дивитися трохи збоку від центру, використовуючи стале, бажане місце на сітківці як робочу точку фокусування. Повторне встановлення цього вирівнювання після кожного стрибка — реальне, повторюване зусилля. Лупа, яка ніколи не змушує заново шукати своє місце, дає змозі цьому важко здобутому вирівнюванню зберігатися.</li>
+                        <li><strong>Штраф за повторний пошук.</strong> За меншої наявної гостроти зору ціна повторного пошуку малої цілі після сліпого стрибка вища, ніж для повністю зрячого користувача. Плавність усуває стрибок, а разом із ним і цей штраф.</li>
+                        <li><strong>Увага та робоча пам'ять.</strong> Кожне скидання типу "де я тепер?" витрачає увагу й робочу пам'ять, які ви б радше витратили на саме завдання — читання, письмо, навігацію. Передача стеження вашій перцептивній системі, яка без зусиль слідує за плавним рухом, вивільняє ці зусилля для самої роботи.</li>
+                    </ul>
+                    <p>Ніщо з цього не є твердженням про лікування. Це різниця між інструментом, який протидіє тому, як працює зір при слабкому зорі, і тим, що спроєктований навколо цього механізму.</p>
+
+                    <h2>Кожне проєктне рішення слугує тій самій меті</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Як кожна функція відповідає перцептивному принципу">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Функції Low Vision Zoom і перцептивний принцип, якому кожна з них слугує</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Функція</th>
+                                    <th scope="col">Що вона робить</th>
+                                    <th scope="col">Принцип, якому вона слугує</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Плавне анімоване масштабування (~⅓ секунди уповільнення, 60 fps)</th>
+                                    <td>Масштабування плавно наближається до цілі замість різкого перемикання</td>
+                                    <td>Просторова константність; плавне стеження очима; перцептивна безперервність</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Масштабування обертається навколо курсора</th>
+                                    <td>Точка під мишею залишається нерухомою, поки все навколо масштабується</td>
+                                    <td>Стабільна візуальна опора; фіксація ніколи не зміщується</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Слідування за курсором із "мертвою зоною"</th>
+                                    <td>Зображення залишається нерухомим, поки курсор рухається у широкій центральній смузі, і панорамується — плавно ковзаючи — лише коли ви наближаєтеся до краю</td>
+                                    <td>Жодного зайвого руху; панорамування — це плавне стеження, ніколи не телепортація</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Пропорційний контроль Ctrl + прокрутка</th>
+                                    <td>Ви встановлюєте рівень масштабування безперервно, так швидко чи повільно, як хочете</td>
+                                    <td>Рух у власному темпі, передбачуваний, ініційований самостійно</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Огляд усього робочого стола, кількох моніторів</th>
+                                    <td>Один безперервний масштабований простір, що слідує за вами через екрани, а не окремі "острови" для кожного вікна</td>
+                                    <td>Одна узгоджена просторова карта для оновлення замість кількох</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Налаштовані значення за замовчуванням, нічого не потрібно конфігурувати</th>
+                                    <td>Плавність, швидкість і поведінка "мертвої зони" наперед налаштовані та фіксовані</td>
+                                    <td>Плавна поведінка — це значення за замовчуванням, а не те, що треба виявити й налаштувати</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>У цьому й полягає вся ідея продукту: лупа, що рухається так, як побудований людський зоровий апарат для стеження за рухом, тож вона тримає вас закріпленими там, де інші лупи змушують втрачати своє місце. Ви можете <a href="/uk/index.html#demo">переглянути це в дії</a>, побачити, як вона <a href="/uk/compare.html">порівнюється з іншими лупами</a>, або <a href="/uk/index.html#get">спробувати безкоштовно протягом 7 днів</a>.</p>
+
+                    <h2>Джерела та додаткове читання</h2>
+                    <p>Нижче наведено достовірні, рецензовані наукові або опубліковані авторитетними установами джерела для загальних принципів, наведених вище. Вони описують загальну роботу людського зору й руху в інтерфейсі — жодне з них не стосувалося Low Vision Zoom, і жодне не слід трактувати як доказ конкретного результату дії застосунку.</p>
+
+                    <h3>Просторова константність і стабільність зору під час рухів очей</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — зорова чутливість знижується під час швидких рухів очей, і це пригнічення починається вже в сітківці. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">Читати</a>.</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — як мозок будує єдине сприйняття з послідовності зображень під час рухів очей. <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">Анотація</a>.</li>
+                    </ul>
+
+                    <h3>Плавне стеження — безперервна система відстеження ока</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — око плавно відстежує й передбачає рухомі цілі, з кращою точністю для руху цілі, ініційованого самостійно або реалістичного. <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">Анотація</a>.</li>
+                    </ul>
+
+                    <h3>Сліпота до змін — втрата елементів під час візуального переривання</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — вражаюча нездатність помітити великі зміни, які зазвичай легко помітні. <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">Анотація</a>.</li>
+                        <li>Rensink, <em>Change Blindness</em>, у Neurobiology of Attention (Elsevier, 2005) — цей ефект можна викликати, зробивши зміну під час руху ока, моргання або короткого спалаху. <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>.</li>
+                    </ul>
+
+                    <h3>Втрата центрального зору, ексцентричний зір і бажана зона сітківки</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — люди з центральною скотомою використовують бажану зону сітківки поза ураженою ділянкою, а тренування такого позацентрального зору називається тренуванням ексцентричного зору. <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">Читати</a>.</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">Анотація</a>.</li>
+                    </ul>
+
+                    <h3>Рух і безперервність у проєктуванні інтерфейсів користувача</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — рух може запобігати дезорієнтації та допомагати користувачам зберігати контекст під час переходів. <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">Читати</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Переконайтеся в плавності самі</h2>
+                <p>7 днів безкоштовно · $9.99 одноразово · без підписки · без облікового запису</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/uk.svg" alt="Завантажити з Microsoft Store">
+                    </a>
+                    <a href="/uk/index.html#get" data-download class="download-direct">Або завантажте інсталятор безпосередньо з цього сайту (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Спокійна програма-лупа для екрана Windows. Продукт компанії txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Продукт</h4>
+                    <ul>
+                        <li><a href="/uk/index.html#why">Чому це краще</a></li>
+                        <li><a href="/uk/index.html#how">Як це працює</a></li>
+                        <li><a href="/uk/pricing.html">Ціни</a></li>
+                        <li><a href="/uk/compare.html">Порівняти лупи</a></li>
+                        <li><a href="/uk/faq.html">Часті запитання</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Юридична інформація</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Конфіденційність (англійською)</a></li>
+                        <li><a href="/terms.html">Умови надання послуг (англійською)</a></li>
+                        <li><a href="/refund.html">Політика повернення коштів (англійською)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Підтримка</h4>
+                    <ul>
+                        <li><a href="/uk/contact.html">Зв'язатися з нами</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Усі права захищено.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

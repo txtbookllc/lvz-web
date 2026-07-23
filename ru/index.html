@@ -39,6 +39,33 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Логотип Low Vision Zoom — лупа с плюсом внутри — и слоган: лучшая программа для увеличения экрана для пользователей Windows со слабым зрением">
     <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom — это программа для увеличения экрана в Windows 10 и 11, созданная для людей со слабым зрением. Удерживайте Ctrl и прокручивайте колесо мыши, чтобы увеличивать в любом месте Windows; изображение плавно приближается и разворачивается вокруг курсора мыши, поэтому вы никогда не теряете место. Работает офлайн, не собирает данные. Бесплатная 7-дневная пробная версия, затем разовая лицензия за $9.99 — без подписки.",
+      "url": "https://lowvisionzoom.com/ru/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/ru/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
     <title>Low Vision Zoom — плавное увеличение экрана для Windows</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
@@ -289,7 +316,7 @@
                     </div>
                 </div>
 
-                <p class="requirements-line">Для Windows 11, 64-бит (x64) · автономный установщик, больше ничего скачивать не нужно · поддержка ARM появится позже.</p>
+                <p class="requirements-line">Для Windows 10 и 11, 64-бит (x64) · автономный установщик, больше ничего скачивать не нужно · Windows на ARM пока не поддерживается.</p>
 
                 <div class="good-to-know">
                     <p><strong>Полезно знать:</strong> исследователи зрения называют это <em>слепотой к изменениям</em>: когда изображение меняется во время визуального прерывания, легко упустить, что именно сдвинулось, и потерять то, за чем вы следили. Программа увеличения, которая перескакивает, весь день воссоздаёт такое прерывание. Та, что двигается плавно, никогда не даёт вашим глазам шанса потерять место.</p>
@@ -312,10 +339,6 @@
                         <summary>Что произойдёт, когда пробный период закончится?</summary>
                         <div class="faq-body"><p>Программа продолжает работать — увеличение просто ограничивается, пока вы не введёте лицензионный ключ, поэтому экран всегда остаётся достаточно читаемым для навигации и покупки. Введите ключ в любой момент, чтобы мгновенно восстановить полное увеличение; переустановка не требуется.</p></div>
                     </details>
-                    <details class="faq">
-                        <summary>Чем это отличается от встроенного экранного диктора Windows «Лупа»?</summary>
-                        <div class="faq-body"><p>В Windows есть неплохая встроенная лупа, и многим стоит сначала попробовать её. Low Vision Zoom делает упор на более плавное, спокойное ощущение: мягкое анимированное увеличение (без резких скачков), увеличение по центру курсора, стабильное панорамирование с «мёртвой зоной» и ненавязчивый интерфейс в области уведомлений для быстрых и частых настроек.</p></div>
-                    </details>
                     <!-- Carries the full first-run SmartScreen guidance (formerly its own
                          aside under the on-page download CTA, now retired); the
                          install-note-* classes style the steps and figure here too. -->
@@ -337,19 +360,11 @@
                             <p>Предупреждение исчезает само по себе в течение ближайших недель по мере того, как приложение устанавливает всё больше людей, и сделать это нужно только один раз. Установка выполняется на компьютер в папку Program Files, что также позволяет кликам точно попадать в цель при увеличении.</p>
                         </div>
                     </details>
-                    <details class="faq">
-                        <summary>Остаются ли данные о моей покупке конфиденциальными?</summary>
-                        <div class="faq-body"><p>Да. Само приложение ничего не собирает и работает офлайн (<a href="/privacy.html">политика конфиденциальности</a>). Покупки обрабатывает наш платёжный провайдер Paddle, который выступает продавцом по договору (merchant of record); приложение никогда не видит данные вашей оплаты.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Предоставляете ли вы возврат средств?</summary>
-                        <div class="faq-body"><p>Да — помимо бесплатного пробного периода действует 30-дневная гарантия возврата денег. См. <a href="/refund.html">политику возврата</a>.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Могут ли организации покупать несколько лицензий?</summary>
-                        <div class="faq-body"><p>Да. Школы, клиники, библиотеки и работодатели могут запросить групповое лицензирование и выставление счетов — воспользуйтесь нашей <a href="/ru/contact.html?topic=volume">формой обратной связи</a>.</p></div>
-                    </details>
                 </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /ru/faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">Остались вопросы — конфиденциальность, возврат средств, несколько лицензий, сравнение с другими программами увеличения? <a href="/ru/faq.html">Смотрите все часто задаваемые вопросы →</a></p>
             </div>
         </section>
 
@@ -390,7 +405,7 @@
                         <li><a href="/ru/index.html#why">Почему это лучше</a></li>
                         <li><a href="/ru/index.html#how">Как это работает</a></li>
                         <li><a href="/ru/pricing.html">Цены</a></li>
-                        <li><a href="/ru/index.html#faq">Вопросы и ответы</a></li>
+                        <li><a href="/ru/faq.html">Вопросы и ответы</a></li>
                     </ul>
                 </div>
                 <div>

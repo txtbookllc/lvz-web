@@ -39,6 +39,33 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Low Vision Zoom-logo — een loep met een plusteken erin — en de slogan: de beste schermloep voor Windows-gebruikers met een visuele beperking">
     <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom is een schermloep voor Windows 10 en 11, gemaakt voor mensen met een visuele beperking. Houd Ctrl ingedrukt en scroll om overal in Windows in te zoomen; de weergave zoomt zachtjes in en draait om de muisaanwijzer, zodat u nooit de weg kwijtraakt. Werkt offline, verzamelt geen gegevens. 7 dagen gratis proberen, daarna een eenmalige licentie voor $9.99 — geen abonnement.",
+      "url": "https://lowvisionzoom.com/nl/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/nl/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
     <title>Low Vision Zoom — Soepele schermvergroting voor Windows</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
@@ -289,7 +316,7 @@
                     </div>
                 </div>
 
-                <p class="requirements-line">Gemaakt voor Windows 11, 64-bit (x64) · zelfstandig installatieprogramma, verder niets te downloaden · ARM-ondersteuning volgt binnenkort.</p>
+                <p class="requirements-line">Gemaakt voor Windows 10 en 11, 64-bit (x64) · zelfstandig installatieprogramma, verder niets te downloaden · Windows op ARM wordt vandaag de dag niet ondersteund.</p>
 
                 <div class="good-to-know">
                     <p><strong>Goed om te weten:</strong> visieonderzoekers noemen dit <em>change blindness</em> (veranderingsblindheid): wanneer een beeld verandert tijdens een visuele onderbreking, is het makkelijk te missen wat er verschoven is en de draad kwijt te raken. Een schermloep die springt, veroorzaakt die onderbreking de hele dag door. Eén die glijdt, geeft uw ogen nooit de kans om uw plek kwijt te raken.</p>
@@ -312,10 +339,6 @@
                         <summary>Wat gebeurt er als de proefperiode afloopt?</summary>
                         <div class="faq-body"><p>De app blijft werken — de vergroting wordt alleen beperkt totdat u een licentiesleutel invoert, zodat uw scherm altijd leesbaar genoeg blijft om te navigeren en te kopen. Voer op elk moment een sleutel in om de volledige zoom direct te herstellen; opnieuw installeren is niet nodig.</p></div>
                     </details>
-                    <details class="faq">
-                        <summary>Hoe verschilt dit van de ingebouwde Windows-vergroting?</summary>
-                        <div class="faq-body"><p>Windows bevat een prima schermloep, en veel mensen kunnen die het beste eerst proberen. Low Vision Zoom richt zich op een soepeler, rustiger gevoel: zacht geanimeerd zoomen (geen sprongen), zoom gecentreerd op uw cursor, stabiel schuiven met een vaste dode zone, en een onopvallende interface in het systeemvak voor snelle, frequente aanpassingen.</p></div>
-                    </details>
                     <!-- Carries the full first-run SmartScreen guidance (formerly its own
                          aside under the on-page download CTA, now retired); the
                          install-note-* classes style the steps and figure here too. -->
@@ -337,19 +360,11 @@
                             <p>De waarschuwing verdwijnt vanzelf in de komende weken, naarmate meer mensen de app installeren, en u hoeft dit maar één keer te doen. De app wordt per apparaat geïnstalleerd in Program Files, wat er ook voor zorgt dat klikken tijdens het zoomen goed terechtkomen.</p>
                         </div>
                     </details>
-                    <details class="faq">
-                        <summary>Blijven mijn aankoopgegevens privé?</summary>
-                        <div class="faq-body"><p>Ja. De app zelf verzamelt niets en werkt offline (<a href="/privacy.html">privacybeleid (in het Engels)</a>). Aankopen worden afgehandeld door onze betalingsprovider Paddle, die optreedt als merchant of record; de app ziet uw betaalgegevens nooit.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Bieden jullie terugbetalingen aan?</summary>
-                        <div class="faq-body"><p>Ja — naast de gratis proefperiode geldt een niet-goed-geld-terug-garantie van 30 dagen. Zie het <a href="/refund.html">terugbetalingsbeleid (in het Engels)</a>.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Kunnen organisaties meerdere licenties kopen?</summary>
-                        <div class="faq-body"><p>Ja. Scholen, klinieken, bibliotheken en werkgevers kunnen volumelicenties met facturering aanvragen — gebruik ons <a href="/nl/contact.html?topic=volume">contactformulier</a>.</p></div>
-                    </details>
                 </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">Nog meer vragen — privacy, terugbetalingen, meerdere licenties, hoe het zich verhoudt tot andere schermloepen? <a href="/nl/faq.html">Bekijk alle veelgestelde vragen →</a></p>
             </div>
         </section>
 
@@ -390,7 +405,7 @@
                         <li><a href="#why">Waarom het beter is</a></li>
                         <li><a href="#how">Zo werkt het</a></li>
                         <li><a href="/nl/pricing.html">Prijzen</a></li>
-                        <li><a href="#faq">Veelgestelde vragen</a></li>
+                        <li><a href="/nl/faq.html">Veelgestelde vragen</a></li>
                     </ul>
                 </div>
                 <div>

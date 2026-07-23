@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="لماذا يسهل تتبُّع مكبّر شاشة سلس أكثر من مكبّر يقفز: كيف تفسّر الثبات المكاني والتتبّع البصري السلس والعمى عن التغيير الإحساس بفقدان موضعك — وكيف صُمّم Low Vision Zoom حولها.">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "لماذا يسهل تتبُّع التكبير السلس أكثر من التكبير الذي يقفز",
+      "description": "شرح بلغة بسيطة وموثَّق بالمصادر لسبب حفاظ مكبّر الشاشة الذي يتحرك بسلاسة على موضعك، بينما يجعلك المكبّر الذي يقفز تبحث عنه من جديد — مستند إلى الثبات المكاني والتتبّع البصري السلس والعمى عن التغيير.",
+      "url": "https://lowvisionzoom.com/ar/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "ar",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "تكبير الشاشة" },
+        { "@type": "Thing", "name": "ضعف البصر" },
+        { "@type": "Thing", "name": "الثبات المكاني" },
+        { "@type": "Thing", "name": "حركة العين للتتبّع البصري السلس" },
+        { "@type": "Thing", "name": "العمى عن التغيير" }
+      ]
+    }
+    </script>
+    <title>لماذا يسهل تتبُّع التكبير السلس | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">تخطَّ إلى المحتوى</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ar/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="الرئيسي">
+                <a href="/ar/index.html#demo">شاهد العرض التوضيحي</a>
+                <a href="/ar/index.html#how">كيف يعمل</a>
+                <a href="/ar/index.html#why">لماذا هو أفضل</a>
+                <a href="/ar/pricing.html">الأسعار</a>
+                <a href="/ar/index.html#get" data-download class="btn btn-secondary btn-nav">تنزيل</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="اللغة: العربية">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>العربية</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar" aria-current="true">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">لماذا تهمّ السلاسة</span>
+                <h1>لماذا يسهل تتبُّع التكبير السلس أكثر من التكبير الذي يقفز</h1>
+                <p class="updated">شرح بلغة بسيطة، مع المصادر</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>تحرّك معظم مكبّرات الشاشة العرض في قفزات مفاجئة. وكل قفزة تُجبر عينيك ودماغك على التوقف، وإعادة إيجاد مكانهما، والبدء من جديد. أما Low Vision Zoom فيتحرك على نحو متواصل — يدخل في التكبير برفق، ويدور حول النقطة التي تشير إليها، وينزلق عند التحريك الأفقي — فلا يفقد انتباهك قبضته أبدًا على الشيء الذي يهمّك. وليس هذا لمسة غامضة؛ بل يتوافق مع عدة خصائص موثَّقة جيدًا لكيفية عمل البصر البشري.</p>
+                    </div>
+
+                    <p>لا شيء في هذه الصفحة ادعاء طبي. هذه مبادئ مفهومة عمومًا عن البصر البشري والتفاعل بين الإنسان والحاسوب، تُستخدَم لتوضيح لماذا يسهل التعايش مع مكبّر أكثر سلاسة أكثر من مكبّر يقفز. ولم تدرس أيٌّ من الدراسات المذكورة هنا Low Vision Zoom؛ فهي تصف كيف يعمل البصر وحركة الواجهات بوجه عام.</p>
+
+                    <h2>الإحساس بـ«فقدان موضعك» له اسم</h2>
+                    <p>حين يقول الناس إن مكبّرًا يجعلهم «يفقدون تتبُّع مكانهم»، فهم يصفون شيئًا حقيقيًا. لا يخزّن نظامك البصري الشاشة كصورة فوتوغرافية؛ بل يحتفظ بخريطة داخلية متواصلة لمواضع الأشياء، ويُبقي نظرتك مثبَّتة على نقطة مختارة. وتُحافظ عدة آليات على استقرار تلك الخريطة — وقفزة مفاجئة في التكبير تكسرها جميعًا دفعة واحدة.</p>
+
+                    <h3>1. الثبات المكاني</h3>
+                    <p>يبذل دماغك جهدًا كبيرًا كي يجعل العالم يبدو مستقرًا رغم أن عينيك تتحركان باستمرار. ويُسمّى هذا <strong>الثبات المكاني</strong>، أو التحديث المكاني: مع تحرّكك، يتنبأ الدماغ بالمكان الذي يجب أن ينتهي إليه كل شيء ويُبقي الخريطة متوائمة في هدوء. والحركة السلسة المتواصلة هي بالضبط نوع المُدخَل الذي بُني ذلك النظام للتعامل معه — فيمكنه تحديث الخريطة أثناء الحركة. أما الانتقال الفوري المفاجئ فلا يمنحه شيئًا يستوفي به الفراغ، فتُلغى الخريطة ويجب إعادة بنائها من الصفر. وإعادة البناء تلك هي لحظة «إلى أين ذهبتُ للتوّ؟».</p>
+                    <p>يُبقي Low Vision Zoom الثبات المكاني سليمًا لأنه لا ينتقل فوريًا أبدًا. فالتكبير يتقدّم برفق نحو هدفه على مدى ثُلث ثانية تقريبًا، والتحريك الأفقي ينزلق بدلًا من أن يقفز. فتُحدَّث خريطتك الداخلية، ولا تُمحى.</p>
+
+                    <h3>2. التتبّع البصري السلس، وتكلفة إعادة التثبيت</h3>
+                    <p>للعين طريقتان في الحركة. فـ<strong>التتبّع البصري السلس</strong> يتتبّع باستمرار هدفًا يتحرك على نحو مطّرد — إذ تنزلق العين وتظل مثبَّتة عليه. أما <strong>الحركات الرمشية (saccades)</strong> فهي القفزات السريعة القذفية بين نقاط التثبيت، ويُكبَح البصر أثناء الحركة الرمشية، فيتعيّن على العين بعدها إعادة التقاط الهدف وإعادة التركيز عليه.</p>
+                    <p>يُجبر المكبّر الذي يقفز على حركة رمشية بالإضافة إلى إعادة التقاط في كل مرة يتحرك فيها. وبالنسبة لشخص لديه حدّة بصر منخفضة، فإن إعادة إيجاد هدف صغير بعد قفزة أبطأ وأقل يقينًا مما هي عليه لشخص ذي بصر مركزي حاد. أما التكبير السلس فيدع نظام التتبّع في العين يقوم بالعمل بدلًا من ذلك: إذ يمكنه مسايرة الحركة والإبقاء على تثبيته، فلا توجد قفزة عمياء ولا بحث لإعادة إيجاد موضعك. وقد بُني Low Vision Zoom حول هذا — إذ تعني حلقة رسوم متحركة بمعدل 60 إطارًا في الثانية أن العرض يتحرك دائمًا بمقادير صغيرة قابلة للتتبّع تستطيع عيناك مسايرتها بدل مطاردتها.</p>
+
+                    <h3>3. الاستمرارية الإدراكية — يعامله الدماغ كأنه المشهد نفسه</h3>
+                    <p>حين يتحرك جسم بسلاسة، يدركه الدماغ كجسم واحد متواصل تحرّك. أما حين يختفي الجسم نفسه ويظهر من جديد في مكان آخر، فيتعيّن على الدماغ أن يحلّ من جديد «هل هذا الشيء نفسه، وماذا حدث؟». وإعادة الحلّ تلك تتطلب جهدًا وهي مُثير كلاسيكي لـ<strong>العمى عن التغيير</strong>، حيث لا يُلاحَظ ببساطة تغيير يحدث عبر انقطاع بصري، فتفقد عناصر كنت تتتبّعها.</p>
+                    <p>يحافظ Low Vision Zoom على الاستمرارية. ولأن كل إطار خطوة صغيرة عن سابقه، يُقرأ المحتوى تحت التكبير كأنه المشهد نفسه يكبر بسلاسة — لا كشاشة جديدة حلّت محل القديمة. فلا شيء يختفي ويظهر من جديد، فليس ثمة ما يُفقَد.</p>
+
+                    <h3>4. مرساة بصرية ثابتة: التكبير نحو المؤشر</h3>
+                    <p>هذا هو الجواب الأكثر مباشرةً على «فقدان المرساة». يدير Low Vision Zoom التكبير حول النقطة التي تحت مؤشرك — فيبقى المحتوى الذي أسفل الفأرة مباشرةً في مكانه بينما يتكبّر كل شيء حوله. أما كثير من المكبّرات فتُكبّر بدلًا من ذلك نحو زاوية الشاشة أو مركزها ثم تُحرّك العرض لتلحق، ما يعني أن الشيء ذاته الذي كنت تنظر إليه ينزلق من تحتك قبل أن يعود.</p>
+                    <p>وبإبقاء نقطة نظرك ثابتة أثناء التكبير، يمنح التطبيق نظرتك مرساة مستقرة تتمسك بها طوال التكبير كله. وأنت تقرر ما المرساة بمجرد الإشارة إليها. فلا يتعين على نقطة تثبيتك أن تتحرك أبدًا، فيُصان كلٌّ من الثبات المكاني وتثبيت عينك عبر اللحظة الوحيدة التي عادةً ما تكسرهما.</p>
+
+                    <h3>5. تحكُّم متوقَّع وبإيقاعك الخاص</h3>
+                    <p>الحركة التي يبدأها الدماغ بنفسه أسهل توقعًا من الحركة المفروضة عليه. فـ<strong>Ctrl + التمرير</strong> في Low Vision Zoom متواصل ومتناسب: تُكبّر بالمقدار نفسه وبالسرعة نفسها اللذين تدير بهما العجلة، ويمكنك التوقف أو العكس أو الثبات عند أي نقطة. الحركة حركتك، فهي متوقَّعة — والحركة المتوقَّعة أقل إرباكًا بكثير من مكبّر يهبّ إلى مستوى مُعَدّ مسبقًا من تلقاء نفسه.</p>
+
+                    <h2>لماذا يهمّ هذا تحديدًا لضعف البصر</h2>
+                    <p>غالبًا ما يعتمد الأشخاص الذين يعيشون بضعف في البصر المركزي على استراتيجيات يعمل ضدها مكبّر مفاجئ في هدوء:</p>
+                    <ul>
+                        <li><strong>الرؤية اللامركزية والموضع الشبكي المفضَّل.</strong> حين يقلّ البصر المركزي الحاد، يتعلّم كثيرون النظر بعيدًا قليلًا عن المركز، مستخدمين نقطة مفضَّلة وثابتة على الشبكية كنقطة تركيزهم العملية. وإعادة ترسيخ ذلك التوائم بعد كل قفزة جهد حقيقي ومتكرر. أما المكبّر الذي لا يجعلك تعيد إيجاد موضعك أبدًا فيدع ذلك التوائم المكتسب بصعوبة يصمد.</li>
+                        <li><strong>غرامة إعادة الإيجاد.</strong> مع حدّة بصر أقل فائضة، تكون تكلفة إعادة التقاط هدف صغير بعد قفزة عمياء أعلى مما هي لمستخدم مبصر تمامًا. والسلاسة تُزيل القفزة، ومعها الغرامة.</li>
+                        <li><strong>الانتباه والذاكرة العاملة.</strong> كل إعادة ضبط من نوع «أين أنا الآن؟» تُنفق انتباهًا وذاكرة عاملة كنت تفضّل إنفاقهما على المهمة الفعلية — القراءة والكتابة والتنقل. وتسليم التتبّع إلى نظامك الإدراكي، الذي يتابع الحركة السلسة دون عناء، يُحرّر ذلك الجهد للعمل نفسه.</li>
+                    </ul>
+                    <p>لا شيء من هذا ادعاء علاجي. إنما هو الفرق بين أداة تقاوم كيفية عمل الرؤية لدى ضعاف البصر وأداة مُشكَّلة حولها.</p>
+
+                    <h2>كل خيار تصميمي يخدم الهدف نفسه</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="كيف يرتبط كل مزية بمبدأ إدراكي">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">مزايا Low Vision Zoom والمبدأ الإدراكي الذي تخدمه كل واحدة منها</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">المزية</th>
+                                    <th scope="col">ماذا تفعل</th>
+                                    <th scope="col">المبدأ الذي تخدمه</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">تكبير متحرك سلس (تباطؤ خروج نحو ⅓ ثانية، 60 إطارًا في الثانية)</th>
+                                    <td>يتقدّم التكبير برفق نحو هدفه بدلًا من أن يقفز</td>
+                                    <td>الثبات المكاني؛ التتبّع البصري السلس؛ الاستمرارية الإدراكية</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">يدور التكبير نحو المؤشر</th>
+                                    <td>تبقى النقطة التي تحت الفأرة ثابتة بينما يتغيّر مقياس كل شيء حولها</td>
+                                    <td>مرساة بصرية مستقرة؛ لا يُزاح التثبيت أبدًا</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">متابعة المؤشر مع منطقة ميتة</th>
+                                    <td>يبقى العرض ثابتًا بينما يتجول مؤشرك في نطاق مركزي واسع، ولا يتحرك أفقيًا — بالانزلاق — إلا حين تقترب من حافة</td>
+                                    <td>لا حركة لا لزوم لها؛ التحريكات الأفقية تتبّع بصري سلس، لا انتقالات فورية</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">تحكُّم متناسب بـ Ctrl + التمرير</th>
+                                    <td>تضبط مستوى التكبير على نحو متواصل، بالسرعة أو البطء اللذين تريدهما</td>
+                                    <td>حركة بإيقاعك الخاص، متوقَّعة، وتبدؤها بنفسك</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">عرض لكامل سطح المكتب، متعدد الشاشات</th>
+                                    <td>مساحة مكبَّرة واحدة متواصلة تتبعك عبر الشاشات، لا جزر مستقلة لكل نافذة</td>
+                                    <td>خريطة مكانية واحدة متماسكة يجري تحديثها، بدلًا من عدة خرائط</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">إعدادات افتراضية مضبوطة، لا شيء لتهيئته</th>
+                                    <td>السلاسة والسرعة وإحساس المنطقة الميتة مضبوطة مسبقًا وثابتة</td>
+                                    <td>السلوك السلس هو الافتراضي، لا شيء يجب اكتشافه وإعداده</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>هذه هي الفكرة كلها وراء المنتج: مكبّر يتحرك بالطريقة التي بُني نظام البصر البشري ليتبعها، فيُبقيك مرتكزًا حيث تجعلك غيره يفقد موضعك. يمكنك <a href="/ar/index.html#demo">مشاهدته أثناء العمل</a>، أو معرفة كيف <a href="/ar/compare.html">يُقارَن بمكبّرات أخرى</a>، أو <a href="/ar/index.html#get">تجربته مجانًا لمدة 7 أيام</a>.</p>
+
+                    <h2>المصادر ومزيد من القراءة</h2>
+                    <p>هذه مصادر موثوقة، محكَّمة من الأقران أو منشورة من جهات مرجعية، للمبادئ العامة المذكورة أعلاه. وهي تصف كيف يعمل البصر البشري وحركة الواجهات بوجه عام — ولم تدرس أيٌّ منها Low Vision Zoom، ولا ينبغي قراءة أيٍّ منها كدليل على نتيجة محددة من التطبيق.</p>
+
+                    <h3>الثبات المكاني والاستقرار البصري عبر حركات العين</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — تنخفض الحساسية البصرية أثناء حركات العين السريعة، ويبدأ هذا الكبح في الشبكية. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">اقرأه</a>.</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — كيف يبني الدماغ إدراكًا موحَّدًا من تسلسل الصور عبر حركات العين. <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">الملخص</a>.</li>
+                    </ul>
+
+                    <h3>التتبّع البصري السلس — نظام التتبّع المتواصل في العين</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — تتتبّع العين الأهداف المتحركة بسلاسة وتتوقّعها، بدقة أفضل حين تكون حركة الهدف ذاتية المنشأ أو واقعية. <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">الملخص</a>.</li>
+                    </ul>
+
+                    <h3>العمى عن التغيير — فقدان عناصر عبر انقطاع بصري</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — الإخفاق اللافت في رؤية تغييرات كبيرة كان يُلاحَظ عادةً بسهولة. <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">الملخص</a>.</li>
+                        <li>Rensink, <em>Change Blindness</em>, in Neurobiology of Attention (Elsevier, 2005) — يمكن استحداث الأثر بإحداث تغيير أثناء حركة عين أو رمشة أو ومضة قصيرة. <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>.</li>
+                    </ul>
+
+                    <h3>فقدان البصر المركزي، والرؤية اللامركزية، والموضع الشبكي المفضَّل</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — يستخدم من لديهم عتمة مركزية موضعًا شبكيًا مفضَّلًا خارج المنطقة المتأثرة، ويُسمّى تدريب تلك الرؤية اللامركزية تدريبَ الرؤية اللامركزية. <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">اقرأه</a>.</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">الملخص</a>.</li>
+                    </ul>
+
+                    <h3>الحركة والاستمرارية في تصميم واجهات المستخدم</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — يمكن للحركة أن تمنع التشوّش وتساعد المستخدمين على تتبُّع السياق عبر الانتقالات. <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">اقرأه</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>اختبر السلاسة بنفسك</h2>
+                <p>تجربة مجانية لمدة 7 أيام · $9.99 دفعة واحدة · بلا اشتراك · بلا حساب</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ar.svg" alt="احصل عليه من Microsoft Store">
+                    </a>
+                    <a href="/ar/index.html#get" data-download class="download-direct">أو نزّل المثبّت مباشرةً من هذا الموقع (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>مكبّر شاشة هادئ لنظام Windows. منتج من txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>المنتج</h4>
+                    <ul>
+                        <li><a href="/ar/index.html#why">لماذا هو أفضل</a></li>
+                        <li><a href="/ar/index.html#how">كيف يعمل</a></li>
+                        <li><a href="/ar/pricing.html">الأسعار</a></li>
+                        <li><a href="/ar/compare.html">قارن المكبّرات</a></li>
+                        <li><a href="/ar/faq.html">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الشؤون القانونية</h4>
+                    <ul>
+                        <li><a href="/privacy.html">الخصوصية (بالإنجليزية)</a></li>
+                        <li><a href="/terms.html">شروط الخدمة (بالإنجليزية)</a></li>
+                        <li><a href="/refund.html">سياسة الاسترداد (بالإنجليزية)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>الدعم</h4>
+                    <ul>
+                        <li><a href="/ar/contact.html">تواصل معنا</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Akıcı bir ekran büyütecini takip etmek, sıçrayan bir büyütece göre neden daha kolaydır: uzamsal değişmezlik, düzgün izleme ve değişim körlüğü yerinizi kaybetme hissini nasıl açıklar — ve Low Vision Zoom bunlar etrafında nasıl tasarlanmıştır.">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Akıcı büyütmeyi takip etmek, sıçrayan büyütmeye göre neden daha kolaydır",
+      "description": "Akıcı biçimde hareket eden bir ekran büyütecinin yerinizi nasıl koruduğunu, sıçrayan bir büyütecin ise onu yeniden bulmanıza neden yol açtığını sade bir dille, kaynaklarıyla açıklayan bir yazı — uzamsal değişmezlik, düzgün izleme ve değişim körlüğü temelinde.",
+      "url": "https://lowvisionzoom.com/tr/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "tr",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Ekran büyütme" },
+        { "@type": "Thing", "name": "Az görme" },
+        { "@type": "Thing", "name": "Uzamsal değişmezlik" },
+        { "@type": "Thing", "name": "Düzgün izleme göz hareketi" },
+        { "@type": "Thing", "name": "Değişim körlüğü" }
+      ]
+    }
+    </script>
+    <title>Akıcı büyütmeyi takip etmek neden daha kolaydır | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">İçeriğe geç</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/tr/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Ana menü">
+                <a href="/tr/index.html#demo">Tanıtımı izleyin</a>
+                <a href="/tr/index.html#how">Nasıl çalışır</a>
+                <a href="/tr/index.html#why">Neden daha iyi</a>
+                <a href="/tr/pricing.html">Fiyat</a>
+                <a href="/tr/index.html#get" data-download class="btn btn-secondary btn-nav">İndir</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Dil: Türkçe">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Türkçe</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr" aria-current="true">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Akıcılık neden önemlidir</span>
+                <h1>Akıcı büyütmeyi takip etmek, sıçrayan büyütmeye göre neden daha kolaydır</h1>
+                <p class="updated">Sade bir dille açıklama, kaynaklarıyla</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Çoğu ekran büyüteci görünümünüzü ani sıçramalarla hareket ettirir. Her sıçrama, gözlerinizi ve beyninizi durmaya, nerede olduklarını yeniden bulmaya ve baştan başlamaya zorlar. Low Vision Zoom sürekli hareket eder — yakınlaştırmaya yumuşakça girer, işaret ettiğiniz noktanın etrafında döner ve kaydırırken süzülür — böylece dikkatiniz önemsediğiniz şeyin üzerindeki tutuşunu asla kaybetmez. Bu belirsiz bir incelik değildir; insan görüşünün nasıl çalıştığına dair iyi belgelenmiş çeşitli özelliklerle örtüşür.</p>
+                    </div>
+
+                    <p>Bu sayfadaki hiçbir şey bir tıbbi iddia değildir. Bunlar, daha akıcı bir büyüteçle yaşamanın neden sıçrayan bir büyüteçten daha kolay olduğunu açıklamak için kullanılan, insan görüşü ve insan–bilgisayar etkileşimine dair genel kabul görmüş ilkelerdir. Burada atıfta bulunulan çalışmaların hiçbiri Low Vision Zoom'u incelememiştir; genel olarak görüşün ve arayüz hareketinin nasıl işlediğini anlatırlar.</p>
+
+                    <h2>“Yerinizi kaybetme” hissinin bir adı var</h2>
+                    <p>İnsanlar bir büyütecin kendilerine “nerede olduklarını şaşırttığını” söylediğinde, gerçek bir şeyi tarif ediyorlardır. Görsel sisteminiz ekranı bir fotoğraf gibi saklamaz; nesnelerin nerede olduğuna dair sürekli güncellenen içsel bir harita tutar ve bakışınızı seçilmiş bir noktaya kilitli tutar. Bu haritayı kararlı tutan birkaç mekanizma vardır — ve büyütmedeki ani bir sıçrama hepsini bir anda bozar.</p>
+
+                    <h3>1. Uzamsal değişmezlik</h3>
+                    <p>Beyniniz, gözleriniz sürekli hareket etse bile dünyanın kararlı hissettirmesi için çok çalışır. Buna <strong>uzamsal değişmezlik</strong> ya da uzamsal güncelleme denir: siz hareket ettikçe beyin her şeyin nerede sonlanması gerektiğini tahmin eder ve haritayı sessizce hizalı tutar. Akıcı, sürekli hareket, tam olarak bu sistemin başa çıkmak üzere kurulduğu türden bir girdidir — haritayı anlık olarak güncelleyebilir. Ani bir ışınlanma, ona ara değer hesaplayacak hiçbir şey vermez, dolayısıyla harita geçersiz kılınır ve sıfırdan yeniden oluşturulması gerekir. İşte bu yeniden oluşturma, “az önce nereye gittim?” anıdır.</p>
+                    <p>Low Vision Zoom, asla ışınlanmayarak uzamsal değişmezliği bozulmadan korur. Büyütme, yaklaşık saniyenin üçte biri boyunca hedefine doğru yumuşakça yaklaşır ve kaydırma, ani geçiş yapmak yerine süzülür. İçsel haritanız silinmez, güncellenir.</p>
+
+                    <h3>2. Düzgün izleme ve yeniden odaklanmanın maliyeti</h3>
+                    <p>Göz iki şekilde hareket eder. <strong>Düzgün izleme</strong>, düzenli biçimde hareket eden bir hedefi sürekli olarak takip eder — göz süzülür ve hedefe kilitli kalır. <strong>Sakkadlar</strong>, sabitlenme noktaları arasındaki hızlı, balistik sıçramalardır ve bir sakkad sırasında görme baskılanır, bu yüzden sonrasında gözün hedefi yeniden yakalaması ve yeniden odaklaması gerekir.</p>
+                    <p>Sıçrayan bir büyüteç, her hareket ettiğinde bir sakkad ve ardından yeniden yakalama gerektirir. Görme keskinliği azalmış biri için, bir sıçramadan sonra küçük bir hedefi yeniden bulmak, keskin merkezi görüşe sahip birine göre daha yavaş ve daha az kesindir. Akıcı bir yakınlaştırma ise işi gözün izleme sistemine bırakır: hareketin üzerinde ilerleyip kilidini koruyabilir, böylece kör bir sıçrama olmaz ve yerinizi yeniden bulmak için bir arayış gerekmez. Low Vision Zoom bunun etrafında kuruludur — saniyede 60 kareli bir animasyon döngüsü, görünümün her zaman gözlerinizin kovalamak yerine takip edebileceği küçük, izlenebilir adımlarla hareket etmesi demektir.</p>
+
+                    <h3>3. Algısal süreklilik — beyin onu aynı sahne olarak değerlendirir</h3>
+                    <p>Bir nesne akıcı biçimde hareket ettiğinde, beyin onu hareket etmiş tek ve sürekli bir nesne olarak algılar. Aynı nesne bunun yerine kaybolup başka bir yerde yeniden belirdiğinde, beynin “bu aynı şey mi ve ne oldu?” sorusunu yeniden çözmesi gerekir. Bu yeniden çözme zahmetlidir ve <strong>değişim körlüğü</strong> için klasik bir tetikleyicidir; bu durumda görsel bir kesinti boyunca gerçekleşen bir değişiklik fark edilmez ve takip ettiğiniz öğeleri kaybedersiniz.</p>
+                    <p>Low Vision Zoom sürekliliği korur. Her kare bir öncekinden küçük bir adım olduğundan, büyütme altındaki içerik, eskisinin yerini alan yeni bir ekran olarak değil, akıcı biçimde büyüyen aynı sahne olarak algılanır. Hiçbir şey kaybolup yeniden belirmez, dolayısıyla kaybedilecek bir şey de yoktur.</p>
+
+                    <h3>4. Sabit bir görsel çıpa: imlece doğru yakınlaştırma</h3>
+                    <p>Bu, “çıpayı kaybetmenin” en doğrudan yanıtıdır. Low Vision Zoom yakınlaştırmayı imlecinizin altındaki noktanın etrafında döndürür — farenin hemen altındaki içerik yerinde kalırken her şey onun etrafında büyür. Birçok büyüteç ise bunun yerine bir ekran köşesine ya da merkezine doğru yakınlaştırır ve ardından yetişmek için kaydırır; bu da baktığınız şeyin, geri gelmeden önce altınızdan kayıp gitmesi anlamına gelir.</p>
+                    <p>Uygulama, yakınlaştırma sırasında baktığınız noktayı sabit tutarak, bakışınıza tüm büyütme boyunca tutunabileceği kararlı bir çıpa verir. Çıpanın ne olacağına, yalnızca onu işaret ederek siz karar verirsiniz. Sabitlenme noktanızın hiç hareket etmesi gerekmez, böylece hem uzamsal değişmezlik hem de gözünüzün kilidi, genellikle onları bozan o tek an boyunca korunur.</p>
+
+                    <h3>5. Öngörülebilir, kendi hızınızda denetim</h3>
+                    <p>Beynin kendi başlattığı hareket, ona dayatılan harekete göre öngörmesi daha kolaydır. Low Vision Zoom'un <strong>Ctrl + kaydırma</strong>'sı sürekli ve orantılıdır: tekerleği ne kadar ve ne kadar hızlı çevirirseniz tam olarak o kadar yakınlaşırsınız ve istediğiniz noktada durabilir, tersine çevirebilir ya da sabit tutabilirsiniz. Hareket size aittir, dolayısıyla öngörülebilirdir — ve öngörülebilir hareket, kendi başına önceden belirlenmiş bir seviyeye sarsılarak geçen bir büyüteçten çok daha az yön kaybettiricidir.</p>
+
+                    <h2>Bu neden özellikle az görenler için önemlidir</h2>
+                    <p>Merkezi görüşü azalmış olarak yaşayan kişiler, çoğu zaman ani bir büyütecin sessizce karşısında çalıştığı stratejilere güvenir:</p>
+                    <ul>
+                        <li><strong>Eksantrik görme ve tercih edilen retinal odak.</strong> Keskin merkezi görüş azaldığında, birçok kişi merkezden biraz uzağa bakmayı öğrenir; retinada tutarlı, tercih edilen bir noktayı çalışma odak noktası olarak kullanır. Bu hizalamayı her sıçramadan sonra yeniden kurmak gerçek ve tekrar tekrar harcanan bir çabadır. Sizi yerinizi yeniden bulmaya asla zorlamayan bir büyüteç, güçlükle kazanılmış bu hizalamanın korunmasını sağlar.</li>
+                        <li><strong>Yeniden bulma cezası.</strong> Ayıracak daha az keskinlikle, kör bir sıçramadan sonra küçük bir hedefi yeniden yakalamanın maliyeti, tam gören bir kullanıcıya göre daha yüksektir. Akıcılık sıçramayı ortadan kaldırır ve onunla birlikte cezayı da.</li>
+                        <li><strong>Dikkat ve çalışma belleği.</strong> Her “şimdi neredeyim?” sıfırlaması, aslında asıl işe — okuma, yazma, gezinme — harcamayı tercih edeceğiniz dikkati ve çalışma belleğini tüketir. Takibi, akıcı hareketi zahmetsizce izleyen algısal sisteminize devretmek, bu çabayı işin kendisi için serbest bırakır.</li>
+                    </ul>
+                    <p>Bunların hiçbiri bir tedavi iddiası değildir. Bu, az görmeyle bakmanın nasıl işlediğine karşı çalışan bir araçla, onun etrafında biçimlendirilmiş bir araç arasındaki farktır.</p>
+
+                    <h2>Her tasarım seçimi aynı amaca hizmet eder</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Her özelliğin bir algısal ilkeyle nasıl eşleştiği">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Low Vision Zoom özellikleri ve her birinin hizmet ettiği algısal ilke</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Özellik</th>
+                                    <th scope="col">Ne yapar</th>
+                                    <th scope="col">Hizmet ettiği ilke</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Akıcı animasyonlu yakınlaştırma (~⅓ saniye yumuşak sönümleme, 60 fps)</th>
+                                    <td>Büyütme, ani geçiş yapmak yerine hedefine doğru yumuşakça yaklaşır</td>
+                                    <td>Uzamsal değişmezlik; düzgün izleme; algısal süreklilik</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Yakınlaştırma imlece doğru döner</th>
+                                    <td>Farenin altındaki nokta sabit kalırken her şey onun etrafında ölçeklenir</td>
+                                    <td>Kararlı bir görsel çıpa; sabitlenme asla yerinden edilmez</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ölü bölgeli imleç takibi</th>
+                                    <td>İmleciniz geniş bir merkezi bantta dolaşırken görünüm sabit kalır ve yalnızca bir kenara yaklaştığınızda — süzülerek — kaydırır</td>
+                                    <td>Gereksiz hareket yok; kaydırmalar düzgün izlemedir, asla ışınlanma değil</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ctrl + kaydırma orantılı denetim</th>
+                                    <td>Yakınlaştırma seviyesini istediğiniz kadar hızlı ya da yavaş, sürekli olarak siz belirlersiniz</td>
+                                    <td>Kendi hızınızda, öngörülebilir, kendiniz başlattığınız hareket</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tüm masaüstü, çoklu monitör görünümü</th>
+                                    <td>Pencere başına adalar değil, ekranlar arasında sizi takip eden tek ve kesintisiz bir büyütülmüş alan</td>
+                                    <td>Güncellenecek, birkaç tane yerine tek ve tutarlı bir uzamsal harita</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">İnce ayarlı varsayılanlar, yapılandırılacak bir şey yok</th>
+                                    <td>Akıcılık, hız ve ölü bölge hissi önceden ayarlanmış ve sabittir</td>
+                                    <td>Akıcı davranış, keşfedilip kurulacak bir şey değil, varsayılandır</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>Ürünün ardındaki tüm fikir bu: insan görsel sisteminin takip etmek üzere kurulduğu şekilde hareket eden bir büyüteç; böylece başkaları yerinizi kaybettirirken o sizi çıpalı tutar. <a href="/tr/index.html#demo">İş başında izleyebilir</a>, <a href="/tr/compare.html">diğer büyüteçlerle nasıl karşılaştırıldığını görebilir</a> ya da <a href="/tr/index.html#get">7 gün boyunca ücretsiz deneyebilirsiniz</a>.</p>
+
+                    <h2>Kaynaklar ve ileri okuma</h2>
+                    <p>Bunlar, yukarıda atıfta bulunulan genel ilkeler için güvenilir, hakem denetimli ya da yetkili kaynaklarca yayımlanmış kaynaklardır. Genel olarak insan görüşünün ve arayüz hareketinin nasıl işlediğini anlatırlar — hiçbiri Low Vision Zoom'u incelememiştir ve hiçbiri, uygulamanın belirli bir sonucunun kanıtı olarak okunmamalıdır.</p>
+
+                    <h3>Uzamsal değişmezlik ve göz hareketleri boyunca görsel kararlılık</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — hızlı göz hareketleri sırasında görsel duyarlılık azalır ve bu baskılanma retinada başlar. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">Okuyun</a>.</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — beynin, göz hareketleri boyunca gelen görüntü dizisinden nasıl birleşik bir algı oluşturduğu. <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">Özet</a>.</li>
+                    </ul>
+
+                    <h3>Düzgün izleme — gözün sürekli takip sistemi</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — göz, hareket eden hedefleri akıcı biçimde takip eder ve öngörür; kendi ürettiği ya da gerçekçi hedef hareketlerinde doğruluk daha yüksektir. <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">Özet</a>.</li>
+                    </ul>
+
+                    <h3>Değişim körlüğü — görsel bir kesinti boyunca öğeleri kaybetmek</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — normalde kolayca fark edilecek büyük değişiklikleri görmedeki çarpıcı başarısızlık. <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">Özet</a>.</li>
+                        <li>Rensink, <em>Change Blindness</em>, in Neurobiology of Attention (Elsevier, 2005) — bu etki, bir göz hareketi, göz kırpma ya da kısa bir parlama sırasında değişiklik yaparak oluşturulabilir. <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>.</li>
+                    </ul>
+
+                    <h3>Merkezi görüş kaybı, eksantrik görme ve tercih edilen retinal odak</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — merkezi skotomu olan kişiler, etkilenen alanın dışında tercih edilen bir retinal odak kullanır ve bu merkez dışı bakışın eğitimine eksantrik görme eğitimi denir. <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">Okuyun</a>.</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">Özet</a>.</li>
+                    </ul>
+
+                    <h3>Kullanıcı arayüzü tasarımında hareket ve süreklilik</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — hareket, yön kaybını önleyebilir ve kullanıcıların geçişler boyunca bağlamı takip etmesine yardımcı olabilir. <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">Okuyun</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Akıcılığı kendiniz görün</h2>
+                <p>7 gün ücretsiz deneme · tek seferlik $9.99 · abonelik yok · hesap yok</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/tr.svg" alt="Microsoft Store'dan edinin">
+                    </a>
+                    <a href="/tr/index.html#get" data-download class="download-direct">Veya yükleyiciyi doğrudan bu siteden indirin (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows için sakin bir ekran büyüteci. Bir txtbook&nbsp;LLC ürünüdür.</p>
+                </div>
+                <div>
+                    <h4>Ürün</h4>
+                    <ul>
+                        <li><a href="/tr/index.html#why">Neden daha iyi</a></li>
+                        <li><a href="/tr/index.html#how">Nasıl çalışır</a></li>
+                        <li><a href="/tr/pricing.html">Fiyat</a></li>
+                        <li><a href="/tr/compare.html">Büyüteçleri karşılaştırın</a></li>
+                        <li><a href="/tr/faq.html">SSS</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hukuki</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Gizlilik (İngilizce)</a></li>
+                        <li><a href="/terms.html">Hizmet şartları (İngilizce)</a></li>
+                        <li><a href="/refund.html">İade politikası (İngilizce)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Destek</h4>
+                    <ul>
+                        <li><a href="/tr/contact.html">Bize ulaşın</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

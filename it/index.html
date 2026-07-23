@@ -39,6 +39,33 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Il logo di Low Vision Zoom — una lente di ingrandimento con un più all’interno — e lo slogan: il miglior ingranditore di schermo per gli utenti Windows con ipovisione">
     <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom è un ingranditore di schermo per Windows 10 e 11, pensato per le persone con ipovisione. Tenga premuto Ctrl e scorra per ingrandire ovunque in Windows; la visuale si avvicina con dolcezza e ruota intorno al puntatore del mouse, così non perde mai il segno. Funziona offline e non raccoglie dati. Prova gratuita di 7 giorni, poi una licenza una tantum di $9.99 — senza abbonamento.",
+      "url": "https://lowvisionzoom.com/it/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/it/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
     <title>Low Vision Zoom — Ingrandimento fluido dello schermo per Windows</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
@@ -289,7 +316,7 @@
                     </div>
                 </div>
 
-                <p class="requirements-line">Progettato per Windows 11, 64 bit (x64) · programma di installazione autonomo, nient’altro da scaricare · supporto ARM in arrivo.</p>
+                <p class="requirements-line">Realizzato per Windows 10 e 11, 64 bit (x64) · programma di installazione autonomo, nient’altro da scaricare · Windows su ARM non è supportato per ora.</p>
 
                 <div class="good-to-know">
                     <p><strong>Buono a sapersi:</strong> i ricercatori della visione la chiamano <em>cecità al cambiamento</em>: quando una vista cambia durante un’interruzione visiva, è facile non accorgersi di cosa si è spostato e perdere ciò che si stava seguendo. Un ingranditore che salta ricrea quell’interruzione per tutto il giorno. Uno che scivola non lascia mai agli occhi un vuoto in cui perdere il segno.</p>
@@ -312,10 +339,6 @@
                         <summary>Cosa succede alla fine del periodo di prova?</summary>
                         <div class="faq-body"><p>L’app continua a funzionare — l’ingrandimento viene semplicemente limitato finché non inserisce una chiave di licenza, così lo schermo resta sempre abbastanza leggibile per navigare e acquistare. Inserisca la chiave in qualsiasi momento per ripristinare all’istante lo zoom completo; nessuna reinstallazione necessaria.</p></div>
                     </details>
-                    <details class="faq">
-                        <summary>In cosa è diverso dalla Lente di ingrandimento integrata in Windows?</summary>
-                        <div class="faq-body"><p>Windows include una lente di ingrandimento valida, e molte persone dovrebbero provarla per prima. Low Vision Zoom punta su una sensazione più fluida e più tranquilla: zoom animato e delicato (senza scatti), zoom centrato sul cursore, panoramica stabile con zona neutra e un’interfaccia discreta nell’area di notifica per regolazioni rapide e frequenti.</p></div>
-                    </details>
                     <!-- Carries the full first-run SmartScreen guidance (formerly its own
                          aside under the on-page download CTA, now retired); the
                          install-note-* classes style the steps and figure here too. -->
@@ -337,19 +360,11 @@
                             <p>L’avviso scompare da solo nel giro di qualche settimana, man mano che più persone installano l’app, e dovrà farlo una volta sola. L’installazione avviene per l’intero computer in Program Files, ed è anche ciò che permette ai clic di arrivare nel punto giusto durante lo zoom.</p>
                         </div>
                     </details>
-                    <details class="faq">
-                        <summary>I miei dati di acquisto restano privati?</summary>
-                        <div class="faq-body"><p>Sì. L’app in sé non raccoglie nulla e funziona offline (<a href="/privacy.html">informativa sulla privacy (in inglese)</a>). Gli acquisti sono gestiti dal nostro fornitore di pagamenti, Paddle, che agisce come venditore ufficiale (merchant of record); l’app non vede mai i suoi dati di pagamento.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Offrite rimborsi?</summary>
-                        <div class="faq-body"><p>Sì — oltre alla prova gratuita c’è una garanzia di rimborso di 30 giorni. Veda la <a href="/refund.html">politica di rimborso (in inglese)</a>.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Le organizzazioni possono acquistare più licenze?</summary>
-                        <div class="faq-body"><p>Sì. Scuole, cliniche, biblioteche e datori di lavoro possono richiedere licenze in volume e fatturazione — usi il nostro <a href="/it/contact.html?topic=volume">modulo di contatto</a>.</p></div>
-                    </details>
                 </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">Altre domande — privacy, rimborsi, più licenze, come si confronta con altri ingranditori? <a href="/it/faq.html">Veda tutte le domande frequenti →</a></p>
             </div>
         </section>
 
@@ -390,7 +405,7 @@
                         <li><a href="#why">Perché è migliore</a></li>
                         <li><a href="#how">Come funziona</a></li>
                         <li><a href="/it/pricing.html">Prezzo</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="/it/faq.html">FAQ</a></li>
                     </ul>
                 </div>
                 <div>

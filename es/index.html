@@ -39,6 +39,33 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Logotipo de Low Vision Zoom — una lupa con un signo más dentro — y el lema: la mejor lupa de pantalla para usuarios de Windows con baja visión">
     <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom es una lupa de pantalla para Windows 10 y 11, diseñada para personas con baja visión. Mantenga presionada Ctrl y use la rueda del mouse para ampliar en cualquier parte de Windows; la vista se acerca con suavidad y gira en torno al puntero del mouse para que nunca pierda su sitio. Funciona sin conexión y no recopila datos. Prueba gratuita de 7 días y luego una licencia de pago único de $9.99 — sin suscripción.",
+      "url": "https://lowvisionzoom.com/es/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/es/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
     <title>Low Vision Zoom — Ampliación de pantalla fluida para Windows</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
@@ -289,7 +316,7 @@
                     </div>
                 </div>
 
-                <p class="requirements-line">Hecho para Windows 11, 64 bits (x64) · instalador autónomo, sin nada más que descargar · compatibilidad con ARM próximamente.</p>
+                <p class="requirements-line">Hecho para Windows 10 y 11, 64 bits (x64) · instalador autónomo, sin nada más que descargar · Windows en ARM no es compatible por ahora.</p>
 
                 <div class="good-to-know">
                     <p><strong>Un dato útil:</strong> los investigadores de la visión lo llaman <em>ceguera al cambio</em>: cuando una vista cambia durante una interrupción visual, es fácil no ver qué se movió y perder lo que se estaba siguiendo. Una lupa que salta recrea esa interrupción todo el día. Una que se desliza nunca deja a sus ojos un hueco en el que perder el punto de lectura.</p>
@@ -312,10 +339,6 @@
                         <summary>¿Qué pasa cuando termina la prueba?</summary>
                         <div class="faq-body"><p>La aplicación sigue funcionando — simplemente la ampliación queda limitada hasta que ingrese una clave de licencia, de modo que su pantalla siempre se mantiene lo suficientemente legible para navegar y comprar. Ingrese una clave en cualquier momento para restaurar el zoom completo al instante; no hace falta reinstalar.</p></div>
                     </details>
-                    <details class="faq">
-                        <summary>¿En qué se diferencia de la Lupa integrada en Windows?</summary>
-                        <div class="faq-body"><p>Windows incluye una lupa competente, y muchas personas deberían probarla primero. Low Vision Zoom se centra en una experiencia más suave y tranquila: zoom animado con delicadeza (sin saltos), zoom centrado en el cursor, desplazamiento estable con zona muerta y una interfaz discreta en la bandeja del sistema para ajustes rápidos y frecuentes.</p></div>
-                    </details>
                     <!-- Carries the full first-run SmartScreen guidance (formerly its own
                          aside under the on-page download CTA, now retired); the
                          install-note-* classes style the steps and figure here too. -->
@@ -337,19 +360,11 @@
                             <p>La advertencia desaparece por sí sola en las próximas semanas, a medida que más personas instalan la aplicación, y solo tendrá que hacerlo una vez. Se instala por equipo en Archivos de programa, que es también lo que permite que los clics lleguen al lugar correcto con el zoom activo.</p>
                         </div>
                     </details>
-                    <details class="faq">
-                        <summary>¿Mis datos de compra se mantienen privados?</summary>
-                        <div class="faq-body"><p>Sí. La aplicación en sí no recopila nada y funciona sin conexión (<a href="/privacy.html">política de privacidad (en inglés)</a>). Los pagos los gestiona nuestro proveedor de pagos, Paddle, que actúa como vendedor oficial (merchant of record); la aplicación nunca ve sus datos de pago.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>¿Ofrecen reembolsos?</summary>
-                        <div class="faq-body"><p>Sí — hay una garantía de devolución de dinero de 30 días, además de la prueba gratuita. Consulte la <a href="/refund.html">política de reembolsos (en inglés)</a>.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>¿Pueden las organizaciones comprar varias licencias?</summary>
-                        <div class="faq-body"><p>Sí. Escuelas, clínicas, bibliotecas y empleadores pueden solicitar licencias por volumen con facturación — use nuestro <a href="/es/contact.html?topic=volume">formulario de contacto</a>.</p></div>
-                    </details>
                 </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">¿Más preguntas — privacidad, reembolsos, varias licencias, cómo se compara con otras lupas? <a href="/es/faq.html">Vea todas las preguntas frecuentes →</a></p>
             </div>
         </section>
 
@@ -390,7 +405,7 @@
                         <li><a href="#why">Por qué es mejor</a></li>
                         <li><a href="#how">Cómo funciona</a></li>
                         <li><a href="/es/pricing.html">Precio</a></li>
-                        <li><a href="#faq">Preguntas frecuentes</a></li>
+                        <li><a href="/es/faq.html">Preguntas frecuentes</a></li>
                     </ul>
                 </div>
                 <div>

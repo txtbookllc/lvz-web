@@ -39,6 +39,33 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Logo Low Vision Zoom — une loupe avec un signe plus à l’intérieur — et le slogan&nbsp;: la meilleure loupe d’écran pour les personnes malvoyantes sous Windows">
     <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom est une loupe d’écran pour Windows 10 et 11, conçue pour les personnes malvoyantes. Maintenez Ctrl et faites défiler pour zoomer n’importe où dans Windows ; la vue s’agrandit en douceur et pivote autour du pointeur de la souris pour que vous ne perdiez jamais votre place. Fonctionne hors ligne, ne collecte aucune donnée. Essai gratuit de 7 jours, puis licence unique de $9.99 — sans abonnement.",
+      "url": "https://lowvisionzoom.com/fr/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/fr/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
     <title>Low Vision Zoom — Agrandissement d’écran fluide pour Windows</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
@@ -289,7 +316,7 @@
                     </div>
                 </div>
 
-                <p class="requirements-line">Conçu pour Windows 11, 64 bits (x64) · installateur autonome, rien d’autre à télécharger · prise en charge d’ARM bientôt disponible.</p>
+                <p class="requirements-line">Conçu pour Windows 10 et 11, 64 bits (x64) · installateur autonome, rien d’autre à télécharger · Windows sur ARM non pris en charge pour le moment.</p>
 
                 <div class="good-to-know">
                     <p><strong>Bon à savoir&nbsp;:</strong> les chercheurs en vision appellent cela la <em>cécité au changement</em>&nbsp;: quand une vue change pendant une interruption visuelle, il est facile de manquer ce qui a bougé et de perdre ce que l’on suivait. Une loupe qui saute recrée cette interruption toute la journée. Une loupe qui glisse ne laisse jamais à vos yeux le moindre vide où perdre leur place.</p>
@@ -312,10 +339,6 @@
                         <summary>Que se passe-t-il à la fin de l’essai&nbsp;?</summary>
                         <div class="faq-body"><p>L’application continue de fonctionner — l’agrandissement est simplement limité jusqu’à la saisie d’une clé de licence, pour que votre écran reste toujours assez lisible pour naviguer et acheter. Saisissez une clé à tout moment pour retrouver instantanément le zoom complet&nbsp;; aucune réinstallation nécessaire.</p></div>
                     </details>
-                    <details class="faq">
-                        <summary>En quoi est-ce différent de la Loupe intégrée à Windows&nbsp;?</summary>
-                        <div class="faq-body"><p>Windows inclut une loupe tout à fait capable, et beaucoup de gens devraient d’abord l’essayer. Low Vision Zoom mise sur une sensation plus fluide et plus calme&nbsp;: un zoom animé en douceur (sans à-coups), centré sur votre curseur, un déplacement stable avec zone neutre, et une interface discrète dans la zone de notification pour des ajustements rapides et fréquents.</p></div>
-                    </details>
                     <!-- Carries the full first-run SmartScreen guidance (formerly its own
                          aside under the on-page download CTA, now retired); the
                          install-note-* classes style the steps and figure here too. -->
@@ -337,19 +360,11 @@
                             <p>L’avertissement disparaît de lui-même au fil des semaines, à mesure que davantage de personnes installent l’application, et vous n’avez à le faire qu’une seule fois. L’installation se fait par machine dans Program Files, ce qui permet aussi aux clics d’arriver au bon endroit pendant le zoom.</p>
                         </div>
                     </details>
-                    <details class="faq">
-                        <summary>Mes données d’achat restent-elles privées&nbsp;?</summary>
-                        <div class="faq-body"><p>Oui. L’application elle-même ne collecte rien et fonctionne hors ligne (<a href="/privacy.html">politique de confidentialité (en anglais)</a>). Les achats sont gérés par notre prestataire de paiement, Paddle, qui agit comme vendeur officiel (merchant of record)&nbsp;; l’application ne voit jamais vos informations de paiement.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Proposez-vous des remboursements&nbsp;?</summary>
-                        <div class="faq-body"><p>Oui — vous bénéficiez d’une garantie de remboursement de 30 jours, en plus de l’essai gratuit. Consultez la <a href="/refund.html">politique de remboursement (en anglais)</a>.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Les organisations peuvent-elles acheter plusieurs licences&nbsp;?</summary>
-                        <div class="faq-body"><p>Oui. Les écoles, cliniques, bibliothèques et employeurs peuvent demander des licences en volume avec facturation — utilisez notre <a href="/fr/contact.html?topic=volume">formulaire de contact</a>.</p></div>
-                    </details>
                 </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">D’autres questions — confidentialité, remboursements, licences multiples, comparaison avec d’autres loupes&nbsp;? <a href="/fr/faq.html">Voir toutes les questions fréquentes →</a></p>
             </div>
         </section>
 
@@ -390,7 +405,7 @@
                         <li><a href="#why">Pourquoi c’est mieux</a></li>
                         <li><a href="#how">Comment ça marche</a></li>
                         <li><a href="/fr/pricing.html">Tarif</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="/fr/faq.html">FAQ</a></li>
                     </ul>
                 </div>
                 <div>

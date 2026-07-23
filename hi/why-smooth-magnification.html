@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="एक सहज स्क्रीन मैग्निफायर का अनुसरण करना उससे आसान क्यों है जो उछलता है: स्थानिक स्थिरता, स्मूद परस्यूट और चेंज ब्लाइंडनेस यह कैसे समझाते हैं कि अपनी जगह खोने का एहसास क्यों होता है — और Low Vision Zoom इन्हीं के इर्द-गिर्द कैसे डिज़ाइन किया गया है।">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "सहज मैग्निफिकेशन का अनुसरण, उछलते मैग्निफिकेशन की तुलना में आसान क्यों है",
+      "description": "एक सरल-भाषा में, स्रोतों सहित व्याख्या कि एक ऐसा स्क्रीन मैग्निफायर जो सहजता से चलता है आपकी जगह बनाए रखता है जबकि उछलने वाला आपको उसे दोबारा ढूँढने पर मजबूर करता है — स्थानिक स्थिरता, स्मूद परस्यूट और चेंज ब्लाइंडनेस पर आधारित।",
+      "url": "https://lowvisionzoom.com/hi/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "hi",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "स्क्रीन मैग्निफिकेशन" },
+        { "@type": "Thing", "name": "कम दृष्टि" },
+        { "@type": "Thing", "name": "Spatial constancy" },
+        { "@type": "Thing", "name": "Smooth pursuit eye movement" },
+        { "@type": "Thing", "name": "Change blindness" }
+      ]
+    }
+    </script>
+    <title>सहज मैग्निफिकेशन का अनुसरण करना आसान क्यों है | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">सीधे सामग्री पर जाएँ</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/hi/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="मुख्य">
+                <a href="/hi/index.html#demo">डेमो देखें</a>
+                <a href="/hi/index.html#how">यह कैसे काम करता है</a>
+                <a href="/hi/index.html#why">यह बेहतर क्यों है</a>
+                <a href="/hi/pricing.html">कीमत</a>
+                <a href="/hi/index.html#get" data-download class="btn btn-secondary btn-nav">डाउनलोड</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="भाषा: हिन्दी">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>हिन्दी</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi" aria-current="true">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">सहजता क्यों मायने रखती है</span>
+                <h1>सहज मैग्निफिकेशन का अनुसरण, उछलते मैग्निफिकेशन की तुलना में आसान क्यों है</h1>
+                <p class="updated">एक सरल-भाषा में व्याख्या, स्रोतों सहित</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>ज़्यादातर स्क्रीन मैग्निफायर आपके दृश्य को अचानक झटकों में हिलाते हैं। हर झटका आपकी आँखों और आपके दिमाग़ को रुकने, यह दोबारा ढूँढने कि वे कहाँ थीं, और फिर से शुरू करने पर मजबूर करता है। Low Vision Zoom लगातार चलता है — यह ज़ूम में सहजता से पहुँचता है, आप जिस बिंदु पर इशारा कर रहे हैं उसके चारों ओर घूमता है, और पैन करते समय फिसलता है — ताकि आपका ध्यान कभी उस चीज़ पर से पकड़ न खोए जिसकी आपको परवाह है। यह कोई अस्पष्ट अच्छाई नहीं है; यह मानव दृष्टि के काम करने के तरीके के कई अच्छी तरह प्रलेखित गुणों से मेल खाती है।</p>
+                    </div>
+
+                    <p>इस पृष्ठ पर कुछ भी कोई चिकित्सीय दावा नहीं है। ये मानव दृष्टि और मानव–कंप्यूटर संपर्क के आम तौर पर समझे जाने वाले सिद्धांत हैं, जिनका उपयोग यह समझाने के लिए किया गया है कि एक अधिक सहज मैग्निफायर में रहना उछलते हुए मैग्निफायर की तुलना में आसान क्यों है। यहाँ उद्धृत किसी भी अध्ययन ने Low Vision Zoom का अध्ययन नहीं किया; वे बताते हैं कि दृष्टि और इंटरफ़ेस की गति सामान्य रूप से कैसे काम करती है।</p>
+
+                    <h2>“अपनी जगह खो देने” के एहसास का एक नाम है</h2>
+                    <p>जब लोग कहते हैं कि कोई मैग्निफायर उन्हें “यह पता खो देने” पर मजबूर करता है कि वे कहाँ हैं, तो वे कुछ वास्तविक बता रहे होते हैं। आपका दृश्य तंत्र स्क्रीन को किसी तस्वीर की तरह संचित नहीं करता; यह एक चलता-फिरता आंतरिक मानचित्र बनाए रखता है कि चीज़ें कहाँ हैं और आपकी नज़र को एक चुने हुए बिंदु पर टिकाए रखता है। कई क्रियाविधियाँ उस मानचित्र को स्थिर रखती हैं — और मैग्निफिकेशन में एक अचानक झटका उन सबको एक साथ तोड़ देता है।</p>
+
+                    <h3>1. स्थानिक स्थिरता</h3>
+                    <p>आपका दिमाग़ दुनिया को स्थिर महसूस कराने के लिए कड़ी मेहनत करता है, भले ही आपकी आँखें लगातार हिल रही हों। इसे <strong>स्थानिक स्थिरता</strong> (spatial constancy), या स्थानिक अद्यतन (spatial updating) कहा जाता है: जैसे-जैसे आप हिलते हैं, दिमाग़ अनुमान लगाता है कि हर चीज़ को कहाँ पहुँचना चाहिए और चुपचाप मानचित्र को संरेखित रखता है। सहज, लगातार गति ठीक वैसी ही इनपुट है जिसे संभालने के लिए वह तंत्र बना है — यह चलते-चलते मानचित्र को अद्यतन कर सकता है। एक अचानक टेलीपोर्ट उसे प्रक्षेपित (interpolate) करने के लिए कुछ नहीं देता, इसलिए मानचित्र अमान्य हो जाता है और उसे शुरू से फिर बनाना पड़ता है। वही पुनर्निर्माण “मैं अभी कहाँ चला गया?” वाला क्षण है।</p>
+                    <p>Low Vision Zoom कभी टेलीपोर्ट न करके स्थानिक स्थिरता को अक्षुण्ण रखता है। मैग्निफिकेशन लगभग एक-तिहाई सेकंड में अपने लक्ष्य की ओर सहजता से पहुँचता है, और पैनिंग एकाएक हिलने के बजाय फिसलती है। आपका आंतरिक मानचित्र अद्यतन होता है, मिटता नहीं।</p>
+
+                    <h3>2. स्मूद परस्यूट, और दोबारा दृष्टि टिकाने की क़ीमत</h3>
+                    <p>आँख के हिलने के दो तरीके हैं। <strong>स्मूद परस्यूट</strong> (smooth pursuit) एक ऐसे लक्ष्य का लगातार पीछा करता है जो स्थिर गति से चल रहा हो — आँख फिसलती है और उस पर टिकी रहती है। <strong>सैकेड</strong> (saccades) स्थिरीकरण-बिंदुओं के बीच तेज़, बलिस्टिक छलांगें हैं, और सैकेड के दौरान दृष्टि दब जाती है, इसलिए बाद में आँख को लक्ष्य को फिर से पकड़कर उस पर फिर फ़ोकस करना पड़ता है।</p>
+                    <p>एक उछलता मैग्निफायर हर बार हिलने पर एक सैकेड और एक पुनर्ग्रहण (re-acquisition) पर मजबूर करता है। कम दृश्य तीक्ष्णता वाले किसी व्यक्ति के लिए, झटके के बाद किसी छोटे लक्ष्य को दोबारा ढूँढना तीखी केंद्रीय दृष्टि वाले व्यक्ति की तुलना में धीमा और कम निश्चित होता है। एक सहज ज़ूम इसके बजाय आँख के परस्यूट तंत्र को काम करने देता है: यह गति पर सवार होकर अपनी पकड़ बनाए रख सकता है, इसलिए न कोई अंधी छलांग होती है और न अपनी जगह दोबारा ढूँढने की तलाश। Low Vision Zoom इसी के इर्द-गिर्द बना है — प्रति सेकंड 60-फ़्रेम का एक एनिमेशन लूप इसका अर्थ है कि दृश्य हमेशा छोटे, अनुसरण-योग्य वेतनों (increments) में चलता है जिनका आपकी आँखें पीछा करने के बजाय अनुसरण कर सकती हैं।</p>
+
+                    <h3>3. अवधारणात्मक निरंतरता — दिमाग़ इसे वही दृश्य मानता है</h3>
+                    <p>जब कोई वस्तु सहजता से चलती है, तो दिमाग़ उसे एक ही सतत वस्तु मानता है जो चली। जब वही वस्तु इसके बजाय ग़ायब होकर कहीं और फिर प्रकट होती है, तो दिमाग़ को यह फिर से सुलझाना पड़ता है “क्या यह वही चीज़ है, और क्या हुआ?” वह पुनर्समाधान श्रमसाध्य है और <strong>चेंज ब्लाइंडनेस</strong> (change blindness) का एक चिरपरिचित उत्प्रेरक है, जहाँ किसी दृश्य व्यवधान के बीच होने वाला परिवर्तन सीधे-सीधे नज़र नहीं आता, और आप उन चीज़ों को खो देते हैं जिन्हें आप ट्रैक कर रहे थे।</p>
+                    <p>Low Vision Zoom निरंतरता बनाए रखता है। चूँकि हर फ़्रेम पिछले से एक छोटा क़दम है, मैग्निफिकेशन के नीचे की सामग्री उसी दृश्य के रूप में पढ़ी जाती है जो सहजता से बढ़ रहा है — न कि एक नई स्क्रीन जिसने पुरानी की जगह ले ली। कुछ भी ग़ायब होकर फिर प्रकट नहीं होता, इसलिए खोने को कुछ नहीं है।</p>
+
+                    <h3>4. एक स्थिर दृश्य लंगर: कर्सर के भीतर ज़ूम करना</h3>
+                    <p>यह “लंगर खो देने” का सबसे सीधा उत्तर है। Low Vision Zoom आपके कर्सर के नीचे के बिंदु के चारों ओर ज़ूम को घुमाता है — माउस के ठीक नीचे की सामग्री अपनी जगह टिकी रहती है जबकि बाकी सब कुछ उसके चारों ओर बड़ा होता है। कई मैग्निफायर इसके बजाय किसी स्क्रीन-कोने या केंद्र की ओर ज़ूम करते हैं और फिर पकड़ने के लिए पैन करते हैं, जिसका अर्थ है कि जिस चीज़ को आप देख रहे थे वही आपके नीचे से खिसक जाती है और फिर वापस आती है।</p>
+                    <p>ज़ूम के दौरान आपके दृष्टि-बिंदु को स्थिर रखकर, ऐप आपकी नज़र को पूरे मैग्निफिकेशन के दौरान थामे रखने के लिए एक स्थिर लंगर देता है। आप बस उस पर इशारा करके तय करते हैं कि लंगर क्या है। आपके स्थिरीकरण-बिंदु को कभी हिलना नहीं पड़ता, इसलिए स्थानिक स्थिरता और आपकी आँख की पकड़ दोनों उस एक क्षण के दौरान बनी रहती हैं जो आमतौर पर उन्हें तोड़ देता है।</p>
+
+                    <h3>5. पूर्वानुमेय, स्व-गति से नियंत्रण</h3>
+                    <p>जो गति दिमाग़ खुद शुरू करता है उसका अनुमान लगाना उस गति से आसान है जो उस पर थोपी गई हो। Low Vision Zoom का <strong>Ctrl + स्क्रॉल</strong> लगातार और आनुपातिक है: आप ठीक उतनी दूर और ठीक उतनी तेज़ ज़ूम करते हैं जितना आप व्हील घुमाते हैं, और आप किसी भी बिंदु पर रुक, उलट, या थाम सकते हैं। गति आपकी है, इसलिए यह पूर्वानुमेय है — और पूर्वानुमेय गति उस मैग्निफायर की तुलना में कहीं कम भ्रमित करने वाली है जो अपने आप किसी पूर्व-निर्धारित स्तर पर झटके से पहुँच जाता है।</p>
+
+                    <h2>यह ख़ास तौर पर कम दृष्टि के लिए क्यों मायने रखता है</h2>
+                    <p>घटी हुई केंद्रीय दृष्टि के साथ जी रहे लोग अक्सर ऐसी रणनीतियों पर निर्भर होते हैं जिनके विरुद्ध एक अचानक चलने वाला मैग्निफायर चुपचाप काम करता है:</p>
+                    <ul>
+                        <li><strong>विकेंद्रित दृष्टि (eccentric viewing) और एक पसंदीदा रेटिनल स्थल।</strong> जब तीखी केंद्रीय दृष्टि घट जाती है, तो कई लोग थोड़ा किनारे से देखना सीख लेते हैं, रेटिना पर एक निश्चित पसंदीदा स्थान को अपने कार्यशील फ़ोकस-बिंदु के रूप में उपयोग करते हुए। हर झटके के बाद उस संरेखण को फिर से स्थापित करना वास्तविक, बार-बार का प्रयास है। एक ऐसा मैग्निफायर जो आपको कभी अपनी जगह दोबारा नहीं ढूँढवाता, उस कठिनाई से पाए गए संरेखण को बना रहने देता है।</li>
+                        <li><strong>दोबारा-ढूँढने का दंड।</strong> जब बचाने के लिए कम तीक्ष्णता हो, तो अंधी छलांग के बाद किसी छोटे लक्ष्य को दोबारा पकड़ने की क़ीमत पूर्ण-दृष्टि वाले उपयोगकर्ता की तुलना में अधिक होती है। सहजता झटके को हटा देती है, और उसके साथ यह दंड भी।</li>
+                        <li><strong>ध्यान और कार्यशील स्मृति।</strong> हर “मैं अभी कहाँ हूँ?” रीसेट ध्यान और कार्यशील स्मृति खर्च करता है जिसे आप असली काम — पढ़ने, लिखने, नेविगेट करने — पर खर्च करना पसंद करेंगे। ट्रैकिंग को अपने अवधारणात्मक तंत्र को सौंप देना, जो सहज गति का अनायास अनुसरण करता है, उस प्रयास को काम के लिए मुक्त कर देता है।</li>
+                    </ul>
+                    <p>यह कोई उपचार का दावा नहीं है। यह एक ऐसे उपकरण के बीच का अंतर है जो कम-दृष्टि से देखने के तरीके से लड़ता है और एक ऐसे उपकरण का जो उसी के इर्द-गिर्द ढला हुआ है।</p>
+
+                    <h2>हर डिज़ाइन विकल्प एक ही लक्ष्य की सेवा करता है</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="हर सुविधा किस अवधारणात्मक सिद्धांत से मेल खाती है">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Low Vision Zoom की सुविधाएँ और हर एक जिस अवधारणात्मक सिद्धांत की सेवा करती है</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">सुविधा</th>
+                                    <th scope="col">यह क्या करती है</th>
+                                    <th scope="col">जिस सिद्धांत की यह सेवा करती है</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">सहज एनिमेटेड ज़ूम (~⅓ सेकंड ईज़-आउट, 60 fps)</th>
+                                    <td>मैग्निफिकेशन एकाएक बदलने के बजाय अपने लक्ष्य की ओर सहजता से पहुँचता है</td>
+                                    <td>स्थानिक स्थिरता; स्मूद परस्यूट; अवधारणात्मक निरंतरता</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ज़ूम कर्सर के भीतर घूमता है</th>
+                                    <td>माउस के नीचे का बिंदु स्थिर रहता है जबकि बाकी सब कुछ उसके चारों ओर बड़ा होता है</td>
+                                    <td>एक स्थिर दृश्य लंगर; स्थिरीकरण कभी विस्थापित नहीं होता</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">एक डेड ज़ोन के साथ कर्सर-अनुसरण</th>
+                                    <td>दृश्य स्थिर रहता है जबकि आपका कर्सर एक विस्तृत केंद्रीय पट्टी में घूमता है, और केवल तभी पैन करता है — फिसलते हुए — जब आप किसी किनारे के पास पहुँचते हैं</td>
+                                    <td>कोई अनावश्यक गति नहीं; पैन स्मूद परस्यूट हैं, कभी टेलीपोर्ट नहीं</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ctrl + स्क्रॉल आनुपातिक नियंत्रण</th>
+                                    <td>आप ज़ूम स्तर लगातार सेट करते हैं, जितनी तेज़ या धीमी आप चाहें</td>
+                                    <td>स्व-गति से चलने वाली, पूर्वानुमेय, स्व-आरंभित गति</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">पूरे-डेस्कटॉप का, बहु-मॉनिटर दृश्य</th>
+                                    <td>एक सतत मैग्निफाइड स्थान जो स्क्रीनों के बीच आपका अनुसरण करता है, न कि प्रति-विंडो द्वीप</td>
+                                    <td>अद्यतन करने के लिए एक एकल सुसंगत स्थानिक मानचित्र, कई नहीं</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">ट्यून किए हुए डिफ़ॉल्ट, कॉन्फ़िगर करने को कुछ नहीं</th>
+                                    <td>सहजता, गति, और डेड-ज़ोन का अनुभव पहले से ट्यून किया हुआ और तय है</td>
+                                    <td>सहज व्यवहार ही डिफ़ॉल्ट है, न कि कोई ऐसी चीज़ जिसे खोजना और सेट करना पड़े</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>यही इस उत्पाद के पीछे का पूरा विचार है: एक ऐसा मैग्निफायर जो उसी तरह चलता है जिस तरह का अनुसरण करने के लिए मानव दृश्य तंत्र बना है, ताकि यह आपको वहीं थामे रखे जहाँ दूसरे आपको अपनी जगह खोने पर मजबूर करते हैं। आप इसे <a href="/hi/index.html#demo">क्रिया में देख सकते हैं</a>, देख सकते हैं कि यह <a href="/hi/compare.html">अन्य मैग्निफायरों से कैसे तुलना करता है</a>, या <a href="/hi/index.html#get">इसे 7 दिन के लिए मुफ़्त आज़मा सकते हैं</a>।</p>
+
+                    <h2>स्रोत और आगे पढ़ने के लिए</h2>
+                    <p>ऊपर उद्धृत सामान्य सिद्धांतों के लिए ये विश्वसनीय, सहकर्मी-समीक्षित या प्राधिकरण-प्रकाशित स्रोत हैं। ये बताते हैं कि मानव दृष्टि और इंटरफ़ेस की गति सामान्य रूप से कैसे काम करती है — इनमें से किसी ने Low Vision Zoom का अध्ययन नहीं किया, और इनमें से किसी को भी ऐप से किसी विशिष्ट परिणाम के प्रमाण के रूप में नहीं पढ़ा जाना चाहिए।</p>
+
+                    <h3>स्थानिक स्थिरता और नेत्र गति के दौरान दृश्य स्थिरता</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — तेज़ नेत्र गति के दौरान दृश्य संवेदनशीलता कम हो जाती है, और यह दमन रेटिना में शुरू होता है। <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">पढ़ें</a>।</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — दिमाग़ नेत्र गतियों के दौरान छवियों के अनुक्रम से एक एकीकृत बोध कैसे बनाता है। <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">सार</a>।</li>
+                    </ul>
+
+                    <h3>स्मूद परस्यूट — आँख का लगातार-अनुसरण करने वाला तंत्र</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — आँख सहजता से चलते लक्ष्यों का अनुसरण और पूर्वानुमान करती है, स्व-उत्पन्न या यथार्थवादी लक्ष्य गति के लिए बेहतर सटीकता के साथ। <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">सार</a>।</li>
+                    </ul>
+
+                    <h3>चेंज ब्लाइंडनेस — किसी दृश्य व्यवधान के बीच चीज़ों को खो देना</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — बड़े परिवर्तनों को देख न पाने की उल्लेखनीय विफलता जो सामान्य रूप से आसानी से नज़र आ जाते। <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">सार</a>।</li>
+                        <li>Rensink, <em>Change Blindness</em>, in Neurobiology of Attention (Elsevier, 2005) — यह प्रभाव किसी नेत्र गति, पलक झपकने, या एक संक्षिप्त फ़्लैश के दौरान परिवर्तन करके उत्पन्न किया जा सकता है। <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>।</li>
+                    </ul>
+
+                    <h3>केंद्रीय दृष्टि हानि, विकेंद्रित दृष्टि, और पसंदीदा रेटिनल स्थल</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — केंद्रीय स्कोटोमा वाले लोग प्रभावित क्षेत्र के बाहर एक पसंदीदा रेटिनल स्थल का उपयोग करते हैं, और उस किनारे-से-देखने के प्रशिक्षण को विकेंद्रित दृष्टि प्रशिक्षण (eccentric viewing training) कहा जाता है। <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">पढ़ें</a>।</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">सार</a>।</li>
+                    </ul>
+
+                    <h3>यूज़र-इंटरफ़ेस डिज़ाइन में गति और निरंतरता</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — गति भटकाव को रोक सकती है और उपयोगकर्ताओं को संक्रमणों के दौरान संदर्भ का ध्यान बनाए रखने में मदद कर सकती है। <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">पढ़ें</a>।</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>सहजता को खुद देखें</h2>
+                <p>7 दिन का मुफ़्त ट्रायल · $9.99 एक बार · कोई सदस्यता नहीं · कोई खाता नहीं</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/hi.svg" alt="Microsoft Store से प्राप्त करें">
+                    </a>
+                    <a href="/hi/index.html#get" data-download class="download-direct">या इंस्टॉलर को सीधे इस साइट से डाउनलोड करें (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows के लिए एक शांत स्क्रीन मैग्निफायर। txtbook&nbsp;LLC का एक उत्पाद।</p>
+                </div>
+                <div>
+                    <h4>उत्पाद</h4>
+                    <ul>
+                        <li><a href="/hi/index.html#why">यह बेहतर क्यों है</a></li>
+                        <li><a href="/hi/index.html#how">यह कैसे काम करता है</a></li>
+                        <li><a href="/hi/pricing.html">कीमत</a></li>
+                        <li><a href="/hi/compare.html">मैग्निफायरों की तुलना</a></li>
+                        <li><a href="/hi/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>कानूनी</h4>
+                    <ul>
+                        <li><a href="/privacy.html">गोपनीयता (अंग्रेज़ी में)</a></li>
+                        <li><a href="/terms.html">सेवा की शर्तें (अंग्रेज़ी में)</a></li>
+                        <li><a href="/refund.html">रिफ़ंड नीति (अंग्रेज़ी में)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>सहायता</h4>
+                    <ul>
+                        <li><a href="/hi/contact.html">हमसे संपर्क करें</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. सर्वाधिकार सुरक्षित।</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

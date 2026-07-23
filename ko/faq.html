@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Windows 화면 확대와 Low Vision Zoom에 관한 자주 묻는 질문에 대한 답변입니다: 확대하는 방법, Windows에 기본 내장된 Windows Magnifier 및 ZoomText와의 비교, 가격, 무료 체험, 개인정보 보호, 설치 방법 등을 다룹니다.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "ko",
+      "url": "https://lowvisionzoom.com/ko/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Windows용 최고의 화면 확대 프로그램은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "딱 하나의 정답은 없습니다 — 무엇이 필요한지에 따라 다르며, 가장 먼저 해볼 만한 방법은 무료입니다. 모든 Windows PC에는 이미 Windows Magnifier가 기본으로 포함되어 있어(Windows key와 Plus 키를 눌러 시작) 많은 분들에게는 이것으로 충분합니다. 화면을 소리 내어 읽어주는 기능, 매우 높은 배율, 색상 필터, 점자가 필요하다면 ZoomText나 SuperNova 같은 종합 보조공학 제품군이 적합한 범주입니다. 설정할 것 없이 작업 중 커서를 부드럽고 차분하게 따라오는 확대를 원하신다면, Low Vision Zoom이 바로 그런 경우를 위해 만들어졌으며 $9.99에 한 번만 결제하면 됩니다. 확대 방식은 사람마다 다르게 느껴지므로, 결제 전에 어떤 옵션이든 먼저 사용해 보세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows Magnifier의 대안이 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. Microsoft가 기본 제공하는 Windows Magnifier 외에도 Windows용 타사 확대 프로그램으로는 ZoomText와 SuperNova(음성과 읽기 도구를 갖춘 종합 저시력 제품군), 무료인 Magnifixer, 그리고 부드럽고 커서에 고정된 확대에 집중한 $9.99짜리 소형 유틸리티 Low Vision Zoom이 있습니다. 사람들은 보통 더 부드러운 사용감, 마우스 포인터 중심의 확대, 또는 기본 도구에는 없는 음성·색상 기능을 원할 때 대안을 찾습니다. 어떤 대안이 맞는지는 이 중 무엇이 필요한지에 따라 달라집니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ZoomText보다 저렴한 대안이 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "어떤 ZoomText 기능을 사용하시는지에 따라 다릅니다. ZoomText는 음성, 문서 읽기, 폭넓은 색상·초점 보강 기능, 매우 높은 배율을 갖춘 종합 저시력 제품군으로, 보통 연간 라이선스로 판매됩니다. 그런 읽기·보강 기능을 사용하신다면, 솔직히 말해 더 저렴한 도구로는 이를 대체할 수 없습니다. 주로 커서를 따라오는 부드러운 확대만 원하신다면, Low Vision Zoom이 바로 그 한 가지를 $9.99 한 번 결제로 제공합니다 — 다만 음성, 읽기, 색상 필터가 없고 5x에서 멈춥니다. Windows Magnifier도 무료이며 많은 분들이 생각하는 것보다 더 강력합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom이 텍스트를 소리 내어 읽어주나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "아니요. Low Vision Zoom은 확대 기능만 제공합니다. 텍스트 음성 변환, 문서 읽기, 스크린 리더 기능이 없습니다. 화면을 소리 내어 읽어주는 기능이 필요하시다면 ZoomText Magnifier/Reader, 음성 또는 스크린 리더 버전의 SuperNova, 또는 무료인 Windows 기본 제공 Narrator를 확인해 보세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom은 Windows에 기본 내장된 Windows Magnifier와 무엇이 다른가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifier는 무료이고 기본 제공되며 성능도 좋아서 많은 분들이 먼저 사용해 볼 만합니다. Low Vision Zoom은 기능 개수가 아니라 사용감에서 차이가 납니다. 확대가 연속적이며 단계적으로 끊기지 않고 새로운 배율로 부드럽게 이어지고, 마우스 커서 바로 아래 지점을 중심으로 확대되어 보고 있던 곳이 그대로 유지되며, 커서가 화면 가운데를 오가는 동안에는 화면이 정지해 있습니다. 별도 설정이 없고 시스템 트레이에 상주합니다. 반면 Windows Magnifier보다 제한적인 부분도 있습니다: 음성 기능이 없고, 색상 필터가 없으며, 5x에서 멈춥니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows 11에서 화면을 확대하려면 어떻게 하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows에는 기본 제공 확대 프로그램이 있습니다: Windows key를 누른 채 Plus를 눌러 확대하고, Minus를 눌러 축소하며, Windows key와 Escape를 함께 눌러 끕니다. 설정, 시스템, 디스플레이, 배율에서 화면 전체를 영구적으로 키우거나, 설정, 접근성, 텍스트 크기에서 텍스트만 키울 수도 있습니다. Low Vision Zoom을 설치하면 Ctrl 키를 누른 채 마우스 휠을 굴려 Windows 어디서나 부드럽게 확대할 수 있으며, 마우스 휠이 없다면 Ctrl과 Alt를 누른 채 Plus 또는 Minus를 사용하세요."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "마우스 휠로 확대하는 확대 프로그램이 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. Low Vision Zoom은 Ctrl과 마우스 휠로 확대합니다: Ctrl을 누른 채 휠을 앞으로 굴리면 확대되고, 뒤로 굴리면 축소됩니다. 확대는 비례적이어서 휠을 돌린 만큼, 돌린 속도로 정확히 움직이며, 포인터 아래 지점에 고정된 채 새로운 배율로 부드럽게 이어집니다. Ctrl, Shift와 아래로 스크롤하면 즉시 원래대로 돌아갑니다. 이것이 앱을 사용하도록 설계된 주된 방식입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom은 여러 대의 모니터에서도 작동하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "네. Windows 바탕 화면 전체를 하나의 연속된 공간으로 확대하며, 각 화면을 따로 다루지 않고 한 모니터에서 다음 모니터로 커서를 따라갑니다. 이는 Windows 기본 제공 Windows Magnifier의 전체 화면 모드와 같은 방식입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "마우스 휠이 없는 노트북에서는 어떻게 확대하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "키보드를 사용하세요. Ctrl과 Alt를 누른 채 플러스를 눌러 확대하거나 마이너스를 눌러 축소합니다. 키를 계속 누르고 있으면 계속 확대됩니다. Ctrl, Alt, 0을 함께 누르면 원래대로 돌아갑니다. 마우스 휠이나 외장 마우스가 필요 없으므로 트랙패드만 있는 노트북에서도 작동합니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "게임이나 전체 화면 동영상에서도 작동하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "거의 모든 곳에서 작동합니다. Low Vision Zoom은 Windows 바탕 화면 전체를 확대하므로 브라우저, 이메일, 문서, 창 안에서 재생되는 동영상, Windows 셸 자체에도 적용됩니다. 예외는 일반 바탕 화면을 우회하여 전체 화면을 독점적으로 제어하는 게임이나 앱인데, 이런 콘텐츠는 확대되지 않을 수 있습니다. 그런 게임을 창 모드나 테두리 없는 창 모드로 실행하면 확대 기능이 복원됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom은 화면을 얼마나 확대할 수 있나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "최대 5x까지, 0.5배 단위로 조절됩니다. 작고 편안한 확대 도구로 남기 위한 의도적인 제한이며, Windows 기본 제공 Windows Magnifier(최대 16x)나 ZoomText 같은 종합 제품군(최대 36x)보다 낮습니다. 5x 이상이 필요하시다면 Low Vision Zoom은 맞지 않는 도구입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom의 가격은 얼마인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "이후 모든 업데이트가 포함된 $9.99 일회성 라이선스입니다. 구독도, 계정도, 광고도 없습니다. 먼저 7일간 모든 기능을 무료로 사용해 볼 수 있으며, 구매 후에는 30일 환불 보장이 제공됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "무료 체험이 끝나면 어떻게 되나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "앱은 계속 작동합니다. 7일 체험이 끝나면 확대 기능이 꺼지는 것이 아니라 단순히 제한될 뿐이므로, 화면은 항상 탐색하고 라이선스를 구매하기에 충분할 만큼 읽을 수 있는 상태로 유지됩니다. 언제든 라이선스 키를 입력하면 재설치 없이 즉시 전체 확대가 복원됩니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom은 데이터를 수집하나요? 오프라인에서도 작동하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "이 앱은 개인정보, 분석 데이터, 원격 측정(텔레메트리)을 전혀 수집하지 않으며 완전히 오프라인으로 작동합니다. 화면 내용을 캡처하거나 전송하지 않습니다. 라이선스 키는 계정이나 서버 통신 없이 기기에서 확인됩니다. 인터넷에 연결되는 유일한 순간은 트레이 메뉴에서 업데이트 확인을 선택할 때뿐입니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom을 설치할 때 Windows가 경고를 표시하나요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "직접 다운로드를 사용하신다면 그럴 수 있습니다. 설치 프로그램을 처음 열면 Windows가 파란색 “Windows의 PC 보호” SmartScreen 메시지를 표시할 수 있습니다. 이는 새로운 앱에서 흔한 일이며 안전합니다. 설치 프로그램은 txtbook LLC가 디지털 서명했습니다. 추가 정보를 클릭해 게시자가 txtbook LLC인지 확인한 다음 실행을 클릭하세요. 이 화면을 아예 건너뛰고 싶다면 Microsoft Store에서 설치하세요 — 스토어를 통한 설치에서는 이 경고가 표시되지 않습니다."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "시스템 요구 사항은 무엇인가요?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low Vision Zoom은 Windows 10 및 Windows 11, 64비트(x64)에서 실행됩니다. 설치 프로그램은 자체 완결형이라 추가로 다운로드할 것이 없습니다. Windows on ARM 및 32비트 PC는 현재 지원되지 않습니다."
+          }
+        }
+      ]
+    }
+    </script>
+    <title>자주 묻는 질문 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">본문으로 건너뛰기</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ko/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="주 메뉴">
+                <a href="/ko/index.html#demo">데모 보기</a>
+                <a href="/ko/index.html#how">사용 방법</a>
+                <a href="/ko/index.html#why">더 나은 이유</a>
+                <a href="/ko/pricing.html">가격</a>
+                <a href="/ko/index.html#get" data-download class="btn btn-secondary btn-nav">다운로드</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="언어: 한국어">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>한국어</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko" aria-current="true">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">FAQ</span>
+                <h1>자주 묻는 질문</h1>
+                <p class="updated">Windows 화면 확대와 Low Vision Zoom이 어떻게 어울리는지</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">확대 프로그램 선택하기</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Windows용 최고의 화면 확대 프로그램은 무엇인가요?</summary>
+                            <div class="faq-body">
+                                <p>딱 하나의 정답은 없습니다 — 무엇이 필요한지에 따라 다르며, 가장 먼저 해볼 만한 방법은 무료입니다. 모든 Windows PC에는 이미 <strong>Windows Magnifier</strong>가 기본으로 포함되어 있어(<code>Windows key</code> + <code>Plus</code> 키를 눌러 시작) 많은 분들에게는 이것으로 충분합니다. 화면을 소리 내어 읽어주는 기능, 매우 높은 배율, 색상 필터, 점자가 필요하다면 <strong>ZoomText</strong>나 <strong>SuperNova</strong> 같은 종합 보조공학 제품군이 적합한 범주입니다. 설정할 것 없이 작업 중 커서를 부드럽고 차분하게 따라오는 확대를 원하신다면, <strong>Low Vision Zoom</strong>이 바로 그런 경우를 위해 만들어졌으며 $9.99에 한 번만 결제하면 됩니다. 확대 방식은 사람마다 다르게 느껴지므로, 결제 전에 어떤 옵션이든 먼저 사용해 보세요. 저희의 <a href="/ko/compare.html">공정한 비교</a>를 참고하세요.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Windows Magnifier의 대안이 있나요?</summary>
+                            <div class="faq-body">
+                                <p>네. Microsoft가 기본 제공하는 Windows Magnifier 외에도 Windows용 타사 확대 프로그램으로는 <strong>ZoomText</strong>와 <strong>SuperNova</strong>(음성과 읽기 도구를 갖춘 종합 저시력 제품군), 무료인 <strong>Magnifixer</strong>, 그리고 부드럽고 커서에 고정된 확대에 집중한 $9.99짜리 소형 유틸리티 <strong>Low Vision Zoom</strong>이 있습니다. 사람들은 보통 더 부드러운 사용감, 마우스 포인터 중심의 확대, 또는 기본 도구에는 없는 음성·색상 기능을 원할 때 대안을 찾습니다. 어떤 대안이 맞는지는 이 중 무엇이 필요한지에 따라 달라집니다 — <a href="/ko/compare.html">비교 페이지</a>에서 나란히 정리해 두었습니다.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>ZoomText보다 저렴한 대안이 있나요?</summary>
+                            <div class="faq-body">
+                                <p>어떤 ZoomText 기능을 사용하시는지에 따라 다릅니다. ZoomText는 음성, 문서 읽기, 폭넓은 색상·초점 보강 기능, 매우 높은 배율을 갖춘 종합 저시력 제품군으로, 보통 연간 라이선스로 판매됩니다. 그런 읽기·보강 기능을 사용하신다면, 솔직히 말해 더 저렴한 도구로는 이를 대체할 수 없습니다. 주로 커서를 따라오는 부드러운 확대만 원하신다면, Low Vision Zoom이 바로 그 한 가지를 일회성 <strong>$9.99</strong> 결제로 제공합니다 — 다만 음성, 읽기, 색상 필터가 없고 5×에서 멈춥니다. Windows Magnifier도 무료이며 많은 분들이 생각하는 것보다 더 강력합니다.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom이 텍스트를 소리 내어 읽어주나요?</summary>
+                            <div class="faq-body">
+                                <p><strong>아니요.</strong> Low Vision Zoom은 확대 기능만 제공합니다. 텍스트 음성 변환, 문서 읽기, 스크린 리더 기능이 없습니다. 화면을 소리 내어 읽어주는 기능이 필요하시다면 <strong>ZoomText Magnifier/Reader</strong>, 음성 또는 스크린 리더 버전의 <strong>SuperNova</strong>, 또는 무료인 Windows 기본 제공 <strong>Narrator</strong>를 확인해 보세요.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom은 Windows에 기본 내장된 Windows Magnifier와 무엇이 다른가요?</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifier는 무료이고 기본 제공되며 성능도 좋아서 많은 분들이 먼저 사용해 볼 만합니다. Low Vision Zoom은 기능 개수가 아니라 <em>사용감</em>에서 차이가 납니다. 확대가 연속적이며 단계적으로 끊기지 않고 새로운 배율로 부드럽게 이어지고, 마우스 커서 바로 아래 지점을 중심으로 확대되어 보고 있던 곳이 그대로 유지되며, 커서가 화면 가운데를 오가는 동안에는 화면이 정지해 있습니다. 별도 설정이 없고 시스템 트레이에 상주합니다. 반면 Windows Magnifier보다 제한적인 부분도 있습니다: 음성 기능이 없고, 색상 필터가 없으며, 5×에서 멈춥니다. 부드러운 움직임에 관한 근거는 <a href="/ko/why-smooth-magnification.html">부드러운 확대가 따라가기 쉬운 이유</a>에서 더 자세히 다룹니다.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">Low Vision Zoom 사용하기</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Windows 11에서 화면을 확대하려면 어떻게 하나요?</summary>
+                            <div class="faq-body">
+                                <p>Windows에는 기본 제공 확대 프로그램이 있습니다: <code>Windows key</code>를 누른 채 <code>Plus</code>를 누르면 확대되고, <code>Minus</code>를 누르면 축소되며, <code>Windows key</code> + <code>Esc</code>를 누르면 꺼집니다. <em>설정 → 시스템 → 디스플레이 → 배율</em>에서 화면 전체를 영구적으로 키우거나, <em>설정 → 접근성 → 텍스트 크기</em>에서 텍스트만 키울 수도 있습니다. Low Vision Zoom을 설치하면 <strong>Ctrl</strong> 키를 누른 채 마우스 휠을 굴려 Windows 어디서나 부드럽게 확대할 수 있으며, 마우스 휠이 없다면 <strong>Ctrl + Alt + 플러스 / 마이너스</strong>를 사용하세요.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>마우스 휠로 확대하는 확대 프로그램이 있나요?</summary>
+                            <div class="faq-body">
+                                <p>네. Low Vision Zoom은 <strong>Ctrl + 마우스 휠</strong>로 확대합니다: Ctrl을 누른 채 휠을 앞으로 굴리면 확대되고, 뒤로 굴리면 축소됩니다. 확대는 비례적이어서 휠을 돌린 만큼, 돌린 속도로 정확히 움직이며, 포인터 아래 지점에 고정된 채 새로운 배율로 부드럽게 이어집니다. <strong>Ctrl + Shift + 스크롤 아래로</strong>를 하면 즉시 원래대로 돌아갑니다. 이것이 앱을 사용하도록 설계된 주된 방식입니다.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom은 여러 대의 모니터에서도 작동하나요?</summary>
+                            <div class="faq-body">
+                                <p>네. Windows 바탕 화면 전체를 하나의 연속된 공간으로 확대하며, 각 화면을 따로 다루지 않고 한 모니터에서 다음 모니터로 커서를 따라갑니다. 이는 Windows 기본 제공 Windows Magnifier의 전체 화면 모드와 같은 방식입니다.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>마우스 휠이 없는 노트북에서는 어떻게 확대하나요?</summary>
+                            <div class="faq-body">
+                                <p>키보드를 사용하세요. <strong>Ctrl + Alt</strong>를 누른 채 <strong>플러스</strong>를 눌러 확대하거나 <strong>마이너스</strong>를 눌러 축소합니다. 키를 계속 누르고 있으면 계속 확대됩니다. <strong>Ctrl + Alt + 0</strong>을 누르면 원래대로 돌아갑니다. 마우스 휠이나 외장 마우스가 필요 없으므로 트랙패드만 있는 노트북에서도 작동합니다.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>게임이나 전체 화면 동영상에서도 작동하나요?</summary>
+                            <div class="faq-body">
+                                <p>거의 모든 곳에서 작동합니다. Low Vision Zoom은 Windows 바탕 화면 전체를 확대하므로 브라우저, 이메일, 문서, 창 안에서 재생되는 동영상, Windows 셸 자체에도 적용됩니다. 예외는 일반 바탕 화면을 우회하여 전체 화면을 <em>독점적으로</em> 제어하는 게임이나 앱인데, 이런 콘텐츠는 확대되지 않을 수 있습니다. 그런 게임을 창 모드나 테두리 없는 창 모드로 실행하면 확대 기능이 복원됩니다.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom은 화면을 얼마나 확대할 수 있나요?</summary>
+                            <div class="faq-body">
+                                <p>최대 <strong>5×</strong>까지, 0.5배 단위로 조절됩니다. 작고 편안한 확대 도구로 남기 위한 의도적인 제한이며, Windows 기본 제공 Windows Magnifier(최대 16×)나 ZoomText 같은 종합 제품군(최대 36×)보다 낮습니다. 5× 이상이 필요하시다면 Low Vision Zoom은 맞지 않는 도구입니다 — <a href="/ko/compare.html">비교 페이지</a>에서 더 높은 배율을 제공하는 제품을 안내해 드립니다.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">구매, 체험, 신뢰</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Low Vision Zoom의 가격은 얼마인가요?</summary>
+                            <div class="faq-body">
+                                <p>이후 모든 업데이트가 포함된 <strong>$9.99</strong> 일회성 라이선스입니다. 구독도, 계정도, 광고도 없습니다. 먼저 7일간 모든 기능을 무료로 사용해 볼 수 있으며, 구매 후에는 30일 환불 보장이 제공됩니다. <a href="/ko/pricing.html">가격 페이지</a>를 참고하세요.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>무료 체험이 끝나면 어떻게 되나요?</summary>
+                            <div class="faq-body">
+                                <p>앱은 계속 작동합니다. 7일 체험이 끝나면 확대 기능이 꺼지는 것이 아니라 단순히 제한될 뿐이므로, 화면은 항상 탐색하고 라이선스를 구매하기에 충분할 만큼 읽을 수 있는 상태로 유지됩니다. 언제든 라이선스 키를 입력하면 재설치 없이 즉시 전체 확대가 복원됩니다.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom은 데이터를 수집하나요? 오프라인에서도 작동하나요?</summary>
+                            <div class="faq-body">
+                                <p>이 앱은 개인정보, 분석 데이터, 원격 측정(텔레메트리)을 <strong>전혀</strong> 수집하지 않으며 완전히 오프라인으로 작동합니다. 화면 내용을 캡처하거나 전송하지 않습니다. 라이선스 키는 계정이나 서버 통신 없이 기기에서 확인됩니다. 인터넷에 연결되는 유일한 순간은 트레이 메뉴에서 <strong>업데이트 확인</strong>을 선택할 때뿐입니다. 자세한 내용은 <a href="/privacy.html">개인정보 처리방침 (영문)</a>을 참고하세요.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom을 설치할 때 Windows가 경고를 표시하나요?</summary>
+                            <div class="faq-body">
+                                <p>직접 다운로드를 사용하신다면 그럴 수 있습니다. 설치 프로그램을 처음 열면 Windows가 파란색 <strong>“Windows의 PC 보호(Windows protected your PC)”</strong> SmartScreen 메시지를 표시할 수 있습니다. 이는 새로운 앱에서 흔한 일이며 안전합니다. 설치 프로그램은 <strong>txtbook LLC</strong>가 디지털 서명했습니다. <strong>추가 정보</strong>를 클릭해 게시자가 txtbook LLC인지 확인한 다음 <strong>실행</strong>을 클릭하세요. 이 화면을 아예 건너뛰고 싶다면 <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a>에서 설치하세요 — 스토어를 통한 설치에서는 이 경고가 표시되지 않습니다.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>시스템 요구 사항은 무엇인가요?</summary>
+                            <div class="faq-body">
+                                <p>Low Vision Zoom은 <strong>Windows 10 및 Windows 11, 64비트(x64)</strong>에서 실행됩니다. 설치 프로그램은 자체 완결형이라 추가로 다운로드할 것이 없습니다. Windows on ARM 및 32비트 PC는 현재 지원되지 않습니다.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">궁금한 점이 더 있으신가요? <a href="/ko/contact.html">문의하기</a> — 실제 담당자가 답변해 드립니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>7일 동안 무료로 사용해 보세요</h2>
+                <p>7일 무료 체험 · $9.99 한 번만 결제 · 구독 없음 · 계정 불필요</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ko.svg" alt="Microsoft Store에서 받기">
+                    </a>
+                    <a href="/ko/index.html#get" data-download class="download-direct">또는 이 사이트에서 설치 프로그램을 직접 다운로드 (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows를 위한 차분한 화면 확대 프로그램. txtbook&nbsp;LLC의 제품입니다.</p>
+                </div>
+                <div>
+                    <h4>제품</h4>
+                    <ul>
+                        <li><a href="/ko/index.html#why">더 나은 이유</a></li>
+                        <li><a href="/ko/index.html#how">사용 방법</a></li>
+                        <li><a href="/ko/pricing.html">가격</a></li>
+                        <li><a href="/ko/compare.html">확대 프로그램 비교</a></li>
+                        <li><a href="/ko/faq.html" aria-current="page">자주 묻는 질문</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>법적 고지</h4>
+                    <ul>
+                        <li><a href="/privacy.html">개인정보 처리방침 (영문)</a></li>
+                        <li><a href="/terms.html">서비스 이용약관 (영문)</a></li>
+                        <li><a href="/refund.html">환불 정책 (영문)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>지원</h4>
+                    <ul>
+                        <li><a href="/ko/contact.html">문의하기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

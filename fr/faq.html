@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Réponses aux questions fréquentes sur l’agrandissement d’écran sous Windows et sur Low Vision Zoom&nbsp;: comment zoomer, comment il se compare à Windows Magnifier et à ZoomText, le prix, l’essai gratuit, la confidentialité et l’installation.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "fr",
+      "url": "https://lowvisionzoom.com/fr/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Quelle est la meilleure loupe d'écran pour Windows ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Il n'existe pas une seule meilleure solution : cela dépend de vos besoins, et la bonne première étape est gratuite. Tout PC Windows inclut déjà Windows Magnifier (appuyez sur la touche Windows key et Plus pour la lancer) ; pour beaucoup de personnes, cela suffit. Si vous avez besoin que votre écran soit lu à voix haute, d'un agrandissement très élevé, de filtres de couleur ou du braille, la bonne catégorie est une suite complète de technologie d'assistance comme ZoomText ou SuperNova. Si ce que vous voulez, c'est un zoom fluide et apaisant qui suit votre curseur pendant que vous travaillez, sans réglages à configurer, Low Vision Zoom est conçu précisément pour ce cas et coûte $9.99 en une seule fois. La magnification étant une affaire personnelle, essayez toute option avant de payer."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Existe-t-il une alternative à Windows Magnifier ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Outre Windows Magnifier, intégrée par Microsoft, les loupes tierces pour Windows comprennent ZoomText et SuperNova (des suites complètes pour la basse vision avec synthèse vocale et outils de lecture), la gratuite Magnifixer, et Low Vision Zoom, un petit utilitaire à $9.99 centré sur un zoom fluide ancré au curseur. On cherche généralement une alternative quand on souhaite une sensation plus fluide, un zoom centré sur le pointeur de la souris, ou des fonctions vocales et de couleur que l'outil intégré n'offre pas. L'alternative qui convient dépend de ceux de ces besoins qui sont les vôtres."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Existe-t-il une alternative moins chère à ZoomText ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cela dépend des fonctions de ZoomText dont vous avez besoin. ZoomText est une suite complète pour la basse vision avec synthèse vocale, un lecteur de documents, de nombreuses améliorations de couleur et de mise au point, et un agrandissement très élevé, généralement vendue sous forme de licence annuelle. Si vous utilisez ces fonctions de lecture et d'amélioration, la réponse honnête est qu'un outil moins cher ne les remplacera pas. Si vous voulez surtout un agrandissement fluide qui suit votre curseur, Low Vision Zoom fait exactement cela pour $9.99 en une seule fois — mais sans synthèse vocale, sans lecture, sans filtres de couleur, et plafonné à 5x. Windows Magnifier est également gratuite et plus capable que beaucoup ne le pensent."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom lit-il le texte à voix haute ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Non. Low Vision Zoom se limite à l'agrandissement. Il n'a ni synthèse vocale, ni lecteur de documents, ni lecteur d'écran. Si vous avez besoin que votre écran soit lu à voix haute, tournez-vous vers ZoomText Magnifier/Reader, SuperNova dans une édition avec synthèse vocale ou lecteur d'écran, ou Narrator, intégré à Windows, qui est gratuit."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "En quoi Low Vision Zoom est-il différent de Windows Magnifier, la loupe intégrée à Windows ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifier est gratuite, intégrée, et capable, et beaucoup de gens devraient d'abord l'essayer. Low Vision Zoom se distingue par la sensation plutôt que par le nombre de fonctions. Son zoom est continu et progresse en douceur jusqu'au nouveau niveau plutôt que par paliers, il pivote autour du point exact situé sous votre curseur de souris pour que ce que vous regardez reste en place, et il maintient la vue immobile pendant que votre curseur circule au centre de l'écran. Il n'a aucun réglage et réside dans la zone de notification. Il est aussi plus limité que Windows Magnifier à certains égards : pas de synthèse vocale, pas de filtres de couleur, et il plafonne à 5x."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment zoomer sous Windows 11 ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows dispose d'une loupe intégrée : maintenez la touche Windows key et appuyez sur Plus pour zoomer, sur Minus pour dézoomer, et sur Windows key avec Esc pour la désactiver. Vous pouvez aussi agrandir tout de façon permanente sous Paramètres, Système, Affichage, Échelle, ou n'agrandir que le texte sous Paramètres, Accessibilité, Taille du texte. Une fois Low Vision Zoom installé, maintenez Ctrl et faites rouler la molette de la souris pour zoomer en douceur n'importe où dans Windows, ou utilisez Ctrl et Alt avec Plus ou Minus si vous n'avez pas de molette."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Existe-t-il une loupe qui zoome avec la molette de la souris ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Low Vision Zoom zoome avec Ctrl et la molette de la souris : maintenez Ctrl et faites rouler la molette vers l'avant pour zoomer, vers l'arrière pour dézoomer. Le zoom est proportionnel, donc vous allez exactement aussi loin et aussi vite que vous tournez la molette, et il progresse en douceur jusqu'au nouveau niveau tout en restant centré sur le point situé sous votre pointeur. Ctrl, Shift et molette vers le bas revient instantanément à la normale. C'est la principale façon dont l'application est conçue pour être utilisée."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom fonctionne-t-il avec plusieurs écrans ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Il agrandit tout le bureau Windows comme un espace continu unique et suit votre curseur d'un écran à l'autre, plutôt que de traiter chaque écran séparément. C'est la même approche que celle utilisée par le mode plein écran de Windows Magnifier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment zoomer sur un ordinateur portable sans molette de souris ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Utilisez le clavier. Maintenez Ctrl et Alt et appuyez sur Plus pour zoomer ou sur Minus pour dézoomer ; maintenez la touche enfoncée pour continuer à zoomer. Ctrl, Alt et 0 réinitialise à la normale. Aucune molette de souris ni souris externe n'est nécessaire, donc l'application fonctionne sur un ordinateur portable avec son seul pavé tactile."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fonctionne-t-il dans les jeux et les vidéos en plein écran ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cela fonctionne presque partout. Low Vision Zoom agrandit tout le bureau Windows, donc cela s'applique à votre navigateur, à vos e-mails, à vos documents, aux vidéos lues dans une fenêtre, et au shell Windows lui-même. L'exception est un jeu ou une application qui prend le contrôle exclusif du plein écran et contourne le bureau normal ; ce contenu peut ne pas être agrandi. Exécuter ce jeu en mode fenêtré ou en fenêtre sans bordure rétablit l'agrandissement."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "De combien Low Vision Zoom peut-il agrandir l'écran ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Jusqu'à 5x, par incréments d'un demi-pas. C'est une limite délibérée pour un petit outil de zoom confortable, et elle est inférieure à celle de Windows Magnifier (jusqu'à 16x) ou des suites complètes comme ZoomText (jusqu'à 36x). Si vous avez besoin de plus de 5x, Low Vision Zoom n'est pas le bon outil pour vous."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien coûte Low Vision Zoom ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est une licence à $9.99 en une seule fois, avec toutes les mises à jour futures incluses. Il n'y a ni abonnement, ni compte, ni publicité. Vous pouvez d'abord essayer gratuitement toutes les fonctionnalités pendant 7 jours, et une garantie de remboursement de 30 jours s'applique après l'achat."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que se passe-t-il à la fin de l'essai gratuit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'application continue de fonctionner. Quand l'essai de 7 jours se termine, l'agrandissement est simplement limité plutôt que désactivé, afin que votre écran reste toujours assez lisible pour naviguer et acheter une licence. Saisissez une clé de licence à tout moment pour rétablir instantanément le zoom complet, sans réinstallation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom collecte-t-il des données, et fonctionne-t-il hors ligne ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "L'application ne collecte aucune donnée personnelle, aucune analyse d'usage, et aucune télémétrie, et elle fonctionne entièrement hors ligne. Elle ne capture ni ne transmet le contenu de votre écran. Votre clé de licence est vérifiée sur votre appareil, sans compte et sans connexion cachée vers un serveur. La seule fois où elle se connecte à internet, c'est lorsque vous choisissez Vérifier les mises à jour dans le menu de la zone de notification."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows va-t-il m'avertir lors de l'installation de Low Vision Zoom ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "C'est possible, si vous utilisez le téléchargement direct. La première fois que vous ouvrez l'installateur, Windows peut afficher un message SmartScreen bleu « Windows a protégé votre ordinateur » (Windows protected your PC). C'est normal pour une application récente et c'est sans danger ; l'installateur est signé numériquement par txtbook LLC. Cliquez sur Informations complémentaires, vérifiez que l'éditeur est bien txtbook LLC, puis cliquez sur Exécuter quand même. Pour éviter totalement cet écran, installez plutôt depuis le Microsoft Store, où l'avertissement n'apparaît pas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Quelle est la configuration requise ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low Vision Zoom fonctionne sous Windows 10 et Windows 11, 64 bits (x64). L'installateur est autonome, il n'y a donc rien d'autre à télécharger. Windows on ARM et les PC 32 bits ne sont pas pris en charge actuellement."
+          }
+        }
+      ]
+    }
+    </script>
+    <title>Questions fréquentes | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Aller au contenu</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/fr/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Principale">
+                <a href="/fr/index.html#demo">Voir la démo</a>
+                <a href="/fr/index.html#how">Comment ça marche</a>
+                <a href="/fr/index.html#why">Pourquoi c’est mieux</a>
+                <a href="/fr/pricing.html">Tarif</a>
+                <a href="/fr/index.html#get" data-download class="btn btn-secondary btn-nav">Télécharger</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Langue&nbsp;: Français">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Français</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr" aria-current="true">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">FAQ</span>
+                <h1>Questions fréquentes</h1>
+                <p class="updated">L’agrandissement d’écran sous Windows, et comment s’y intègre Low Vision Zoom</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">Choisir une loupe</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Quelle est la meilleure loupe d’écran pour Windows&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Il n’existe pas une seule meilleure solution — cela dépend de vos besoins, et la bonne première étape est gratuite. Tout PC Windows inclut déjà <strong>Windows Magnifier</strong> (appuyez sur la <code>Windows key</code> + <code>Plus</code> pour la lancer)&nbsp;; pour beaucoup de personnes, cela suffit. Si vous avez besoin que votre écran soit lu à voix haute, d’un agrandissement très élevé, de filtres de couleur ou du braille, la bonne catégorie est une suite complète de technologie d’assistance comme <strong>ZoomText</strong> ou <strong>SuperNova</strong>. Si ce que vous voulez, c’est un zoom fluide et apaisant qui suit votre curseur pendant que vous travaillez, sans réglages à configurer, <strong>Low Vision Zoom</strong> est conçu précisément pour ce cas et coûte $9.99 en une seule fois. La magnification étant une affaire personnelle, essayez toute option avant de payer. Consultez notre <a href="/fr/compare.html">comparaison honnête</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Existe-t-il une alternative à Windows Magnifier&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Oui. Outre Windows Magnifier, intégrée par Microsoft, les loupes tierces pour Windows comprennent <strong>ZoomText</strong> et <strong>SuperNova</strong> (des suites complètes pour la basse vision avec synthèse vocale et outils de lecture), la gratuite <strong>Magnifixer</strong>, et <strong>Low Vision Zoom</strong>, un petit utilitaire à $9.99 centré sur un zoom fluide ancré au curseur. On cherche généralement une alternative quand on souhaite une sensation plus fluide, un zoom centré sur le pointeur de la souris, ou des fonctions vocales et de couleur que l’outil intégré n’offre pas. L’alternative qui convient dépend de ceux de ces besoins qui sont les vôtres — la <a href="/fr/compare.html">page de comparaison</a> les présente côte à côte.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Existe-t-il une alternative moins chère à ZoomText&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Cela dépend des fonctions de ZoomText dont vous avez besoin. ZoomText est une suite complète pour la basse vision avec synthèse vocale, un lecteur de documents, de nombreuses améliorations de couleur et de mise au point, et un agrandissement très élevé, généralement vendue sous forme de licence annuelle. Si vous utilisez ces fonctions de lecture et d’amélioration, la réponse honnête est qu’un outil moins cher ne les remplacera pas. Si vous voulez surtout un agrandissement fluide qui suit votre curseur, Low Vision Zoom fait exactement cela pour un paiement unique de <strong>$9.99</strong> — mais sans synthèse vocale, sans lecture, sans filtres de couleur, et plafonné à 5×. Windows Magnifier est également gratuite et plus capable que beaucoup ne le pensent.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom lit-il le texte à voix haute&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p><strong>Non.</strong> Low Vision Zoom se limite à l’agrandissement. Il n’a ni synthèse vocale, ni lecteur de documents, ni lecteur d’écran. Si vous avez besoin que votre écran soit lu à voix haute, tournez-vous vers <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> dans une édition avec synthèse vocale ou lecteur d’écran, ou <strong>Narrator</strong>, intégré à Windows, qui est gratuit.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>En quoi Low Vision Zoom est-il différent de Windows Magnifier, la loupe intégrée à Windows&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifier est gratuite, intégrée, et capable, et beaucoup de gens devraient d’abord l’essayer. Low Vision Zoom se distingue par la <em>sensation</em> plutôt que par le nombre de fonctions. Son zoom est continu et progresse en douceur jusqu’au nouveau niveau plutôt que par paliers, il pivote autour du point exact situé sous votre curseur de souris pour que ce que vous regardez reste en place, et il maintient la vue immobile pendant que votre curseur circule au centre de l’écran. Il n’a aucun réglage et réside dans la zone de notification. Il est aussi plus limité que Windows Magnifier à certains égards&nbsp;: pas de synthèse vocale, pas de filtres de couleur, et il plafonne à 5×. Vous trouverez plus de détails sur la logique de ce mouvement fluide dans <a href="/fr/why-smooth-magnification.html">pourquoi un agrandissement fluide est plus facile à suivre</a>.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">Utiliser Low Vision Zoom</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Comment zoomer sous Windows 11&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Windows dispose d’une loupe intégrée&nbsp;: maintenez la <code>Windows key</code> et appuyez sur <code>Plus</code> pour zoomer, sur <code>Minus</code> pour dézoomer, et sur <code>Windows key</code> + <code>Esc</code> pour la désactiver. Vous pouvez aussi agrandir tout de façon permanente dans <em>Paramètres → Système → Affichage → Échelle</em>, ou n’agrandir que le texte dans <em>Paramètres → Accessibilité → Taille du texte</em>. Une fois Low Vision Zoom installé, maintenez <strong>Ctrl</strong> et faites rouler la molette de la souris pour zoomer en douceur n’importe où dans Windows, ou utilisez <strong>Ctrl + Alt + Plus / Minus</strong> si vous n’avez pas de molette.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Existe-t-il une loupe qui zoome avec la molette de la souris&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Oui. Low Vision Zoom zoome avec <strong>Ctrl + la molette de la souris</strong>&nbsp;: maintenez Ctrl et faites rouler la molette vers l’avant pour zoomer, vers l’arrière pour dézoomer. Le zoom est proportionnel, donc vous allez exactement aussi loin et aussi vite que vous tournez la molette, et il progresse en douceur jusqu’au nouveau niveau tout en restant centré sur le point situé sous votre pointeur. <strong>Ctrl + Shift + molette vers le bas</strong> revient instantanément à la normale. C’est la principale façon dont l’application est conçue pour être utilisée.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom fonctionne-t-il avec plusieurs écrans&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Oui. Il agrandit tout le bureau Windows comme un espace continu unique et suit votre curseur d’un écran à l’autre, plutôt que de traiter chaque écran séparément. C’est la même approche que celle utilisée par le mode plein écran de Windows Magnifier.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Comment zoomer sur un ordinateur portable sans molette de souris&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Utilisez le clavier. Maintenez <strong>Ctrl + Alt</strong> et appuyez sur <strong>Plus</strong> pour zoomer ou sur <strong>Minus</strong> pour dézoomer&nbsp;; maintenez la touche enfoncée pour continuer à zoomer. <strong>Ctrl + Alt + 0</strong> réinitialise à la normale. Aucune molette de souris ni souris externe n’est nécessaire, donc l’application fonctionne sur un ordinateur portable avec son seul pavé tactile.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Fonctionne-t-il dans les jeux et les vidéos en plein écran&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Cela fonctionne presque partout. Low Vision Zoom agrandit tout le bureau Windows, donc cela s’applique à votre navigateur, à vos e-mails, à vos documents, aux vidéos lues dans une fenêtre, et au shell Windows lui-même. L’exception est un jeu ou une application qui prend le contrôle <em>exclusif</em> du plein écran et contourne le bureau normal&nbsp;; ce contenu peut ne pas être agrandi. Exécuter ce jeu en mode fenêtré ou en fenêtre sans bordure rétablit l’agrandissement.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>De combien Low Vision Zoom peut-il agrandir l’écran&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Jusqu’à <strong>5×</strong>, par incréments d’un demi-pas. C’est une limite délibérée pour un petit outil de zoom confortable, et elle est inférieure à celle de Windows Magnifier (jusqu’à 16×) ou des suites complètes comme ZoomText (jusqu’à 36×). Si vous avez besoin de plus de 5×, Low Vision Zoom n’est pas le bon outil pour vous — la <a href="/fr/compare.html">page de comparaison</a> vous oriente vers des outils qui vont plus loin.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">Achat, essai et confiance</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Combien coûte Low Vision Zoom&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>C’est une licence à <strong>$9.99</strong> en une seule fois, avec toutes les mises à jour futures incluses. Il n’y a ni abonnement, ni compte, ni publicité. Vous pouvez d’abord essayer gratuitement toutes les fonctionnalités pendant 7 jours, et une garantie de remboursement de 30 jours s’applique après l’achat. Consultez la <a href="/fr/pricing.html">page Tarif</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Que se passe-t-il à la fin de l’essai gratuit&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>L’application continue de fonctionner. Quand l’essai de 7 jours se termine, l’agrandissement est simplement limité plutôt que désactivé, afin que votre écran reste toujours assez lisible pour naviguer et acheter une licence. Saisissez une clé de licence à tout moment pour rétablir instantanément le zoom complet, sans réinstallation.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom collecte-t-il des données, et fonctionne-t-il hors ligne&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>L’application ne collecte <strong>aucune</strong> donnée personnelle, aucune analyse d’usage, et aucune télémétrie, et elle fonctionne entièrement hors ligne. Elle ne capture ni ne transmet le contenu de votre écran. Votre clé de licence est vérifiée sur votre appareil, sans compte et sans connexion cachée vers un serveur. La seule fois où elle se connecte à internet, c’est lorsque vous choisissez <strong>Vérifier les mises à jour</strong> dans le menu de la zone de notification. Tous les détails figurent dans la <a href="/privacy.html">politique de confidentialité (en anglais)</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Windows va-t-il m’avertir lors de l’installation de Low Vision Zoom&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>C’est possible, si vous utilisez le téléchargement direct. La première fois que vous ouvrez l’installateur, Windows peut afficher un message SmartScreen bleu <strong>«&nbsp;Windows a protégé votre ordinateur&nbsp;»</strong> (« Windows protected your PC »). C’est normal pour une application récente et c’est sans danger&nbsp;; l’installateur est signé numériquement par <strong>txtbook LLC</strong>. Cliquez sur <strong>Informations complémentaires</strong>, vérifiez que l’éditeur est bien txtbook LLC, puis cliquez sur <strong>Exécuter quand même</strong>. Pour éviter totalement cet écran, installez plutôt depuis le <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a>, où l’avertissement n’apparaît pas.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Quelle est la configuration requise&nbsp;?</summary>
+                            <div class="faq-body">
+                                <p>Low Vision Zoom fonctionne sous <strong>Windows 10 et Windows 11, 64 bits (x64)</strong>. L’installateur est autonome, il n’y a donc rien d’autre à télécharger. Windows on ARM et les PC 32 bits ne sont pas pris en charge actuellement.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">Encore une question&nbsp;? <a href="/fr/contact.html">Contactez-nous</a> — une vraie personne vous répondra.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Essayez-le gratuitement pendant 7 jours</h2>
+                <p>Essai gratuit de 7 jours · $9.99 en une seule fois · sans abonnement · sans compte</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/fr.svg" alt="Obtenir sur le Microsoft Store">
+                    </a>
+                    <a href="/fr/index.html#get" data-download class="download-direct">Ou téléchargez l’installateur directement depuis ce site (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Une loupe d’écran tout en douceur pour Windows. Un produit de txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produit</h4>
+                    <ul>
+                        <li><a href="/fr/index.html#why">Pourquoi c’est mieux</a></li>
+                        <li><a href="/fr/index.html#how">Comment ça marche</a></li>
+                        <li><a href="/fr/pricing.html">Tarif</a></li>
+                        <li><a href="/fr/compare.html">Comparer les loupes</a></li>
+                        <li><a href="/fr/faq.html" aria-current="page">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Mentions légales</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Confidentialité (en anglais)</a></li>
+                        <li><a href="/terms.html">Conditions d’utilisation (en anglais)</a></li>
+                        <li><a href="/refund.html">Politique de remboursement (en anglais)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Assistance</h4>
+                    <ul>
+                        <li><a href="/fr/contact.html">Nous contacter</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

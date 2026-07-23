@@ -39,6 +39,33 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Low Vision Zoom-Logo — eine Lupe mit einem Plus darin — und der Slogan: die beste Bildschirmlupe für Windows-Nutzer mit Sehbehinderung">
     <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom ist eine Bildschirmlupe für Windows 10 und 11, entwickelt für Menschen mit Sehbehinderung. Halten Sie Strg (Ctrl) gedrückt und scrollen Sie, um überall in Windows zu zoomen; die Ansicht vergrößert sanft und dreht sich um den Mauszeiger, damit Sie nie die Orientierung verlieren. Funktioniert offline, erfasst keine Daten. 7 Tage kostenlos testen, danach eine einmalige Lizenz für $9.99 — kein Abo.",
+      "url": "https://lowvisionzoom.com/de/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/de/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
     <title>Low Vision Zoom — Sanfte Bildschirmvergrößerung für Windows</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
@@ -289,7 +316,7 @@
                     </div>
                 </div>
 
-                <p class="requirements-line">Entwickelt für Windows 11, 64-Bit (x64) · eigenständiger Installer, nichts weiter herunterzuladen · ARM-Unterstützung folgt bald.</p>
+                <p class="requirements-line">Entwickelt für Windows 10 und 11, 64-Bit (x64) · eigenständiger Installer, nichts weiter herunterzuladen · Windows on ARM wird derzeit nicht unterstützt.</p>
 
                 <div class="good-to-know">
                     <p><strong>Gut zu wissen:</strong> In der Sehforschung nennt man es <em>Veränderungsblindheit</em> (change blindness): Ändert sich eine Ansicht während einer visuellen Unterbrechung, übersieht man leicht, was sich bewegt hat, und verliert, was man gerade verfolgte. Eine Bildschirmlupe, die springt, erzeugt diese Unterbrechung den ganzen Tag lang aufs Neue. Eine, die gleitet, lässt Ihren Augen nie eine Lücke, in der Sie Ihre Stelle verlieren könnten.</p>
@@ -312,10 +339,6 @@
                         <summary>Was passiert, wenn die Testphase endet?</summary>
                         <div class="faq-body"><p>Die App funktioniert weiter — die Vergrößerung wird lediglich begrenzt, bis Sie einen Lizenzschlüssel eingeben. So bleibt Ihr Bildschirm immer lesbar genug, um zu navigieren und zu kaufen. Geben Sie jederzeit einen Schlüssel ein, um den vollen Zoom sofort wiederherzustellen — keine Neuinstallation nötig.</p></div>
                     </details>
-                    <details class="faq">
-                        <summary>Worin unterscheidet es sich von der integrierten Windows-Bildschirmlupe?</summary>
-                        <div class="faq-body"><p>Windows bringt eine fähige Bildschirmlupe mit, und viele sollten sie zuerst ausprobieren. Low Vision Zoom konzentriert sich auf ein sanfteres, ruhigeres Gefühl: weich animierter Zoom (kein Springen), Zoom zentriert auf Ihren Mauszeiger, ruhiges Schwenken mit stabiler Lesezone und eine unaufdringliche Oberfläche im Infobereich für schnelle, häufige Anpassungen.</p></div>
-                    </details>
                     <!-- Carries the full first-run SmartScreen guidance (formerly its own
                          aside under the on-page download CTA, now retired); the
                          install-note-* classes style the steps and figure here too. -->
@@ -337,19 +360,11 @@
                             <p>Die Warnung verschwindet in den kommenden Wochen von selbst, je mehr Menschen die App installieren, und Sie müssen das nur einmal tun. Die App wird pro Gerät in den Ordner „Program Files“ installiert — genau das sorgt auch dafür, dass Klicks im gezoomten Zustand korrekt ankommen.</p>
                         </div>
                     </details>
-                    <details class="faq">
-                        <summary>Bleiben meine Kaufdaten privat?</summary>
-                        <div class="faq-body"><p>Ja. Die App selbst erfasst nichts und funktioniert offline (<a href="/privacy.html">Datenschutzerklärung (auf Englisch)</a>). Käufe wickelt unser Zahlungsanbieter Paddle ab, der als offizieller Verkäufer (merchant of record) auftritt; die App sieht Ihre Zahlungsdaten nie.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Bieten Sie Rückerstattungen an?</summary>
-                        <div class="faq-body"><p>Ja — zusätzlich zur kostenlosen Testphase gibt es eine 30-tägige Geld-zurück-Garantie. Siehe die <a href="/refund.html">Rückerstattungsrichtlinie (auf Englisch)</a>.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Können Organisationen mehrere Lizenzen kaufen?</summary>
-                        <div class="faq-body"><p>Ja. Schulen, Kliniken, Bibliotheken und Arbeitgeber können Mengenlizenzen mit Rechnungsstellung anfragen — nutzen Sie unser <a href="/de/contact.html?topic=volume">Kontaktformular</a>.</p></div>
-                    </details>
                 </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">Weitere Fragen — Datenschutz, Rückerstattungen, mehrere Lizenzen, wie es sich mit anderen Bildschirmlupen vergleicht? <a href="/de/faq.html">Alle häufig gestellten Fragen ansehen →</a></p>
             </div>
         </section>
 
@@ -390,7 +405,7 @@
                         <li><a href="#why">Warum es besser ist</a></li>
                         <li><a href="#how">So funktioniert es</a></li>
                         <li><a href="/de/pricing.html">Preise</a></li>
-                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="/de/faq.html">FAQ</a></li>
                     </ul>
                 </div>
                 <div>

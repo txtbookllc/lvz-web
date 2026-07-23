@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Perbandingan yang jujur antara kaca pembesar layar Windows: Low Vision Zoom, Kaca Pembesar Windows bawaan, ZoomText, SuperNova, dan Magnifixer — apa yang dilakukan masing-masing, cocok untuk siapa, dan kapan sebaiknya tidak memilih milik kami.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom vs Kaca Pembesar Windows, ZoomText, dan SuperNova",
+      "description": "Perbandingan berdampingan kaca pembesar layar untuk Windows: Kaca Pembesar Windows bawaan, ZoomText, SuperNova, Magnifixer, dan Low Vision Zoom — termasuk cocok untuk siapa masing-masing dan alasan untuk tidak memilih Low Vision Zoom.",
+      "url": "https://lowvisionzoom.com/id/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "id",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Perangkat lunak perbesaran layar" },
+        { "@type": "Thing", "name": "Teknologi bantu untuk low vision" },
+        { "@type": "Thing", "name": "Aksesibilitas Windows" }
+      ]
+    }
+    </script>
+    <title>Perbandingan kaca pembesar layar untuk Windows | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Langsung ke konten</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/id/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Utama">
+                <a href="/id/index.html#demo">Lihat demo</a>
+                <a href="/id/index.html#how">Cara kerjanya</a>
+                <a href="/id/index.html#why">Mengapa lebih baik</a>
+                <a href="/id/pricing.html">Harga</a>
+                <a href="/id/index.html#get" data-download class="btn btn-secondary btn-nav">Unduh</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Bahasa: Bahasa Indonesia">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Bahasa Indonesia</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id" aria-current="true">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Perbandingan</span>
+                <h1>Kaca pembesar layar untuk Windows</h1>
+                <p class="updated">Detail pesaing diverifikasi 20 Juli 2026</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Jika Anda belum pernah mencoba kaca pembesar, mulailah dengan yang sudah tersedia di dalam Windows. Ini gratis. Jika Anda perlu komputer membacakan teks dengan suara, atau perlu perbesaran yang sangat tinggi, atau perlu braille, Anda membutuhkan paket teknologi bantu lengkap seperti <strong>ZoomText</strong> atau <strong>SuperNova</strong>, dan <strong>Low Vision Zoom tidak akan cukup untuk Anda</strong>. Low Vision Zoom adalah alat kecil dan murah yang melakukan satu hal: perbesaran yang halus dan berporos pada kursor hingga 5×, tanpa ada yang perlu diatur.</p>
+                    </div>
+
+                    <h2>Siapa yang menulis ini, dan cara membacanya</h2>
+                    <p>Kami membuat Low Vision Zoom, jadi perlakukan halaman ini sebagaimana Anda memperlakukan perbandingan apa pun yang ditulis oleh salah satu peserta. Kami telah berusaha bersikap adil dalam tiga cara yang spesifik: setiap klaim tentang produk lain berasal dari dokumentasi publik vendor itu sendiri dan menautkannya; setiap produk yang tercantum punya setidaknya satu hal yang dilakukannya lebih baik daripada milik kami; dan ada bagian di bawah tentang <a href="#not-for-you">alasan untuk tidak membeli Low Vision Zoom</a>.</p>
+                    <p>Kami sengaja tidak mencantumkan harga pesaing sebagai angka. Harga teknologi bantu berubah, berbeda-beda di tiap negara, dan sering kali berbeda untuk perorangan, sekolah, dan pemberi kerja — sebuah angka yang disalin di sini akan segera usang. Kami mencantumkan <em>model lisensi</em> setiap produk dan menautkan ke vendor sehingga Anda bisa memeriksa sendiri harga terkini.</p>
+                    <p>Saran terpenting di halaman ini: <strong>setiap produk di sini bisa dicoba sebelum Anda membayar.</strong> Perbesaran sangat bersifat pribadi, dan bagaimana rasanya sebuah kaca pembesar bagi mata <em>Anda</em> lebih penting daripada tabel fitur mana pun. Cobalah.</p>
+
+                    <h2>Mana yang sebaiknya Anda pilih?</h2>
+                    <ul>
+                        <li><strong>Anda belum pernah mencoba kaca pembesar apa pun</strong> — gunakan <strong>Kaca Pembesar Windows</strong> (Windows Magnifier) yang sudah ada di PC Anda. Tekan <code>tombol Windows</code> + <code>Plus</code>. Ini tidak berbiaya dan mungkin sudah cukup untuk Anda.</li>
+                        <li><strong>Anda perlu layar dibacakan dengan suara, atau Anda menggunakan braille</strong> — Anda membutuhkan <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong>, atau pembaca layar. Low Vision Zoom sama sekali tidak memiliki dukungan suara maupun braille.</li>
+                        <li><strong>Anda perlu perbesaran lebih dari 5×</strong> — Low Vision Zoom berhenti di 5×. Windows Magnifier, ZoomText, dan SuperNova semuanya bisa jauh lebih tinggi.</li>
+                        <li><strong>Anda perlu filter warna, pembalikan kontras, atau penyorotan fokus</strong> — Windows Magnifier memiliki sebagian dari ini secara gratis; ZoomText dan SuperNova memiliki jauh lebih banyak. Low Vision Zoom tidak memiliki satu pun dari itu.</li>
+                        <li><strong>Anda ingin opsi pihak ketiga yang gratis</strong> — <strong>Magnifixer</strong> gratis dan menawarkan jendela kaca pembesar dengan tampilan terbalik dan mode warna.</li>
+                        <li><strong>Anda terutama ingin memperbesar dan memperkecil terus-menerus saat bekerja, dan Anda merasa hal itu meloncat-loncat atau merepotkan saat ini</strong> — inilah kasus spesifik yang menjadi alasan Low Vision Zoom dibuat. Ia memperbesar dengan halus di sekitar kursor Anda, tidak punya pengaturan, dan berharga $9.99 sekali bayar. <a href="/id/index.html#demo">Tonton demonya</a> dan coba uji coba gratisnya.</li>
+                    </ul>
+
+                    <h2>Perbandingan fitur</h2>
+                    <p>Sel yang bertanda “tanyakan ke vendor” adalah hal-hal yang tidak ingin kami nyatakan secara tidak langsung atas nama pihak lain — ikuti tautan pada judul produk untuk jawaban yang otoritatif.</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Tabel perbandingan fitur">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Perbandingan fitur lima kaca pembesar layar Windows</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Apa ini</th>
+                                    <td>Utilitas zoom untuk satu tujuan</td>
+                                    <td>Kaca pembesar bawaan Windows</td>
+                                    <td>Paket lengkap untuk low vision</td>
+                                    <td>Paket lengkap untuk low vision</td>
+                                    <td>Jendela kaca pembesar gratis</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Model lisensi</th>
+                                    <td>Sekali bayar $9.99, pembaruan termasuk</td>
+                                    <td>Gratis — termasuk dengan Windows</td>
+                                    <td>Lisensi tahunan (tanyakan ke vendor)</td>
+                                    <td>Lisensi per edisi (tanyakan ke vendor)</td>
+                                    <td>Gratis</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Perbesaran maksimum</th>
+                                    <td>5×</td>
+                                    <td>Hingga 1600% (16×)</td>
+                                    <td>Hingga 36×</td>
+                                    <td>Tinggi — tanyakan ke vendor</td>
+                                    <td>Tanyakan ke vendor</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Cara Anda mengubah zoom</th>
+                                    <td>Ctrl + roda mouse, atau Ctrl + Alt + Plus / Minus. Berkesinambungan dan proporsional — tampilan meluncur ke tingkat baru alih-alih beralih seketika</td>
+                                    <td>Tombol Windows + Plus / Minus, atau bilah alat. Melangkah melalui tingkat-tingkat yang telah ditetapkan; besar langkahnya dapat diatur</td>
+                                    <td>Pintasan keyboard dan bilah alat; tingkat perbesaran bertahap — tanyakan ke vendor</td>
+                                    <td>Pintasan keyboard dan panel kontrol; tingkat perbesaran bertahap — tanyakan ke vendor</td>
+                                    <td>Zoom yang dapat disesuaikan di jendelanya sendiri</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Apa yang menjadi pusat zoom</th>
+                                    <td>Titik di bawah kursor mouse Anda, ditahan tetap sementara tampilan membesar di sekitarnya</td>
+                                    <td>Mengikuti mouse, fokus keyboard, kursor teks, atau Narrator — sesuai pilihan Anda</td>
+                                    <td>Mengikuti mouse, fokus, dan kursor — tanyakan ke vendor</td>
+                                    <td>Mengikuti mouse, fokus, dan kursor — tanyakan ke vendor</td>
+                                    <td>Area yang Anda tunjuk</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Membacakan teks dengan suara</th>
+                                    <td>Tidak</td>
+                                    <td>Ya — memiliki kontrol pembacaan</td>
+                                    <td>Ya, pada edisi Magnifier/Reader</td>
+                                    <td>Ya, pada edisi Speech dan Screen Reader</td>
+                                    <td>Tidak</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Pembaca layar penuh</th>
+                                    <td>Tidak</td>
+                                    <td>Narrator disertakan dengan Windows, secara terpisah</td>
+                                    <td>Tersedia dalam paket Fusion bersama JAWS</td>
+                                    <td>Ya, pada edisi Screen Reader</td>
+                                    <td>Tidak</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Dukungan braille</th>
+                                    <td>Tidak</td>
+                                    <td>Melalui Narrator</td>
+                                    <td>Tanyakan ke vendor</td>
+                                    <td>Ya, pada edisi yang lebih tinggi</td>
+                                    <td>Tidak</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Filter warna, kontras, pembalikan</th>
+                                    <td>Tidak</td>
+                                    <td>Ya — pembalikan warna</td>
+                                    <td>Ya — filter dan penyempurnaan yang luas</td>
+                                    <td>Ya — luas, termasuk pengaturan per-monitor</td>
+                                    <td>Ya — tampilan terbalik dan mode warna</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Penghalusan teks pada zoom tinggi</th>
+                                    <td>Tidak — memperbesar piksel</td>
+                                    <td>Ya — opsi penghalusan</td>
+                                    <td>Ya — perenderan xFont</td>
+                                    <td>Ya — True Fonts</td>
+                                    <td>Ya — filter penghalusan</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Banyak monitor</th>
+                                    <td>Ya — satu desktop berkesinambungan, mengikuti Anda antar layar</td>
+                                    <td>Ya</td>
+                                    <td>Ya — tanyakan ke vendor</td>
+                                    <td>Ya — tingkat independen per monitor</td>
+                                    <td>Tanyakan ke vendor</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Pengaturan yang perlu dikonfigurasi</th>
+                                    <td>Tidak ada — perilakunya sudah disetel dan tetap</td>
+                                    <td>Beberapa</td>
+                                    <td>Luas</td>
+                                    <td>Luas</td>
+                                    <td>Beberapa</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Bekerja offline, tanpa akun</th>
+                                    <td>Ya — lisensi diperiksa di perangkat Anda</td>
+                                    <td>Ya</td>
+                                    <td>Tanyakan ke vendor</td>
+                                    <td>Tanyakan ke vendor</td>
+                                    <td>Tanyakan ke vendor</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Data yang dikumpulkan</th>
+                                    <td>Tidak ada — <a href="/privacy.html">kebijakan privasi (dalam bahasa Inggris)</a></td>
+                                    <td>Lihat pernyataan privasi Microsoft</td>
+                                    <td>Tanyakan ke vendor</td>
+                                    <td>Tanyakan ke vendor</td>
+                                    <td>Tanyakan ke vendor</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Platform</th>
+                                    <td>Windows 10 dan 11, 64-bit (x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">Alasan untuk tidak membeli Low Vision Zoom</h2>
+                    <p>Kami lebih ingin Anda membelanjakan $9.99 untuk sesuatu yang membantu Anda daripada untuk sesuatu yang tidak. Jangan membeli Low Vision Zoom jika salah satu dari hal berikut berlaku:</p>
+                    <ul>
+                        <li><strong>Anda perlu perbesaran lebih dari 5×.</strong> Ini adalah batas keras dalam aplikasi, bukan sebuah pengaturan. Jika 5× tidak cukup untuk Anda, tidak ada bagian dari produk ini yang akan membantu.</li>
+                        <li><strong>Anda perlu suara.</strong> Tidak ada teks-ke-suara, tidak ada pembaca dokumen, dan tidak ada pembaca layar. Tidak satu pun dari itu direncanakan sebagai fitur seharga $9.99.</li>
+                        <li><strong>Anda perlu pembalikan warna atau filter kontras</strong> untuk membaca dengan nyaman. Windows Magnifier melakukan ini secara gratis; kami tidak melakukannya sama sekali.</li>
+                        <li><strong>Anda perlu teks yang tajam pada perbesaran tinggi.</strong> Kami memperbesar layar apa adanya; paket-paket itu merender ulang teks agar tetap tajam. Pada tingkat zoom yang tinggi, perbedaan itu besar dan berarti.</li>
+                        <li><strong>Anda perlu dukungan vendor, pelatihan, atau jalur pengadaan.</strong> Kami adalah perusahaan yang sangat kecil dengan sebuah alamat email. Itu bukan kecocokan yang baik untuk akomodasi di tempat kerja dengan persyaratan dukungan formal.</li>
+                        <li><strong>Anda tidak menggunakan mouse atau trackpad.</strong> Desainnya berpusat pada menunjuk apa yang ingin Anda perbesar. Ada pintasan keyboard, tetapi pengguna yang hanya memakai keyboard akan lebih terlayani di tempat lain.</li>
+                        <li><strong>Anda menggunakan Windows on ARM, atau PC 32-bit.</strong> Tidak didukung saat ini.</li>
+                    </ul>
+
+                    <h2>Anda mungkin tidak membutuhkan kaca pembesar sama sekali</h2>
+                    <p>Sebelum membeli apa pun, ada baiknya mencoba opsi gratis yang sudah ada di komputer Anda. Bagi banyak orang, itu sudah cukup:</p>
+                    <ul>
+                        <li><strong>Buat semuanya lebih besar secara permanen:</strong> Windows <em>Setelan → Sistem → Layar → Skala</em>. Menetapkannya ke 150% atau 175% memperbesar semua teks dan ikon di mana-mana, tanpa perangkat lunak tambahan apa pun.</li>
+                        <li><strong>Buat teks saja yang lebih besar:</strong> Windows <em>Setelan → Aksesibilitas → Ukuran teks</em>.</li>
+                        <li><strong>Perbesar halaman web:</strong> <code>Ctrl</code> + <code>Plus</code> di peramban mana pun, yang menata ulang teks alih-alih memperbesar piksel — biasanya lebih mudah dibaca daripada kaca pembesar mana pun untuk membaca halaman web.</li>
+                        <li><strong>Kaca pembesar bawaan:</strong> <code>tombol Windows</code> + <code>Plus</code>.</li>
+                    </ul>
+                    <p>Kaca pembesar adalah alat yang tepat ketika Anda perlu bergerak masuk dan keluar dari detail sepanjang hari di setiap aplikasi. Ia adalah alat yang keliru ketika yang sebenarnya Anda butuhkan adalah teks yang lebih besar sepanjang waktu.</p>
+
+                    <h2>Di mana Low Vision Zoom memang cocok</h2>
+                    <p>Low Vision Zoom ada karena pengembangnya menginginkan satu hal yang spesifik: memperbesar dan memperkecil terus-menerus, seharian, tanpa kehilangan posisinya di layar setiap kali. Ia memperbesar secara berkesinambungan alih-alih bertahap, berporos di sekitar titik di bawah kursor sehingga apa yang sedang Anda lihat tetap di tempatnya, dan menahan tampilan tetap diam sementara kursor Anda menjelajahi bagian tengah layar. Tidak ada yang perlu disiapkan dan tidak ada yang perlu dipelajari selain satu tombol dan roda gulir.</p>
+                    <p>Itulah keseluruhan produk ini. Jika deskripsi di atas adalah masalah yang Anda hadapi, <a href="/id/index.html#get">uji coba gratis 7 hari</a> akan memberi tahu Anda dalam beberapa menit apakah ia bekerja untuk mata Anda. Jika tidak, salah satu produk lain di halaman ini akan lebih melayani Anda, dan kami lebih ingin mengarahkan Anda ke sana. Anda bisa membaca lebih lanjut tentang <a href="/id/why-smooth-magnification.html">mengapa perbesaran yang halus lebih mudah diikuti</a>, atau lihat <a href="/id/faq.html">pertanyaan yang sering diajukan</a>.</p>
+
+                    <h2>Sumber</h2>
+                    <p>Klaim tentang produk lain berasal dari halaman publik vendor masing-masing, diperiksa pada 20 Juli 2026:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — Gunakan Kaca Pembesar untuk membuat hal-hal di layar lebih mudah dilihat</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows, Windows Magnifier, dan Narrator adalah produk Microsoft. ZoomText dan JAWS adalah produk Freedom Scientific / Vispero. SuperNova adalah produk Dolphin Computer Access. Magnifixer adalah produk Blacksun Software. Kami tidak berafiliasi dengan, didukung oleh, atau bermitra dengan salah satu dari mereka, dan kami menggunakan nama mereka hanya untuk mengidentifikasi produk mereka. Jika Anda merasa ada sesuatu di halaman ini yang keliru menggambarkan produk Anda, <a href="/id/contact.html">beri tahu kami</a> dan kami akan memperbaikinya.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Coba dulu sebelum Anda memutuskan</h2>
+                <p>Uji coba gratis 7 hari · $9.99 sekali bayar · tanpa langganan · tanpa akun</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/id.svg" alt="Dapatkan di Microsoft Store">
+                    </a>
+                    <a href="/id/index.html#get" data-download class="download-direct">Atau unduh pemasang langsung dari situs ini (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom adalah kaca pembesar layar untuk Windows 10 dan 11. Aplikasi ini memperbesar hingga 5×, dengan halus, terpusat pada kursor mouse. Harganya $9.99 sekali bayar. Tersedia di Microsoft Store atau sebagai unduhan MSI langsung. Berfungsi secara offline dan tidak mengumpulkan data.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Kaca pembesar layar yang tenang untuk Windows. Produk dari txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produk</h4>
+                    <ul>
+                        <li><a href="/id/index.html#why">Mengapa lebih baik</a></li>
+                        <li><a href="/id/index.html#how">Cara kerjanya</a></li>
+                        <li><a href="/id/pricing.html">Harga</a></li>
+                        <li><a href="/id/compare.html" aria-current="page">Bandingkan kaca pembesar</a></li>
+                        <li><a href="/id/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hukum</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privasi (dalam bahasa Inggris)</a></li>
+                        <li><a href="/terms.html">Ketentuan layanan (dalam bahasa Inggris)</a></li>
+                        <li><a href="/refund.html">Kebijakan pengembalian dana (dalam bahasa Inggris)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Dukungan</h4>
+                    <ul>
+                        <li><a href="/id/contact.html">Hubungi kami</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Hak cipta dilindungi undang-undang.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

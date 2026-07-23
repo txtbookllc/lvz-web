@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Відповіді на часті запитання про збільшення екрана в Windows і про Low Vision Zoom: як збільшувати, чим програма відрізняється від вбудованої Windows Magnifier і ZoomText, ціна, безкоштовний пробний період, конфіденційність та встановлення.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "uk",
+      "url": "https://lowvisionzoom.com/uk/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Яка програма для збільшення екрана найкраща для Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Єдиного найкращого варіанта не існує — все залежить від того, що вам потрібно, і правильний перший крок безкоштовний. У кожен комп'ютер з Windows вже вбудовано Windows Magnifier (натисніть клавішу Windows і Plus, щоб запустити її); для багатьох людей цього достатньо. Якщо вам потрібно, щоб екран читався вголос, дуже сильне збільшення, кольорові фільтри або шрифт Брайля, правильна категорія — це повноцінний комплекс допоміжних технологій, наприклад ZoomText або SuperNova. Якщо ж вам потрібен плавний, спокійний зум, що слідує за курсором під час роботи, без налаштувань, Low Vision Zoom створено саме для цього випадку, і коштує він $9.99 одноразово. Оскільки збільшення — це особиста справа, спробуйте будь-який варіант, перш ніж платити."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи існує альтернатива Windows Magnifier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Так. Окрім вбудованої в Windows програми Windows Magnifier від Microsoft, серед сторонніх програм для збільшення екрана в Windows — ZoomText і SuperNova (повноцінні комплекси для людей зі слабким зором з мовленням та інструментами читання), безкоштовна Magnifixer і Low Vision Zoom — невелика утиліта за $9.99, зосереджена на плавному збільшенні з прив'язкою до курсора. Зазвичай альтернативу шукають, коли хочуть плавнішого відчуття, збільшення по центру вказівника миші або функцій мовлення і кольору, яких немає у вбудованому інструменті. Яка альтернатива підійде, залежить від того, що саме з цього вам потрібно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи є дешевша альтернатива ZoomText?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Це залежить від того, якими функціями ZoomText ви користуєтеся. ZoomText — це повноцінний комплекс для людей зі слабким зором з мовленням, програмою читання документів, широкими можливостями зміни кольору та фокусування і дуже сильним збільшенням; зазвичай продається за річною ліцензією. Якщо ви користуєтеся цими функціями читання та покращення, чесна відповідь така: дешевший інструмент їх не замінить. Якщо вам насамперед потрібне плавне збільшення, що слідує за курсором, Low Vision Zoom робить саме це за одноразові $9.99 — але в ньому немає мовлення, читання, кольорових фільтрів, а збільшення обмежене 5×. Windows Magnifier теж безкоштовна і вміє більше, ніж багато хто думає."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи читає Low Vision Zoom текст вголос?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ні. Low Vision Zoom — це лише збільшення. У ньому немає синтезу мовлення, програми читання документів і екранного диктора. Якщо вам потрібно, щоб екран читався вголос, зверніть увагу на ZoomText Magnifier/Reader, SuperNova в редакції з мовленням або екранним диктором, або на вбудований у Windows Narrator, який безкоштовний."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чим Low Vision Zoom відрізняється від вбудованої в Windows програми Windows Magnifier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifier безкоштовна, вбудована в систему і досить функціональна, і багатьом варто спробувати її в першу чергу. Low Vision Zoom відрізняється радше відчуттям, ніж кількістю функцій. Її збільшення безперервне і плавно переходить на новий рівень замість стрибків, воно розгортається навколо точної точки під курсором миші, тож те, на що ви дивитеся, залишається на місці, а зображення лишається нерухомим, поки курсор перебуває в середині екрана. У неї немає налаштувань, і вона живе в області сповіщень. У дечому вона також більш обмежена, ніж Windows Magnifier: у ній немає мовлення, немає кольорових фільтрів, і збільшення зупиняється на 5×."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Як збільшити екран у Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "У Windows є вбудована програма для збільшення екрана: утримуйте клавішу Windows і натисніть Plus, щоб збільшити, Minus — щоб зменшити, а клавішу Windows разом з Escape — щоб вимкнути її. Також можна назавжди збільшити все в розділі Параметри, Система, Дисплей, Масштаб, або збільшити лише текст у розділі Параметри, Спеціальні можливості, Розмір тексту. Якщо встановлено Low Vision Zoom, утримуйте Ctrl і прокручуйте коліщатко миші, щоб плавно збільшувати будь-де у Windows, або використовуйте Ctrl і Alt разом з Plus чи Minus, якщо у вас немає коліщатка миші."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи є програма збільшення, яка працює з коліщатком миші?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Так. Low Vision Zoom збільшує за допомогою Ctrl і коліщатка миші: утримуйте Ctrl і прокручуйте коліщатко вперед, щоб збільшити, назад — щоб зменшити. Збільшення пропорційне, тож ви рухаєтеся рівно настільки і з такою швидкістю, з якою прокручуєте коліщатко, а перехід на новий рівень відбувається плавно, залишаючись по центру точки під вказівником. Ctrl, Shift і прокручування вниз миттєво повертають до звичайного масштабу. Це основний спосіб використання застосунку."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи працює Low Vision Zoom з кількома моніторами?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Так. Програма збільшує весь робочий стіл Windows як єдиний безперервний простір і слідує за курсором з одного монітора на інший, а не обробляє кожен екран окремо. Це той самий підхід, який використовується в повноекранному режимі вбудованої Windows Magnifier."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Як збільшувати на ноутбуці без коліщатка миші?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Використовуйте клавіатуру. Утримуйте Ctrl і Alt і натисніть Plus, щоб збільшити, або Minus, щоб зменшити; утримуйте клавішу, щоб збільшення тривало. Ctrl, Alt і 0 скидають масштаб до звичайного. Коліщатко миші або зовнішня миша не потрібні, тож застосунок працює на ноутбуці лише з трекпадом."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи працює це в іграх і повноекранному відео?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Застосунок працює майже скрізь. Low Vision Zoom збільшує весь робочий стіл Windows, тож він застосовується до браузера, пошти, документів, відео, що відтворюється у вікні, і до самої оболонки Windows. Виняток — гра або застосунок, який бере на себе ексклюзивне керування повним екраном в обхід звичайного робочого стола; такий вміст може не збільшуватися. Запуск такої гри у віконному режимі або в режимі вікна без рамки відновлює збільшення."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Наскільки сильно Low Vision Zoom може збільшувати екран?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "До 5×, з кроком у половину ступеня. Це свідоме обмеження для невеликого, зручного інструменту збільшення, і воно нижче, ніж у вбудованої Windows Magnifier (до 16×) або повноцінних комплексів на кшталт ZoomText (до 36×). Якщо вам потрібно більше 5×, Low Vision Zoom вам не підійде."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Скільки коштує Low Vision Zoom?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Це одноразова ліцензія за $9.99, яка включає всі майбутні оновлення. Немає ні підписки, ні облікового запису, ні реклами. Спочатку ви можете безкоштовно спробувати всі функції протягом 7 днів, а після покупки діє 30-денна гарантія повернення коштів."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Що відбувається, коли закінчується безкоштовний пробний період?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Програма продовжує працювати. Коли 7-денний пробний період закінчується, збільшення просто обмежується, а не вимикається, тож екран завжди залишається достатньо читабельним для навігації та покупки ліцензії. Введіть ліцензійний ключ у будь-який момент, щоб миттєво відновити повне збільшення — перевстановлення не потрібне."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи збирає Low Vision Zoom якісь дані і чи працює він офлайн?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Застосунок не збирає особисті дані, не використовує аналітику й телеметрію і повністю працює офлайн. Він не записує і не передає вміст вашого екрана. Ліцензійний ключ перевіряється безпосередньо на вашому пристрої — без облікового запису і без прихованих з'єднань. Єдиний випадок, коли застосунок виходить в інтернет, — це коли ви обираєте «Перевірити оновлення» в меню значка в області сповіщень."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Чи попередить мене Windows під час встановлення Low Vision Zoom?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Можливо, якщо ви використовуєте пряме завантаження. Під час першого запуску інсталятора Windows може показати синє повідомлення SmartScreen «Windows захистив ваш комп'ютер» (Windows protected your PC). Це нормально для нового застосунку, і це безпечно; інсталятор підписаний цифровим підписом компанії txtbook LLC. Натисніть «Докладніше», переконайтеся, що видавцем вказано txtbook LLC, потім натисніть «Все одно запустити». Щоб повністю пропустити цей екран, замість цього встановіть застосунок з Microsoft Store, де це попередження не з'являється."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Які системні вимоги?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low Vision Zoom працює на Windows 10 і Windows 11, 64-біт (x64). Інсталятор автономний, тож більше нічого завантажувати не потрібно. Windows на ARM і 32-бітні комп'ютери поки не підтримуються."
+          }
+        }
+      ]
+    }
+    </script>
+    <title>Часті запитання | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Перейти до вмісту</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/uk/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Основна">
+                <a href="/uk/index.html#demo">Переглянути демо</a>
+                <a href="/uk/index.html#how">Як це працює</a>
+                <a href="/uk/index.html#why">Чому це краще</a>
+                <a href="/uk/pricing.html">Ціни</a>
+                <a href="/uk/index.html#get" data-download class="btn btn-secondary btn-nav">Завантажити</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Мова: Українська">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Українська</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk" aria-current="true">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">FAQ</span>
+                <h1>Часті запитання</h1>
+                <p class="updated">Збільшення екрана в Windows і місце Low Vision Zoom серед інших програм</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">Вибір програми для збільшення екрана</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Яка програма для збільшення екрана найкраща для Windows?</summary>
+                            <div class="faq-body">
+                                <p>Єдиного найкращого варіанта не існує — все залежить від того, що вам потрібно, і правильний перший крок безкоштовний. У кожен комп'ютер з Windows вже вбудовано <strong>Windows Magnifier</strong> (натисніть <code>Windows key</code> + <code>Plus</code>, щоб запустити її); для багатьох людей цього достатньо. Якщо вам потрібно, щоб екран читався вголос, дуже сильне збільшення, кольорові фільтри або шрифт Брайля, правильна категорія — це повноцінний комплекс допоміжних технологій, наприклад <strong>ZoomText</strong> або <strong>SuperNova</strong>. Якщо ж вам потрібен плавний, спокійний зум, що слідує за курсором під час роботи, без налаштувань, <strong>Low Vision Zoom</strong> створено саме для цього випадку, і коштує він $9.99 одноразово. Оскільки збільшення — це особиста справа, спробуйте будь-який варіант, перш ніж платити. Дивіться наше <a href="/uk/compare.html">чесне порівняння</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Чи існує альтернатива Windows Magnifier?</summary>
+                            <div class="faq-body">
+                                <p>Так. Окрім вбудованої в Windows програми Windows Magnifier від Microsoft, серед сторонніх програм для збільшення екрана в Windows — <strong>ZoomText</strong> і <strong>SuperNova</strong> (повноцінні комплекси для людей зі слабким зором з мовленням та інструментами читання), безкоштовна <strong>Magnifixer</strong> і <strong>Low Vision Zoom</strong> — невелика утиліта за $9.99, зосереджена на плавному збільшенні з прив'язкою до курсора. Зазвичай альтернативу шукають, коли хочуть плавнішого відчуття, збільшення по центру вказівника миші або функцій мовлення і кольору, яких немає у вбудованому інструменті. Яка альтернатива підійде, залежить від того, що саме з цього вам потрібно — <a href="/uk/compare.html">сторінка порівняння</a> показує їх поруч одне з одним.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Чи є дешевша альтернатива ZoomText?</summary>
+                            <div class="faq-body">
+                                <p>Це залежить від того, якими функціями ZoomText ви користуєтеся. ZoomText — це повноцінний комплекс для людей зі слабким зором з мовленням, програмою читання документів, широкими можливостями зміни кольору та фокусування і дуже сильним збільшенням; зазвичай продається за річною ліцензією. Якщо ви користуєтеся цими функціями читання та покращення, чесна відповідь така: дешевший інструмент їх не замінить. Якщо вам насамперед потрібне плавне збільшення, що слідує за курсором, Low Vision Zoom робить саме це за одноразові <strong>$9.99</strong> — але в ньому немає мовлення, читання, кольорових фільтрів, а збільшення обмежене 5×. Windows Magnifier теж безкоштовна і вміє більше, ніж багато хто думає.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Чи читає Low Vision Zoom текст вголос?</summary>
+                            <div class="faq-body">
+                                <p><strong>Ні.</strong> Low Vision Zoom — це лише збільшення. У ньому немає синтезу мовлення, програми читання документів і екранного диктора. Якщо вам потрібно, щоб екран читався вголос, зверніть увагу на <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> в редакції з мовленням або екранним диктором, або на вбудований у Windows <strong>Narrator</strong>, який безкоштовний.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Чим Low Vision Zoom відрізняється від вбудованої в Windows програми Windows Magnifier?</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifier безкоштовна, вбудована в систему і досить функціональна, і багатьом варто спробувати її в першу чергу. Low Vision Zoom відрізняється радше <em>відчуттям</em>, ніж кількістю функцій. Її збільшення безперервне і плавно переходить на новий рівень замість стрибків, воно розгортається навколо точної точки під курсором миші, тож те, на що ви дивитеся, залишається на місці, а зображення лишається нерухомим, поки курсор перебуває в середині екрана. У неї немає налаштувань, і вона живе в області сповіщень. У дечому вона також більш обмежена, ніж Windows Magnifier: у ній немає мовлення, немає кольорових фільтрів, і збільшення зупиняється на 5×. Детальніше про причини плавного руху — у статті про те, <a href="/uk/why-smooth-magnification.html">чому плавне збільшення легше відстежувати очима</a>.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">Використання Low Vision Zoom</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Як збільшити екран у Windows 11?</summary>
+                            <div class="faq-body">
+                                <p>У Windows є вбудована програма для збільшення екрана: утримуйте <code>Windows key</code> і натисніть <code>Plus</code>, щоб збільшити, <code>Minus</code> — щоб зменшити, а <code>Windows key</code> + <code>Esc</code> — щоб вимкнути її. Також можна назавжди збільшити все в розділі <em>Параметри → Система → Дисплей → Масштаб</em>, або збільшити лише текст у розділі <em>Параметри → Спеціальні можливості → Розмір тексту</em>. Якщо встановлено Low Vision Zoom, утримуйте <strong>Ctrl</strong> і прокручуйте коліщатко миші, щоб плавно збільшувати будь-де у Windows, або використовуйте <strong>Ctrl + Alt + Plus / Minus</strong>, якщо у вас немає коліщатка миші.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Чи є програма збільшення, яка працює з коліщатком миші?</summary>
+                            <div class="faq-body">
+                                <p>Так. Low Vision Zoom збільшує за допомогою <strong>Ctrl + коліщатко миші</strong>: утримуйте Ctrl і прокручуйте коліщатко вперед, щоб збільшити, назад — щоб зменшити. Збільшення пропорційне, тож ви рухаєтеся рівно настільки і з такою швидкістю, з якою прокручуєте коліщатко, а перехід на новий рівень відбувається плавно, залишаючись по центру точки під вказівником. <strong>Ctrl + Shift + прокручування вниз</strong> миттєво повертає до звичайного масштабу. Це основний спосіб використання застосунку.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Чи працює Low Vision Zoom з кількома моніторами?</summary>
+                            <div class="faq-body">
+                                <p>Так. Програма збільшує весь робочий стіл Windows як єдиний безперервний простір і слідує за курсором з одного монітора на інший, а не обробляє кожен екран окремо. Це той самий підхід, який використовується в повноекранному режимі вбудованої Windows Magnifier.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Як збільшувати на ноутбуці без коліщатка миші?</summary>
+                            <div class="faq-body">
+                                <p>Використовуйте клавіатуру. Утримуйте <strong>Ctrl + Alt</strong> і натисніть <strong>Plus</strong>, щоб збільшити, або <strong>Minus</strong>, щоб зменшити; утримуйте клавішу, щоб збільшення тривало. <strong>Ctrl + Alt + 0</strong> скидає масштаб до звичайного. Коліщатко миші або зовнішня миша не потрібні, тож застосунок працює на ноутбуці лише з трекпадом.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Чи працює це в іграх і повноекранному відео?</summary>
+                            <div class="faq-body">
+                                <p>Застосунок працює майже скрізь. Low Vision Zoom збільшує весь робочий стіл Windows, тож він застосовується до браузера, пошти, документів, відео, що відтворюється у вікні, і до самої оболонки Windows. Виняток — гра або застосунок, який бере на себе <em>ексклюзивне</em> керування повним екраном в обхід звичайного робочого стола; такий вміст може не збільшуватися. Запуск такої гри у віконному режимі або в режимі вікна без рамки відновлює збільшення.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Наскільки сильно Low Vision Zoom може збільшувати екран?</summary>
+                            <div class="faq-body">
+                                <p>До <strong>5×</strong>, з кроком у половину ступеня. Це свідоме обмеження для невеликого, зручного інструменту збільшення, і воно нижче, ніж у вбудованої Windows Magnifier (до 16×) або повноцінних комплексів на кшталт ZoomText (до 36×). Якщо вам потрібно більше 5×, Low Vision Zoom вам не підійде — <a href="/uk/compare.html">сторінка порівняння</a> підкаже варіанти з вищим збільшенням.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">Покупка, пробний період і довіра</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Скільки коштує Low Vision Zoom?</summary>
+                            <div class="faq-body">
+                                <p>Це одноразова ліцензія за <strong>$9.99</strong>, яка включає всі майбутні оновлення. Немає ні підписки, ні облікового запису, ні реклами. Спочатку ви можете безкоштовно спробувати всі функції протягом 7 днів, а після покупки діє 30-денна гарантія повернення коштів. Див. <a href="/uk/pricing.html">сторінку цін</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Що відбувається, коли закінчується безкоштовний пробний період?</summary>
+                            <div class="faq-body">
+                                <p>Програма продовжує працювати. Коли 7-денний пробний період закінчується, збільшення просто обмежується, а не вимикається, тож екран завжди залишається достатньо читабельним для навігації та покупки ліцензії. Введіть ліцензійний ключ у будь-який момент, щоб миттєво відновити повне збільшення — перевстановлення не потрібне.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Чи збирає Low Vision Zoom якісь дані і чи працює він офлайн?</summary>
+                            <div class="faq-body">
+                                <p>Застосунок <strong>не</strong> збирає особисті дані, не використовує аналітику й телеметрію і повністю працює офлайн. Він не записує і не передає вміст вашого екрана. Ліцензійний ключ перевіряється безпосередньо на вашому пристрої — без облікового запису і без прихованих з'єднань. Єдиний випадок, коли застосунок виходить в інтернет, — це коли ви обираєте <strong>«Перевірити оновлення»</strong> в меню значка в області сповіщень. Повні відомості — у <a href="/privacy.html">політиці конфіденційності (англійською)</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Чи попередить мене Windows під час встановлення Low Vision Zoom?</summary>
+                            <div class="faq-body">
+                                <p>Можливо, якщо ви використовуєте пряме завантаження. Під час першого запуску інсталятора Windows може показати синє повідомлення SmartScreen <strong>«Windows захистив ваш комп'ютер»</strong> (Windows protected your PC). Це нормально для нового застосунку, і це безпечно; інсталятор підписаний цифровим підписом компанії <strong>txtbook LLC</strong>. Натисніть <strong>«Докладніше»</strong>, переконайтеся, що видавцем вказано txtbook LLC, потім натисніть <strong>«Все одно запустити»</strong>. Щоб повністю пропустити цей екран, замість цього встановіть застосунок з <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> — там це попередження не з'являється.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Які системні вимоги?</summary>
+                            <div class="faq-body">
+                                <p>Low Vision Zoom працює на <strong>Windows 10 і Windows 11, 64-біт (x64)</strong>. Інсталятор автономний, тож більше нічого завантажувати не потрібно. Windows на ARM і 32-бітні комп'ютери поки не підтримуються.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">Залишилися запитання? <a href="/uk/contact.html">Зв'яжіться з нами</a> — вам відповість реальна людина.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Спробуйте безкоштовно протягом 7 днів</h2>
+                <p>7-денна безкоштовна пробна версія · $9.99 одноразово · без підписки · без облікового запису</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/uk.svg" alt="Отримати в Microsoft Store">
+                    </a>
+                    <a href="/uk/index.html#get" data-download class="download-direct">Або завантажте інсталятор напряму з цього сайту (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Спокійна програма для збільшення екрана Windows. Продукт компанії txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Продукт</h4>
+                    <ul>
+                        <li><a href="/uk/index.html#why">Чому це краще</a></li>
+                        <li><a href="/uk/index.html#how">Як це працює</a></li>
+                        <li><a href="/uk/pricing.html">Ціни</a></li>
+                        <li><a href="/uk/compare.html">Порівняти лупи</a></li>
+                        <li><a href="/uk/faq.html" aria-current="page">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Правова інформація</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Конфіденційність (англійською)</a></li>
+                        <li><a href="/terms.html">Умови використання (англійською)</a></li>
+                        <li><a href="/refund.html">Політика повернення коштів (англійською)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Підтримка</h4>
+                    <ul>
+                        <li><a href="/uk/contact.html">Зв'яжіться з нами</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Усі права захищено.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

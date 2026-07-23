@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Windows'ta ekran büyütme ve Low Vision Zoom hakkında sık sorulan sorular: nasıl yakınlaştırılır, yerleşik Windows Magnifier ve ZoomText ile nasıl karşılaştırılır, fiyatı, ücretsiz denemesi, gizliliği ve kurulumu.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "tr",
+      "url": "https://lowvisionzoom.com/tr/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Windows için en iyi ekran büyüteci hangisidir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Tek bir en iyi seçenek yoktur — bu, neye ihtiyacınız olduğuna bağlıdır ve doğru ilk adım ücretsizdir. Her Windows bilgisayarda zaten Windows Magnifier bulunur (başlatmak için Windows key ve Plus tuşlarına basın); birçok kişi için bu yeterlidir. Ekranınızın sesli okunmasına, çok yüksek büyütmeye, renk filtrelerine veya braille'e ihtiyacınız varsa, doğru kategori ZoomText veya SuperNova gibi tam bir yardımcı teknoloji paketidir. İstediğiniz şey çalışırken imlecinizi takip eden, yapılandırılacak ayarları olmayan akıcı ve sakin bir yakınlaştırmaysa, Low Vision Zoom tam olarak bu durum için tasarlanmıştır ve tek seferlik $9.99'a mal olur. Büyütme kişisel bir tercih olduğundan, ödeme yapmadan önce herhangi bir seçeneği deneyin."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows Magnifier'a bir alternatif var mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet. Microsoft'un yerleşik Windows Magnifier'ının yanı sıra, Windows için üçüncü taraf büyüteçler arasında ZoomText ve SuperNova (konuşma ve okuma araçlarına sahip tam düşük görme paketleri), ücretsiz Magnifixer ve akıcı, imlece bağlı yakınlaştırmaya odaklanan küçük bir $9.99 araç olan Low Vision Zoom bulunur. İnsanlar genellikle daha akıcı bir his, fare imlecinde ortalanan bir yakınlaştırma ya da yerleşik aracın sunmadığı konuşma ve renk özellikleri istediklerinde bir alternatif ararlar. Hangi alternatifin uygun olduğu, bunlardan hangisine ihtiyacınız olduğuna bağlıdır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "ZoomText'e daha ucuz bir alternatif var mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bu, hangi ZoomText özelliklerine bağımlı olduğunuza bağlıdır. ZoomText; konuşma, bir belge okuyucu, kapsamlı renk ve odak iyileştirmeleri ve çok yüksek büyütme sunan, genellikle yıllık lisans olarak satılan tam bir düşük görme paketidir. Bu okuma ve iyileştirme özelliklerini kullanıyorsanız, dürüst cevap şudur: daha ucuz bir araç bunların yerini tutmaz. Öncelikle imlecinizi takip eden akıcı bir büyütme istiyorsanız, Low Vision Zoom bu tek işi tek seferlik $9.99 karşılığında yapar — ancak konuşması, okuması, renk filtreleri yoktur ve 5×'te durur. Windows Magnifier da ücretsizdir ve birçok kişinin fark ettiğinden daha yeteneklidir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom metni sesli okur mu?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır. Low Vision Zoom yalnızca büyütme yapar. Metinden konuşmaya özelliği, belge okuyucusu veya ekran okuyucusu yoktur. Ekranınızın sesli okunmasına ihtiyacınız varsa ZoomText Magnifier/Reader'a, konuşma veya ekran okuyucu sürümündeki SuperNova'ya ya da Windows'un yerleşik ve ücretsiz olan Narrator'ına bakın."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom, yerleşik Windows Magnifier'dan nasıl farklıdır?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifier ücretsizdir, yerleşiktir ve yeteneklidir; birçok kişi önce onu denemelidir. Low Vision Zoom, özellik sayısından çok his bakımından farklıdır. Yakınlaştırması kesintisizdir ve adım adım değil, yeni seviyeye yumuşakça geçer; tam olarak fare imlecinizin altındaki noktanın çevresinde döner, böylece baktığınız yer sabit kalır ve imleciniz ekranın ortasında gezinirken görüntüyü sabit tutar. Hiçbir ayarı yoktur ve sistem tepsisinde yaşar. Bazı yönlerden Windows Magnifier'dan daha da sınırlıdır: konuşması, renk filtreleri yoktur ve 5×'te durur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows 11'de nasıl yakınlaştırırım?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows'ta yerleşik bir büyüteç bulunur: yakınlaştırmak için Windows key tuşunu basılı tutup Plus'a, uzaklaştırmak için Minus'a basın; kapatmak için Windows key ile Escape'e basın. Ayrıca Settings, System, Display, Scale altında her şeyi kalıcı olarak büyütebilir veya Settings, Accessibility, Text size altında yalnızca metni büyütebilirsiniz. Low Vision Zoom kurulduğunda, Windows'un her yerinde akıcı biçimde yakınlaştırmak için Ctrl tuşunu basılı tutup fare tekerleğini çevirin; fare tekerleğiniz yoksa Ctrl ve Alt ile Plus veya Minus tuşlarını kullanın."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fare tekerleğiyle yakınlaştıran bir büyüteç var mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet. Low Vision Zoom, Ctrl ve fare tekerleğiyle yakınlaştırır: yakınlaştırmak için Ctrl'yi basılı tutup tekerleği ileri, uzaklaştırmak için geri çevirin. Yakınlaştırma orantılıdır, yani tam olarak tekerleği çevirdiğiniz kadar ve hızda ilerlersiniz; imlecinizin altındaki noktada ortalı kalarak yeni seviyeye yumuşakça geçer. Ctrl, Shift ve aşağı kaydırma normale anında geri döner. Uygulamanın kullanılmak üzere tasarlandığı temel yöntem budur."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom birden fazla monitörle çalışır mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Evet. Tüm Windows masaüstünü tek, kesintisiz bir alan olarak büyütür ve her ekranı ayrı ele almak yerine imlecinizi bir monitörden diğerine takip eder. Bu, yerleşik Windows Magnifier'ın tam ekran modunun kullandığı yaklaşımın aynısıdır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fare tekerleği olmayan bir dizüstü bilgisayarda nasıl yakınlaştırırım?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Klavyeyi kullanın. Yakınlaştırmak için Ctrl ve Alt'ı basılı tutup Plus'a, uzaklaştırmak için Minus'a basın; yakınlaştırmaya devam etmek için tuşu basılı tutun. Ctrl, Alt ve 0 normale sıfırlar. Fare tekerleği veya harici fareye gerek yoktur, bu yüzden uygulama yalnızca dokunmatik yüzeyi olan bir dizüstü bilgisayarda da çalışır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Oyunlarda ve tam ekran videoda çalışır mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Neredeyse her yerde çalışır. Low Vision Zoom tüm Windows masaüstünü büyüttüğü için tarayıcınıza, e-postanıza, belgelerinize, bir pencerede oynatılan videoya ve Windows kabuğunun kendisine de uygulanır. İstisna, tam ekranın özel denetimini alan ve normal masaüstünü atlayan bir oyun veya uygulamadır; bu içerik büyütülemeyebilir. Böyle bir oyunu pencere veya kenarlıksız pencere modunda çalıştırmak büyütmeyi geri getirir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom ekranı ne kadar büyütebilir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yarım adım artışlarla 5×'e kadar. Bu, küçük ve konforlu bir yakınlaştırma aracı için kasıtlı bir sınırdır ve yerleşik Windows Magnifier'dan (16×'e kadar) ya da ZoomText gibi tam paketlerden (36×'e kadar) daha düşüktür. 5×'ten fazlasına ihtiyacınız varsa, Low Vision Zoom sizin için doğru araç değildir."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom'un fiyatı ne kadar?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Gelecekteki tüm güncellemeler dahil olmak üzere tek seferlik $9.99'luk bir lisanstır. Abonelik, hesap veya reklam yoktur. Önce tüm özellikleri 7 gün boyunca ücretsiz deneyebilirsiniz ve satın alma sonrası 30 gün para iade garantisi vardır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Ücretsiz deneme süresi bittiğinde ne olur?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uygulama çalışmaya devam eder. 7 günlük deneme sona erdiğinde, büyütme kapatılmak yerine yalnızca sınırlanır; böylece ekranınız her zaman gezinip lisans satın almaya yetecek kadar okunur kalır. Tam yakınlaştırmayı anında geri getirmek için istediğiniz zaman bir lisans anahtarı girin, yeniden kurulum gerekmez."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom herhangi bir veri topluyor mu ve çevrimdışı çalışır mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Uygulama hiçbir kişisel veri, analitik veya telemetri toplamaz ve tamamen çevrimdışı çalışır. Ekran içeriğinizi yakalamaz veya iletmez. Lisans anahtarınız hesap gerekmeden ve arka planda sunucuya bağlanmadan cihazınızda kontrol edilir. İnternete bağlandığı tek an, sistem tepsisi menüsünden Güncellemeleri denetle seçeneğini seçtiğiniz zamandır."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom'u kurarken Windows beni uyarır mı?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Doğrudan indirmeyi kullanırsanız uyarabilir. Yükleyiciyi ilk kez açtığınızda Windows, mavi bir Windows bilgisayarınızı korudu SmartScreen mesajı gösterebilir. Bu, yeni bir uygulama için normaldir ve güvenlidir; yükleyici txtbook LLC tarafından dijital olarak imzalanmıştır. Ek bilgi'ye tıklayın, yayımcının txtbook LLC olduğunu doğrulayın, ardından Yine de çalıştır'a tıklayın. Bu ekranı tamamen atlamak için uygulamayı Microsoft Store'dan kurun; orada bu uyarı görünmez."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sistem gereksinimleri nelerdir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low Vision Zoom, Windows 10 ve Windows 11, 64 bit (x64) üzerinde çalışır. Yükleyici kendi kendine yeterlidir, bu yüzden başka bir şey indirmeniz gerekmez. Windows on ARM ve 32 bit bilgisayarlar bugün için desteklenmiyor."
+          }
+        }
+      ]
+    }
+    </script>
+    <title>Sık sorulan sorular | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">İçeriğe geç</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/tr/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Ana menü">
+                <a href="/tr/index.html#demo">Tanıtımı izleyin</a>
+                <a href="/tr/index.html#how">Nasıl çalışır</a>
+                <a href="/tr/index.html#why">Neden daha iyi</a>
+                <a href="/tr/pricing.html">Fiyat</a>
+                <a href="/tr/index.html#get" data-download class="btn btn-secondary btn-nav">İndir</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Dil: Türkçe">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Türkçe</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr" aria-current="true">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">SSS</span>
+                <h1>Sık sorulan sorular</h1>
+                <p class="updated">Windows'ta ekran büyütme ve Low Vision Zoom'un buna nasıl uyduğu</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">Bir büyüteç seçmek</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Windows için en iyi ekran büyüteci hangisidir?</summary>
+                            <div class="faq-body">
+                                <p>Tek bir en iyi seçenek yoktur — bu, neye ihtiyacınız olduğuna bağlıdır ve doğru ilk adım ücretsizdir. Her Windows bilgisayarda zaten <strong>Windows Magnifier</strong> bulunur (başlatmak için <code>Windows key</code> + <code>Plus</code> tuşlarına basın); birçok kişi için bu yeterlidir. Ekranınızın sesli okunmasına, çok yüksek büyütmeye, renk filtrelerine veya braille'e ihtiyacınız varsa, doğru kategori <strong>ZoomText</strong> veya <strong>SuperNova</strong> gibi tam bir yardımcı teknoloji paketidir. İstediğiniz şey çalışırken imlecinizi takip eden, yapılandırılacak ayarları olmayan akıcı ve sakin bir yakınlaştırmaysa, <strong>Low Vision Zoom</strong> tam olarak bu durum için tasarlanmıştır ve tek seferlik $9.99'a mal olur. Büyütme kişisel bir tercih olduğundan, ödeme yapmadan önce herhangi bir seçeneği deneyin. <a href="/tr/compare.html">Dürüst karşılaştırmamıza</a> bakın.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Windows Magnifier'a bir alternatif var mı?</summary>
+                            <div class="faq-body">
+                                <p>Evet. Microsoft'un yerleşik Windows Magnifier'ının yanı sıra, Windows için üçüncü taraf büyüteçler arasında <strong>ZoomText</strong> ve <strong>SuperNova</strong> (konuşma ve okuma araçlarına sahip tam düşük görme paketleri), ücretsiz <strong>Magnifixer</strong> ve akıcı, imlece bağlı yakınlaştırmaya odaklanan küçük bir $9.99 araç olan <strong>Low Vision Zoom</strong> bulunur. İnsanlar genellikle daha akıcı bir his, fare imlecinde ortalanan bir yakınlaştırma ya da yerleşik aracın sunmadığı konuşma ve renk özellikleri istediklerinde bir alternatif ararlar. Hangi alternatifin uygun olduğu, bunlardan hangisine ihtiyacınız olduğuna bağlıdır — <a href="/tr/compare.html">karşılaştırma sayfası</a> bunları yan yana sunar.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>ZoomText'e daha ucuz bir alternatif var mı?</summary>
+                            <div class="faq-body">
+                                <p>Bu, hangi ZoomText özelliklerine bağımlı olduğunuza bağlıdır. ZoomText; konuşma, bir belge okuyucu, kapsamlı renk ve odak iyileştirmeleri ve çok yüksek büyütme sunan, genellikle yıllık lisans olarak satılan tam bir düşük görme paketidir. Bu okuma ve iyileştirme özelliklerini kullanıyorsanız, dürüst cevap şudur: daha ucuz bir araç bunların yerini tutmaz. Öncelikle imlecinizi takip eden akıcı bir büyütme istiyorsanız, Low Vision Zoom bu tek işi tek seferlik <strong>$9.99</strong> karşılığında yapar — ancak konuşması, okuması, renk filtreleri yoktur ve 5×'te durur. Windows Magnifier da ücretsizdir ve birçok kişinin fark ettiğinden daha yeteneklidir.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom metni sesli okur mu?</summary>
+                            <div class="faq-body">
+                                <p><strong>Hayır.</strong> Low Vision Zoom yalnızca büyütme yapar. Metinden konuşmaya özelliği, belge okuyucusu veya ekran okuyucusu yoktur. Ekranınızın sesli okunmasına ihtiyacınız varsa <strong>ZoomText Magnifier/Reader</strong>'a, konuşma veya ekran okuyucu sürümündeki <strong>SuperNova</strong>'ya ya da Windows'un yerleşik ve ücretsiz olan <strong>Narrator</strong>'ına bakın.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom, yerleşik Windows Magnifier'dan nasıl farklıdır?</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifier ücretsizdir, yerleşiktir ve yeteneklidir; birçok kişi önce onu denemelidir. Low Vision Zoom, özellik sayısından çok <em>his</em> bakımından farklıdır. Yakınlaştırması kesintisizdir ve adım adım değil, yeni seviyeye yumuşakça geçer; tam olarak fare imlecinizin altındaki noktanın çevresinde döner, böylece baktığınız yer sabit kalır ve imleciniz ekranın ortasında gezinirken görüntüyü sabit tutar. Hiçbir ayarı yoktur ve sistem tepsisinde yaşar. Bazı yönlerden Windows Magnifier'dan daha da sınırlıdır: konuşması, renk filtreleri yoktur ve 5×'te durur. Akıcı hareketin ardındaki mantık hakkında daha fazlası <a href="/tr/why-smooth-magnification.html">akıcı büyütmenin neden takip etmesi daha kolay olduğu</a> sayfasındadır.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">Low Vision Zoom'u kullanmak</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Windows 11'de nasıl yakınlaştırırım?</summary>
+                            <div class="faq-body">
+                                <p>Windows'ta yerleşik bir büyüteç bulunur: yakınlaştırmak için <code>Windows key</code> tuşunu basılı tutup <code>Plus</code>'a, uzaklaştırmak için <code>Minus</code>'a basın; kapatmak için <code>Windows key</code> + <code>Esc</code>'e basın. Ayrıca <em>Settings → System → Display → Scale</em> altında her şeyi kalıcı olarak büyütebilir veya <em>Settings → Accessibility → Text size</em> altında yalnızca metni büyütebilirsiniz. Low Vision Zoom kurulduğunda, Windows'un her yerinde akıcı biçimde yakınlaştırmak için <strong>Ctrl</strong>'yi basılı tutup fare tekerleğini çevirin; fare tekerleğiniz yoksa <strong>Ctrl + Alt + Plus / Minus</strong> tuşlarını kullanın.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Fare tekerleğiyle yakınlaştıran bir büyüteç var mı?</summary>
+                            <div class="faq-body">
+                                <p>Evet. Low Vision Zoom, <strong>Ctrl + fare tekerleği</strong> ile yakınlaştırır: yakınlaştırmak için Ctrl'yi basılı tutup tekerleği ileri, uzaklaştırmak için geri çevirin. Yakınlaştırma orantılıdır, yani tam olarak tekerleği çevirdiğiniz kadar ve hızda ilerlersiniz; imlecinizin altındaki noktada ortalı kalarak yeni seviyeye yumuşakça geçer. <strong>Ctrl + Shift + aşağı kaydırma</strong> normale anında geri döner. Uygulamanın kullanılmak üzere tasarlandığı temel yöntem budur.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom birden fazla monitörle çalışır mı?</summary>
+                            <div class="faq-body">
+                                <p>Evet. Tüm Windows masaüstünü tek, kesintisiz bir alan olarak büyütür ve her ekranı ayrı ele almak yerine imlecinizi bir monitörden diğerine takip eder. Bu, yerleşik Windows Magnifier'ın tam ekran modunun kullandığı yaklaşımın aynısıdır.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Fare tekerleği olmayan bir dizüstü bilgisayarda nasıl yakınlaştırırım?</summary>
+                            <div class="faq-body">
+                                <p>Klavyeyi kullanın. Yakınlaştırmak için <strong>Ctrl + Alt</strong>'ı basılı tutup <strong>Plus</strong>'a, uzaklaştırmak için <strong>Minus</strong>'a basın; yakınlaştırmaya devam etmek için tuşu basılı tutun. <strong>Ctrl + Alt + 0</strong> normale sıfırlar. Fare tekerleği veya harici fareye gerek yoktur, bu yüzden uygulama yalnızca dokunmatik yüzeyi olan bir dizüstü bilgisayarda da çalışır.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Oyunlarda ve tam ekran videoda çalışır mı?</summary>
+                            <div class="faq-body">
+                                <p>Neredeyse her yerde çalışır. Low Vision Zoom tüm Windows masaüstünü büyüttüğü için tarayıcınıza, e-postanıza, belgelerinize, bir pencerede oynatılan videoya ve Windows kabuğunun kendisine de uygulanır. İstisna, tam ekranın <em>özel</em> denetimini alan ve normal masaüstünü atlayan bir oyun veya uygulamadır; bu içerik büyütülemeyebilir. Böyle bir oyunu pencere veya kenarlıksız pencere modunda çalıştırmak büyütmeyi geri getirir.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom ekranı ne kadar büyütebilir?</summary>
+                            <div class="faq-body">
+                                <p>Yarım adım artışlarla <strong>5×</strong>'e kadar. Bu, küçük ve konforlu bir yakınlaştırma aracı için kasıtlı bir sınırdır ve yerleşik Windows Magnifier'dan (16×'e kadar) ya da ZoomText gibi tam paketlerden (36×'e kadar) daha düşüktür. 5×'ten fazlasına ihtiyacınız varsa, Low Vision Zoom sizin için doğru araç değildir — <a href="/tr/compare.html">karşılaştırma sayfası</a> sizi daha yükseğe çıkanlara yönlendirir.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">Satın alma, deneme ve güven</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Low Vision Zoom'un fiyatı ne kadar?</summary>
+                            <div class="faq-body">
+                                <p>Gelecekteki tüm güncellemeler dahil olmak üzere tek seferlik <strong>$9.99</strong>'luk bir lisanstır. Abonelik, hesap veya reklam yoktur. Önce tüm özellikleri 7 gün boyunca ücretsiz deneyebilirsiniz ve satın alma sonrası 30 gün para iade garantisi vardır. <a href="/tr/pricing.html">Fiyat sayfasına</a> bakın.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Ücretsiz deneme süresi bittiğinde ne olur?</summary>
+                            <div class="faq-body">
+                                <p>Uygulama çalışmaya devam eder. 7 günlük deneme sona erdiğinde, büyütme kapatılmak yerine yalnızca sınırlanır; böylece ekranınız her zaman gezinip lisans satın almaya yetecek kadar okunur kalır. Tam yakınlaştırmayı anında geri getirmek için istediğiniz zaman bir lisans anahtarı girin, yeniden kurulum gerekmez.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom herhangi bir veri topluyor mu ve çevrimdışı çalışır mı?</summary>
+                            <div class="faq-body">
+                                <p>Uygulama <strong>hiçbir</strong> kişisel veri, analitik veya telemetri toplamaz ve tamamen çevrimdışı çalışır. Ekran içeriğinizi yakalamaz veya iletmez. Lisans anahtarınız hesap gerekmeden ve arka planda sunucuya bağlanmadan cihazınızda kontrol edilir. İnternete bağlandığı tek an, sistem tepsisi menüsünden <strong>Güncellemeleri denetle</strong> seçeneğini seçtiğiniz zamandır. Ayrıntılar <a href="/privacy.html">gizlilik politikasında (İngilizce)</a> yer alır.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom'u kurarken Windows beni uyarır mı?</summary>
+                            <div class="faq-body">
+                                <p>Doğrudan indirmeyi kullanırsanız uyarabilir. Yükleyiciyi ilk kez açtığınızda Windows, mavi bir <strong>“Windows bilgisayarınızı korudu”</strong> (“Windows protected your PC”) SmartScreen mesajı gösterebilir. Bu, yeni bir uygulama için normaldir ve güvenlidir; yükleyici <strong>txtbook LLC</strong> tarafından dijital olarak imzalanmıştır. <strong>Ek bilgi</strong>'ye tıklayın, yayımcının txtbook LLC olduğunu doğrulayın, ardından <strong>Yine de çalıştır</strong>'a tıklayın. Bu ekranı tamamen atlamak için uygulamayı <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a>'dan kurun; orada bu uyarı görünmez.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Sistem gereksinimleri nelerdir?</summary>
+                            <div class="faq-body">
+                                <p>Low Vision Zoom, <strong>Windows 10 ve Windows 11, 64 bit (x64)</strong> üzerinde çalışır. Yükleyici kendi kendine yeterlidir, bu yüzden başka bir şey indirmeniz gerekmez. Windows on ARM ve 32 bit bilgisayarlar bugün için desteklenmiyor.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">Hâlâ bir sorunuz mu var? <a href="/tr/contact.html">Bize ulaşın</a> — gerçek bir kişi yanıtlayacak.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>7 gün ücretsiz deneyin</h2>
+                <p>7 gün ücretsiz deneme · tek seferlik $9.99 · abonelik yok · hesap yok</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/tr.svg" alt="Microsoft Store'dan edinin">
+                    </a>
+                    <a href="/tr/index.html#get" data-download class="download-direct">Veya yükleyiciyi doğrudan bu siteden indirin (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows için sakin bir ekran büyüteci. Bir txtbook&nbsp;LLC ürünüdür.</p>
+                </div>
+                <div>
+                    <h4>Ürün</h4>
+                    <ul>
+                        <li><a href="/tr/index.html#why">Neden daha iyi</a></li>
+                        <li><a href="/tr/index.html#how">Nasıl çalışır</a></li>
+                        <li><a href="/tr/pricing.html">Fiyat</a></li>
+                        <li><a href="/tr/compare.html">Büyüteçleri karşılaştırın</a></li>
+                        <li><a href="/tr/faq.html" aria-current="page">SSS</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hukuki</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Gizlilik (İngilizce)</a></li>
+                        <li><a href="/terms.html">Hizmet şartları (İngilizce)</a></li>
+                        <li><a href="/refund.html">İade politikası (İngilizce)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Destek</h4>
+                    <ul>
+                        <li><a href="/tr/contact.html">Bize ulaşın</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

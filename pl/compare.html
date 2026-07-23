@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Uczciwe porównanie lup ekranowych dla Windows: Low Vision Zoom, wbudowana Windows Magnifier (Lupa), ZoomText, SuperNova i Magnifixer — co robi każda z nich, komu odpowiada i kiedy nie wybierać naszej.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom a Windows Magnifier, ZoomText i SuperNova",
+      "description": "Porównanie lup ekranowych dla Windows obok siebie: wbudowana Windows Magnifier, ZoomText, SuperNova, Magnifixer i Low Vision Zoom — w tym komu każda z nich odpowiada oraz powody, by nie wybierać Low Vision Zoom.",
+      "url": "https://lowvisionzoom.com/pl/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "pl",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Screen magnification software" },
+        { "@type": "Thing", "name": "Low vision assistive technology" },
+        { "@type": "Thing", "name": "Windows accessibility" }
+      ]
+    }
+    </script>
+    <title>Porównanie lup ekranowych dla Windows | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Przejdź do treści</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/pl/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Główna">
+                <a href="/pl/index.html#demo">Zobacz pokaz</a>
+                <a href="/pl/index.html#how">Jak to działa</a>
+                <a href="/pl/index.html#why">Dlaczego jest lepsza</a>
+                <a href="/pl/pricing.html">Cennik</a>
+                <a href="/pl/index.html#get" data-download class="btn btn-secondary btn-nav">Pobierz</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Język: polski">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Polski</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl" aria-current="true">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Porównanie</span>
+                <h1>Lupy ekranowe dla Windows</h1>
+                <p class="updated">Szczegóły produktów konkurencji zweryfikowano 20 lipca 2026</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Jeśli nigdy nie próbowałeś lupy, zacznij od tej, która jest już wbudowana w Windows. Jest bezpłatna. Jeśli potrzebujesz, aby komputer czytał na głos, albo potrzebujesz bardzo dużego powiększenia, albo potrzebujesz brajla, potrzebujesz pełnego pakietu technologii wspomagającej, takiego jak <strong>ZoomText</strong> lub <strong>SuperNova</strong>, a <strong>Low Vision Zoom Ci nie wystarczy</strong>. Low Vision Zoom to niewielkie, niedrogie narzędzie, które robi jedną rzecz: płynne, zakotwiczone na kursorze powiększanie do 5×, bez żadnej konfiguracji.</p>
+                    </div>
+
+                    <h2>Kto to napisał i jak to czytać</h2>
+                    <p>To my tworzymy Low Vision Zoom, więc traktuj tę stronę tak, jak potraktowałbyś każde porównanie napisane przez jednego z uczestników. Staraliśmy się być uczciwi na trzy konkretne sposoby: każde stwierdzenie o innym produkcie pochodzi z publicznej dokumentacji danego producenta i do niej odsyła; każdy wymieniony produkt ma przynajmniej jedną rzecz, którą robi lepiej niż nasz; a poniżej znajduje się sekcja o <a href="#not-for-you">powodach, by nie kupować Low Vision Zoom</a>.</p>
+                    <p>Celowo nie podajemy cen konkurencji w postaci liczb. Ceny technologii wspomagającej zmieniają się, różnią się w zależności od kraju i często są inne dla osób prywatnych, szkół i pracodawców — liczba przepisana tutaj szybko byłaby nieaktualna. Podajemy <em>model licencjonowania</em> każdego produktu i odsyłamy do producenta, abyś mógł samodzielnie sprawdzić aktualną cenę.</p>
+                    <p>Najważniejsza rada na tej stronie: <strong>każdy produkt tutaj można wypróbować przed zapłatą.</strong> Powiększanie jest bardzo osobiste, a to, jak lupa sprawdza się dla <em>Twoich</em> oczu, znaczy więcej niż jakakolwiek tabela funkcji. Wypróbuj je.</p>
+
+                    <h2>Którą powinieneś wybrać?</h2>
+                    <ul>
+                        <li><strong>Nie próbowałeś jeszcze żadnej lupy</strong> — użyj <strong>Windows Magnifier</strong> (Lupa), która jest już na Twoim komputerze. Naciśnij <code>klawisz Windows</code> + <code>Plus</code>. Nic nie kosztuje i może być wszystkim, czego potrzebujesz.</li>
+                        <li><strong>Potrzebujesz, aby ekran był czytany na głos, albo używasz brajla</strong> — potrzebujesz <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> lub czytnika ekranu. Low Vision Zoom nie ma żadnej obsługi mowy ani brajla.</li>
+                        <li><strong>Potrzebujesz powiększenia większego niż 5×</strong> — Low Vision Zoom zatrzymuje się na 5×. Windows Magnifier, ZoomText i SuperNova sięgają znacznie wyżej.</li>
+                        <li><strong>Potrzebujesz filtrów kolorów, odwrócenia kontrastu lub podświetlania fokusu</strong> — Windows Magnifier ma część tego bezpłatnie; ZoomText i SuperNova mają znacznie więcej. Low Vision Zoom nie ma tego wcale.</li>
+                        <li><strong>Chcesz bezpłatnej opcji od innego producenta</strong> — <strong>Magnifixer</strong> jest bezpłatny i oferuje okno lupy z odwróconym wyświetlaniem oraz trybami kolorów.</li>
+                        <li><strong>Chcesz przede wszystkim stale przybliżać i oddalać podczas pracy, a dziś wydaje Ci się to skokowe lub kłopotliwe</strong> — to właśnie ten konkretny przypadek, dla którego stworzono Low Vision Zoom. Powiększa płynnie wokół kursora, nie ma ustawień i kosztuje jednorazowo $9.99. <a href="/pl/index.html#demo">Obejrzyj pokaz</a> i wypróbuj bezpłatny okres próbny.</li>
+                    </ul>
+
+                    <h2>Porównanie funkcji</h2>
+                    <p>Komórki oznaczone „sprawdź u producenta” dotyczą rzeczy, których nie chcemy podawać z drugiej ręki w cudzym imieniu — kliknij link w nagłówku produktu, aby uzyskać wiarygodną odpowiedź.</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Tabela porównania funkcji">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Porównanie funkcji pięciu lup ekranowych dla Windows</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Czym jest</th>
+                                    <td>Narzędzie do powiększania o jednym przeznaczeniu</td>
+                                    <td>Lupa wbudowana w Windows</td>
+                                    <td>Pełny pakiet dla osób słabowidzących</td>
+                                    <td>Pełny pakiet dla osób słabowidzących</td>
+                                    <td>Bezpłatne okno lupy</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Model licencjonowania</th>
+                                    <td>Jednorazowo $9.99, aktualizacje w cenie</td>
+                                    <td>Bezpłatnie — w zestawie z Windows</td>
+                                    <td>Licencja roczna (sprawdź u producenta)</td>
+                                    <td>Licencja zależna od edycji (sprawdź u producenta)</td>
+                                    <td>Bezpłatnie</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Maksymalne powiększenie</th>
+                                    <td>5×</td>
+                                    <td>Do 1600% (16×)</td>
+                                    <td>Do 36×</td>
+                                    <td>Wysokie — sprawdź u producenta</td>
+                                    <td>Sprawdź u producenta</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Jak zmieniasz powiększenie</th>
+                                    <td>Ctrl + kółko myszy albo Ctrl + Alt + Plus / Minus. Ciągłe i proporcjonalne — widok łagodnie przechodzi do nowego poziomu, zamiast się na niego przełączać</td>
+                                    <td>Klawisz Windows + Plus / Minus albo pasek narzędzi. Przechodzi przez ustalone poziomy; wielkość kroku można konfigurować</td>
+                                    <td>Skróty klawiszowe i pasek narzędzi; skokowe poziomy powiększenia — sprawdź u producenta</td>
+                                    <td>Skróty klawiszowe i panel sterowania; skokowe poziomy powiększenia — sprawdź u producenta</td>
+                                    <td>Regulowane powiększenie we własnym oknie</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Na czym wyśrodkowuje się powiększenie</th>
+                                    <td>Na punkcie pod kursorem myszy, który pozostaje nieruchomy, podczas gdy widok skaluje się wokół niego</td>
+                                    <td>Podąża za myszą, fokusem klawiatury, kursorem tekstu lub Narrator — do wyboru</td>
+                                    <td>Podąża za myszą, fokusem i kursorem — sprawdź u producenta</td>
+                                    <td>Podąża za myszą, fokusem i kursorem — sprawdź u producenta</td>
+                                    <td>Obszar, który wskazujesz</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Czyta tekst na głos</th>
+                                    <td>Nie</td>
+                                    <td>Tak — ma funkcje czytania</td>
+                                    <td>Tak, w edycji Magnifier/Reader</td>
+                                    <td>Tak, w edycjach Speech i Screen Reader</td>
+                                    <td>Nie</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Pełny czytnik ekranu</th>
+                                    <td>Nie</td>
+                                    <td>Narrator jest dołączony do Windows, osobno</td>
+                                    <td>Dostępny w pakiecie Fusion z JAWS</td>
+                                    <td>Tak, w edycji Screen Reader</td>
+                                    <td>Nie</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Obsługa brajla</th>
+                                    <td>Nie</td>
+                                    <td>Przez Narrator</td>
+                                    <td>Sprawdź u producenta</td>
+                                    <td>Tak, w wyższych edycjach</td>
+                                    <td>Nie</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Filtry kolorów, kontrast, odwracanie</th>
+                                    <td>Nie</td>
+                                    <td>Tak — odwracanie kolorów</td>
+                                    <td>Tak — rozbudowane filtry i ulepszenia</td>
+                                    <td>Tak — rozbudowane, w tym ustawienia dla każdego monitora</td>
+                                    <td>Tak — odwrócone wyświetlanie i tryby kolorów</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Wygładzanie tekstu przy dużym powiększeniu</th>
+                                    <td>Nie — powiększa piksele</td>
+                                    <td>Tak — opcja wygładzania</td>
+                                    <td>Tak — renderowanie xFont</td>
+                                    <td>Tak — True Fonts</td>
+                                    <td>Tak — filtry wygładzania</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Wiele monitorów</th>
+                                    <td>Tak — jeden ciągły pulpit, podąża za Tobą między ekranami</td>
+                                    <td>Tak</td>
+                                    <td>Tak — sprawdź u producenta</td>
+                                    <td>Tak — niezależne poziomy dla każdego monitora</td>
+                                    <td>Sprawdź u producenta</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ustawienia do skonfigurowania</th>
+                                    <td>Brak — zachowanie jest wstępnie dostrojone i stałe</td>
+                                    <td>Kilka</td>
+                                    <td>Rozbudowane</td>
+                                    <td>Rozbudowane</td>
+                                    <td>Kilka</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Działa offline, bez konta</th>
+                                    <td>Tak — licencja jest sprawdzana na Twoim urządzeniu</td>
+                                    <td>Tak</td>
+                                    <td>Sprawdź u producenta</td>
+                                    <td>Sprawdź u producenta</td>
+                                    <td>Sprawdź u producenta</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Zbierane dane</th>
+                                    <td>Brak — <a href="/privacy.html">polityka prywatności (w j. angielskim)</a></td>
+                                    <td>Zobacz oświadczenie o ochronie prywatności firmy Microsoft</td>
+                                    <td>Sprawdź u producenta</td>
+                                    <td>Sprawdź u producenta</td>
+                                    <td>Sprawdź u producenta</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Platforma</th>
+                                    <td>Windows 10 i 11, 64-bitowy (x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">Powody, by nie kupować Low Vision Zoom</h2>
+                    <p>Wolimy, żebyś wydał $9.99 na coś, co Ci pomaga, niż na coś, co nie pomaga. Nie kupuj Low Vision Zoom, jeśli dotyczy Cię którakolwiek z tych sytuacji:</p>
+                    <ul>
+                        <li><strong>Potrzebujesz powiększenia większego niż 5×.</strong> To sztywne ograniczenie aplikacji, a nie ustawienie. Jeśli 5× Ci nie wystarcza, żadna część tego produktu nie pomoże.</li>
+                        <li><strong>Potrzebujesz mowy.</strong> Nie ma syntezy mowy, czytnika dokumentów ani czytnika ekranu. Nic z tego nie jest planowane jako funkcja za $9.99.</li>
+                        <li><strong>Potrzebujesz odwracania kolorów lub filtrów kontrastu</strong>, aby wygodnie czytać. Windows Magnifier robi to bezpłatnie; my nie robimy tego wcale.</li>
+                        <li><strong>Potrzebujesz wyraźnego tekstu przy dużym powiększeniu.</strong> My powiększamy ekran takim, jaki jest; pakiety renderują tekst na nowo, aby pozostał ostry. Przy dużych poziomach powiększenia ta różnica jest znaczna i ma znaczenie.</li>
+                        <li><strong>Potrzebujesz wsparcia producenta, szkoleń lub ścieżki zakupowej.</strong> Jesteśmy bardzo małą firmą z adresem e-mail. To słabo pasuje do dostosowania stanowiska pracy z formalnym wymogiem wsparcia.</li>
+                        <li><strong>Nie używasz myszy ani touchpada.</strong> Projekt opiera się na wskazywaniu tego, co chcesz powiększyć. Istnieją skróty klawiszowe, ale osobie korzystającej wyłącznie z klawiatury lepiej posłuży coś innego.</li>
+                        <li><strong>Korzystasz z Windows na ARM lub z 32-bitowego komputera.</strong> Obecnie nieobsługiwane.</li>
+                    </ul>
+
+                    <h2>Być może wcale nie potrzebujesz lupy</h2>
+                    <p>Zanim cokolwiek kupisz, warto wypróbować bezpłatne opcje, które już masz na komputerze. Wielu osobom wystarczają:</p>
+                    <ul>
+                        <li><strong>Trwale powiększ wszystko:</strong> Windows <em>Ustawienia → System → Ekran → Skala</em>. Ustawienie tego na 150% lub 175% powiększa wszędzie cały tekst i ikony, bez żadnego dodatkowego oprogramowania.</li>
+                        <li><strong>Powiększ tylko tekst:</strong> Windows <em>Ustawienia → Ułatwienia dostępu → Rozmiar tekstu</em>.</li>
+                        <li><strong>Powiększ stronę internetową:</strong> <code>Ctrl</code> + <code>Plus</code> w dowolnej przeglądarce, co przekłada tekst na nowo, zamiast powiększać piksele — zwykle czytelniejsze niż jakakolwiek lupa przy czytaniu stron internetowych.</li>
+                        <li><strong>Wbudowana lupa:</strong> <code>klawisz Windows</code> + <code>Plus</code>.</li>
+                    </ul>
+                    <p>Lupa to właściwe narzędzie, gdy musisz przez cały dzień wchodzić w szczegóły i z nich wychodzić we wszystkich aplikacjach. To niewłaściwe narzędzie, gdy tak naprawdę potrzebowałeś po prostu stale większego tekstu.</p>
+
+                    <h2>Gdzie Low Vision Zoom się sprawdza</h2>
+                    <p>Low Vision Zoom istnieje, ponieważ jego twórca chciał jednej konkretnej rzeczy: stale przybliżać i oddalać, przez cały dzień, nie tracąc za każdym razem miejsca na ekranie. Powiększa w sposób ciągły, a nie skokowo, obraca się wokół punktu pod kursorem, dzięki czemu to, na co patrzysz, pozostaje w miejscu, i utrzymuje widok nieruchomo, gdy kursor porusza się w środkowej części ekranu. Nie ma nic do skonfigurowania ani niczego do nauczenia poza jednym klawiszem i kółkiem myszy.</p>
+                    <p>To cały produkt. Jeśli powyższy opis to Twój problem, <a href="/pl/index.html#get">bezpłatny 7-dniowy okres próbny</a> w ciągu kilku minut pokaże Ci, czy sprawdza się dla Twoich oczu. Jeśli nie, jeden z pozostałych produktów na tej stronie posłuży Ci lepiej i wolimy Cię do niego skierować. Możesz przeczytać więcej o tym, <a href="/pl/why-smooth-magnification.html">dlaczego płynne powiększanie jest łatwiejsze do śledzenia</a>, albo zajrzeć do <a href="/pl/faq.html">najczęściej zadawanych pytań</a>.</p>
+
+                    <h2>Źródła</h2>
+                    <p>Stwierdzenia o innych produktach pochodzą z publicznych stron ich producentów, sprawdzonych 20 lipca 2026:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — Używanie Lupy, aby ułatwić widzenie elementów na ekranie</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows, Windows Magnifier i Narrator są produktami firmy Microsoft. ZoomText i JAWS są produktami firmy Freedom Scientific / Vispero. SuperNova jest produktem firmy Dolphin Computer Access. Magnifixer jest produktem firmy Blacksun Software. Nie jesteśmy z żadną z nich powiązani, nie mamy ich rekomendacji ani partnerstwa i używamy ich nazw wyłącznie w celu identyfikacji ich produktów. Jeśli uważasz, że cokolwiek na tej stronie błędnie przedstawia Twój produkt, <a href="/pl/contact.html">napisz do nas</a>, a poprawimy to.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Wypróbuj, zanim zdecydujesz</h2>
+                <p>7 dni bezpłatnie · $9.99 jednorazowo · bez subskrypcji · bez konta</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/pl.svg" alt="Pobierz z Microsoft Store">
+                    </a>
+                    <a href="/pl/index.html#get" data-download class="download-direct">Lub pobierz instalator bezpośrednio z tej strony (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom to lupa ekranowa dla systemów Windows 10 i 11. Powiększa płynnie do 5×, wyśrodkowując obraz na kursorze myszy. Kosztuje jednorazowo $9.99. Jest dostępna w sklepie Microsoft Store lub jako bezpośredni plik MSI do pobrania. Działa offline i nie zbiera żadnych danych.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Spokojna lupa ekranowa dla Windows. Produkt firmy txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="/pl/index.html#why">Dlaczego jest lepsza</a></li>
+                        <li><a href="/pl/index.html#how">Jak to działa</a></li>
+                        <li><a href="/pl/pricing.html">Cennik</a></li>
+                        <li><a href="/pl/compare.html" aria-current="page">Porównaj lupy ekranowe</a></li>
+                        <li><a href="/pl/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Informacje prawne</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Prywatność (w j. angielskim)</a></li>
+                        <li><a href="/terms.html">Warunki korzystania (w j. angielskim)</a></li>
+                        <li><a href="/refund.html">Polityka zwrotów (w j. angielskim)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Pomoc</h4>
+                    <ul>
+                        <li><a href="/pl/contact.html">Kontakt</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Wszelkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

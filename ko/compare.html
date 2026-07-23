@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Windows 화면 확대 프로그램에 대한 솔직한 비교: Low Vision Zoom, Windows에 내장된 Windows Magnifier, ZoomText, SuperNova, Magnifixer — 각각이 무엇을 하고, 누구에게 적합하며, 언제 우리 제품을 선택하지 말아야 하는지.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom와 Windows Magnifier, ZoomText, SuperNova 비교",
+      "description": "Windows 화면 확대 프로그램을 나란히 비교합니다: 내장된 Windows Magnifier, ZoomText, SuperNova, Magnifixer, Low Vision Zoom — 각각이 누구에게 적합한지와 Low Vision Zoom을 선택하지 말아야 할 이유를 포함합니다.",
+      "url": "https://lowvisionzoom.com/ko/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "ko",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "화면 확대 소프트웨어" },
+        { "@type": "Thing", "name": "저시력 보조공학" },
+        { "@type": "Thing", "name": "Windows 접근성" }
+      ]
+    }
+    </script>
+    <title>Windows 화면 확대 프로그램 비교 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">본문으로 건너뛰기</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ko/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="주 메뉴">
+                <a href="/ko/index.html#demo">데모 보기</a>
+                <a href="/ko/index.html#how">사용 방법</a>
+                <a href="/ko/index.html#why">더 나은 이유</a>
+                <a href="/ko/pricing.html">가격</a>
+                <a href="/ko/index.html#get" data-download class="btn btn-secondary btn-nav">다운로드</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="언어: 한국어">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>한국어</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko" aria-current="true">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">비교</span>
+                <h1>Windows 화면 확대 프로그램</h1>
+                <p class="updated">경쟁 제품 정보는 2026년 7월 20일에 확인함</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>확대 프로그램을 한 번도 사용해 보신 적이 없다면, 먼저 Windows에 이미 내장된 것부터 시작하세요. 무료입니다. 컴퓨터가 소리 내어 읽어 주는 기능이 필요하거나, 아주 높은 배율이 필요하거나, 점자가 필요하다면 <strong>ZoomText</strong>나 <strong>SuperNova</strong> 같은 완전한 보조공학 통합 소프트웨어가 필요하며, 그런 경우 <strong>Low Vision Zoom으로는 충분하지 않습니다</strong>. Low Vision Zoom은 한 가지 일만 하는 작고 저렴한 도구입니다. 커서에 고정된 부드러운 확대를 최대 5배까지, 설정할 것 하나 없이 제공합니다.</p>
+                    </div>
+
+                    <h2>누가 이 글을 썼으며, 어떻게 읽어야 하는가</h2>
+                    <p>Low Vision Zoom은 저희가 만드는 제품이므로, 참가자 중 한 쪽이 쓴 다른 어떤 비교 글을 대하듯 이 페이지를 대해 주세요. 저희는 세 가지 구체적인 방식으로 공정하려고 노력했습니다. 다른 제품에 대한 모든 서술은 해당 공급업체의 공개 문서에서 가져오고 그 문서로 연결했으며, 여기 실린 모든 제품에는 우리 제품보다 더 잘하는 점이 적어도 하나씩 있고, 아래에는 <a href="#not-for-you">Low Vision Zoom을 사지 말아야 할 이유</a>에 관한 섹션이 있습니다.</p>
+                    <p>저희는 경쟁 제품의 가격을 숫자로 표기하지 않기로 일부러 정했습니다. 보조공학 제품의 가격은 자주 바뀌고, 나라마다 다르며, 개인·학교·고용주에 따라 다른 경우가 많습니다 — 여기에 옮겨 적은 숫자는 얼마 지나지 않아 오래된 값이 됩니다. 저희는 각 제품의 <em>라이선스 방식</em>을 알려 드리고 공급업체로 연결해 드리니, 현재 가격은 직접 확인해 보시기 바랍니다.</p>
+                    <p>이 페이지에서 가장 중요한 조언은 이것입니다. <strong>여기 실린 모든 제품은 결제 전에 사용해 볼 수 있습니다.</strong> 확대는 지극히 개인적인 것이며, 확대 프로그램이 <em>당신의</em> 눈에 어떻게 느껴지는지가 어떤 기능 표보다도 더 중요합니다. 직접 써 보세요.</p>
+
+                    <h2>어느 것을 선택해야 할까요?</h2>
+                    <ul>
+                        <li><strong>아직 어떤 확대 프로그램도 써 본 적이 없다면</strong> — 이미 PC에 있는 <strong>Windows Magnifier</strong>를 사용하세요. <code>Windows 키</code> + <code>더하기</code>를 누르면 됩니다. 비용이 전혀 들지 않으며, 그것만으로 충분할 수도 있습니다.</li>
+                        <li><strong>화면을 소리 내어 읽어 주는 기능이 필요하거나 점자를 사용한다면</strong> — <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong>, 또는 스크린 리더가 필요합니다. Low Vision Zoom에는 음성 기능도 점자 지원도 전혀 없습니다.</li>
+                        <li><strong>5배가 넘는 확대가 필요하다면</strong> — Low Vision Zoom은 5배에서 멈춥니다. Windows Magnifier, ZoomText, SuperNova는 모두 훨씬 더 높이 올라갑니다.</li>
+                        <li><strong>색 필터, 대비 반전, 초점 강조가 필요하다면</strong> — Windows Magnifier에는 그중 일부가 무료로 있고, ZoomText와 SuperNova에는 훨씬 더 많습니다. Low Vision Zoom에는 그런 기능이 하나도 없습니다.</li>
+                        <li><strong>무료 타사 옵션을 원한다면</strong> — <strong>Magnifixer</strong>는 무료이며, 반전 표시와 색 모드를 갖춘 확대 창을 제공합니다.</li>
+                        <li><strong>주로 작업하면서 계속 확대하고 축소하고 싶은데 지금은 그것이 뚝뚝 끊기거나 번거롭게 느껴진다면</strong> — 바로 이 경우를 위해 Low Vision Zoom이 만들어졌습니다. 커서를 중심으로 부드럽게 확대하고, 설정이 없으며, $9.99에 한 번만 결제하면 됩니다. <a href="/ko/index.html#demo">데모를 보고</a> 무료 체험을 해 보세요.</li>
+                    </ul>
+
+                    <h2>기능 비교</h2>
+                    <p>“공급업체 문의”로 표시된 칸은 다른 사람을 대신해 저희가 간접적으로 말하고 싶지 않은 내용입니다 — 정확한 답은 제품 제목의 링크를 따라가 확인하세요.</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="기능 비교 표">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Windows 화면 확대 프로그램 다섯 종의 기능 비교</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">무엇인가</th>
+                                    <td>한 가지 용도의 확대 도구</td>
+                                    <td>Windows에 내장된 확대 프로그램</td>
+                                    <td>완전한 저시력 지원 통합 소프트웨어</td>
+                                    <td>완전한 저시력 지원 통합 소프트웨어</td>
+                                    <td>무료 확대 창</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">라이선스 방식</th>
+                                    <td>$9.99 1회 결제, 업데이트 포함</td>
+                                    <td>무료 — Windows에 포함</td>
+                                    <td>연간 라이선스 (공급업체 문의)</td>
+                                    <td>에디션별 라이선스 (공급업체 문의)</td>
+                                    <td>무료</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">최대 배율</th>
+                                    <td>5배</td>
+                                    <td>최대 1600%(16배)</td>
+                                    <td>최대 36배</td>
+                                    <td>높음 — 공급업체 문의</td>
+                                    <td>공급업체 문의</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">확대를 바꾸는 방법</th>
+                                    <td>Ctrl + 마우스 휠, 또는 Ctrl + Alt + 더하기 / 빼기. 연속적이고 비례적임 — 새 배율로 전환되는 것이 아니라 화면이 부드럽게 그 배율로 이동함</td>
+                                    <td>Windows 키 + 더하기 / 빼기, 또는 도구 모음. 정해진 단계를 거쳐 이동하며, 단계 크기는 설정할 수 있음</td>
+                                    <td>키보드 단축키와 도구 모음; 단계별 확대 배율 — 공급업체 문의</td>
+                                    <td>키보드 단축키와 제어판; 단계별 확대 배율 — 공급업체 문의</td>
+                                    <td>자체 창에서 배율 조절</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">확대의 중심이 되는 지점</th>
+                                    <td>마우스 커서 아래의 지점으로, 화면이 그 지점을 중심으로 확대되는 동안 고정된 채 유지됨</td>
+                                    <td>마우스, 키보드 포커스, 텍스트 커서, 또는 Narrator를 따라감 — 선택 가능</td>
+                                    <td>마우스, 포커스, 커서를 따라감 — 공급업체 문의</td>
+                                    <td>마우스, 포커스, 커서를 따라감 — 공급업체 문의</td>
+                                    <td>가리키는 영역</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">텍스트를 소리 내어 읽음</th>
+                                    <td>아니요</td>
+                                    <td>예 — 읽기 제어 기능 있음</td>
+                                    <td>예, Magnifier/Reader 에디션에서</td>
+                                    <td>예, Speech 및 Screen Reader 에디션에서</td>
+                                    <td>아니요</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">완전한 스크린 리더</th>
+                                    <td>아니요</td>
+                                    <td>Narrator가 Windows에 별도로 포함되어 있음</td>
+                                    <td>JAWS와 함께 제공되는 Fusion 번들에서 사용 가능</td>
+                                    <td>예, Screen Reader 에디션에서</td>
+                                    <td>아니요</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">점자 지원</th>
+                                    <td>아니요</td>
+                                    <td>Narrator를 통해</td>
+                                    <td>공급업체 문의</td>
+                                    <td>예, 상위 에디션에서</td>
+                                    <td>아니요</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">색 필터, 대비, 반전</th>
+                                    <td>아니요</td>
+                                    <td>예 — 색 반전</td>
+                                    <td>예 — 광범위한 필터와 개선 기능</td>
+                                    <td>예 — 모니터별 설정을 포함해 광범위함</td>
+                                    <td>예 — 반전 표시와 색 모드</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">높은 배율에서의 텍스트 부드럽게 처리</th>
+                                    <td>아니요 — 픽셀을 확대함</td>
+                                    <td>예 — 부드럽게 처리 옵션</td>
+                                    <td>예 — xFont 렌더링</td>
+                                    <td>예 — True Fonts</td>
+                                    <td>예 — 부드럽게 처리 필터</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">다중 모니터</th>
+                                    <td>예 — 하나의 연속된 바탕 화면, 화면을 넘나들며 따라옴</td>
+                                    <td>예</td>
+                                    <td>예 — 공급업체 문의</td>
+                                    <td>예 — 모니터별로 독립적인 배율</td>
+                                    <td>공급업체 문의</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">설정할 항목</th>
+                                    <td>없음 — 동작이 미리 조정되어 고정되어 있음</td>
+                                    <td>여러 가지</td>
+                                    <td>광범위함</td>
+                                    <td>광범위함</td>
+                                    <td>여러 가지</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">오프라인 작동, 계정 불필요</th>
+                                    <td>예 — 라이선스는 사용자 기기에서 확인됨</td>
+                                    <td>예</td>
+                                    <td>공급업체 문의</td>
+                                    <td>공급업체 문의</td>
+                                    <td>공급업체 문의</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">수집하는 데이터</th>
+                                    <td>없음 — <a href="/privacy.html">개인정보 처리방침 (영문)</a></td>
+                                    <td>Microsoft의 개인정보 처리방침 참조</td>
+                                    <td>공급업체 문의</td>
+                                    <td>공급업체 문의</td>
+                                    <td>공급업체 문의</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">플랫폼</th>
+                                    <td>Windows 10 및 11, 64비트(x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">Low Vision Zoom을 사지 말아야 할 이유</h2>
+                    <p>저희는 당신이 $9.99를 도움이 되지 않는 것보다 도움이 되는 것에 쓰기를 바랍니다. 다음 중 하나라도 해당한다면 Low Vision Zoom을 사지 마세요.</p>
+                    <ul>
+                        <li><strong>5배가 넘는 확대가 필요합니다.</strong> 이것은 앱의 고정된 한계이며 설정 항목이 아닙니다. 5배로 충분하지 않다면 이 제품의 어느 부분도 도움이 되지 않습니다.</li>
+                        <li><strong>음성이 필요합니다.</strong> 음성 합성도, 문서 읽기 기능도, 스크린 리더도 없습니다. 그중 어느 것도 $9.99짜리 기능으로 계획되어 있지 않습니다.</li>
+                        <li><strong>편안하게 읽으려면 색 반전이나 대비 필터가 필요합니다.</strong> Windows Magnifier는 이 기능을 무료로 제공하지만, 저희는 전혀 제공하지 않습니다.</li>
+                        <li><strong>높은 배율에서 또렷한 텍스트가 필요합니다.</strong> 저희는 화면을 있는 그대로 확대하지만, 통합 소프트웨어들은 텍스트가 선명하게 유지되도록 다시 렌더링합니다. 높은 확대 배율에서 그 차이는 크고 중요합니다.</li>
+                        <li><strong>공급업체 지원, 교육, 또는 조달 경로가 필요합니다.</strong> 저희는 이메일 주소 하나를 둔 아주 작은 회사입니다. 공식적인 지원 요건이 있는 직장 내 편의 제공에는 잘 맞지 않습니다.</li>
+                        <li><strong>마우스나 트랙패드를 사용하지 않습니다.</strong> 이 제품의 설계는 확대하고 싶은 대상을 가리키는 것을 중심으로 합니다. 키보드 단축키가 있긴 하지만, 키보드만 사용하는 분에게는 다른 제품이 더 적합합니다.</li>
+                        <li><strong>ARM 기반 Windows나 32비트 PC를 사용합니다.</strong> 현재 지원하지 않습니다.</li>
+                    </ul>
+
+                    <h2>확대 프로그램이 아예 필요 없을 수도 있습니다</h2>
+                    <p>무엇이든 구매하기 전에, 이미 컴퓨터에 있는 무료 옵션을 먼저 써 볼 가치가 있습니다. 많은 분에게는 그것으로 충분합니다.</p>
+                    <ul>
+                        <li><strong>모든 것을 영구적으로 크게:</strong> Windows <em>설정 → 시스템 → 디스플레이 → 배율</em>. 이를 150% 또는 175%로 설정하면 추가 소프트웨어 없이 모든 곳의 텍스트와 아이콘이 커집니다.</li>
+                        <li><strong>텍스트만 크게:</strong> Windows <em>설정 → 접근성 → 텍스트 크기</em>.</li>
+                        <li><strong>웹 페이지 확대:</strong> 어떤 브라우저에서든 <code>Ctrl</code> + <code>더하기</code>. 픽셀을 확대하는 대신 텍스트를 다시 배치하므로 — 웹 페이지를 읽을 때는 대개 어떤 확대 프로그램보다도 읽기 편합니다.</li>
+                        <li><strong>내장 확대 프로그램:</strong> <code>Windows 키</code> + <code>더하기</code>.</li>
+                    </ul>
+                    <p>확대 프로그램은 하루 종일 모든 응용 프로그램에서 세부를 확대하고 축소하며 오가야 할 때 적합한 도구입니다. 실제로 필요한 것이 항상 큰 텍스트였다면, 확대 프로그램은 맞지 않는 도구입니다.</p>
+
+                    <h2>Low Vision Zoom이 잘 맞는 경우</h2>
+                    <p>Low Vision Zoom은 개발자가 한 가지 구체적인 것을 원했기 때문에 존재합니다. 매번 화면에서 자기 위치를 잃지 않으면서 하루 종일 계속 확대하고 다시 축소하는 것이었습니다. 이 앱은 단계별이 아니라 연속적으로 확대하고, 커서 아래의 지점을 중심으로 회전하여 보고 있던 것이 제자리에 머물도록 하며, 커서가 화면 가운데를 돌아다니는 동안에는 화면을 가만히 유지합니다. 키 하나와 스크롤 휠 외에는 설정할 것도, 배울 것도 없습니다.</p>
+                    <p>제품은 그게 전부입니다. 위 설명이 당신이 겪는 문제라면, <a href="/ko/index.html#get">7일 무료 체험</a>이 몇 분 안에 그것이 당신의 눈에 맞는지 알려 줄 것입니다. 맞지 않는다면 이 페이지의 다른 제품 중 하나가 더 나은 도움을 줄 것이고, 저희는 오히려 그쪽을 안내해 드리고 싶습니다. <a href="/ko/why-smooth-magnification.html">부드러운 확대가 왜 따라가기 더 쉬운지</a>에 대해 더 읽어 보거나, <a href="/ko/faq.html">자주 묻는 질문</a>을 확인해 보세요.</p>
+
+                    <h2>출처</h2>
+                    <p>다른 제품에 대한 서술은 각 공급업체의 공개 페이지에서 가져왔으며, 2026년 7월 20일에 확인했습니다.</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — 돋보기를 사용하여 화면의 항목을 더 쉽게 보기</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows, Windows Magnifier, Narrator는 Microsoft의 제품입니다. ZoomText와 JAWS는 Freedom Scientific / Vispero의 제품입니다. SuperNova는 Dolphin Computer Access의 제품입니다. Magnifixer는 Blacksun Software의 제품입니다. 저희는 이들 중 누구와도 제휴, 보증, 파트너 관계를 맺고 있지 않으며, 이들의 이름은 오직 해당 제품을 식별하기 위해서만 사용합니다. 이 페이지의 내용이 귀사의 제품을 잘못 표현하고 있다고 생각하신다면, <a href="/ko/contact.html">알려 주세요</a>. 바로잡겠습니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>결정하기 전에 먼저 써 보세요</h2>
+                <p>7일 무료 체험 · $9.99 1회 결제 · 구독 없음 · 계정 불필요</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ko.svg" alt="Microsoft Store에서 받기">
+                    </a>
+                    <a href="/ko/index.html#get" data-download class="download-direct">또는 이 사이트에서 설치 프로그램을 직접 다운로드 (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom은 Windows 10과 11을 위한 화면 확대 프로그램입니다. 마우스 커서를 중심으로 최대 5배까지 부드럽게 확대합니다. 비용은 $9.99 1회 결제입니다. Microsoft Store에서 받거나 MSI 파일로 직접 다운로드할 수 있습니다. 오프라인에서 작동하며 어떤 데이터도 수집하지 않습니다.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows를 위한 차분한 화면 확대 프로그램. txtbook&nbsp;LLC의 제품입니다.</p>
+                </div>
+                <div>
+                    <h4>제품</h4>
+                    <ul>
+                        <li><a href="/ko/index.html#why">더 나은 이유</a></li>
+                        <li><a href="/ko/index.html#how">사용 방법</a></li>
+                        <li><a href="/ko/pricing.html">가격</a></li>
+                        <li><a href="/ko/compare.html" aria-current="page">확대 프로그램 비교</a></li>
+                        <li><a href="/ko/faq.html">자주 묻는 질문</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>법적 고지</h4>
+                    <ul>
+                        <li><a href="/privacy.html">개인정보 처리방침 (영문)</a></li>
+                        <li><a href="/terms.html">서비스 이용약관 (영문)</a></li>
+                        <li><a href="/refund.html">환불 정책 (영문)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>지원</h4>
+                    <ul>
+                        <li><a href="/ko/contact.html">문의하기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

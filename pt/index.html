@@ -39,6 +39,33 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Logotipo do Low Vision Zoom — uma lupa com um sinal de mais dentro — e o slogan: o melhor ampliador de tela para usuários do Windows com baixa visão">
     <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom é um ampliador de tela para Windows 10 e 11, criado para pessoas com baixa visão. Segure Ctrl e role a rodinha do mouse para ampliar em qualquer lugar do Windows; a visão se aproxima com suavidade e gira em torno do ponteiro do mouse, para que você nunca perca o seu lugar. Funciona offline, não coleta dados. Teste grátis de 7 dias e depois uma licença única de $9.99 — sem assinatura.",
+      "url": "https://lowvisionzoom.com/pt/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/pt/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
     <title>Low Vision Zoom — Ampliação de tela suave para Windows</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
@@ -289,7 +316,7 @@
                     </div>
                 </div>
 
-                <p class="requirements-line">Feito para Windows 11, 64 bits (x64) · instalador autossuficiente, sem nada mais para baixar · suporte a ARM em breve.</p>
+                <p class="requirements-line">Feito para Windows 10 e 11, 64 bits (x64) · instalador autossuficiente, sem nada mais para baixar · Windows on ARM ainda não é compatível.</p>
 
                 <div class="good-to-know">
                     <p><strong>Bom saber:</strong> pesquisadores da visão chamam isso de <em>cegueira à mudança</em>: quando a visão muda durante uma interrupção visual, é fácil não perceber o que se moveu e perder o que você estava acompanhando. Um ampliador que salta recria essa interrupção o dia inteiro. Um que desliza nunca dá aos seus olhos uma brecha para perder o lugar.</p>
@@ -312,10 +339,6 @@
                         <summary>O que acontece quando o período de teste termina?</summary>
                         <div class="faq-body"><p>O aplicativo continua funcionando — a ampliação apenas fica limitada até você inserir uma chave de licença, então a sua tela sempre permanece legível o suficiente para navegar e comprar. Insira uma chave a qualquer momento para restaurar o zoom completo na hora; sem precisar reinstalar.</p></div>
                     </details>
-                    <details class="faq">
-                        <summary>Qual é a diferença em relação à Lupa integrada do Windows?</summary>
-                        <div class="faq-body"><p>O Windows inclui um ampliador competente, e muitas pessoas deveriam experimentá-lo primeiro. O Low Vision Zoom foca em uma sensação mais suave e tranquila: zoom animado com delicadeza (sem saltos), zoom centrado no cursor, panorâmica estável com zona de descanso e uma interface discreta na bandeja do sistema para ajustes rápidos e frequentes.</p></div>
-                    </details>
                     <!-- Carries the full first-run SmartScreen guidance (formerly its own
                          aside under the on-page download CTA, now retired); the
                          install-note-* classes style the steps and figure here too. -->
@@ -337,19 +360,11 @@
                             <p>O aviso desaparece por conta própria ao longo das próximas semanas, à medida que mais pessoas instalam o aplicativo, e você só precisa fazer isso uma vez. Ele é instalado por máquina em Arquivos de Programas, o que também é o que faz os cliques caírem no lugar certo com o zoom ativo.</p>
                         </div>
                     </details>
-                    <details class="faq">
-                        <summary>Meus dados de compra permanecem privados?</summary>
-                        <div class="faq-body"><p>Sim. O aplicativo em si não coleta nada e funciona offline (<a href="/privacy.html">política de privacidade (em inglês)</a>). As compras são processadas pelo nosso provedor de pagamentos, a Paddle, que atua como vendedor oficial (merchant of record); o aplicativo nunca vê seus dados de pagamento.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Vocês oferecem reembolso?</summary>
-                        <div class="faq-body"><p>Sim — há uma garantia de devolução do dinheiro em 30 dias, além do teste grátis. Veja a <a href="/refund.html">política de reembolso (em inglês)</a>.</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>Organizações podem comprar várias licenças?</summary>
-                        <div class="faq-body"><p>Sim. Escolas, clínicas, bibliotecas e empregadores podem solicitar licenciamento por volume com faturamento — use nosso <a href="/pt/contact.html?topic=volume">formulário de contato</a>.</p></div>
-                    </details>
                 </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">Mais perguntas — privacidade, reembolsos, várias licenças, como ele se compara a outros ampliadores? <a href="/pt/faq.html">Veja todas as perguntas frequentes →</a></p>
             </div>
         </section>
 
@@ -390,7 +405,7 @@
                         <li><a href="#why">Por que é melhor</a></li>
                         <li><a href="#how">Como funciona</a></li>
                         <li><a href="/pt/pricing.html">Preço</a></li>
-                        <li><a href="#faq">Perguntas frequentes</a></li>
+                        <li><a href="/pt/faq.html">Perguntas frequentes</a></li>
                     </ul>
                 </div>
                 <div>

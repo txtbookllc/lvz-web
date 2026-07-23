@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="tr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Windows ekran büyüteçlerinin dürüst bir karşılaştırması: Low Vision Zoom, yerleşik Windows Magnifier, ZoomText, SuperNova ve Magnifixer — her birinin ne yaptığı, kime uygun olduğu ve ne zaman bizimkini seçmemeniz gerektiği.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom, Windows Magnifier, ZoomText ve SuperNova karşılaştırması",
+      "description": "Windows için ekran büyüteçlerinin yan yana karşılaştırması: yerleşik Windows Magnifier, ZoomText, SuperNova, Magnifixer ve Low Vision Zoom — her birinin kime uygun olduğu ve Low Vision Zoom'u seçmemek için nedenler dahil.",
+      "url": "https://lowvisionzoom.com/tr/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "tr",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Ekran büyütme yazılımı" },
+        { "@type": "Thing", "name": "Az görenler için yardımcı teknoloji" },
+        { "@type": "Thing", "name": "Windows erişilebilirliği" }
+      ]
+    }
+    </script>
+    <title>Windows için ekran büyüteçleri karşılaştırıldı | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">İçeriğe geç</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/tr/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Ana menü">
+                <a href="/tr/index.html#demo">Tanıtımı izleyin</a>
+                <a href="/tr/index.html#how">Nasıl çalışır</a>
+                <a href="/tr/index.html#why">Neden daha iyi</a>
+                <a href="/tr/pricing.html">Fiyat</a>
+                <a href="/tr/index.html#get" data-download class="btn btn-secondary btn-nav">İndir</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Dil: Türkçe">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Türkçe</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr" aria-current="true">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Karşılaştırma</span>
+                <h1>Windows için ekran büyüteçleri</h1>
+                <p class="updated">Rakip ürün bilgileri 20 Temmuz 2026 tarihinde doğrulandı</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Daha önce hiç büyüteç kullanmadıysanız, Windows'ta zaten yerleşik olan büyüteçle başlayın. Ücretsizdir. Bilgisayarınızın sesli okunmasına, çok yüksek büyütmeye ya da braille'e ihtiyacınız varsa, <strong>ZoomText</strong> veya <strong>SuperNova</strong> gibi tam kapsamlı bir yardımcı teknoloji paketine ihtiyacınız var demektir ve <strong>Low Vision Zoom sizin için yeterli olmayacaktır</strong>. Low Vision Zoom, tek bir iş yapan küçük ve uygun fiyatlı bir araçtır: 5×'e kadar akıcı, imlece sabitlenmiş büyütme, yapılandırılacak hiçbir şey olmadan.</p>
+                    </div>
+
+                    <h2>Bunu kim yazdı ve nasıl okumalısınız</h2>
+                    <p>Low Vision Zoom'u biz üretiyoruz, dolayısıyla bu sayfayı, katılımcılardan biri tarafından yazılmış herhangi bir karşılaştırmaya nasıl yaklaşırsanız öyle değerlendirin. Üç belirli şekilde adil olmaya çalıştık: başka bir ürünle ilgili her iddia, o satıcının kendi kamuya açık belgelerinden gelir ve ona bağlantı verir; listelenen her ürünün bizimkinden daha iyi yaptığı en az bir şey vardır; ve aşağıda <a href="#not-for-you">Low Vision Zoom'u satın almamak için nedenler</a> başlıklı bir bölüm bulunur.</p>
+                    <p>Rakiplerin fiyatlarını rakam olarak bilinçli şekilde belirtmiyoruz. Yardımcı teknoloji fiyatlandırması değişir, ülkeye göre farklılık gösterir ve çoğu zaman bireyler, okullar ve işverenler için farklıdır — buraya kopyalanan bir rakam kısa sürede güncelliğini yitirir. Her ürünün <em>lisanslama modelini</em> belirtiyor ve güncel fiyatı kendiniz kontrol edebilmeniz için satıcıya bağlantı veriyoruz.</p>
+                    <p>Bu sayfadaki en önemli tavsiye: <strong>buradaki her ürün, ödeme yapmadan önce denenebilir.</strong> Büyütme son derece kişiseldir ve bir büyütecin <em>sizin</em> gözlerinize nasıl hissettirdiği, herhangi bir özellik tablosundan daha önemlidir. Onları deneyin.</p>
+
+                    <h2>Hangisini seçmelisiniz?</h2>
+                    <ul>
+                        <li><strong>Henüz hiçbir büyüteç denemediniz</strong> — bilgisayarınızda zaten bulunan <strong>Windows Magnifier</strong>'ı kullanın. <code>Windows key</code> + <code>Plus</code> tuşlarına basın. Hiçbir ücreti yoktur ve ihtiyacınız olan tek şey bu olabilir.</li>
+                        <li><strong>Ekranınızın sesli okunmasına ihtiyacınız var ya da braille kullanıyorsunuz</strong> — <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> ya da bir ekran okuyucuya ihtiyacınız var. Low Vision Zoom'da hiç konuşma ve braille desteği yoktur.</li>
+                        <li><strong>5×'ten fazla büyütmeye ihtiyacınız var</strong> — Low Vision Zoom 5×'te durur. Windows Magnifier, ZoomText ve SuperNova'nın hepsi çok daha yükseğe çıkar.</li>
+                        <li><strong>Renk filtrelerine, kontrast tersine çevirmeye ya da odak vurgulamaya ihtiyacınız var</strong> — Windows Magnifier bunların bir kısmına ücretsiz sahiptir; ZoomText ve SuperNova çok daha fazlasına sahiptir. Low Vision Zoom'da bunların hiçbiri yoktur.</li>
+                        <li><strong>Ücretsiz bir üçüncü taraf seçeneği istiyorsunuz</strong> — <strong>Magnifixer</strong> ücretsizdir ve tersine çevrilmiş görüntü ile renk modları sunan bir büyüteç penceresi sağlar.</li>
+                        <li><strong>Esas olarak çalışırken sürekli yakınlaşıp uzaklaşmak istiyorsunuz ve bunu bugün sıçrayan ya da zahmetli buluyorsunuz</strong> — Low Vision Zoom tam da bu özel durum için üretildi. İmlecinizin etrafında akıcı biçimde büyütür, hiçbir ayarı yoktur ve tek seferlik $9.99'dur. <a href="/tr/index.html#demo">Tanıtımı izleyin</a> ve ücretsiz denemeyi deneyin.</li>
+                    </ul>
+
+                    <h2>Özellik karşılaştırması</h2>
+                    <p>“Satıcıya danışın” olarak işaretlenen hücreler, bir başkası adına ikinci elden belirtmek istemediğimiz şeylerdir — yetkili yanıt için ürün başlığındaki bağlantıyı izleyin.</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Özellik karşılaştırma tablosu">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Beş Windows ekran büyütecinin özellik karşılaştırması</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Nedir</th>
+                                    <td>Tek amaçlı bir yakınlaştırma aracı</td>
+                                    <td>Windows'a yerleşik büyüteç</td>
+                                    <td>Tam kapsamlı bir az görme paketi</td>
+                                    <td>Tam kapsamlı bir az görme paketi</td>
+                                    <td>Ücretsiz bir büyüteç penceresi</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Lisanslama modeli</th>
+                                    <td>Tek seferlik $9.99, güncellemeler dahil</td>
+                                    <td>Ücretsiz — Windows ile birlikte gelir</td>
+                                    <td>Yıllık lisans (satıcıya danışın)</td>
+                                    <td>Sürüme göre lisans (satıcıya danışın)</td>
+                                    <td>Ücretsiz</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Maksimum büyütme</th>
+                                    <td>5×</td>
+                                    <td>%1600'e (16×) kadar</td>
+                                    <td>36×'e kadar</td>
+                                    <td>Yüksek — satıcıya danışın</td>
+                                    <td>Satıcıya danışın</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Yakınlaştırmayı nasıl değiştirirsiniz</th>
+                                    <td>Ctrl + fare tekerleği ya da Ctrl + Alt + Plus / Minus. Sürekli ve orantılı — görünüm yeni seviyeye geçmek yerine yumuşakça yaklaşır</td>
+                                    <td>Windows tuşu + Plus / Minus ya da araç çubuğu. Belirli seviyeler arasında adım adım geçer; adım boyutu yapılandırılabilir</td>
+                                    <td>Klavye kısayolları ve araç çubuğu; adımlı büyütme seviyeleri — satıcıya danışın</td>
+                                    <td>Klavye kısayolları ve denetim masası; adımlı büyütme seviyeleri — satıcıya danışın</td>
+                                    <td>Kendi penceresinde ayarlanabilir yakınlaştırma</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Yakınlaştırmanın neyi merkez aldığı</th>
+                                    <td>Fare imlecinizin altındaki nokta; görünüm onun etrafında ölçeklenirken sabit tutulur</td>
+                                    <td>Fareyi, klavye odağını, metin imlecini ya da Narrator'ı takip eder — sizin seçiminize göre</td>
+                                    <td>Fareyi, odağı ve imleci takip eder — satıcıya danışın</td>
+                                    <td>Fareyi, odağı ve imleci takip eder — satıcıya danışın</td>
+                                    <td>İşaret ettiğiniz alan</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Metni sesli okur</th>
+                                    <td>Hayır</td>
+                                    <td>Evet — okuma denetimleri vardır</td>
+                                    <td>Evet, Magnifier/Reader sürümünde</td>
+                                    <td>Evet, Speech ve Screen Reader sürümlerinde</td>
+                                    <td>Hayır</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Tam ekran okuyucu</th>
+                                    <td>Hayır</td>
+                                    <td>Narrator, Windows ile birlikte ayrıca gelir</td>
+                                    <td>JAWS ile birlikte Fusion paketinde mevcuttur</td>
+                                    <td>Evet, Screen Reader sürümünde</td>
+                                    <td>Hayır</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Braille desteği</th>
+                                    <td>Hayır</td>
+                                    <td>Narrator aracılığıyla</td>
+                                    <td>Satıcıya danışın</td>
+                                    <td>Evet, üst sürümlerde</td>
+                                    <td>Hayır</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Renk filtreleri, kontrast, tersine çevirme</th>
+                                    <td>Hayır</td>
+                                    <td>Evet — renk tersine çevirme</td>
+                                    <td>Evet — kapsamlı filtreler ve iyileştirmeler</td>
+                                    <td>Evet — monitör başına ayarlar dahil kapsamlı</td>
+                                    <td>Evet — tersine çevrilmiş görüntü ve renk modları</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Yüksek yakınlaştırmada metin yumuşatma</th>
+                                    <td>Hayır — pikselleri büyütür</td>
+                                    <td>Evet — yumuşatma seçeneği</td>
+                                    <td>Evet — xFont işleme</td>
+                                    <td>Evet — True Fonts</td>
+                                    <td>Evet — yumuşatma filtreleri</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Birden çok monitör</th>
+                                    <td>Evet — tek bir kesintisiz masaüstü, ekranlar arasında sizi takip eder</td>
+                                    <td>Evet</td>
+                                    <td>Evet — satıcıya danışın</td>
+                                    <td>Evet — monitör başına bağımsız seviyeler</td>
+                                    <td>Satıcıya danışın</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Yapılandırılacak ayarlar</th>
+                                    <td>Yok — davranış önceden ayarlanmış ve sabittir</td>
+                                    <td>Birkaç</td>
+                                    <td>Kapsamlı</td>
+                                    <td>Kapsamlı</td>
+                                    <td>Birkaç</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Çevrimdışı çalışır, hesap gerekmez</th>
+                                    <td>Evet — lisans cihazınızda kontrol edilir</td>
+                                    <td>Evet</td>
+                                    <td>Satıcıya danışın</td>
+                                    <td>Satıcıya danışın</td>
+                                    <td>Satıcıya danışın</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Toplanan veri</th>
+                                    <td>Yok — <a href="/privacy.html">gizlilik politikası (İngilizce)</a></td>
+                                    <td>Microsoft'un gizlilik bildirimine bakın</td>
+                                    <td>Satıcıya danışın</td>
+                                    <td>Satıcıya danışın</td>
+                                    <td>Satıcıya danışın</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Platform</th>
+                                    <td>Windows 10 ve 11, 64 bit (x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">Low Vision Zoom'u satın almamak için nedenler</h2>
+                    <p>$9.99'unuzu size yardımcı olmayan bir şeye değil, yardımcı olan bir şeye harcamanızı tercih ederiz. Aşağıdakilerden herhangi biri sizin için geçerliyse Low Vision Zoom'u satın almayın:</p>
+                    <ul>
+                        <li><strong>5×'ten fazla büyütmeye ihtiyacınız var.</strong> Bu, uygulamada bir ayar değil, kesin bir sınırdır. 5× sizin için yeterli değilse, bu ürünün hiçbir parçası yardımcı olmaz.</li>
+                        <li><strong>Konuşmaya ihtiyacınız var.</strong> Metin okuma, belge okuyucu ve ekran okuyucu yoktur. Bunların hiçbiri $9.99'luk bir özellik olarak planlanmıyor.</li>
+                        <li><strong>Rahat okumak için renk tersine çevirmeye ya da kontrast filtrelerine ihtiyacınız var.</strong> Windows Magnifier bunu ücretsiz yapar; biz bunu hiç yapmıyoruz.</li>
+                        <li><strong>Yüksek büyütmede net metne ihtiyacınız var.</strong> Biz ekranı olduğu gibi büyütürüz; bu paketler ise metni keskin kalması için yeniden işler. Yüksek yakınlaştırma seviyelerinde bu fark büyüktür ve önemlidir.</li>
+                        <li><strong>Satıcı desteğine, eğitime ya da bir tedarik yoluna ihtiyacınız var.</strong> Biz, bir e-posta adresi olan çok küçük bir şirketiz. Bu, resmi destek gereksinimi olan bir işyeri düzenlemesi için uygun değildir.</li>
+                        <li><strong>Fare ya da dokunmatik yüzey kullanmıyorsunuz.</strong> Tasarım, büyütmek istediğiniz şeyi işaret etmek üzerine kuruludur. Klavye kısayolları vardır, ancak yalnızca klavye kullanan biri başka bir yerde daha iyi hizmet görür.</li>
+                        <li><strong>ARM üzerinde Windows ya da 32 bit bir bilgisayar kullanıyorsunuz.</strong> Bugün için desteklenmiyor.</li>
+                    </ul>
+
+                    <h2>Belki hiç büyütece ihtiyacınız yoktur</h2>
+                    <p>Herhangi bir şey satın almadan önce, bilgisayarınızda zaten bulunan ücretsiz seçenekleri denemeye değer. Birçok kişi için bunlar yeterlidir:</p>
+                    <ul>
+                        <li><strong>Her şeyi kalıcı olarak büyütün:</strong> Windows <em>Ayarlar → Sistem → Ekran → Ölçek</em>. Bunu %150 veya %175 yapmak, ekstra yazılım olmadan her yerdeki tüm metin ve simgeleri büyütür.</li>
+                        <li><strong>Yalnızca metni büyütün:</strong> Windows <em>Ayarlar → Erişilebilirlik → Metin boyutu</em>.</li>
+                        <li><strong>Bir web sayfasını yakınlaştırın:</strong> herhangi bir tarayıcıda <code>Ctrl</code> + <code>Plus</code>; bu, pikselleri büyütmek yerine metni yeniden akıtır — web sayfalarını okumak için genellikle herhangi bir büyüteçten daha okunaklıdır.</li>
+                        <li><strong>Yerleşik büyüteç:</strong> <code>Windows key</code> + <code>Plus</code>.</li>
+                    </ul>
+                    <p>Bir büyüteç, gün boyunca her uygulamada ayrıntıya girip çıkmanız gerektiğinde doğru araçtır. Aslında ihtiyacınız olan şey her zaman daha büyük metinse, yanlış araçtır.</p>
+
+                    <h2>Low Vision Zoom nereye uygundur</h2>
+                    <p>Low Vision Zoom, geliştiricisi belirli bir şey istediği için var: her seferinde ekrandaki yerini kaybetmeden, tüm gün boyunca sürekli yakınlaşıp uzaklaşmak. Adım adım değil sürekli büyütür, imlecin altındaki nokta etrafında döner, böylece baktığınız şey yerinde kalır ve imleciniz ekranın ortasında dolaşırken görünümü sabit tutar. Bir tuş ve kaydırma tekerleği dışında kurulacak ya da öğrenilecek hiçbir şey yoktur.</p>
+                    <p>Ürünün tamamı bu. Yukarıdaki açıklama sizin yaşadığınız sorunsa, <a href="/tr/index.html#get">ücretsiz 7 günlük deneme</a> birkaç dakika içinde gözleriniz için işe yarayıp yaramadığını size söyleyecektir. Değilse, bu sayfadaki diğer ürünlerden biri size daha iyi hizmet edecektir ve sizi ona yönlendirmeyi tercih ederiz. <a href="/tr/why-smooth-magnification.html">Akıcı büyütmenin neden takip etmesi daha kolay olduğu</a> hakkında daha fazlasını okuyabilir ya da <a href="/tr/faq.html">sık sorulan sorulara</a> bakabilirsiniz.</p>
+
+                    <h2>Kaynaklar</h2>
+                    <p>Diğer ürünlerle ilgili iddialar, 20 Temmuz 2026 tarihinde kontrol edilen, satıcılarının kendi kamuya açık sayfalarından gelmektedir:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — Ekrandaki öğeleri daha kolay görmek için Magnifier'ı kullanın</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows, Windows Magnifier ve Narrator, Microsoft'un ürünleridir. ZoomText ve JAWS, Freedom Scientific / Vispero'nun ürünleridir. SuperNova, Dolphin Computer Access'in bir ürünüdür. Magnifixer, Blacksun Software'in bir ürünüdür. Bunların hiçbiriyle bağlı, tarafından onaylanmış ya da ortak değiliz ve adlarını yalnızca ürünlerini tanımlamak için kullanıyoruz. Bu sayfadaki herhangi bir şeyin ürününüzü yanlış tanıttığını düşünüyorsanız, <a href="/tr/contact.html">bize bildirin</a>, düzeltelim.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Karar vermeden önce deneyin</h2>
+                <p>7 gün ücretsiz deneme · tek seferlik $9.99 · abonelik yok · hesap yok</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/tr.svg" alt="Microsoft Store'dan edinin">
+                    </a>
+                    <a href="/tr/index.html#get" data-download class="download-direct">Veya yükleyiciyi doğrudan bu siteden indirin (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom, Windows 10 ve 11 için bir ekran büyütecidir. 5×’e kadar, akıcı bir şekilde, fare imlecine odaklanarak büyütür. Tek seferlik $9.99’dur. Microsoft Store’dan veya doğrudan MSI indirmesi olarak edinilebilir. Çevrimdışı çalışır ve hiçbir veri toplamaz.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows için sakin bir ekran büyüteci. Bir txtbook&nbsp;LLC ürünüdür.</p>
+                </div>
+                <div>
+                    <h4>Ürün</h4>
+                    <ul>
+                        <li><a href="/tr/index.html#why">Neden daha iyi</a></li>
+                        <li><a href="/tr/index.html#how">Nasıl çalışır</a></li>
+                        <li><a href="/tr/pricing.html">Fiyat</a></li>
+                        <li><a href="/tr/compare.html" aria-current="page">Büyüteçleri karşılaştırın</a></li>
+                        <li><a href="/tr/faq.html">SSS</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Hukuki</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Gizlilik (İngilizce)</a></li>
+                        <li><a href="/terms.html">Hizmet şartları (İngilizce)</a></li>
+                        <li><a href="/refund.html">İade politikası (İngilizce)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Destek</h4>
+                    <ul>
+                        <li><a href="/tr/contact.html">Bize ulaşın</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

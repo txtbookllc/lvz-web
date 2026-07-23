@@ -39,6 +39,33 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Low Vision Zoom 标志——一个内含加号的放大镜——以及标语：为低视力 Windows 用户打造的最佳屏幕放大镜">
     <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom 是一款适用于 Windows 10 和 11 的屏幕放大镜，专为低视力人群设计。按住 Ctrl 并滚动滚轮，即可在 Windows 中任意位置平滑缩放；画面会缓缓放大，并围绕鼠标指针展开，让您始终不会迷失位置。可离线使用，不收集任何数据。免费试用 7 天，之后一次性支付 $9.99 即可获得许可证——无需订阅。",
+      "url": "https://lowvisionzoom.com/zh/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/zh/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
     <title>Low Vision Zoom — 平滑流畅的 Windows 屏幕放大</title>
     <link rel="stylesheet" href="/styles.css">
     <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
@@ -289,7 +316,7 @@
                     </div>
                 </div>
 
-                <p class="requirements-line">专为 Windows 11（64 位，x64）打造 · 独立完整安装程序，无需再下载其他组件 · ARM 支持即将推出。</p>
+                <p class="requirements-line">专为 Windows 10 和 11（64 位，x64）打造 · 独立完整安装程序，无需再下载其他组件 · 目前不支持 Windows on ARM。</p>
 
                 <div class="good-to-know">
                     <p><strong>小知识：</strong>视觉研究者称之为<em>变化盲视</em>（change blindness）：当画面在视觉中断期间发生变化时，人很容易错过移动的部分，丢失正在跟踪的目标。跳跃式的放大镜整天都在重复制造这种中断，而平滑滑动的放大镜从不给您的眼睛留下迷失位置的空隙。</p>
@@ -312,10 +339,6 @@
                         <summary>试用期结束后会怎样？</summary>
                         <div class="faq-body"><p>应用会继续运行——只是放大倍数会受到限制，直到您输入许可证密钥，因此屏幕始终保持足够清晰，方便您浏览和购买。随时输入密钥即可立即恢复完整缩放，无需重新安装。</p></div>
                     </details>
-                    <details class="faq">
-                        <summary>它与 Windows 自带的“放大镜”有什么不同？</summary>
-                        <div class="faq-body"><p>Windows 自带一个功能不错的放大镜，许多人不妨先试试它。Low Vision Zoom 专注于更平滑、更平静的体验：柔和的动画缩放（不会跳跃）、以光标为中心的缩放、稳定的死区平移，以及一个不打扰您的系统托盘界面，方便随时快速调整。</p></div>
-                    </details>
                     <!-- Carries the full first-run SmartScreen guidance (formerly its own
                          aside under the on-page download CTA, now retired); the
                          install-note-* classes style the steps and figure here too. -->
@@ -337,19 +360,11 @@
                             <p>随着安装人数增多，这个警告会在接下来的几周内自行消失，而且您只需要这样做一次。应用按机器安装到 Program Files，这也正是放大状态下点击能准确落位的原因。</p>
                         </div>
                     </details>
-                    <details class="faq">
-                        <summary>我的购买数据会保密吗？</summary>
-                        <div class="faq-body"><p>会。应用本身不收集任何数据，并可离线使用（<a href="/privacy.html">隐私政策（英文）</a>）。购买由我们的支付服务商 Paddle 处理，Paddle 作为登记商户（merchant of record）负责交易；应用永远不会接触您的付款信息。</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>提供退款吗？</summary>
-                        <div class="faq-body"><p>提供——在免费试用之外，还有 30 天退款保证。详见<a href="/refund.html">退款政策（英文）</a>。</p></div>
-                    </details>
-                    <details class="faq">
-                        <summary>机构可以批量购买许可证吗？</summary>
-                        <div class="faq-body"><p>可以。学校、诊所、图书馆和用人单位均可申请批量授权并开具发票——请使用我们的<a href="/zh/contact.html?topic=volume">联系表单</a>。</p></div>
-                    </details>
                 </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">还有其他问题——隐私、退款、多个许可证、与其他放大镜相比如何？<a href="/zh/faq.html">查看全部常见问题 →</a></p>
             </div>
         </section>
 
@@ -390,7 +405,7 @@
                         <li><a href="#why">为什么更好</a></li>
                         <li><a href="#how">使用方法</a></li>
                         <li><a href="/zh/pricing.html">价格</a></li>
-                        <li><a href="#faq">常见问题</a></li>
+                        <li><a href="/zh/faq.html">常见问题</a></li>
                     </ul>
                 </div>
                 <div>

@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="부드러운 화면 확대가 뚝뚝 끊기는 확대보다 따라가기 더 쉬운 이유: 공간 항등성, 원활 추적, 변화맹이 자기 위치를 잃는 느낌을 어떻게 설명하는지 — 그리고 Low Vision Zoom이 이를 중심으로 어떻게 설계되었는지.">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+            } else {
+                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
+                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "부드러운 확대가 뚝뚝 끊기는 확대보다 따라가기 더 쉬운 이유",
+      "description": "부드럽게 움직이는 화면 확대 프로그램은 자기 위치를 지켜 주는 반면 뚝뚝 끊기는 확대는 다시 찾게 만드는 이유를, 공간 항등성·원활 추적·변화맹에 근거해 쉬운 말로 출처와 함께 설명합니다.",
+      "url": "https://lowvisionzoom.com/ko/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "ko",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "화면 확대" },
+        { "@type": "Thing", "name": "저시력" },
+        { "@type": "Thing", "name": "공간 항등성" },
+        { "@type": "Thing", "name": "원활 추적 안구운동" },
+        { "@type": "Thing", "name": "변화맹" }
+      ]
+    }
+    </script>
+    <title>부드러운 확대가 따라가기 더 쉬운 이유 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">본문으로 건너뛰기</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/ko/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="주 메뉴">
+                <a href="/ko/index.html#demo">데모 보기</a>
+                <a href="/ko/index.html#how">사용 방법</a>
+                <a href="/ko/index.html#why">더 나은 이유</a>
+                <a href="/ko/pricing.html">가격</a>
+                <a href="/ko/index.html#get" data-download class="btn btn-secondary btn-nav">다운로드</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="언어: 한국어">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>한국어</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko" aria-current="true">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">부드러움이 중요한 이유</span>
+                <h1>부드러운 확대가 뚝뚝 끊기는 확대보다 따라가기 더 쉬운 이유</h1>
+                <p class="updated">쉬운 말로 설명하고, 출처를 밝힙니다</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>대부분의 화면 확대 프로그램은 화면을 갑작스러운 도약으로 이동시킵니다. 도약이 일어날 때마다 눈과 뇌는 멈추고, 있던 자리를 다시 찾고, 처음부터 다시 시작해야 합니다. Low Vision Zoom은 연속적으로 움직입니다 — 확대에 부드럽게 진입하고, 가리키는 지점을 중심으로 회전하며, 화면을 옮길 때는 미끄러지듯 이동합니다 — 그래서 당신의 주의가 관심 있는 대상을 놓치는 일이 없습니다. 이는 막연히 듣기 좋은 말이 아니라, 인간의 시각이 작동하는 방식에 관해 잘 기록된 여러 특성과 들어맞습니다.</p>
+                    </div>
+
+                    <p>이 페이지의 어떤 내용도 의학적 주장이 아닙니다. 이것들은 인간의 시각과 인간–컴퓨터 상호작용에 관해 일반적으로 이해되고 있는 원리이며, 더 부드러운 확대 프로그램이 뚝뚝 끊기는 것보다 왜 지내기 편한지를 설명하기 위해 사용되었습니다. 여기 인용된 어떤 연구도 Low Vision Zoom을 연구한 것은 아닙니다. 이 연구들은 일반적으로 시각과 인터페이스의 움직임이 어떻게 작동하는지를 설명합니다.</p>
+
+                    <h2>‘자기 위치를 잃는’ 느낌에는 이름이 있습니다</h2>
+                    <p>확대 프로그램 때문에 ‘자기가 어디 있는지 놓친다’고 사람들이 말할 때, 그것은 실제로 일어나는 일을 묘사하는 것입니다. 당신의 시각 체계는 화면을 사진처럼 저장하지 않습니다. 대신 사물이 어디에 있는지에 대한 내부 지도를 실시간으로 유지하고, 선택한 지점에 시선을 고정해 둡니다. 여러 메커니즘이 그 지도를 안정적으로 유지하는데 — 확대에서 갑작스러운 도약이 일어나면 그 메커니즘들이 한꺼번에 무너집니다.</p>
+
+                    <h3>1. 공간 항등성</h3>
+                    <p>당신의 뇌는 눈이 끊임없이 움직이는데도 세상이 안정적으로 느껴지도록 열심히 일합니다. 이를 <strong>공간 항등성(spatial constancy)</strong>, 또는 공간 갱신이라고 합니다. 당신이 움직이는 동안 뇌는 모든 것이 어디에 놓일지를 예측하고 조용히 지도를 정렬 상태로 유지합니다. 부드럽고 연속적인 움직임은 바로 이 체계가 처리하도록 만들어진 종류의 입력입니다 — 지도를 실시간으로 갱신할 수 있습니다. 갑작스러운 순간이동은 보간할 것을 아무것도 주지 않으므로, 지도가 무효가 되고 처음부터 다시 만들어야 합니다. 그 재구성이 바로 ‘내가 방금 어디로 간 거지?’ 하는 순간입니다.</p>
+                    <p>Low Vision Zoom은 결코 순간이동하지 않음으로써 공간 항등성을 그대로 유지합니다. 확대는 약 3분의 1초에 걸쳐 목표 배율로 부드럽게 다가가고, 화면 이동은 툭 끊기는 대신 미끄러지듯 이루어집니다. 당신의 내부 지도는 지워지는 것이 아니라 갱신됩니다.</p>
+
+                    <h3>2. 원활 추적, 그리고 시선을 다시 고정하는 비용</h3>
+                    <p>눈이 움직이는 방식에는 두 가지가 있습니다. <strong>원활 추적(smooth pursuit)</strong>은 일정하게 움직이는 표적을 연속적으로 좇습니다 — 눈이 미끄러지듯 움직이며 표적에 고정된 채로 있습니다. <strong>단속운동(saccade)</strong>은 고정 지점 사이를 오가는 빠르고 탄도적인 도약이며, 단속운동이 일어나는 동안에는 시각이 억제되므로, 그 직후 눈은 표적을 다시 포착하고 다시 초점을 맞춰야 합니다.</p>
+                    <p>뚝뚝 끊기는 확대 프로그램은 움직일 때마다 단속운동과 재포착을 강요합니다. 시력이 저하된 사람에게는, 도약 후에 작은 표적을 다시 찾는 일이 중심 시력이 또렷한 사람보다 더 느리고 덜 확실합니다. 부드러운 확대는 그 일을 눈의 추적 체계가 대신 하도록 맡깁니다. 눈이 움직임을 타고 고정을 유지할 수 있으므로, 앞이 보이지 않는 도약도, 자기 자리를 다시 찾으려는 수색도 없습니다. Low Vision Zoom은 바로 이 점을 중심으로 만들어졌습니다 — 초당 60프레임의 애니메이션 루프 덕분에 화면은 늘 눈이 쫓아가야 하는 것이 아니라 따라갈 수 있는, 작고 추적 가능한 단위로 움직입니다.</p>
+
+                    <h3>3. 지각적 연속성 — 뇌가 같은 장면으로 취급함</h3>
+                    <p>물체가 부드럽게 움직이면, 뇌는 그것을 움직인 하나의 연속된 물체로 지각합니다. 반대로 같은 물체가 사라졌다가 다른 곳에서 다시 나타나면, 뇌는 ‘이게 같은 것인가, 그리고 무슨 일이 일어난 것인가?’를 다시 풀어야 합니다. 그 다시 푸는 과정은 노력이 들며, <strong>변화맹(change blindness)</strong>의 전형적인 유발 요인입니다. 변화맹이란 시각적 중단을 사이에 두고 일어난 변화가 그냥 인지되지 않아, 추적하고 있던 대상을 놓치는 현상입니다.</p>
+                    <p>Low Vision Zoom은 연속성을 지킵니다. 모든 프레임이 이전 프레임에서 한 걸음씩 작게 나아가기 때문에, 확대되는 내용은 옛 화면을 대체한 새 화면이 아니라 같은 장면이 부드럽게 커지는 것으로 읽힙니다. 아무것도 사라졌다가 다시 나타나지 않으므로, 놓칠 것도 없습니다.</p>
+
+                    <h3>4. 고정된 시각적 기준점: 커서를 향해 확대하기</h3>
+                    <p>이것은 ‘기준점을 잃는’ 문제에 대한 가장 직접적인 답입니다. Low Vision Zoom은 커서 아래의 지점을 중심으로 확대를 회전시킵니다 — 마우스 바로 아래의 내용은 제자리에 머물고, 그 주위로 모든 것이 확대됩니다. 반면 많은 확대 프로그램은 화면의 모서리나 중앙을 향해 확대한 다음 화면을 옮겨 따라잡는데, 이는 당신이 보고 있던 바로 그것이 발밑에서 미끄러져 나갔다가 되돌아온다는 뜻입니다.</p>
+                    <p>확대하는 동안 당신이 주시하는 지점을 고정된 채로 유지함으로써, 이 앱은 확대 전체에 걸쳐 시선이 붙잡을 수 있는 안정적인 기준점을 제공합니다. 기준점이 무엇인지는 그것을 가리키기만 하면 당신이 정합니다. 당신의 고정 지점은 결코 움직일 필요가 없으므로, 보통 그것들을 무너뜨리는 바로 그 순간에도 공간 항등성과 눈의 고정이 모두 유지됩니다.</p>
+
+                    <h3>5. 예측 가능하고 스스로 속도를 정하는 제어</h3>
+                    <p>뇌가 스스로 시작한 움직임은 강요된 움직임보다 예측하기 더 쉽습니다. Low Vision Zoom의 <strong>Ctrl + 스크롤</strong>은 연속적이고 비례적입니다. 휠을 돌리는 만큼, 그리고 돌리는 속도만큼 정확히 확대되며, 어느 지점에서든 멈추거나 되돌리거나 유지할 수 있습니다. 그 움직임은 당신의 것이므로 예측 가능합니다 — 그리고 예측 가능한 움직임은, 스스로 정해진 배율로 덜컥 움직이는 확대 프로그램보다 훨씬 덜 혼란스럽습니다.</p>
+
+                    <h2>이것이 특히 저시력에 왜 중요한가</h2>
+                    <p>중심 시력이 저하된 채 살아가는 사람들은 갑작스러운 확대 프로그램이 은근히 방해하는 전략에 의지하는 경우가 많습니다.</p>
+                    <ul>
+                        <li><strong>편심 보기(eccentric viewing)와 선호 망막 위치.</strong> 또렷한 중심 시력이 저하되면, 많은 사람들이 약간 중심에서 벗어나 보는 법을 익혀, 망막의 일정한 선호 지점을 실질적인 초점으로 사용합니다. 도약이 일어날 때마다 그 정렬을 다시 맞추는 것은 실제로 반복되는 수고입니다. 자기 자리를 다시 찾게 만드는 일이 결코 없는 확대 프로그램은, 어렵게 얻은 그 정렬이 유지되도록 해 줍니다.</li>
+                        <li><strong>다시 찾기 부담.</strong> 여유 있는 시력이 적을수록, 앞이 보이지 않는 도약 후에 작은 표적을 다시 포착하는 비용이 시각이 온전한 사용자보다 더 큽니다. 부드러움은 도약을 없애고, 그와 함께 그 부담도 없앱니다.</li>
+                        <li><strong>주의와 작업 기억.</strong> ‘지금 내가 어디 있지?’ 하고 초기화될 때마다, 실제 과제 — 읽기, 쓰기, 탐색 — 에 쓰고 싶은 주의와 작업 기억이 소모됩니다. 부드러운 움직임을 힘들이지 않고 따라가는 당신의 지각 체계에 추적을 맡기면, 그 수고가 일 자체를 위해 풀려납니다.</li>
+                    </ul>
+                    <p>이 중 어느 것도 치료에 대한 주장이 아닙니다. 이것은 저시력으로 보는 방식과 맞서 싸우는 도구와, 그 방식에 맞춰 만들어진 도구 사이의 차이입니다.</p>
+
+                    <h2>모든 설계 선택이 같은 목표에 기여합니다</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="각 기능이 어떤 지각 원리에 대응하는지">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Low Vision Zoom의 기능과 각각이 기여하는 지각 원리</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">기능</th>
+                                    <th scope="col">하는 일</th>
+                                    <th scope="col">기여하는 원리</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">부드러운 애니메이션 확대(약 ⅓초 감속, 60fps)</th>
+                                    <td>확대가 툭 끊기지 않고 목표 배율로 부드럽게 다가감</td>
+                                    <td>공간 항등성; 원활 추적; 지각적 연속성</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">확대가 커서를 중심으로 회전함</th>
+                                    <td>마우스 아래의 지점은 고정된 채, 그 주위로 모든 것이 확대·축소됨</td>
+                                    <td>안정적인 시각적 기준점; 고정 지점이 결코 밀려나지 않음</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">데드존을 둔 커서 따라가기</th>
+                                    <td>커서가 넉넉한 중앙 영역을 돌아다니는 동안 화면은 가만히 있고, 가장자리에 가까워질 때만 — 미끄러지듯 — 화면을 옮김</td>
+                                    <td>불필요한 움직임 없음; 화면 이동은 순간이동이 아니라 원활 추적임</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ctrl + 스크롤 비례 제어</th>
+                                    <td>원하는 만큼 빠르게 또는 느리게, 확대 배율을 연속적으로 설정함</td>
+                                    <td>스스로 속도를 정하고, 예측 가능하며, 스스로 시작하는 움직임</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">전체 바탕 화면, 다중 모니터 보기</th>
+                                    <td>창별로 나뉜 섬이 아니라, 화면을 넘나들며 따라오는 하나의 연속된 확대 공간</td>
+                                    <td>여러 개가 아니라, 갱신할 하나의 일관된 공간 지도</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">조정된 기본값, 설정할 것 없음</th>
+                                    <td>부드러움, 속도, 데드존 감각이 미리 조정되어 고정되어 있음</td>
+                                    <td>부드러운 동작이 기본값이며, 발견해서 설정해야 하는 것이 아님</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>이것이 이 제품의 전체 아이디어입니다. 인간의 시각 체계가 따라가도록 만들어진 방식으로 움직이는 확대 프로그램이어서, 다른 제품들이 당신의 위치를 잃게 만드는 곳에서 당신을 계속 붙들어 둡니다. <a href="/ko/index.html#demo">실제 작동을 보거나</a>, <a href="/ko/compare.html">다른 확대 프로그램과 어떻게 비교되는지 확인하거나</a>, <a href="/ko/index.html#get">7일 동안 무료로 사용해</a> 보세요.</p>
+
+                    <h2>출처 및 더 읽을거리</h2>
+                    <p>위에서 인용한 일반 원리에 대한, 신뢰할 수 있고 동료 심사를 거쳤거나 권위 있는 기관이 발행한 출처들입니다. 이들은 일반적으로 인간의 시각과 인터페이스의 움직임이 어떻게 작동하는지를 설명합니다 — 그중 어느 것도 Low Vision Zoom을 연구한 것은 아니며, 그 어느 것도 이 앱으로 특정한 결과가 나온다는 증거로 읽혀서는 안 됩니다.</p>
+
+                    <h3>공간 항등성과 안구운동 전반에 걸친 시각적 안정성</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — 빠른 안구운동 중에는 시각 민감도가 감소하며, 이 억제는 망막에서 시작된다. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">읽어보기</a>.</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — 뇌가 안구운동에 걸친 이미지들의 연속으로부터 어떻게 통합된 지각을 구성하는지. <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">초록</a>.</li>
+                    </ul>
+
+                    <h3>원활 추적 — 눈의 연속 추적 체계</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — 눈은 움직이는 표적을 부드럽게 좇고 예측하며, 스스로 만들어 낸 움직임이나 현실적인 표적 움직임에서 정확도가 더 높다. <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">초록</a>.</li>
+                    </ul>
+
+                    <h3>변화맹 — 시각적 중단을 사이에 두고 대상을 놓치기</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — 평소라면 쉽게 알아챌 큰 변화를 보지 못하는 놀라운 실패. <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">초록</a>.</li>
+                        <li>Rensink, <em>Change Blindness</em>, in Neurobiology of Attention (Elsevier, 2005) — 이 효과는 안구운동, 눈 깜박임, 또는 짧은 섬광이 일어나는 동안 변화를 줌으로써 유발될 수 있다. <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>.</li>
+                    </ul>
+
+                    <h3>중심 시력 상실, 편심 보기, 그리고 선호 망막 위치</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — 중심 암점이 있는 사람들은 영향을 받은 영역 바깥의 선호 망막 위치를 사용하며, 그 중심에서 벗어난 보기를 훈련하는 것을 편심 보기 훈련이라고 한다. <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">읽어보기</a>.</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">초록</a>.</li>
+                    </ul>
+
+                    <h3>사용자 인터페이스 디자인에서의 움직임과 연속성</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — 움직임은 방향 감각 상실을 막고 사용자가 전환을 거치는 동안 맥락을 놓치지 않도록 도울 수 있다. <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">읽어보기</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>부드러움을 직접 확인해 보세요</h2>
+                <p>7일 무료 체험 · $9.99 1회 결제 · 구독 없음 · 계정 불필요</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/ko.svg" alt="Microsoft Store에서 받기">
+                    </a>
+                    <a href="/ko/index.html#get" data-download class="download-direct">또는 이 사이트에서 설치 프로그램을 직접 다운로드 (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Windows를 위한 차분한 화면 확대 프로그램. txtbook&nbsp;LLC의 제품입니다.</p>
+                </div>
+                <div>
+                    <h4>제품</h4>
+                    <ul>
+                        <li><a href="/ko/index.html#why">더 나은 이유</a></li>
+                        <li><a href="/ko/index.html#how">사용 방법</a></li>
+                        <li><a href="/ko/pricing.html">가격</a></li>
+                        <li><a href="/ko/compare.html">확대 프로그램 비교</a></li>
+                        <li><a href="/ko/faq.html">자주 묻는 질문</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>법적 고지</h4>
+                    <ul>
+                        <li><a href="/privacy.html">개인정보 처리방침 (영문)</a></li>
+                        <li><a href="/terms.html">서비스 이용약관 (영문)</a></li>
+                        <li><a href="/refund.html">환불 정책 (영문)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>지원</h4>
+                    <ul>
+                        <li><a href="/ko/contact.html">문의하기</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>
