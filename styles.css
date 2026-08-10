@@ -17,6 +17,15 @@
     box-sizing: border-box;
 }
 
+/* The `hidden` attribute must win. The UA sheet's [hidden]{display:none} is
+   beaten by any class that sets display — .btn's inline-flex did exactly that,
+   and shipped a dead "Activate" link onto the live success page. Scripts that
+   reveal things set `.hidden = false`, which removes the attribute, so nothing
+   depends on a hidden element staying visible. */
+[hidden] {
+    display: none !important;
+}
+
 :root {
     /* --- Surfaces — warm near-black, not stark black --- */
     --bg:            #14130f;
