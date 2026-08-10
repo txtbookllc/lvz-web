@@ -1143,6 +1143,26 @@ img, svg, video { display: block; max-width: 100%; }
 }
 .form-success h2 { color: var(--positive-text); margin-bottom: var(--s-1); }
 
+/* --- License key shown on the success page ------------------------------
+   The key has to be read and re-typed by people who cannot read small text,
+   so it gets the mono face at full body size, room to breathe, and wraps
+   instead of overflowing. user-select:all makes one click select the lot for
+   anyone whose browser has no clipboard API. */
+.key-deliver { margin: var(--s-3) 0; }
+.key-box {
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    background: var(--surface-sunk);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius-sm);
+    padding: var(--s-2);
+    margin: var(--s-1) 0 var(--s-2);
+    word-break: break-all;
+    -webkit-user-select: all;
+    user-select: all;
+}
+.key-deliver .btn { margin: 0 var(--s-1) var(--s-1) 0; }
+
 /* --- Responsive --- */
 @media (max-width: 860px) {
     .hero .container { grid-template-columns: 1fr; }

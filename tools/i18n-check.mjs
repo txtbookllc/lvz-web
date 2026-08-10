@@ -452,7 +452,9 @@ function checkTranslatedPage(langCfg, page) {
             fail(where, `Paddle locale literals [${locales}] must all be "${langCfg.paddleLocale}"`);
         }
         const enBody = en.scripts.join("\n");
-        for (const name of ["CLIENT_TOKEN", "PRICE_ID"]) {
+        // API_BASE decides where the funnel beacon and the license-key poll go —
+        // pinned like the payment constants so no copy can quietly drift.
+        for (const name of ["CLIENT_TOKEN", "PRICE_ID", "API_BASE"]) {
             const re = new RegExp(`${name}\\s*=\\s*"([^"]+)"`);
             if (enBody.match(re)?.[1] !== body.match(re)?.[1]) {
                 fail(where, `${name} was altered — must match the English page`);

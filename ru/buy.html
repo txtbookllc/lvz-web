@@ -157,6 +157,20 @@
                 <div class="form-success" id="buy-success" tabindex="-1">
                     <h2>Оплата прошла успешно — спасибо!</h2>
                     <p>Ваш лицензионный ключ уже направляется на вашу почту. (Проверьте папку «Спам», если не увидите письмо в течение нескольких минут.)</p>
+                    <!-- Key straight on the page: the script polls the fulfillment worker with the
+                         Paddle transaction id and fills this in as soon as the webhook has issued a
+                         key. The email is still the durable copy — if the poll times out this panel
+                         hides itself and the instructions below are unchanged. -->
+                    <div class="key-deliver" id="key-deliver" role="status" aria-live="polite" hidden>
+                        <p id="key-fetching">Получаем ваш лицензионный ключ…</p>
+                        <div id="key-ready" hidden>
+                            <h3>Ваш лицензионный ключ:</h3>
+                            <p class="key-box" id="key-value"></p>
+                            <button type="button" class="btn btn-secondary" id="key-copy">Скопировать ключ</button>
+                            <a class="btn btn-quiet" id="key-activate" href="lvz://activate/" hidden>Активировать Low Vision Zoom</a>
+                            <p class="price-fineprint">Ключ также отправлен вам по электронной почте — сохраните это письмо.</p>
+                        </div>
+                    </div>
                     <h3>Чтобы активировать Low Vision Zoom:</h3>
                     <ol class="price-list" style="text-align:start">
                         <li>Откройте Low Vision Zoom (сначала скачайте, если ещё не сделали этого, — кнопка ниже).</li>
@@ -227,6 +241,23 @@
             var PRICE_ID = "pri_01kv3zfqj55ar4ykzachnmv54e";
             var SUCCESS_URL = "https://lowvisionzoom.com/ru/buy.html?state=success";
 
+            /* Funnel counters + license-key delivery, both against our own
+               fulfillment worker.
+               - track() reports three aggregate facts — which step, which page
+                 language, which entry point — with no cookie, no identifier and
+                 nothing about the person. The worker only bumps a daily total.
+               - The key lookup is authorised by the Paddle transaction id, which
+                 only this checkout session and the buyer's own receipt know. */
+            var API_BASE = "https://api.lowvisionzoom.com";
+            var PATH_SEG = window.location.pathname.split("/")[1] || "";
+            var LANG = /^[a-z]{2}$/.test(PATH_SEG) ? PATH_SEG : "en";
+            var SRC = new URLSearchParams(window.location.search).get("src") || "web";
+            var TXN_STASH = "lvz_txn";
+            var TXN_ID = /^txn_[a-zA-Z0-9]{10,40}$/;
+            /* One-click activation needs the desktop app to register the lvz://
+               protocol handler; until that ships the link would land on nothing. */
+            var SHOW_ACTIVATE_LINK = false;
+
             var card = document.getElementById("buy-card");
             var btn = document.getElementById("buy-btn");
             var statusEl = document.getElementById("buy-status");
@@ -261,11 +292,97 @@
                 }
             }
 
+            function track(ev) {
+                try {
+                    fetch(API_BASE + "/e?ev=" + ev + "&l=" + LANG + "&s=" + encodeURIComponent(SRC),
+                        { mode: "no-cors", cache: "no-store", keepalive: true })
+                        .catch(function () { /* blocked or offline — counters are best-effort */ });
+                } catch (e) { /* no fetch at all — nothing worth doing about it */ }
+            }
+
+            /* Stash the Paddle transaction id so it survives the successUrl
+               redirect, which destroys this page, and hand it to the poller. */
+            function captureTxn(ev) {
+                var d = (ev && ev.data) || {};
+                var id = TXN_ID.test(d.transaction_id || "") ? d.transaction_id
+                    : (TXN_ID.test(d.id || "") ? d.id : null);
+                if (id) {
+                    try { sessionStorage.setItem(TXN_STASH, id); } catch (e) { /* private mode */ }
+                }
+                return id;
+            }
+
+            /* Poll the worker until the Paddle webhook has issued a key for this
+               transaction (30 tries, 2s apart — about a minute). On timeout the
+               panel hides itself again and the emailed key stays the only path,
+               exactly as this page worked before. */
+            function deliverKey(txn) {
+                if (!txn) {
+                    try { txn = sessionStorage.getItem(TXN_STASH); } catch (e) { txn = null; }
+                }
+                if (!txn || !TXN_ID.test(txn)) { return; }
+
+                var panel = document.getElementById("key-deliver");
+                var ready = document.getElementById("key-ready");
+                var fetching = document.getElementById("key-fetching");
+                var valueEl = document.getElementById("key-value");
+                if (!panel || !ready || !valueEl) { return; }
+                panel.hidden = false;
+
+                var tries = 0;
+                function attempt() {
+                    tries++;
+                    fetch(API_BASE + "/key?txn=" + encodeURIComponent(txn), { cache: "no-store" })
+                        .then(function (r) { return r.status === 200 ? r.json() : null; })
+                        .then(function (data) {
+                            if (data && data.key) { showKey(data.key); } else { retry(); }
+                        })
+                        .catch(retry);
+                }
+                function retry() {
+                    if (tries >= 30) { panel.hidden = true; return; }
+                    setTimeout(attempt, 2000);
+                }
+                function showKey(key) {
+                    try { sessionStorage.removeItem(TXN_STASH); } catch (e) { /* private mode */ }
+                    valueEl.textContent = key;
+                    if (fetching) { fetching.hidden = true; }
+                    ready.hidden = false;
+                    var activate = document.getElementById("key-activate");
+                    if (SHOW_ACTIVATE_LINK && activate) {
+                        activate.href = "lvz://activate/" + encodeURIComponent(key);
+                        activate.hidden = false;
+                    }
+                }
+                wireCopyButton();
+                attempt();
+            }
+
+            function wireCopyButton() {
+                var copyBtn = document.getElementById("key-copy");
+                if (!copyBtn) { return; }
+                // No clipboard API (older browser, insecure context): hide the
+                // button rather than leave one that does nothing. The key sits
+                // in selectable text either way.
+                if (!navigator.clipboard) { copyBtn.hidden = true; return; }
+                var label = copyBtn.textContent;
+                copyBtn.addEventListener("click", function () {
+                    var valueEl = document.getElementById("key-value");
+                    if (!valueEl) { return; }
+                    navigator.clipboard.writeText(valueEl.textContent).then(function () {
+                        copyBtn.textContent = "Скопировано!";
+                        setTimeout(function () { copyBtn.textContent = label; }, 2000);
+                    }, function () { /* refused — the key is still selectable */ });
+                });
+            }
+
             // Returning from a completed checkout.
             if (new URLSearchParams(window.location.search).get("state") === "success") {
                 showSuccess();
+                deliverKey(null);
                 return;
             }
+            track("visit");
 
             function setError(msg) {
                 statusEl.className = "form-status is-error";
@@ -285,11 +402,15 @@
                         if (ev.name === "checkout.loaded") {
                             // Overlay opened fine — no blocker problem.
                             clearBlockerWatch();
+                            track("open");
                         } else if (ev.name === "checkout.completed") {
                             // Belt-and-suspenders: the successUrl redirect normally
                             // handles this, but show success even if it doesn't fire.
                             clearBlockerWatch();
+                            track("complete");
+                            var txn = captureTxn(ev);
                             showSuccess();
+                            deliverKey(txn);
                         } else if (ev.name === "checkout.error") {
                             showBlockerHelp();
                         }
