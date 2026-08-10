@@ -370,7 +370,7 @@
                     var valueEl = document.getElementById("key-value");
                     if (!valueEl) { return; }
                     navigator.clipboard.writeText(valueEl.textContent).then(function () {
-                        copyBtn.textContent = "복사되었습니다!";
+                        copyBtn.textContent = "복사 완료!";
                         setTimeout(function () { copyBtn.textContent = label; }, 2000);
                     }, function () { /* refused — the key is still selectable */ });
                 });
