@@ -31,6 +31,7 @@
  *    a working one, so tools/i18n-status-tests.mjs drives these exports directly.
  */
 import { existsSync, readFileSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 import { join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import { CONFIG, ROOT, SNAP_DIR, findings,
@@ -132,6 +133,36 @@ function loadLabelKeys(APP, file) {
     return new Set(Object.keys(JSON.parse(readFileSync(path, "utf8"))));
 }
 
+/* §0.10's validators, run once and attributed per language. The DONE-iff rules say a resx or
+ * a listing is done when it exists AND PASSES its validator — so counting files would
+ * overstate doneness, which is the one thing this tool must never do. If the validator cannot
+ * be run at all, those columns go UNKNOWN rather than falling back to existence: silently
+ * weakening a check is how a matrix starts lying. */
+function loadValidators(APP) {
+    if (!APP) return null;
+    const tool = join(APP, "tools", "i18n-validate.mjs");
+    if (!existsSync(tool)) return null;
+    let out;
+    try {
+        out = execFileSync("node", [tool, "--json"],
+            { cwd: APP, encoding: "utf8", stdio: ["ignore", "pipe", "ignore"] });
+    } catch (e) {
+        /* Nonzero exit is the normal path when there ARE findings; stdout still holds them. */
+        out = e.stdout || "";
+    }
+    let parsed;
+    try { parsed = JSON.parse(out); } catch { return null; }
+
+    const byLang = { resx: new Map(), listing: new Map() };
+    for (const f of parsed.findings ?? []) {
+        let m = /^Strings\.([A-Za-z-]+)\.resx$/.exec(f.where);
+        if (m) { (byLang.resx.get(m[1]) ?? byLang.resx.set(m[1], []).get(m[1])).push(f); continue; }
+        m = /^store-listing-i18n\/([A-Za-z-]+)\.md$/.exec(f.where);
+        if (m) (byLang.listing.get(m[1]) ?? byLang.listing.set(m[1], []).get(m[1])).push(f);
+    }
+    return byLang;
+}
+
 function loadContext(appOverride) {
     const APP = findAppRepo(appOverride);
     return {
@@ -139,6 +170,7 @@ function loadContext(appOverride) {
         email: loadEmailTemplates(APP),
         howtoLabels: loadLabelKeys(APP, "howto-labels.json"),
         heroLabels: loadLabelKeys(APP, "store-hero-labels.json"),
+        validators: loadValidators(APP),
     };
 }
 
@@ -187,8 +219,12 @@ function probeCheck(langCfg) {
     return findings.slice(before);
 }
 
-const probeResx = (ctx, code) =>
-    (ctx.APP ? cell(existsSync(join(ctx.APP, `Strings.${code}.resx`)) ? 1 : 0, 1) : unknown());
+function probeResx(ctx, code) {
+    if (!ctx.APP) return unknown();
+    if (!existsSync(join(ctx.APP, `Strings.${code}.resx`))) return cell(0, 1);
+    if (!ctx.validators) return unknown();   // exists, but parity could not be established
+    return cell(ctx.validators.resx.get(code)?.length ? 0 : 1, 1);
+}
 
 function probeEmail(ctx, code) {
     if (!ctx.email) return unknown();
@@ -204,8 +240,12 @@ const probeLabels = (ctx, code) =>
         ? cell((ctx.howtoLabels.has(code) ? 1 : 0) + (ctx.heroLabels.has(code) ? 1 : 0), 2)
         : unknown());
 
-const probeStoreListing = (ctx, code) =>
-    (ctx.APP ? cell(existsSync(join(ctx.APP, "store-listing-i18n", `${code}.md`)) ? 1 : 0, 1) : unknown());
+function probeStoreListing(ctx, code) {
+    if (!ctx.APP) return unknown();
+    if (!existsSync(join(ctx.APP, "store-listing-i18n", `${code}.md`))) return cell(0, 1);
+    if (!ctx.validators) return unknown();   // exists, but the budgets could not be checked
+    return cell(ctx.validators.listing.get(code)?.length ? 0 : 1, 1);
+}
 
 /* Artwork spans both repos. The DONE-iff rule names 3 web SVGs + 4 app GIFs +
  * 6 Store PNGs; the store badge is counted here as well, because it is the

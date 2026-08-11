@@ -166,6 +166,34 @@ withEdited(join(APP, "fulfillment", "src", "i18n.ts"),
     "an email template MISSING ONE FIELD is not done (existence is not enough)",
     (st, n) => ok(n, cellIs(st, "es", "email", 0, 1) && notComplete(st, "es")));
 
+/* The DONE-iff rules say a resx or listing is done when it exists AND PASSES its validator.
+ * Counting files would call a corrupt artifact done — and because this tool decides whether
+ * an agent is dispatched, that means silently shipping the corruption. */
+console.log("\n[3b] existence is not enough — §0.10's validators gate the resx and store cells");
+
+withEdited(join(APP, "Strings.es.resx"),
+    '<data name="Tray_Exit" xml:space="preserve"><value>Salir</value></data>', "",
+    "a PRESENT resx that fails key parity reads red, not done",
+    (st, n) => ok(n, cellIs(st, "es", "resx", 0, 1) && notComplete(st, "es"),
+        `  got ${JSON.stringify(row(st, "es")?.resx)}`));
+
+withEdited(join(APP, "store-listing-i18n", "es.md"), "\n6. Ingeniería sólida de Windows", "\nX. Ingeniería sólida de Windows",
+    "a PRESENT listing that breaks a Store budget reads red, not done",
+    (st, n) => ok(n, cellIs(st, "es", "store", 0, 1) && notComplete(st, "es"),
+        `  got ${JSON.stringify(row(st, "es")?.store)}`));
+
+/* And if the validator itself cannot run, those columns must go UNKNOWN — never quietly
+ * fall back to "the file is there, call it done". */
+withMoved(join(APP, "tools", "i18n-validate.mjs"),
+    "without the validator, resx/store go unknown rather than silently downgrading to existence",
+    (st, n) => {
+        const r = row(st, "es");
+        ok(n, r && r.resx.known === false && r.store.known === false && r.complete === false,
+            `  resx=${JSON.stringify(r?.resx)} store=${JSON.stringify(r?.store)}`);
+        ok("  ...while the columns that do not depend on it stay measured",
+            r?.pages.known && r.email.known && r.labels.known);
+    });
+
 console.log("\n[4] artwork — all four sources must be probed, not just the first");
 withMoved(join(ROOT, "media", "howto-desktop.es.svg"),
     "a missing WEB SVG drops the art count",
