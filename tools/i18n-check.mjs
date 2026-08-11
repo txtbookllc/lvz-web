@@ -11,6 +11,12 @@
  *   node tools/i18n-check.mjs --check [--lang XX]   validate everything; nonzero exit on findings
  *   node tools/i18n-check.mjs --accept XX [page..]  record current English pages as the snapshot
  *                                                   XX's translation corresponds to
+ *   node tools/i18n-check.mjs --rewrite-blocks [--dry-run]
+ *                                                   regenerate the three language-list blocks
+ *                                                   (hreflang run, switcher <ul>, LANGS array)
+ *                                                   in English + translations + snapshots, in
+ *                                                   one atomic pass. --dry-run exits nonzero if
+ *                                                   anything would change.
  *   node tools/i18n-check.mjs --sitemap             (re)write sitemap.xml from languages.json
  *   node tools/i18n-check.mjs --print-blocks PAGE   print the hreflang + switcher markup expected
  *                                                   on an English page (for pasting)
@@ -230,21 +236,142 @@ function expectedSwitcher(page, currentLang) {
     // entities survive into the emitted markup byte-for-byte.
     const name = cur ? cur.nativeName : "English";
     const ariaLabel = cur ? cur.switcherLabel : "Language: English";
-    const rows = [[`en`, `en`, `English`]]
-        .concat(CONFIG.languages.map((l) => [l.code, l.hreflang, l.nativeName]));
-    const out = [
+    return [
         `<details class="lang-switch">`,
         `    <summary aria-label="${ariaLabel}">`,
         `        <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>`,
         `        <span>${name}</span>`,
         `    </summary>`,
         `    <ul>`,
+        ...switcherItems(page, currentLang).map((l) => `        ${l}`),
+        `    </ul>`,
+        `</details>`,
     ];
-    for (const [code, hreflang, name] of rows) {
+}
+
+/* The <li> rows of the switcher, unindented. This is the only part of the switcher
+ * block --rewrite-blocks regenerates: <summary>, <svg> and <span> are preserved
+ * territory (they carry per-language authored text, not a function of languages.json). */
+function switcherItems(page, currentLang) {
+    const rows = [[`en`, `en`, `English`]]
+        .concat(CONFIG.languages.map((l) => [l.code, l.hreflang, l.nativeName]));
+    return rows.map(([code, hreflang, name]) => {
         const cur = code === currentLang ? ` aria-current="true"` : "";
-        out.push(`        <li><a href="${switcherHref(code, page)}" data-lang="${code}" lang="${code}" hreflang="${hreflang}"${cur}>${name}</a></li>`);
+        return `<li><a href="${switcherHref(code, page)}" data-lang="${code}" lang="${code}" hreflang="${hreflang}"${cur}>${name}</a></li>`;
+    });
+}
+
+/* ------------------------------------------------------------------------
+ * Managed regions
+ *
+ * Three blocks on every translated page are pure functions of languages.json:
+ * the hreflang run, the switcher's <ul> interior, and the LANGS array in the head
+ * redirect snippet. --rewrite-blocks regenerates them in place across English,
+ * translations and snapshots so adding a language is one script run, not a ~259
+ * (soon ~511) file hand edit.
+ *
+ * These are OFFSET SPLICES into the raw file text — never a split/rejoin.
+ * The repo has MIXED line endings (core.autocrlf=true, no .gitattributes): English
+ * is CRLF except buy.html, translations are split 4/3 and 1/6 CRLF/LF by wave-1
+ * batch, snapshots are 6/1. Rebuilding a whole file would strip \r from ~200 files,
+ * rewrite them entirely, and break snapshot/English byte-equality — marking all 18
+ * shipped languages STALE in one commit. Every splice below preserves the bytes
+ * outside its region exactly, and emits the line ending already in use inside it.
+ * ---------------------------------------------------------------------- */
+
+/* The line ending in use inside [start,end); falls back to the file's dominant one. */
+function eolIn(html, start, end) {
+    const nl = html.indexOf("\n", start);
+    if (nl === -1 || nl >= end) return html.includes("\r\n") ? "\r\n" : "\n";
+    return nl > 0 && html[nl - 1] === "\r" ? "\r\n" : "\n";
+}
+const lineStartAt = (html, i) => html.lastIndexOf("\n", i) + 1;
+const indentAt = (html, i) => html.slice(i, i + 64).match(/^[ \t]*/)[0];
+
+const HREFLANG_LINE = /^[ \t]*<link rel="alternate" hreflang="[^"]*" href="[^"]*">[ \t]*\r?$/;
+
+/* The contiguous run of <link rel="alternate" hreflang=...> lines. */
+function findHreflangRegion(html) {
+    const first = html.indexOf('<link rel="alternate" hreflang=');
+    if (first === -1) return null;
+    const start = lineStartAt(html, first);
+    let cur = start, end = start;
+    while (cur < html.length) {
+        let nl = html.indexOf("\n", cur);
+        if (nl === -1) nl = html.length;
+        if (!HREFLANG_LINE.test(html.slice(cur, nl))) break;
+        end = Math.min(nl + 1, html.length);
+        cur = end;
     }
-    out.push(`    </ul>`, `</details>`);
+    if (end === start) return null;
+    return { start, end, indent: indentAt(html, start), eol: eolIn(html, start, end) };
+}
+
+/* The <li> rows between <ul> and </ul> inside <details class="lang-switch">. */
+function findSwitcherRegion(html) {
+    const d = html.indexOf('<details class="lang-switch">');
+    if (d === -1) return null;
+    const dEnd = html.indexOf("</details>", d);
+    const ul = html.indexOf("<ul>", d);
+    if (ul === -1 || (dEnd !== -1 && ul > dEnd)) return null;
+    const ulClose = html.indexOf("</ul>", ul);
+    if (ulClose === -1) return null;
+    const start = html.indexOf("\n", ul) + 1;      // first <li> line
+    const end = lineStartAt(html, ulClose);        // the </ul> line
+    if (!start || end < start) return null;
+    return { start, end, indent: indentAt(html, start), eol: eolIn(html, start, end) };
+}
+
+/* The interior of the LANGS array literal in the head redirect snippet. */
+function findLangsRegion(html) {
+    const m = /LANGS\s*=\s*\[([^\]]*)\]/.exec(html);
+    if (!m) return null;
+    const start = m.index + m[0].indexOf("[") + 1;
+    return { start, end: start + m[1].length, indent: "", eol: "" };
+}
+
+/* Compute the rewritten text for one file. Splices are applied last-offset-first
+ * so earlier offsets stay valid. Returns null if the file carries no managed block. */
+function rewriteManagedBlocks(orig, page, lang) {
+    const edits = [];
+    const missing = [];
+
+    const h = findHreflangRegion(orig);
+    if (h) edits.push({ ...h, name: "hreflang",
+        text: expectedHreflang(page).map((l) => h.indent + l).join(h.eol) + h.eol });
+    else missing.push("hreflang");
+
+    const s = findSwitcherRegion(orig);
+    if (s) edits.push({ ...s, name: "switcher",
+        text: switcherItems(page, lang).map((l) => s.indent + l).join(s.eol) + s.eol });
+    else missing.push("switcher");
+
+    const g = findLangsRegion(orig);
+    if (g) edits.push({ ...g, name: "LANGS",
+        text: CONFIG.languages.map((l) => JSON.stringify(l.code)).join(", ") });
+    else missing.push("LANGS");
+
+    if (!edits.length) return null;
+    let html = orig;
+    for (const e of [...edits].sort((a, b) => b.start - a.start)) {
+        html = html.slice(0, e.start) + e.text + html.slice(e.end);
+    }
+    const changed = edits.filter((e) => orig.slice(e.start, e.end) !== e.text).map((e) => e.name);
+    return { html, changed, missing };
+}
+
+/* Every file carrying managed blocks: English + translations + snapshots.
+ * Snapshots are byte copies of the ENGLISH page, so their switcher language is "en". */
+function managedTargets() {
+    const out = [];
+    for (const page of CONFIG.translatedPages) {
+        out.push({ path: join(ROOT, page), page, lang: "en", label: page });
+        for (const l of CONFIG.languages) {
+            out.push({ path: join(ROOT, l.code, page), page, lang: l.code, label: `${l.code}/${page}` });
+            out.push({ path: join(SNAP_DIR, l.code, page), page, lang: "en",
+                label: `snapshots/${l.code}/${page}` });
+        }
+    }
     return out;
 }
 
@@ -580,6 +707,35 @@ function cmdSitemap() {
     return 0;
 }
 
+function cmdRewriteBlocks(dryRun) {
+    const targets = managedTargets();
+    let scanned = 0, changed = 0, absent = 0, incomplete = 0;
+    for (const t of targets) {
+        if (!existsSync(t.path)) {
+            // A language mid-rollout legitimately has no pages yet; snapshots likewise.
+            absent++;
+            continue;
+        }
+        scanned++;
+        const orig = readFileSync(t.path, "utf8");
+        const res = rewriteManagedBlocks(orig, t.page, t.lang);
+        if (!res) { console.log(`WARN  ${t.label}: no managed blocks found`); incomplete++; continue; }
+        if (res.missing.length) {
+            console.log(`WARN  ${t.label}: missing managed block(s): ${res.missing.join(", ")}`);
+            incomplete++;
+        }
+        if (res.html === orig) continue;
+        changed++;
+        console.log(`${dryRun ? "would rewrite" : "rewrote"}  ${t.label}  [${res.changed.join(", ")}]`);
+        if (!dryRun) writeFileSync(t.path, res.html, "utf8");
+    }
+    console.log(`\n${scanned} file(s) scanned, ${changed} ${dryRun ? "would change" : "changed"}`
+        + `, ${absent} absent, ${incomplete} with missing blocks.`);
+    if (dryRun && !changed) console.log("zero diff — generated blocks match what is committed.");
+    // --dry-run is a gate: nonzero exit means "this run would modify files".
+    return dryRun && changed ? 1 : 0;
+}
+
 function cmdPrintBlocks(page) {
     console.log("<!-- hreflang block -->");
     for (const line of expectedHreflang(page)) console.log("    " + line);
@@ -594,6 +750,8 @@ const valOf = (f) => (argv.includes(f) ? argv[argv.indexOf(f) + 1] : undefined);
 if (has("--accept")) {
     const rest = argv.slice(argv.indexOf("--accept") + 1);
     process.exit(cmdAccept(rest[0], rest.slice(1)));
+} else if (has("--rewrite-blocks")) {
+    process.exit(cmdRewriteBlocks(has("--dry-run")));
 } else if (has("--sitemap")) {
     process.exit(cmdSitemap());
 } else if (has("--print-blocks")) {
