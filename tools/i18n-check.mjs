@@ -83,13 +83,34 @@ function parsePage(html, file) {
     const scripts = [];  // inline <script> bodies
     const links = [];    // {tag, attr, value}
     // Offset pass (0.4): every translatable span's RAW byte range in `html`, in document
-    // order. {kind:"text"|"attr"|"js", start, end, raw, path, tag?, attr?, scriptIndex?}
+    // order. {kind:"text"|"attr"|"js", start, end, raw, path, parentId, tag?, attr?, scriptIndex?}
     // Positions only — deciding which of these are translatable UNITS is --extract's job.
     const spans = [];
+    // Element identity (0.5 prerequisite): one record per START TAG, in document order,
+    // including void and self-closing tags — a <br> is a child element even though it never
+    // enters the stack. This is what lets --extract group text fragments into UNITS: a unit
+    // is a container element's inner HTML, not a text node, because word order crosses inline
+    // tag boundaries ("Hold <strong>Ctrl</strong> and scroll"). Without element identity the
+    // question "which element does this text belong to" cannot be answered from the parse.
+    // Offsets: tagStart = "<", contentStart = after ">", contentEnd = "<" of the close tag,
+    // tagEnd = after the close tag's ">". Void/self-closing: contentStart == contentEnd == tagEnd.
+    const elements = [];
     const URL_ATTRS = { a: ["href"], link: ["href"], img: ["src"],
         source: ["src"], video: ["poster", "src"], script: ["src"], form: ["action"] };
     let i = 0;
     const stack = [];
+    // Parallel to `stack`, holding element ids. Kept in lockstep so `stack` keeps its plain
+    // string semantics for the existing includes()/lastIndexOf() callers.
+    const openIds = [];
+    const curId = () => (openIds.length ? openIds[openIds.length - 1] : -1);
+    function openElement(tag, attrs, tagStart, contentStart) {
+        const parentId = curId();
+        const el = { id: elements.length, tag, parentId, children: [], attrs,
+            tagStart, contentStart, contentEnd: contentStart, tagEnd: contentStart };
+        elements.push(el);
+        if (parentId !== -1) elements[parentId].children.push(el.id);
+        return el;
+    }
     while (i < html.length) {
         if (html[i] !== "<") {
             let j = html.indexOf("<", i);
@@ -110,7 +131,8 @@ function parsePage(html, file) {
                     const lead = raw.length - raw.trimStart().length;
                     const trail = raw.length - raw.trimEnd().length;
                     spans.push({ kind: "text", start: i + lead, end: j - trail,
-                        raw: raw.slice(lead, raw.length - trail), path: stack.slice() });
+                        raw: raw.slice(lead, raw.length - trail), path: stack.slice(),
+                        parentId: curId() });
                 }
             }
             i = j;
@@ -132,7 +154,18 @@ function parsePage(html, file) {
             const tag = html.slice(i + 2, end).trim().toLowerCase();
             events.push({ kind: "end", tag, attrs: null });
             const at = stack.lastIndexOf(tag);
-            if (at !== -1) stack.length = at;
+            if (at !== -1) {
+                // Close the matched element and any implicitly-closed descendants. This markup
+                // is well-formed so `at` is normally the innermost open element; the loop is
+                // there so an element can never be left with contentEnd == contentStart.
+                for (let k = openIds.length - 1; k >= at; k--) {
+                    const el = elements[openIds[k]];
+                    el.contentEnd = i;
+                    el.tagEnd = end + 1;
+                }
+                stack.length = at;
+                openIds.length = at;
+            }
             i = end + 1;
             continue;
         }
@@ -146,6 +179,9 @@ function parsePage(html, file) {
         if (!m) { i = end + 1; continue; }
         const tag = m[0].toLowerCase();
         const attrs = {};
+        // The id openElement() will assign below. Nothing else pushes to `elements` in
+        // between, so attribute spans can name their own element before it is created.
+        const elemId = elements.length;
         const attrRe = /([a-zA-Z_:@][\w:.@-]*)(?:\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+)))?/g;
         attrRe.lastIndex = m[0].length;
         for (let am; (am = attrRe.exec(body));) {
@@ -159,10 +195,11 @@ function parsePage(html, file) {
                 const startInMatch = am[0].length - val.length - (quoted ? 1 : 0);
                 const start = i + 1 + am.index + startInMatch;
                 spans.push({ kind: "attr", start, end: start + val.length, raw: val,
-                    tag, attr: name, path: stack.slice() });
+                    tag, attr: name, path: stack.slice(), parentId: curId(), elemId });
             }
         }
         events.push({ kind: "tag", tag, attrs });
+        const el = openElement(tag, attrs, i, end + 1);
         for (const attr of URL_ATTRS[tag] || []) {
             if (attrs[attr]) links.push({ tag, attr, value: attrs[attr] });
         }
@@ -180,15 +217,19 @@ function parsePage(html, file) {
                 scripts.push(scriptBody);
                 scanJs(scriptBody, (lit) => spans.push({ kind: "js", start: base + lit.start,
                     end: base + lit.end, raw: lit.raw, quote: lit.quote,
-                    scriptIndex, path: stack.slice() }));
+                    scriptIndex, path: stack.slice(), parentId: el.id }));
             }
             i = cm ? rawEnd + cm[0].length : html.length;
+            // Raw-text elements never enter the stack, so close them here.
+            el.contentEnd = rawEnd;
+            el.tagEnd = i;
             events.push({ kind: "end", tag, attrs: null });
         } else if (!selfClose && !VOID_TAGS.has(tag)) {
             stack.push(tag);
+            openIds.push(el.id);
         }
     }
-    return { events, texts, citeTexts, scripts, links, spans, html, file };
+    return { events, texts, citeTexts, scripts, links, spans, elements, html, file };
 }
 
 const readPage = (path) => parsePage(readFileSync(path, "utf8"), path);
@@ -821,18 +862,28 @@ function cmdPrintBlocks(page) {
     return 0;
 }
 
-const argv = process.argv.slice(2);
-const has = (f) => argv.includes(f);
-const valOf = (f) => (argv.includes(f) ? argv[argv.indexOf(f) + 1] : undefined);
-if (has("--accept")) {
-    const rest = argv.slice(argv.indexOf("--accept") + 1).filter((a) => a !== "--blocks-only");
-    process.exit(cmdAccept(rest[0], rest.slice(1), has("--blocks-only")));
-} else if (has("--rewrite-blocks")) {
-    process.exit(cmdRewriteBlocks(has("--dry-run")));
-} else if (has("--sitemap")) {
-    process.exit(cmdSitemap());
-} else if (has("--print-blocks")) {
-    process.exit(cmdPrintBlocks(valOf("--print-blocks")));
-} else {
-    process.exit(cmdCheck(valOf("--lang")));
+/* The internals are exported so the Phase 0 gates can be run as real tests against the
+ * SAME code the CLI uses — a harness that re-implements parsePage would prove nothing.
+ * The dispatch below therefore only runs when this file is the entry point. */
+export { parsePage, readPage, scanJs, stripJs, structuralStream, rewriteManagedBlocks,
+    managedTargets, maskManaged, CONFIG, ROOT, SNAP_DIR, TRANSLATABLE_ATTRS };
+
+const isMain = process.argv[1]
+    && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url));
+if (isMain) {
+    const argv = process.argv.slice(2);
+    const has = (f) => argv.includes(f);
+    const valOf = (f) => (argv.includes(f) ? argv[argv.indexOf(f) + 1] : undefined);
+    if (has("--accept")) {
+        const rest = argv.slice(argv.indexOf("--accept") + 1).filter((a) => a !== "--blocks-only");
+        process.exit(cmdAccept(rest[0], rest.slice(1), has("--blocks-only")));
+    } else if (has("--rewrite-blocks")) {
+        process.exit(cmdRewriteBlocks(has("--dry-run")));
+    } else if (has("--sitemap")) {
+        process.exit(cmdSitemap());
+    } else if (has("--print-blocks")) {
+        process.exit(cmdPrintBlocks(valOf("--print-blocks")));
+    } else {
+        process.exit(cmdCheck(valOf("--lang")));
+    }
 }
