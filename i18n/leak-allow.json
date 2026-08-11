@@ -1,0 +1,71 @@
+{
+  "_readme": [
+    "Units allowed to be IDENTICAL to English on a translated page (tools/i18n-check.mjs 0.6).",
+    "Entries are keyed by (unit id, English text). Keying on the English text too means a reword",
+    "of the English silently REVOKES the allowance and the unit is re-reviewed — which is the",
+    "failure mode a whitelist would otherwise have.",
+    "",
+    "pins     — the unit is a proper noun, price, key name or acronym. It SHOULD be identical in",
+    "           any language, so it is allowed in ALL of them and new languages inherit it free.",
+    "cognates — ordinary copy that merely COINCIDES in the named language(s). A new language gets",
+    "           no free pass: it trips --check once and a human decides. That review is the point.",
+    "",
+    "Derived from evidence, not assumption: every unit was compared across the 18 shipped",
+    "languages and bucketed ALWAYS_SAME / ALWAYS_DIFF / MIXED. Re-run it any time with",
+    "  node tools/i18n-check.mjs --leak-audit [--propose]",
+    "MIXED is where every leak this wave found was found. Prefer FIXING a leak over declaring it."
+  ],
+
+  "pins": [
+    { "id": "html/body/header/div/a", "en": "<1/> <2>Low Vision Zoom</2>", "why": "product name" },
+    { "id": "html/body/footer/div/div[1]/div[1]/h4", "en": "Low Vision Zoom", "why": "product name" },
+    { "id": "html/body/footer/div/div[1]/div[1]/p[5]", "en": "4601 E. Douglas Ave. STE 150", "why": "postal address — must not be translated" },
+    { "id": "html/body/footer/div/div[1]/div[1]/p[6]", "en": "Wichita, KS 67218", "why": "postal address — must not be translated" },
+    { "id": "#main/section[2]/div/div/div/div[1]", "en": "$9<1>.99</1>", "why": "price, USD everywhere" },
+    { "id": "#buy-card/div[1]", "en": "$9<1>.99</1>", "why": "price, USD everywhere" },
+
+    { "id": "#main/section[2]/div/div/div[2]/table/thead/tr/th[2]", "en": "Low Vision Zoom", "why": "product name" },
+    { "id": "#main/section[2]/div/div/div[2]/table/thead/tr/th[3]", "en": "<1>Windows Magnifier</1>", "why": "competitor product name" },
+    { "id": "#main/section[2]/div/div/div[2]/table/thead/tr/th[4]", "en": "<1>ZoomText</1>", "why": "competitor product name" },
+    { "id": "#main/section[2]/div/div/div[2]/table/thead/tr/th[5]", "en": "<1>SuperNova</1>", "why": "competitor product name" },
+    { "id": "#main/section[2]/div/div/div[2]/table/thead/tr/th[6]", "en": "<1>Magnifixer</1>", "why": "competitor product name" },
+    { "id": "#main/section[2]/div/div/ul[4]/li[2]", "en": "<1>Freedom Scientific — ZoomText</1>", "why": "vendor + product name (zh localizes the dash; either is fine)" },
+    { "id": "#main/section[2]/div/div/ul[4]/li[3]", "en": "<1>Dolphin — SuperNova</1>", "why": "vendor + product name" },
+    { "id": "#main/section[2]/div/div/ul[4]/li[4]", "en": "<1>Blacksun Software — Magnifixer</1>", "why": "vendor + product name" },
+
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[15]/td[2]", "en": "Windows", "why": "OS name" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[15]/td[3]", "en": "Windows", "why": "OS name" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[15]/td[4]", "en": "Windows", "why": "OS name" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[15]/td[5]", "en": "Windows", "why": "OS name" },
+
+    { "id": "#how/div/div[2]/div[5]/span", "en": "Ctrl + Alt + 0", "why": "key names; 17/18 keep it. de correctly writes Strg — both are right" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[3]/td[1]", "en": "5×", "why": "numeral + multiplication sign; ja/ko localize it, either is right" },
+
+    { "id": "html/body/footer/div/div[1]/div[2]/ul/li[4]", "en": "<1>FAQ</1>", "why": "internationally borrowed acronym" },
+    { "id": "html/body/footer/div/div[1]/div[2]/ul/li[5]", "en": "<1>FAQ</1>", "why": "internationally borrowed acronym" },
+    { "id": "#main/section[1]/div/span", "en": "FAQ", "why": "internationally borrowed acronym (faq.html eyebrow label)" }
+  ],
+
+  "cognates": [
+    { "id": "html/body/footer/div/div[1]/div[2]/h4", "en": "Product", "langs": ["nl"], "why": "Dutch 'Product' is identical" },
+    { "id": "html/body/footer/div/div[1]/div[3]/h4", "en": "Legal", "langs": ["es"], "why": "Spanish 'Legal' is identical" },
+    { "id": "html/body/footer/div/div[1]/div[4]/h4", "en": "Support", "langs": ["de"], "why": "German uses the loanword 'Support'" },
+    { "id": "#main/section[1]/div/span", "en": "Contact", "langs": ["fr", "nl"], "why": "identical in French and Dutch (contact.html eyebrow label)" },
+    { "id": "#contact-form/div[4]/label", "en": "Message", "langs": ["fr"], "why": "French 'Message' is identical" },
+    { "id": "#main/section[2]/div/div/h2[7]", "en": "Sources", "langs": ["fr"], "why": "French 'Sources' is identical" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[15]/th", "en": "Platform", "langs": ["id", "tr", "nl"], "why": "loanword/cognate in Indonesian, Turkish and Dutch" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[8]/td[2]", "en": "Via Narrator", "langs": ["fr", "nl"], "why": "'Via' is a preposition in both; 16 other languages translate it, all 18 keep the product name Narrator" },
+
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[6]/td[1]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[6]/td[5]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[7]/td[1]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[7]/td[5]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[8]/td[1]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[8]/td[5]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[9]/td[1]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
+
+    { "id": "#how/div/div[2]/div[3]/span", "en": "Ctrl + Alt + Plus / Minus", "langs": ["id", "hi", "pl", "nl", "th"], "why": "'Plus / Minus' are the key names in these languages; 13 others translate them, so a new language must decide rather than inherit" },
+
+    { "id": "#main/section[2]/div/div/ul[5]/li[2]", "en": "Nilsson, Frennesson & Nilsson, <1>Location and stability of a newly established eccentric retinal locus suitable for reading</1>, Optometry and Vision Science (1998). <2>Abstract</2>.", "langs": ["de", "it", "nl"], "why": "citation stays in the source language per TRANSLATING.md; only the <2>Abstract</2> link label is translatable and 'Abstract' is the ordinary word in de/it/nl" }
+  ]
+}

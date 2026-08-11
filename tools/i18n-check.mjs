@@ -20,6 +20,11 @@
  *                                                   in English + translations + snapshots, in
  *                                                   one atomic pass. --dry-run exits nonzero if
  *                                                   anything would change.
+ *   node tools/i18n-check.mjs --leak-audit [--propose]
+ *                                                   bucket every unit as ALWAYS_SAME / ALWAYS_DIFF
+ *                                                   / MIXED across the shipped languages. MIXED is
+ *                                                   where leaks live. --propose emits ready-to-paste
+ *                                                   i18n/leak-allow.json entries.
  *   node tools/i18n-check.mjs --sitemap             (re)write sitemap.xml from languages.json
  *   node tools/i18n-check.mjs --print-blocks PAGE   print the hreflang + switcher markup expected
  *                                                   on an English page (for pasting)
@@ -613,6 +618,141 @@ function reassemble(parsed, { splices }, textFor) {
 }
 
 /* ------------------------------------------------------------------------
+ * 0.6 — per-unit leak check
+ *
+ * The old heuristic (still below, as check #6) compares whole TEXT NODES and only fires
+ * above 4 words. That left headings, buttons, every translatable ATTRIBUTE, all of
+ * JSON-LD and compare.html's 253 mostly-short table cells unchecked. Comparing --extract's
+ * units by id closes all of it at once: a unit whose translation equals English is a leak,
+ * at any length, in any of the four kinds.
+ *
+ * Comparison is on a NORMALIZED form (entities decoded, whitespace collapsed), which makes
+ * the check stricter than raw-byte equality — "&rsquo;" vs "’" cannot hide a leak.
+ *
+ * The whitelist exists because identical is not always wrong, and the distinction is not
+ * derivable from content. Measured across the 18 shipped languages: 27 units are identical
+ * in EVERY language and 75 in SOME. Within that 75, `nl` "Product", `es` "Legal",
+ * `de` "Support", `es`/`it` "No", `fr` "Message" are COGNATES — ordinary copy that happens
+ * to coincide — while `th` leaving aria-label="Primary" is a leak. No content rule separates
+ * those, so the allowance is data, split on a principle rather than a list:
+ *
+ *   pins     — the unit is a proper noun, price, key name, or citation. It SHOULD be
+ *              identical in any language, so it is allowed in ALL of them and every new
+ *              language inherits it for free.
+ *   cognates — ordinary copy that coincides in a NAMED language. A new language gets no
+ *              free pass; it trips the check once and a human decides. That review is the
+ *              point, and it is ~30 seconds with --leak-audit --propose.
+ *
+ * Entries are keyed by (unit id, English text). Keying on the English text as well means a
+ * reword of the English silently REVOKES the allowance and forces the unit to be re-reviewed
+ * — the failure mode a whitelist would otherwise have.
+ * ---------------------------------------------------------------------- */
+const normalizeUnit = (s) => decodeEntities(s).replace(/\s+/g, " ").trim();
+const allowKey = (id, enText) => `${id} ${normalizeUnit(enText)}`;
+
+const LEAK_ALLOW_FILE = join(ROOT, "i18n", "leak-allow.json");
+function loadLeakAllow() {
+    const empty = { pin: new Set(), cognate: new Map(), raw: { pins: [], cognates: [] } };
+    if (!existsSync(LEAK_ALLOW_FILE)) return empty;
+    const raw = JSON.parse(readFileSync(LEAK_ALLOW_FILE, "utf8"));
+    const pin = new Set((raw.pins || []).map((e) => allowKey(e.id, e.en)));
+    const cognate = new Map();
+    for (const e of raw.cognates || []) cognate.set(allowKey(e.id, e.en), new Set(e.langs || []));
+    return { pin, cognate, raw };
+}
+const LEAK_ALLOW = loadLeakAllow();
+
+/* unit id -> unit, expanding deduped units through their `at` list. */
+function unitsById(parsed) {
+    const m = new Map();
+    for (const u of extractUnits(parsed).units) for (const id of u.at) m.set(id, u);
+    return m;
+}
+
+/* English extraction is identical for all 18 languages; do it once per page. */
+const enUnitCache = new Map();
+function englishUnits(page, parsed) {
+    if (!enUnitCache.has(page)) enUnitCache.set(page, unitsById(parsed));
+    return enUnitCache.get(page);
+}
+
+function checkUnitLeaks(where, enUnits, trUnits, lang) {
+    for (const [id, en] of enUnits) {
+        const tr = trUnits.get(id);
+        // A missing or extra unit is unit-set parity's finding, not a leak; --extract-selftest
+        // owns that gate and reporting it twice would just be noise.
+        if (!tr) continue;
+        const enText = normalizeUnit(en.text);
+        if (!enText || normalizeUnit(tr.text) !== enText) continue;
+        const k = allowKey(id, en.text);
+        if (LEAK_ALLOW.pin.has(k)) continue;
+        if (LEAK_ALLOW.cognate.get(k)?.has(lang)) continue;
+        fail(where, `untranslated ${en.kind} unit ${id}: ${JSON.stringify(enText.slice(0, 70))}`
+            + ` — translate it, or add it to i18n/leak-allow.json with a reason`);
+    }
+}
+
+/* ------------------------------------------------------------------------
+ * 0.6 — img@src localization
+ *
+ * structuralStream() deliberately drops /media/store-badge/ and /media/howto-* from
+ * structural parity because they are localized per language, and checkLinks() only tests
+ * existsSync — and /media/store-badge/en.svg exists. So a translated page shipping the
+ * ENGLISH store badge passed every check. Measured over the 18 shipped languages: 209
+ * localized asset references, 0 wrong — the blind spot is real but has never been
+ * exercised. This check exists so that stays true through 18 more languages, which is
+ * exactly when a copy-paste leaves en.svg behind.
+ *
+ * The expectation is DERIVED from the English page rather than hardcoded, and an
+ * unrecognized pattern FAILS rather than passing quietly — the failure mode this check
+ * was written to close.
+ * ---------------------------------------------------------------------- */
+const LOCALIZED_ASSET = /^\/media\/(?:store-badge\/|howto-)/;
+
+/* Naming convention, confirmed against all 18 languages:
+ *   /media/store-badge/<lang>.svg   — always carries a code, English included
+ *   /media/howto-<name>.svg         — English; translations insert .<lang> before the ext */
+function localizedAssetFor(src, lang) {
+    let m = /^(\/media\/store-badge\/)[^/]+(\.[a-z0-9]+)$/.exec(src);
+    if (m) return `${m[1]}${lang}${m[2]}`;
+    m = /^(\/media\/howto-[^./]+)(?:\.[^./]+)?(\.[a-z0-9]+)$/.exec(src);
+    if (m) return lang === "en" ? `${m[1]}${m[2]}` : `${m[1]}.${lang}${m[2]}`;
+    return null;
+}
+
+function assetRefs(parsed) {
+    const out = [];
+    for (const e of parsed.events) {
+        if (e.kind !== "tag" || !e.attrs) continue;
+        for (const attr of ["src", "poster", "href"]) {
+            const v = e.attrs[attr];
+            if (typeof v === "string" && LOCALIZED_ASSET.test(v)) out.push({ tag: e.tag, attr, src: v });
+        }
+    }
+    return out;
+}
+
+function checkLocalizedAssets(where, en, tr, lang) {
+    const a = assetRefs(en), b = assetRefs(tr);
+    if (a.length !== b.length) {
+        fail(where, `${b.length} localized asset reference(s), English has ${a.length}`);
+        return;
+    }
+    for (let i = 0; i < a.length; i++) {
+        const want = localizedAssetFor(a[i].src, lang);
+        if (want === null) {
+            fail(where, `unrecognized localized-asset pattern ${JSON.stringify(a[i].src)}`
+                + " — teach localizedAssetFor() the new family rather than exempting it");
+            continue;
+        }
+        if (b[i].src !== want) {
+            fail(where, `<${b[i].tag} ${b[i].attr}=${JSON.stringify(b[i].src)}> must be `
+                + `${JSON.stringify(want)} — a translated page is showing another language's artwork`);
+        }
+    }
+}
+
+/* ------------------------------------------------------------------------
  * Expected-block builders
  * ---------------------------------------------------------------------- */
 function pageUrl(lang, page) {
@@ -1009,7 +1149,16 @@ function checkTranslatedPage(langCfg, page) {
         }
     }
 
-    // 6. untranslated-leak heuristic
+    // 6a. per-unit leak check (0.6) — every unit, every kind, any length. Subsumes the
+    // heuristic below for anything it can see; 6b is kept because it compares text nodes as
+    // a SET and so still catches English pasted into the wrong element, which a per-id
+    // comparison cannot.
+    checkUnitLeaks(where, englishUnits(page, en), unitsById(tr), lang);
+
+    // 6b. localized artwork (0.6)
+    checkLocalizedAssets(where, en, tr, lang);
+
+    // 6c. untranslated-leak heuristic
     const enTexts = new Set(en.texts);
     for (const t of tr.texts) {
         if (t.split(" ").length > 4 && enTexts.has(t)
@@ -1253,6 +1402,72 @@ function cmdExtractSelftest(onlyLang) {
     return 0;
 }
 
+/* --leak-audit — the bucketing that produced 0.6's defect list, as a command.
+ *
+ * For every unit id, count the languages that left it byte-identical to English:
+ *   ALWAYS_SAME  every language      -> a pin; belongs in leak-allow.json "pins"
+ *   ALWAYS_DIFF  no language         -> healthy, the overwhelming majority
+ *   MIXED        some but not all    -> a language did something its 17 peers did not.
+ *                                       Either a leak to FIX or a cognate to declare.
+ * MIXED is where every defect this wave has found was found. --propose prints the entries
+ * to paste into i18n/leak-allow.json, so declaring a new language's cognates is a review
+ * rather than a transcription exercise.
+ */
+function cmdLeakAudit(propose, onlyLang) {
+    const langs = CONFIG.languages.map((l) => l.code).filter((c) => !onlyLang || c === onlyLang);
+    const rows = [];
+    for (const page of CONFIG.translatedPages) {
+        const en = unitsById(readPage(join(ROOT, page)));
+        const tr = new Map();
+        for (const code of langs) {
+            const p = join(ROOT, code, page);
+            if (existsSync(p)) tr.set(code, unitsById(readPage(p)));
+        }
+        for (const [id, u] of en) {
+            const enText = normalizeUnit(u.text);
+            if (!enText) continue;
+            const same = [], diff = [];
+            for (const [code, m] of tr) {
+                const t = m.get(id);
+                if (!t) continue;
+                (normalizeUnit(t.text) === enText ? same : diff).push(code);
+            }
+            if (same.length) rows.push({ page, id, kind: u.kind, en: u.text, enText, same, diff });
+        }
+    }
+    const allowed = (r, code) => LEAK_ALLOW.pin.has(allowKey(r.id, r.en))
+        || LEAK_ALLOW.cognate.get(allowKey(r.id, r.en))?.has(code);
+    const always = rows.filter((r) => !r.diff.length);
+    const mixed = rows.filter((r) => r.diff.length);
+    const open = mixed.filter((r) => r.same.some((c) => !allowed(r, c)));
+
+    console.log(`ALWAYS_SAME ${always.length}   MIXED ${mixed.length}   `
+        + `MIXED not yet declared in leak-allow.json: ${open.length}\n`);
+    for (const r of open) {
+        console.log(`MIXED [${r.kind}] ${r.page} ${r.id}`);
+        console.log(`   en: ${JSON.stringify(r.enText.slice(0, 90))}`);
+        console.log(`   identical in: ${r.same.filter((c) => !allowed(r, c)).join(", ")}`);
+    }
+    if (propose) {
+        const undeclared = (list, kind) => list.filter((r) => !(kind === "pins"
+            ? LEAK_ALLOW.pin.has(allowKey(r.id, r.en))
+            : r.same.every((c) => allowed(r, c))));
+        const seen = new Set();
+        const uniq = (r) => { const k = allowKey(r.id, r.en); if (seen.has(k)) return false; seen.add(k); return true; };
+        console.log("\n--- paste into i18n/leak-allow.json ---");
+        console.log(JSON.stringify({
+            pins: undeclared(always, "pins").filter(uniq)
+                .map((r) => ({ id: r.id, en: r.enText, why: "REVIEW: identical in every language" })),
+            cognates: undeclared(open, "cognates").filter(uniq).map((r) => ({
+                id: r.id, en: r.enText,
+                langs: r.same.filter((c) => !allowed(r, c)),
+                why: "REVIEW: leak to fix, or cognate?",
+            })),
+        }, null, 2));
+    }
+    return 0;
+}
+
 function cmdPrintBlocks(page) {
     console.log("<!-- hreflang block -->");
     for (const line of expectedHreflang(page)) console.log("    " + line);
@@ -1267,6 +1482,8 @@ function cmdPrintBlocks(page) {
 export { parsePage, readPage, scanJs, stripJs, scanJson, structuralStream,
     rewriteManagedBlocks, managedTargets, maskManaged, extractUnits, reassemble,
     placeholderize, unplaceholderize, elementPath,
+    unitsById, normalizeUnit, allowKey, localizedAssetFor, assetRefs,
+    checkUnitLeaks, checkLocalizedAssets, findings,
     CONFIG, ROOT, SNAP_DIR, TRANSLATABLE_ATTRS };
 
 const isMain = process.argv[1]
@@ -1285,6 +1502,8 @@ if (isMain) {
         process.exit(cmdExtract(rest[0] || "en", rest.slice(1)));
     } else if (has("--extract-selftest")) {
         process.exit(cmdExtractSelftest(valOf("--lang")));
+    } else if (has("--leak-audit")) {
+        process.exit(cmdLeakAudit(has("--propose"), valOf("--lang")));
     } else if (has("--sitemap")) {
         process.exit(cmdSitemap());
     } else if (has("--print-blocks")) {
