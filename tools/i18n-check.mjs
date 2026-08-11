@@ -11,6 +11,9 @@
  *   node tools/i18n-check.mjs --check [--lang XX]   validate everything; nonzero exit on findings
  *   node tools/i18n-check.mjs --accept XX [page..]  record current English pages as the snapshot
  *                                                   XX's translation corresponds to
+ *   node tools/i18n-check.mjs --accept --blocks-only XX [page..]
+ *                                                   same, but REFUSES unless the English change is
+ *                                                   confined to the managed language-list blocks
  *   node tools/i18n-check.mjs --rewrite-blocks [--dry-run]
  *                                                   regenerate the three language-list blocks
  *                                                   (hreflang run, switcher <ul>, LANGS array)
@@ -669,16 +672,49 @@ function cmdCheck(onlyLang) {
     return 0;
 }
 
-function cmdAccept(lang, pages) {
+/* Replace the three managed regions with a sentinel, so two pages can be compared
+ * on everything EXCEPT the language-list blocks. Line endings are normalized: the
+ * question being asked is "did the CONTENT change", not "did the bytes change". */
+function maskManaged(html) {
+    const regions = [findHreflangRegion(html), findSwitcherRegion(html), findLangsRegion(html)]
+        .filter(Boolean)
+        .sort((a, b) => b.start - a.start);
+    let out = html;
+    for (const r of regions) out = out.slice(0, r.start) + "«MANAGED»" + out.slice(r.end);
+    return out.replace(/\r\n/g, "\n");
+}
+
+function cmdAccept(lang, pages, blocksOnly) {
     if (!CONFIG.languages.some((l) => l.code === lang)) {
         console.error(`unknown language "${lang}" (not in languages.json)`);
         return 1;
     }
     const dest = join(SNAP_DIR, lang);
     mkdirSync(dest, { recursive: true });
+    let refused = 0;
     for (const page of pages.length ? pages : CONFIG.translatedPages) {
         const src = join(ROOT, page);
         const tgt = join(dest, page);
+        // --blocks-only: re-accept ONLY if English changed exclusively inside the managed
+        // language-list blocks. Plain --accept silently swallows any English edit, turning
+        // real translation debt into a "clean" snapshot; this refuses instead.
+        if (blocksOnly) {
+            if (!existsSync(tgt)) {
+                console.error(`REFUSED ${lang}/${page}: no existing snapshot to re-accept`);
+                refused++;
+                continue;
+            }
+            const oldMasked = maskManaged(readFileSync(tgt, "utf8"));
+            const newMasked = maskManaged(readFileSync(src, "utf8"));
+            if (oldMasked !== newMasked) {
+                console.error(`REFUSED ${lang}/${page}: English changed OUTSIDE the managed blocks`
+                    + " — this is real translation debt, not a language-list update.");
+                console.error(unifiedDiff(oldMasked, newMasked,
+                    `snapshot/${page} (masked)`, `english/${page} (masked)`));
+                refused++;
+                continue;
+            }
+        }
         if (existsSync(tgt)) {
             const oldText = readFileSync(tgt, "utf8");
             const newText = readFileSync(src, "utf8");
@@ -689,7 +725,8 @@ function cmdAccept(lang, pages) {
         copyFileSync(src, tgt);
         console.log(`accepted ${lang}/${page} (snapshot updated)`);
     }
-    return 0;
+    if (refused) console.error(`\n${refused} page(s) refused — snapshot NOT updated for those.`);
+    return refused ? 1 : 0;
 }
 
 function cmdSitemap() {
@@ -748,8 +785,8 @@ const argv = process.argv.slice(2);
 const has = (f) => argv.includes(f);
 const valOf = (f) => (argv.includes(f) ? argv[argv.indexOf(f) + 1] : undefined);
 if (has("--accept")) {
-    const rest = argv.slice(argv.indexOf("--accept") + 1);
-    process.exit(cmdAccept(rest[0], rest.slice(1)));
+    const rest = argv.slice(argv.indexOf("--accept") + 1).filter((a) => a !== "--blocks-only");
+    process.exit(cmdAccept(rest[0], rest.slice(1), has("--blocks-only")));
 } else if (has("--rewrite-blocks")) {
     process.exit(cmdRewriteBlocks(has("--dry-run")));
 } else if (has("--sitemap")) {
