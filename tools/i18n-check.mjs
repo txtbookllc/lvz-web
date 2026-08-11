@@ -1484,6 +1484,7 @@ export { parsePage, readPage, scanJs, stripJs, scanJson, structuralStream,
     placeholderize, unplaceholderize, elementPath,
     unitsById, normalizeUnit, allowKey, localizedAssetFor, assetRefs,
     checkUnitLeaks, checkLocalizedAssets, findings,
+    checkTranslatedPage, checkEnglishPages,
     CONFIG, ROOT, SNAP_DIR, TRANSLATABLE_ATTRS };
 
 const isMain = process.argv[1]
