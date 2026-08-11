@@ -20,6 +20,10 @@
  *                                                   in English + translations + snapshots, in
  *                                                   one atomic pass. --dry-run exits nonzero if
  *                                                   anything would change.
+ *   node tools/i18n-check.mjs --delta XX [page..]  what this translation still OWES: only the
+ *                                                   units that are new, reworded, moved or
+ *                                                   simply missing. JSON on stdout, human
+ *                                                   summary on stderr.
  *   node tools/i18n-check.mjs --leak-audit [--propose]
  *                                                   bucket every unit as ALWAYS_SAME / ALWAYS_DIFF
  *                                                   / MIXED across the shipped languages. MIXED is
@@ -1343,6 +1347,150 @@ function cmdExtract(lang, pages) {
     return 0;
 }
 
+/* --delta <lang> [page...] — 0.7. What a maintenance edit actually costs a model.
+ *
+ * Three sources, not two. A delta computed from English alone would answer "what did
+ * English change", but the question is "what does this translation still owe" — and those
+ * differ whenever a translation is missing a unit whose English never changed. That case
+ * reads as "nothing to do" to an English-only diff, which is precisely how this tool would
+ * ship a stale translation:
+ *
+ *   i18n/snapshots/<lang>/<page>   English as of the last --accept
+ *   <page>                         English now
+ *   <lang>/<page>                  the translation now
+ *
+ * Per unit id: paths survive rewording, so the id pairs units across the edit; the hash is
+ * a separate field, so a reword can be told from a brand-new unit and a move can be
+ * re-paired by content.
+ *
+ *   ok            translated, and English unchanged      -> not emitted
+ *   untranslated  English unchanged, translation absent   -> emitted (the killer case)
+ *   moved         English text known at another id        -> emitted WITH `reuse`; mechanical
+ *   reworded      English changed under a stable id       -> emitted with the old en + tr
+ *   new           no prior English anywhere               -> emitted bare
+ *
+ * Ambiguity resolves toward SENDING. A unit present in the translation but absent from the
+ * snapshot cannot be verified, so it is treated as new: over-sending costs tokens, and
+ * under-sending ships an untranslated string.
+ *
+ * THE SELF-CHECK IS THE POINT. A correct delta and one that silently drops changed units
+ * both look like "not many units to translate" — indistinguishable by inspection, and it
+ * fails toward shipping stale translations. So every id of current English must land in
+ * exactly one of unchanged/send, and the tool THROWS if that arithmetic does not close.
+ * A dropped unit becomes a crash instead of a plausible short list.
+ *
+ * For a language with no snapshot and no pages, every unit is `new` and --delta degenerates
+ * to a full --extract — so the same agent kit serves both bulk translation and maintenance.
+ */
+const DELTA_SEVERITY = ["untranslated", "moved", "new", "reworded"];
+
+function cmdDelta(lang, pages) {
+    if (!lang || lang === "en") { console.error("usage: --delta <lang> [page..]"); return 2; }
+    const out = { lang, pages: {} };
+    let sendAll = 0, unchangedAll = 0;
+
+    for (const page of pages.length ? pages : CONFIG.translatedPages) {
+        const enPath = join(ROOT, page);
+        if (!existsSync(enPath)) { console.error(`missing English ${page}`); return 1; }
+        const cur = extractUnits(readPage(enPath));
+        const curById = new Map();
+        for (const u of cur.units) for (const id of u.at) curById.set(id, u);
+
+        const snapPath = join(SNAP_DIR, lang, page);
+        const snapById = existsSync(snapPath) ? unitsById(readPage(snapPath)) : new Map();
+        const trPath = join(ROOT, lang, page);
+        const trById = existsSync(trPath) ? unitsById(readPage(trPath)) : new Map();
+
+        /* For carry-over on a move: the English text's old id, but only where the
+         * translation actually holds that id — a carry-over with nothing to carry
+         * is a `new` unit wearing the wrong label. */
+        const movedFrom = new Map();
+        for (const [id, u] of snapById) {
+            if (!movedFrom.has(u.hash) && trById.has(id)) movedFrom.set(u.hash, id);
+        }
+
+        /* Order matters. `moved` is tested BEFORE `reworded`/`new`, because a unit whose
+         * current English is byte-identical to something already translated has a KNOWN
+         * translation — reusing it beats paying a model to reproduce it. That covers
+         * reordered siblings, an <li> promoted out of a one-child container (its path
+         * gains an index), and a genuinely new unit that happens to duplicate existing
+         * copy. Only `ok` outranks it. */
+        const classify = (id, u) => {
+            const s = snapById.get(id), t = trById.get(id);
+            if (t && s && s.hash === u.hash) return "ok";
+            if (movedFrom.has(u.hash)) return "moved";
+            if (t && !s) return "new";
+            if (s) return s.hash === u.hash ? "untranslated" : "reworded";
+            return "new";
+        };
+
+        const units = [];
+        let unchanged = 0, send = 0;
+        for (const u of cur.units) {
+            const marked = u.at.map((id) => [id, classify(id, u)]);
+            const todo = marked.filter(([, c]) => c !== "ok");
+            unchanged += marked.length - todo.length;
+            if (!todo.length) continue;
+            send += todo.length;
+
+            const change = todo.map(([, c]) => c)
+                .sort((a, b) => DELTA_SEVERITY.indexOf(a) - DELTA_SEVERITY.indexOf(b)).pop();
+            const entry = {
+                id: u.id, hash: u.hash, kind: u.kind, text: u.text,
+                ...(u.tags ? { tags: u.tags } : {}),
+                at: todo.map(([id]) => id), change,
+            };
+            if (change === "reworded") {
+                const from = u.at.find((id) => snapById.has(id) && snapById.get(id).hash !== u.hash);
+                if (from !== undefined) {
+                    entry.was = { id: from, en: snapById.get(from).text,
+                        tr: trById.get(from)?.text ?? null };
+                }
+            } else if (change === "moved") {
+                const from = movedFrom.get(u.hash);
+                /* English is byte-identical to a unit already translated, so this needs no
+                 * model at all — the assembling step splices `reuse` at the new ids. */
+                entry.was = { id: from, en: snapById.get(from).text };
+                entry.reuse = trById.get(from).text;
+            }
+            units.push(entry);
+        }
+
+        /* Units the translation must LOSE: gone from English, still in the snapshot or in
+         * the translated file. A delta that only ever adds would leave these behind. */
+        const deleted = [...snapById.keys()].filter((id) => !curById.has(id));
+        const orphans = [...trById.keys()].filter((id) => !curById.has(id));
+
+        /* Every id of current English lands in exactly one bucket, or this tool is lying. */
+        const english = curById.size;
+        if (unchanged + send !== english) {
+            throw new Error(`--delta self-check failed on ${lang}/${page}: `
+                + `${english} English ids, but unchanged(${unchanged}) + send(${send}) = `
+                + `${unchanged + send}. A unit was dropped — do NOT trust this delta.`);
+        }
+
+        out.pages[page] = {
+            summary: { english, unchanged, send, units: units.length,
+                deleted: deleted.length, orphans: orphans.length,
+                byChange: DELTA_SEVERITY.reduce((m, c) => {
+                    const n = units.filter((u) => u.change === c).length;
+                    if (n) m[c] = n;
+                    return m;
+                }, {}) },
+            ...(deleted.length ? { deleted } : {}),
+            ...(orphans.length ? { orphans } : {}),
+            units,
+        };
+        sendAll += send; unchangedAll += unchanged;
+    }
+
+    console.log(JSON.stringify(out, null, 1));
+    /* Human summary on stderr so it survives a stdout redirect into a kit file. */
+    console.error(`--delta ${lang}: ${sendAll} unit(s) to translate, ${unchangedAll} carried over`
+        + (existsSync(join(SNAP_DIR, lang)) ? "" : "  (no snapshot — full translation)"));
+    return 0;
+}
+
 /* --extract-selftest — the Phase 0 gate that must pass before ANY translation runs.
  *
  * Two independent proofs, over English and all 18 shipped languages:
@@ -1484,7 +1632,7 @@ export { parsePage, readPage, scanJs, stripJs, scanJson, structuralStream,
     placeholderize, unplaceholderize, elementPath,
     unitsById, normalizeUnit, allowKey, localizedAssetFor, assetRefs,
     checkUnitLeaks, checkLocalizedAssets, findings,
-    checkTranslatedPage, checkEnglishPages,
+    checkTranslatedPage, checkEnglishPages, cmdDelta,
     CONFIG, ROOT, SNAP_DIR, TRANSLATABLE_ATTRS };
 
 const isMain = process.argv[1]
@@ -1501,6 +1649,9 @@ if (isMain) {
     } else if (has("--extract")) {
         const rest = argv.slice(argv.indexOf("--extract") + 1);
         process.exit(cmdExtract(rest[0] || "en", rest.slice(1)));
+    } else if (has("--delta")) {
+        const rest = argv.slice(argv.indexOf("--delta") + 1);
+        process.exit(cmdDelta(rest[0], rest.slice(1)));
     } else if (has("--extract-selftest")) {
         process.exit(cmdExtractSelftest(valOf("--lang")));
     } else if (has("--leak-audit")) {
