@@ -82,6 +82,10 @@ function parsePage(html, file) {
     const citeTexts = new Set(); // visible text inside <em>/<cite> — may stay in the source language
     const scripts = [];  // inline <script> bodies
     const links = [];    // {tag, attr, value}
+    // Offset pass (0.4): every translatable span's RAW byte range in `html`, in document
+    // order. {kind:"text"|"attr"|"js", start, end, raw, path, tag?, attr?, scriptIndex?}
+    // Positions only — deciding which of these are translatable UNITS is --extract's job.
+    const spans = [];
     const URL_ATTRS = { a: ["href"], link: ["href"], img: ["src"],
         source: ["src"], video: ["poster", "src"], script: ["src"], form: ["action"] };
     let i = 0;
@@ -98,6 +102,15 @@ function parsePage(html, file) {
                     // Emphasis/citation titles (e.g. paper titles wrapped in <em>) legitimately
                     // stay in the source language; exempt them from the untranslated-leak heuristic.
                     if (stack.includes("em") || stack.includes("cite")) citeTexts.add(t);
+                    // Offset pass: the RAW slice, trimmed of surrounding whitespace so the span
+                    // covers the text and not the markup indentation. Never store the decoded
+                    // form — the source mixes &rsquo; with raw ’ in the same file, so a
+                    // normalize-then-re-encode round trip would churn English bytes and
+                    // invalidate every snapshot.
+                    const lead = raw.length - raw.trimStart().length;
+                    const trail = raw.length - raw.trimEnd().length;
+                    spans.push({ kind: "text", start: i + lead, end: j - trail,
+                        raw: raw.slice(lead, raw.length - trail), path: stack.slice() });
                 }
             }
             i = j;
@@ -137,7 +150,17 @@ function parsePage(html, file) {
         attrRe.lastIndex = m[0].length;
         for (let am; (am = attrRe.exec(body));) {
             const val = am[2] ?? am[3] ?? am[4];
-            attrs[am[1].toLowerCase()] = val === undefined ? "" : decodeEntities(val);
+            const name = am[1].toLowerCase();
+            attrs[name] = val === undefined ? "" : decodeEntities(val);
+            if (val !== undefined && TRANSLATABLE_ATTRS.has(name)) {
+                // Offset of the value inside the tag: body starts at i+1, and the value sits
+                // at the tail of the match (minus the closing quote, if any).
+                const quoted = am[2] !== undefined || am[3] !== undefined;
+                const startInMatch = am[0].length - val.length - (quoted ? 1 : 0);
+                const start = i + 1 + am.index + startInMatch;
+                spans.push({ kind: "attr", start, end: start + val.length, raw: val,
+                    tag, attr: name, path: stack.slice() });
+            }
         }
         events.push({ kind: "tag", tag, attrs });
         for (const attr of URL_ATTRS[tag] || []) {
@@ -150,14 +173,22 @@ function parsePage(html, file) {
             const rest = html.slice(i);
             const cm = close.exec(rest);
             const rawEnd = cm ? i + cm.index : html.length;
-            if (tag === "script" && !("src" in attrs)) scripts.push(html.slice(i, rawEnd));
+            if (tag === "script" && !("src" in attrs)) {
+                const scriptBody = html.slice(i, rawEnd);
+                const scriptIndex = scripts.length;
+                const base = i;   // literal offsets are script-relative; rebase onto the file
+                scripts.push(scriptBody);
+                scanJs(scriptBody, (lit) => spans.push({ kind: "js", start: base + lit.start,
+                    end: base + lit.end, raw: lit.raw, quote: lit.quote,
+                    scriptIndex, path: stack.slice() }));
+            }
             i = cm ? rawEnd + cm[0].length : html.length;
             events.push({ kind: "end", tag, attrs: null });
         } else if (!selfClose && !VOID_TAGS.has(tag)) {
             stack.push(tag);
         }
     }
-    return { events, texts, citeTexts, scripts, links, file };
+    return { events, texts, citeTexts, scripts, links, spans, html, file };
 }
 
 const readPage = (path) => parsePage(readFileSync(path, "utf8"), path);
@@ -190,18 +221,23 @@ function structuralStream(page) {
  * JS string-literal stripping (script parity): two scripts compare equal iff
  * their code is identical up to translated string literals; comments dropped.
  * ---------------------------------------------------------------------- */
-function stripJs(code) {
-    let out = "", state = "code";
+function scanJs(code, onLiteral) {
+    let out = "", state = "code", litStart = -1;
     for (let i = 0; i < code.length; i++) {
         const c = code[i], n = code[i + 1];
         if (state === "code") {
-            if (c === "'" || c === '"') { state = c; out += "«S»"; }
+            if (c === "'" || c === '"') { state = c; litStart = i + 1; out += "«S»"; }
             else if (c === "/" && n === "/") { state = "line"; i++; }
             else if (c === "/" && n === "*") { state = "block"; i++; }
             else out += c;
         } else if (state === "'" || state === '"') {
             if (c === "\\") i++;
-            else if (c === state) state = "code";
+            else if (c === state) {
+                // RAW slice: the literal's bytes exactly as written, escapes intact.
+                if (onLiteral) onLiteral({ start: litStart, end: i, quote: state,
+                    raw: code.slice(litStart, i) });
+                state = "code";
+            }
         } else if (state === "line") {
             if (c === "\n") { state = "code"; out += "\n"; }
         } else if (state === "block") {
@@ -210,6 +246,10 @@ function stripJs(code) {
     }
     return out.replace(/\s+/g, " ").trim();
 }
+
+/* Script parity only needs the code skeleton; --extract needs the literals too.
+ * Same scanner, so the two can never disagree about what a string literal is. */
+const stripJs = (code) => scanJs(code, null);
 
 /* ------------------------------------------------------------------------
  * Expected-block builders
