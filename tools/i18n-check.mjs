@@ -221,15 +221,22 @@ function expectedHreflang(page) {
 }
 
 function expectedSwitcher(page, currentLang) {
-    const label = currentLang === "en" ? "English"
-        : CONFIG.languages.find((l) => l.code === currentLang).nativeName;
+    const cur = currentLang === "en" ? null
+        : CONFIG.languages.find((l) => l.code === currentLang);
+    // The <span> always carries nativeName verbatim, but the aria-label is authored per
+    // language and is NOT derivable from it: Polish lowercases the language name in running
+    // text ("Język: polski" vs nativeName "Polski"), French puts &nbsp; before its colon, and
+    // Chinese uses a full-width colon with no space. Hence switcherLabel, stored RAW so
+    // entities survive into the emitted markup byte-for-byte.
+    const name = cur ? cur.nativeName : "English";
+    const ariaLabel = cur ? cur.switcherLabel : "Language: English";
     const rows = [[`en`, `en`, `English`]]
         .concat(CONFIG.languages.map((l) => [l.code, l.hreflang, l.nativeName]));
     const out = [
         `<details class="lang-switch">`,
-        `    <summary aria-label="Language: ${label}">`,
+        `    <summary aria-label="${ariaLabel}">`,
         `        <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>`,
-        `        <span>${label}</span>`,
+        `        <span>${name}</span>`,
         `    </summary>`,
         `    <ul>`,
     ];
