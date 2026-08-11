@@ -293,6 +293,326 @@ function scanJs(code, onLiteral) {
 const stripJs = (code) => scanJs(code, null);
 
 /* ------------------------------------------------------------------------
+ * 0.5 --extract: translatable UNITS
+ *
+ * The unit is NOT a text node. It is the OUTERMOST element whose entire subtree is
+ * inline-only and contains text, with inline descendants replaced by numbered
+ * placeholders. Splitting "Hold <strong>Ctrl</strong> and scroll" into three units
+ * produces broken German/Japanese/Arabic, because word order crosses the tag boundary.
+ *
+ * Measured on the English pages (this is a counted census, not an estimate):
+ *   537 units · 93 hold more than one text fragment · 177 contain markup · 0 orphans
+ *   (no visible text falls outside the rule, so there is no fallback path to get wrong)
+ *   placeholders: a×156 strong×87 em×19 img×15 code×13 span×10 br×2 svg×1 polyline×1
+ *
+ * Every emitted span is a RAW slice. Nothing round-trips through decodeEntities: the
+ * source mixes &rsquo; with raw ’ in the same file, so normalize-then-re-encode would
+ * churn English bytes and invalidate all 126 snapshots.
+ * ---------------------------------------------------------------------- */
+
+/* Tags that may appear INSIDE a unit as a placeholder rather than ending it. */
+const INLINE_TAGS = new Set(["a", "strong", "em", "b", "i", "span", "code", "br", "small",
+    "sub", "sup", "abbr", "cite", "kbd", "mark", "u", "s", "q", "time", "var", "samp",
+    "wbr", "bdi", "bdo", "img", "del", "ins",
+    // inline SVG is decoration inside links/buttons; it never ends a text unit
+    "svg", "path", "circle", "rect", "g", "line", "polyline", "polygon", "use", "defs"]);
+
+/* Attributes carrying human copy. Deliberately NOT reusing TRANSLATABLE_ATTRS: that set
+ * means "legitimately differs from English", which also covers lang/dir/hreflang/
+ * aria-current/data-language — those differ because they are COMPUTED, and handing them
+ * to a translator would be a bug. Confirmed against all 18 shipped languages. */
+const ATTR_TRANSLATE = new Set(["alt", "title", "aria-label", "placeholder",
+    "data-label-play", "data-label-pause"]);
+const META_TRANSLATE = new Set(["description", "og:title", "og:description",
+    "og:image:alt", "twitter:title", "twitter:description"]);
+
+/* JSON-LD. On faq.html this is 9.9 KB — larger than that page's visible text — so it
+ * cannot be treated as code. Classification verified against the 18 shipped languages:
+ * every key below was translated in every language, and every key NOT below was left
+ * byte-identical in every language (author.name/publisher.name = "txtbook LLC",
+ * offers.category, operatingSystem, applicationSubCategory, top-level product name),
+ * except url/inLanguage which differ but are COMPUTED, not translated. */
+const LD_TRANSLATE = new Set(["description", "text", "headline", "alternateName",
+    "disambiguatingDescription"]);
+
+/* Opt-in marker for user-facing string literals in inline scripts. Built as a value so
+ * this file can mention it without closing its own block comments. */
+const UI_MARK = "/*" + " i18n:ui " + "*/";
+/* `name` depends on where it sits: mainEntity[].name and about[].name are copy;
+ * author.name / publisher.name / the top-level product name are not. */
+const ldNameIsCopy = (path) => path.endsWith(".name")
+    && !/(^|\.)(author|publisher|provider|brand)\.name$/.test(path);
+
+/* Minimal JSON scanner that keeps BYTE OFFSETS and key paths. JSON.parse loses both, and
+ * re-serializing would reformat the block and break byte-identity. Same discipline as
+ * scanJs: report the raw slice between the quotes, escapes intact. */
+function scanJson(src, onString) {
+    let i = 0;
+    const ws = () => { while (i < src.length && /\s/.test(src[i])) i++; };
+    function str() {
+        const start = ++i;                       // past the opening quote
+        while (i < src.length && src[i] !== '"') i += src[i] === "\\" ? 2 : 1;
+        const end = i++;                         // past the closing quote
+        return { start, end, raw: src.slice(start, end) };
+    }
+    function value(path) {
+        ws();
+        const c = src[i];
+        if (c === '"') { onString(path, str()); return; }
+        if (c === "{") {
+            i++;
+            for (;;) {
+                ws();
+                if (i >= src.length || src[i] === "}") { i++; return; }
+                if (src[i] === ",") { i++; continue; }
+                const k = str();
+                ws(); i++;                       // the ':'
+                value(path ? `${path}.${k.raw}` : k.raw);
+            }
+        } else if (c === "[") {
+            i++;
+            for (let n = 0;;) {
+                ws();
+                if (i >= src.length || src[i] === "]") { i++; return; }
+                if (src[i] === ",") { i++; continue; }
+                value(`${path}[${n++}]`);
+            }
+        } else {
+            while (i < src.length && !/[,}\]\s]/.test(src[i])) i++;   // number/bool/null
+        }
+    }
+    value("");
+}
+
+/* Structural id for a unit: a path that survives rewording, so --delta can pair units
+ * across an English edit. An ancestor's `id` attribute beats a positional index. No
+ * data-i18n-id attributes are added — the hand-readability of this markup is the asset. */
+function elementPath(els, el) {
+    const segs = [];
+    let cur = el;
+    while (cur) {
+        if (cur !== el && cur.attrs && cur.attrs.id) { segs.unshift("#" + cur.attrs.id); break; }
+        const par = cur.parentId === -1 ? null : els[cur.parentId];
+        if (!par) { segs.unshift(cur.tag); break; }
+        const sibs = par.children.map((c) => els[c]).filter((c) => c.tag === cur.tag);
+        segs.unshift(sibs.length > 1 ? `${cur.tag}[${sibs.indexOf(cur) + 1}]` : cur.tag);
+        cur = par;
+    }
+    return segs.join("/");
+}
+
+/* Short stable content hash, kept as a SEPARATE field from the id: the path survives a
+ * reword, the hash re-pairs a moved unit and tells a reword apart from a brand-new unit. */
+function hash8(s) {
+    let h1 = 0x811c9dc5, h2 = 0x01000193;
+    for (let i = 0; i < s.length; i++) {
+        h1 = Math.imul(h1 ^ s.charCodeAt(i), 0x01000193);
+        h2 = Math.imul(h2 + s.charCodeAt(i), 0x85ebca6b) ^ (h2 >>> 13);
+    }
+    return ((h1 >>> 0).toString(16).padStart(8, "0") + (h2 >>> 0).toString(16).padStart(8, "0")).slice(0, 8);
+}
+
+/* Replace a unit's inline descendants with numbered placeholders. Returns the placeholder
+ * text plus the raw open/close tags needed to rebuild the original bytes exactly. */
+function placeholderize(html, els, root, start, end) {
+    const tags = {};
+    const edits = [];
+    let n = 0;
+    (function walk(id) {
+        for (const cid of els[id].children) {
+            const c = els[cid];
+            if (c.tagStart < start || c.tagEnd > end) continue;
+            const k = String(++n);
+            const open = html.slice(c.tagStart, c.contentStart);
+            if (c.tagEnd === c.contentStart) {            // void / self-closing
+                tags[k] = { o: open };
+                edits.push({ start: c.tagStart, end: c.tagEnd, text: `<${k}/>` });
+                continue;
+            }
+            tags[k] = { o: open, c: html.slice(c.contentEnd, c.tagEnd) };
+            edits.push({ start: c.tagStart, end: c.contentStart, text: `<${k}>` });
+            edits.push({ start: c.contentEnd, end: c.tagEnd, text: `</${k}>` });
+            walk(cid);
+        }
+    })(root.id);
+    let text = html.slice(start, end);
+    for (const e of edits.sort((a, b) => b.start - a.start)) {
+        text = text.slice(0, e.start - start) + e.text + text.slice(e.end - start);
+    }
+    return { text, tags };
+}
+
+/* Rebuild a unit's raw inner HTML from its placeholder text. Inverse of placeholderize. */
+function unplaceholderize(text, tags) {
+    return text.replace(/<(\/?)(\d+)(\/?)>/g, (m, close, k, self) => {
+        const t = tags && tags[k];
+        if (!t) return m;
+        return close ? (t.c ?? "") : t.o;
+    });
+}
+
+/* ------------------------------------------------------------------------
+ * extractUnits: the whole translatable surface of one page, as offset-anchored units.
+ *
+ * Returns { units, splices, stats }.
+ *   units   — what a translator is shown (deduped by identical English text)
+ *   splices — every (unit, byte range) pair, for reassembly. A unit that was deduped
+ *             contributes several splices. Ranges here are non-overlapping.
+ * ---------------------------------------------------------------------- */
+function extractUnits(parsed) {
+    const { html, elements: els, spans } = parsed;
+    const units = [];
+    const splices = [];
+    const byText = new Map();          // English text -> unit, for dedupe
+    const stats = { text: 0, attr: 0, ld: 0, js: 0, skippedManaged: 0, nested: 0 };
+
+    const add = (id, kind, text, extra) => {
+        const key = kind + " " + text + " " + JSON.stringify(extra?.tags ?? null);
+        let u = byText.get(key);
+        if (u) { u.at.push(id); return u; }
+        u = { id, kind, hash: hash8(text), text, at: [id], ...extra };
+        byText.set(key, u);
+        units.push(u);
+        stats[kind]++;
+        return u;
+    };
+
+    /* --- managed territory: the language switcher is regenerated by --rewrite-blocks
+       from languages.json (19 <li> rows + the summary label), so it needs zero
+       translation. Its one authored string, switcherLabel, lives in languages.json. --- */
+    const managed = new Set();
+    for (const el of els) {
+        const isSw = el.tag === "details" && (el.attrs.class || "").includes("lang-switch");
+        if (isSw || (el.parentId !== -1 && managed.has(el.parentId))) managed.add(el.id);
+    }
+
+    /* --- subtree facts, bottom-up --- */
+    const textSpans = new Map();
+    for (const s of spans) {
+        if (s.kind !== "text" || s.parentId === -1) continue;
+        if (els[s.parentId].tag === "script" || els[s.parentId].tag === "style") continue;
+        if (!textSpans.has(s.parentId)) textSpans.set(s.parentId, []);
+        textSpans.get(s.parentId).push(s);
+    }
+    const hasText = new Array(els.length).fill(false);
+    const allInline = new Array(els.length).fill(true);
+    for (let k = els.length - 1; k >= 0; k--) {
+        hasText[k] = (textSpans.get(k) || []).length > 0;
+        for (const cid of els[k].children) {
+            const c = els[cid];
+            if (c.tag === "script" || c.tag === "style") { allInline[k] = false; continue; }
+            if (!INLINE_TAGS.has(c.tag) || !allInline[cid]) allInline[k] = false;
+            if (hasText[cid]) hasText[k] = true;
+        }
+    }
+    const isUnit = (k) => hasText[k] && allInline[k]
+        && els[k].tag !== "script" && els[k].tag !== "style";
+
+    /* --- text units (outermost only) --- */
+    const unitRanges = [];
+    for (let k = 0; k < els.length; k++) {
+        if (!isUnit(k)) continue;
+        let anc = els[k].parentId, nested = false;
+        while (anc !== -1) { if (isUnit(anc)) { nested = true; break; } anc = els[anc].parentId; }
+        if (nested) continue;
+        if (managed.has(k)) { stats.skippedManaged++; continue; }
+        const el = els[k];
+        const inner = html.slice(el.contentStart, el.contentEnd);
+        const lead = inner.length - inner.trimStart().length;
+        const trail = inner.length - inner.trimEnd().length;
+        const start = el.contentStart + lead, end = el.contentEnd - trail;
+        if (end <= start) continue;
+        const { text, tags } = placeholderize(html, els, el, start, end);
+        const u = add(elementPath(els, el), "text", text,
+            Object.keys(tags).length ? { tags } : undefined);
+        splices.push({ start, end, unit: u });
+        unitRanges.push({ start, end });
+    }
+
+    /* --- attribute units --- */
+    const insideUnit = (s) => unitRanges.some((r) => s.start >= r.start && s.end <= r.end);
+    for (const s of spans) {
+        if (s.kind !== "attr" || !s.raw.trim()) continue;
+        const own = els[s.elemId];
+        if (managed.has(s.elemId)) { stats.skippedManaged++; continue; }
+        let name = s.attr, id;
+        if (s.tag === "meta") {
+            const key = own.attrs.name || own.attrs.property || "";
+            if (!META_TRANSLATE.has(key)) continue;
+            id = `meta[${key}]@content`;
+        } else {
+            if (!ATTR_TRANSLATE.has(name)) continue;
+            id = `${elementPath(els, own)}@${name}`;
+        }
+        const u = add(id, "attr", s.raw);
+        // An attribute on a placeholder tag (an <img alt> inside a sentence) sits INSIDE a
+        // text unit's byte range. It is still shown to the translator, but it must not be
+        // spliced separately or the two writes would overlap — the text unit's raw slice
+        // already carries those bytes. (When --inject is built it will have to patch the
+        // attribute inside the placeholder's open tag; v1's agent writes the HTML itself.)
+        if (insideUnit(s)) stats.nested++;
+        else splices.push({ start: s.start, end: s.end, unit: u });
+    }
+
+    /* --- JSON-LD units --- */
+    let ldIdx = 0;
+    for (const el of els) {
+        if (el.tag !== "script" || (el.attrs.type || "") !== "application/ld+json") continue;
+        const base = el.contentStart;
+        const body = html.slice(el.contentStart, el.contentEnd);
+        const tag = `#ld${ldIdx++}`;
+        scanJson(body, (path, s) => {
+            const leaf = path.split(".").pop().replace(/\[\d+\]$/, "");
+            const copy = LD_TRANSLATE.has(leaf) || ldNameIsCopy(path);
+            if (!copy || !s.raw.trim()) return;
+            const u = add(`${tag}:${path}`, "ld", s.raw);
+            splices.push({ start: base + s.start, end: base + s.end, unit: u });
+        });
+    }
+
+    /* --- inline-script literals: OPT-IN ONLY ---
+       Script literals cannot be classified heuristically: across the English pages "en"
+       occurs 13 times as both a locale value and an untouchable fallback, and "buy-card"
+       and "Copied!" are both short ASCII. So a literal is translatable only if it sits in
+       an object introduced by the marker comment UI_MARK below. Nothing carries that
+       marker today; buy.html's four user-facing strings get hoisted into one when the
+       language expansion lands and every snapshot is re-accepted anyway. */
+    for (const el of els) {
+        if (el.tag !== "script" || el.attrs.src || (el.attrs.type || "").includes("json")) continue;
+        const body = html.slice(el.contentStart, el.contentEnd);
+        const mark = body.indexOf(UI_MARK);
+        if (mark === -1) continue;
+        const close = body.indexOf("};", mark);
+        const region = { lo: el.contentStart + mark, hi: el.contentStart + (close === -1 ? body.length : close) };
+        for (const s of spans) {
+            if (s.kind !== "js" || s.start < region.lo || s.end > region.hi || !s.raw.trim()) continue;
+            const key = html.slice(html.lastIndexOf("\n", s.start), s.start).match(/([\w$]+)\s*:\s*["']$/);
+            const u = add(`#js:${key ? key[1] : s.start}`, "js", s.raw);
+            splices.push({ start: s.start, end: s.end, unit: u });
+        }
+    }
+
+    splices.sort((a, b) => a.start - b.start);
+    return { units, splices, stats };
+}
+
+/* Rebuild a page's bytes from its own extracted units. This is the correctness proof for
+ * --extract (and, if it is ever built, for --inject): every unit is an exact raw slice,
+ * placeholders invert exactly, and nothing outside a unit is touched. */
+function reassemble(parsed, { splices }, textFor) {
+    const { html } = parsed;
+    let out = "", cur = 0;
+    for (const sp of splices) {
+        if (sp.start < cur) throw new Error(`overlapping splices at ${sp.start}`);
+        const t = textFor ? textFor(sp.unit) : sp.unit.text;
+        out += html.slice(cur, sp.start)
+            + (sp.unit.kind === "text" ? unplaceholderize(t, sp.unit.tags) : t);
+        cur = sp.end;
+    }
+    return out + html.slice(cur);
+}
+
+/* ------------------------------------------------------------------------
  * Expected-block builders
  * ---------------------------------------------------------------------- */
 function pageUrl(lang, page) {
@@ -854,6 +1174,85 @@ function cmdRewriteBlocks(dryRun) {
     return dryRun && changed ? 1 : 0;
 }
 
+/* --extract <lang> [page...] — the translator's worksheet: every translatable unit of a
+ * page as compact JSON, instead of ~176 KB of HTML per language. */
+function cmdExtract(lang, pages) {
+    const dir = lang === "en" ? ROOT : join(ROOT, lang);
+    const out = { lang, pages: {} };
+    for (const page of pages.length ? pages : CONFIG.translatedPages) {
+        const path = join(dir, page);
+        if (!existsSync(path)) { console.error(`missing ${lang}/${page}`); return 1; }
+        const parsed = readPage(path);
+        const { units } = extractUnits(parsed);
+        out.pages[page] = units.map((u) => ({
+            id: u.id, hash: u.hash, kind: u.kind, text: u.text,
+            ...(u.tags ? { tags: u.tags } : {}),
+            ...(u.at.length > 1 ? { at: u.at } : {}),
+        }));
+    }
+    console.log(JSON.stringify(out, null, 1));
+    return 0;
+}
+
+/* --extract-selftest — the Phase 0 gate that must pass before ANY translation runs.
+ *
+ * Two independent proofs, over English and all 18 shipped languages:
+ *   1. Round-trip: rebuild each page's bytes from its own extracted units. Byte-identical
+ *      or the raw-slice discipline is broken somewhere (entities, placeholders, or the
+ *      repo's mixed CRLF/LF line endings).
+ *   2. Unit-set parity: each translated page's unit ids match English's exactly, every
+ *      unit is non-empty, and placeholder sets match per unit. A translation that dropped
+ *      or invented a unit — or lost a <strong> — fails here.
+ */
+function cmdExtractSelftest(onlyLang) {
+    let files = 0, badRt = 0, badSet = 0, totalUnits = 0, totalBytes = 0;
+    const problems = [];
+    const note = (m) => { if (problems.length < 30) problems.push(m); };
+
+    for (const page of CONFIG.translatedPages) {
+        const enParsed = readPage(join(ROOT, page));
+        const en = extractUnits(enParsed);
+        files++;
+        totalUnits += en.units.length;
+        totalBytes += en.units.reduce((n, u) => n + u.text.length, 0);
+        if (reassemble(enParsed, en) !== enParsed.html) { badRt++; note(`ROUNDTRIP ${page}`); }
+        const enIds = new Set(en.units.flatMap((u) => u.at));
+        const enTags = new Map(en.units.flatMap((u) => u.at.map((a) =>
+            [a, Object.keys(u.tags || {}).length])));
+
+        for (const l of CONFIG.languages) {
+            if (onlyLang && l.code !== onlyLang) continue;
+            const p = join(ROOT, l.code, page);
+            if (!existsSync(p)) continue;
+            const parsed = readPage(p);
+            const ex = extractUnits(parsed);
+            files++;
+            if (reassemble(parsed, ex) !== parsed.html) { badRt++; note(`ROUNDTRIP ${l.code}/${page}`); }
+            const ids = new Set(ex.units.flatMap((u) => u.at));
+            for (const id of enIds) if (!ids.has(id)) { badSet++; note(`MISSING  ${l.code}/${page}  ${id}`); }
+            for (const id of ids) if (!enIds.has(id)) { badSet++; note(`EXTRA    ${l.code}/${page}  ${id}`); }
+            for (const u of ex.units) {
+                if (!u.text.trim()) { badSet++; note(`EMPTY    ${l.code}/${page}  ${u.id}`); }
+                for (const a of u.at) {
+                    const want = enTags.get(a);
+                    if (want !== undefined && want !== Object.keys(u.tags || {}).length) {
+                        badSet++; note(`PLACEHOLDERS ${l.code}/${page} ${a}: ${Object.keys(u.tags || {}).length} vs English ${want}`);
+                    }
+                }
+            }
+        }
+    }
+    for (const m of problems) console.log("FAIL  " + m);
+    console.log(`\n${files} file(s) extracted; English surface: ${totalUnits} units, `
+        + `${(totalBytes / 1024).toFixed(1)} KB of strings.`);
+    if (badRt || badSet) {
+        console.log(`${badRt} round-trip failure(s), ${badSet} unit-set failure(s).`);
+        return 1;
+    }
+    console.log("round-trip byte-identical on every file; unit sets match English everywhere.");
+    return 0;
+}
+
 function cmdPrintBlocks(page) {
     console.log("<!-- hreflang block -->");
     for (const line of expectedHreflang(page)) console.log("    " + line);
@@ -865,8 +1264,10 @@ function cmdPrintBlocks(page) {
 /* The internals are exported so the Phase 0 gates can be run as real tests against the
  * SAME code the CLI uses — a harness that re-implements parsePage would prove nothing.
  * The dispatch below therefore only runs when this file is the entry point. */
-export { parsePage, readPage, scanJs, stripJs, structuralStream, rewriteManagedBlocks,
-    managedTargets, maskManaged, CONFIG, ROOT, SNAP_DIR, TRANSLATABLE_ATTRS };
+export { parsePage, readPage, scanJs, stripJs, scanJson, structuralStream,
+    rewriteManagedBlocks, managedTargets, maskManaged, extractUnits, reassemble,
+    placeholderize, unplaceholderize, elementPath,
+    CONFIG, ROOT, SNAP_DIR, TRANSLATABLE_ATTRS };
 
 const isMain = process.argv[1]
     && resolve(process.argv[1]) === resolve(fileURLToPath(import.meta.url));
@@ -879,6 +1280,11 @@ if (isMain) {
         process.exit(cmdAccept(rest[0], rest.slice(1), has("--blocks-only")));
     } else if (has("--rewrite-blocks")) {
         process.exit(cmdRewriteBlocks(has("--dry-run")));
+    } else if (has("--extract")) {
+        const rest = argv.slice(argv.indexOf("--extract") + 1);
+        process.exit(cmdExtract(rest[0] || "en", rest.slice(1)));
+    } else if (has("--extract-selftest")) {
+        process.exit(cmdExtractSelftest(valOf("--lang")));
     } else if (has("--sitemap")) {
         process.exit(cmdSitemap());
     } else if (has("--print-blocks")) {
