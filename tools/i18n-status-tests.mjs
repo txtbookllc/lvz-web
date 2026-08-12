@@ -256,14 +256,29 @@ ok("the artwork detail still reports the web half it CAN see",
 
 /* ---------------------------------------------------------------- 4. the naming collision */
 console.log("\n[7] Store screenshot prefixes are derived from English names — collisions");
+/* The rule must match packaging/generate-store-hero.ps1 EXACTLY — first word of englishName,
+ * lowercased — because that script writes the files this tool goes looking for. A tool that
+ * derives its own convention agrees on today's data and diverges on tomorrow's. */
 for (const [name, want] of [
     ["Spanish", "spanish"],
     ["Chinese (Simplified)", "chinese"],
     ["Chinese (Traditional)", "chinese"],
-    ["Norwegian Bokmål", "norwegian_bokmål"],
+    ["Norwegian Bokmål", "norwegian"],   // NOT norwegian_bokmål — the generator takes word 1
     ["Filipino", "filipino"],
 ]) ok(`shotPrefix(${JSON.stringify(name)}) -> ${want}`, shotPrefix(name) === want,
     `  got ${JSON.stringify(shotPrefix(name))}`);
+
+/* storeShotName is the agreed fix for the collision: it overrides the derived name. */
+ok("storeShotName overrides the derived first-word name",
+    shotPrefix({ englishName: "Chinese (Traditional)", storeShotName: "chinese_traditional" })
+    === "chinese_traditional");
+ok("a language without storeShotName still derives normally",
+    shotPrefix({ englishName: "Swedish" }) === "swedish");
+ok("the override resolves the zh / zh-Hant collision",
+    shotPrefixCollisions(new Map([
+        ["zh", shotPrefix({ englishName: "Chinese (Simplified)" })],
+        ["zh-Hant", shotPrefix({ englishName: "Chinese (Traditional)", storeShotName: "chinese_traditional" })],
+    ])).length === 0);
 
 ok("zh and zh-Hant collide on the same prefix",
     shotPrefixCollisions(new Map([["zh", "chinese"], ["zh-Hant", "chinese"], ["es", "spanish"]]))
@@ -280,10 +295,19 @@ const langsPath = join(ROOT, "i18n", "languages.json");
 withEdited(langsPath,
     '{ "code": "th",',
     '{ "code": "zh-Hant", "hreflang": "zh-Hant", "nativeName": "X", "switcherLabel": "X", "englishName": "Chinese (Traditional)", "ogLocale": "zh_TW", "paddleLocale": "en", "turnstileLang": "auto", "dir": "ltr" },\n    { "code": "th",',
-    "registering zh-Hant surfaces the prefix collision end-to-end",
+    "registering zh-Hant WITHOUT the override surfaces the collision end-to-end",
     (st, n) => ok(n, st.collisions.some((c) => c.prefix === "chinese"
         && c.codes.includes("zh") && c.codes.includes("zh-Hant")),
         `  ${JSON.stringify(st.collisions)}`));
+
+/* ...and the agreed fix silences it. Registering zh-Hant WITH storeShotName must produce no
+ * collision and must point the tool at chinese_traditional_*.png — the same files
+ * generate-store-hero.ps1 will write, since it reads the same field. */
+withEdited(langsPath,
+    '{ "code": "th",',
+    '{ "code": "zh-Hant", "hreflang": "zh-Hant", "nativeName": "X", "switcherLabel": "X", "englishName": "Chinese (Traditional)", "storeShotName": "chinese_traditional", "ogLocale": "zh_TW", "paddleLocale": "en", "turnstileLang": "auto", "dir": "ltr" },\n    { "code": "th",',
+    "registering zh-Hant WITH storeShotName resolves it — no collision reported",
+    (st, n) => ok(n, st.collisions.length === 0, `  ${JSON.stringify(st.collisions)}`));
 
 /* ---------------------------------------------------------------- 5. tree integrity */
 console.log("\n[8] tree integrity — both repos");

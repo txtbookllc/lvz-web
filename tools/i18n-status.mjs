@@ -179,12 +179,27 @@ function loadContext(appOverride) {
  * ---------------------------------------------------------------------- */
 
 /* chinese_about.png, indonesian_hero.png — a convention that predates this wave.
- * Derived, then collision-checked, because "Chinese (Simplified)" and "Chinese
- * (Traditional)" both reduce to "chinese". */
-function shotPrefix(englishName) {
-    if (!englishName) return null;
-    return englishName.replace(/\s*\([^)]*\)/g, "").trim().toLowerCase().replace(/\s+/g, "_");
+ *
+ * The rule is NOT invented here: it is exactly what packaging/generate-store-hero.ps1:65
+ * does — the FIRST WORD of englishName, lowercased — because that script is what writes the
+ * files. Anything else and the status tool would look for names the generator never produces.
+ * (An earlier version of this function stripped parentheticals and joined the remaining words
+ * with "_". It agreed for all 18 shipped languages and would have diverged on wave 2's
+ * "Norwegian Bokmål": generator `norwegian`, tool `norwegian_bokmål`.)
+ *
+ * `storeShotName` in languages.json overrides it. That exists because the first-word rule
+ * collides: "Chinese (Simplified)" and "Chinese (Traditional)" both give "chinese", and the
+ * two would overwrite each other's six Store images. Jonathan's decision (2026-08-11) is to
+ * give zh-Hant a distinct name for this purpose only — zh keeps `chinese`, so none of the
+ * 108 existing files are renamed and the Partner Center upload habit is unchanged.
+ * generate-store-hero.ps1 honours the same field; if you add another consumer, it must too. */
+function shotPrefix(lang) {
+    if (!lang) return null;
+    if (typeof lang === "string") return firstWordPrefix(lang);   // englishName directly
+    return lang.storeShotName || firstWordPrefix(lang.englishName);
 }
+const firstWordPrefix = (englishName) =>
+    (englishName ? englishName.split(" ")[0].toLowerCase() : null);
 
 /* Group codes by the prefix they claim. Any group of 2+ is a naming collision:
  * those languages would overwrite each other's Store screenshots. */
@@ -276,7 +291,7 @@ function buildStatus({ appOverride, onlyLang, runCheck = true } = {}) {
      * an UNKNOWN prefix rather than an assumed one. */
     const prefixByCode = new Map();
     for (const code of roster) {
-        const p = shotPrefix(registered.get(code)?.englishName);
+        const p = shotPrefix(registered.get(code));
         if (p) prefixByCode.set(code, p);
     }
 
