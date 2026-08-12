@@ -249,14 +249,19 @@ ok("every shared id is listed in `at`, and the totals count ids not units",
  * `ld` unit is never merged with a `text` unit. Measured: faq.html 96 ids / 96 units, zero
  * deduped, while the bare answer text really does occur twice in the file.
  *
- * Not "fixed" here, because merging across kinds is an ESCAPING hazard, not a one-line
- * change: an ld unit's raw slice is a JSON string (\" and \\) and a text unit's carries
- * inline markup and entities, so a merged unit cannot splice into both without a
- * per-kind re-encode — which is exactly the normalize-then-re-encode round trip the
- * raw-slice rule forbids. Left as a decision for Jonathan; see docs/i18n-wave2.md.
+ * SETTLED 2026-08-11 (Jonathan): LEAVE IT. Merging across kinds is an ESCAPING hazard, not
+ * a one-line change — an ld unit's raw slice is a JSON string (\" and \\) and a text unit's
+ * carries inline markup and entities, so a merged unit cannot splice into both without a
+ * per-kind re-encode, which is exactly the normalize-then-re-encode round trip the raw-slice
+ * rule forbids. Cost of leaving it is ~4% extra units on faq.html.
  *
- * If someone later implements cross-kind dedupe, this test fails and forces the round-trip
- * gate to be re-proven. That is the intent. */
+ * Accepted residual risk: the two copies of an answer are translated separately and can be
+ * worded differently, with nothing checking it. If that ever matters the remedy is a
+ * post-translation comparison of the two copies — NOT dedupe.
+ *
+ * So this test failing does not mean "the extractor improved". It means someone reopened a
+ * settled decision and now owes a re-proof of the byte-identity gate. See
+ * docs/i18n-wave2.md, DECISIONS §2. */
 console.log("\n[9b] tracked gap — JSON-LD and visible text do NOT dedupe (plan §0.5 expects they would)");
 const faq = delta("sv", "faq.html").pages["faq.html"];
 ok("faq.html emits one unit per id — no cross-kind dedupe today",
