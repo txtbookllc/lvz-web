@@ -13,14 +13,34 @@
     (function () {
         if (document.documentElement.lang !== "en") { return; }
         var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
+           Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
+           a visitor lands on one language while the app and the licence email use another. */
+        var ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant",
+                        "zh-cn": "zh-hans", "zh-sg": "zh-hans", "tl": "fil" };
+        /* Most specific first, dropping one subtag at a time, so "zh-TW" reaches zh-Hant
+           when that language exists and degrades to "zh" when it does not. Returns the code
+           as LANGS spells it — the URL path segment is case-sensitive. */
+        function resolve(tag) {
+            var parts = String(tag || "").toLowerCase().split(/[-_]/), sub = [], i, n, j, cand, alias;
+            for (i = 0; i < parts.length; i++) { if (parts[i]) { sub.push(parts[i]); } }
+            for (n = sub.length; n > 0; n--) {
+                cand = sub.slice(0, n).join("-");
+                alias = typeof ALIASES[cand] === "string" ? ALIASES[cand] : null;
+                for (j = 0; j < LANGS.length; j++) {
+                    if (LANGS[j].toLowerCase() === cand || (alias && LANGS[j].toLowerCase() === alias)) { return LANGS[j]; }
+                }
+            }
+            return null;
+        }
         try {
             var to = null;
             var pref = localStorage.getItem("lvz-lang");
             if (pref) {
-                if (LANGS.indexOf(pref) !== -1) { to = pref; }
+                to = resolve(pref);
             } else {
-                var sys = ((navigator.languages && navigator.languages[0]) || navigator.language || "").toLowerCase().split("-")[0];
-                if (LANGS.indexOf(sys) !== -1) { to = sys; localStorage.setItem("lvz-lang", sys); }
+                var sys = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+                if (sys) { to = sys; localStorage.setItem("lvz-lang", sys); }
             }
             if (to) {
                 var page = location.pathname.split("/").pop();
