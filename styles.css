@@ -189,6 +189,7 @@ img, svg, video { display: block; max-width: 100%; }
 }
 
 .site-header .container {
+    position: relative;               /* containing block for the language panel */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -228,7 +229,9 @@ img, svg, video { display: block; max-width: 100%; }
 
 /* --- Language switcher — a <details> dropdown so it works without JS.
        site.js adds close-on-outside-click/Escape and stores the choice. --- */
-.lang-switch { position: relative; flex: none; }
+/* static, so the list below positions against .site-header .container and spans the
+   full header width rather than hanging off this button. */
+.lang-switch { position: static; flex: none; }
 .lang-switch summary {
     display: inline-flex;
     align-items: center;
@@ -253,14 +256,23 @@ img, svg, video { display: block; max-width: 100%; }
 .lang-switch[open] summary::after { transform: rotate(-135deg) translateY(0.1em); }
 .lang-switch summary:hover { color: var(--accent); }
 .lang-switch summary .line-icon { width: 1.3rem; height: 1.3rem; }
+/* A full-width panel under the header, not a narrow popover: at 37 languages a single
+   column is a long scroll inside a small box, which is a real barrier for this audience
+   rather than a cosmetic one. Rows are wide and easy to hit, and auto-fill drops the
+   column count as the viewport narrows — high browser zoom IS a narrow viewport, so this
+   reaches one column at high zoom on its own, with no breakpoint to guess.
+   Grid flows in row order, so visual order still matches DOM and tab order. */
 .lang-switch ul {
     position: absolute;
-    inset-inline-end: 0;
+    inset-inline: 0;
     top: calc(100% + 0.4rem);
     z-index: 200;
     list-style: none;
-    min-width: 13rem;
-    max-height: min(65vh, 30rem);     /* 19 languages — let the list scroll */
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 0.15rem 0.5rem;
+    align-content: start;
+    max-height: min(70vh, 34rem);
     overflow-y: auto;
     padding: 0.4rem;
     background: var(--surface);
