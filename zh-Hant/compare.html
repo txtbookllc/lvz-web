@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="誠實比較 Windows 螢幕放大鏡：Low Vision Zoom、內建的 Windows Magnifier、ZoomText、SuperNova 和 Magnifixer——各自的功能、各自適合的對象，以及何時不該選擇我們的產品。">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "zh-Hant", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
+           Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
+           a visitor lands on one language while the app and the licence email use another. */
+        var ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant",
+                        "zh-cn": "zh-hans", "zh-sg": "zh-hans", "tl": "fil" };
+        /* Most specific first, dropping one subtag at a time, so "zh-TW" reaches zh-Hant
+           when that language exists and degrades to "zh" when it does not. Returns the code
+           as LANGS spells it — the URL path segment is case-sensitive. */
+        function resolve(tag) {
+            var parts = String(tag || "").toLowerCase().split(/[-_]/), sub = [], i, n, j, cand, alias;
+            for (i = 0; i < parts.length; i++) { if (parts[i]) { sub.push(parts[i]); } }
+            for (n = sub.length; n > 0; n--) {
+                cand = sub.slice(0, n).join("-");
+                alias = typeof ALIASES[cand] === "string" ? ALIASES[cand] : null;
+                for (j = 0; j < LANGS.length; j++) {
+                    if (LANGS[j].toLowerCase() === cand || (alias && LANGS[j].toLowerCase() === alias)) { return LANGS[j]; }
+                }
+            }
+            return null;
+        }
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                to = resolve(pref);
+            } else {
+                var sys = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+                if (sys) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom 與 Windows Magnifier、ZoomText、SuperNova 的比較",
+      "description": "Windows 螢幕放大鏡的並列比較：內建的 Windows Magnifier、ZoomText、SuperNova、Magnifixer 與 Low Vision Zoom——包括各自適合的對象，以及不該選擇 Low Vision Zoom 的理由。",
+      "url": "https://lowvisionzoom.com/zh-Hant/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "zh-Hant",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "螢幕放大軟體" },
+        { "@type": "Thing", "name": "低視能輔助科技" },
+        { "@type": "Thing", "name": "Windows 無障礙功能" }
+      ]
+    }
+    </script>
+    <title>Windows 螢幕放大鏡比較 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/zh-Hant/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="zh-Hant" href="https://lowvisionzoom.com/zh-Hant/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">跳至主要內容</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/zh-Hant/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="主要">
+                <a href="/zh-Hant/index.html#demo">觀看示範</a>
+                <a href="/zh-Hant/index.html#how">運作方式</a>
+                <a href="/zh-Hant/index.html#why">為什麼更好用</a>
+                <a href="/zh-Hant/pricing.html">價格</a>
+                <a href="/zh-Hant/index.html#get" data-download class="btn btn-secondary btn-nav">下載</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="語言：中文（繁體）">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>中文（繁體）</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/zh-Hant/compare.html" data-lang="zh-Hant" lang="zh-Hant" hreflang="zh-Hant" aria-current="true">中文（繁體）</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">比較</span>
+                <h1>Windows 螢幕放大鏡</h1>
+                <p class="updated">競品資訊查證於 2026 年 7 月 20 日</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>如果您從未試過放大鏡工具，請先從 Windows 內建的那一款開始。它是免費的。如果您需要電腦朗讀畫面內容、需要非常高的放大倍率，或需要點字功能，您需要的是完整的輔助科技套件，例如 <strong>ZoomText</strong> 或 <strong>SuperNova</strong>，而 <strong>Low Vision Zoom 對您來說是不夠的</strong>。Low Vision Zoom 是一款小巧、平價的工具，只做一件事：平滑、以游標為中心的放大，最高可達 5×，且無需任何設定。</p>
+                    </div>
+
+                    <h2>這篇文章是誰寫的，該怎麼看待它</h2>
+                    <p>Low Vision Zoom 是我們自己開發的產品，因此請以看待「參與者自行撰寫的比較文章」的方式來看待這個頁面。我們嘗試以三種具體方式保持公正：關於其他產品的每一項說法，都來自該廠商自己公開的文件，並附上連結；表中列出的每一項產品，都至少有一項做得比我們的產品更好；下方也有一個章節專門說明<a href="#not-for-you">不該購買 Low Vision Zoom 的理由</a>。</p>
+                    <p>我們刻意不列出競品的具體價格數字。輔助科技的定價會變動、因國家而異，且個人、學校與雇主的價格經常不同——直接寫在這裡的數字很快就會過時。我們列出每項產品的<em>授權模式</em>，並附上廠商連結，讓您可以自行查詢目前的價格。</p>
+                    <p>這個頁面上最重要的建議是：<strong>這裡列出的每一項產品，都可以在付費前先試用。</strong>放大鏡的使用感受非常個人化，放大鏡帶給<em>您</em>雙眼的感覺，遠比任何功能比較表都來得重要。請實際試用看看。</p>
+
+                    <h2>您該選擇哪一款？</h2>
+                    <ul>
+                        <li><strong>您還沒試過任何放大鏡工具</strong>——請使用電腦上已內建的 <strong>Windows Magnifier</strong>。按下 <code>Windows 鍵</code> + <code>Plus</code>。它完全免費，可能就足以滿足您的需求。</li>
+                        <li><strong>您需要朗讀畫面內容，或使用點字</strong>——您需要的是 <strong>ZoomText Magnifier/Reader</strong>、<strong>SuperNova</strong>，或其他螢幕報讀軟體。Low Vision Zoom 完全沒有語音朗讀，也完全不支援點字。</li>
+                        <li><strong>您需要超過 5× 的放大倍率</strong>——Low Vision Zoom 最高只到 5×。Windows Magnifier、ZoomText 和 SuperNova 的放大倍率都遠高於此。</li>
+                        <li><strong>您需要色彩濾鏡、對比反轉，或焦點標示</strong>——Windows Magnifier 免費提供部分此類功能；ZoomText 和 SuperNova 提供的更多。Low Vision Zoom 完全沒有這些功能。</li>
+                        <li><strong>您想要免費的第三方選項</strong>——<strong>Magnifixer</strong> 是免費軟體，提供一個放大鏡視窗，具備反轉顯示與色彩模式。</li>
+                        <li><strong>您主要想在工作時不斷放大縮小畫面，而且覺得現有方式跳動不順、操作繁瑣</strong>——這正是 Low Vision Zoom 專為此設計的情境。它會以您的游標為中心平滑放大，沒有任何設定，只需一次性付費 $9.99。<a href="/zh-Hant/index.html#demo">觀看示範影片</a>，並試用免費試用版。</li>
+                    </ul>
+
+                    <h2>功能比較</h2>
+                    <p>標示為「見廠商網站」的儲存格，是我們不願代替他人二手轉述的內容——請點選產品標題中的連結，以取得權威解答。</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="功能比較表">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">五款 Windows 螢幕放大鏡的功能比較</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">這是什麼</th>
+                                    <td>單一用途的放大工具</td>
+                                    <td>Windows 內建的放大鏡</td>
+                                    <td>完整的低視能輔助套件</td>
+                                    <td>完整的低視能輔助套件</td>
+                                    <td>免費的放大鏡視窗</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">授權模式</th>
+                                    <td>一次性付費 $9.99，包含更新</td>
+                                    <td>免費——隨 Windows 附贈</td>
+                                    <td>年度授權（見廠商網站）</td>
+                                    <td>依版本授權（見廠商網站）</td>
+                                    <td>免費</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">最高放大倍率</th>
+                                    <td>5×</td>
+                                    <td>最高可達 1600%（16×）</td>
+                                    <td>最高可達 36×</td>
+                                    <td>偏高——見廠商網站</td>
+                                    <td>見廠商網站</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">如何調整放大倍率</th>
+                                    <td>Ctrl + 滑鼠滾輪，或 Ctrl + Alt + Plus / Minus。連續且等比例變化——畫面會平滑過渡到新的倍率，而非直接跳轉</td>
+                                    <td>Windows 鍵 + Plus / Minus，或使用工具列。以固定倍率逐級調整；級距可設定</td>
+                                    <td>鍵盤快速鍵與工具列；分級放大倍率——見廠商網站</td>
+                                    <td>鍵盤快速鍵與控制面板；分級放大倍率——見廠商網站</td>
+                                    <td>在其獨立視窗中可調整放大倍率</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">放大時以什麼為中心</th>
+                                    <td>滑鼠游標所在的位置，畫面會以該點為固定中心進行縮放</td>
+                                    <td>可跟隨滑鼠、鍵盤焦點、文字游標或 Narrator——由您選擇</td>
+                                    <td>跟隨滑鼠、焦點與游標——見廠商網站</td>
+                                    <td>跟隨滑鼠、焦點與游標——見廠商網站</td>
+                                    <td>您所指向的區域</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">朗讀文字</th>
+                                    <td>否</td>
+                                    <td>是——具備朗讀控制功能</td>
+                                    <td>是，在 Magnifier/Reader 版本中提供</td>
+                                    <td>是，在 Speech 與 Screen Reader 版本中提供</td>
+                                    <td>否</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">完整螢幕報讀軟體</th>
+                                    <td>否</td>
+                                    <td>Narrator 隨 Windows 附贈，屬於獨立功能</td>
+                                    <td>可於搭配 JAWS 的 Fusion 套裝組合中取得</td>
+                                    <td>是，在 Screen Reader 版本中提供</td>
+                                    <td>否</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">點字支援</th>
+                                    <td>否</td>
+                                    <td>透過 Narrator 提供</td>
+                                    <td>見廠商網站</td>
+                                    <td>是，在較高階版本中提供</td>
+                                    <td>否</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">色彩濾鏡、對比、反轉</th>
+                                    <td>否</td>
+                                    <td>是——色彩反轉</td>
+                                    <td>是——豐富的濾鏡與強化功能</td>
+                                    <td>是——功能豐富，包含依螢幕個別設定</td>
+                                    <td>是——反轉顯示與色彩模式</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">高倍率時的文字平滑處理</th>
+                                    <td>否——放大像素本身</td>
+                                    <td>是——提供平滑選項</td>
+                                    <td>是——xFont 算圖技術</td>
+                                    <td>是——True Fonts</td>
+                                    <td>是——平滑濾鏡</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">多螢幕</th>
+                                    <td>是——桌面視為一個連續整體，跨螢幕時會跟隨您</td>
+                                    <td>是</td>
+                                    <td>是——見廠商網站</td>
+                                    <td>是——各螢幕可獨立設定放大倍率</td>
+                                    <td>見廠商網站</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">需設定的選項</th>
+                                    <td>無——行為已預先調校並固定</td>
+                                    <td>數項</td>
+                                    <td>豐富</td>
+                                    <td>豐富</td>
+                                    <td>數項</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">離線運作，無需帳號</th>
+                                    <td>是——授權驗證在您的裝置上進行</td>
+                                    <td>是</td>
+                                    <td>見廠商網站</td>
+                                    <td>見廠商網站</td>
+                                    <td>見廠商網站</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">收集的資料</th>
+                                    <td>無——<a href="/privacy.html">隱私權政策（英文）</a></td>
+                                    <td>見 Microsoft 的隱私權聲明</td>
+                                    <td>見廠商網站</td>
+                                    <td>見廠商網站</td>
+                                    <td>見廠商網站</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">平台</th>
+                                    <td>Windows 10 與 11，64 位元（x64）</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">不該購買 Low Vision Zoom 的理由</h2>
+                    <p>我們寧願您把這 $9.99 花在真正能幫助您的東西上，而不是幫不上忙的東西上。如果以下任一項符合您的情況，請不要購買 Low Vision Zoom：</p>
+                    <ul>
+                        <li><strong>您需要超過 5× 的放大倍率。</strong>這是應用程式的硬性上限，不是可調整的設定。如果 5× 對您來說不夠，這個產品的任何部分都幫不上忙。</li>
+                        <li><strong>您需要語音朗讀。</strong>本產品沒有文字轉語音、沒有文件朗讀，也沒有螢幕報讀功能。這些都不在 $9.99 產品的規劃範圍內。</li>
+                        <li><strong>您需要色彩反轉或對比濾鏡</strong>才能舒適閱讀。Windows Magnifier 免費提供這項功能；我們完全沒有這項功能。</li>
+                        <li><strong>您需要在高倍率下維持文字清晰。</strong>我們是直接放大畫面本身；那些完整套件則會重新算圖文字，使其保持清晰。在高倍率下，這個差異很大，而且很重要。</li>
+                        <li><strong>您需要廠商支援、教育訓練，或採購管道。</strong>我們是一間非常小的公司，只有一個電子郵件信箱。這不太適合需要正式支援機制的職場無障礙調整需求。</li>
+                        <li><strong>您不使用滑鼠或觸控板。</strong>這個產品的設計核心是「指向您想放大的地方」。雖然有鍵盤快速鍵，但純鍵盤操作的使用者，用其他產品會更合適。</li>
+                        <li><strong>您使用的是 ARM 版 Windows，或 32 位元電腦。</strong>目前尚不支援。</li>
+                    </ul>
+
+                    <h2>您或許根本不需要放大鏡工具</h2>
+                    <p>在購買任何東西之前，值得先試試電腦上已有的免費選項。對許多人來說，這些就已經足夠：</p>
+                    <ul>
+                        <li><strong>永久放大所有內容：</strong>Windows <em>設定 → 系統 → 顯示 → 縮放</em>。將其設為 150% 或 175%，可放大所有地方的文字與圖示，不需要任何額外軟體。</li>
+                        <li><strong>只放大文字：</strong>Windows <em>設定 → 協助工具 → 文字大小</em>。</li>
+                        <li><strong>放大網頁：</strong>在任何瀏覽器中按 <code>Ctrl</code> + <code>Plus</code>，這會重新排版文字，而非放大像素——就閱讀網頁而言，通常比任何放大鏡工具都更容易閱讀。</li>
+                        <li><strong>內建放大鏡：</strong><code>Windows 鍵</code> + <code>Plus</code>。</li>
+                    </ul>
+                    <p>當您需要在一整天當中、在各種應用程式裡不斷放大檢視細節再縮小回來時，放大鏡工具就是正確的選擇。但如果您真正需要的其實是「所有時候文字都比較大」，放大鏡工具就不是正確的選擇。</p>
+
+                    <h2>Low Vision Zoom 適合什麼情境</h2>
+                    <p>Low Vision Zoom 的誕生，是因為它的開發者想要一件很具體的事：整天不斷放大再縮小畫面，卻不會每次都因此失去畫面上的定位。它採用連續放大而非分級放大，以游標所在位置為中心進行縮放，讓您正在看的內容保持不動，並且在游標於畫面中央移動時，維持畫面穩定不晃動。不需要任何設定，除了一個按鍵和滾輪之外，也沒有其他東西需要學習。</p>
+                    <p>這就是這個產品的全部。如果上面描述的正是您遇到的問題，<a href="/zh-Hant/index.html#get">7 天免費試用</a>會在幾分鐘內讓您知道它是否適合您的雙眼。如果不是，這個頁面上的其他產品會更適合您，我們也寧願為您指出正確的方向。您可以進一步閱讀<a href="/zh-Hant/why-smooth-magnification.html">為什麼平滑放大更容易跟隨視線</a>，或參閱<a href="/zh-Hant/faq.html">常見問題</a>。</p>
+
+                    <h2>資料來源</h2>
+                    <p>關於其他產品的說法，皆來自各廠商自己的公開頁面，查證於 2026 年 7 月 20 日：</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft——使用「放大鏡」讓螢幕上的內容更容易查看</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific——ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin——SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software——Magnifixer</a></li>
+                    </ul>
+                    <p>Windows、Windows Magnifier 與 Narrator 是 Microsoft 的產品。ZoomText 與 JAWS 是 Freedom Scientific / Vispero 的產品。SuperNova 是 Dolphin Computer Access 的產品。Magnifixer 是 Blacksun Software 的產品。我們與上述廠商皆無任何關係、未獲其背書，也非合作夥伴，使用其名稱僅為識別其產品之用。如果您認為本頁任何內容對您的產品有不實陳述，請<a href="/zh-Hant/contact.html">與我們聯絡</a>，我們會予以更正。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>先試用，再決定</h2>
+                <p>7 天免費試用．一次性付費 $9.99．無需訂閱．無需帳號</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/zh-Hant.svg" alt="從 Microsoft Store 取得">
+                    </a>
+                    <a href="/zh-Hant/index.html#get" data-download class="download-direct">或直接從本網站下載安裝程式（.msi）</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom 是一款適用於 Windows 10 與 11 的螢幕放大鏡。它能以滑鼠游標為中心，平滑放大畫面，最高可達 5×。只需一次性付費 $9.99。您可以從 Microsoft Store 取得，或直接下載 MSI 安裝程式。它可離線運作，且不收集任何資料。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>一款沉穩的 Windows 螢幕放大鏡。由 txtbook&nbsp;LLC 出品。</p>
+                </div>
+                <div>
+                    <h4>產品</h4>
+                    <ul>
+                        <li><a href="/zh-Hant/index.html#why">為什麼更好用</a></li>
+                        <li><a href="/zh-Hant/index.html#how">運作方式</a></li>
+                        <li><a href="/zh-Hant/pricing.html">價格</a></li>
+                        <li><a href="/zh-Hant/compare.html" aria-current="page">比較放大鏡</a></li>
+                        <li><a href="/zh-Hant/faq.html">常見問題</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>法律資訊</h4>
+                    <ul>
+                        <li><a href="/privacy.html">隱私權（英文）</a></li>
+                        <li><a href="/terms.html">服務條款（英文）</a></li>
+                        <li><a href="/refund.html">退款政策（英文）</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>支援</h4>
+                    <ul>
+                        <li><a href="/zh-Hant/contact.html">聯絡我們</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. 版權所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

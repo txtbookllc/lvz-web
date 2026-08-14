@@ -91,7 +91,14 @@ function visit({ pageLang = "en", langs, navLangs = [], pref = null, path = "/in
 }
 
 const LIVE = CFG.languages.map((x) => x.code);
-const FUTURE = [...LIVE, "zh-Hant", "fil"];
+/* deduped: zh-Hant is in LIVE now, and a doubled entry would make LANGS unrepresentative */
+const FUTURE = [...new Set([...LIVE, "zh-Hant", "fil"])];
+/* A LANGS list as it stood BEFORE zh-Hant registered. The graceful-degradation case — a
+ * browser asking for a language the site does not have yet must land on the closest thing
+ * rather than on nothing — is generic and worth keeping forever. Testing it against a
+ * synthetic list keeps it alive now that zh-Hant is real, instead of retiring the
+ * assertion on the very day the language shipped. */
+const PRE_HANT = LIVE.filter((c) => c !== "zh-Hant");
 
 const routes = (opts, expected, why) => {
     const r = visit(opts);
@@ -132,11 +139,17 @@ ok("a deep page keeps its filename",
         === "/fr/why-smooth-magnification.html");
 
 /* ---------------------------------------------------------------- 2. the fix */
-console.log("\n[5] Traditional Chinese degrades correctly TODAY (zh-Hant unregistered)");
-ok("zh-Hant is not registered yet (these expectations depend on it)", !LIVE.includes("zh-Hant"),
-    "\n        zh-Hant IS registered — [5] and [6] are now inverted, fix them");
-routes({ langs: LIVE, navLangs: ["zh-TW"] }, "/zh/index.html", "Simplified until zh-Hant exists");
-routes({ langs: LIVE, navLangs: ["zh-Hant"] }, "/zh/index.html", "Simplified until zh-Hant exists");
+console.log("\n[5] zh-Hant is LIVE — and absence still degrades gracefully");
+ok("zh-Hant IS registered (the live config carries it)", LIVE.includes("zh-Hant"),
+    "\n        zh-Hant is missing from languages.json — [5] and [6] assume it is registered");
+/* the real, shipping behaviour, asserted against the real LANGS */
+routes({ langs: LIVE, navLangs: ["zh-TW"] }, "/zh-Hant/index.html", "LIVE: Taiwan gets Traditional");
+routes({ langs: LIVE, navLangs: ["zh-CN"] }, "/zh/index.html", "LIVE: mainland still gets Simplified");
+/* and the fallback that applied before it registered, kept permanently testable */
+routes({ langs: PRE_HANT, navLangs: ["zh-TW"] }, "/zh/index.html",
+    "without zh-Hant in LANGS, Taiwan degrades to Simplified — never to nothing");
+routes({ langs: PRE_HANT, navLangs: ["zh-Hant"] }, "/zh/index.html",
+    "an explicit Traditional request degrades the same way");
 routes({ langs: LIVE, navLangs: ["tl-PH"] }, null, "Filipino unregistered — stays English, never a wrong language");
 
 console.log("\n[6] the fix, on a LANGS carrying zh-Hant and fil");

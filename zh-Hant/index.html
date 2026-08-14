@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoom：一款專為 Windows 打造、沉穩好用的螢幕放大鏡。畫面會緩緩放大，並以您指向的位置為中心移動，讓您不會迷失方向。提供 7 天免費試用，之後只需一次性支付 $9.99 即可持續使用。無需訂閱、無廣告，也不收集任何資料。">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "zh-Hant", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
+           Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
+           a visitor lands on one language while the app and the licence email use another. */
+        var ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant",
+                        "zh-cn": "zh-hans", "zh-sg": "zh-hans", "tl": "fil" };
+        /* Most specific first, dropping one subtag at a time, so "zh-TW" reaches zh-Hant
+           when that language exists and degrades to "zh" when it does not. Returns the code
+           as LANGS spells it — the URL path segment is case-sensitive. */
+        function resolve(tag) {
+            var parts = String(tag || "").toLowerCase().split(/[-_]/), sub = [], i, n, j, cand, alias;
+            for (i = 0; i < parts.length; i++) { if (parts[i]) { sub.push(parts[i]); } }
+            for (n = sub.length; n > 0; n--) {
+                cand = sub.slice(0, n).join("-");
+                alias = typeof ALIASES[cand] === "string" ? ALIASES[cand] : null;
+                for (j = 0; j < LANGS.length; j++) {
+                    if (LANGS[j].toLowerCase() === cand || (alias && LANGS[j].toLowerCase() === alias)) { return LANGS[j]; }
+                }
+            }
+            return null;
+        }
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                to = resolve(pref);
+            } else {
+                var sys = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+                if (sys) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <meta property="og:title" content="Low Vision Zoom — 為 Windows 打造的流暢螢幕放大功能">
+    <meta property="og:description" content="畫面流暢放大，讓您不會迷失位置。按住 Ctrl 並捲動滑鼠滾輪，即可在 Windows 中任何位置放大畫面。提供 7 天免費試用，一次性支付 $9.99。注重隱私、離線運作，無需訂閱。">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh_TW">
+    <meta property="og:url" content="https://lowvisionzoom.com/zh-Hant/">
+    <meta property="og:image" content="https://lowvisionzoom.com/media/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Low Vision Zoom 標誌——一個內含加號的放大鏡圖示——以及標語：為低視能 Windows 使用者打造的最佳螢幕放大鏡">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom 是一款專為低視能人士設計、適用於 Windows 10 與 11 的螢幕放大鏡。按住 Ctrl 並捲動滑鼠滾輪，即可在 Windows 中任何位置放大畫面；畫面會平順地放大，並以滑鼠指標為中心移動，讓您不會迷失位置。可離線運作，不收集任何資料。提供 7 天免費試用，之後只需一次性支付 $9.99 即可使用——無需訂閱。",
+      "url": "https://lowvisionzoom.com/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
+    <title>Low Vision Zoom — 為 Windows 打造的流暢螢幕放大功能</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/zh-Hant/">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://lowvisionzoom.com/zh-Hant/">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/">
+</head>
+<body>
+    <a href="#main" class="skip-link">跳至主要內容</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/zh-Hant/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="主要">
+                <a href="#demo">觀看示範</a>
+                <a href="#how">運作方式</a>
+                <a href="#why">為什麼更好用</a>
+                <a href="/zh-Hant/pricing.html">價格</a>
+                <a href="#get" class="btn btn-secondary btn-nav">下載</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="語言：中文（繁體）">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>中文（繁體）</span>
+                </summary>
+                <ul>
+                    <li><a href="/index.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/index.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/zh-Hant/index.html" data-lang="zh-Hant" lang="zh-Hant" hreflang="zh-Hant" aria-current="true">中文（繁體）</a></li>
+                    <li><a href="/es/index.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/index.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/index.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/index.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/index.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/index.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/index.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/index.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/index.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/index.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/index.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/index.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/index.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/index.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/index.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/index.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/index.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- 1 · Hero + controls animation -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>最佳的螢幕放大鏡<br> 專為低視能的<br> Windows 使用者打造</h1>
+                    <p class="lead">一款流暢、簡單的放大工具，專為幫助您的視線追蹤畫面而設計</p>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/zh-Hant.svg" alt="在 Microsoft Store 中取得">
+                            </a>
+                            <a href="#get" data-download class="download-direct">或直接從本網站下載安裝程式（.msi）</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiment: desktop controls animation instead of the motion demo video,
+                     to lead with how simple the app is. Previous video block is in git history.
+                     The panel stretches to match hero-content (title top → download button bottom),
+                     which is why the trust chips live outside hero-content in their own grid row. -->
+                <div class="hero-anim">
+                    <img src="/media/howto-desktop-hero.zh-Hant.svg" width="520" height="280"
+                         alt="動畫示範：手指按住 Ctrl 鍵，滑鼠滾輪向前捲動以放大畫面，向後捲動則縮小畫面。">
+                </div>
+
+                <ul class="trust" aria-label="您可以期待的">
+                    <li>7 天免費試用</li>
+                    <li>一次性支付 $9.99</li>
+                    <li>無需訂閱</li>
+                    <li>無需帳號</li>
+                    <li class="trust-break" aria-hidden="true"></li>
+                    <li>無廣告</li>
+                    <li>不收集資料</li>
+                    <li>可離線使用</li>
+                </ul>
+            </div>
+
+            <!-- Scroll cue: invites the visitor past the fold to the demo.
+                 Duplicates the nav link on purpose; the arrow bob is killed
+                 by the global prefers-reduced-motion rule. -->
+            <a href="#demo" class="scroll-cue">
+                <span>觀看示範</span>
+                <svg class="scroll-cue-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,9 12,17 19,9"/></svg>
+            </a>
+        </section>
+
+        <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
+             into view (see site.js §3); pauses when scrolled away. Motion-safe:
+             under prefers-reduced-motion it never autoplays — the poster shows
+             until the visitor presses Play. hero-demo.{webm,mp4} are the
+             bandwidth-friendly re-encodes of media/hero.mp4. -->
+        <section id="demo" class="demo-full section-alt" aria-labelledby="demo-heading">
+            <h2 id="demo-heading" class="visually-hidden">觀看 Low Vision Zoom 實際運作</h2>
+            <div class="demo-full-stage">
+                <video class="demo-full-video" muted loop playsinline preload="metadata"
+                       poster="/media/hero-demo-poster.webp"
+                       aria-label="螢幕錄影：Low Vision Zoom 平順地放大 Windows 桌面，畫面圍繞游標輕柔地放大，同時使用者進行閱讀與點按。">
+                    <source src="/media/hero-demo.webm" type='video/webm; codecs="av01.0.08M.08"'>
+                    <source src="/media/hero-demo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="demo-toggle demo-full-toggle" data-label-play="播放示範" data-label-pause="暫停示範" hidden aria-pressed="false"></button>
+            </div>
+        </section>
+
+        <!-- 3 · How it works — device-toggled gesture animation + control cards -->
+        <section id="how" class="section">
+            <div class="container">
+                <h2>一個按鍵加上滑鼠滾輪，就是全部的操作介面。</h2>
+                <p class="section-sub">安裝完成後立即可用，無需任何設定。</p>
+
+                <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
+                     copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
+                     don't edit media/howto-*.svg by hand. -->
+                <div class="howto-anim">
+                    <fieldset class="howto-switch">
+                        <legend class="visually-hidden">顯示您裝置類型適用的縮放手勢</legend>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="desktop" checked>
+                            <span>桌上型電腦使用者</span>
+                        </label>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="laptop">
+                            <span>筆記型電腦使用者</span>
+                        </label>
+                    </fieldset>
+                    <div class="howto-pane howto-pane-desktop">
+                        <img src="/media/howto-desktop.zh-Hant.svg" width="520" height="250"
+                             alt="動畫示範：手指按住 Ctrl 鍵，滑鼠滾輪向前捲動以放大畫面，向後捲動則縮小畫面。">
+                        <p class="demo-caption">按住 <strong>Ctrl</strong> 並捲動滾輪——向前捲動可放大，向後捲動可縮小。</p>
+                    </div>
+                    <div class="howto-pane howto-pane-laptop">
+                        <img src="/media/howto-laptop.zh-Hant.svg" width="520" height="250"
+                             alt="動畫示範：同時按住 Ctrl 與 Alt 鍵，手指按下加號鍵可放大畫面，按下減號鍵則縮小畫面。">
+                        <p class="demo-caption">按住 <strong>Ctrl + Alt</strong>，再按 <strong>+</strong> 或 <strong>−</strong> 鍵——不需要滑鼠滾輪。</p>
+                    </div>
+                </div>
+
+                <!-- The cards follow the Desktop/Laptop toggle above (CSS :has() on #how,
+                     next to the howto-pane rules). Pan is two cards: same gesture, but
+                     "mouse" only makes sense on desktop — laptops say "cursor". -->
+                <div class="controls">
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + 捲動&nbsp;↑</span>
+                        <p><strong>放大</strong>——以游標為中心平順地放大畫面。</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + 捲動&nbsp;↓</span>
+                        <p><strong>縮小</strong>——以同樣輕柔的動作平順地縮小畫面。</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + + / −</span>
+                        <p><strong>使用鍵盤縮放</strong>——按住即可持續縮放，不需要滑鼠滾輪。</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Shift + 捲動&nbsp;↓</span>
+                        <p><strong>重設</strong>——需要時可立即恢復正常大小（1×）。</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 0</span>
+                        <p><strong>重設</strong>——立即恢復正常大小（1×）。</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">移動滑鼠</span>
+                        <p><strong>平移</strong>——移動到螢幕邊緣時，畫面會平滑地跟隨移動。</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">移動游標</span>
+                        <p><strong>平移</strong>——移動到螢幕邊緣時，畫面會平滑地跟隨移動。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Why it's better — the perceptual case (see the app repo's
+             docs/why-smooth-zoom-helps-low-vision.md for sourcing and the
+             language guardrails: experience & design claims only, nothing
+             medical) mixed with the technical/trust facts. -->
+        <section id="why" class="section section-alt">
+            <div class="container">
+                <h2>為什麼更好用：您永遠不必重新尋找位置。</h2>
+                <p class="section-sub">大多數放大鏡會突然跳動，每一次跳動都迫使您的視線停下來，重新尋找原本的位置。Low Vision Zoom 的畫面移動則是平順且連續的。</p>
+
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
+                        <h3>視線能自然跟隨的動態</h3>
+                        <p>當放大鏡的畫面瞬間跳動時，您的視線必須跳躍著追上它，重新找到原本在讀的內容。而在這裡，每一次變化都以每秒 60 幀的動畫呈現，讓您的視線能平滑地隨之移動，而不是追著畫面跑。</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
+                        <h3>您的錨點永遠不變</h3>
+                        <p>畫面會以游標所在的確切位置為中心進行縮放，該位置在放大過程中保持固定，其餘畫面則圍繞它放大。您只需將游標指向重要的內容，就能自行選擇錨點。</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="11" y="11" width="10" height="10" rx="2"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg>
+                        <h3>同一個畫面，而非全新畫面</h3>
+                        <p>每一格畫面都只是前一格的些微變化，因此畫面看起來就像同一個頁面平順地放大，而不是一個新畫面取代舊畫面。沒有任何東西會突然消失，也就沒有東西需要重新尋找。</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><line x1="4" y1="16" x2="28" y2="16"/><circle cx="19" cy="16" r="4"/></svg>
+                        <h3>步調由您決定</h3>
+                        <p>縮放幅度與您的操作成正比：您捲動多少、多快，畫面就相應地放大多少、多快，並且可以在動作進行中隨時停止或反向操作。由您自己啟動的動作，正是您的視線能夠預期的動作。</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="10" width="12" height="12" rx="2"/><polyline points="6,13 3,16 6,19"/><polyline points="26,13 29,16 26,19"/></svg>
+                        <h3>閱讀時畫面靜止不動</h3>
+                        <p>當您的游標在螢幕中央移動時，畫面會完全靜止不動，只有在接近螢幕邊緣時才會平滑移動。閱讀時不會有持續的畫面漂移。</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
+                        <h3>紮實的 Windows 技術基礎</h3>
+                        <p>建構於 Windows 本身的放大功能 API 之上，具備自有的每秒 60&nbsp;幀動畫引擎。安裝程式經過簽署認證，放大畫面時點按位置依然準確，且一切運算皆在本機完成，不會有任何資料離開您的電腦。</p>
+                    </div>
+                </div>
+
+                <p class="requirements-line">專為 Windows 10 與 11（64 位元，x64）打造 · 獨立安裝程式，無需另外下載其他項目 · 目前尚不支援 Windows on ARM。</p>
+
+                <div class="good-to-know">
+                    <p><strong>小知識：</strong>視覺研究人員將這種現象稱為<em>變化盲視</em>：當畫面在視覺中斷的瞬間發生變化時，很容易讓人錯過移動的內容，進而失去原本追蹤的位置。畫面跳動的放大鏡，等於整天不斷重現這種中斷；而畫面平滑移動的放大鏡，則不會讓視線有任何機會迷失位置。</p>
+                </div>
+
+                <p class="parent-callout">正在為父母或您協助照顧的人設定嗎？只需安裝一次，之後無需任何額外調整。<a href="/zh-Hant/pricing.html#organizations">大量授權方案 →</a></p>
+            </div>
+        </section>
+
+        <!-- 5 · FAQ (includes the first-run SmartScreen guidance) -->
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <h2>常見問題</h2>
+                <div class="faq-list">
+                    <details class="faq">
+                        <summary>費用是多少？</summary>
+                        <div class="faq-body"><p>Low Vision Zoom 提供 7 天免費試用，所有功能完全開放使用。試用期結束後，只需一次性支付 <strong>$9.99</strong> 取得授權即可繼續使用——無需訂閱，且未來所有更新都包含在內。詳情請參閱<a href="/zh-Hant/pricing.html">價格頁面</a>。</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>試用期結束後會怎麼樣？</summary>
+                        <div class="faq-body"><p>應用程式仍會繼續運作——只是在您輸入授權金鑰之前，放大倍率會受到限制，讓您的螢幕始終保持足夠清晰，方便瀏覽與購買。隨時輸入授權金鑰即可立即恢復完整縮放功能，無需重新安裝。</p></div>
+                    </details>
+                    <!-- Carries the full first-run SmartScreen guidance (formerly its own
+                         aside under the on-page download CTA, now retired); the
+                         install-note-* classes style the steps and figure here too. -->
+                    <details class="faq" id="faq-smartscreen">
+                        <summary>安裝時 Windows 會出現警告嗎？</summary>
+                        <div class="faq-body">
+                            <p>第一次開啟安裝程式時，Windows 可能會顯示全螢幕的藍色<strong>「Windows 已保護您的電腦」</strong>訊息。<strong>這是正常現象，本應用程式是安全的。</strong>會出現這則訊息，是因為 Low Vision Zoom 是全新推出的應用程式——Windows 尚未累積足夠的使用次數來辨識它。安裝程式已由我們的公司 <strong>txtbook&nbsp;LLC</strong> 進行數位簽署。想完全略過這個畫面嗎？您可以改從 <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> 安裝——透過 Store 安裝不會出現 SmartScreen 警告。</p>
+                            <p class="install-note-steps-lead">繼續安裝的步驟：</p>
+                            <ol class="install-note-steps">
+                                <li>在藍色畫面上點選<strong>其他資訊</strong>。</li>
+                                <li>確認發行者欄位包含 <strong>txtbook LLC</strong>。</li>
+                                <li>點選隨後出現的<strong>仍要執行</strong>按鈕，安裝程式便會照常開啟。</li>
+                            </ol>
+                            <figure class="install-note-figure">
+                                <img src="/media/smartscreen-help.png" width="640" loading="lazy"
+                                     alt="藍色的「Windows 已保護您的電腦」畫面。點選「其他資訊」後，畫面下方會出現「仍要執行」按鈕——點選它即可繼續。" />
+                                <figcaption>點選<strong>其他資訊</strong>，接著點選<strong>仍要執行</strong>。</figcaption>
+                            </figure>
+                            <p>隨著使用這款應用程式的人越來越多，這則警告會在接下來的幾週內自然消失，而且您只需要處理一次。它會以「每台裝置」為單位安裝至 Program Files，這也是放大畫面時點按位置依然準確的原因。</p>
+                        </div>
+                    </details>
+                </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">還有其他問題——例如隱私權、退款、多組授權，或是與其他放大鏡的比較？<a href="/zh-Hant/faq.html">查看所有常見問題 →</a></p>
+            </div>
+        </section>
+
+        <!-- 6 · Quiet CTA band -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>為低視能 Windows 使用者打造的最佳螢幕放大鏡。</h2>
+                <p>7 天免費試用 · 一次性支付 $9.99 · 無需訂閱</p>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/zh-Hant.svg" alt="在 Microsoft Store 中取得">
+                    </a>
+                    <a href="#get" data-download class="download-direct">或直接從本網站下載安裝程式（.msi）</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom 是一款適用於 Windows 10 與 11 的螢幕放大鏡，一次性支付 $9.99 即可使用。您可以透過 Microsoft Store 取得，或直接下載 MSI 安裝檔。它可離線運作，且不會收集任何資料。</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>為低視能 Windows 使用者打造的最佳螢幕放大鏡</p>
+                    <p>&nbsp;</p>
+                    <p>txtbook&nbsp;LLC 出品</p>
+                    <p>&nbsp;</p>
+                    <p>4601 E. Douglas Ave. STE 150</p>
+                    <p>Wichita, KS 67218</p>
+                </div>
+                <div>
+                    <h4>產品</h4>
+                    <ul>
+                        <li><a href="#why">為什麼更好用</a></li>
+                        <li><a href="#how">運作方式</a></li>
+                        <li><a href="/zh-Hant/pricing.html">價格</a></li>
+                        <li><a href="/zh-Hant/faq.html">常見問題</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>法律資訊</h4>
+                    <ul>
+                        <li><a href="/privacy.html">隱私權（英文）</a></li>
+                        <li><a href="/terms.html">服務條款（英文）</a></li>
+                        <li><a href="/refund.html">退款政策（英文）</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>支援</h4>
+                    <ul>
+                        <li><a href="/zh-Hant/contact.html">聯絡我們</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. 版權所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

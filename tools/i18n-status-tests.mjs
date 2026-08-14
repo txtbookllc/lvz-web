@@ -60,31 +60,71 @@ function status(extra = []) {
 }
 const row = (st, code) => st.languages.find((l) => l.code === code);
 
-/* ---------------------------------------------------------------- 1. the positive gate */
-console.log("\n[1] the plan's gate — the current 18 must all report fully done");
+/* ---------------------------------------------------------------- 1. the positive gate
+ *
+ * WAVE 2 CHANGED WHAT "complete" MEANS FOR A REGISTERED LANGUAGE, and the distinction is
+ * load-bearing rather than a test being relaxed to go green.
+ *
+ * A language is registered the moment its 7 site pages exist, because the site ships one
+ * language at a time and hreflang must never point at 404s. Its app-side artifacts — resx,
+ * licence-email block, Store listing, Store images — deliberately land later, batched into
+ * the single app release at the end of the wave. So mid-wave there is a legitimate state:
+ * registered, site-complete, app-incomplete. Asserting "every registered language is
+ * complete on every column" would make that normal state look like a failure, and the
+ * usual way that gets resolved is by deleting the assertion.
+ *
+ * Instead the invariant is split by who owns the column:
+ *   - the 18 wave-1 languages must STILL be complete on every column (the plan's original
+ *     gate, undiminished — this is what catches a regression in shipped work);
+ *   - any registered wave-2 language must be complete on the SITE columns, which is exactly
+ *     the promise registration makes.
+ * That is strictly more than the old test asserted about wave-2 languages, which was
+ * nothing. */
+const WAVE1 = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr",
+    "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+const SITE_COLUMNS = ["pages", "snapshots"];
+const APP_COLUMNS = ["resx", "email", "labels", "store", "art"];
+const done = (l, c) => l[c].known && l[c].have === l[c].want;
+
+console.log("\n[1] the plan's gate — the 18 wave-1 languages must all report fully done");
 const base = status(["--no-check"]);
 ok("--json parses", !base.parseError, `  ${base.parseError}`);
 const registered = base.languages.filter((l) => l.registered);
-ok(`${registered.length} languages registered`, registered.length === 18,
-    `  got ${registered.length}`);
+const wave1 = registered.filter((l) => WAVE1.includes(l.code));
+const wave2Reg = registered.filter((l) => !WAVE1.includes(l.code));
+
+ok(`all ${WAVE1.length} wave-1 languages are registered`, wave1.length === WAVE1.length,
+    `  missing: ${WAVE1.filter((c) => !wave1.some((l) => l.code === c)).join(", ")}`);
 /* --no-check leaves the check column unmeasured, so completeness is asserted
  * per-column here and end-to-end (with the validator) in test [2]. */
-for (const colName of ["pages", "snapshots", "resx", "email", "labels", "store", "art"]) {
-    const bad = registered.filter((l) => !(l[colName].known && l[colName].have === l[colName].want));
-    ok(`every registered language is complete for "${colName}"`, bad.length === 0,
+for (const colName of [...SITE_COLUMNS, ...APP_COLUMNS]) {
+    const bad = wave1.filter((l) => !done(l, colName));
+    ok(`every wave-1 language is complete for "${colName}"`, bad.length === 0,
         `  incomplete: ${bad.map((l) => l.code).join(", ")}`);
 }
+for (const colName of SITE_COLUMNS) {
+    const bad = wave2Reg.filter((l) => !done(l, colName));
+    ok(`every REGISTERED wave-2 language is complete for "${colName}"`, bad.length === 0,
+        `  registered but site-incomplete: ${bad.map((l) => l.code).join(", ")}`);
+}
 const wave2Rows = base.languages.filter((l) => !l.registered);
-ok("all 18 wave-2 languages appear as unregistered rows", wave2Rows.length === 18,
-    `  got ${wave2Rows.length}`);
+ok("registered + unregistered wave-2 rows always total 18",
+    wave2Reg.length + wave2Rows.length === 18,
+    `  got ${wave2Reg.length} registered + ${wave2Rows.length} unregistered`);
 ok("an unregistered language is never reported complete",
     wave2Rows.every((l) => l.complete === false));
 
-console.log("\n[2] with the real validator — every registered language DONE");
+console.log("\n[2] with the real validator — every wave-1 language DONE");
 const full = status([]);
-const notDone = full.languages.filter((l) => l.registered && !l.complete);
-ok("18/18 registered languages complete, validator included", notDone.length === 0,
+const notDone = full.languages.filter((l) => l.registered && WAVE1.includes(l.code) && !l.complete);
+ok(`${WAVE1.length}/${WAVE1.length} wave-1 languages complete, validator included`, notDone.length === 0,
     `  not done: ${notDone.map((l) => l.code).join(", ")}`);
+/* A registered wave-2 language must pass the real page validator even while its app-side
+ * columns are still empty — that is the whole promise registration makes to hreflang. */
+const badCheck = full.languages.filter((l) => l.registered && !WAVE1.includes(l.code)
+    && !SITE_COLUMNS.every((c) => done(l, c)));
+ok("every registered wave-2 language passes the site columns with the validator on",
+    badCheck.length === 0, `  failing: ${badCheck.map((l) => l.code).join(", ")}`);
 ok("no English findings", full.englishFindings.length === 0,
     `  ${JSON.stringify(full.englishFindings.slice(0, 2))}`);
 

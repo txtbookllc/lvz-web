@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="關於 Windows 螢幕放大與 Low Vision Zoom 的常見問題解答：如何縮放、與內建 Windows Magnifier 及 ZoomText 的比較、價格、免費試用、隱私權，以及安裝方式。">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "zh-Hant", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
+           Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
+           a visitor lands on one language while the app and the licence email use another. */
+        var ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant",
+                        "zh-cn": "zh-hans", "zh-sg": "zh-hans", "tl": "fil" };
+        /* Most specific first, dropping one subtag at a time, so "zh-TW" reaches zh-Hant
+           when that language exists and degrades to "zh" when it does not. Returns the code
+           as LANGS spells it — the URL path segment is case-sensitive. */
+        function resolve(tag) {
+            var parts = String(tag || "").toLowerCase().split(/[-_]/), sub = [], i, n, j, cand, alias;
+            for (i = 0; i < parts.length; i++) { if (parts[i]) { sub.push(parts[i]); } }
+            for (n = sub.length; n > 0; n--) {
+                cand = sub.slice(0, n).join("-");
+                alias = typeof ALIASES[cand] === "string" ? ALIASES[cand] : null;
+                for (j = 0; j < LANGS.length; j++) {
+                    if (LANGS[j].toLowerCase() === cand || (alias && LANGS[j].toLowerCase() === alias)) { return LANGS[j]; }
+                }
+            }
+            return null;
+        }
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                to = resolve(pref);
+            } else {
+                var sys = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+                if (sys) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "zh-Hant",
+      "url": "https://lowvisionzoom.com/zh-Hant/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "哪一款是 Windows 最好用的螢幕放大鏡？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "沒有單一「最好」的答案——這取決於您的需求，而正確的第一步是免費的。每台 Windows 電腦都已內建 Windows Magnifier（按下 Windows key 和 Plus 即可啟動）；對許多人來說已經夠用。如果您需要螢幕朗讀、非常高的放大倍率、色彩濾鏡或點字功能，像 ZoomText 或 SuperNova 這樣完整的輔助科技套件才是正確的類型。如果您想要的是平滑、沉穩、能跟隨游標移動的縮放功能，且不需要設定，Low Vision Zoom 正是為這種情況打造的，一次性只需 $9.99。由於放大需求因人而異，購買前請先試用任何一款。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Windows Magnifier 有沒有替代方案？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有的。除了 Microsoft 內建的 Windows Magnifier 之外，Windows 上的第三方放大鏡還包括 ZoomText 和 SuperNova（具備語音與閱讀工具的完整低視能套件）、免費的 Magnifixer，以及 Low Vision Zoom——一款專注於平滑、以游標為中心縮放的小型 $9.99 工具。人們通常在想要更流暢的操作感受、以滑鼠指標為中心的縮放，或內建工具沒有提供的語音與色彩功能時，才會尋找替代方案。哪一種替代方案合適，取決於您需要上述哪些功能。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "有沒有比 ZoomText 便宜的替代方案？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "這取決於您依賴 ZoomText 的哪些功能。ZoomText 是一套完整的低視能軟體，具備語音、文件閱讀器、豐富的色彩與對焦強化功能，以及非常高的放大倍率，通常以年度授權方式銷售。如果您會用到那些閱讀與強化功能，誠實地說，較便宜的工具無法取代它們。如果您主要想要能跟隨游標的平滑放大功能，Low Vision Zoom 專門做這一件事，一次性只需 $9.99——但它沒有語音、沒有閱讀功能、沒有色彩濾鏡，最高只能放大到 5 倍。Windows Magnifier 同樣是免費的，而且比許多人以為的更強大。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom 會朗讀文字嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "不會。Low Vision Zoom 僅提供放大功能。它沒有文字轉語音、沒有文件閱讀器，也沒有螢幕報讀功能。如果您需要螢幕朗讀，可以考慮 ZoomText Magnifier/Reader、語音或螢幕報讀版本的 SuperNova，或是 Windows 內建、免費的 Narrator。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom 與內建的 Windows Magnifier 有什麼不同？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifier 是免費、內建且功能完整的，許多人應該先試試它。Low Vision Zoom 的不同之處在於「操作手感」，而不是功能數量。它的縮放是連續的，會平滑地過渡到新的倍率，而不是逐級跳動；它會以滑鼠游標所在的確切位置為中心縮放，讓您注視的內容保持不動；當游標在螢幕中央區域移動時，畫面會保持穩定。它沒有任何設定選項，並常駐於系統匣。在某些方面它也比 Windows Magnifier 更為受限：沒有語音功能、沒有色彩濾鏡，最高只能放大到 5 倍。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "在 Windows 11 中要如何放大畫面？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows 內建放大鏡：按住 Windows key 並按 Plus 可放大，按 Minus 可縮小，按住 Windows key 並按 Esc 可關閉。您也可以在「設定」、「系統」、「顯示」、「縮放比例」中永久放大所有內容，或在「設定」、「輔助功能」、「文字大小」中只放大文字。安裝 Low Vision Zoom 後，您可以按住 Ctrl 並滾動滑鼠滾輪，在 Windows 中任何地方平滑縮放；若沒有滑鼠滾輪，也可以使用 Ctrl 和 Alt 加上 Plus 或 Minus。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "有沒有可以用滑鼠滾輪縮放的放大鏡？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "有的。Low Vision Zoom 可用 Ctrl 和滑鼠滾輪縮放：按住 Ctrl 並向前滾動滾輪可放大，向後滾動可縮小。縮放幅度與您轉動滾輪的程度成正比，因此您轉動多少、多快，畫面就縮放多少、多快，並會平滑過渡到新的倍率，同時保持以指標所在的位置為中心。按住 Ctrl、Shift 並向下捲動可立即恢復正常大小。這是本應用程式設計上主要的使用方式。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom 可以搭配多台螢幕使用嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "可以。它會將整個 Windows 桌面視為一個連續的空間來放大，並在游標從一台螢幕移動到另一台螢幕時持續跟隨，而不是把每台螢幕分開處理。這與內建 Windows Magnifier 的全螢幕模式所採用的方式相同。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "沒有滑鼠滾輪的筆記型電腦要如何縮放？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "使用鍵盤即可。按住 Ctrl 和 Alt，再按 Plus 放大或 Minus 縮小；持續按住按鍵即可持續縮放。按 Ctrl、Alt 和 0 可重設為正常大小。不需要滑鼠滾輪或外接滑鼠，因此本應用程式在僅有觸控板的筆記型電腦上也能使用。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "在遊戲和全螢幕影片中也能使用嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "幾乎所有地方都能使用。Low Vision Zoom 會放大整個 Windows 桌面，因此適用於瀏覽器、電子郵件、文件、視窗中播放的影片，以及 Windows 殼層本身。例外情況是取得全螢幕獨佔控制權、繞過一般桌面的遊戲或應用程式；這類內容可能無法被放大。將這類遊戲改為視窗模式或無邊框視窗模式執行，即可恢復放大功能。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom 最多可以將畫面放大多少？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "最高 5 倍，以半倍為單位遞增。這是刻意為這款小巧、舒適的縮放工具設下的上限，比內建 Windows Magnifier（最高 16 倍）或 ZoomText 等完整套件（最高 36 倍）都要低。如果您需要超過 5 倍的放大倍率，Low Vision Zoom 就不是適合您的工具。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom 要多少錢？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "這是一次性 $9.99 的授權，未來所有更新都包含在內。沒有訂閱、沒有帳號，也沒有廣告。您可以先免費試用所有功能 7 天，購買後還享有 30 天內退費保證。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "免費試用期結束後會發生什麼事？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "應用程式會繼續運作。7 天試用期結束後，放大功能只是受到限制，而不是完全關閉，因此您的螢幕會一直維持足夠清楚，可供瀏覽並購買授權。隨時輸入授權金鑰，即可立即恢復完整縮放功能，不需要重新安裝。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Low Vision Zoom 會收集任何資料嗎？可以離線使用嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "本應用程式不收集任何個人資料、不進行分析，也沒有遙測功能，並且可以完全離線使用。它不會擷取或傳送您的螢幕內容。授權金鑰的驗證在您的裝置上進行，不需要帳號，也不會回傳任何資訊到伺服器。它唯一連上網際網路的時機，是您從系統匣選單選擇「檢查更新」時。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "安裝 Low Vision Zoom 時，Windows 會發出警告嗎？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "如果您使用直接下載，有可能會。第一次開啟安裝程式時，Windows 可能會顯示藍色的「Windows 已保護您的電腦」SmartScreen 訊息。這對新應用程式來說是正常現象，也是安全的；安裝程式已由 txtbook LLC 進行數位簽章。請按一下「深入了解」，確認發行者為 txtbook LLC，然後按一下「仍要執行」。若想完全略過此畫面，可改為從 Microsoft Store 安裝，該處不會出現此警告。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "系統需求為何？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low Vision Zoom 可在 Windows 10 與 Windows 11（64 位元，x64）上執行。安裝程式為獨立封裝，不需要另外下載其他項目。目前不支援 Windows on ARM 與 32 位元電腦。"
+          }
+        }
+      ]
+    }
+    </script>
+    <title>常見問題 | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/zh-Hant/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="zh-Hant" href="https://lowvisionzoom.com/zh-Hant/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">跳至主要內容</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/zh-Hant/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="主要">
+                <a href="/zh-Hant/index.html#demo">觀看示範</a>
+                <a href="/zh-Hant/index.html#how">運作方式</a>
+                <a href="/zh-Hant/index.html#why">為什麼更好用</a>
+                <a href="/zh-Hant/pricing.html">價格</a>
+                <a href="/zh-Hant/index.html#get" data-download class="btn btn-secondary btn-nav">下載</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="語言：中文（繁體）">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>中文（繁體）</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/zh-Hant/faq.html" data-lang="zh-Hant" lang="zh-Hant" hreflang="zh-Hant" aria-current="true">中文（繁體）</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">常見問題</span>
+                <h1>常見問題</h1>
+                <p class="updated">Windows 螢幕放大功能，以及 Low Vision Zoom 的定位</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">選擇放大鏡</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>哪一款是 Windows 最好用的螢幕放大鏡？</summary>
+                            <div class="faq-body">
+                                <p>沒有單一「最好」的答案——這取決於您的需求，而正確的第一步是免費的。每台 Windows 電腦都已內建<strong>Windows Magnifier</strong>（放大鏡）（按下 <code>Windows key</code> + <code>Plus</code> 即可啟動）；對許多人來說已經夠用。如果您需要螢幕朗讀、非常高的放大倍率、色彩濾鏡或點字功能，像<strong>ZoomText</strong>或<strong>SuperNova</strong>這樣完整的輔助科技套件才是正確的類型。如果您想要的是平滑、沉穩、能跟隨游標移動的縮放功能，且不需要設定，<strong>Low Vision Zoom</strong>正是為這種情況打造的，一次性只需 $9.99。由於放大需求因人而異，購買前請先試用任何一款。請參閱我們的<a href="/zh-Hant/compare.html">誠實比較</a>。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Windows Magnifier 有沒有替代方案？</summary>
+                            <div class="faq-body">
+                                <p>有的。除了 Microsoft 內建的 Windows Magnifier 之外，Windows 上的第三方放大鏡還包括 <strong>ZoomText</strong> 和 <strong>SuperNova</strong>（具備語音與閱讀工具的完整低視能套件）、免費的 <strong>Magnifixer</strong>，以及 <strong>Low Vision Zoom</strong>，一款專注於平滑、以游標為中心縮放的小型 $9.99 工具。人們通常在想要更流暢的操作感受、以滑鼠指標為中心的縮放，或內建工具沒有提供的語音與色彩功能時，才會尋找替代方案。哪一種替代方案合適，取決於您需要上述哪些功能——<a href="/zh-Hant/compare.html">比較頁面</a>會將它們並列呈現。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>有沒有比 ZoomText 便宜的替代方案？</summary>
+                            <div class="faq-body">
+                                <p>這取決於您依賴 ZoomText 的哪些功能。ZoomText 是一套完整的低視能軟體，具備語音、文件閱讀器、豐富的色彩與對焦強化功能，以及非常高的放大倍率，通常以年度授權方式銷售。如果您會用到那些閱讀與強化功能，誠實地說，較便宜的工具無法取代它們。如果您主要想要能跟隨游標的平滑放大功能，Low Vision Zoom 專門做這一件事，一次性只需<strong>$9.99</strong>——但它沒有語音、沒有閱讀功能、沒有色彩濾鏡，最高只能放大到 5×。Windows Magnifier 同樣是免費的，而且比許多人以為的更強大。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom 會朗讀文字嗎？</summary>
+                            <div class="faq-body">
+                                <p><strong>不會。</strong>Low Vision Zoom 僅提供放大功能。它沒有文字轉語音、沒有文件閱讀器，也沒有螢幕報讀功能。如果您需要螢幕朗讀，可以考慮<strong>ZoomText Magnifier/Reader</strong>、語音或螢幕報讀版本的<strong>SuperNova</strong>，或是 Windows 內建的<strong>Narrator</strong>，它是免費的。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom 與內建的 Windows Magnifier 有什麼不同？</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifier 是免費、內建且功能完整的，許多人應該先試試它。Low Vision Zoom 的不同之處在於<em>操作手感</em>，而不是功能數量。它的縮放是連續的，會平滑地過渡到新的倍率，而不是逐級跳動；它會以滑鼠游標所在的確切位置為中心縮放，讓您注視的內容保持不動；當游標在螢幕中央區域移動時，畫面會保持穩定。它沒有任何設定選項，並常駐於系統匣。在某些方面它也比 Windows Magnifier 更為受限：沒有語音功能、沒有色彩濾鏡，最高只能放大到 5×。關於平滑動態背後的原因，詳見<a href="/zh-Hant/why-smooth-magnification.html">為什麼平滑放大更容易跟隨</a>。</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">使用 Low Vision Zoom</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>在 Windows 11 中要如何放大畫面？</summary>
+                            <div class="faq-body">
+                                <p>Windows 內建放大鏡：按住 <code>Windows key</code> 並按 <code>Plus</code> 可放大，按 <code>Minus</code> 可縮小，按住 <code>Windows key</code> + <code>Esc</code> 可關閉。您也可以在<em>設定 → 系統 → 顯示 → 縮放比例</em>中永久放大所有內容，或在<em>設定 → 輔助功能 → 文字大小</em>中只放大文字。安裝 Low Vision Zoom 後，您可以按住 <strong>Ctrl</strong> 並滾動滑鼠滾輪，在 Windows 中任何地方平滑縮放；若沒有滑鼠滾輪，也可以使用 <strong>Ctrl + Alt + Plus / Minus</strong>。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>有沒有可以用滑鼠滾輪縮放的放大鏡？</summary>
+                            <div class="faq-body">
+                                <p>有的。Low Vision Zoom 可用 <strong>Ctrl + 滑鼠滾輪</strong>縮放：按住 Ctrl 並向前滾動滾輪可放大，向後滾動可縮小。縮放幅度與您轉動滾輪的程度成正比，因此您轉動多少、多快，畫面就縮放多少、多快，並會平滑過渡到新的倍率，同時保持以指標所在的位置為中心。<strong>Ctrl + Shift + 向下捲動</strong>可立即恢復正常大小。這是本應用程式設計上主要的使用方式。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom 可以搭配多台螢幕使用嗎？</summary>
+                            <div class="faq-body">
+                                <p>可以。它會將整個 Windows 桌面視為一個連續的空間來放大，並在游標從一台螢幕移動到另一台螢幕時持續跟隨，而不是把每台螢幕分開處理。這與內建 Windows Magnifier 的全螢幕模式所採用的方式相同。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>沒有滑鼠滾輪的筆記型電腦要如何縮放？</summary>
+                            <div class="faq-body">
+                                <p>使用鍵盤即可。按住 <strong>Ctrl + Alt</strong>，再按 <strong>Plus</strong> 放大或 <strong>Minus</strong> 縮小；持續按住按鍵即可持續縮放。<strong>Ctrl + Alt + 0</strong> 可重設為正常大小。不需要滑鼠滾輪或外接滑鼠，因此本應用程式在僅有觸控板的筆記型電腦上也能使用。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>在遊戲和全螢幕影片中也能使用嗎？</summary>
+                            <div class="faq-body">
+                                <p>幾乎所有地方都能使用。Low Vision Zoom 會放大整個 Windows 桌面，因此適用於瀏覽器、電子郵件、文件、視窗中播放的影片，以及 Windows 殼層本身。例外情況是取得<em>獨佔</em>全螢幕控制權、繞過一般桌面的遊戲或應用程式；這類內容可能無法被放大。將這類遊戲改為視窗模式或無邊框視窗模式執行，即可恢復放大功能。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom 最多可以將畫面放大多少？</summary>
+                            <div class="faq-body">
+                                <p>最高 <strong>5×</strong>，以半倍為單位遞增。這是刻意為這款小巧、舒適的縮放工具設下的上限，比內建 Windows Magnifier（最高 16×）或 ZoomText 等完整套件（最高 36×）都要低。如果您需要超過 5× 的放大倍率，Low Vision Zoom 就不是適合您的工具——<a href="/zh-Hant/compare.html">比較頁面</a>會為您指出放大倍率更高的選擇。</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">購買、試用與信任</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Low Vision Zoom 要多少錢？</summary>
+                            <div class="faq-body">
+                                <p>這是一次性 <strong>$9.99</strong> 的授權，未來所有更新都包含在內。沒有訂閱、沒有帳號，也沒有廣告。您可以先免費試用所有功能 7 天，購買後還享有 30 天內退費保證。詳見<a href="/zh-Hant/pricing.html">價格頁面</a>。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>免費試用期結束後會發生什麼事？</summary>
+                            <div class="faq-body">
+                                <p>應用程式會繼續運作。7 天試用期結束後，放大功能只是受到限制，而不是完全關閉，因此您的螢幕會一直維持足夠清楚，可供瀏覽並購買授權。隨時輸入授權金鑰，即可立即恢復完整縮放功能，不需要重新安裝。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Low Vision Zoom 會收集任何資料嗎？可以離線使用嗎？</summary>
+                            <div class="faq-body">
+                                <p>本應用程式<strong>不</strong>收集任何個人資料、不進行分析，也沒有遙測功能，並且可以完全離線使用。它不會擷取或傳送您的螢幕內容。授權金鑰的驗證在您的裝置上進行，不需要帳號，也不會回傳任何資訊到伺服器。它唯一連上網際網路的時機，是您從系統匣選單選擇<strong>檢查更新</strong>時。詳細內容請見<a href="/privacy.html">隱私權政策（英文）</a>。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>安裝 Low Vision Zoom 時，Windows 會發出警告嗎？</summary>
+                            <div class="faq-body">
+                                <p>如果您使用直接下載，有可能會。第一次開啟安裝程式時，Windows 可能會顯示藍色的<strong>「Windows 已保護您的電腦」</strong>SmartScreen 訊息。這對新應用程式來說是正常現象，也是安全的；安裝程式已由<strong>txtbook LLC</strong>進行數位簽章。請按一下<strong>「深入了解」</strong>，確認發行者為 txtbook LLC，然後按一下<strong>「仍要執行」</strong>。若想完全略過此畫面，可改為從<a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a>安裝，該處不會出現此警告。</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>系統需求為何？</summary>
+                            <div class="faq-body">
+                                <p>Low Vision Zoom 可在<strong>Windows 10 與 Windows 11（64 位元，x64）</strong>上執行。安裝程式為獨立封裝，不需要另外下載其他項目。目前不支援 Windows on ARM 與 32 位元電腦。</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">還有其他問題嗎？<a href="/zh-Hant/contact.html">聯絡我們</a>——會由真人為您解答。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>免費試用 7 天</h2>
+                <p>7 天免費試用 · $9.99 一次性付費 · 無需訂閱 · 無需帳號</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/zh-Hant.svg" alt="從 Microsoft Store 取得">
+                    </a>
+                    <a href="/zh-Hant/index.html#get" data-download class="download-direct">或直接從本網站下載安裝程式（.msi）</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>一款沉穩的 Windows 螢幕放大鏡。由 txtbook&nbsp;LLC 出品。</p>
+                </div>
+                <div>
+                    <h4>產品</h4>
+                    <ul>
+                        <li><a href="/zh-Hant/index.html#why">為什麼更好用</a></li>
+                        <li><a href="/zh-Hant/index.html#how">運作方式</a></li>
+                        <li><a href="/zh-Hant/pricing.html">價格</a></li>
+                        <li><a href="/zh-Hant/compare.html">比較放大鏡</a></li>
+                        <li><a href="/zh-Hant/faq.html" aria-current="page">常見問題</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>法律資訊</h4>
+                    <ul>
+                        <li><a href="/privacy.html">隱私權（英文）</a></li>
+                        <li><a href="/terms.html">服務條款（英文）</a></li>
+                        <li><a href="/refund.html">退款政策（英文）</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>支援</h4>
+                    <ul>
+                        <li><a href="/zh-Hant/contact.html">聯絡我們</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. 版權所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

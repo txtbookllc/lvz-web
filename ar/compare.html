@@ -12,7 +12,7 @@
     <script>
     (function () {
         if (document.documentElement.lang !== "en") { return; }
-        var LANGS = ["zh", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        var LANGS = ["zh", "zh-Hant", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
         /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
            Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
            a visitor lands on one language while the app and the licence email use another. */
@@ -82,6 +82,7 @@
     <link rel="canonical" href="https://lowvisionzoom.com/ar/compare.html">
     <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
     <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="zh-Hant" href="https://lowvisionzoom.com/zh-Hant/compare.html">
     <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
     <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
     <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
@@ -125,6 +126,7 @@
                 <ul>
                     <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
                     <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/zh-Hant/compare.html" data-lang="zh-Hant" lang="zh-Hant" hreflang="zh-Hant">中文（繁體）</a></li>
                     <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
                     <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
                     <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar" aria-current="true">العربية</a></li>
