@@ -100,6 +100,9 @@ const url = (p) => p === "index.html"
  * the chrome. That keeps the orchestrator out of translating it while still guaranteeing all
  * seven pages agree. It is a computed attribute, so `pinnedChrome()` cannot see it. */
 function switcherLabelRule() {
+    /* Settled up front in wave2-langs.json where the chrome pass has produced it — that lets
+     * all seven pages run concurrently instead of serialising page 1 just to fix this string. */
+    if (LANG.switcherLabel) return { pinned: LANG.switcherLabel };
     for (const done of PAGES) {
         const tp = join(WEB, CODE, done);
         if (!existsSync(tp)) continue;
@@ -119,8 +122,13 @@ function computed(page) {
     if (page === "index.html") lines.push(`- \`og:locale\` content → \`${LANG.ogLocale}\``);
     lines.push(
         `- every internal site link is prefixed \`/${CODE}\` (\`/pricing.html#x\` → \`/${CODE}/pricing.html#x\`)`,
+        /* legalMarker is optional: the footer legal links are shared units, so the chrome
+         * pass settles their exact wording. Where it has not been authored, state the rule
+         * rather than inventing a value in the kit. */
         `- legal links stay at the root (\`/privacy.html\`, \`/terms.html\`, \`/refund.html\`) and their`,
-        `  visible link text gains the marker \`${LANG.legalMarker}\``,
+        LANG.legalMarker
+            ? `  visible link text gains the marker \`${LANG.legalMarker}\``
+            : `  visible link text gains a short "(in English)" marker in your language`,
         `- the \`<link rel="alternate" hreflang=...>\` run is copied from English **byte-identically**`,
         `- the language-switcher \`<ul>\` is copied from English **byte-identically, including leaving**`,
         `  \`aria-current="true"\` **on the English entry** — ${CODE} has no entry yet and a script adds`,

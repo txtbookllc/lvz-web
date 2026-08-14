@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="da" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Svar på almindelige spørgsmål om skærmforstørrelse i Windows og om Low Vision Zoom: hvordan du zoomer, hvordan det sammenlignes med det indbyggede Windows Magnifier og ZoomText, pris, den gratis prøveperiode, privatliv og installation.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "zh-Hant", "sv", "da", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
+           Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
+           a visitor lands on one language while the app and the licence email use another. */
+        var ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant",
+                        "zh-cn": "zh-hans", "zh-sg": "zh-hans", "tl": "fil" };
+        /* Most specific first, dropping one subtag at a time, so "zh-TW" reaches zh-Hant
+           when that language exists and degrades to "zh" when it does not. Returns the code
+           as LANGS spells it — the URL path segment is case-sensitive. */
+        function resolve(tag) {
+            var parts = String(tag || "").toLowerCase().split(/[-_]/), sub = [], i, n, j, cand, alias;
+            for (i = 0; i < parts.length; i++) { if (parts[i]) { sub.push(parts[i]); } }
+            for (n = sub.length; n > 0; n--) {
+                cand = sub.slice(0, n).join("-");
+                alias = typeof ALIASES[cand] === "string" ? ALIASES[cand] : null;
+                for (j = 0; j < LANGS.length; j++) {
+                    if (LANGS[j].toLowerCase() === cand || (alias && LANGS[j].toLowerCase() === alias)) { return LANGS[j]; }
+                }
+            }
+            return null;
+        }
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                to = resolve(pref);
+            } else {
+                var sys = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+                if (sys) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <!-- FAQPage JSON-LD. The acceptedAnswer text MUST stay in sync with the visible answer in
+         each <details> below — if you edit an answer, edit both. Answers are plain-text
+         renderings of the visible copy (links and emphasis dropped). -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "inLanguage": "da",
+      "url": "https://lowvisionzoom.com/da/faq.html",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Hvad er det bedste forstørrelsesprogram til Windows?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der findes ikke ét bedste program — det afhænger af, hvad du har brug for, og det rigtige første skridt er gratis. Enhver Windows-pc har allerede Windows Magnifier indbygget (tryk på Windows key og Plus for at starte det); for mange er det nok. Hvis du har brug for at få skærmen læst højt, meget høj forstørrelse, farvefiltre eller punktskrift, er en fuld hjælpemiddelpakke som ZoomText eller SuperNova den rette kategori. Hvis det, du ønsker, er en jævn, rolig zoom, der følger din markør, mens du arbejder, uden indstillinger at konfigurere, er Low Vision Zoom bygget til netop det og koster $9.99 én gang. Fordi forstørrelse er personligt, bør du prøve enhver mulighed, før du betaler."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Findes der et alternativ til Windows Magnifier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Ud over Microsofts indbyggede Windows Magnifier findes der forstørrelsesprogrammer fra tredjepart til Windows, herunder ZoomText og SuperNova (fulde svagsynspakker med tale og læseværktøjer), det gratis Magnifixer, og Low Vision Zoom, et lille $9.99-værktøj med fokus på jævn zoom forankret til markøren. Folk leder normalt efter et alternativ, når de ønsker en mere flydende oplevelse, zoom centreret om musemarkøren, eller tale- og farvefunktioner, som det indbyggede værktøj ikke tilbyder. Hvilket alternativ der passer, afhænger af, hvilke af disse du har brug for."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Findes der et billigere alternativ til ZoomText?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Det afhænger af, hvilke ZoomText-funktioner du er afhængig af. ZoomText er en fuld svagsynspakke med tale, en dokumentlæser, omfattende farve- og fokusforbedringer samt meget høj forstørrelse, typisk solgt som en årlig licens. Hvis du bruger de læse- og forbedringsfunktioner, er det ærlige svar, at et billigere værktøj ikke vil erstatte dem. Hvis du primært ønsker jævn forstørrelse, der følger din markør, gør Low Vision Zoom netop det for et engangsbeløb på $9.99 — men det har ingen tale, ingen læsefunktion, ingen farvefiltre, og det stopper ved 5x forstørrelse. Windows Magnifier er også gratis og mere kompetent, end mange indser."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Læser Low Vision Zoom tekst højt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nej. Low Vision Zoom er kun forstørrelse. Det har ingen tekst-til-tale, ingen dokumentlæser og ingen skærmlæser. Hvis du har brug for at få skærmen læst højt, så se på ZoomText Magnifier/Reader, SuperNova i en tale- eller skærmlæser-udgave, eller Windows' indbyggede Narrator, som er gratis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvordan adskiller Low Vision Zoom sig fra det indbyggede Windows Magnifier?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows Magnifier er gratis, indbygget og kompetent, og mange bør prøve det først. Low Vision Zoom adskiller sig i følelse snarere end antallet af funktioner. Dets zoom er kontinuerlig og glider jævnt til det nye niveau i stedet for at springe trinvist, den drejer om det nøjagtige punkt under din musemarkør, så det, du kigger på, bliver stående, og den holder visningen i ro, mens din markør bevæger sig rundt midt på skærmen. Det har ingen indstillinger og ligger i meddelelsesområdet. Det er også mere begrænset end Windows Magnifier på nogle punkter: det har ingen tale, ingen farvefiltre, og det stopper ved 5x."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvordan zoomer jeg ind i Windows 11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Windows har et indbygget forstørrelsesprogram: hold Windows key nede, og tryk på Plus for at zoome ind, Minus for at zoome ud, og Windows key med Escape for at slå det fra. Du kan også gøre alt permanent større under Indstillinger, System, Skærm, Skalering, eller forstørre kun tekst under Indstillinger, Tilgængelighed, Tekststørrelse. Når Low Vision Zoom er installeret, holder du Ctrl nede og ruller med musehjulet for at zoome jævnt hvor som helst i Windows, eller bruger Ctrl og Alt med Plus eller Minus, hvis du ikke har et musehjul."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Findes der et forstørrelsesprogram, der zoomer med musehjulet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Low Vision Zoom zoomer med Ctrl og musehjulet: hold Ctrl nede, og rul hjulet fremad for at zoome ind, bagud for at zoome ud. Zoomet er proportionalt, så du kommer præcis så langt og så hurtigt, som du drejer hjulet, og det glider jævnt til det nye niveau, mens det forbliver centreret om punktet under markøren. Ctrl, Shift og rul ned springer tilbage til normal. Dette er den primære måde, appen er designet til at blive brugt på."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fungerer Low Vision Zoom med flere skærme?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Det forstørrer hele Windows-skrivebordet som ét sammenhængende rum og følger din markør fra én skærm til den næste, i stedet for at behandle hver skærm separat. Det er samme tilgang, som det indbyggede Windows Magnifiers fuldskærmstilstand bruger."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvordan zoomer jeg på en bærbar computer uden musehjul?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Brug tastaturet. Hold Ctrl og Alt nede, og tryk på Plus for at zoome ind eller Minus for at zoome ud; hold tasten nede for at blive ved med at zoome. Ctrl, Alt og 0 nulstiller til normal. Der er ikke brug for et musehjul eller en ekstern mus, så appen fungerer på en bærbar computer med kun styrepladen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Fungerer det i spil og fuldskærmsvideo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Det fungerer næsten overalt. Low Vision Zoom forstørrer hele Windows-skrivebordet, så det gælder din browser, e-mail, dokumenter, video, der afspilles i et vindue, og selve Windows-skallen. Undtagelsen er et spil eller en app, der tager eksklusiv kontrol over hele skærmen og omgår det normale skrivebord; det indhold bliver muligvis ikke forstørret. Hvis et sådant spil køres i vinduestilstand eller kantløs vinduestilstand, genoprettes forstørrelsen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvor meget kan Low Vision Zoom forstørre skærmen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Op til 5x, i halve trin. Dette er en bevidst grænse for et lille, behageligt zoomværktøj, og den er lavere end det indbyggede Windows Magnifier (op til 16x) eller de fulde pakker som ZoomText (op til 36x). Hvis du har brug for mere end 5x, er Low Vision Zoom ikke det rette værktøj for dig."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvor meget koster Low Vision Zoom?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Det er en engangslicens på $9.99, hvor alle fremtidige opdateringer er inkluderet. Der er intet abonnement, ingen konto og ingen reklamer. Du kan prøve alle funktioner gratis i 7 dage først, og der er en 30-dages pengene-tilbage-garanti efter køb."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvad sker der, når den gratis prøveperiode udløber?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Appen fortsætter med at virke. Når den 7-dages prøveperiode udløber, bliver forstørrelsen blot begrænset i stedet for slået fra, så din skærm altid forbliver læsbar nok til, at du kan navigere og købe en licens. Indtast en licensnøgle når som helst for øjeblikkeligt at genoprette fuld zoom, uden geninstallation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Indsamler Low Vision Zoom data, og fungerer det offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Appen indsamler ingen personlige data, ingen analyse og ingen telemetri, og den fungerer helt offline. Den optager eller sender ikke dit skærmindhold. Din licensnøgle kontrolleres på din enhed uden konto og uden opkald hjem. Den eneste gang, den opretter forbindelse til internettet, er når du vælger Søg efter opdateringer i menuen i meddelelsesområdet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Advarer Windows mig, når jeg installerer Low Vision Zoom?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Det kan det, hvis du bruger den direkte download. Første gang du åbner installationsprogrammet, viser Windows muligvis en blå “Windows beskyttede din pc” SmartScreen-besked. Dette er normalt for en ny app og er sikkert; installationsprogrammet er digitalt signeret af txtbook LLC. Klik på Flere oplysninger, kontrollér, at udgiveren er txtbook LLC, og klik derefter på Kør alligevel. For at springe denne skærm helt over kan du i stedet installere fra Microsoft Store, hvor advarslen ikke vises."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hvad er systemkravene?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Low Vision Zoom kører på Windows 10 og Windows 11, 64-bit (x64). Installationsprogrammet er selvstændigt, så der er intet andet at downloade. Windows på ARM og 32-bit-pc'er understøttes ikke i øjeblikket."
+          }
+        }
+      ]
+    }
+    </script>
+    <title>Ofte stillede spørgsmål | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/da/faq.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/faq.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/faq.html">
+    <link rel="alternate" hreflang="zh-Hant" href="https://lowvisionzoom.com/zh-Hant/faq.html">
+    <link rel="alternate" hreflang="sv" href="https://lowvisionzoom.com/sv/faq.html">
+    <link rel="alternate" hreflang="da" href="https://lowvisionzoom.com/da/faq.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/faq.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/faq.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/faq.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/faq.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/faq.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/faq.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/faq.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/faq.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/faq.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/faq.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/faq.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/faq.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/faq.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/faq.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/faq.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/faq.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/faq.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/faq.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Spring til indhold</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/da/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primær">
+                <a href="/da/index.html#demo">Se demoen</a>
+                <a href="/da/index.html#how">Sådan fungerer det</a>
+                <a href="/da/index.html#why">Hvorfor det er bedre</a>
+                <a href="/da/pricing.html">Priser</a>
+                <a href="/da/index.html#get" data-download class="btn btn-secondary btn-nav">Download</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Sprog: dansk">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Dansk</span>
+                </summary>
+                <ul>
+                    <li><a href="/faq.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/faq.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/zh-Hant/faq.html" data-lang="zh-Hant" lang="zh-Hant" hreflang="zh-Hant">中文（繁體）</a></li>
+                    <li><a href="/sv/faq.html" data-lang="sv" lang="sv" hreflang="sv">Svenska</a></li>
+                    <li><a href="/da/faq.html" data-lang="da" lang="da" hreflang="da" aria-current="true">Dansk</a></li>
+                    <li><a href="/es/faq.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/faq.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/faq.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/faq.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/faq.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/faq.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/faq.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/faq.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/faq.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/faq.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/faq.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/faq.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/faq.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/faq.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/faq.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/faq.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/faq.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">FAQ</span>
+                <h1>Ofte stillede spørgsmål</h1>
+                <p class="updated">Skærmforstørrelse i Windows, og hvor Low Vision Zoom passer ind</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <h2 id="choosing">Valg af forstørrelsesprogram</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Hvad er det bedste forstørrelsesprogram til Windows?</summary>
+                            <div class="faq-body">
+                                <p>Der findes ikke ét bedste program — det afhænger af, hvad du har brug for, og det rigtige første skridt er gratis. Enhver Windows-pc har allerede <strong>Windows Magnifier</strong> indbygget (tryk på <code>Windows key</code> + <code>Plus</code> for at starte det); for mange er det nok. Hvis du har brug for at få skærmen læst højt, meget høj forstørrelse, farvefiltre eller punktskrift, er en fuld hjælpemiddelpakke som <strong>ZoomText</strong> eller <strong>SuperNova</strong> den rette kategori. Hvis det, du ønsker, er en jævn, rolig zoom, der følger din markør, mens du arbejder, uden indstillinger at konfigurere, er <strong>Low Vision Zoom</strong> bygget til netop det og koster $9.99 én gang. Fordi forstørrelse er personligt, bør du prøve enhver mulighed, før du betaler. Se vores <a href="/da/compare.html">ærlige sammenligning</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Findes der et alternativ til Windows Magnifier?</summary>
+                            <div class="faq-body">
+                                <p>Ja. Ud over Microsofts indbyggede Windows Magnifier findes der forstørrelsesprogrammer fra tredjepart til Windows, herunder <strong>ZoomText</strong> og <strong>SuperNova</strong> (fulde svagsynspakker med tale og læseværktøjer), det gratis <strong>Magnifixer</strong>, og <strong>Low Vision Zoom</strong>, et lille $9.99-værktøj med fokus på jævn zoom forankret til markøren. Folk leder normalt efter et alternativ, når de ønsker en mere flydende oplevelse, zoom centreret om musemarkøren, eller tale- og farvefunktioner, som det indbyggede værktøj ikke tilbyder. Hvilket alternativ der passer, afhænger af, hvilke af disse du har brug for — <a href="/da/compare.html">sammenligningssiden</a> stiller dem op side om side.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Findes der et billigere alternativ til ZoomText?</summary>
+                            <div class="faq-body">
+                                <p>Det afhænger af, hvilke ZoomText-funktioner du er afhængig af. ZoomText er en fuld svagsynspakke med tale, en dokumentlæser, omfattende farve- og fokusforbedringer samt meget høj forstørrelse, typisk solgt som en årlig licens. Hvis du bruger de læse- og forbedringsfunktioner, er det ærlige svar, at et billigere værktøj ikke vil erstatte dem. Hvis du primært ønsker jævn forstørrelse, der følger din markør, gør Low Vision Zoom netop det for et engangsbeløb på <strong>$9.99</strong> — men det har ingen tale, ingen læsefunktion, ingen farvefiltre, og det stopper ved 5×. Windows Magnifier er også gratis og mere kompetent, end mange indser.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Læser Low Vision Zoom tekst højt?</summary>
+                            <div class="faq-body">
+                                <p><strong>Nej.</strong> Low Vision Zoom er kun forstørrelse. Det har ingen tekst-til-tale, ingen dokumentlæser og ingen skærmlæser. Hvis du har brug for at få skærmen læst højt, så se på <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> i en tale- eller skærmlæser-udgave, eller Windows' indbyggede <strong>Narrator</strong>, som er gratis.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Hvordan adskiller Low Vision Zoom sig fra det indbyggede Windows Magnifier?</summary>
+                            <div class="faq-body">
+                                <p>Windows Magnifier er gratis, indbygget og kompetent, og mange bør prøve det først. Low Vision Zoom adskiller sig i <em>følelse</em> snarere end antallet af funktioner. Dets zoom er kontinuerlig og glider jævnt til det nye niveau i stedet for at springe trinvist, den drejer om det nøjagtige punkt under din musemarkør, så det, du kigger på, bliver stående, og den holder visningen i ro, mens din markør bevæger sig rundt midt på skærmen. Det har ingen indstillinger og ligger i meddelelsesområdet. Det er også mere begrænset end Windows Magnifier på nogle punkter: det har ingen tale, ingen farvefiltre, og det stopper ved 5×. Der er mere om tankerne bag den jævne bevægelse i <a href="/da/why-smooth-magnification.html">hvorfor jævn forstørrelse er lettere at følge</a>.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="using">Brug af Low Vision Zoom</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Hvordan zoomer jeg ind i Windows 11?</summary>
+                            <div class="faq-body">
+                                <p>Windows har et indbygget forstørrelsesprogram: hold <code>Windows key</code> nede, og tryk på <code>Plus</code> for at zoome ind, <code>Minus</code> for at zoome ud, og <code>Windows key</code> + <code>Esc</code> for at slå det fra. Du kan også gøre alt permanent større under <em>Indstillinger → System → Skærm → Skalering</em>, eller forstørre kun tekst under <em>Indstillinger → Tilgængelighed → Tekststørrelse</em>. Når Low Vision Zoom er installeret, holder du <strong>Ctrl</strong> nede og ruller med musehjulet for at zoome jævnt hvor som helst i Windows, eller bruger <strong>Ctrl + Alt + Plus / Minus</strong>, hvis du ikke har et musehjul.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Findes der et forstørrelsesprogram, der zoomer med musehjulet?</summary>
+                            <div class="faq-body">
+                                <p>Ja. Low Vision Zoom zoomer med <strong>Ctrl + musehjulet</strong>: hold Ctrl nede, og rul hjulet fremad for at zoome ind, bagud for at zoome ud. Zoomet er proportionalt, så du kommer præcis så langt og så hurtigt, som du drejer hjulet, og det glider jævnt til det nye niveau, mens det forbliver centreret om punktet under markøren. <strong>Ctrl + Shift + Rul ned</strong> springer tilbage til normal. Dette er den primære måde, appen er designet til at blive brugt på.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Fungerer Low Vision Zoom med flere skærme?</summary>
+                            <div class="faq-body">
+                                <p>Ja. Det forstørrer hele Windows-skrivebordet som ét sammenhængende rum og følger din markør fra én skærm til den næste, i stedet for at behandle hver skærm separat. Det er samme tilgang, som det indbyggede Windows Magnifiers fuldskærmstilstand bruger.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Hvordan zoomer jeg på en bærbar computer uden musehjul?</summary>
+                            <div class="faq-body">
+                                <p>Brug tastaturet. Hold <strong>Ctrl + Alt</strong> nede, og tryk på <strong>Plus</strong> for at zoome ind eller <strong>Minus</strong> for at zoome ud; hold tasten nede for at blive ved med at zoome. <strong>Ctrl + Alt + 0</strong> nulstiller til normal. Der er ikke brug for et musehjul eller en ekstern mus, så appen fungerer på en bærbar computer med kun styrepladen.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Fungerer det i spil og fuldskærmsvideo?</summary>
+                            <div class="faq-body">
+                                <p>Det fungerer næsten overalt. Low Vision Zoom forstørrer hele Windows-skrivebordet, så det gælder din browser, e-mail, dokumenter, video, der afspilles i et vindue, og selve Windows-skallen. Undtagelsen er et spil eller en app, der tager <em>eksklusiv</em> kontrol over hele skærmen og omgår det normale skrivebord; det indhold bliver muligvis ikke forstørret. Hvis et sådant spil køres i vinduestilstand eller kantløs vinduestilstand, genoprettes forstørrelsen.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Hvor meget kan Low Vision Zoom forstørre skærmen?</summary>
+                            <div class="faq-body">
+                                <p>Op til <strong>5×</strong>, i halve trin. Dette er en bevidst grænse for et lille, behageligt zoomværktøj, og den er lavere end det indbyggede Windows Magnifier (op til 16×) eller de fulde pakker som ZoomText (op til 36×). Hvis du har brug for mere end 5×, er Low Vision Zoom ikke det rette værktøj for dig — <a href="/da/compare.html">sammenligningssiden</a> henviser dig til dem, der går højere.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <h2 id="buying">Køb, prøveperiode og tillid</h2>
+                    <div class="faq-list">
+                        <details class="faq">
+                            <summary>Hvor meget koster Low Vision Zoom?</summary>
+                            <div class="faq-body">
+                                <p>Det er en engangslicens på <strong>$9.99</strong>, hvor alle fremtidige opdateringer er inkluderet. Der er intet abonnement, ingen konto og ingen reklamer. Du kan prøve alle funktioner gratis i 7 dage først, og der er en 30-dages pengene-tilbage-garanti efter køb. Se <a href="/da/pricing.html">prissiden</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Hvad sker der, når den gratis prøveperiode udløber?</summary>
+                            <div class="faq-body">
+                                <p>Appen fortsætter med at virke. Når den 7-dages prøveperiode udløber, bliver forstørrelsen blot begrænset i stedet for slået fra, så din skærm altid forbliver læsbar nok til, at du kan navigere og købe en licens. Indtast en licensnøgle når som helst for øjeblikkeligt at genoprette fuld zoom, uden geninstallation.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Indsamler Low Vision Zoom data, og fungerer det offline?</summary>
+                            <div class="faq-body">
+                                <p>Appen indsamler <strong>ingen</strong> personlige data, ingen analyse og ingen telemetri, og den fungerer helt offline. Den optager eller sender ikke dit skærmindhold. Din licensnøgle kontrolleres på din enhed uden konto og uden opkald hjem. Den eneste gang, den opretter forbindelse til internettet, er når du vælger <strong>Søg efter opdateringer</strong> i menuen i meddelelsesområdet. Fulde detaljer findes i <a href="/privacy.html">privatlivspolitikken (kun på engelsk)</a>.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Advarer Windows mig, når jeg installerer Low Vision Zoom?</summary>
+                            <div class="faq-body">
+                                <p>Det kan det, hvis du bruger den direkte download. Første gang du åbner installationsprogrammet, viser Windows muligvis en blå <strong>“Windows beskyttede din pc”</strong> SmartScreen-besked. Dette er normalt for en ny app og er sikkert; installationsprogrammet er digitalt signeret af <strong>txtbook LLC</strong>. Klik på <strong>Flere oplysninger</strong>, kontrollér, at udgiveren er txtbook LLC, og klik derefter på <strong>Kør alligevel</strong>. For at springe denne skærm helt over kan du i stedet installere fra <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a>, hvor advarslen ikke vises.</p>
+                            </div>
+                        </details>
+                        <details class="faq">
+                            <summary>Hvad er systemkravene?</summary>
+                            <div class="faq-body">
+                                <p>Low Vision Zoom kører på <strong>Windows 10 og Windows 11, 64-bit (x64)</strong>. Installationsprogrammet er selvstændigt, så der er intet andet at downloade. Windows på ARM og 32-bit-pc'er understøttes ikke i øjeblikket.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <p class="parent-callout">Har du stadig et spørgsmål? <a href="/da/contact.html">Kontakt os</a> — en rigtig person vil svare.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Prøv det gratis i 7 dage</h2>
+                <p>7-dages gratis prøveperiode · $9.99 engangskøb · intet abonnement · ingen konto</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/da.svg" alt="Hent i Microsoft Store">
+                    </a>
+                    <a href="/da/index.html#get" data-download class="download-direct">Eller download installationsprogrammet direkte fra dette websted (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Et roligt forstørrelsesprogram til Windows. Et produkt fra txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="/da/index.html#why">Hvorfor det er bedre</a></li>
+                        <li><a href="/da/index.html#how">Sådan fungerer det</a></li>
+                        <li><a href="/da/pricing.html">Priser</a></li>
+                        <li><a href="/da/compare.html">Sammenlign forstørrelsesprogrammer</a></li>
+                        <li><a href="/da/faq.html" aria-current="page">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Juridisk</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privatliv (kun på engelsk)</a></li>
+                        <li><a href="/terms.html">Servicevilkår (kun på engelsk)</a></li>
+                        <li><a href="/refund.html">Refusionspolitik (kun på engelsk)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/da/contact.html">Kontakt os</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Alle rettigheder forbeholdes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

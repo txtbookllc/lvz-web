@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="da" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hvorfor en jævnt bevægende skærmforstørrelse er lettere at følge end en, der hopper: hvordan spatial konstans, glidende følgebevægelse og ændringsblindhed forklarer følelsen af at miste overblikket — og hvordan Low Vision Zoom er designet ud fra dem.">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "zh-Hant", "sv", "da", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
+           Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
+           a visitor lands on one language while the app and the licence email use another. */
+        var ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant",
+                        "zh-cn": "zh-hans", "zh-sg": "zh-hans", "tl": "fil" };
+        /* Most specific first, dropping one subtag at a time, so "zh-TW" reaches zh-Hant
+           when that language exists and degrades to "zh" when it does not. Returns the code
+           as LANGS spells it — the URL path segment is case-sensitive. */
+        function resolve(tag) {
+            var parts = String(tag || "").toLowerCase().split(/[-_]/), sub = [], i, n, j, cand, alias;
+            for (i = 0; i < parts.length; i++) { if (parts[i]) { sub.push(parts[i]); } }
+            for (n = sub.length; n > 0; n--) {
+                cand = sub.slice(0, n).join("-");
+                alias = typeof ALIASES[cand] === "string" ? ALIASES[cand] : null;
+                for (j = 0; j < LANGS.length; j++) {
+                    if (LANGS[j].toLowerCase() === cand || (alias && LANGS[j].toLowerCase() === alias)) { return LANGS[j]; }
+                }
+            }
+            return null;
+        }
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                to = resolve(pref);
+            } else {
+                var sys = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+                if (sys) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Hvorfor jævn forstørrelse er lettere at følge end forstørrelse, der hopper",
+      "description": "En letforståelig forklaring med kilder på, hvorfor et skærmforstørrelsesprogram, der bevæger sig jævnt, holder dig ved din plads, mens et, der hopper, får dig til at skulle genfinde den — baseret på spatial konstans, glidende følgebevægelse og ændringsblindhed.",
+      "url": "https://lowvisionzoom.com/da/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "da",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Skærmforstørrelse" },
+        { "@type": "Thing", "name": "Svagsynethed" },
+        { "@type": "Thing", "name": "Spatial konstans" },
+        { "@type": "Thing", "name": "Glidende følgebevægelse" },
+        { "@type": "Thing", "name": "Ændringsblindhed" }
+      ]
+    }
+    </script>
+    <title>Hvorfor jævn forstørrelse er lettere at følge | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/da/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hant" href="https://lowvisionzoom.com/zh-Hant/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="sv" href="https://lowvisionzoom.com/sv/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="da" href="https://lowvisionzoom.com/da/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Spring til indhold</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/da/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primær">
+                <a href="/da/index.html#demo">Se demoen</a>
+                <a href="/da/index.html#how">Sådan fungerer det</a>
+                <a href="/da/index.html#why">Hvorfor det er bedre</a>
+                <a href="/da/pricing.html">Priser</a>
+                <a href="/da/index.html#get" data-download class="btn btn-secondary btn-nav">Download</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Sprog: dansk">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Dansk</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/zh-Hant/why-smooth-magnification.html" data-lang="zh-Hant" lang="zh-Hant" hreflang="zh-Hant">中文（繁體）</a></li>
+                    <li><a href="/sv/why-smooth-magnification.html" data-lang="sv" lang="sv" hreflang="sv">Svenska</a></li>
+                    <li><a href="/da/why-smooth-magnification.html" data-lang="da" lang="da" hreflang="da" aria-current="true">Dansk</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Hvorfor jævnhed er vigtigt</span>
+                <h1>Hvorfor jævn forstørrelse er lettere at følge end forstørrelse, der hopper</h1>
+                <p class="updated">En letforståelig forklaring, med kilder</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>De fleste skærmforstørrelsesprogrammer flytter din visning i pludselige hop. Hvert hop tvinger dine øjne og din hjerne til at stoppe, genfinde, hvor de var, og starte forfra. Low Vision Zoom bevæger sig kontinuerligt — det glider ind i zoomet, drejer om det punkt, du peger på, og glider blødt, når det panorerer — så din opmærksomhed aldrig mister grebet om det, du er optaget af. Det er ikke bare en vag finesse; det stemmer overens med flere veldokumenterede egenskaber ved, hvordan menneskets syn fungerer.</p>
+                    </div>
+
+                    <p>Intet på denne side er en medicinsk påstand. Dette er alment anerkendte principper inden for menneskets syn og menneske-computer-interaktion, som bruges til at forklare, hvorfor et jævnere forstørrelsesprogram er lettere at leve med end et, der hopper. Ingen af de undersøgelser, der henvises til her, har undersøgt Low Vision Zoom; de beskriver, hvordan syn og bevægelse i brugergrænseflader generelt fungerer.</p>
+
+                    <h2>Følelsen af at »miste overblikket« har et navn</h2>
+                    <p>Når folk siger, at et forstørrelsesprogram får dem til at »miste overblikket over, hvor de er«, beskriver de noget virkeligt. Dit visuelle system gemmer ikke skærmen som et fotografi; det holder løbende et internt kort over, hvor tingene er, og fastholder dit blik på et valgt punkt. Flere mekanismer holder det kort stabilt — og et pludseligt hop i forstørrelsen bryder dem alle på én gang.</p>
+
+                    <h3>1. Spatial konstans</h3>
+                    <p>Din hjerne arbejder hårdt for at få verden til at føles stabil, selvom dine øjne hele tiden bevæger sig. Dette kaldes <strong>spatial konstans</strong>, eller spatial opdatering: mens du bevæger dig, forudsiger hjernen, hvor alting skal ende, og holder stille og roligt kortet justeret. Jævn, kontinuerlig bevægelse er præcis den type input, det system er bygget til at håndtere — det kan opdatere kortet undervejs. Et pludseligt spring giver det intet at interpolere ud fra, så kortet ugyldiggøres og skal genopbygges fra bunden. Den genopbygning er øjeblikket, hvor man tænker »hvor endte jeg lige henne?«.</p>
+                    <p>Low Vision Zoom bevarer den spatiale konstans intakt ved aldrig at springe direkte til et nyt sted. Forstørrelsen glider mod sit mål over cirka en tredjedel af et sekund, og panoreringen glider i stedet for at springe. Dit interne kort bliver opdateret, ikke slettet.</p>
+
+                    <h3>2. Glidende følgebevægelse og prisen ved at genfiksere</h3>
+                    <p>Øjet kan bevæge sig på to måder. <strong>Glidende følgebevægelse</strong> følger kontinuerligt et mål, der bevæger sig jævnt — øjet glider og forbliver låst på målet. <strong>Sakkader</strong> er de hurtige, ballistiske spring mellem fikseringspunkter, og synet undertrykkes under en sakkade, så øjet bagefter skal genfinde og genfokusere på målet.</p>
+                    <p>Et forstørrelsesprogram, der hopper, tvinger en sakkade plus en genfinding, hver gang det bevæger sig. For en person med nedsat synsskarphed er det langsommere og mere usikkert at genfinde et lille mål efter et hop, end det er for en person med skarpt centralsyn. Et jævnt zoom lader i stedet øjets følgesystem gøre arbejdet: det kan følge bevægelsen og bevare sit greb, så der hverken opstår et blindt hop eller en jagt på at genfinde stedet. Low Vision Zoom er bygget op omkring dette — en animationsløkke på 60 billeder i sekundet betyder, at visningen altid bevæger sig i små, sporbare trin, som dine øjne kan følge frem for at jagte.</p>
+
+                    <h3>3. Perceptuel kontinuitet — hjernen opfatter det som den samme scene</h3>
+                    <p>Når en genstand bevæger sig jævnt, opfatter hjernen den som ét sammenhængende objekt, der har flyttet sig. Når den samme genstand i stedet forsvinder og dukker op et andet sted, skal hjernen løse spørgsmålet »er det den samme ting, og hvad skete der?« på ny. Den fornyede løsning kræver anstrengelse og er en klassisk udløser for <strong>ændringsblindhed</strong>, hvor en ændring, der sker hen over en visuel afbrydelse, simpelthen ikke bliver bemærket, og du mister de ting, du var i færd med at følge.</p>
+                    <p>Low Vision Zoom bevarer kontinuiteten. Fordi hvert billede kun er et lille skridt fra det forrige, opleves indholdet under forstørrelse som den samme scene, der jævnt vokser — ikke en ny skærm, der har erstattet den gamle. Intet forsvinder og dukker op igen, så der er intet at miste.</p>
+
+                    <h3>4. Et fast visuelt ankerpunkt: zoom ind mod markøren</h3>
+                    <p>Dette er det mest direkte svar på at »miste ankerpunktet«. Low Vision Zoom drejer zoomet om det punkt, der er under din markør — indholdet lige under musen bliver stående, mens alt andet forstørres omkring det. Mange forstørrelsesprogrammer zoomer i stedet mod et hjørne eller midten af skærmen og panorerer derefter for at indhente, hvilket betyder, at netop det, du kiggede på, glider væk under dig, før det kommer tilbage.</p>
+                    <p>Ved at holde dit blikpunkt fast under zoomet giver programmet dit blik et stabilt ankerpunkt at holde fast i gennem hele forstørrelsen. Du bestemmer, hvad ankerpunktet er, blot ved at pege på det. Dit fikseringspunkt behøver aldrig at flytte sig, så både den spatiale konstans og øjets greb bevares gennem det ene øjeblik, der normalt bryder dem.</p>
+
+                    <h3>5. Forudsigelig kontrol i eget tempo</h3>
+                    <p>Bevægelse, som hjernen selv igangsætter, er lettere at forudse end bevægelse, der påføres den udefra. Low Vision Zooms <strong>Ctrl + rullehjul</strong> er kontinuerlig og proportional: du zoomer præcis så langt og præcis så hurtigt, som du drejer hjulet, og du kan stoppe, vende om eller holde på et hvilket som helst tidspunkt. Bevægelsen er din egen, så den er forudsigelig — og forudsigelig bevægelse er langt mindre desorienterende end et forstørrelsesprogram, der pludselig springer til et forudindstillet niveau af sig selv.</p>
+
+                    <h2>Hvorfor dette har særlig betydning for svagsynede</h2>
+                    <p>Mennesker, der lever med nedsat centralsyn, er ofte afhængige af strategier, som et pludseligt forstørrelsesprogram stille og roligt arbejder imod:</p>
+                    <ul>
+                        <li><strong>Excentrisk fiksering og et foretrukket retinalt punkt.</strong> Når det skarpe centralsyn er nedsat, lærer mange mennesker at kigge lidt ved siden af midten og bruge et fast, foretrukket punkt på nethinden som deres arbejdspunkt for fokus. At genoprette den justering efter hvert hop kræver reel, gentagen anstrengelse. Et forstørrelsesprogram, der aldrig får dig til at genfinde dit punkt, lader den hårdt tilkæmpede justering holde.</li>
+                        <li><strong>Straffen ved at skulle genfinde.</strong> Med mindre synsskarphed at give af er prisen for at genfinde et lille mål efter et blindt hop højere, end den er for en fuldt seende bruger. Jævnhed fjerner hoppet — og dermed straffen.</li>
+                        <li><strong>Opmærksomhed og arbejdshukommelse.</strong> Hver eneste »hvor er jeg nu?«-nulstilling bruger opmærksomhed og arbejdshukommelse, som du hellere ville bruge på selve opgaven — at læse, skrive, navigere. Ved at overlade sporingen til dit perceptuelle system, som følger jævn bevægelse uden anstrengelse, frigøres den indsats til selve arbejdet.</li>
+                    </ul>
+                    <p>Intet af dette er en behandlingspåstand. Det er forskellen på et værktøj, der modarbejder den måde, svagsynethed fungerer på, og et, der er formet omkring den.</p>
+
+                    <h2>Ethvert designvalg tjener det samme mål</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Hvordan hver funktion knytter sig til et perceptuelt princip">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Low Vision Zoom-funktioner og det perceptuelle princip, hver af dem tjener</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Funktion</th>
+                                    <th scope="col">Hvad den gør</th>
+                                    <th scope="col">Princippet, den tjener</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Jævnt animeret zoom (~⅓ sekund udtoning, 60 fps)</th>
+                                    <td>Forstørrelsen glider mod sit mål i stedet for at springe</td>
+                                    <td>Spatial konstans; glidende følgebevægelse; perceptuel kontinuitet</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Zoom drejer om markøren</th>
+                                    <td>Punktet under musen forbliver fast, mens alt andet skaleres omkring det</td>
+                                    <td>Et stabilt visuelt ankerpunkt; fikseringen flyttes aldrig</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Markørfølgning med en dødzone</th>
+                                    <td>Visningen holder sig i ro, mens din markør bevæger sig frit inden for et rummeligt centralt bånd, og panorerer først — ved at glide — når du nærmer dig en kant</td>
+                                    <td>Ingen unødvendig bevægelse; panoreringer er glidende følgebevægelse, aldrig spring</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ctrl + rullehjul-proportionalstyring</th>
+                                    <td>Du indstiller zoomniveauet kontinuerligt, lige så hurtigt eller langsomt du vil</td>
+                                    <td>Bevægelse i eget tempo, forudsigelig og selv-igangsat</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Visning af hele skrivebordet på tværs af flere skærme</th>
+                                    <td>Ét sammenhængende forstørret rum, der følger dig på tværs af skærme, ikke isolerede øer pr. vindue</td>
+                                    <td>Ét samlet, sammenhængende rumligt kort at opdatere i stedet for flere</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Finjusterede standardindstillinger, intet at konfigurere</th>
+                                    <td>Jævnhed, hastighed og fornemmelsen af dødzonen er forudindstillet og fast</td>
+                                    <td>Den jævne opførsel er standarden, ikke noget man skal opdage og sætte op</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>Det er hele idéen bag produktet: et forstørrelsesprogram, der bevæger sig på den måde, det menneskelige visuelle system er bygget til at følge, så det holder dig forankret dér, hvor andre får dig til at miste overblikket. Du kan <a href="/da/index.html#demo">se det i aktion</a>, se, hvordan det <a href="/da/compare.html">sammenlignes med andre forstørrelsesprogrammer</a>, eller <a href="/da/index.html#get">prøve det gratis i 7 dage</a>.</p>
+
+                    <h2>Kilder og yderligere læsning</h2>
+                    <p>Dette er troværdige, fagfællebedømte eller myndighedsudgivne kilder til de generelle principper, der er nævnt ovenfor. De beskriver, hvordan menneskets syn og bevægelse i brugergrænseflader generelt fungerer — ingen af dem har undersøgt Low Vision Zoom, og ingen bør læses som bevis for et bestemt resultat fra programmet.</p>
+
+                    <h3>Spatial konstans og visuel stabilitet gennem øjenbevægelser</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — den visuelle følsomhed reduceres under hurtige øjenbevægelser, og denne undertrykkelse begynder i nethinden. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">Læs den</a>.</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — hvordan hjernen opbygger en samlet opfattelse ud fra rækken af billeder på tværs af øjenbevægelser. <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">Resumé</a>.</li>
+                    </ul>
+
+                    <h3>Glidende følgebevægelse — øjets kontinuerlige sporingssystem</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — øjet følger jævnt og forudser bevægelige mål, med bedre nøjagtighed ved selvgenereret eller realistisk målbevægelse. <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">Resumé</a>.</li>
+                    </ul>
+
+                    <h3>Ændringsblindhed — at miste overblikket over ting hen over en visuel afbrydelse</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — den slående manglende evne til at se store ændringer, som normalt let ville blive bemærket. <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">Resumé</a>.</li>
+                        <li>Rensink, <em>Change Blindness</em>, i Neurobiology of Attention (Elsevier, 2005) — effekten kan fremkaldes ved at foretage en ændring under en øjenbevægelse, et blink eller et kort glimt. <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>.</li>
+                    </ul>
+
+                    <h3>Tab af centralsyn, excentrisk fiksering og det foretrukne retinale punkt</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — mennesker med et centralt skotom bruger et foretrukket retinalt punkt uden for det ramte område, og det at træne dette syn ved siden af midten kaldes excentrisk fikseringstræning. <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">Læs den</a>.</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">Resumé</a>.</li>
+                    </ul>
+
+                    <h3>Bevægelse og kontinuitet i brugergrænsefladedesign</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — bevægelse kan forebygge desorientering og hjælpe brugere med at bevare overblikket over konteksten gennem overgange. <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">Læs den</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Oplev jævnheden selv</h2>
+                <p>7-dages gratis prøveperiode · $9.99 engangskøb · intet abonnement · ingen konto</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/da.svg" alt="Hent i Microsoft Store">
+                    </a>
+                    <a href="/da/index.html#get" data-download class="download-direct">Eller download installationsprogrammet direkte fra dette websted (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Et roligt forstørrelsesprogram til Windows. Et produkt fra txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="/da/index.html#why">Hvorfor det er bedre</a></li>
+                        <li><a href="/da/index.html#how">Sådan fungerer det</a></li>
+                        <li><a href="/da/pricing.html">Priser</a></li>
+                        <li><a href="/da/compare.html">Sammenlign forstørrelsesprogrammer</a></li>
+                        <li><a href="/da/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Juridisk</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privatliv (kun på engelsk)</a></li>
+                        <li><a href="/terms.html">Servicevilkår (kun på engelsk)</a></li>
+                        <li><a href="/refund.html">Refusionspolitik (kun på engelsk)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/da/contact.html">Kontakt os</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Alle rettigheder forbeholdes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

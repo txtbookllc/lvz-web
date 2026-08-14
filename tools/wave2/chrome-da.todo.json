@@ -1,0 +1,145 @@
+{
+  "//": "Site chrome for da. Translate every \"en\" into \"tr\", change nothing else. These strings appear on 2+ pages and MUST be identical on all of them.",
+  "lang": "da",
+  "nativeName": "Dansk",
+  "units": [
+    {
+      "id": "html/body/a",
+      "pages": 7,
+      "en": "Skip to content",
+      "tr": ""
+    },
+    {
+      "id": "html/body/header/div/a",
+      "pages": 7,
+      "en": "<1/>\r\n                <2>Low Vision Zoom</2>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/header/div/nav",
+      "pages": 7,
+      "en": "<1>See the demo</1>\r\n                <2>How it works</2>\r\n                <3>Why it's better</3>\r\n                <4>Pricing</4>\r\n                <5>Download</5>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[1]/h4",
+      "pages": 7,
+      "en": "Low Vision Zoom",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[2]/h4",
+      "pages": 7,
+      "en": "Product",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[2]/ul/li[1]",
+      "pages": 7,
+      "en": "<1>Why it’s better</1>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[2]/ul/li[2]",
+      "pages": 7,
+      "en": "<1>How it works</1>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[2]/ul/li[3]",
+      "pages": 7,
+      "en": "<1>Pricing</1>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[2]/ul/li[4]",
+      "pages": 4,
+      "en": "<1>FAQ</1>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[3]/h4",
+      "pages": 7,
+      "en": "Legal",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[3]/ul/li[1]",
+      "pages": 7,
+      "en": "<1>Privacy</1>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[3]/ul/li[2]",
+      "pages": 7,
+      "en": "<1>Terms of service</1>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[3]/ul/li[3]",
+      "pages": 7,
+      "en": "<1>Refund policy</1>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[4]/h4",
+      "pages": 7,
+      "en": "Support",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[4]/ul/li",
+      "pages": 7,
+      "en": "<1>Contact us</1>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[2]/p",
+      "pages": 7,
+      "en": "&copy; 2026 txtbook&nbsp;LLC. All rights reserved.",
+      "tr": ""
+    },
+    {
+      "id": "html/body/header/div/nav@aria-label",
+      "pages": 7,
+      "en": "Primary",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[1]/p",
+      "pages": 6,
+      "en": "A calm screen magnifier for Windows. A product of txtbook&nbsp;LLC.",
+      "tr": ""
+    },
+    {
+      "id": "#main/section[3]/div/p",
+      "pages": 2,
+      "en": "7-day free trial · $9.99 one-time · no subscription · no account",
+      "tr": ""
+    },
+    {
+      "id": "#main/section[3]/div/div",
+      "pages": 3,
+      "en": "<1>\r\n                        <2/>\r\n                    </1>\r\n                    <3>Or download the installer directly from this site (.msi)</3>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[2]/ul/li[4]",
+      "pages": 3,
+      "en": "<1>Compare magnifiers</1>",
+      "tr": ""
+    },
+    {
+      "id": "html/body/footer/div/div[1]/div[2]/ul/li[5]",
+      "pages": 3,
+      "en": "<1>FAQ</1>",
+      "tr": ""
+    },
+    {
+      "id": "#main/section[3]/div/div/a[1]/img@alt",
+      "pages": 3,
+      "en": "Get it from the Microsoft Store",
+      "tr": ""
+    }
+  ]
+}

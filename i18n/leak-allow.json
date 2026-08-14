@@ -49,12 +49,12 @@
   "cognates": [
     { "id": "html/body/footer/div/div[1]/div[2]/h4", "en": "Product", "langs": ["nl"], "why": "Dutch 'Product' is identical" },
     { "id": "html/body/footer/div/div[1]/div[3]/h4", "en": "Legal", "langs": ["es"], "why": "Spanish 'Legal' is identical" },
-    { "id": "html/body/footer/div/div[1]/div[4]/h4", "en": "Support", "langs": ["de", "sv"], "why": "German and Swedish both use the loanword 'Support'; 17 languages translate it, so this stays a per-language decision" },
+    { "id": "html/body/footer/div/div[1]/div[4]/h4", "en": "Support", "langs": ["de", "sv", "da"], "why": "German, Swedish and Danish all use the loanword 'Support'; 17 languages translate it, so this stays a per-language decision" },
     { "id": "#main/section[1]/div/span", "en": "Contact", "langs": ["fr", "nl"], "why": "identical in French and Dutch (contact.html eyebrow label)" },
     { "id": "#contact-form/div[4]/label", "en": "Message", "langs": ["fr"], "why": "French 'Message' is identical" },
     { "id": "#main/section[2]/div/div/h2[7]", "en": "Sources", "langs": ["fr"], "why": "French 'Sources' is identical" },
-    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[15]/th", "en": "Platform", "langs": ["id", "tr", "nl"], "why": "loanword/cognate in Indonesian, Turkish and Dutch" },
-    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[8]/td[2]", "en": "Via Narrator", "langs": ["fr", "nl", "sv"], "why": "'Via' is an ordinary preposition in French, Dutch and Swedish; the other languages use their own preposition, and all of them keep the product name Narrator" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[15]/th", "en": "Platform", "langs": ["id", "tr", "nl", "da"], "why": "loanword/cognate in Indonesian, Turkish, Dutch and Danish" },
+    { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[8]/td[2]", "en": "Via Narrator", "langs": ["fr", "nl", "sv", "da"], "why": "'Via' is an ordinary preposition in French, Dutch, Swedish and Danish; the other languages use their own preposition, and all of them keep the product name Narrator" },
 
     { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[6]/td[1]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
     { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[6]/td[5]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
@@ -64,7 +64,7 @@
     { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[8]/td[5]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
     { "id": "#main/section[2]/div/div/div[2]/table/tbody/tr[9]/td[1]", "en": "No", "langs": ["es", "it"], "why": "'No' is identical in Spanish and Italian" },
 
-    { "id": "#how/div/div[2]/div[3]/span", "en": "Ctrl + Alt + Plus / Minus", "langs": ["id", "hi", "pl", "nl", "th", "sv"], "why": "'Plus / Minus' are the key names in these languages; 13 others translate them, so a new language must decide rather than inherit" },
+    { "id": "#how/div/div[2]/div[3]/span", "en": "Ctrl + Alt + Plus / Minus", "langs": ["id", "hi", "pl", "nl", "th", "sv", "da"], "why": "'Plus / Minus' are the key names in these languages; 13 others translate them, so a new language must decide rather than inherit" },
 
     { "id": "#main/section[2]/div/div/ul[5]/li[2]", "en": "Nilsson, Frennesson & Nilsson, <1>Location and stability of a newly established eccentric retinal locus suitable for reading</1>, Optometry and Vision Science (1998). <2>Abstract</2>.", "langs": ["de", "it", "nl"], "why": "citation stays in the source language per TRANSLATING.md; only the <2>Abstract</2> link label is translatable and 'Abstract' is the ordinary word in de/it/nl" }
   ]

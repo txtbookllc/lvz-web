@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="da" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Low Vision Zoom: et roligt forstørrelsesprogram til Windows. Visningen glider blødt ind og drejer om det, du peger på, så du aldrig mister overblikket. Gratis prøveperiode i 7 dage, derefter en engangslicens på $9.99. Intet abonnement, ingen reklamer, ingen dataindsamling.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "zh-Hant", "sv", "da", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
+           Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
+           a visitor lands on one language while the app and the licence email use another. */
+        var ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant",
+                        "zh-cn": "zh-hans", "zh-sg": "zh-hans", "tl": "fil" };
+        /* Most specific first, dropping one subtag at a time, so "zh-TW" reaches zh-Hant
+           when that language exists and degrades to "zh" when it does not. Returns the code
+           as LANGS spells it — the URL path segment is case-sensitive. */
+        function resolve(tag) {
+            var parts = String(tag || "").toLowerCase().split(/[-_]/), sub = [], i, n, j, cand, alias;
+            for (i = 0; i < parts.length; i++) { if (parts[i]) { sub.push(parts[i]); } }
+            for (n = sub.length; n > 0; n--) {
+                cand = sub.slice(0, n).join("-");
+                alias = typeof ALIASES[cand] === "string" ? ALIASES[cand] : null;
+                for (j = 0; j < LANGS.length; j++) {
+                    if (LANGS[j].toLowerCase() === cand || (alias && LANGS[j].toLowerCase() === alias)) { return LANGS[j]; }
+                }
+            }
+            return null;
+        }
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                to = resolve(pref);
+            } else {
+                var sys = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+                if (sys) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <meta property="og:title" content="Low Vision Zoom — blød skærmforstørrelse til Windows">
+    <meta property="og:description" content="Forstørrer blødt, så du aldrig mister overblikket. Hold Ctrl nede og scroll for at zoome overalt i Windows. Gratis prøveperiode i 7 dage, $9.99 som engangsbeløb. Privat, offline, intet abonnement.">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="da_DK">
+    <meta property="og:url" content="https://lowvisionzoom.com/da/">
+    <meta property="og:image" content="https://lowvisionzoom.com/media/og-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Low Vision Zoom-logo — et forstørrelsesglas med et plus indeni — og sloganet: det bedste forstørrelsesprogram til svagsynede Windows-brugere">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "Low Vision Zoom",
+      "operatingSystem": "Windows 10, Windows 11",
+      "applicationCategory": "UtilitiesApplication",
+      "applicationSubCategory": "Accessibility / Screen magnifier",
+      "description": "Low Vision Zoom er et forstørrelsesprogram til Windows 10 og 11, designet til svagsynede. Hold Ctrl nede og scroll for at zoome overalt i Windows; visningen glider blødt ind og drejer om musemarkøren, så du aldrig mister overblikket. Fungerer offline, indsamler ingen data. Gratis prøveperiode i 7 dage, derefter en engangslicens på $9.99 — intet abonnement.",
+      "url": "https://lowvisionzoom.com/da/",
+      "image": "https://lowvisionzoom.com/media/og-card.png",
+      "installUrl": "https://apps.microsoft.com/detail/xpfnwzmxmnp6pv",
+      "softwareVersion": "1.0.11",
+      "offers": {
+        "@type": "Offer",
+        "price": "9.99",
+        "priceCurrency": "USD",
+        "category": "One-time purchase",
+        "url": "https://lowvisionzoom.com/buy.html"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      }
+    }
+    </script>
+    <title>Low Vision Zoom — Blød skærmforstørrelse til Windows</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/da/">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/">
+    <link rel="alternate" hreflang="zh-Hant" href="https://lowvisionzoom.com/zh-Hant/">
+    <link rel="alternate" hreflang="sv" href="https://lowvisionzoom.com/sv/">
+    <link rel="alternate" hreflang="da" href="https://lowvisionzoom.com/da/">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/">
+</head>
+<body>
+    <a href="#main" class="skip-link">Spring til indhold</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/da/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primær">
+                <a href="#demo">Se demoen</a>
+                <a href="#how">Sådan fungerer det</a>
+                <a href="#why">Hvorfor det er bedre</a>
+                <a href="/da/pricing.html">Priser</a>
+                <a href="#get" class="btn btn-secondary btn-nav">Download</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Sprog: dansk">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Dansk</span>
+                </summary>
+                <ul>
+                    <li><a href="/index.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/index.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/zh-Hant/index.html" data-lang="zh-Hant" lang="zh-Hant" hreflang="zh-Hant">中文（繁體）</a></li>
+                    <li><a href="/sv/index.html" data-lang="sv" lang="sv" hreflang="sv">Svenska</a></li>
+                    <li><a href="/da/index.html" data-lang="da" lang="da" hreflang="da" aria-current="true">Dansk</a></li>
+                    <li><a href="/es/index.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/index.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/index.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/index.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/index.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/index.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/index.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/index.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/index.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/index.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/index.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/index.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/index.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/index.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/index.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/index.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/index.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <!-- 1 · Hero + controls animation -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Det bedste forstørrelsesprogram<br> til svagsynede<br> Windows-brugere</h1>
+                    <p class="lead">Et enkelt, blødt zoom-værktøj designet til at hjælpe dine øjne med at følge med</p>
+                    <div class="hero-buttons" id="get">
+                        <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                             primary channel (Store installs show no SmartScreen warning); the direct MSI
+                             link below it gets its href from DOWNLOAD_URL in site.js. -->
+                        <div class="get-app">
+                            <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                                <img src="/media/store-badge/da.svg" alt="Hent den fra Microsoft Store">
+                            </a>
+                            <a href="#get" data-download class="download-direct">Eller download installationsprogrammet direkte fra dette site (.msi)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Experiment: desktop controls animation instead of the motion demo video,
+                     to lead with how simple the app is. Previous video block is in git history.
+                     The panel stretches to match hero-content (title top → download button bottom),
+                     which is why the trust chips live outside hero-content in their own grid row. -->
+                <div class="hero-anim">
+                    <img src="/media/howto-desktop-hero.da.svg" width="520" height="280"
+                         alt="Animation: en finger holder Ctrl-tasten nede, mens musehjulet rulles fremad for at zoome ind og derefter bagud for at zoome ud.">
+                </div>
+
+                <ul class="trust" aria-label="Hvad du kan forvente">
+                    <li>7 dages gratis prøveperiode</li>
+                    <li>$9.99 som engangsbeløb</li>
+                    <li>Intet abonnement</li>
+                    <li>Ingen konto</li>
+                    <li class="trust-break" aria-hidden="true"></li>
+                    <li>Ingen reklamer</li>
+                    <li>Ingen dataindsamling</li>
+                    <li>Fungerer offline</li>
+                </ul>
+            </div>
+
+            <!-- Scroll cue: invites the visitor past the fold to the demo.
+                 Duplicates the nav link on purpose; the arrow bob is killed
+                 by the global prefers-reduced-motion rule. -->
+            <a href="#demo" class="scroll-cue">
+                <span>Se demoen</span>
+                <svg class="scroll-cue-arrow" viewBox="0 0 24 24" aria-hidden="true"><polyline points="5,9 12,17 19,9"/></svg>
+            </a>
+        </section>
+
+        <!-- 2 · Full-screen demo video (the proof). Autoplays muted when scrolled
+             into view (see site.js §3); pauses when scrolled away. Motion-safe:
+             under prefers-reduced-motion it never autoplays — the poster shows
+             until the visitor presses Play. hero-demo.{webm,mp4} are the
+             bandwidth-friendly re-encodes of media/hero.mp4. -->
+        <section id="demo" class="demo-full section-alt" aria-labelledby="demo-heading">
+            <h2 id="demo-heading" class="visually-hidden">Se Low Vision Zoom i aktion</h2>
+            <div class="demo-full-stage">
+                <video class="demo-full-video" muted loop playsinline preload="metadata"
+                       poster="/media/hero-demo-poster.webp"
+                       aria-label="Skærmoptagelse: Low Vision Zoom forstørrer blødt et Windows-skrivebord og glider ind omkring markøren, mens brugeren læser og klikker.">
+                    <source src="/media/hero-demo.webm" type='video/webm; codecs="av01.0.08M.08"'>
+                    <source src="/media/hero-demo.mp4" type="video/mp4">
+                </video>
+                <button type="button" class="demo-toggle demo-full-toggle" data-label-play="Afspil demo" data-label-pause="Sæt demo på pause" hidden aria-pressed="false"></button>
+            </div>
+        </section>
+
+        <!-- 3 · How it works — device-toggled gesture animation + control cards -->
+        <section id="how" class="section">
+            <div class="container">
+                <h2>Én tast og musehjulet. Det er hele grænsefladen.</h2>
+                <p class="section-sub">Det virker, i det øjeblik du installerer det — der er intet at konfigurere.</p>
+
+                <!-- Gesture animations — pick your device, see the gesture. The SVGs are generated
+                     copies from the app repo (branding/howto-*.svg via packaging/generate-howto-anims.ps1);
+                     don't edit media/howto-*.svg by hand. -->
+                <div class="howto-anim">
+                    <fieldset class="howto-switch">
+                        <legend class="visually-hidden">Vis zoom-bevægelsen for din enhedstype</legend>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="desktop" checked>
+                            <span>Stationær computer</span>
+                        </label>
+                        <label class="howto-choice">
+                            <input type="radio" name="howto-device" value="laptop">
+                            <span>Bærbar computer</span>
+                        </label>
+                    </fieldset>
+                    <div class="howto-pane howto-pane-desktop">
+                        <img src="/media/howto-desktop.da.svg" width="520" height="250"
+                             alt="Animation: en finger holder Ctrl-tasten nede, mens musehjulet rulles fremad for at zoome ind og derefter bagud for at zoome ud.">
+                        <p class="demo-caption">Hold <strong>Ctrl</strong> nede og scroll — fremad zoomer ind, bagud zoomer ud.</p>
+                    </div>
+                    <div class="howto-pane howto-pane-laptop">
+                        <img src="/media/howto-laptop.da.svg" width="520" height="250"
+                             alt="Animation: mens Ctrl og Alt holdes nede, trykker en finger på Plus-tasten for at zoome ind og derefter på Minus-tasten for at zoome ud.">
+                        <p class="demo-caption">Hold <strong>Ctrl + Alt</strong> nede, og tryk på <strong>+</strong> eller <strong>−</strong> — intet musehjul nødvendigt.</p>
+                    </div>
+                </div>
+
+                <!-- The cards follow the Desktop/Laptop toggle above (CSS :has() on #how,
+                     next to the howto-pane rules). Pan is two cards: same gesture, but
+                     "mouse" only makes sense on desktop — laptops say "cursor". -->
+                <div class="controls">
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Rul&nbsp;↑</span>
+                        <p><strong>Zoom ind</strong> — forstør blødt hen mod din markør.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Rul&nbsp;↓</span>
+                        <p><strong>Zoom ud</strong> — glid roligt tilbage med den samme bløde bevægelse.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + Plus / Minus</span>
+                        <p><strong>Zoom fra tastaturet</strong> — hold tasten nede for at blive ved med at zoome. Intet musehjul nødvendigt.</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Ctrl + Shift + Rul&nbsp;↓</span>
+                        <p><strong>Nulstil</strong> — spring øjeblikkeligt tilbage til normal (1×), når du har brug for det.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Ctrl + Alt + 0</span>
+                        <p><strong>Nulstil</strong> — spring øjeblikkeligt tilbage til normal (1×).</p>
+                    </div>
+                    <div class="control control-desktop">
+                        <span class="kbd">Flyt musen</span>
+                        <p><strong>Panorering</strong> — bevæg dig mod en skærmkant, og visningen glider med.</p>
+                    </div>
+                    <div class="control control-laptop">
+                        <span class="kbd">Flyt markøren</span>
+                        <p><strong>Panorering</strong> — bevæg dig mod en skærmkant, og visningen glider med.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4 · Why it's better — the perceptual case (see the app repo's
+             docs/why-smooth-zoom-helps-low-vision.md for sourcing and the
+             language guardrails: experience & design claims only, nothing
+             medical) mixed with the technical/trust facts. -->
+        <section id="why" class="section section-alt">
+            <div class="container">
+                <h2>Hvorfor det er bedre: du skal aldrig lede efter, hvor du var.</h2>
+                <p class="section-sub">De fleste forstørrelsesprogrammer bevæger sig i pludselige spring, og hvert spring tvinger dine øjne til at stoppe op og lede efter, hvor de var. Low Vision Zoom bevæger sig blødt og kontinuerligt.</p>
+
+                <div class="trust-cards">
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M3 20c4 0 4-8 8-8s4 8 8 8 4-8 8-8 2 0 2 0"/></svg>
+                        <h3>Bevægelse, dine øjne kan følge med i</h3>
+                        <p>Når et forstørrelsesprogram springer, skal dine øjne hoppe efter det og finde tilbage til det, de var i gang med at læse. Her animeres hver ændring med 60 billeder i sekundet, så dine øjne glider med i stedet for at jagte det.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="6"/><line x1="16" y1="2" x2="16" y2="8"/><line x1="16" y1="24" x2="16" y2="30"/><line x1="2" y1="16" x2="8" y2="16"/><line x1="24" y1="16" x2="30" y2="16"/></svg>
+                        <h3>Dit ankerpunkt flytter sig aldrig</h3>
+                        <p>Zoomet drejer om det præcise punkt under din markør. Det punkt bliver stående fast, mens alt andet vokser omkring det. Du vælger dit ankerpunkt blot ved at pege på det, der betyder noget.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="11" y="11" width="10" height="10" rx="2"/><rect x="4" y="4" width="24" height="24" rx="3"/></svg>
+                        <h3>Én scene, ikke et nyt billede</h3>
+                        <p>Hvert billede er et lille skridt fra det forrige, så visningen opleves som den samme side, der blødt vokser — aldrig et nyt billede, der erstatter det gamle. Intet forsvinder, så der er intet at lede efter.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><line x1="4" y1="16" x2="28" y2="16"/><circle cx="19" cy="16" r="4"/></svg>
+                        <h3>Du bestemmer tempoet</h3>
+                        <p>Zoomet er proportionalt: præcis så langt og så hurtigt, som du scroller, og du kan stoppe eller vende midt i bevægelsen. Bevægelse, du selv starter, er bevægelse, dine øjne kan forudsige.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><rect x="10" y="10" width="12" height="12" rx="2"/><polyline points="6,13 3,16 6,19"/><polyline points="26,13 29,16 26,19"/></svg>
+                        <h3>Stille, mens du læser</h3>
+                        <p>Visningen står helt stille, mens din markør bevæger sig midt på skærmen, og glider kun, når du nærmer dig en kant. Ingen konstant drift, mens du læser.</p>
+                    </div>
+                    <div class="trust-card">
+                        <svg class="line-icon" viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3l11 4v8c0 7-5 11-11 14-6-3-11-7-11-14V7z"/><polyline points="11,16 15,20 22,12"/></svg>
+                        <h3>Solidt Windows-håndværk</h3>
+                        <p>Bygget på Windows' eget Magnification API med sin egen animationsmotor på 60&nbsp;fps. Signeret installationsprogram, klik rammer korrekt, mens der er zoomet, og alt kører lokalt. Intet forlader din pc.</p>
+                    </div>
+                </div>
+
+                <p class="requirements-line">Lavet til Windows 10 og 11, 64-bit (x64) · selvstændigt installationsprogram, intet andet at downloade · Windows on ARM understøttes ikke i dag.</p>
+
+                <div class="good-to-know">
+                    <p><strong>Godt at vide:</strong> synsforskere kalder det <em>change blindness</em>: når en visning ændrer sig under et visuelt afbrud, er det let at overse, hvad der flyttede sig, og miste det, du fulgte med i. Et forstørrelsesprogram, der springer, genskaber den slags afbrud hele dagen. Et, der glider, giver aldrig dine øjne en pause til at miste overblikket i.</p>
+                </div>
+
+                <p class="parent-callout">Sætter du det op til en forælder eller en, du hjælper? Det installeres én gang og kræver ingen pilleri. <a href="/da/pricing.html#organizations">Mængdelicenser →</a></p>
+            </div>
+        </section>
+
+        <!-- 5 · FAQ (includes the first-run SmartScreen guidance) -->
+        <section id="faq" class="section section-alt">
+            <div class="container">
+                <h2>Ofte stillede spørgsmål</h2>
+                <div class="faq-list">
+                    <details class="faq">
+                        <summary>Hvor meget koster det?</summary>
+                        <div class="faq-body"><p>Low Vision Zoom er gratis at prøve i 7 dage med alle funktioner låst op. Derefter holder en engangslicens på <strong>$9.99</strong> det kørende — intet abonnement, og alle fremtidige opdateringer er inkluderet. Se <a href="/da/pricing.html">prissiden</a>.</p></div>
+                    </details>
+                    <details class="faq">
+                        <summary>Hvad sker der, når prøveperioden slutter?</summary>
+                        <div class="faq-body"><p>Programmet bliver ved med at virke — forstørrelsen er blot begrænset, indtil du indtaster en licensnøgle, så din skærm altid forbliver læselig nok til at navigere og købe. Indtast en nøgle når som helst for øjeblikkeligt at gendanne fuld zoom; ingen geninstallation nødvendig.</p></div>
+                    </details>
+                    <!-- Carries the full first-run SmartScreen guidance (formerly its own
+                         aside under the on-page download CTA, now retired); the
+                         install-note-* classes style the steps and figure here too. -->
+                    <details class="faq" id="faq-smartscreen">
+                        <summary>Advarer Windows mig, når jeg installerer det?</summary>
+                        <div class="faq-body">
+                            <p>Første gang du åbner installationsprogrammet, viser Windows muligvis en blå skærm i fuld skærmstørrelse med beskeden <strong>»Windows beskyttede din pc« (Windows protected your PC)</strong>. <strong>Det er normalt, og programmet er sikkert.</strong> Det sker, fordi Low Vision Zoom er et helt nyt program — Windows har endnu ikke set det nok gange til at genkende det. Installationsprogrammet er digitalt signeret af <strong>txtbook&nbsp;LLC</strong>, vores virksomhed. Vil du hellere springe denne skærm helt over? Installer i stedet fra <a href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">Microsoft Store</a> — Store-installationer viser ikke SmartScreen-advarslen.</p>
+                            <p class="install-note-steps-lead">Sådan fortsætter du:</p>
+                            <ol class="install-note-steps">
+                                <li>Klik på <strong>Flere oplysninger</strong> på den blå skærm.</li>
+                                <li>Kontrollér, at udgiverlinjen indeholder <strong>txtbook LLC</strong>.</li>
+                                <li>Klik på knappen <strong>Kør alligevel</strong>, der vises, og installationsprogrammet åbner som normalt.</li>
+                            </ol>
+                            <figure class="install-note-figure">
+                                <img src="/media/smartscreen-help.png" width="640" loading="lazy"
+                                     alt="Den blå skærm »Windows beskyttede din pc«. Efter klik på »Flere oplysninger« vises knappen »Kør alligevel« nederst — klik på den for at fortsætte." />
+                                <figcaption>Klik på <strong>Flere oplysninger</strong>, og derefter på <strong>Kør alligevel</strong>.</figcaption>
+                            </figure>
+                            <p>Advarslen forsvinder af sig selv i løbet af de kommende uger, efterhånden som flere installerer programmet, og du skal kun gøre dette én gang. Det installeres pr. maskine i Program Files, hvilket også er det, der gør, at klik rammer korrekt, mens der er zoomet.</p>
+                        </div>
+                    </details>
+                </div>
+                <!-- Homepage carries a short conversion-focused subset (cost, trial-end, and the
+                     in-context SmartScreen install help). The full, schema-marked FAQ lives at
+                     /faq.html — keep this a curated teaser, not a second copy of that page. -->
+                <p class="parent-callout">Flere spørgsmål — privatliv, refusion, flere licenser, hvordan det klarer sig mod andre forstørrelsesprogrammer? <a href="/da/faq.html">Se alle ofte stillede spørgsmål →</a></p>
+            </div>
+        </section>
+
+        <!-- 6 · Quiet CTA band -->
+        <section class="cta-band">
+            <div class="container">
+                <h2>Det bedste forstørrelsesprogram til svagsynede Windows-brugere.</h2>
+                <p>7 dages gratis prøveperiode · $9.99 som engangsbeløb · intet abonnement</p>
+                <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                     primary channel (Store installs show no SmartScreen warning); the direct MSI
+                     link below it gets its href from DOWNLOAD_URL in site.js. -->
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/da.svg" alt="Hent den fra Microsoft Store">
+                    </a>
+                    <a href="#get" data-download class="download-direct">Eller download installationsprogrammet direkte fra dette site (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom er et forstørrelsesprogram til Windows 10 og 11. Det koster $9.99 som engangsbeløb. Det fås fra Microsoft Store eller som en direkte MSI-download. Det fungerer offline og indsamler ingen data.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Det bedste forstørrelsesprogram til svagsynede Windows-brugere</p>
+                    <p>&nbsp;</p>
+                    <p>Et produkt fra txtbook&nbsp;LLC</p>
+                    <p>&nbsp;</p>
+                    <p>4601 E. Douglas Ave. STE 150</p>
+                    <p>Wichita, KS 67218</p>
+                </div>
+                <div>
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="#why">Hvorfor det er bedre</a></li>
+                        <li><a href="#how">Sådan fungerer det</a></li>
+                        <li><a href="/da/pricing.html">Priser</a></li>
+                        <li><a href="/da/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Juridisk</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privatliv (kun på engelsk)</a></li>
+                        <li><a href="/terms.html">Servicevilkår (kun på engelsk)</a></li>
+                        <li><a href="/refund.html">Refusionspolitik (kun på engelsk)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/da/contact.html">Kontakt os</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Alle rettigheder forbeholdes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

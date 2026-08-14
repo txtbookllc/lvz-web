@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="da" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Køb din Low Vision Zoom-licens — en engangsbetaling på $9.99, intet abonnement. Din licensnøgle sendes til dig via e-mail. Sikker betaling via Paddle.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "zh-Hant", "sv", "da", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
+           Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
+           a visitor lands on one language while the app and the licence email use another. */
+        var ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant",
+                        "zh-cn": "zh-hans", "zh-sg": "zh-hans", "tl": "fil" };
+        /* Most specific first, dropping one subtag at a time, so "zh-TW" reaches zh-Hant
+           when that language exists and degrades to "zh" when it does not. Returns the code
+           as LANGS spells it — the URL path segment is case-sensitive. */
+        function resolve(tag) {
+            var parts = String(tag || "").toLowerCase().split(/[-_]/), sub = [], i, n, j, cand, alias;
+            for (i = 0; i < parts.length; i++) { if (parts[i]) { sub.push(parts[i]); } }
+            for (n = sub.length; n > 0; n--) {
+                cand = sub.slice(0, n).join("-");
+                alias = typeof ALIASES[cand] === "string" ? ALIASES[cand] : null;
+                for (j = 0; j < LANGS.length; j++) {
+                    if (LANGS[j].toLowerCase() === cand || (alias && LANGS[j].toLowerCase() === alias)) { return LANGS[j]; }
+                }
+            }
+            return null;
+        }
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                to = resolve(pref);
+            } else {
+                var sys = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+                if (sys) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <title>Køb en licens | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/da/buy.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/buy.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/buy.html">
+    <link rel="alternate" hreflang="zh-Hant" href="https://lowvisionzoom.com/zh-Hant/buy.html">
+    <link rel="alternate" hreflang="sv" href="https://lowvisionzoom.com/sv/buy.html">
+    <link rel="alternate" hreflang="da" href="https://lowvisionzoom.com/da/buy.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/buy.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/buy.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/buy.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/buy.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/buy.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/buy.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/buy.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/buy.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/buy.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/buy.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/buy.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/buy.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/buy.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/buy.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/buy.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/buy.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/buy.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/buy.html">
+    <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
+</head>
+<body>
+    <a href="#main" class="skip-link">Spring til indhold</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/da/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primær">
+                <a href="/da/index.html#demo">Se demoen</a>
+                <a href="/da/index.html#how">Sådan fungerer det</a>
+                <a href="/da/index.html#why">Hvorfor det er bedre</a>
+                <a href="/da/pricing.html">Priser</a>
+                <a href="/da/index.html#get" class="btn btn-secondary btn-nav">Download</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Sprog: dansk">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Dansk</span>
+                </summary>
+                <ul>
+                    <li><a href="/buy.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/buy.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/zh-Hant/buy.html" data-lang="zh-Hant" lang="zh-Hant" hreflang="zh-Hant">中文（繁體）</a></li>
+                    <li><a href="/sv/buy.html" data-lang="sv" lang="sv" hreflang="sv">Svenska</a></li>
+                    <li><a href="/da/buy.html" data-lang="da" lang="da" hreflang="da" aria-current="true">Dansk</a></li>
+                    <li><a href="/es/buy.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/buy.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/buy.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/buy.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/buy.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/buy.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/buy.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/buy.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/buy.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/buy.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/buy.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/buy.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/buy.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/buy.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/buy.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/buy.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/buy.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Køb en licens</span>
+                <h1>Køb din licens</h1>
+                <p class="updated">En engangsbetaling på $9.99 — intet abonnement. Din licensnøgle sendes til dig via e-mail lige efter købet.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="pricing-wrap">
+                    <!-- Purchase card (hidden once we land on the success state) -->
+                    <div class="price-card" id="buy-card">
+                        <div class="price-amount">$9<span class="cents">.99</span></div>
+                        <p class="price-period">engangslicens · USD</p>
+                        <ul class="price-list">
+                            <li>Låser fuld zoom op — uden tidsbegrænsning</li>
+                            <li>Engangsbeløb på $9.99 — betal én gang, og den er din</li>
+                            <li>Intet abonnement, ingen tilbagevendende betalinger</li>
+                            <li>Alle fremtidige opdateringer inkluderet</li>
+                            <li>Ingen konto påkrævet</li>
+                            <li>30 dages pengene-tilbage-garanti</li>
+                        </ul>
+                        <button type="button" id="buy-btn" class="btn btn-primary btn-lg">Køb en licens — $9.99</button>
+                        <p class="cta-reassure">Din licensnøgle sendes til dig via e-mail, så snart betalingen er gennemført.</p>
+                        <p class="form-status" id="buy-status" role="status" aria-live="polite"></p>
+                        <div class="form-status is-error" id="buy-help" role="alert" hidden>
+                            <p><strong>Den sikre betaling kunne ikke åbnes.</strong> En annonceblokering, sporingsblokering eller streng privatlivstilstand (f.eks. Brave Shields, uBlock, AdGuard) kan blokere vores betalingsudbyder, Paddle. Sådan køber du:</p>
+                            <ul class="price-list">
+                                <li>Sæt din annonce-/sporingsblokering på pause for denne side, og klik derefter på Køb igen, <em>eller</em></li>
+                                <li>Prøv en browser uden den udvidelse, <em>eller</em></li>
+                                <li><a href="/da/contact.html?topic=support">Kontakt os</a>, så sender vi dig et sikkert betalingslink via e-mail.</li>
+                            </ul>
+                        </div>
+                        <p class="price-fineprint">Betalinger behandles sikkert af <strong>Paddle</strong>, vores merchant of record. Paddle håndterer betalingen og eventuel gældende skat; appen ser aldrig dine betalingsoplysninger. Ved at købe accepterer du vores <a href="/terms.html">Servicevilkår (kun på engelsk)</a> og <a href="/refund.html">Refusionspolitik (kun på engelsk)</a>.</p>
+
+                        <noscript>
+                            <p class="form-status is-error">Kassen kræver JavaScript for at åbne det sikre betalingsvindue. Aktivér JavaScript, og genindlæs siden, eller <a href="/da/contact.html?topic=general">kontakt os</a>, så sender vi et betalingslink.</p>
+                        </noscript>
+                    </div>
+                </div>
+
+                <p class="price-fineprint" style="text-align:center;margin-top:var(--s-3)">
+                    Har du ikke prøvet det endnu? Download er en gratis, fuldt funktionsdygtig 7-dages prøveperiode —
+                    <a href="/da/index.html#get">download det først</a> og køb, når du er klar.
+                </p>
+            </div>
+        </section>
+
+        <!-- Success state — shown after Paddle redirects back with ?state=success -->
+        <section class="section" id="buy-success-section" hidden>
+            <div class="container">
+                <div class="form-success" id="buy-success" tabindex="-1">
+                    <h2>Betaling gennemført — tak!</h2>
+                    <p>Din licensnøgle er på vej til din indbakke nu. (Tjek spammappen, hvis du ikke ser den inden for et par minutter.)</p>
+                    <!-- Key straight on the page: the script polls the fulfillment worker with the
+                         Paddle transaction id and fills this in as soon as the webhook has issued a
+                         key. The email is still the durable copy — if the poll times out this panel
+                         hides itself and the instructions below are unchanged. -->
+                    <div class="key-deliver" id="key-deliver" role="status" aria-live="polite" hidden>
+                        <p id="key-fetching">Henter din licensnøgle…</p>
+                        <div id="key-ready" hidden>
+                            <h3>Din licensnøgle:</h3>
+                            <p class="key-box" id="key-value"></p>
+                            <button type="button" class="btn btn-secondary" id="key-copy">Kopiér nøgle</button>
+                            <a class="btn btn-quiet" id="key-activate" href="lvz://activate/" hidden>Aktivér Low Vision Zoom</a>
+                            <p class="price-fineprint">Din nøgle er også sendt til dig via e-mail — gem den e-mail et sikkert sted.</p>
+                        </div>
+                    </div>
+                    <h3>Sådan aktiverer du Low Vision Zoom:</h3>
+                    <ol class="price-list" style="text-align:start">
+                        <li>Åbn Low Vision Zoom (download det først, hvis du ikke allerede har det — knap nedenfor).</li>
+                        <li>Højreklik på ikonet i meddelelsesområdet, og vælg “Indtast licensnøgle…”.</li>
+                        <li>Indsæt nøglen fra din e-mail, og klik på <strong>Aktivér</strong>. Fuld zoom gendannes med det samme.</li>
+                    </ol>
+                    <!-- Store-first install CTA (July 16, 2026): the Microsoft Store listing is the
+                         primary channel (Store installs show no SmartScreen warning); the direct MSI
+                         link below it gets its href from DOWNLOAD_URL in site.js. -->
+                    <div class="get-app">
+                        <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                            <img src="/media/store-badge/da.svg" alt="Hent det fra Microsoft Store">
+                        </a>
+                        <a href="/da/index.html#get" data-download class="download-direct">Eller download installationsprogrammet direkte fra dette websted (.msi)</a>
+                    </div>
+                    <p class="price-fineprint">Har du ikke modtaget e-mailen, eller har du brug for hjælp til aktivering? <a href="/da/contact.html?topic=support">Kontakt support</a> — hav din ordrebekræftelse klar.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>Et roligt forstørrelsesprogram til Windows. Et produkt fra txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="/da/index.html#why">Hvorfor det er bedre</a></li>
+                        <li><a href="/da/index.html#how">Sådan fungerer det</a></li>
+                        <li><a href="/da/pricing.html">Priser</a></li>
+                        <li><a href="/da/faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Juridisk</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Privatliv (kun på engelsk)</a></li>
+                        <li><a href="/terms.html">Servicevilkår (kun på engelsk)</a></li>
+                        <li><a href="/refund.html">Refusionspolitik (kun på engelsk)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/da/contact.html">Kontakt os</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Alle rettigheder forbeholdes.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            "use strict";
+
+            /* Paddle Billing checkout for the $9.99 one-time license.
+               - Client-side token is public by design (safe to ship in page JS).
+               - Click-to-open (not auto-open): predictable for the AT audience,
+                 and avoids surprise modals / popup-blocker issues. */
+            var CLIENT_TOKEN = "live_40658bacb3fc6d120b3e65a170b";
+            var PRICE_ID = "pri_01kv3zfqj55ar4ykzachnmv54e";
+            var SUCCESS_URL = "https://lowvisionzoom.com/da/buy.html?state=success";
+
+            /* Funnel counters + license-key delivery, both against our own
+               fulfillment worker.
+               - track() reports three aggregate facts — which step, which page
+                 language, which entry point — with no cookie, no identifier and
+                 nothing about the person. The worker only bumps a daily total.
+               - The key lookup is authorised by the Paddle transaction id, which
+                 only this checkout session and the buyer's own receipt know. */
+            var API_BASE = "https://api.lowvisionzoom.com";
+            /* The page's own lang attribute, not the URL path: it is the same code as the
+               folder for every language (tools/i18n-check.mjs checks it), so no list is
+               needed here and a code carrying a script — "zh-Hant" — is reported as itself
+               rather than silently falling back to "en". */
+            var LANG = document.documentElement.lang || "en";
+            var SRC = new URLSearchParams(window.location.search).get("src") || "web";
+            var TXN_STASH = "lvz_txn";
+            var TXN_ID = /^txn_[a-zA-Z0-9]{10,40}$/;
+            /* One-click activation needs the desktop app to register the lvz://
+               protocol handler; until that ships the link would land on nothing. */
+            var SHOW_ACTIVATE_LINK = true;
+
+            var card = document.getElementById("buy-card");
+            var btn = document.getElementById("buy-btn");
+            var statusEl = document.getElementById("buy-status");
+            var helpEl = document.getElementById("buy-help");
+
+            /* If the overlay never loads within a few seconds, a blocker is
+               almost certainly eating Paddle's checkout-service request (it
+               fails silently, with no error event). Surface a recovery path. */
+            var loadTimer = null;
+            function armBlockerWatch() {
+                if (loadTimer) { clearTimeout(loadTimer); }
+                loadTimer = setTimeout(showBlockerHelp, 7000);
+            }
+            function clearBlockerWatch() {
+                if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+                if (helpEl) { helpEl.hidden = true; }
+            }
+            function showBlockerHelp() {
+                if (loadTimer) { clearTimeout(loadTimer); loadTimer = null; }
+                statusEl.className = "form-status";
+                statusEl.textContent = "";
+                if (helpEl) { helpEl.hidden = false; helpEl.setAttribute("tabindex", "-1"); helpEl.focus(); }
+            }
+
+            function showSuccess() {
+                if (card) { card.hidden = true; }
+                var sec = document.getElementById("buy-success-section");
+                if (sec) {
+                    sec.hidden = false;
+                    var panel = document.getElementById("buy-success");
+                    if (panel) { panel.focus(); }
+                }
+            }
+
+            function track(ev) {
+                try {
+                    fetch(API_BASE + "/e?ev=" + ev + "&l=" + LANG + "&s=" + encodeURIComponent(SRC),
+                        { mode: "no-cors", cache: "no-store", keepalive: true })
+                        .catch(function () { /* blocked or offline — counters are best-effort */ });
+                } catch (e) { /* no fetch at all — nothing worth doing about it */ }
+            }
+
+            /* Stash the Paddle transaction id so it survives the successUrl
+               redirect, which destroys this page, and hand it to the poller. */
+            function captureTxn(ev) {
+                var d = (ev && ev.data) || {};
+                var id = TXN_ID.test(d.transaction_id || "") ? d.transaction_id
+                    : (TXN_ID.test(d.id || "") ? d.id : null);
+                if (id) {
+                    try { sessionStorage.setItem(TXN_STASH, id); } catch (e) { /* private mode */ }
+                }
+                return id;
+            }
+
+            /* Poll the worker until the Paddle webhook has issued a key for this
+               transaction (30 tries, 2s apart — about a minute). On timeout the
+               panel hides itself again and the emailed key stays the only path,
+               exactly as this page worked before. */
+            function deliverKey(txn) {
+                if (!txn) {
+                    try { txn = sessionStorage.getItem(TXN_STASH); } catch (e) { txn = null; }
+                }
+                if (!txn || !TXN_ID.test(txn)) { return; }
+
+                var panel = document.getElementById("key-deliver");
+                var ready = document.getElementById("key-ready");
+                var fetching = document.getElementById("key-fetching");
+                var valueEl = document.getElementById("key-value");
+                if (!panel || !ready || !valueEl) { return; }
+                panel.hidden = false;
+
+                var tries = 0;
+                function attempt() {
+                    tries++;
+                    fetch(API_BASE + "/key?txn=" + encodeURIComponent(txn), { cache: "no-store" })
+                        .then(function (r) { return r.status === 200 ? r.json() : null; })
+                        .then(function (data) {
+                            if (data && data.key) { showKey(data.key); } else { retry(); }
+                        })
+                        .catch(retry);
+                }
+                function retry() {
+                    if (tries >= 30) { panel.hidden = true; return; }
+                    setTimeout(attempt, 2000);
+                }
+                function showKey(key) {
+                    try { sessionStorage.removeItem(TXN_STASH); } catch (e) { /* private mode */ }
+                    valueEl.textContent = key;
+                    if (fetching) { fetching.hidden = true; }
+                    ready.hidden = false;
+                    var activate = document.getElementById("key-activate");
+                    if (SHOW_ACTIVATE_LINK && activate) {
+                        activate.href = "lvz://activate/" + encodeURIComponent(key);
+                        activate.hidden = false;
+                    }
+                }
+                wireCopyButton();
+                attempt();
+            }
+
+            function wireCopyButton() {
+                var copyBtn = document.getElementById("key-copy");
+                if (!copyBtn) { return; }
+                // No clipboard API (older browser, insecure context): hide the
+                // button rather than leave one that does nothing. The key sits
+                // in selectable text either way.
+                if (!navigator.clipboard) { copyBtn.hidden = true; return; }
+                var label = copyBtn.textContent;
+                copyBtn.addEventListener("click", function () {
+                    var valueEl = document.getElementById("key-value");
+                    if (!valueEl) { return; }
+                    navigator.clipboard.writeText(valueEl.textContent).then(function () {
+                        copyBtn.textContent = "Kopieret!";
+                        setTimeout(function () { copyBtn.textContent = label; }, 2000);
+                    }, function () { /* refused — the key is still selectable */ });
+                });
+            }
+
+            // Returning from a completed checkout.
+            if (new URLSearchParams(window.location.search).get("state") === "success") {
+                showSuccess();
+                deliverKey(null);
+                return;
+            }
+            track("visit");
+
+            function setError(msg) {
+                statusEl.className = "form-status is-error";
+                statusEl.textContent = msg;
+            }
+
+            if (typeof Paddle === "undefined") {
+                setError("Den sikre betaling kunne ikke indlæses. Genindlæs siden, eller kontakt os, så sender vi dig et betalingslink.");
+                return;
+            }
+
+            try {
+                Paddle.Initialize({
+                    token: CLIENT_TOKEN,
+                    eventCallback: function (ev) {
+                        if (!ev || !ev.name) { return; }
+                        if (ev.name === "checkout.loaded") {
+                            // Overlay opened fine — no blocker problem.
+                            clearBlockerWatch();
+                            track("open");
+                        } else if (ev.name === "checkout.completed") {
+                            // Belt-and-suspenders: the successUrl redirect normally
+                            // handles this, but show success even if it doesn't fire.
+                            clearBlockerWatch();
+                            track("complete");
+                            var txn = captureTxn(ev);
+                            showSuccess();
+                            deliverKey(txn);
+                        } else if (ev.name === "checkout.error") {
+                            showBlockerHelp();
+                        }
+                    }
+                });
+            } catch (e) {
+                setError("Den sikre betaling kunne ikke starte. Genindlæs siden, eller kontakt os, så sender vi dig et betalingslink.");
+                return;
+            }
+
+            /* Paddle sends people to the default payment link with ?_ptxn=<txn id>
+               for hosted/invoice payment links. Open that specific transaction. */
+            var ptxn = new URLSearchParams(window.location.search).get("_ptxn");
+            if (ptxn) {
+                statusEl.className = "form-status";
+                statusEl.textContent = "Åbner sikker betaling…";
+                try {
+                    Paddle.Checkout.open({ transactionId: ptxn, settings: { locale: "da" } });
+                    armBlockerWatch();
+                } catch (e) {
+                    showBlockerHelp();
+                }
+            }
+
+            function openLicenseCheckout() {
+                if (helpEl) { helpEl.hidden = true; }
+                statusEl.className = "form-status";
+                statusEl.textContent = "Åbner sikker betaling…";
+                try {
+                    Paddle.Checkout.open({
+                        items: [{ priceId: PRICE_ID, quantity: 1 }],
+                        settings: { displayMode: "overlay", locale: "da", successUrl: SUCCESS_URL }
+                    });
+                    armBlockerWatch();
+                } catch (e) {
+                    showBlockerHelp();
+                }
+            }
+
+            btn.addEventListener("click", openLicenseCheckout);
+
+            /* Arriving from a "Buy a license" button on another page (index/pricing):
+               the user already expressed intent, so open checkout immediately —
+               no redundant second click. */
+            if (new URLSearchParams(window.location.search).get("checkout") === "1") {
+                openLicenseCheckout();
+            }
+        })();
+    </script>
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

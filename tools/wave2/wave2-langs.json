@@ -28,6 +28,18 @@
       "legalMarker": "(på engelska)",
       "notesFile": "notes-sv.md",
       "scriptCheck": null
+    },
+    "da": {
+      "nativeName": "Dansk",
+      "englishName": "Danish",
+      "ogLocale": "da_DK",
+      "dir": "ltr",
+      "paddleLocale": "da",
+      "turnstileLang": "da",
+      "badgeTag": "da",
+      "switcherLabel": "Sprog: dansk",
+      "notesFile": "notes-da.md",
+      "scriptCheck": null
     }
   }
 }
