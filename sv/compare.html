@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="sv" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="En ärlig jämförelse av skärmförstorare för Windows: Low Vision Zoom, den inbyggda Windows Magnifier, ZoomText, SuperNova och Magnifixer — vad var och en gör, vem var och en passar för, och när du inte ska välja vår.">
+    <meta name="theme-color" content="#14130f">
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "zh-Hant", "sv", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
+           Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
+           a visitor lands on one language while the app and the licence email use another. */
+        var ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant",
+                        "zh-cn": "zh-hans", "zh-sg": "zh-hans", "tl": "fil" };
+        /* Most specific first, dropping one subtag at a time, so "zh-TW" reaches zh-Hant
+           when that language exists and degrades to "zh" when it does not. Returns the code
+           as LANGS spells it — the URL path segment is case-sensitive. */
+        function resolve(tag) {
+            var parts = String(tag || "").toLowerCase().split(/[-_]/), sub = [], i, n, j, cand, alias;
+            for (i = 0; i < parts.length; i++) { if (parts[i]) { sub.push(parts[i]); } }
+            for (n = sub.length; n > 0; n--) {
+                cand = sub.slice(0, n).join("-");
+                alias = typeof ALIASES[cand] === "string" ? ALIASES[cand] : null;
+                for (j = 0; j < LANGS.length; j++) {
+                    if (LANGS[j].toLowerCase() === cand || (alias && LANGS[j].toLowerCase() === alias)) { return LANGS[j]; }
+                }
+            }
+            return null;
+        }
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                to = resolve(pref);
+            } else {
+                var sys = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+                if (sys) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Low Vision Zoom jämfört med Windows Magnifier, ZoomText och SuperNova",
+      "description": "En jämförelse sida vid sida av skärmförstorare för Windows: den inbyggda Windows Magnifier, ZoomText, SuperNova, Magnifixer och Low Vision Zoom — inklusive vem var och en passar för och skäl att inte välja Low Vision Zoom.",
+      "url": "https://lowvisionzoom.com/sv/compare.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "sv",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Skärmförstoringsprogram" },
+        { "@type": "Thing", "name": "Hjälpmedelsteknik för synnedsättning" },
+        { "@type": "Thing", "name": "Windows-tillgänglighet" }
+      ]
+    }
+    </script>
+    <title>Skärmförstorare för Windows jämförda | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/sv/compare.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/compare.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/compare.html">
+    <link rel="alternate" hreflang="zh-Hant" href="https://lowvisionzoom.com/zh-Hant/compare.html">
+    <link rel="alternate" hreflang="sv" href="https://lowvisionzoom.com/sv/compare.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/compare.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/compare.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/compare.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/compare.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/compare.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/compare.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/compare.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/compare.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/compare.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/compare.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/compare.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/compare.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/compare.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/compare.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/compare.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/compare.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/compare.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/compare.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Hoppa till innehållet</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/sv/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primär">
+                <a href="/sv/index.html#demo">Se demot</a>
+                <a href="/sv/index.html#how">Så fungerar det</a>
+                <a href="/sv/index.html#why">Varför det är bättre</a>
+                <a href="/sv/pricing.html">Priser</a>
+                <a href="/sv/index.html#get" data-download class="btn btn-secondary btn-nav">Ladda ner</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Språk: svenska">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Svenska</span>
+                </summary>
+                <ul>
+                    <li><a href="/compare.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/compare.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/zh-Hant/compare.html" data-lang="zh-Hant" lang="zh-Hant" hreflang="zh-Hant">中文（繁體）</a></li>
+                    <li><a href="/sv/compare.html" data-lang="sv" lang="sv" hreflang="sv" aria-current="true">Svenska</a></li>
+                    <li><a href="/es/compare.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/compare.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/compare.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/compare.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/compare.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/compare.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/compare.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/compare.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/compare.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/compare.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/compare.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/compare.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/compare.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/compare.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/compare.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/compare.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/compare.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Jämförelse</span>
+                <h1>Skärmförstorare för Windows</h1>
+                <p class="updated">Konkurrentuppgifter verifierade 20 juli 2026</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>Om du aldrig har provat en skärmförstorare, börja med den som redan är inbyggd i Windows. Den är gratis. Om du behöver få datorn att läsa upp text, behöver mycket hög förstoring eller behöver punktskrift, behöver du en fullständig svit för hjälpmedelsteknik som <strong>ZoomText</strong> eller <strong>SuperNova</strong>, och <strong>Low Vision Zoom räcker inte för dig</strong>. Low Vision Zoom är ett litet, billigt verktyg som gör en sak: mjuk förstoring förankrad vid muspekaren, upp till 5×, utan något att ställa in.</p>
+                    </div>
+
+                    <h2>Vem har skrivit det här, och hur du bör läsa det</h2>
+                    <p>Vi gör Low Vision Zoom, så behandla den här sidan som du skulle behandla vilken jämförelse som helst skriven av en av deltagarna. Vi har försökt vara rättvisa på tre specifika sätt: varje påstående om en annan produkt kommer från leverantörens egen offentliga dokumentation och länkar till den; varje produkt som listas gör minst en sak bättre än vår; och det finns ett avsnitt nedan om <a href="#not-for-you">skäl att inte köpa Low Vision Zoom</a>.</p>
+                    <p>Vi listar medvetet inte konkurrenternas priser som siffror. Priser på hjälpmedelsteknik ändras, varierar mellan länder och är ofta olika för privatpersoner, skolor och arbetsgivare — en siffra som kopieras hit skulle snart bli inaktuell. Vi listar varje produkts <em>licensmodell</em> och länkar till leverantören så att du själv kan kontrollera det aktuella priset.</p>
+                    <p>Det viktigaste rådet på den här sidan: <strong>alla produkter här kan provas innan du betalar.</strong> Förstoring är väldigt personligt, och hur en skärmförstorare känns för <em>dina</em> ögon betyder mer än någon funktionstabell. Prova dem.</p>
+
+                    <h2>Vilken ska du välja?</h2>
+                    <ul>
+                        <li><strong>Du har inte provat någon skärmförstorare ännu</strong> — använd <strong>Windows Magnifier</strong> (Förstoringsglaset) som redan finns på din dator. Tryck på <code>Windows-tangenten</code> + <code>Plus</code>. Det kostar inget och kan vara allt du behöver.</li>
+                        <li><strong>Du behöver få skärmen uppläst, eller använder punktskrift</strong> — då behöver du <strong>ZoomText Magnifier/Reader</strong>, <strong>SuperNova</strong> eller en skärmläsare. Low Vision Zoom har inget tal och inget punktskriftsstöd alls.</li>
+                        <li><strong>Du behöver mer än 5× förstoring</strong> — Low Vision Zoom stannar vid 5×. Windows Magnifier, ZoomText och SuperNova går alla betydligt högre.</li>
+                        <li><strong>Du behöver färgfilter, kontrastinvertering eller fokusmarkering</strong> — Windows Magnifier har en del av detta gratis; ZoomText och SuperNova har mycket mer. Low Vision Zoom har inget av det.</li>
+                        <li><strong>Du vill ha ett gratis alternativ från tredje part</strong> — <strong>Magnifixer</strong> är gratis och erbjuder ett förstoringsfönster med inverterad visning och färglägen.</li>
+                        <li><strong>Du vill mest zooma in och ut hela tiden medan du jobbar, och tycker att det känns hackigt eller krångligt idag</strong> — det är precis det fallet Low Vision Zoom är byggt för. Den förstorar mjukt kring muspekaren, har inga inställningar och kostar $9.99 en gång. <a href="/sv/index.html#demo">Se demot</a> och prova den kostnadsfria provperioden.</li>
+                    </ul>
+
+                    <h2>Funktionsjämförelse</h2>
+                    <p>Celler märkta ”se leverantören” är sådant vi inte vill uttala oss om i andra hand, å någon annans vägnar — följ länken i produktrubriken för det auktoritativa svaret.</p>
+
+                    <!-- Scrollable region: tabindex makes the horizontal scroll reachable
+                         from the keyboard, which it otherwise would not be. -->
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Funktionsjämförelsetabell">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Funktionsjämförelse av fem skärmförstorare för Windows</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">&nbsp;</th>
+                                    <th scope="col">Low Vision Zoom</th>
+                                    <th scope="col"><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Windows Magnifier</a></th>
+                                    <th scope="col"><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">ZoomText</a></th>
+                                    <th scope="col"><a href="https://yourdolphin.com/SuperNova" rel="noopener">SuperNova</a></th>
+                                    <th scope="col"><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Magnifixer</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Vad det är</th>
+                                    <td>Ett förstoringsverktyg med ett enda syfte</td>
+                                    <td>Skärmförstoraren inbyggd i Windows</td>
+                                    <td>En fullständig svit för synnedsättning</td>
+                                    <td>En fullständig svit för synnedsättning</td>
+                                    <td>Ett gratis förstoringsfönster</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Licensmodell</th>
+                                    <td>Engångsbetalning $9.99, uppdateringar ingår</td>
+                                    <td>Gratis — ingår i Windows</td>
+                                    <td>Årslicens (se leverantören)</td>
+                                    <td>Licens per utgåva (se leverantören)</td>
+                                    <td>Gratis</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Maximal förstoring</th>
+                                    <td>5×</td>
+                                    <td>Upp till 1600 % (16×)</td>
+                                    <td>Upp till 36×</td>
+                                    <td>Hög — se leverantören</td>
+                                    <td>Se leverantören</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Så ändrar du zoomnivån</th>
+                                    <td>Ctrl + mushjul, eller Ctrl + Alt + Plus/Minus. Kontinuerlig och proportionell — vyn glider mjukt till den nya nivån istället för att hoppa dit</td>
+                                    <td>Windows-tangenten + Plus/Minus, eller verktygsfältet. Stegar igenom fasta nivåer; stegstorleken går att ställa in</td>
+                                    <td>Tangentbordsgenvägar och verktygsfält; stegvisa förstoringsnivåer — se leverantören</td>
+                                    <td>Tangentbordsgenvägar och kontrollpanel; stegvisa förstoringsnivåer — se leverantören</td>
+                                    <td>Justerbar zoom i sitt eget fönster</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Vad zoomen centreras kring</th>
+                                    <td>Punkten under muspekaren, som hålls fast medan vyn skalas kring den</td>
+                                    <td>Följer musen, tangentbordsfokus, textmarkören eller Narrator — du väljer</td>
+                                    <td>Följer musen, fokus och markören — se leverantören</td>
+                                    <td>Följer musen, fokus och markören — se leverantören</td>
+                                    <td>Området du pekar på</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Läser upp text</th>
+                                    <td>Nej</td>
+                                    <td>Ja — har uppläsningskontroller</td>
+                                    <td>Ja, i utgåvan Magnifier/Reader</td>
+                                    <td>Ja, i utgåvorna Speech och Screen Reader</td>
+                                    <td>Nej</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fullständig skärmläsare</th>
+                                    <td>Nej</td>
+                                    <td>Narrator ingår i Windows, separat</td>
+                                    <td>Tillgänglig i Fusion-paketet med JAWS</td>
+                                    <td>Ja, i utgåvan Screen Reader</td>
+                                    <td>Nej</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Punktskriftsstöd</th>
+                                    <td>Nej</td>
+                                    <td>Via Narrator</td>
+                                    <td>Se leverantören</td>
+                                    <td>Ja, i högre utgåvor</td>
+                                    <td>Nej</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Färgfilter, kontrast, invertering</th>
+                                    <td>Nej</td>
+                                    <td>Ja — färginvertering</td>
+                                    <td>Ja — omfattande filter och förbättringar</td>
+                                    <td>Ja — omfattande, inklusive inställningar per bildskärm</td>
+                                    <td>Ja — inverterad visning och färglägen</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Textutjämning vid hög zoom</th>
+                                    <td>Nej — förstorar pixlar</td>
+                                    <td>Ja — alternativ för utjämning</td>
+                                    <td>Ja — xFont-rendering</td>
+                                    <td>Ja — True Fonts</td>
+                                    <td>Ja — utjämningsfilter</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Flera bildskärmar</th>
+                                    <td>Ja — ett sammanhängande skrivbord som följer med mellan skärmar</td>
+                                    <td>Ja</td>
+                                    <td>Ja — se leverantören</td>
+                                    <td>Ja — oberoende nivåer per bildskärm</td>
+                                    <td>Se leverantören</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Inställningar att konfigurera</th>
+                                    <td>Inga — beteendet är förinställt och fast</td>
+                                    <td>Flera</td>
+                                    <td>Omfattande</td>
+                                    <td>Omfattande</td>
+                                    <td>Flera</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Fungerar offline, inget konto</th>
+                                    <td>Ja — licensen kontrolleras på din enhet</td>
+                                    <td>Ja</td>
+                                    <td>Se leverantören</td>
+                                    <td>Se leverantören</td>
+                                    <td>Se leverantören</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Data som samlas in</th>
+                                    <td>Ingen — <a href="/privacy.html">integritetspolicy (på engelska)</a></td>
+                                    <td>Se Microsofts sekretessmeddelande</td>
+                                    <td>Se leverantören</td>
+                                    <td>Se leverantören</td>
+                                    <td>Se leverantören</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Plattform</th>
+                                    <td>Windows 10 och 11, 64-bitars (x64)</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                    <td>Windows</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <h2 id="not-for-you">Skäl att inte köpa Low Vision Zoom</h2>
+                    <p>Vi vill hellre att du lägger $9.99 på något som hjälper dig än på något som inte gör det. Köp inte Low Vision Zoom om något av det här stämmer in på dig:</p>
+                    <ul>
+                        <li><strong>Du behöver mer än 5× förstoring.</strong> Det är en hård gräns i appen, inte en inställning. Om 5× inte räcker för dig hjälper ingen del av den här produkten.</li>
+                        <li><strong>Du behöver tal.</strong> Det finns ingen text-till-tal, ingen dokumentläsare och ingen skärmläsare. Inget av det är planerat som en $9.99-funktion.</li>
+                        <li><strong>Du behöver färginvertering eller kontrastfilter</strong> för att läsa bekvämt. Windows Magnifier gör det gratis; vi gör det inte alls.</li>
+                        <li><strong>Du behöver skarp text vid hög förstoring.</strong> Vi förstorar skärmen som den är; sviterna ritar om texten så att den förblir skarp. Vid höga zoomnivåer är den skillnaden stor och den spelar roll.</li>
+                        <li><strong>Du behöver leverantörssupport, utbildning eller en upphandlingsväg.</strong> Vi är ett väldigt litet företag med en e-postadress. Det passar dåligt för en arbetsplatsanpassning med formella supportkrav.</li>
+                        <li><strong>Du använder varken mus eller styrplatta.</strong> Utformningen bygger på att peka på det du vill förstora. Det finns tangentbordsgenvägar, men en användare som bara använder tangentbordet får bättre hjälp någon annanstans.</li>
+                        <li><strong>Du använder Windows on ARM eller en 32-bitars dator.</strong> Stöds inte idag.</li>
+                    </ul>
+
+                    <h2>Du kanske inte behöver någon skärmförstorare alls</h2>
+                    <p>Innan du köper något är det värt att prova de gratisalternativ som redan finns på din dator. För många är de tillräckliga:</p>
+                    <ul>
+                        <li><strong>Gör allt större permanent:</strong> Windows <em>Inställningar → System → Bildskärm → Skala</em>. Om du ställer in den här på 150 % eller 175 % förstoras all text och alla ikoner överallt, utan extra programvara.</li>
+                        <li><strong>Gör bara texten större:</strong> Windows <em>Inställningar → Hjälpmedel → Textstorlek</em>.</li>
+                        <li><strong>Zooma en webbsida:</strong> <code>Ctrl</code> + <code>Plus</code> i valfri webbläsare, vilket formaterar om texten istället för att förstora pixlar — vanligtvis mer läsbart än någon skärmförstorare för att läsa webbsidor.</li>
+                        <li><strong>Den inbyggda skärmförstoraren:</strong> <code>Windows-tangenten</code> + <code>Plus</code>.</li>
+                    </ul>
+                    <p>En skärmförstorare är rätt verktyg när du behöver zooma in och ut i detaljer under hela dagen i alla program. Det är fel verktyg när det du egentligen behövde var större text hela tiden.</p>
+
+                    <h2>Där Low Vision Zoom passar</h2>
+                    <p>Low Vision Zoom finns för att utvecklaren ville ha en specifik sak: att zooma in och ut hela tiden, hela dagen, utan att tappa bort platsen på skärmen varje gång. Den förstorar kontinuerligt istället för i steg, roterar kring punkten under muspekaren så att det du tittar på ligger kvar, och håller vyn stilla medan muspekaren rör sig i mitten av skärmen. Det finns inget att ställa in och inget att lära sig utöver en tangent och scrollhjulet.</p>
+                    <p>Det är hela produkten. Om beskrivningen ovan är problemet du har, kommer den <a href="/sv/index.html#get">7 dagar långa gratisprovperioden</a> att tala om för dig inom några minuter om den fungerar för dina ögon. Om den inte gör det kommer en av de andra produkterna på den här sidan att passa dig bättre, och vi hjälper hellre dig dit. Du kan läsa mer om <a href="/sv/why-smooth-magnification.html">varför mjuk förstoring är lättare att följa</a>, eller se <a href="/sv/faq.html">vanliga frågor</a>.</p>
+
+                    <h2>Källor</h2>
+                    <p>Påståenden om andra produkter kommer från leverantörernas egna offentliga sidor, kontrollerade den 20 juli 2026:</p>
+                    <ul>
+                        <li><a href="https://support.microsoft.com/en-us/accessibility/windows/magnifier/use-magnifier-to-make-things-on-the-screen-easier-to-see" rel="noopener">Microsoft — Använd Magnifier för att göra saker på skärmen lättare att se</a></li>
+                        <li><a href="https://www.freedomscientific.com/products/software/zoomtext/" rel="noopener">Freedom Scientific — ZoomText</a></li>
+                        <li><a href="https://yourdolphin.com/SuperNova" rel="noopener">Dolphin — SuperNova</a></li>
+                        <li><a href="https://www.blacksunsoftware.com/screenmagnifier.html" rel="noopener">Blacksun Software — Magnifixer</a></li>
+                    </ul>
+                    <p>Windows, Windows Magnifier och Narrator är produkter från Microsoft. ZoomText och JAWS är produkter från Freedom Scientific / Vispero. SuperNova är en produkt från Dolphin Computer Access. Magnifixer är en produkt från Blacksun Software. Vi är inte anslutna till, godkända av eller i partnerskap med någon av dem, och vi använder deras namn enbart för att identifiera deras produkter. Om du tror att något på den här sidan felaktigt beskriver din produkt, <a href="/sv/contact.html">säg till oss</a> så rättar vi det.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Prova innan du bestämmer dig</h2>
+                <p>7 dagars gratis provperiod · $9.99 engångsbetalning · inget abonnemang · inget konto</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/sv.svg" alt="Hämta det i Microsoft Store">
+                    </a>
+                    <a href="/sv/index.html#get" data-download class="download-direct">Eller ladda ner installationsprogrammet direkt från den här webbplatsen (.msi)</a>
+                </div>
+                <p class="cta-fact">Low Vision Zoom är en skärmförstorare för Windows 10 och 11. Den förstorar upp till 5×, mjukt, centrerad kring muspekaren. Den kostar $9.99 en gång. Den finns tillgänglig i Microsoft Store eller som en direkt MSI-nedladdning. Den fungerar offline och samlar inte in någon data.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>En lugn skärmförstorare för Windows. En produkt från txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="/sv/index.html#why">Varför det är bättre</a></li>
+                        <li><a href="/sv/index.html#how">Så fungerar det</a></li>
+                        <li><a href="/sv/pricing.html">Priser</a></li>
+                        <li><a href="/sv/compare.html" aria-current="page">Jämför skärmförstorare</a></li>
+                        <li><a href="/sv/faq.html">Vanliga frågor</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Juridik</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Integritetspolicy (på engelska)</a></li>
+                        <li><a href="/terms.html">Användarvillkor (på engelska)</a></li>
+                        <li><a href="/refund.html">Återbetalningspolicy (på engelska)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/sv/contact.html">Kontakta oss</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>

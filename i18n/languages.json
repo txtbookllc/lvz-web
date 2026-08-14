@@ -5,6 +5,7 @@
   "languages": [
     { "code": "zh", "hreflang": "zh-Hans", "nativeName": "中文（简体）", "switcherLabel": "语言：中文（简体）", "englishName": "Chinese (Simplified)", "ogLocale": "zh_CN", "paddleLocale": "zh-Hans", "turnstileLang": "zh-cn", "dir": "ltr" },
     { "code": "zh-Hant", "hreflang": "zh-Hant", "nativeName": "中文（繁體）", "switcherLabel": "語言：中文（繁體）", "englishName": "Chinese (Traditional)", "ogLocale": "zh_TW", "paddleLocale": "zh-TW", "turnstileLang": "zh-tw", "dir": "ltr", "storeShotName": "chinese_traditional" },
+    { "code": "sv", "hreflang": "sv", "nativeName": "Svenska", "switcherLabel": "Språk: svenska", "englishName": "Swedish", "ogLocale": "sv_SE", "paddleLocale": "sv", "turnstileLang": "sv", "dir": "ltr" },
     { "code": "es", "hreflang": "es", "nativeName": "Español", "switcherLabel": "Idioma: Español", "englishName": "Spanish", "ogLocale": "es_ES", "paddleLocale": "es", "turnstileLang": "es", "dir": "ltr" },
     { "code": "pt", "hreflang": "pt", "nativeName": "Português", "switcherLabel": "Idioma: Português", "englishName": "Portuguese", "ogLocale": "pt_BR", "paddleLocale": "pt-BR", "turnstileLang": "pt-br", "dir": "ltr" },
     { "code": "ar", "hreflang": "ar", "nativeName": "العربية", "switcherLabel": "اللغة: العربية", "englishName": "Arabic", "ogLocale": "ar_AR", "paddleLocale": "ar", "turnstileLang": "ar", "dir": "rtl" },

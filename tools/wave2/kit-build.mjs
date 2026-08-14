@@ -25,18 +25,8 @@ mkdirSync(OUT, { recursive: true });
  * `notes` is the one hand-written field. It is judgment, not configuration: for zh-Hant it
  * had to say that 弱視 means amblyopia and is the wrong word for "low vision". Leaving it
  * empty for a new language is a bug, not a default — kits assert on it below. */
-const LANGUAGES = {
-    "zh-Hant": {
-        nativeName: "中文（繁體）", englishName: "Chinese (Traditional)",
-        ogLocale: "zh_TW", dir: "ltr", paddleLocale: "zh-TW", turnstileLang: "zh-tw",
-        notesFile: "notes-zh-Hant.md",
-    },
-    sv: {
-        nativeName: "Svenska", englishName: "Swedish",
-        ogLocale: "sv_SE", dir: "ltr", paddleLocale: "sv", turnstileLang: "sv",
-        notesFile: "notes-sv.md",
-    },
-};
+const LANGUAGES = JSON.parse(
+    readFileSync(join(WEB, "tools", "wave2", "wave2-langs.json"), "utf8")).languages;
 
 const CODE = (process.argv.find(a => a.startsWith("--lang=")) ?? "--lang=zh-Hant").slice(7);
 const LANG = LANGUAGES[CODE];
@@ -130,7 +120,7 @@ function computed(page) {
     lines.push(
         `- every internal site link is prefixed \`/${CODE}\` (\`/pricing.html#x\` → \`/${CODE}/pricing.html#x\`)`,
         `- legal links stay at the root (\`/privacy.html\`, \`/terms.html\`, \`/refund.html\`) and their`,
-        `  visible link text gains a short translated "(in English)" marker`,
+        `  visible link text gains the marker \`${LANG.legalMarker}\``,
         `- the \`<link rel="alternate" hreflang=...>\` run is copied from English **byte-identically**`,
         `- the language-switcher \`<ul>\` is copied from English **byte-identically, including leaving**`,
         `  \`aria-current="true"\` **on the English entry** — ${CODE} has no entry yet and a script adds`,
@@ -254,9 +244,34 @@ computed. Do not translate those; use the computed values below.)`;
  * becomes a computed value: the exact string is handed over, as with og:locale or the
  * canonical URL. Pin, don't re-translate — same principle, applied to prose that has
  * already been settled. */
+/* The 23 units that appear on more than one English page — the site chrome.
+ * MEASURED: no single page carries all of them (best is faq.html at 22/23, index.html only
+ * 17), so pinning from "the first finished page" is structurally incapable of covering the
+ * set, and the residue comes back worded differently on each page. Hence --emit-chrome:
+ * translate these ONCE, before any page, and pin all of them everywhere. */
+function sharedUnits() {
+    const where = new Map();
+    for (const p of PAGES)
+        for (const [id, u] of unitsById(readPage(join(WEB, p)))) {
+            const k = `${id}\v${u.text}`;
+            if (!where.has(k)) where.set(k, { id, en: u.text, pages: [] });
+            where.get(k).pages.push(p);
+        }
+    return [...where.values()].filter(u => u.pages.length > 1);
+}
+
 function pinnedChrome(page) {
     const enTarget = unitsById(readPage(join(WEB, page)));
     const pins = new Map();
+    /* Highest priority: the dedicated chrome pass, if it has been done. */
+    const chromeFile = join(WEB, "tools", "wave2", `chrome-${CODE}.json`);
+    if (existsSync(chromeFile)) {
+        const done = JSON.parse(readFileSync(chromeFile, "utf8"));
+        for (const u of done.units ?? []) {
+            const en = enTarget.get(u.id);
+            if (en && en.text === u.en && u.tr) pins.set(u.id, { en: u.en, tr: u.tr });
+        }
+    }
     for (const done of PAGES) {
         const tp = join(WEB, CODE, done);
         if (done === page || !existsSync(tp)) continue;
@@ -294,6 +309,20 @@ ${rows.join("\n")}`;
 
 const PAGES = ["index.html", "pricing.html", "buy.html", "contact.html",
     "faq.html", "compare.html", "why-smooth-magnification.html"];
+
+/* Emitted BEFORE any page agent runs. Must sit after PAGES is initialized. */
+if (process.argv.includes("--emit-chrome")) {
+    const units = sharedUnits();
+    const out = join(WEB, "tools", "wave2", `chrome-${CODE}.todo.json`);
+    writeFileSync(out, JSON.stringify({
+        "//": `Site chrome for ${CODE}. Translate every "en" into "tr", change nothing else.`
+            + ` These strings appear on 2+ pages and MUST be identical on all of them.`,
+        lang: CODE, nativeName: LANG.nativeName,
+        units: units.map(u => ({ id: u.id, pages: u.pages.length, en: u.en, tr: "" })),
+    }, null, 2) + "\n");
+    console.log(`${out}\n${units.length} shared unit(s) to translate before any page runs.`);
+    process.exit(0);
+}
 
 const FULL_COMPETITORS = new Set(["compare.html", "faq.html"]);
 const FULL_MEDICAL = new Set(["why-smooth-magnification.html"]);

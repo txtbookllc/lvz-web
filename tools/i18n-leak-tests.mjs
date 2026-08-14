@@ -107,7 +107,12 @@ console.log("\n[4] leak-allow.json — an allowance must be revocable");
 perturb("i18n/leak-allow.json", '"en": "Windows", "why": "OS name"', '"en": "Windows NT", "why": "OS name"',
     "a pin keyed on stale English text stops applying (a reword revokes it)", "es",
     /untranslated text unit .*tr\[15\]\/td\[2\]: "Windows"/);
-perturb("i18n/leak-allow.json", '"en": "Support", "langs": ["de"]', '"en": "Support", "langs": ["xx"]',
+/* The anchor deliberately matches only the KEY of this cognate, not its langs array: the
+ * array grows every time a language legitimately joins (de, then sv, …), and an anchor that
+ * included it made this test fail with "anchor not found" the first time that happened —
+ * a red suite that proved nothing, exactly the shape of failure session 5 warned about
+ * (a nonzero exit is not evidence the gate fired). */
+perturb("i18n/leak-allow.json", '"en": "Support", "langs": [', '"en": "Support", "langs": ["xx"], "unused": [',
     "narrowing a cognate's langs makes the previously-allowed language fail", "de",
     /untranslated text unit .*div\[4\]\/h4: "Support"/);
 

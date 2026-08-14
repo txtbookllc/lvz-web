@@ -23,7 +23,7 @@
  * --check's byte comparison would surface as every language going STALE at once. The run
  * ends by asserting git status is unchanged.
  */
-import { readFileSync, writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { execFileSync } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { dirname, join, resolve } from "node:path";
@@ -80,8 +80,19 @@ ok("baseline is clean, so every count below is attributable to the perturbation"
 
 /* An unstarted language must return EVERYTHING — the same kit then serves bulk
  * translation and maintenance, and a delta that returned 0 here would mean a new
- * language silently shipped untranslated. */
-const fresh = delta("sv", PRICING);
+ * language silently shipped untranslated.
+ *
+ * The fixture is DERIVED, not named. This test used to say "sv", and the day Swedish
+ * shipped it started asserting that a finished language owes its whole page — failing for
+ * a reason that had nothing to do with --delta. Every wave-2 code will ship eventually, so
+ * any hardcoded one is a time bomb; pick whichever still has no directory. */
+const WAVE2 = ["zh-Hant", "sv", "cs", "hu", "ro", "da", "fi", "el", "nb",
+    "he", "ms", "bg", "sk", "fil", "bn", "hr", "ta", "fa"];
+const UNSTARTED = WAVE2.find((c) => !existsSync(join(ROOT, c)));
+ok("there is still an unstarted wave-2 language to test the fresh-language path with",
+    UNSTARTED !== undefined,
+    "  all 18 have shipped — replace this case with a synthetic empty language directory");
+const fresh = delta(UNSTARTED, PRICING);
 ok("an unstarted language owes its entire page (delta degenerates to a full extract)",
     fresh.pages?.[PRICING]?.summary.unchanged === 0
     && fresh.pages[PRICING].summary.send === fresh.pages[PRICING].summary.english
@@ -233,7 +244,7 @@ perturb("faq.html", '"name": "Is there a cheaper alternative to ZoomText?"',
 /* A unit that is deduped across several ids must report ALL the ids that need work —
  * dropping one would leave a visible string untranslated while the delta looked complete. */
 console.log("\n[9] deduped units must name every id that needs work");
-const dedup = delta("sv", "compare.html").pages["compare.html"];
+const dedup = delta(UNSTARTED, "compare.html").pages["compare.html"];
 const multi = (dedup.units ?? []).filter((u) => u.at.length > 1);
 ok("compare.html has units shared by several ids (repeated table cells)",
     multi.length > 0, `  ${multi.length}`);
@@ -263,7 +274,7 @@ ok("every shared id is listed in `at`, and the totals count ids not units",
  * settled decision and now owes a re-proof of the byte-identity gate. See
  * docs/i18n-wave2.md, DECISIONS §2. */
 console.log("\n[9b] tracked gap — JSON-LD and visible text do NOT dedupe (plan §0.5 expects they would)");
-const faq = delta("sv", "faq.html").pages["faq.html"];
+const faq = delta(UNSTARTED, "faq.html").pages["faq.html"];
 ok("faq.html emits one unit per id — no cross-kind dedupe today",
     faq.summary.units === faq.summary.send && faq.summary.units === 96,
     `  ${JSON.stringify(faq.summary)}`);

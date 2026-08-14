@@ -22,10 +22,13 @@ import {
 import { readFileSync, writeFileSync, existsSync, statSync } from "node:fs";
 
 const WEB = "c:/dev/lowvisionzoom.com";
-/* --lang exists ONLY so the verifier can be smoke-tested against an already-good language
- * before any agent runs: a verifier that has never been shown to pass on known-good input
- * is as untrustworthy as one that has never been shown to fail. */
+/* --lang also lets the verifier be smoke-tested against an already-good language before any
+ * agent runs: a verifier that has never been shown to pass on known-good input is as
+ * untrustworthy as one that has never been shown to fail. */
 const LANG = (process.argv.find(a => a.startsWith("--lang=")) ?? "--lang=zh-Hant").slice(7);
+/* Same config the kit builder reads, so the kit cannot promise a value this does not check. */
+const CFG = JSON.parse(readFileSync(`${WEB}/tools/wave2/wave2-langs.json`, "utf8"))
+    .languages[LANG] ?? null;
 const PAGES = ["index.html", "pricing.html", "buy.html", "contact.html",
     "faq.html", "compare.html", "why-smooth-magnification.html"];
 
@@ -126,35 +129,60 @@ function verify(page) {
     if (raised.length) { for (const f of raised) fail(page, String(f.msg ?? f)); }
     else ok(page, "0.6: no untranslated units, localized assets correct");
 
-    // 5. computed values — handed to the agent, so any miss is a real defect
+    /* 5. computed values — handed to the agent in the kit, so any miss is a real defect.
+     * Driven by wave2-langs.json, the SAME file the kit builder reads: if these were an
+     * independent transcription, a kit could promise a value nothing checks. */
+    const dirRe = CFG?.dir === "rtl"
+        ? /<html[^>]*\sdir="rtl"/
+        : /<html(?![^>]*\sdir="(?!ltr)[^"]*")/;
     const want = [
-        [`lang="zh-Hant"`, /<html[^>]*\slang="zh-Hant"/],
-        [`dir ltr (absent or "ltr")`, /<html(?![^>]*\sdir="(?!ltr)[^"]*")/],
-        [`canonical /zh-Hant/`, new RegExp(`rel="canonical"[^>]*href="https://lowvisionzoom\\.com/zh-Hant/${page === "index.html" ? '"' : page + '"'}`)],
-        [`no un-prefixed internal links`, null],
+        [`lang="${LANG}"`, new RegExp(`<html[^>]*\\slang="${LANG}"`)],
+        [`dir "${CFG?.dir ?? "ltr"}"`, dirRe],
+        [`canonical /${LANG}/`, new RegExp(`rel="canonical"[^>]*href="https://lowvisionzoom\\.com/${LANG}/${page === "index.html" ? '"' : page + '"'}`)],
     ];
     for (const [label, re] of want) if (re && !re.test(raw)) fail(page, `computed: ${label} not found`);
-    if (page === "index.html" && !/property="og:locale"[^>]*content="zh_TW"/.test(raw)) fail(page, `computed: og:locale zh_TW not found`);
-    if (page === "buy.html") {
-        if (!/https:\/\/lowvisionzoom\.com\/zh-Hant\/buy\.html\?state=success/.test(raw)) fail(page, "computed: SUCCESS_URL not localized");
-        const loc = (raw.match(/locale:\s*"([^"]+)"/g) ?? []);
-        if (loc.length !== 2 || loc.some(l => !/"zh-TW"/.test(l))) fail(page, `computed: locale literals are ${JSON.stringify(loc)}, expected two × "zh-TW"`);
-    }
-    if (page === "contact.html" && !/data-language="zh-tw"/.test(raw)) fail(page, `computed: Turnstile data-language="zh-tw" not found`);
-    if (!/aria-label="語言：中文（繁體）"/.test(raw)) fail(page, "computed: switcher <summary> aria-label not set to 語言：中文（繁體）");
 
-    /* internal links must be /zh-Hant-prefixed; legal pages must NOT be.
+    if (CFG) {
+        if (page === "index.html" && !new RegExp(`property="og:locale"[^>]*content="${CFG.ogLocale}"`).test(raw))
+            fail(page, `computed: og:locale ${CFG.ogLocale} not found`);
+        if (page === "buy.html") {
+            if (!new RegExp(`https://lowvisionzoom\\.com/${LANG}/buy\\.html\\?state=success`).test(raw))
+                fail(page, "computed: SUCCESS_URL not localized");
+            const loc = (raw.match(/locale:\s*"([^"]+)"/g) ?? []);
+            if (loc.length !== 2 || loc.some(l => !l.includes(`"${CFG.paddleLocale}"`)))
+                fail(page, `computed: locale literals are ${JSON.stringify(loc)}, expected two x "${CFG.paddleLocale}"`);
+        }
+        if (page === "contact.html" && !new RegExp(`data-language="${CFG.turnstileLang}"`).test(raw))
+            fail(page, `computed: Turnstile data-language="${CFG.turnstileLang}" not found`);
+    }
+
+    /* The switcher <summary> aria-label IS languages.json's switcherLabel. It is authored on
+     * the first page and must then be identical on all seven — it is a computed attribute, so
+     * the cross-page unit check cannot see it. Verified here against the other finished pages
+     * of this language rather than against a hardcoded string. */
+    const label = (/<summary[^>]*\saria-label="([^"]*)"/.exec(raw) ?? [])[1];
+    if (!label) fail(page, "computed: switcher <summary> has no aria-label");
+    else {
+        for (const other of PAGES) {
+            if (other === page) continue;
+            const op = `${WEB}/${LANG}/${other}`;
+            if (!existsSync(op)) continue;
+            const ol = (/<summary[^>]*\saria-label="([^"]*)"/.exec(readFileSync(op, "utf8")) ?? [])[1];
+            if (ol && ol !== label) { fail(page, `switcher aria-label ${JSON.stringify(label)} != ${JSON.stringify(ol)} on ${other}`); break; }
+        }
+    }
+
+    /* internal links must be /<lang>-prefixed; legal pages must NOT be.
      * The switcher is excluded: its ENGLISH entry legitimately points at "/compare.html"
      * with no prefix, on every page in every language. Scanning it flagged a correct page.
-     * Same managed-territory exclusion as the Simplified check above. */
+     * Same managed-territory exclusion as the script check below. */
     const hrefs = [...stripSwitcher(raw).matchAll(/href="(\/[^"]*)"/g)].map(m => m[1]);
-    const LEGAL = /^\/(privacy|terms|refund)\.html/;
     const SITE = /^\/(index|pricing|buy|contact|faq|compare|why-smooth-magnification)\.html/;
     const unprefixed = hrefs.filter(h => SITE.test(h));
-    const wrongLegal = hrefs.filter(h => /^\/zh-Hant\/(privacy|terms|refund)\.html/.test(h));
-    if (unprefixed.length) fail(page, `${unprefixed.length} internal link(s) missing /zh-Hant: ${unprefixed.slice(0, 3).join(", ")}`);
+    const wrongLegal = hrefs.filter(h => new RegExp(`^/${LANG}/(privacy|terms|refund)\\.html`).test(h));
+    if (unprefixed.length) fail(page, `${unprefixed.length} internal link(s) missing /${LANG}: ${unprefixed.slice(0, 3).join(", ")}`);
     if (wrongLegal.length) fail(page, `legal link(s) wrongly prefixed: ${wrongLegal.slice(0, 2).join(", ")}`);
-    if (!unprefixed.length && !wrongLegal.length) ok(page, `links: ${hrefs.filter(h => h.startsWith("/zh-Hant")).length} in-language, legal at root`);
+    if (!unprefixed.length && !wrongLegal.length) ok(page, `links: ${hrefs.filter(h => h.startsWith(`/${LANG}`)).length} in-language, legal at root`);
 
     // 6. title / description must differ from English
     const t = (s) => (s.match(/<title>([\s\S]*?)<\/title>/) ?? [])[1];
@@ -163,12 +191,15 @@ function verify(page) {
     if (!t(raw) || t(raw) === t(enRaw)) fail(page, "<title> missing or identical to English");
     if (!d(raw) || d(raw) === d(enRaw)) fail(page, "meta description missing or identical to English");
 
-    // 7. script: zero Simplified-only characters
-    const hits = new Map();
-    for (const ch of stripSwitcher(raw)) if (SIMPLIFIED.has(ch)) hits.set(ch, (hits.get(ch) ?? 0) + 1);
-    if (hits.size) fail(page, `${[...hits.values()].reduce((a, b) => a + b, 0)} Simplified character(s): `
-        + [...hits.entries()].map(([c, n]) => `${c}×${n}`).join(" "));
-    else ok(page, "script: zero Simplified-only characters");
+    /* 7. script assertion — only where the language has one. Latin-script languages have no
+     * character-level hazard, and inventing a check for them would be theatre. */
+    if (CFG?.scriptCheck === "simplified") {
+        const hits = new Map();
+        for (const ch of stripSwitcher(raw)) if (SIMPLIFIED.has(ch)) hits.set(ch, (hits.get(ch) ?? 0) + 1);
+        if (hits.size) fail(page, `${[...hits.values()].reduce((a, b) => a + b, 0)} Simplified character(s): `
+            + [...hits.entries()].map(([c, n]) => `${c}x${n}`).join(" "));
+        else ok(page, "script: zero Simplified-only characters");
+    }
 
     ok(page, `bytes: ${statSync(trPath).size} (English ${statSync(enPath).size})`);
 }

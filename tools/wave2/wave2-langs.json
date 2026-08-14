@@ -1,0 +1,33 @@
+{
+  "//": "Per-language config for the wave-2 rollout. Read by BOTH kit-build.mjs and verify-page.mjs so a kit can never promise a value the verifier does not check.",
+  "//vendors": "paddleLocale / turnstileLang / badgeTag are LOOKED UP per language, never guessed. All three vendors disagree with our codes somewhere: Paddle says zh-TW where we say zh-Hant, Turnstile says tl where we say fil, and the badge tag needs a region for en-us and zh-tw but is bare for the other 17.",
+  "//paddleEn": "paddleLocale 'en' means Paddle does not support the language: the checkout is English AND the licence email is English, because pickLang reads the Paddle customer locale. Jonathan accepted that explicitly on 2026-08-14 for the 14 affected languages, consistent with id/hi/vi/uk/th.",
+  "//legalMarker": "The translated '(in English)' marker appended to legal-link text. Authored per language.",
+  "languages": {
+    "zh-Hant": {
+      "nativeName": "中文（繁體）",
+      "englishName": "Chinese (Traditional)",
+      "ogLocale": "zh_TW",
+      "dir": "ltr",
+      "paddleLocale": "zh-TW",
+      "turnstileLang": "zh-tw",
+      "badgeTag": "zh-tw",
+      "storeShotName": "chinese_traditional",
+      "legalMarker": "（英文）",
+      "notesFile": "notes-zh-Hant.md",
+      "scriptCheck": "simplified"
+    },
+    "sv": {
+      "nativeName": "Svenska",
+      "englishName": "Swedish",
+      "ogLocale": "sv_SE",
+      "dir": "ltr",
+      "paddleLocale": "sv",
+      "turnstileLang": "sv",
+      "badgeTag": "sv",
+      "legalMarker": "(på engelska)",
+      "notesFile": "notes-sv.md",
+      "scriptCheck": null
+    }
+  }
+}

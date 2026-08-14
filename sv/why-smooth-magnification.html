@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="sv" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Varför en skärmförstorare med mjuk rörelse är lättare att följa än en som hoppar: hur spatial konstans, mjuk följerörelse och förändringsblindhet förklarar känslan av att tappa bort var man är — och hur Low Vision Zoom är utformat utifrån detta.">
+    <meta name="theme-color" content="#14130f">
+    <!-- TRANSLATION NOTE: this page's safety depends on design-and-experience wording, never
+         medical claims. See the medical-claims guardrails in i18n/TRANSLATING.md. Citation titles,
+         author names, and journal names stay in English. -->
+    <!-- i18n: route visitors to their language — a stored choice always wins; otherwise
+         match the browser language once, on first visit. Inert on non-English pages
+         (translations copy this verbatim so all copies of a page stay structurally
+         identical). LANGS mirrors i18n/languages.json; tools/i18n-check.mjs verifies. -->
+    <script>
+    (function () {
+        if (document.documentElement.lang !== "en") { return; }
+        var LANGS = ["zh", "zh-Hant", "sv", "es", "pt", "ar", "ja", "de", "fr", "id", "tr", "hi", "it", "ko", "vi", "ru", "pl", "uk", "nl", "th"];
+        /* Regions that imply a script, plus the legacy Filipino tag. Mirrors the app's
+           Program.ResolveAssetLanguage and the worker's pickLang — all three must agree, or
+           a visitor lands on one language while the app and the licence email use another. */
+        var ALIASES = { "zh-tw": "zh-hant", "zh-hk": "zh-hant", "zh-mo": "zh-hant",
+                        "zh-cn": "zh-hans", "zh-sg": "zh-hans", "tl": "fil" };
+        /* Most specific first, dropping one subtag at a time, so "zh-TW" reaches zh-Hant
+           when that language exists and degrades to "zh" when it does not. Returns the code
+           as LANGS spells it — the URL path segment is case-sensitive. */
+        function resolve(tag) {
+            var parts = String(tag || "").toLowerCase().split(/[-_]/), sub = [], i, n, j, cand, alias;
+            for (i = 0; i < parts.length; i++) { if (parts[i]) { sub.push(parts[i]); } }
+            for (n = sub.length; n > 0; n--) {
+                cand = sub.slice(0, n).join("-");
+                alias = typeof ALIASES[cand] === "string" ? ALIASES[cand] : null;
+                for (j = 0; j < LANGS.length; j++) {
+                    if (LANGS[j].toLowerCase() === cand || (alias && LANGS[j].toLowerCase() === alias)) { return LANGS[j]; }
+                }
+            }
+            return null;
+        }
+        try {
+            var to = null;
+            var pref = localStorage.getItem("lvz-lang");
+            if (pref) {
+                to = resolve(pref);
+            } else {
+                var sys = resolve((navigator.languages && navigator.languages[0]) || navigator.language);
+                if (sys) { to = sys; localStorage.setItem("lvz-lang", sys); }
+            }
+            if (to) {
+                var page = location.pathname.split("/").pop();
+                location.replace("/" + to + "/" + page + location.search + location.hash);
+            }
+        } catch (e) { /* storage unavailable — stay on English */ }
+    })();
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Varför mjuk förstoring är lättare att följa än förstoring som hoppar",
+      "description": "En källbelagd förklaring på vanligt språk av varför en skärmförstorare som rör sig mjukt håller kvar din plats, medan en som hoppar tvingar dig att hitta tillbaka — grundad i spatial konstans, mjuk följerörelse och förändringsblindhet.",
+      "url": "https://lowvisionzoom.com/sv/why-smooth-magnification.html",
+      "datePublished": "2026-07-20",
+      "dateModified": "2026-07-20",
+      "inLanguage": "sv",
+      "author": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "txtbook LLC",
+        "url": "https://lowvisionzoom.com/"
+      },
+      "about": [
+        { "@type": "Thing", "name": "Skärmförstoring" },
+        { "@type": "Thing", "name": "Synnedsättning" },
+        { "@type": "Thing", "name": "Spatial konstans" },
+        { "@type": "Thing", "name": "Mjuk följerörelse" },
+        { "@type": "Thing", "name": "Förändringsblindhet" }
+      ]
+    }
+    </script>
+    <title>Varför mjuk förstoring är lättare att följa | Low Vision Zoom</title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="icon" type="image/svg+xml" href="/media/magnifier.svg">
+    <link rel="canonical" href="https://lowvisionzoom.com/sv/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="en" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hans" href="https://lowvisionzoom.com/zh/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="zh-Hant" href="https://lowvisionzoom.com/zh-Hant/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="sv" href="https://lowvisionzoom.com/sv/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="es" href="https://lowvisionzoom.com/es/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pt" href="https://lowvisionzoom.com/pt/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ar" href="https://lowvisionzoom.com/ar/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ja" href="https://lowvisionzoom.com/ja/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="de" href="https://lowvisionzoom.com/de/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="fr" href="https://lowvisionzoom.com/fr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="id" href="https://lowvisionzoom.com/id/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="tr" href="https://lowvisionzoom.com/tr/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="hi" href="https://lowvisionzoom.com/hi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="it" href="https://lowvisionzoom.com/it/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ko" href="https://lowvisionzoom.com/ko/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="vi" href="https://lowvisionzoom.com/vi/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="ru" href="https://lowvisionzoom.com/ru/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="pl" href="https://lowvisionzoom.com/pl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="uk" href="https://lowvisionzoom.com/uk/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="nl" href="https://lowvisionzoom.com/nl/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="th" href="https://lowvisionzoom.com/th/why-smooth-magnification.html">
+    <link rel="alternate" hreflang="x-default" href="https://lowvisionzoom.com/why-smooth-magnification.html">
+</head>
+<body>
+    <a href="#main" class="skip-link">Hoppa till innehållet</a>
+
+    <header class="site-header">
+        <div class="container">
+            <a href="/sv/index.html" class="brand">
+                <img src="/media/magnifier.svg" alt="" width="30" height="30">
+                <span>Low Vision Zoom</span>
+            </a>
+            <nav class="nav" aria-label="Primär">
+                <a href="/sv/index.html#demo">Se demot</a>
+                <a href="/sv/index.html#how">Så fungerar det</a>
+                <a href="/sv/index.html#why">Varför det är bättre</a>
+                <a href="/sv/pricing.html">Priser</a>
+                <a href="/sv/index.html#get" data-download class="btn btn-secondary btn-nav">Ladda ner</a>
+            </nav>
+            <details class="lang-switch">
+                <summary aria-label="Språk: svenska">
+                    <svg class="line-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.6 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.6-3.8-9s1.3-6.5 3.8-9z"/></svg>
+                    <span>Svenska</span>
+                </summary>
+                <ul>
+                    <li><a href="/why-smooth-magnification.html" data-lang="en" lang="en" hreflang="en">English</a></li>
+                    <li><a href="/zh/why-smooth-magnification.html" data-lang="zh" lang="zh" hreflang="zh-Hans">中文（简体）</a></li>
+                    <li><a href="/zh-Hant/why-smooth-magnification.html" data-lang="zh-Hant" lang="zh-Hant" hreflang="zh-Hant">中文（繁體）</a></li>
+                    <li><a href="/sv/why-smooth-magnification.html" data-lang="sv" lang="sv" hreflang="sv" aria-current="true">Svenska</a></li>
+                    <li><a href="/es/why-smooth-magnification.html" data-lang="es" lang="es" hreflang="es">Español</a></li>
+                    <li><a href="/pt/why-smooth-magnification.html" data-lang="pt" lang="pt" hreflang="pt">Português</a></li>
+                    <li><a href="/ar/why-smooth-magnification.html" data-lang="ar" lang="ar" hreflang="ar">العربية</a></li>
+                    <li><a href="/ja/why-smooth-magnification.html" data-lang="ja" lang="ja" hreflang="ja">日本語</a></li>
+                    <li><a href="/de/why-smooth-magnification.html" data-lang="de" lang="de" hreflang="de">Deutsch</a></li>
+                    <li><a href="/fr/why-smooth-magnification.html" data-lang="fr" lang="fr" hreflang="fr">Français</a></li>
+                    <li><a href="/id/why-smooth-magnification.html" data-lang="id" lang="id" hreflang="id">Bahasa Indonesia</a></li>
+                    <li><a href="/tr/why-smooth-magnification.html" data-lang="tr" lang="tr" hreflang="tr">Türkçe</a></li>
+                    <li><a href="/hi/why-smooth-magnification.html" data-lang="hi" lang="hi" hreflang="hi">हिन्दी</a></li>
+                    <li><a href="/it/why-smooth-magnification.html" data-lang="it" lang="it" hreflang="it">Italiano</a></li>
+                    <li><a href="/ko/why-smooth-magnification.html" data-lang="ko" lang="ko" hreflang="ko">한국어</a></li>
+                    <li><a href="/vi/why-smooth-magnification.html" data-lang="vi" lang="vi" hreflang="vi">Tiếng Việt</a></li>
+                    <li><a href="/ru/why-smooth-magnification.html" data-lang="ru" lang="ru" hreflang="ru">Русский</a></li>
+                    <li><a href="/pl/why-smooth-magnification.html" data-lang="pl" lang="pl" hreflang="pl">Polski</a></li>
+                    <li><a href="/uk/why-smooth-magnification.html" data-lang="uk" lang="uk" hreflang="uk">Українська</a></li>
+                    <li><a href="/nl/why-smooth-magnification.html" data-lang="nl" lang="nl" hreflang="nl">Nederlands</a></li>
+                    <li><a href="/th/why-smooth-magnification.html" data-lang="th" lang="th" hreflang="th">ไทย</a></li>
+                </ul>
+            </details>
+        </div>
+    </header>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+                <span class="badge">Varför mjukhet spelar roll</span>
+                <h1>Varför mjuk förstoring är lättare att följa än förstoring som hoppar</h1>
+                <p class="updated">En förklaring på vanligt språk, med källor</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <div class="prose">
+                    <div class="callout">
+                        <p>De flesta skärmförstorare flyttar din vy i plötsliga hopp. Varje hopp tvingar dina ögon och din hjärna att stanna upp, hitta tillbaka till var de var, och börja om. Low Vision Zoom rör sig kontinuerligt — det glider in i förstoringen, roterar kring den punkt du pekar på, och glider mjukt när det panorerar — så att din uppmärksamhet aldrig tappar greppet om det du bryr dig om. Det är ingen vag finess; det stämmer överens med flera väldokumenterade egenskaper hos hur mänsklig syn fungerar.</p>
+                    </div>
+
+                    <p>Ingenting på den här sidan är ett medicinskt påstående. Det här är allmänt vedertagna principer inom mänsklig syn och interaktion mellan människa och dator, som används för att förklara varför en mjukare förstorare är lättare att leva med än en ryckig. Ingen av de studier som citeras här har studerat Low Vision Zoom; de beskriver hur syn och gränssnittsrörelse fungerar i allmänhet.</p>
+
+                    <h2>Känslan av att ”tappa bort var man är” har ett namn</h2>
+                    <p>När folk säger att en förstorare får dem att ”tappa bort var de är” beskriver de något verkligt. Ditt synsystem lagrar inte skärmen som ett fotografi; det håller en löpande, intern karta över var saker befinner sig och håller din blick låst vid en vald punkt. Flera mekanismer håller den kartan stabil — och ett abrupt hopp i förstoringen bryter dem alla på en gång.</p>
+
+                    <h3>1. Spatial konstans (spatial constancy)</h3>
+                    <p>Din hjärna arbetar hårt för att få världen att kännas stabil trots att dina ögon rör sig hela tiden. Det kallas <strong>spatial konstans</strong>, eller spatial uppdatering: när du rör dig förutspår hjärnan var allt borde hamna och håller tyst kartan i linje. Mjuk, kontinuerlig rörelse är exakt den typ av inmatning som systemet är byggt för att hantera — det kan uppdatera kartan i realtid. Ett plötsligt teleporterande hopp ger den inget att interpolera mellan, så kartan blir ogiltig och måste byggas upp från grunden igen. Den uppbyggnaden är ögonblicket av ”vart tog jag just vägen?”.</p>
+                    <p>Low Vision Zoom bevarar den spatiala konstansen genom att aldrig teleportera. Förstoringen glider mot sitt mål under ungefär en tredjedels sekund, och panoreringen glider i stället för att hoppa till. Din interna karta uppdateras, den raderas inte.</p>
+
+                    <h3>2. Mjuk följerörelse (smooth pursuit) och kostnaden för att fixera om</h3>
+                    <p>Ögat kan röra sig på två sätt. <strong>Mjuk följerörelse</strong> följer kontinuerligt ett mål som rör sig jämnt — ögat glider och håller kvar låsningen. <strong>Sackader</strong> är de snabba, ballistiska hoppen mellan fixeringspunkter, och synen dämpas under en sackad, så att ögat efteråt måste hitta och fokusera om på målet.</p>
+                    <p>En ryckig förstorare tvingar fram en sackad plus en ny fixering varje gång den rör sig. För någon med nedsatt synskärpa är det långsammare och mer osäkert att hitta ett litet mål igen efter ett hopp än det är för någon med skarp centralsyn. En mjuk zoomning låter i stället ögats följerörelsesystem göra jobbet: det kan följa med i rörelsen och behålla låsningen, så det blir inget blint hopp och ingen jakt på att hitta tillbaka till platsen. Low Vision Zoom är byggt kring detta — en animationsloop på 60 bilder per sekund innebär att vyn alltid rör sig i små, spårbara steg som dina ögon kan följa i stället för att jaga ikapp.</p>
+
+                    <h3>3. Perceptuell kontinuitet — hjärnan uppfattar det som samma scen</h3>
+                    <p>När ett objekt rör sig mjukt uppfattar hjärnan det som ett enda sammanhängande objekt som flyttat sig. När samma objekt i stället försvinner och dyker upp någon annanstans måste hjärnan lösa frågan på nytt: ”är det här samma sak, och vad hände?”. Den omprövningen kräver ansträngning och är en klassisk utlösare för <strong>förändringsblindhet</strong>, där en förändring som sker under ett visuellt avbrott helt enkelt inte läggs märke till, och du tappar bort saker du höll koll på.</p>
+                    <p>Low Vision Zoom bevarar kontinuiteten. Eftersom varje bildruta är ett litet steg från den föregående upplevs innehållet under förstoring som samma scen som mjukt växer — inte en ny skärmbild som ersatt den gamla. Ingenting försvinner och dyker upp igen, så det finns inget att tappa bort.</p>
+
+                    <h3>4. Ett fast visuellt ankare: zoomning in mot markören</h3>
+                    <p>Det här är det mest direkta svaret på att ”tappa ankaret”. Low Vision Zoom roterar zoomningen kring punkten under din markör — innehållet direkt under musen ligger kvar medan allt annat förstoras runt omkring. Många förstorare zoomar i stället mot ett hörn eller mitten av skärmen och panorerar sedan för att hinna ikapp, vilket innebär att just det du tittade på glider undan innan det kommer tillbaka.</p>
+                    <p>Genom att hålla din fokuspunkt fast under zoomningen ger appen din blick ett stabilt ankare att hålla i genom hela förstoringen. Du bestämmer vad ankaret är helt enkelt genom att peka på det. Din fixeringspunkt behöver aldrig flytta sig, så både den spatiala konstansen och ögats låsning bevaras genom det ögonblick som annars brukar bryta dem.</p>
+
+                    <h3>5. Förutsägbar kontroll i din egen takt</h3>
+                    <p>Rörelse som hjärnan själv initierar är lättare att förutse än rörelse som påtvingas den. Low Vision Zooms <strong>Ctrl + scroll</strong> är kontinuerlig och proportionell: du zoomar exakt så mycket och exakt så snabbt som du vrider på hjulet, och du kan stanna, backa eller hålla kvar när som helst. Rörelsen är din egen, så den är förutsägbar — och förutsägbar rörelse är betydligt mindre desorienterande än en förstorare som rycker till en förinställd nivå på egen hand.</p>
+
+                    <h2>Varför det här spelar särskilt stor roll vid synnedsättning</h2>
+                    <p>Personer som lever med nedsatt centralsyn förlitar sig ofta på strategier som en abrupt förstorare tyst motverkar:</p>
+                    <ul>
+                        <li><strong>Excentriskt seende och en föredragen näthinnepunkt (preferred retinal locus).</strong> När den skarpa centralsynen är nedsatt lär sig många att se lätt vid sidan om centrum, med en konsekvent, föredragen punkt på näthinnan som sin arbetande fokuspunkt. Att återställa den inriktningen efter varje hopp är en verklig, upprepad ansträngning. En förstorare som aldrig tvingar dig att hitta tillbaka till din punkt låter den hårt förvärvade inriktningen ligga kvar.</li>
+                        <li><strong>Straffet för att hitta tillbaka.</strong> Med mindre synskärpa att avvara är kostnaden för att hitta ett litet mål igen efter ett blint hopp högre än för en fullt seende användare. Mjukhet tar bort hoppet, och med det straffet.</li>
+                        <li><strong>Uppmärksamhet och arbetsminne.</strong> Varje ”var är jag nu?”-återställning förbrukar uppmärksamhet och arbetsminne som du hellre skulle vilja lägga på själva uppgiften — att läsa, skriva, navigera. Att lämna över spårningen till ditt perceptuella system, som följer mjuk rörelse utan ansträngning, frigör den kraften till själva arbetet.</li>
+                    </ul>
+                    <p>Inget av det här är ett behandlingspåstående. Det är skillnaden mellan ett verktyg som motverkar hur seende med synnedsättning fungerar och ett som är utformat utifrån det.</p>
+
+                    <h2>Varje designval tjänar samma mål</h2>
+                    <div class="table-wrap" tabindex="0" role="region" aria-label="Hur varje funktion kopplas till en perceptuell princip">
+                        <table class="cmp-table">
+                            <caption class="visually-hidden">Low Vision Zooms funktioner och den perceptuella princip varje funktion tjänar</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Funktion</th>
+                                    <th scope="col">Vad den gör</th>
+                                    <th scope="col">Principen den tjänar</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Mjuk animerad zoomning (~⅓ sekunds utfasning, 60 fps)</th>
+                                    <td>Förstoringen glider mot sitt mål i stället för att hoppa till</td>
+                                    <td>Spatial konstans; mjuk följerörelse; perceptuell kontinuitet</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Zoomningen roterar kring markören</th>
+                                    <td>Punkten under musen ligger fast medan allt annat skalas runt omkring</td>
+                                    <td>Ett stabilt visuellt ankare; fixeringen förskjuts aldrig</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Markörföljning med en dödzon</th>
+                                    <td>Vyn står stilla medan din markör rör sig fritt inom ett generöst centralt band, och panorerar — genom att glida — bara när du närmar dig en kant</td>
+                                    <td>Ingen onödig rörelse; panoreringar är mjuka följerörelser, aldrig teleportering</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Ctrl + scroll: proportionell kontroll</th>
+                                    <td>Du ställer in zoomnivån kontinuerligt, så snabbt eller långsamt du vill</td>
+                                    <td>Rörelse i egen takt, förutsägbar och självinitierad</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Vy för hela skrivbordet, flera skärmar</th>
+                                    <td>Ett sammanhängande förstorat utrymme som följer dig mellan skärmar, inte separata öar per fönster</td>
+                                    <td>En enda sammanhängande spatial karta att uppdatera, i stället för flera</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Finjusterade standardinställningar, inget att konfigurera</th>
+                                    <td>Mjukhet, hastighet och dödzonens känsla är förinställda och fasta</td>
+                                    <td>Det mjuka beteendet är standard, inte något du behöver upptäcka och ställa in</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <p>Det är hela idén bakom produkten: en förstorare som rör sig på det sätt som det mänskliga synsystemet är byggt för att följa, så att den håller dig förankrad där andra får dig att tappa bort var du är. Du kan <a href="/sv/index.html#demo">se den i praktiken</a>, se hur den <a href="/sv/compare.html">jämförs med andra förstorare</a>, eller <a href="/sv/index.html#get">prova den gratis i 7 dagar</a>.</p>
+
+                    <h2>Källor och vidare läsning</h2>
+                    <p>Det här är trovärdiga, sakkunniggranskade eller myndighetsutgivna källor för de allmänna principer som citeras ovan. De beskriver hur mänsklig syn och gränssnittsrörelse fungerar i allmänhet — ingen av dem har studerat Low Vision Zoom, och ingen ska läsas som belägg för ett specifikt utfall av appen.</p>
+
+                    <h3>Spatial konstans och visuell stabilitet vid ögonrörelser</h3>
+                    <ul>
+                        <li>Idrees et al., <em>Suppression without inhibition: how retinal computation contributes to saccadic suppression</em>, Communications Biology (2022) — den visuella känsligheten minskar under snabba ögonrörelser, och den här dämpningen börjar redan i näthinnan. <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9276698/" rel="noopener">Läs den</a>.</li>
+                        <li>Niemeier, Crawford &amp; Tweed, <em>Optimal transsaccadic integration explains distorted spatial perception</em>, Nature 422:76–80 (2003) — hur hjärnan bygger upp en enhetlig uppfattning utifrån bildsekvensen över flera ögonrörelser. <a href="https://pubmed.ncbi.nlm.nih.gov/12621435/" rel="noopener">Sammanfattning</a>.</li>
+                    </ul>
+
+                    <h3>Mjuk följerörelse (smooth pursuit) — ögats kontinuerliga spårningssystem</h3>
+                    <ul>
+                        <li>Kowler et al., <em>Predictive Smooth Pursuit Eye Movements</em>, Annual Review of Vision Science 5:223–246 (2019) — ögat följer och förutser mjukt rörliga mål, med bättre precision för självgenererad eller realistisk målrörelse. <a href="https://pubmed.ncbi.nlm.nih.gov/31283450/" rel="noopener">Sammanfattning</a>.</li>
+                    </ul>
+
+                    <h3>Förändringsblindhet — att tappa bort saker vid ett visuellt avbrott</h3>
+                    <ul>
+                        <li>Simons &amp; Rensink, <em>Change blindness: past, present, and future</em>, Trends in Cognitive Sciences 9(1):16–20 (2005) — den slående oförmågan att se stora förändringar som normalt skulle märkas lätt. <a href="https://pubmed.ncbi.nlm.nih.gov/15639436/" rel="noopener">Sammanfattning</a>.</li>
+                        <li>Rensink, <em>Change Blindness</em>, in Neurobiology of Attention (Elsevier, 2005) — effekten kan framkallas genom att göra en förändring under en ögonrörelse, en blinkning eller en kort blixt. <a href="https://www.cs.ubc.ca/~rensink/publications/download/NeuroBiol-RR.pdf" rel="noopener">PDF</a>.</li>
+                    </ul>
+
+                    <h3>Förlust av centralsyn, excentriskt seende och den föredragna näthinnepunkten</h3>
+                    <ul>
+                        <li>American Optometric Association, <em>Strategies to help reading for the AMD patient with central scotomas</em> — personer med ett centralt skotom använder en föredragen näthinnepunkt utanför det påverkade området, och att träna det synfältet utanför centrum kallas excentrisk seendeträning. <a href="https://www.aoa.org/news/clinical-eye-care/public-health/reading-for-the-amd-patient" rel="noopener">Läs den</a>.</li>
+                        <li>Nilsson, Frennesson &amp; Nilsson, <em>Location and stability of a newly established eccentric retinal locus suitable for reading</em>, Optometry and Vision Science (1998). <a href="https://pubmed.ncbi.nlm.nih.gov/9875992/" rel="noopener">Sammanfattning</a>.</li>
+                    </ul>
+
+                    <h3>Rörelse och kontinuitet i gränssnittsdesign</h3>
+                    <ul>
+                        <li>Nielsen Norman Group (P. Laubheimer), <em>The Role of Animation and Motion in UX</em> (2020) — rörelse kan förhindra desorientering och hjälpa användare att hålla koll på sammanhanget genom övergångar. <a href="https://www.nngroup.com/articles/animation-purpose-ux/" rel="noopener">Läs den</a>.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-band">
+            <div class="container">
+                <h2>Se mjukheten själv</h2>
+                <p>7 dagars gratis provperiod · $9.99 engångsbelopp · ingen prenumeration · inget konto</p>
+                <div class="get-app">
+                    <a class="store-badge" href="https://apps.microsoft.com/detail/XPFNWZMXMNP6PV?referrer=appbadge&cid=lvz-web">
+                        <img src="/media/store-badge/sv.svg" alt="Hämta det i Microsoft Store">
+                    </a>
+                    <a href="/sv/index.html#get" data-download class="download-direct">Eller ladda ner installationsprogrammet direkt från den här webbplatsen (.msi)</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>Low Vision Zoom</h4>
+                    <p>En lugn skärmförstorare för Windows. En produkt från txtbook&nbsp;LLC.</p>
+                </div>
+                <div>
+                    <h4>Produkt</h4>
+                    <ul>
+                        <li><a href="/sv/index.html#why">Varför det är bättre</a></li>
+                        <li><a href="/sv/index.html#how">Så fungerar det</a></li>
+                        <li><a href="/sv/pricing.html">Priser</a></li>
+                        <li><a href="/sv/compare.html">Jämför skärmförstorare</a></li>
+                        <li><a href="/sv/faq.html">Vanliga frågor</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Juridik</h4>
+                    <ul>
+                        <li><a href="/privacy.html">Integritetspolicy (på engelska)</a></li>
+                        <li><a href="/terms.html">Användarvillkor (på engelska)</a></li>
+                        <li><a href="/refund.html">Återbetalningspolicy (på engelska)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="/sv/contact.html">Kontakta oss</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 txtbook&nbsp;LLC. Alla rättigheter förbehållna.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/site.js" defer></script>
+    <!-- Cloudflare Web Analytics (cookieless, privacy-friendly) -->
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "eb65064b491f4bb8ad3e5bfee02b88ac"}'></script>
+</body>
+</html>
