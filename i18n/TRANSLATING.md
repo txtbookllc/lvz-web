@@ -192,10 +192,17 @@ page is rejected.) So:
 
 ## Per-page rules
 
-### Microsoft Store badge (index.html, pricing.html, buy.html)
+### Microsoft Store badge (every page except contact.html)
 - The primary install CTA is an `<a class="store-badge">` wrapping an official localized badge
   image. Set the `<img src>` to your language's badge, `/media/store-badge/XX.svg` (all site
   languages have one; they come from get.microsoft.com/images/), and translate the `alt`.
+- **It is not only on the three product pages.** `compare.html`, `faq.html` and
+  `why-smooth-magnification.html` each carry one too, in the call-to-action strip at the foot
+  of the page, and `pricing.html` carries two. Only `contact.html` has none. This heading
+  previously named just index/pricing/buy, and three wave-2 pages consequently shipped the
+  **English** badge on a translated page — which passes structural parity, because
+  `structuralStream` deliberately excludes localized assets. Do not infer the list from this
+  prose: change every `/media/store-badge/` and `/media/howto-` `src` the page actually has.
 - The badge link's `href` (apps.microsoft.com) is external — keep it byte-identical to English.
 - The `class="download-direct"` link under the badge is the secondary direct download —
   translate its text like any other link.
