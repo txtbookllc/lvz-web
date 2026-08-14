@@ -15,6 +15,33 @@ const WEB = "c:/dev/lowvisionzoom.com";
 const OUT = process.argv[2];
 mkdirSync(OUT, { recursive: true });
 
+/* ------------------------------------------------------------------ per-language config
+ * paddleLocale / turnstileLang are LOOKED UP per language, never guessed, and the vendors
+ * disagree with each other and with us: Paddle says "zh-TW" where we say zh-Hant, Turnstile
+ * says "tl" where we (and Windows) say "fil". An unsupported Paddle locale falls back to
+ * "en", which also makes the LICENCE EMAIL English — see the running doc; that is a decision
+ * to take deliberately per language, not a default to drift into.
+ *
+ * `notes` is the one hand-written field. It is judgment, not configuration: for zh-Hant it
+ * had to say that 弱視 means amblyopia and is the wrong word for "low vision". Leaving it
+ * empty for a new language is a bug, not a default — kits assert on it below. */
+const LANGUAGES = {
+    "zh-Hant": {
+        nativeName: "中文（繁體）", englishName: "Chinese (Traditional)",
+        ogLocale: "zh_TW", dir: "ltr", paddleLocale: "zh-TW", turnstileLang: "zh-tw",
+        notesFile: "notes-zh-Hant.md",
+    },
+    sv: {
+        nativeName: "Svenska", englishName: "Swedish",
+        ogLocale: "sv_SE", dir: "ltr", paddleLocale: "sv", turnstileLang: "sv",
+        notesFile: "notes-sv.md",
+    },
+};
+
+const CODE = (process.argv.find(a => a.startsWith("--lang=")) ?? "--lang=zh-Hant").slice(7);
+const LANG = LANGUAGES[CODE];
+if (!LANG) throw new Error(`kit: no config for ${CODE} — add it to LANGUAGES first`);
+
 const src = readFileSync(join(WEB, "i18n/TRANSLATING.md"), "utf8").split(/\r?\n/);
 
 /** Slice from a heading line up to the next heading of the same-or-higher level. */
@@ -68,32 +95,54 @@ strain or fatigue. Introduce no clinical-outcome language ("clinically proven", 
 strain", "doctor recommended") that is absent from the English. Where the English hedges, translate
 the hedge at **equal strength** — the hedges are load-bearing.`;
 
-/* ---- zh-Hant computed values -------------------------------------------------------------
+/* ---- computed values ---------------------------------------------------------------------
  * These are COMPUTED, not translated. They are handed over exactly so that no agent has to
- * derive locale plumbing — deriving it was wave 1's largest cause of re-runs.
- * paddleLocale and turnstileLang were LOOKED UP (2026-08-13), not guessed: Paddle Billing uses
- * "zh-TW" for Traditional while using "zh-Hans" for Simplified, and Turnstile uses "zh-tw". */
-const CODE = "zh-Hant";
+ * derive locale plumbing — deriving it was wave 1's largest cause of re-runs. */
 const url = (p) => p === "index.html"
-    ? "https://lowvisionzoom.com/zh-Hant/"
-    : `https://lowvisionzoom.com/zh-Hant/${p}`;
+    ? `https://lowvisionzoom.com/${CODE}/`
+    : `https://lowvisionzoom.com/${CODE}/${p}`;
+
+/* The switcher's `<summary aria-label>` is `switcherLabel` in languages.json, and it is the
+ * ONE authored string the whole switcher block needs. It is not derivable from nativeName —
+ * `pl` is "Język: polski", lowercase, because Polish lowercases language names in running
+ * text. So: on the first page of a language the agent AUTHORS it and reports it; from the
+ * second page on it is read back off the finished page and pinned, exactly like the rest of
+ * the chrome. That keeps the orchestrator out of translating it while still guaranteeing all
+ * seven pages agree. It is a computed attribute, so `pinnedChrome()` cannot see it. */
+function switcherLabelRule() {
+    for (const done of PAGES) {
+        const tp = join(WEB, CODE, done);
+        if (!existsSync(tp)) continue;
+        const m = /<summary[^>]*\saria-label="([^"]*)"/.exec(readFileSync(tp, "utf8"));
+        if (m) return { pinned: m[1] };
+    }
+    return { pinned: null };
+}
 
 function computed(page) {
+    const label = switcherLabelRule();
     const lines = [
-        `- \`<html lang="zh-Hant" dir="ltr">\``,
+        `- \`<html lang="${CODE}" dir="${LANG.dir}">\``,
         `- canonical \`<link rel="canonical" href="${url(page)}">\``,
         `- \`og:url\` content → \`${url(page)}\``,
     ];
-    if (page === "index.html") lines.push(`- \`og:locale\` content → \`zh_TW\``);
+    if (page === "index.html") lines.push(`- \`og:locale\` content → \`${LANG.ogLocale}\``);
     lines.push(
-        `- every internal site link is prefixed \`/zh-Hant\` (\`/pricing.html#x\` → \`/zh-Hant/pricing.html#x\`)`,
+        `- every internal site link is prefixed \`/${CODE}\` (\`/pricing.html#x\` → \`/${CODE}/pricing.html#x\`)`,
         `- legal links stay at the root (\`/privacy.html\`, \`/terms.html\`, \`/refund.html\`) and their`,
-        `  visible link text gains the marker \`（英文）\``,
+        `  visible link text gains a short translated "(in English)" marker`,
         `- the \`<link rel="alternate" hreflang=...>\` run is copied from English **byte-identically**`,
         `- the language-switcher \`<ul>\` is copied from English **byte-identically, including leaving**`,
-        `  \`aria-current="true"\` **on the English entry** — zh-Hant has no entry yet and a script adds`,
-        `  it later. Change ONLY the \`<summary>\`: its visible text becomes \`中文（繁體）\` and its`,
-        `  attribute becomes \`aria-label="語言：中文（繁體）"\` (full-width colon, no space).`,
+        `  \`aria-current="true"\` **on the English entry** — ${CODE} has no entry yet and a script adds`,
+        `  it later. Change ONLY the \`<summary>\`: its visible text becomes \`${LANG.nativeName}\`,`,
+        label.pinned
+            ? `  and its attribute is **exactly** \`aria-label="${label.pinned}"\` — already settled on`
+              + `\n  another page of this language, so reproduce it, do not re-word it.`
+            : `  and you AUTHOR its \`aria-label\`: your language's equivalent of \`Language: ${LANG.nativeName}\`,`
+              + `\n  following your own language's conventions — Polish, for instance, writes`
+              + `\n  \`Język: polski\` in lowercase, and Chinese uses a full-width colon with no space.`
+              + `\n  **Report the exact string you chose in your receipt**; the other six pages will be`
+              + `\n  required to match it.`,
     );
     /* DERIVED FROM THE ENGLISH PAGE, never from the contract's prose. TRANSLATING.md's
      * heading says the store badge lives on "index.html, pricing.html, buy.html"; the pages
@@ -111,69 +160,33 @@ function computed(page) {
         ...uniq.map(a => `    - \`${a.from}\` → \`${a.to}\``),
         `  These files do not exist yet; write the paths anyway.`);
     if (["index.html", "faq.html", "compare.html", "why-smooth-magnification.html"].includes(page))
-        lines.push(`- JSON-LD: \`"inLanguage"\` → \`"zh-Hant"\` **only where the English block already has`
+        lines.push(`- JSON-LD: \`"inLanguage"\` → \`"${CODE}"\` **only where the English block already has`
             + ` that key**; any self-\`url\` → \`${url(page)}\`. Add no keys.`);
     if (page === "buy.html") lines.push(
-        `- \`SUCCESS_URL\` → \`"https://lowvisionzoom.com/zh-Hant/buy.html?state=success"\``,
-        `- **both** \`locale: "en"\` occurrences → \`locale: "zh-TW"\` (this is Paddle's code for`,
-        `  Traditional Chinese — it is NOT "zh-Hant"; do not "correct" it)`,
+        `- \`SUCCESS_URL\` → \`"https://lowvisionzoom.com/${CODE}/buy.html?state=success"\``,
+        `- **both** \`locale: "en"\` occurrences → \`locale: "${LANG.paddleLocale}"\``
+            + (LANG.paddleLocale === CODE ? "" :
+                ` — this is **Paddle's own code**, which deliberately differs from our\n  language code \`${CODE}\`. Do not "correct" it.`)
+            + (LANG.paddleLocale === "en"
+                ? `\n  (Paddle does not support this language; an English checkout here is expected and accepted.)` : ""),
         `- \`CLIENT_TOKEN\` and \`PRICE_ID\` are never touched.`);
     if (page === "contact.html") lines.push(
-        `- Turnstile widget \`data-language="zh-tw"\` (English has \`"auto"\`)`,
+        `- Turnstile widget \`data-language="${LANG.turnstileLang}"\` (English has \`"auto"\`)`,
         `- \`<option value="...">\` values unchanged — only the display text is translated.`);
     return lines.join("\n");
 }
 
-const ZH_HANT = `## This language: zh-Hant — Traditional Chinese (Taiwan)
-
-You are writing **Traditional Chinese as used in Taiwan** (正體中文／繁體中文，臺灣用語).
-
-**Script.** Every Han character you write must be the Traditional form. The finished file must
-contain **zero** Simplified-only characters (设, 显, 屏, 软, 视, 缩, 键, 时, 会, 说, 这, 单, 关, 开,
-…). This is checked mechanically and a single Simplified character fails the page.
-
-**Taiwan vocabulary, not mainland vocabulary.** Both are written in Traditional here, so the script
-check cannot catch this — it is on you. Use the left column:
-
-| use (TW) | not (CN) | meaning |
-|---|---|---|
-| 滑鼠 | 鼠標 | mouse |
-| 螢幕 | 屏幕 | screen |
-| 軟體 | 軟件 | software |
-| 硬體 | 硬件 | hardware |
-| 程式 | 程序 | program |
-| 檔案 | 文件 | file |
-| 資料夾 | 文件夾 | folder |
-| 網路 | 網絡 | network |
-| 預設 | 默認 | default |
-| 設定 | 設置 | setting(s) |
-| 影片 | 視頻 | video |
-| 解析度 | 分辨率 | resolution |
-| 記憶體 | 內存 | memory |
-| 支援 | 支持 | support (technical) |
-| 資訊 | 信息 | information |
-| 品質 | 質量 | quality |
-| 登入 | 登錄 | log in |
-| 捲動 | 滾動 | scroll |
-| 按一下 | 點擊 | click (Windows TW wording) |
-| 系統匣 | 系統托盤 | system tray |
-| 授權金鑰 | 許可證密鑰 | license key |
-
-**Two terms to get right, because the wrong choice is a real error, not a preference:**
-
-- **low vision** → use 低視能 (or 低視力). Do **NOT** use 弱視 — in Taiwanese clinical usage 弱視
-  is *amblyopia*, a different condition. This is an accessibility product; naming the wrong
-  condition is the kind of error the dignity rule in the Quality bar exists to prevent.
-- **magnifier** → Windows' own Taiwan name for the built-in feature is **放大鏡**. Per the
-  competitor rules, keep "Windows Magnifier" in English as the primary reference; you may add
-  放大鏡 once in parentheses on first mention.
-
-**Typography.** Full-width punctuation （），。：、「」 per Taiwanese convention. No space between
-a full-width colon and what follows. Keep \`$9.99\` exactly as printed.
-
-## Computed values for this page — use these EXACTLY, do not derive them
-
-${"{{COMPUTED}}"}`;
+/* The one hand-written, per-language section. Kept in a file rather than inline so adding a
+ * language is "write the notes, add the config row" and an empty one is conspicuous. */
+function languageNotes() {
+    const p = join(WEB, "tools", "wave2", LANG.notesFile);
+    if (!existsSync(p)) throw new Error(
+        `kit: ${LANG.notesFile} is missing. Every language needs hand-written notes — the traps`
+        + ` differ per language and no script can derive them. Write it before building kits.`);
+    const s = readFileSync(p, "utf8").trim();
+    if (s.length < 200) throw new Error(`kit: ${LANG.notesFile} looks like a stub (${s.length} B)`);
+    return s;
+}
 
 const HOWTO = `## How to do this job
 
@@ -306,7 +319,8 @@ for (const page of PAGES) {
         ...(HAS_BADGE.has(page) ? [S.badge] : []),
         S.page[page],
         attrChecklist(page),
-        ZH_HANT.replace("{{COMPUTED}}", computed(page)),
+        languageNotes(),
+        `## Computed values for this page — use these EXACTLY, do not derive them\n\n${computed(page)}`,
         pinnedChrome(page),
         S.quality,
         HOWTO.replaceAll("{{PAGE}}", page),
